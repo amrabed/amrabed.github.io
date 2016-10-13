@@ -1,0 +1,14 @@
+{"nodes":[
+  {"label":"Java", "size": 50, "x": 300, "y": 130 ,"color":"5382A1"},
+  {"label":"C++", "size": 50, "x": 200, "y": 130 , "color":"2766A1"},
+  {"label":"C", "size": 50, "x": 400, "y": 130 ,"color":"6899CE"},
+  {"label":"Docker", "size": 45, "x": 350, "y": 50 ,"color":"394E53"},
+  {"label":"Android", "size": 45, "x": 250, "y": 50 , "color":"AEBE40"},
+  {"label":"HTML", "size": 20, "x": 413.5, "y": 62 , "color":"D35C3B"},
+  {"label":"Shell", "size": 20, "x": 150.5, "y": 179.5 ,"color":"7F7F7F"},
+  {"label":"SQL", "size": 25, "x": 453, "y": 183 , "color":"E59433"},
+  {"label":"PHP", "size": 20, "x": 449.29, "y": 80 ,"color":"7580B3"},
+  {"label":"Matlab", "size": 25, "x": 181.2, "y": 58.25 ,"color":"CD4C2C"},
+  {"label":"OrientDB", "size": 30, "x": 250, "y": 192 , "color":"E59433"},
+  {"label":"Python", "size": 30, "x": 350, "y": 192.45 , "color":"416F9A"}]
+}
