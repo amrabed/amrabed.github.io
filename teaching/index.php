@@ -36,7 +36,7 @@
                 <span class="sr-only">Toggle navigation</span><!-- Menu -->
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="../index.php">Amr Abed</a>
+            <a class="navbar-brand page-scroll" href="../index.html">Amr Abed</a>
         </div>
 
         <div class="collapse navbar-collapse" id="menu-items">
@@ -123,7 +123,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a href="../research/index.php" class="portfolio-box">
+                <a href="../research/index.html" class="portfolio-box">
                     <img src="../style/img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
