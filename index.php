@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Amr Abed's Research">
+    <meta name="description" content="Amr Abed">
     <meta name="author" content="Amr Abed">
 
-    <title>Amr Abed's Research</title>
+    <title>Amr Abed</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
-    <link href="css/creative.min.css" rel="stylesheet">
-    <link href="css/tagcrowd.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/css/creative.min.css" rel="stylesheet">
+    <link href="style/css/magnific-popup.css" rel="stylesheet">
+    <link href="style/css/tagcrowd.css" rel="stylesheet">
+    <link href="style/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- Custom Fonts -->
@@ -22,6 +22,8 @@
           rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
           rel='stylesheet' type='text/css'>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -40,42 +42,69 @@
         </div>
 
         <div class="collapse navbar-collapse" id="menu-items">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-left">
                 <li>
-                    <a class="page-scroll" href="#publications">Publications</a>
+                    <a class="page-scroll" href="#experience">Experience</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#awards">Awards</a>
+                    <a class="page-scroll" href="#education">Education</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#projects">Projects</a>
+                    <a class="page-scroll" href="#skills">Skills</a>
                 </li>
-                <li>
+                <!--li>
                     <a class="page-scroll" href="#interests">Interests</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#contact">Contact</a>
-                </li>
+                </li-->
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
-<aside class="bg-dark">
-    <div class="container text-center">
-        <h3>“I don't know anything, but I do know that everything is interesting if you go into it deeply
-            enough”</h3>
-        <hr>
-        <p class="text-faded">Richard Feynman - Nobel Prize Winner</p>
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <img src="style/img/amrabed.jpg" class="img-circle" style="width: 140px">
+            <h1>Amr Abed</h1>
+            <hr>
+            <p class="text-muted">Computer Engineer  •  Researcher  •  Instructor</p><!--
+            Building tools to make people's everyday lives more convenient and productive</p-->
+            <!--p><a href="#engineer">Computer Engineer</a> - <a href="#research">Researcher</a> - <a href="#teaching">Instructor</a></p-->
+            <a href="mailto:amraabed@gmail.com" target="_blank">
+                <img src="style/img/social/mail.png" title="Email" style="width: 32px">
+            </a>
+            <a href="https://www.linkedin.com/in/amrabed" target="_blank">
+                <img src="style/img/social/linkedin.png" title="LinkedIn" style="width: 36px">
+            </a>
+            <a href="https://github.com/amrabed" target="_blank">
+                <img src="style/img/social/github.svg" title="Github" style="width: 32px">
+            </a>
+            <!--a href="http://orcid.org/0000-0001-5582-9762" target="_blank">
+                <img src="img/social/orcid.png" style="width: 32px">
+            </a-->
+            <a href="https://www.twitter.com/amr_abed" target="_blank">
+                <img src="style/img/social/twitter.png" title="Twitter" style="width: 40px">
+            </a>
+        </div>
     </div>
-</aside>
+</header>
 
-<section class="no-padding" id="publications">
+<section class="no-padding" id="experience">
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <h3>“I don't know anything, but I do know that everything is interesting if you go into it deeply
+                enough”</h3>
+            <hr>
+            <p class="text-faded">Richard Feynman - Nobel Prize Winner</p>
+        </div>
+    </aside>
     <div class="container-fluid">
         <div class="row no-gutter popup-gallery">
-            <div class="col-lg-4 col-sm-6">
-                <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                    <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+            <div class="col-lg-4 col-sm-6 portfolio-box">
+                <a href="style/img/portfolio/fullsize/1.jpg" target="_blank">
+                    <img src="style/img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-name">
@@ -86,8 +115,8 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                    <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                <a href="style/img/portfolio/fullsize/2.jpg" class="portfolio-box">
+                    <img src="style/img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <!--div class="project-category text-faded">
@@ -102,8 +131,8 @@
             </div>
 
             <div class="col-lg-4 col-sm-6">
-                <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                    <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                <a href="style/img/portfolio/fullsize/3.jpg" class="portfolio-box">
+                    <img src="style/img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-name">
@@ -113,57 +142,11 @@
                     </div>
                 </a>
             </div>
-            <!--div class="col-lg-4 col-sm-6">
-                <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                    <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                    <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                    <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div-->
         </div>
     </div>
 </section>
 
-
-<section class="bg-info" id="projects">
+<section class="bg-info" id="education">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -173,39 +156,12 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row" style="vertical-align: middle">
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <img src="img/education/education.png">
-                    <h3>Ph.D. Computer Engineering</h3>
-                    <p class="text-muted"><a href="http://www.vt.edu" target="_blank">Virginia Tech</a></p>
-                    <p class="text-muted">Expected May 2017</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <img src="img/education/education.png">
-                    <h3>M.S. Computer Engineering</h3>
-                    <p class="text-muted"><a href="http://www.vt.edu" target="_blank">Virginia Tech</a></p>
-                    <p class="text-muted">August 2010 - July 2013</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <img src="img/education/education.png">
-                    <h3>B.S. Computer Engineering</h3>
-                    <p class="text-muted"><a href="http://eng.asu.edu.eg" target="_blank">Ain Shams University</a></p>
-                    <p class="text-muted">September 2000 - June 2005</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="container-fluid" id="education-items"></div>
 </section>
 
 
 <!-- SECTION: SKILLS -->
-<section id="Awards" style="width: 100%; height: 100%">
+<section id="skills" style="width: 100%; height: 100%">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -219,8 +175,7 @@
     </div>
 </section>
 
-
-<section class="bg-info" id="interests">
+<!--section class="bg-info" id="interests">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -240,13 +195,10 @@
                     <span id="8" class="wrd tagcloud0">LinuxContainers  </span>
                 </div>
                 <div id="credit">created at <a href="http://tagcrowd.com" target="_blank">TagCrowd.com</a></div>
-                <!-- end tag cloud : generated by TagCrowd.com : please keep this notice -->
             </div>
         </div>
-
     </div>
-
-</section>
+</section-->
 <!--section id="publications">
     <div class="container">
         <div class="row">
@@ -292,34 +244,28 @@
     </div>
 </section-->
 
-<section class="bg-dark" id="contact">
+<!--section class="bg-dark" id="contact">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">Let's Get In Touch!</h2>
                 <hr class="light">
             </div>
-            <div class="col-lg-4 col-lg-offset-2 text-center">
-                <a href="tel:5404493336" class="fa fa-phone fa-3x sr-contact"></a>
-            </div>
-            <div class="col-lg-4 col-lg-offset-2 text-center">
-                <a href="mailto:amraabed@gmail.com" class="fa fa-envelope-o fa-3x sr-contact"></a>
-            </div>
         </div>
     </div>
-</section>
+</section-->
 
-<footer class="modal-footer">
-    Code for this page is available on <a href="https://www.github.com/amrabed/profile">Github</a>
+<footer class="footer text-center">
+    Created by Amr Abed using the <a href="https://startbootstrap.com/template-overviews/creative" target="_blank">Creative theme</a>. Website code is available on <a href="https://www.github.com/amrabed/amrabed.github.io" target="_blank">Github</a>
 </footer>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="style/js/jquery.min.js"></script>
+<script src="style/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="js/scrollreveal.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/creative.min.js"></script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="style/js/scrollreveal.min.js"></script>
+<script src="style/js/jquery.magnific-popup.min.js"></script>
+<script src="style/js/creative.min.js"></script>
+<script src="education.js"></script>
 <script src="skills.js"></script>
 
 </body>

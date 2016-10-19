@@ -10,11 +10,11 @@
 
     <title>Amr Abed - Instructor</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
-    <link href="css/creative.min.css" rel="stylesheet">
-    <link href="css/tagcrowd.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../style/css/magnific-popup.css" rel="stylesheet">
+    <link href="../style/css/creative.min.css" rel="stylesheet">
+    <link href="../style/css/tagcrowd.css" rel="stylesheet">
+    <link href="../style/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- Custom Fonts -->
@@ -36,7 +36,7 @@
                 <span class="sr-only">Toggle navigation</span><!-- Menu -->
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="index.html">Amr Abed</a>
+            <a class="navbar-brand page-scroll" href="../index.php">Amr Abed</a>
         </div>
 
         <div class="collapse navbar-collapse" id="menu-items">
@@ -111,8 +111,8 @@
     <div class="container-fluid">
         <div class="row no-gutter">
             <div class="col-lg-4 col-sm-6">
-                <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                    <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                <a href="../style/img/portfolio/fullsize/1.jpg" class="portfolio-box">
+                    <img src="../style/img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption img-responsive">
                         <div class="portfolio-box-caption-content">
                             <div class="project-name">
@@ -123,8 +123,8 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a href="research.html" class="portfolio-box">
-                    <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                <a href="../research/index.php" class="portfolio-box">
+                    <img src="../style/img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <!--div class="project-category text-faded">
@@ -139,8 +139,8 @@
             </div>
 
             <div class="col-lg-4 col-sm-6">
-                <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                    <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                <a href="../style/img/portfolio/fullsize/3.jpg" class="portfolio-box">
+                    <img src="../style/img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-name">
@@ -214,7 +214,7 @@
         <div class="row" style="vertical-align: middle">
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="service-box">
-                    <img src="img/education/education.png">
+                    <img src="../style/img/education/education.png">
                     <h3>Ph.D. Computer Engineering</h3>
                     <p class="text-muted"><a href="http://www.vt.edu" target="_blank">Virginia Tech</a></p>
                     <p class="text-muted">Expected May 2017</p>
@@ -222,7 +222,7 @@
             </div>
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="service-box">
-                    <img src="img/education/education.png">
+                    <img src="../style/img/education/education.png">
                     <h3>M.S. Computer Engineering</h3>
                     <p class="text-muted"><a href="http://www.vt.edu" target="_blank">Virginia Tech</a></p>
                     <p class="text-muted">August 2010 - July 2013</p>
@@ -230,7 +230,7 @@
             </div>
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="service-box">
-                    <img src="img/education/education.png">
+                    <img src="../style/img/education/education.png">
                     <h3>B.S. Computer Engineering</h3>
                     <p class="text-muted"><a href="http://eng.asu.edu.eg" target="_blank">Ain Shams University</a></p>
                     <p class="text-muted">September 2000 - June 2005</p>
@@ -350,14 +350,14 @@
     Code for this page is available on <a href="https://www.github.com/amrabed/profile">Github</a>
 </footer>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="../style/js/jquery.min.js"></script>
+<script src="../style/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="js/scrollreveal.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/creative.min.js"></script>
+<script src="../style/js/scrollreveal.min.js"></script>
+<script src="../style/js/jquery.magnific-popup.min.js"></script>
+<script src="../style/js/creative.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="skills.js"></script>
+<script src="../skills.js"></script>
 
 </body>
 

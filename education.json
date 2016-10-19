@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "degree": "Ph.D. Computer Engineering",
+      "institute": {"name": "Virginia Tech", "url": "http://www.vt.edu"},
+      "time": "Expected May 2017"
+    },
+    {
+      "degree": "M.S. Computer Engineering",
+      "institute": {"name": "Virginia Tech", "url": "http://www.vt.edu"},
+      "time": "August 2010 - July 2013"
+    },
+    {
+      "degree": "B.S. Computer Engineering",
+      "institute": {"name": "Ain Shams University", "url": "http://eng.asu.edu.eg"},
+      "time": "September 2000 - June 2005"
+    }
+   ]
+}
