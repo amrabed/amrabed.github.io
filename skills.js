@@ -1,7 +1,5 @@
-var svg = d3.select("#bubble-chart");
-
 d3.json("skills.json", function (json) {
-    var node = svg.selectAll("g")
+    var node = d3.select("#bubble-chart").selectAll("g")
         .data(json.nodes)
         .enter()
         .append("g")

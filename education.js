@@ -1,7 +1,5 @@
-var education = d3.select("#education-items");
-
 d3.json("education.json", function (json) {
-    var node = education.selectAll("div")
+    var node = d3.select("#education-items").selectAll("div")
         .data(json.items)
         .enter()
         .append("div")

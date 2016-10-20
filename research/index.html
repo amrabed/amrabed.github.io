@@ -12,8 +12,10 @@
 
     <link href="../style/css/bootstrap.min.css" rel="stylesheet">
     <link href="../style/css/creative.min.css" rel="stylesheet">
+    <link href="../style/css/magnific-popup.css" rel="stylesheet">
     <link href="../style/css/carousel.css" rel="stylesheet">
-    <link href="../style/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../style/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../style/css/amrabed.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -25,12 +27,13 @@
                 <span class="sr-only">Toggle navigation</span><!-- Menu -->
                 <i class="fa fa-bars"></i>
             </button>
+            <a class="navbar-brand page-scroll" href="../index.html">Amr Abed</a>
         </div>
 
         <div class="collapse navbar-collapse" id="menu-items">
             <ul class="nav navbar-nav navbar-left">
                 <li>
-                    <a class="page-scroll" href="#experience">Experience</a>
+                    <a class="page-scroll" href="#projects">Projects</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#publications">Publications</a>
@@ -39,68 +42,37 @@
                     <a class="page-scroll" href="#presentations">Presentations</a>
                 </li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+            <div class="nav navbar-nav navbar-right" style="margin: 10px 5px;">
+                <a class="image-link" href="http://orcid.org/0000-0001-5582-9762" target="_blank">
+                    <img src="../style/img/social/orcid.png" style="width: 24px">
+                </a>
+                <a class="image-link" href="https://scholar.google.com/citations?user=2Q4yYWYAAAAJ" target="_blank">
+                    <img src="../style/img/social/gscholar.png" style="width: 24px">
+                </a>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
 </nav>
-<aside class="bg-dark">
-    <div class="container text-center">
-        <h3>“I don't know anything, but I do know that everything is interesting if you go into it deeply
-            enough”</h3>
-        <hr>
+
+<aside class="bg-primary">
+    <div class="container-fluid text-center">
+        <h2>“I don't know anything, but I do know that everything is interesting if you go into it deeply enough”</h2>
         <p class="text-faded">Richard Feynman - Nobel Prize Winner</p>
     </div>
 </aside>
-<section id="experience">
+
+<section id="projects">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Experience</h2>
+                <h2 class="section-heading">Research Projects</h2>
                 <hr class="primary">
             </div>
         </div>
     </div>
-    <div class="container" id="experience-items"></div>
-    <!--div class="container" style="width: 100%; height: 100%;">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <img src="../img/education/vt.jpg" style="width: 40px">
-                    <h3>Graduate Research Asistant</h3>
-                    <p class="text-muted">
-                        <a href="http://www.ncr.vt.edu/initiatives/urban_living_lab.html" target="_blank">
-                            Urban Living Lab - Virginia Tech
-                        </a>
-                    </p>
-                    <p class="text-muted">May 2016 - Present</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <img src="../img/education/vt.jpg" style="width: 40px">
-                    <h3>Graduate Research Assistant</h3>
-                    <p class="text-muted"><a href="http://www.hume.vt.edu" target="_blank">Hume Center - Virginia Tech</a></p>
-                    <p class="text-muted">January 2015 - May 2016</p>
-                    <p class="text-left">
-                        <label class="label label-primary">Docker</label>
-                        <label class="label label-primary">Amazon AWS</label>
-                        <label class="label label-primary">Shell</label>
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center">
-                <div class="service-box">
-                    <img src="../img/education/vt.jpg" style="width: 40px">
-                    <h3>Graduate Research Assistant</h3>
-                    <p class="text-muted">Magnum Lab - Virginia Tech</a></p>
-                    <p class="text-muted">February 2013 - May 2013</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div-->
+    <div class="container" id="project-items" style="min-height: 100%;"></div>
 </section>
 
-<section id="publications">
+<section class="bg-info" id="publications">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -109,7 +81,7 @@
             </div>
         </div>
     </div>
-    <div class="container" id="publication-items"></div>
+    <div class="container" id="publication-items" style="height: 100%;"></div>
 </section>
 
 <section id="presentations">
@@ -122,15 +94,16 @@
         </div>
     </div>
 </section>
-
+<div id="footer"></div>
 <script src="../style/js/jquery.min.js"></script>
 <script src="../style/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="../style/js/scrollreveal.min.js"></script>
 <script src="../style/js/creative.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="experience.js"></script>
+<script src="projects.js"></script>
 <script src="publications.js"></script>
-
+<script src="../style/js/jquery.magnific-popup.min.js"></script>
+<script>$("#footer").load("../footer.html");</script>
 </body>
 </html>

@@ -1,0 +1,116 @@
+{
+  "items": [
+    {
+      "project": "Metrolab Sensor Network",
+      "sponsors": [
+        {
+          "name": "Arlington County",
+          "url": "https://www.arlingtonva.us",
+          "logo": "img/arlington.png"
+        }
+      ],
+      "position": "Graduate Research Assistant",
+      "organization": {
+        "name": "NCR Urban Living Lab, Virginia Tech",
+        "url": "http://www.ncr.vt.edu/initiatives/urban_living_lab.html"
+      },
+      "duration": "May 2016 - Present",
+      "tasks": [
+        "Constructed a Raspberry Pi based IoT sensor for the MetroLab Network",
+        "Designed and implemented a framework for the device to communicate with a remote MySQL server",
+        "Implemented a website using PHP and Plotly.js to display data from the database"
+      ],
+      "skills": [
+        "Python",
+        "PHP",
+        "MySQL",
+        "Raspberry Pi",
+        "Plotly.js"
+      ],
+      "products": [
+        {
+          "name": "Metrolab",
+          "url": "https://github.com/amrabed/metrolab"
+        }
+      ]
+    },
+    {
+      "project": "RHIDS - Resilient Host-based Intrusion Detection System for Linux containers",
+      "sponsors": [
+        {
+          "name": "S2ERC",
+          "url": "https://www.serc.net/",
+          "logo": "img/serc.png"
+        },
+        {
+          "name": "Northrop Grumman",
+          "url": "http://www.northropgrumman.com",
+          "logo": "img/ng.png"
+        }
+      ],
+      "position": "Graduate Research Assistant",
+      "organization": {
+        "name": "Hume Center, Virginia Tech",
+        "url": "http://www.hume.vt.edu"
+      },
+      "duration": "January 2015 - May 2016",
+      "tasks": [
+        "Assisted in writing a winning proposal for an NSF Industry/University Cooperative Research Center",
+        "Designed and implemented RHIDS, an intrusion detection system for cloud containers",
+        "Tested the system using Docker containers deployed on Amazon-AWS EC2 instances"
+      ],
+      "skills": [
+        "Java",
+        "Docker",
+        "Amazon AWS",
+        "Shell"
+      ],
+      "products": [
+        {
+          "name": "RHIDS",
+          "url": "https://github.com/amrabed/rhids"
+        },
+        {
+          "name": "strace-docker",
+          "url": "https://github.com/amrabed/strace-docker"
+        }
+      ]
+    },
+    {
+      "project": "SodaCloud - Shared Object Distribution Architecture for Cloud systems",
+      "sponsors": [
+        {
+          "name": "Siemens",
+          "url": "https://www.siemens.com",
+          "logo": "img/siemens.png"
+        }
+      ],
+      "position": "Graduate Research Assistant",
+      "organization": {
+        "name": "Magnum Lab, Virginia Tech",
+        "url": "https://github.com/VT-Magnum-Research"
+      },
+      "duration": "May 2016 - Preset",
+      "tasks": [
+        "Implemented the Docker-EC2 tool using Shell scripting to automate running and testing network applications using a Docker container on different instances of the Amazon-AWS EC2",
+        "Maintained and troubleshot build issues of the SodaCloud project (Mobile/Cloud Computing project funded by Siemens) on GitHub and BuildHive using Maven"
+      ],
+      "skills": [
+        "Docker",
+        "Amazon AWS",
+        "Shell",
+        "Maven"
+      ],
+      "products": [
+        {
+          "name": "Docker-EC2",
+          "url": "https://github.com/amrabed/docker-ec2"
+        },
+        {
+          "name": "SodaCloud",
+          "url": "https://github.com/VT-Magnum-Research/sodacloud"
+        }
+      ]
+    }
+  ]
+}

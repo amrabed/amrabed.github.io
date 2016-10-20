@@ -10,12 +10,12 @@ d3.json("publications.json", function (json) {
         .attr("href", function (d) {
             return d.doi;
         })
-        .append("h4")
+        .append("h3")
         .text(function (d) {
             return d.title;
         });
 
-    node.append("h5")
+    node.append("h4")
         .text(function (d) {
             return d.authors;
         });
@@ -25,4 +25,18 @@ d3.json("publications.json", function (json) {
         .text(function (d) {
             return d.venue;
         });
+
+    node.append("p")
+        .selectAll("label")
+        .data(function (d) {
+            return d.keywords;
+        })
+        .enter()
+        .append("label")
+        .attr("class", "label label-primary")
+        .attr("style", "margin-right: 5px;")
+        .text(function (d) {
+            return d;
+        });
+
 });
