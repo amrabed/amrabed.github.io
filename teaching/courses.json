@@ -1,0 +1,87 @@
+{
+  "items": [
+    {
+      "position": "Instructor",
+      "organization": {
+        "name": "Inform - IBM Authorized Training Center, Cairo, Egypt",
+        "url": "http://inform.com.eg"
+      },
+      "duration": "March 2006 - August 2010",
+      "tasks": [
+        "Taught C and C++ Programming to more than 150 students from different backgrounds, many of them were from outside the Engineering field"
+      ],
+      "courses": [
+        "C",
+        "C++"
+      ]
+    },
+    {
+      "position": "Instructor",
+      "organization": {
+        "name": "Al-Sedeek Education Center, Giza, Egypt",
+        "url": ""
+      },
+      "duration": "February 2008 - September 2010",
+      "tasks": [
+        "Taught C and C++ programming, and Algorithms & Data Structures using C and C++ courses to more than 300 students"
+      ],
+      "courses": [
+        "C",
+        "C++",
+        "Algorithms",
+        "Data Structures"
+      ]
+    },
+    {
+      "position": "Assistant Lecturer",
+      "organization": {
+        "name": "Department of Computer and System Engineering, Minia University, Minia, Egypt",
+        "url": "http://www.minia.edu.eg/eng/index.php/en"
+      },
+      "duration": "March 2007 - September 2010",
+      "tasks": [
+        "Taught 8 different undergraduate courses to 4 different classes of an average of 25 students each"
+      ],
+      "courses": [
+        "C",
+        "Signals & Systems",
+        "Electrical Circuits",
+        "Operating Systems"
+      ]
+    },
+    {
+      "position": "Assistant Lecturer",
+      "organization": {
+        "name": "Department of Electronics, Communications and Computer Engineering, Al-Shorouk Academy, Cairo, Egypt",
+        "url": "http://hie.sha.edu.eg"
+      },
+      "duration": "February 2006 - September 2007",
+      "tasks": [
+        "Taught 9 different undergraduate courses to 9 different classes of an average of 40 students each"
+      ],
+      "courses": [
+        "C",
+        "Signals & Systems",
+        "Electrical Circuits",
+        "Operating Systems"
+      ]
+    },
+    {
+      "position": "Assistant Lecturer",
+      "organization": {
+        "name": "Department of Computer and Information Technology, Modern Academy for Engineering and Technology, Cairo, Egypt",
+        "url": "http://eng.modern-academy.edu.eg"
+      },
+      "duration": "September 2005 - May 2006",
+      "tasks": [
+        "Taught 6 different undergraduate courses to 9 different classes of an average of 40 students each"
+      ],
+      "courses": [
+        "C",
+        "Signals & Systems",
+        "Electrical Circuits",
+        "Operating Systems"
+      ]
+    }
+  ]
+}

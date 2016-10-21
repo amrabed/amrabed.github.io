@@ -72,7 +72,7 @@ d3.json("projects.json", function (json) {
     //     });
 
     var sponsors = row.append("div")
-        .attr("class", "col-lg-2 col-md-12 text-center");
+        .attr("class", "col-lg-2 text-center");
 
     sponsors.append("h6")
         .attr("class", "text-muted")

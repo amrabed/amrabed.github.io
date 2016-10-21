@@ -1,0 +1,19 @@
+{
+  "right": [
+    {
+      "name": "Email",
+      "url": "mailto:amraabed@gmail.com",
+      "icon": "../style/img/social/mail.png"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/amrabed",
+      "icon": "../style/img/social/linkedin.png"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://www.twitter.com/amr_abed",
+      "icon": "../style/img/social/twitter.png"
+    }
+  ]
+}

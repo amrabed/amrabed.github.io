@@ -12,8 +12,6 @@
 
     <link href="style/css/bootstrap.min.css" rel="stylesheet">
     <link href="style/css/creative.min.css" rel="stylesheet">
-    <link href="style/css/magnific-popup.css" rel="stylesheet">
-    <link href="style/css/tagcrowd.css" rel="stylesheet">
     <link href="style/css/font-awesome.min.css" rel="stylesheet">
     <link href="style/css/amrabed.css" rel="stylesheet">
 
@@ -23,7 +21,6 @@
           rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
           rel='stylesheet' type='text/css'>
-
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -44,23 +41,17 @@
         <div class="collapse navbar-collapse" id="menu-items">
             <ul class="nav navbar-nav navbar-left">
                 <li>
-                    <a class="page-scroll" href="#experience">Experience</a>
+                    <a class="page-scroll" href="#education">Education</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#education">Education</a>
+                    <a class="page-scroll" href="#experience">Experience</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#skills">Skills</a>
                 </li>
-                <!--li>
-                      <a class="page-scroll" href="#interests">Interests</a>
-                  </li-->
-                <li>
-                    <a class="page-scroll" href="mailto:amraabed@gmail.com" target="_blank">Contact</a>
-                </li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
 
 <header>
@@ -69,42 +60,29 @@
             <img src="style/img/amrabed.jpg" class="img-circle" style="width: 140px">
             <h1>Amr Abed</h1>
             <hr>
-            <p>Computer Engineer  •  Researcher  •  Instructor</p><!--
-            Building tools to make people's everyday lives more convenient and productive</p-->
-            <!--p><a href="#engineer">Computer Engineer</a> - <a href="#research">Researcher</a> - <a href="#teaching">Instructor</a></p-->
-            <a class="image-link" href="mailto:amraabed@gmail.com" target="_blank">
-                <img src="style/img/social/mail.png" title="Email" style="width: 32px">
-            </a>
-            <a class="image-link" href="https://www.linkedin.com/in/amrabed" target="_blank">
-                <img src="style/img/social/linkedin.png" title="LinkedIn" style="width: 36px">
-            </a>
-            <a class="image-link" href="https://github.com/amrabed" target="_blank">
-                <img src="style/img/social/github.svg" title="Github" style="width: 32px">
-            </a>
-            <a class="image-link" href="https://scholar.google.com/citations?user=2Q4yYWYAAAAJ" target="_blank">
-                <img src="style/img/social/gscholar.png" style="width: 32px">
-            </a>
-            <a class="image-link" href="https://www.twitter.com/amr_abed" target="_blank">
-                <img src="style/img/social/twitter.png" title="Twitter" style="width: 40px">
-            </a>
+            <p>Computer Engineer • Researcher • Instructor</p>
+            <!--p>Building tools to make people's daily lives more convenient and productive</p-->
         </div>
     </div>
 </header>
 
-
-<section class="no-padding" id="experience", style="height: auto;">
-    <!--aside class="bg-dark">
-        <div class="container text-center">
-            <h3>“I don't know anything, but I do know that everything is interesting if you go into it deeply
-                enough”</h3>
-            <hr>
-            <p class="text-faded">Richard Feynman - Nobel Prize Winner</p>
+<section id="education">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">Education</h2>
+                <hr class="primary">
+            </div>
         </div>
-    </aside-->
+    </div>
+    <div class="container-fluid" id="education-items"></div>
+</section>
+
+<aside class="no-padding" id="experience" style="height: auto">
     <div class="container-fluid">
-        <div class="row no-gutter popup-gallery">
+        <div class="row no-gutter">
             <div class="col-lg-4 col-sm-6 portfolio-box">
-                <a href="style/img/engineer.jpg" target="_blank">
+                <a href="engineering/index.html" class="portfolio-box">
                     <img src="style/img/engineer.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
@@ -116,13 +94,10 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a href="style/img/researcher.jpg" class="portfolio-box">
+                <a href="research/index.html" class="portfolio-box">
                     <img src="style/img/researcher.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
-                            <!--div class="project-category text-faded">
-                                Category
-                            </div-->
                             <div class="project-name">
                                 Researcher
                             </div>
@@ -132,7 +107,7 @@
             </div>
 
             <div class="col-lg-4 col-sm-6">
-                <a href="style/img/instructor.png" class="portfolio-box">
+                <a href="teaching/index.html" class="portfolio-box">
                     <img src="style/img/instructor.png" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
@@ -145,21 +120,9 @@
             </div>
         </div>
     </div>
-</section>
+</aside>
 
-<section id="education" style="height: 100%;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Education</h2>
-                <hr class="primary">
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid" id="education-items" style="height: 100%;"></div>
-</section>
-
-<section class="bg-warning" id="skills" style="height: 100%;">
+<section id="skills" style="height: 100%;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -168,20 +131,21 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="height: 100%;">
+    <div class="container-fluid">
         <svg viewBox="0 0 600 280" id="bubble-chart"></svg>
     </div>
 </section>
 
 <div id="footer"></div>
 
-<script src="style/js/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="style/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="style/js/scrollreveal.min.js"></script>
-<script src="style/js/jquery.magnific-popup.min.js"></script>
+<script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
 <script src="style/js/creative.min.js"></script>
+
 <script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="navbar.js"></script>
 <script src="education.js"></script>
 <script src="skills.js"></script>
 <script>$("#footer").load("footer.html");</script>
