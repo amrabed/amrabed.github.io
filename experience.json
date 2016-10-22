@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "text": "Computer Engineer",
+      "img": "style/img/portfolio/engineer.jpg",
+      "ref": "engineering/index.html"
+    },
+    {
+      "text": "Researcher",
+      "img": "style/img/portfolio/researcher.jpg",
+      "ref": "research/index.html"
+    },
+    {
+      "text": "Instructor",
+      "img": "style/img/portfolio/instructor.jpg",
+      "ref": "teaching/index.html"
+    }
+  ]
+}
