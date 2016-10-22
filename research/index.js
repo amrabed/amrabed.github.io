@@ -11,15 +11,15 @@ $.getScript("../include.js", function () {
 
         setHeading(section, "Research Projects");
 
-        var row = section.append("div")
+        var media = section.append("div")
             .attr("class", "container")
             .selectAll("div")
             .data(json.items)
             .enter()
             .append("div")
-            .attr("class", "row");
+            .attr("class", "media");
 
-        var details = getContainer(row, "col-lg-10 col-md-12");
+        var details = getContainer(media, "media-body");
 
         details.append("h3")
             .text(function (d) {
@@ -83,7 +83,7 @@ $.getScript("../include.js", function () {
         //         return d.name;
         //     });
 
-        var sponsors = getContainer(row, "col-lg-2 text-center");
+        var sponsors = getContainer(media, "media-right media-middle text-center");
 
         sponsors.append("h6")
             .attr("class", "text-muted")
@@ -94,7 +94,6 @@ $.getScript("../include.js", function () {
                 return d.sponsors;
             })
             .enter()
-            .append("p")
             .append("a")
             .attr("href", function (d) {
                 return d.url;

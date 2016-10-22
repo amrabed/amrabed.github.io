@@ -13,6 +13,9 @@ $.getScript("include.js", function () {
 
         var entry = section.append("div")
             .attr("class", "container-fluid")
+            .attr("style", "display:flex;align-items:center;")
+            // .append("div")
+            // .attr("class", "row")
             .selectAll("div")
             .data(json.items)
             .enter()

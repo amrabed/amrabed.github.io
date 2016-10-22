@@ -3,41 +3,40 @@
  */
 function populateNavbar() {
     d3.json("navbar.json", function (json) {
-        // var div = d3.select("#mainNav")
-        //     .append("div")
-        //     .attr("class", "container-fluid");
+        //     var div = d3.select("#mainNav")
+        //         .append("div")
+        //         .attr("class", "container-fluid");
         //
-        // var header = div.append("div")
-        //     .attr("class", "navbar-header");
+        //     var header = div.append("div")
+        //         .attr("class", "navbar-header");
         //
-        // var toggle = header.append("button")
-        //     .attr("type", "button")
-        //     .attr("class", "navbar-toggle collapsed")
-        //     .attr("data-toggle", "collapse")
-        //     .attr("data-target", "#menu-items");
+        //     var toggle = header.append("button")
+        //         .attr("type", "button")
+        //         .attr("class", "navbar-toggle collapsed")
+        //         .attr("data-toggle", "collapse")
+        //         .attr("data-target", "#menu-items");
         //
-        // toggle.append("span")
-        //     .attr("class", "sr-only")
-        //     .text("Toggle navigation");
+        //     toggle.append("span")
+        //         .attr("class", "sr-only")
+        //         .text("Toggle navigation");
         //
-        // toggle.append("i")
-        //     .attr("class", "fa fa-bars");
+        //     toggle.append("i")
+        //         .attr("class", "fa fa-bars");
         //
-        // header.selectAll("a")
-        //     .data(json.header)
-        //     .enter()
-        //     .append("a")
-        //     .attr("class", "navbar-brand page-scroll")
-        //     .attr("href", function (d) {
-        //         return d.url;
-        //     }).text(function (d) {
-        //     return d.title;
-        // });
-
-        // var menu = d3.select("#navbar")
-        //     .append("div")
-        //     .attr("class", "collapse navbar-collapse")
-        //     .attr("id", "menu-items");
+        //     header.selectAll("a")
+        //         .data(json.header)
+        //         .enter()
+        //         .append("a")
+        //         .attr("class", "navbar-brand page-scroll")
+        //         .attr("href", function (d) {
+        //             return d.url;
+        //         }).text(function (d) {
+        //         return d.title;
+        //     });
+        //
+        //     var menu = div.append("div")
+        //         .attr("class", "collapse navbar-collapse")
+        //         .attr("id", "menu-items");
         //
         // menu.append("ul")
         //     .attr("class", "nav navbar-nav navbar-left")
