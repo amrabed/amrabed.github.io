@@ -17,9 +17,9 @@ $.getScript("../include.js", function () {
             .data(json.items)
             .enter()
             .append("div")
-            .attr("class", "media");
+            .attr("class", "row");
 
-        var details = getContainer(media, "media-body");
+        var details = getContainer(media, "col-lg-10");
 
         details.append("h3")
             .text(function (d) {
@@ -83,7 +83,8 @@ $.getScript("../include.js", function () {
         //         return d.name;
         //     });
 
-        var sponsors = getContainer(media, "media-right media-middle text-center");
+        // var sponsors = getContainer(media, "media-right media-middle text-center");
+        var sponsors = getContainer(media, "col-lg-2");
 
         sponsors.append("h6")
             .attr("class", "text-muted")
@@ -127,7 +128,7 @@ $.getScript("../include.js", function () {
             .data(json.items)
             .enter()
             .append("div")
-            .attr("class", "container");
+            .attr("class", "row");
 
         node.append("a")
             .attr("target", "_blank")
@@ -151,12 +152,12 @@ $.getScript("../include.js", function () {
             });
 
         node.append("p")
-            .selectAll("label")
+            .selectAll("span")
             .data(function (d) {
                 return d.keywords;
             })
             .enter()
-            .append("label")
+            .append("span")
             .attr("class", "label label-primary")
             .attr("style", "margin-right: 5px;")
             .text(function (d) {

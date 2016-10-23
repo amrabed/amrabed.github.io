@@ -16,9 +16,9 @@ $.getScript("../include.js", function () {
             .data(json.items)
             .enter()
             .append("div")
-            .attr("class", "media");
+            .attr("class", "row");
 
-        var project = getContainer(media, "media-body");
+        var project = getContainer(media, "col-lg-10");
 
         project.append("a")
             .attr("target", "_blank")
@@ -55,7 +55,7 @@ $.getScript("../include.js", function () {
                 return d;
             });
 
-        var organization = getContainer(media, "media-right media-middle");
+        var organization = getContainer(media, "col-lg-2");
 
         organization.selectAll("a")
             .data(function (d) {

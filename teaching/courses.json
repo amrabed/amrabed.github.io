@@ -1,6 +1,23 @@
 {
   "items": [
     {
+      "position": "Assistant Lecturer",
+      "organization": {
+        "name": "Faculty of Engineering, Minia University, Minia, Egypt",
+        "url": "http://www.minia.edu.eg/eng/index.php/en"
+      },
+      "duration": "March 2007 - August 2010",
+      "tasks": [
+        "Taught 8 different undergraduate courses to 4 different classes of an average of 25 students each"
+      ],
+      "courses": [
+        "C",
+        "Signals & Systems",
+        "Electrical Circuits",
+        "Operating Systems"
+      ]
+    },
+    {
       "position": "Instructor",
       "organization": {
         "name": "Inform - IBM Authorized Training Center, Cairo, Egypt",
@@ -21,7 +38,7 @@
         "name": "Al-Sedeek Education Center, Giza, Egypt",
         "url": ""
       },
-      "duration": "February 2008 - September 2010",
+      "duration": "February 2008 - August 2010",
       "tasks": [
         "Taught C and C++ programming, and Algorithms & Data Structures using C and C++ courses to more than 300 students"
       ],
@@ -35,24 +52,7 @@
     {
       "position": "Assistant Lecturer",
       "organization": {
-        "name": "Faculty of Engineering, Minia University, Minia, Egypt",
-        "url": "http://www.minia.edu.eg/eng/index.php/en"
-      },
-      "duration": "March 2007 - September 2010",
-      "tasks": [
-        "Taught 8 different undergraduate courses to 4 different classes of an average of 25 students each"
-      ],
-      "courses": [
-        "C",
-        "Signals & Systems",
-        "Electrical Circuits",
-        "Operating Systems"
-      ]
-    },
-    {
-      "position": "Assistant Lecturer",
-      "organization": {
-        "name": "Faculty of Engineering, Al-Shorouk Academy, Cairo, Egypt",
+        "name": "Higher Institute of Engineering, Al-Shorouk Academy, Cairo, Egypt",
         "url": "http://hie.sha.edu.eg"
       },
       "duration": "February 2006 - September 2007",
