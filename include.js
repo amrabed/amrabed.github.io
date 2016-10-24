@@ -90,7 +90,7 @@ function setHeading(section, title) {
         .attr("class", "col-lg-8 col-lg-offset-2 text-center");
 
     heading.append("h2")
-        .attr("class", "section-setHeading")
+        .attr("class", "section-heading")
         .text(title);
 
     heading.append("hr")

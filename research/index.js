@@ -47,44 +47,65 @@ $.getScript("../include.js", function () {
                 return d.duration;
             });
 
-
-        details.append("p")
+        details.append("h5")
+            .text("Project Code: ")
+            .attr("class", "list-inline")
             .selectAll("label")
             .data(function (d) {
-                return d.skills;
+                return d.products;
             })
             .enter()
-            .append("label")
-            .attr("class", "label label-default")
+            .append("li")
+            .append("a")
+            .attr("href", function (d) {
+                return d.url;
+            })
+            .attr("title", function (d) {
+                return d.name;
+            })
+            .attr("alt", function (d) {
+                return d.name;
+            })
+            .attr("target", "_blank")
             .attr("style", "margin-right: 5px;")
+            .text(function (d) {
+                return d.name;
+            });
+
+        details.append("h5")
+            .text("Research Keywords: ")
+            .attr("class", "list-inline")
+            .selectAll("li")
+            .data(function (d) {
+                return d.interests;
+            })
+            .enter()
+            .append("li")
+            .append("label")
+            .attr("class", "label label-warning")
+            .attr("style", "margin-right: -5px")
             .text(function (d) {
                 return d;
             });
 
-        // node.append("p")
-        //     .selectAll("a")
-        //     .data(function (d) {
-        //         return d.products;
-        //     })
-        //     .enter()
-        //     .append("a")
-        //     .attr("href", function (d) {
-        //         return d.url;
-        //     })
-        //     .attr("title", function (d) {
-        //         return d.name;
-        //     })
-        //     .attr("alt", function (d) {
-        //         return d.name;
-        //     })
-        //     .attr("target", "_blank")
-        //     .attr("style", "margin-right: 5px;")
-        //     .text(function (d) {
-        //         return d.name;
-        //     });
+        details.append("h5")
+            .attr("class", "list-inline")
+            .text("Software Tools: ")
+            .selectAll("li")
+            .data(function (d) {
+                return d.skills;
+            })
+            .enter()
+            .append("li")
+            .append("label")
+            .attr("class", "label label-default")
+            .attr("style", "margin-right: -5px")
+            .text(function (d) {
+                return d;
+            });
 
         // var sponsors = getContainer(media, "media-right media-middle text-center");
-        var sponsors = getContainer(media, "col-lg-2");
+        var sponsors = getContainer(media, "col-lg-2 media-middle");
 
         sponsors.append("h6")
             .attr("class", "text-muted")

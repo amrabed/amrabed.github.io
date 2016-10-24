@@ -18,7 +18,7 @@ $.getScript("../include.js", function () {
             .append("div")
             .attr("class", "row");
 
-        var project = getContainer(media, "col-lg-10");
+        var project = getContainer(media, "col-lg-10 col-sm-4");
 
         project.append("a")
             .attr("target", "_blank")
@@ -43,19 +43,21 @@ $.getScript("../include.js", function () {
 
 
         project.append("p")
-            .selectAll("label")
+            .attr("class", "list-inline")
+            .selectAll("li")
             .data(function (d) {
                 return d.skills;
             })
             .enter()
+            .append("li")
             .append("label")
             .attr("class", "label label-default")
-            .attr("style", "margin-right: 5px;")
+            .attr("style", "margin-right: -5px")
             .text(function (d) {
                 return d;
             });
 
-        var organization = getContainer(media, "col-lg-2");
+        var organization = getContainer(media, "col-lg-2 col-sm-1");
 
         organization.selectAll("a")
             .data(function (d) {
@@ -77,7 +79,7 @@ $.getScript("../include.js", function () {
             .attr("src", function (d) {
                 return d.logo;
             })
-            .attr("style", "width: 150px;");
+            .attr("style", "width: 128px;");
 
     // });
 

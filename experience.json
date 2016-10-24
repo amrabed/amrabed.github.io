@@ -15,5 +15,42 @@
       "img": "style/img/portfolio/instructor.jpg",
       "ref": "teaching/index.html"
     }
+  ],
+  "positions": [
+    {
+      "position": "Assistant Lecturer",
+      "organization": "Shorouk Academy",
+      "duration": "Feb 2006 - Nov 2007",
+      "date": "01/02/2006",
+      "selected": false
+    },
+    {
+      "position": "Assistant Lecturer",
+      "organization": "Minia University",
+      "duration": "Mar 2007 - Aug 2010",
+      "date": "01/03/2007",
+      "selected": false
+    },
+    {
+      "position": "Graduate Research Assistant",
+      "organization": "Virginia Tech",
+      "duration": "Jan 2011 - Jul 2011",
+      "date": "01/01/2011",
+      "selected": false
+    },
+    {
+      "position": "Software Engineering Intern",
+      "organization": "Google",
+      "duration": "May 2014 - Aug 2014",
+      "date": "01/05/2014",
+      "selected": false
+    },
+    {
+      "position": "Graduate Research Assistant",
+      "organization": "Virginia Tech",
+      "duration": "Current",
+      "date": "01/01/2015",
+      "selected": true
+    }
   ]
 }

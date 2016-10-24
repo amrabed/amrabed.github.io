@@ -27,6 +27,10 @@
         "Raspberry Pi",
         "Plotly.js"
       ],
+      "interests": [
+        "IoT",
+        "Smart City"
+      ],
       "products": [
         {
           "name": "Metrolab",
@@ -65,6 +69,12 @@
         "Amazon AWS",
         "Shell"
       ],
+      "interests": [
+        "Cloud Computing",
+        "Cloud Security",
+        "Linux Container",
+        "Anomaly Detection"
+      ],
       "products": [
         {
           "name": "RHIDS",
@@ -100,6 +110,10 @@
         "Amazon AWS",
         "Shell",
         "Maven"
+      ],
+      "interests": [
+        "Mobile Computing",
+        "Cloud Computing"
       ],
       "products": [
         {

@@ -18,6 +18,7 @@
           rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
           rel='stylesheet' type='text/css'>
+    <link href="style/css/timeline.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -68,7 +69,49 @@
 </header>
 
 <section id="education"></section>
-<aside id="experience" class="no-padding"></aside>
+<section id="experience">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-setHeading">Experience</h2>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="cd-horizontal-timeline loaded">
+        <div class="timeline">
+            <div class="events-wrapper">
+                <div class="events" style="width:18000px">
+                    <ol>
+                        <li><a href="#0" data-date="01/02/2006">2006</a></li>
+                        <li><a href="#0" data-date="01/03/2007">2007</a></li>
+                        <li><a href="#0" data-date="01/01/2011">2011</a></li>
+                        <li><a href="#0" data-date="01/05/2014">2014</a></li>
+                        <li><a href="#0" class="selected" data-date="01/01/2015">2016</a></li>
+                    </ol>
+                    <span class="filling-line" aria-hidden="true"></span></div>
+            </div>
+            <ul class="cd-timeline-navigation">
+                <li><a href="#0" class="prev inactive">Prev</a></li>
+                <li><a href="#0" class="next">Next</a></li>
+            </ul>
+        </div>
+        <div class="events-content">
+            <ol>
+                <li data-date="01/02/2006"><h3>Assistant Lecturer</h3><em>Shorouk Academy</em>
+                    <p>Feb 2006 - Nov 2007</p></li>
+                <li data-date="01/03/2007"><h3>Assistant Lecturer</h3><em>Minia University</em>
+                    <p>Mar 2007 - Aug 2010</p></li>
+                <li data-date="01/01/2011"><h3>Graduate Research Assistant</h3><em>Virginia Tech</em>
+                    <p>Jan 2011 - Jul 2011</p></li>
+                <li data-date="01/05/2014"><h3>Software Engineering Intern</h3><em>Google</em>
+                    <p>May 2014 - Aug 2014</p></li>
+                <li class="selected" data-date="01/01/2015"><h3>Graduate Research Assistant</h3><em>Virginia Tech</em>
+                    <p>January 2015 - Present</p></li>
+            </ol>
+        </div>
+    </div>
+</section>
 <section id="skills"></section>
 <div id="footer"></div>
 
@@ -79,6 +122,7 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="index.js"></script>
 <script src="style/js/creative.min.js"></script>
+<script src="style/js/timeline.js"></script>
 
 </body>
 </html>
