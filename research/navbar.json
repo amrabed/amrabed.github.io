@@ -55,6 +55,13 @@
       "url": "http://orcid.org/0000-0001-5582-9762",
       "icon": "../style/img/social/orcid.png",
       "size": 24
+    },
+    {
+      "name": "Slide Share",
+      "url": "http://www.slideshare.net/AmrAbed",
+      "icon": "../style/img/social/slide.png",
+      "size": 24
     }
+
   ]
 }
