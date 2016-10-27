@@ -17,7 +17,9 @@ $.getScript("../include.js", function () {
             .data(json.items)
             .enter()
             .append("div")
-            .attr("class", "row");
+            .attr("class", "row")
+            .append("div")
+            .attr("class", "col-lg-12");
 
         row.append("a")
             .attr("target", "_blank")
@@ -40,26 +42,27 @@ $.getScript("../include.js", function () {
                 return d.duration;
             });
 
-        row.selectAll("p")
-            .data(function (d) {
-                return d.tasks;
-            })
-            .enter()
-            .append("p")
-            .text(function (d) {
-                return d;
-            });
-
+        // row.selectAll("p")
+        //     .data(function (d) {
+        //         return d.tasks;
+        //     })
+        //     .enter()
+        //     .append("p")
+        //     .text(function (d) {
+        //         return d;
+        //     });
 
         row.append("p")
-            .selectAll("label")
+            .attr("class", "list-inline")
+            .selectAll("li")
             .data(function (d) {
                 return d.courses;
             })
             .enter()
+            .append("li")
             .append("label")
             .attr("class", "label label-default")
-            .attr("style", "margin-right: 5px;")
+            .attr("style", "margin-right: -5px;")
             .text(function (d) {
                 return d;
             });

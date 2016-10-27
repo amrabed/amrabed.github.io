@@ -1,3 +1,7 @@
+:root {
+    --brand-color: #F05F40;
+}
+
 ol, ul {
     list-style: none;
 }
@@ -48,14 +52,14 @@ ol, ul {
 
 .cd-horizontal-timeline .events-wrapper::before {
     left: 0;
-    background-image: -webkit-linear-gradient(left, #f8f8f8, rgba(248, 248, 248, 0));
-    background-image: linear-gradient(to right, #f8f8f8, rgba(248, 248, 248, 0));
+    background-image: -webkit-linear-gradient(left, #ffffff, rgba(248, 248, 248, 0));
+    background-image: linear-gradient(to right, #ffffff, rgba(248, 248, 248, 0));
 }
 
 .cd-horizontal-timeline .events-wrapper::after {
     right: 0;
-    background-image: -webkit-linear-gradient(right, #f8f8f8, rgba(248, 248, 248, 0));
-    background-image: linear-gradient(to left, #f8f8f8, rgba(248, 248, 248, 0));
+    background-image: -webkit-linear-gradient(right, #ffffff, rgba(248, 248, 248, 0));
+    background-image: linear-gradient(to left, #ffffff, rgba(248, 248, 248, 0));
 }
 
 .cd-horizontal-timeline .events {
@@ -80,7 +84,7 @@ ol, ul {
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: #7b9d6f;
+    background-color: var(--brand-color);
     -webkit-transform: scaleX(0);
     -moz-transform: scaleX(0);
     -ms-transform: scaleX(0);
@@ -135,8 +139,8 @@ ol, ul {
 }
 
 .no-touch .cd-horizontal-timeline .events a:hover::after {
-    background-color: #7b9d6f;
-    border-color: #7b9d6f;
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
 }
 
 .cd-horizontal-timeline .events a.selected {
@@ -144,12 +148,12 @@ ol, ul {
 }
 
 .cd-horizontal-timeline .events a.selected::after {
-    background-color: #7b9d6f;
-    border-color: #7b9d6f;
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
 }
 
 .cd-horizontal-timeline .events a.older-event::after {
-    border-color: #7b9d6f;
+    border-color: var(--brand-color);
 }
 
 @media only screen and (min-width: 1100px) {
@@ -220,7 +224,7 @@ ol, ul {
 }
 
 .no-touch .cd-timeline-navigation a:hover {
-    border-color: #7b9d6f;
+    border-color: var(--brand-color);
 }
 
 .cd-timeline-navigation a.inactive {

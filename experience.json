@@ -3,52 +3,102 @@
     {
       "text": "Computer Engineer",
       "img": "style/img/portfolio/engineer.jpg",
-      "ref": "engineering/index.html"
+      "ref": "engineering"
     },
     {
       "text": "Researcher",
       "img": "style/img/portfolio/researcher.jpg",
-      "ref": "research/index.html"
+      "ref": "research"
     },
     {
       "text": "Instructor",
       "img": "style/img/portfolio/instructor.jpg",
-      "ref": "teaching/index.html"
+      "ref": "teaching"
     }
   ],
   "positions": [
     {
       "position": "Assistant Lecturer",
-      "organization": "Shorouk Academy",
-      "duration": "Feb 2006 - Nov 2007",
+      "organization": {
+        "name": "Modern Academy for Engineering and Technology",
+        "url": "http://eng.moder-academy.edu.eg"
+      },
+      "duration": "September 2005 - May 2006",
+      "time": 2005,
+      "date": "01/09/2005",
+      "selected": false
+    },
+    {
+      "position": "Assistant Lecturer",
+      "organization": {
+        "name": "Shorouk Academy",
+        "url": "http://sha.edu.eg"
+      },
+      "duration": "February 2006 - September 2007",
+      "time": 2006,
       "date": "01/02/2006",
       "selected": false
     },
     {
       "position": "Assistant Lecturer",
       "organization": "Minia University",
-      "duration": "Mar 2007 - Aug 2010",
+      "duration": "March 2007 - August 2010",
+      "time": 2007,
       "date": "01/03/2007",
       "selected": false
     },
     {
+      "position": "Software Development Engineer",
+      "organization": {
+        "name": "Mentor Graphics",
+        "url": "http://www.mentor.com"
+      },
+      "duration": "November 2007 - November 2008",
+      "time": 2008,
+      "date": "01/11/2008",
+      "selected": false
+    },
+    {
       "position": "Graduate Research Assistant",
-      "organization": "Virginia Tech",
+      "organization": {
+        "name": "Virginia Tech",
+        "url": "http://www.vt.edu"
+      },
       "duration": "Jan 2011 - Jul 2011",
+      "time": 2011,
       "date": "01/01/2011",
       "selected": false
     },
     {
+      "position": "Graduate Research Assistant",
+      "organization": {
+        "name": "Virginia Tech",
+        "url": "http://www.vt.edu"
+      },
+      "duration": "February 2013 - May 2013",
+      "time": 2013,
+      "date": "01/02/2013",
+      "selected": true
+    },
+    {
       "position": "Software Engineering Intern",
-      "organization": "Google",
-      "duration": "May 2014 - Aug 2014",
+      "organization": {
+        "name": "Google",
+        "url": "http://www.google.com/about"
+      },
+      "duration": "May 2014 - August 2014",
+      "time": 2014,
       "date": "01/05/2014",
       "selected": false
     },
     {
       "position": "Graduate Research Assistant",
-      "organization": "Virginia Tech",
-      "duration": "Current",
+      "organization": {
+        "name": "Virginia Tech",
+        "url": "http://www.vt.edu"
+      },
+      "duration": "January 2015 - Present",
+      "time": "Current",
       "date": "01/01/2015",
       "selected": true
     }

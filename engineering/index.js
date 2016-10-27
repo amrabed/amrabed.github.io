@@ -81,57 +81,57 @@ $.getScript("../include.js", function () {
             })
             .attr("style", "width: 128px;");
 
-    // });
+        // });
 
-    /* Projects Section */
-    // d3.json("freelance.json", function (json) {
-    //     var freelancing = d3.select("#freelancing");
-    //
-    //     setHeading(freelancing, "Freelancing Products");
-    //
-    //     var container = getContainer(freelancing, "container");
-    //
-    //     var node = freelancing.append("div")
-    //         .attr("class", "container")
-    //         .selectAll("div")
-    //         .data(json.freelancing)
-    //         .enter()
-    //         .append("div")
-    //         .attr("class", "row");
-    //
-    //     node.append("a")
-    //         .attr("target", "_blank")
-    //         .attr("href", function (d) {
-    //             return d.product.url;
-    //         })
-    //         .append("h3")
-    //         .text(function (d) {
-    //             return d.product.name;
-    //         });
-    //
-    //     node.append("h4")
-    //         .text(function (d) {
-    //             return d.product.type;
-    //         });
-    //
-    //     node.append("p")
-    //         .attr("class", "text-muted")
-    //         .text(function (d) {
-    //             return "Releases " + d.product.release;
-    //         });
-    //
-    //     node.append("p")
-    //         .selectAll("label")
-    //         .data(function (d) {
-    //             return d.skills;
-    //         })
-    //         .enter()
-    //         .append("label")
-    //         .attr("class", "label label-primary")
-    //         .attr("style", "margin-right: 5px;")
-    //         .text(function (d) {
-    //             return d;
-    //         });
+        /* Projects Section */
+        // d3.json("freelance.json", function (json) {
+        //     var freelancing = d3.select("#freelancing");
+        //
+        //     setHeading(freelancing, "Freelancing Products");
+        //
+        //     var container = getContainer(freelancing, "container");
+        //
+        //     var node = freelancing.append("div")
+        //         .attr("class", "container")
+        //         .selectAll("div")
+        //         .data(json.freelancing)
+        //         .enter()
+        //         .append("div")
+        //         .attr("class", "row");
+        //
+        //     node.append("a")
+        //         .attr("target", "_blank")
+        //         .attr("href", function (d) {
+        //             return d.product.url;
+        //         })
+        //         .append("h3")
+        //         .text(function (d) {
+        //             return d.product.name;
+        //         });
+        //
+        //     node.append("h4")
+        //         .text(function (d) {
+        //             return d.product.type;
+        //         });
+        //
+        //     node.append("p")
+        //         .attr("class", "text-muted")
+        //         .text(function (d) {
+        //             return "Releases " + d.product.release;
+        //         });
+        //
+        //     node.append("p")
+        //         .selectAll("label")
+        //         .data(function (d) {
+        //             return d.skills;
+        //         })
+        //         .enter()
+        //         .append("label")
+        //         .attr("class", "label label-primary")
+        //         .attr("style", "margin-right: 5px;")
+        //         .text(function (d) {
+        //             return d;
+        //         });
     });
 
 

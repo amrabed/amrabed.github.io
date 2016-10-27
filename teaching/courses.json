@@ -45,14 +45,14 @@
       "courses": [
         "C",
         "C++",
-        "Algorithms",
-        "Data Structures"
+        "Signals & Systems",
+        "Algorithms & Data Structures"
       ]
     },
     {
       "position": "Assistant Lecturer",
       "organization": {
-        "name": "Higher Institute of Engineering, Al-Shorouk Academy, Cairo, Egypt",
+        "name": "Higher Institute of Engineering, Shorouk Academy, Cairo, Egypt",
         "url": "http://hie.sha.edu.eg"
       },
       "duration": "February 2006 - September 2007",
@@ -61,9 +61,11 @@
       ],
       "courses": [
         "C",
-        "Signals & Systems",
-        "Electrical Circuits",
-        "Operating Systems"
+        "Digital Control",
+        "Analog Control",
+        "Neural Networks",
+        "Programmable Logic Controllers",
+        "Electronic Measurements"
       ]
     },
     {
@@ -77,10 +79,12 @@
         "Taught 6 different undergraduate courses to 9 different classes of an average of 40 students each"
       ],
       "courses": [
-        "C",
-        "Signals & Systems",
-        "Electrical Circuits",
-        "Operating Systems"
+        "C++",
+        "MATLAB",
+        "Logic Circuit Design",
+        "Modeling & Simulation",
+        "Microprocessors",
+        "Microcontrollers"
       ]
     }
   ]
