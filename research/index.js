@@ -5,6 +5,29 @@ $.getScript("../include.js", function () {
 
     populateNavbar();
 
+    /* Presentations Section */
+    d3.json("presentations.json", function (json) {
+        var section = d3.select("#bio");
+        // setHeading(section, "Presentations");
+        section.append("div")
+            .attr("class", "container text-center")
+            .selectAll("iframe")
+            .data(json.presentations)
+            .enter()
+            .append("iframe")
+            // .attr("frameborder", 0)
+            // .attr("marginwidth", 0)
+            // .attr("marginheight", 0)
+            // .attr("scrolling", "no")
+            .attr("allowfullscreen", "")
+            .attr("width", 800)
+            .attr("height", 600)
+            .attr("style", "margin-top:5px; max-width: 100%")
+            .attr("src", function (d) {
+                return d.url;
+            })
+    });
+
     /* Projects Section */
     d3.json("projects.json", function (json) {
         var section = d3.select("#projects");
@@ -174,46 +197,31 @@ $.getScript("../include.js", function () {
                 return d.venue;
             });
 
-        node.append("p")
-            .attr("class", "list list-inline")
-            .selectAll("li")
-            .data(function (d) {
-                return d.keywords;
-            })
-            .enter()
-            .append("li")
-            .append("label")
-            .attr("class", "label label-primary")
-            .attr("style", "margin-right: -5px;")
-            .text(function (d) {
-                return d;
-            });
+        // node.append("p")
+        //     .attr("class", "list list-inline")
+        //     .selectAll("li")
+        //     .data(function (d) {
+        //         return d.keywords;
+        //     })
+        //     .enter()
+        //     .append("li")
+        //     .append("label")
+        //     .attr("class", "label label-primary")
+        //     .attr("style", "margin-right: -5px;")
+        //     .text(function (d) {
+        //         return d;
+        //     });
 
-    });
+        if(function (d) {return d.fulltext != null;}) {
+            node.append("a")
+                .attr("class", "btn btn-default")
+                .attr("target", "_blank")
+                .attr("href", function (d) {
+                    return d.fulltext;
+                })
+                .text("Full text")
+        }
 
-    /* Presentations Section */
-    d3.json("presentations.json", function (json) {
-        var section = d3.select("#presentations");
-
-        setHeading(section, "Presentations");
-
-        section.append("div")
-            .attr("class", "container text-center")
-            .selectAll("iframe")
-            .data(json.presentations)
-            .enter()
-            .append("iframe")
-            // .attr("frameborder", 0)
-            // .attr("marginwidth", 0)
-            // .attr("marginheight", 0)
-            // .attr("scrolling", "no")
-            .attr("allowfullscreen", "")
-            .attr("width", 800)
-            .attr("height", 600)
-            .attr("style", "margin-top:5px; max-width: 100%")
-            .attr("src", function (d) {
-                return d.url;
-            })
     });
 });
 
