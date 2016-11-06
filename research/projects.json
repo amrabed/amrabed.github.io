@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "id": "metrolab",
       "project": "Metrolab Sensor Network",
       "sponsors": [
         {
@@ -39,7 +40,8 @@
       ]
     },
     {
-      "project": "RHIDS - Resilient Host-based Intrusion Detection System for Linux containers",
+       "id": "rhids",
+     "project": "RHIDS - Resilient Host-based Intrusion Detection System for Linux containers",
       "sponsors": [
         {
           "name": "S2ERC",
@@ -87,6 +89,7 @@
       ]
     },
     {
+      "id": "sodacloud",
       "project": "SodaCloud - Shared Object Distribution Architecture for Cloud systems",
       "sponsors": [
         {

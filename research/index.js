@@ -42,19 +42,19 @@ $.getScript("../include.js", function () {
             .append("div")
             .attr("class", "row");
 
-        var details = getContainer(media, "col-lg-10");
+        var header = getContainer(media, "col-lg-10");
 
-        details.append("h3")
+        header.append("h3")
             .text(function (d) {
                 return d.project;
             });
 
-        details.append("h4")
+        header.append("h4")
             .text(function (d) {
                 return d.position;
             });
 
-        details.append("a")
+        header.append("a")
             .attr("target", "_blank")
             .attr("href", function (d) {
                 return d.organization.url;
@@ -64,11 +64,26 @@ $.getScript("../include.js", function () {
                 return d.organization.name;
             });
 
-        details.append("p")
+        header.append("p")
             .attr("class", "text-muted")
             .text(function (d) {
                 return d.duration;
             });
+
+        header.append("a")
+            .attr("class", "btn btn-link")
+            .attr("data-toggle", "collapse")
+            .attr("data-target", function (d) {
+                return "#" + d.id;
+            })
+            .text("+ Details");
+
+        var details = getContainer(header, "row")
+                .attr("id", function (d) {
+                    return d.id;
+                })
+                .attr("class", "collapse out").append("div")
+                .attr("class", "col-lg-12");
 
         details.append("p")
             .append("em")
@@ -81,7 +96,7 @@ $.getScript("../include.js", function () {
             .enter()
             .append("li")
             .append("a")
-            .attr("class", "btn btn-default")
+            .attr("class", "btn btn-link")
             .attr("href", function (d) {
                 return d.url;
             })
@@ -114,6 +129,7 @@ $.getScript("../include.js", function () {
                 return d;
             });
 
+
         details.append("p")
             .append("em")
             .text("Tools: ")
@@ -127,6 +143,21 @@ $.getScript("../include.js", function () {
             .append("label")
             .attr("class", "label label-default")
             .attr("style", "margin-right: -5px")
+            .text(function (d) {
+                return d;
+            });
+
+        details.append("p")
+            .append("em")
+            .text("Tasks:")
+            .append("ul")
+            .attr("class", "list list-default")
+            .selectAll("li")
+            .data(function (d) {
+                return d.tasks;
+            })
+            .enter()
+            .append("li")
             .text(function (d) {
                 return d;
             });
@@ -216,7 +247,9 @@ $.getScript("../include.js", function () {
         //         return d;
         //     });
 
-        if(function (d) {return d.fulltext != null;}) {
+        if (function (d) {
+                return d.fulltext != null;
+            }) {
             node.append("a")
                 .attr("class", "btn btn-default")
                 .attr("target", "_blank")
