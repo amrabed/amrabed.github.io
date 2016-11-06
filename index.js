@@ -7,29 +7,30 @@ $.getScript("include.js", function () {
 
     /* Education Section */
     d3.json("education.json", function (json) {
-        var section = d3.select("#education");
+        var section = d3.select("#education")
+            .append("div");
 
         setHeading(section, "Education");
 
-        var entry = section.append("div")
+        var degrees = section.append("div")
             .attr("class", "row")
             .selectAll("div")
-            .data(json.items)
+            .data(json.degrees)
             .enter()
             .append("div")
             .attr("class", "col-lg-4 col-md-6 text-center")
             .append("div")
             .attr("class", "service-box");
 
-        entry.append("img")
+        degrees.append("img")
             .attr("src", "style/img/education/education.png");
 
-        entry.append("h3")
+        degrees.append("h3")
             .text(function (d) {
                 return d.degree
             });
 
-        entry.append("p")
+        degrees.append("p")
             .attr("class", "text-muted")
             .append("a")
             .attr("target", "_blank")
@@ -39,11 +40,11 @@ $.getScript("include.js", function () {
             return d.institute.name;
         });
 
-        entry.append("p")
+        degrees.append("p")
             .attr("class", "text-muted")
             .text(function (d) {
                 return d.time;
-            })
+            });
     });
 
     /* Experience Section */

@@ -1,5 +1,5 @@
 {
-  "items": [
+  "degrees": [
     {
       "degree": "Ph.D. Computer Engineering",
       "institute": {
@@ -23,6 +23,13 @@
         "url": "http://eng.asu.edu.eg"
       },
       "time": "September 2000 - June 2005"
+    }
+  ],
+  "courses": [
+    {
+      "title": "Pattern Recognition",
+      "institute": "Virginia Tech",
+      "link": "https://www.ece.vt.edu/grad/courses/5524"
     }
   ]
 }

@@ -85,9 +85,7 @@ function setHeading(section, title) {
     var heading = section.append("div")
         .attr("class", "container-fluid")
         .append("div")
-        .attr("class", "row")
-        .append("div")
-        .attr("class", "col-lg-8 col-lg-offset-2 text-center");
+        .attr("class", "row text-center");
 
     heading.append("h2")
         .attr("class", "section-heading")

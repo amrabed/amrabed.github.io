@@ -70,8 +70,9 @@ $.getScript("../include.js", function () {
                 return d.duration;
             });
 
-        details.append("h5")
-            .text("Project Code: ")
+        details.append("p")
+            .append("em")
+            .text("Code: ")
             .attr("class", "list-inline")
             .selectAll("li")
             .data(function (d) {
@@ -80,6 +81,7 @@ $.getScript("../include.js", function () {
             .enter()
             .append("li")
             .append("a")
+            .attr("class", "btn btn-default")
             .attr("href", function (d) {
                 return d.url;
             })
@@ -95,8 +97,9 @@ $.getScript("../include.js", function () {
                 return d.name;
             });
 
-        details.append("h5")
-            .text("Research Keywords: ")
+        details.append("p")
+            .append("em")
+            .text("Keywords: ")
             .attr("class", "list-inline")
             .selectAll("li")
             .data(function (d) {
@@ -111,9 +114,10 @@ $.getScript("../include.js", function () {
                 return d;
             });
 
-        details.append("h5")
+        details.append("p")
+            .append("em")
+            .text("Tools: ")
             .attr("class", "list-inline")
-            .text("Software Tools: ")
             .selectAll("li")
             .data(function (d) {
                 return d.skills;
