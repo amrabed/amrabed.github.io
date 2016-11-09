@@ -79,11 +79,12 @@ $.getScript("../include.js", function () {
             .text("+ Details");
 
         var details = getContainer(header, "row")
-                .attr("id", function (d) {
-                    return d.id;
-                })
-                .attr("class", "collapse out").append("div")
-                .attr("class", "col-lg-12");
+            .attr("id", function (d) {
+                return d.id;
+            })
+            .attr("class", "collapse out")
+            .append("div")
+            .attr("class", "col-lg-12");
 
         details.append("p")
             .append("em")
@@ -241,24 +242,33 @@ $.getScript("../include.js", function () {
         //     .enter()
         //     .append("li")
         //     .append("label")
-        //     .attr("class", "label label-primary")
+        //     .attr("class", "label label-default")
         //     .attr("style", "margin-right: -5px;")
         //     .text(function (d) {
         //         return d;
         //     });
 
-        if (function (d) {
-                return d.fulltext != null;
-            }) {
-            node.append("a")
-                .attr("class", "btn btn-default")
-                .attr("target", "_blank")
-                .attr("href", function (d) {
-                    return d.fulltext;
-                })
-                .text("Full text")
-        }
+        node.append("a")
+            .attr("class", "btn btn-default")
+            .attr("target", "_blank")
+            .attr("href", function (d) {
+                return d.fulltext;
+            })
+            .style("display", function (d) {
+                return d.fulltext == null ? "none" : null;
+            })
+            .text("Full text");
 
+        node.append("a")
+            .attr("class", "btn btn-default")
+            .attr("target", "_blank")
+            .attr("href", function (d) {
+                return d.presentation;
+            })
+            .style("display", function (d) {
+                return d.presentation == null ? "none" : null;
+            })
+            .text("Presentation");
     });
 });
 
