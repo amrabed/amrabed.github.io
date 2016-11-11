@@ -5,7 +5,7 @@
       "authors": "Amr S. Abed, Charles Clancy, David Levy",
       "venue": "IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA), 2015",
       "doi": "http://dx.doi.org/10.1109/GLOCOMW.2015.7414047",
-      "fulltext": "https://www.academia.edu/18096539/Applying_Bag_of_System_Calls_for_Anomalous_Behavior_Detection_of_Applications_in_Linux_Containers",
+      "fulltext": "https://arxiv.org/pdf/1611.03053v1",
       "keywords": [
         "Security",
         "Linux Containers",
@@ -18,7 +18,7 @@
       "authors": "Amr S. Abed, Charles Clancy, David Levy",
       "venue": "International Workshop on Security and Trust Management (STM), 2015",
       "doi": "http://dx.doi.org/10.1007/978-3-319-24858-5_8",
-      "fulltext": "https://www.academia.edu/18096514/Intrusion_Detection_System_for_Applications_Using_Linux_Containers",
+      "fulltext": "https://arxiv.org/pdf/1611.03056v1",
       "keywords": [
         "Intrusion detection",
         "Anomaly detection",
@@ -31,7 +31,8 @@
     {
       "title": "Toward Smart Moving Target Defense for Linux Container Resiliency",
       "authors": "Mohamed Azab, Bassem Mokhtar, Amr S. Abed, Mohamed Eltoweissy",
-      "venue": "41st IEEE Conference of Lccal Computer Networks, 2016",
+      "venue": "41st IEEE Conference on Local Computer Networks (LCN), 2016",
+      "fulltext": "https://arxiv.org/pdf/1611.03065v1",
       "keywords": []
     },
     {
