@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "id": "gfit",
       "project": {
         "name": "Google Fit for Android",
         "url": "https://www.google.com/fit"
@@ -28,6 +29,7 @@
       ]
     },
     {
+      "id": "spec2el",
       "project": {
         "name": "Spectre2Eldo Syntax Converter",
         "url": "#"
@@ -53,6 +55,7 @@
       ]
     },
     {
+      "id": "iqama",
       "project": {
         "name": "Iqama Times - Android App",
         "url": "https://github.com/amrabed/Iqama"
