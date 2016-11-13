@@ -7,18 +7,18 @@ $.getScript("../include.js", function () {
 
     /* Projects Section */
     d3.json("projects.json", function (json) {
-        var section = d3.select("#projects");
+        var positions = d3.select("#positions");
 
-        setHeading(section, "Projects");
+        setHeading(positions, "Positions");
 
-        var media = getContainer(section, "container")
+        var media = getContainer(positions, "container")
             .selectAll("div")
-            .data(json.items)
+            .data(json.positions)
             .enter()
             .append("div")
             .attr("class", "row");
 
-        var project = getContainer(media, "col-lg-10 col-sm-4");
+        var project = getContainer(media, "col-lg-10");
 
         project.append("a")
             .attr("target", "_blank")
@@ -41,6 +41,32 @@ $.getScript("../include.js", function () {
                 return d.duration;
             });
 
+        project.append("a")
+            .attr("class", "btn btn-link")
+            .attr("data-toggle", "collapse")
+            .attr("data-target", function (d) {
+                return "#" + d.id;
+            })
+            .text("+ Details");
+
+        getContainer(project, "row")
+            .attr("id", function (d) {
+                return d.id;
+            })
+            .attr("class", "collapse out")
+            .append("p")
+            .append("em")
+            .append("ul")
+            .attr("class", "list list-default")
+            .selectAll("li")
+            .data(function (d) {
+                return d.tasks;
+            })
+            .enter()
+            .append("li")
+            .text(function (d) {
+                return d;
+            });
 
         project.append("p")
             .attr("class", "list-inline")
@@ -52,12 +78,12 @@ $.getScript("../include.js", function () {
             .append("li")
             .append("label")
             .attr("class", "label label-default")
-            .attr("style", "margin-right: -5px")
+            .style("margin-right", "-5px")
             .text(function (d) {
                 return d;
             });
 
-        var organization = getContainer(media, "col-lg-2 col-sm-1");
+        var organization = getContainer(media, "col-lg-2");
 
         organization.selectAll("a")
             .data(function (d) {
@@ -79,7 +105,61 @@ $.getScript("../include.js", function () {
             .attr("src", function (d) {
                 return d.logo;
             })
-            .attr("style", "width: 128px;");
+            .style("width: 128px;");
+
+        var products = d3.select("#products");
+
+        setHeading(products, "Products");
+
+        var product = getContainer(products, "container")
+            .selectAll("div")
+            .data(json.products)
+            .enter()
+            .append("div")
+            .attr("class", "row")
+            .append("div")
+            .attr("class", "col-lg-12");
+
+        product.append("a")
+            .attr("target", "_blank")
+            .attr("href", function (d) {
+                return d.url;
+            })
+            .append("h3")
+            .text(function (d) {
+                return d.name;
+            });
+
+        // product.append("h4")
+        //     .text(function (d) {
+        //         return d.position;
+        //     });
+
+        product.append("p")
+            .attr("class", "text-muted")
+            .text(function (d) {
+                return d.release;
+            });
+
+        product.append("p")
+            .text(function (d) {
+                return d.description;
+            });
+
+        product.append("p")
+            .attr("class", "list-inline")
+            .selectAll("li")
+            .data(function (d) {
+                return d.skills;
+            })
+            .enter()
+            .append("li")
+            .append("label")
+            .attr("class", "label label-default")
+            .style("margin-right", "-5px")
+            .text(function (d) {
+                return d;
+            });
 
         // });
 
@@ -128,7 +208,7 @@ $.getScript("../include.js", function () {
         //         .enter()
         //         .append("label")
         //         .attr("class", "label label-primary")
-        //         .attr("style", "margin-right: 5px;")
+        //         .style("margin-right: 5px;")
         //         .text(function (d) {
         //             return d;
         //         });
