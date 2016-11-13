@@ -1,8 +1,8 @@
 /**
  * Created by AmrAbed on 10/22/16.
  */
-$.getScript("include.js", function () {
 
+$.when($.getScript("include.js"), $.getScript("style/js/timeline.js")).done(function () {
     populateNavbar();
 
     /* Education Section */
@@ -50,91 +50,93 @@ $.getScript("include.js", function () {
     /* Experience Section */
     d3.json("experience.json", function (json) {
         var section = d3.select("#experience");
-    //     setHeading(section, "Experience");
-    //
-    //     var t = section.append("div")
-    //         .attr("class", "cd-horizontal-timeline loaded");
-    //
-    //     var timeline = t.append("div")
-    //         .attr("class", "timeline");
-    //
-    //     var events = timeline.append("div")
-    //         .attr("class", "events-wrapper")
-    //         .append("div")
-    //         .attr("class", "events")
-    //         .attr("style", "width:18000px");
-    //
-    //     events.append("ol")
-    //         .selectAll("li")
-    //         .data(json.positions)
-    //         .enter()
-    //         .append("li")
-    //         .append("a")
-    //         .attr("href", "#0")
-    //         .attr("class", function (d) {
-    //             if(d.selected) return "selected";
-    //         })
-    //         .attr("data-date", function (d) {
-    //             return d.date;
-    //         })
-    //         .text(function (d) {
-    //             return d.time;
-    //         });
-    //
-    //     events.append("span")
-    //         .attr("class", "filling-line")
-    //         .attr("aria-hidden", "true");
-    //
-    //     timeline.append("ul")
-    //         .attr("class", "cd-timeline-navigation")
-    //         .selectAll("li")
-    //         .data([{"text": "Prev", "class": "prev inactive"}, {"text": "Next", "class": "next"}])
-    //         .enter()
-    //         .append("li")
-    //         .append("a")
-    //         .attr("href", "#0")
-    //         .attr("class", function (d) {
-    //             return d.class;
-    //         })
-    //         .text(function (d) {
-    //             return d.text;
-    //         });
-    //
-    //     var li = t.append("div")
-    //         .attr("class", "events-content")
-    //         .append("ol")
-    //         .selectAll("li")
-    //         .data(json.positions)
-    //         .enter()
-    //         .append("li")
-    //         .attr("class", function (d) {
-    //             if(d.selected) return "selected";
-    //         })
-    //         .attr("data-date", function (d) {
-    //             return d.date;
-    //         });
-    //
-    //     li.append("h3")
-    //         .text(function (d) {
-    //             return d.position;
-    //         });
-    //
-    //     li.append("em")
-    //         .append("a")
-    //         .attr("target", "_blank")
-    //         .attr("href", function (d) {
-    //             return d.organization.url;
-    //         })
-    //         .text(function (d) {
-    //             return d.organization.name;
-    //         });
-    //
-    //     li.append("p")
-    //         .text(function (d) {
-    //             return d.duration;
-    //         });
-    //
-    //
+        setHeading(section, "Experience");
+
+        var t = section.append("div")
+            .attr("class", "cd-horizontal-timeline");
+
+        var timeline = t.append("div")
+            .attr("class", "timeline");
+
+        var events = timeline.append("div")
+            .attr("class", "events-wrapper")
+            .append("div")
+            .attr("class", "events")
+            .style("width", "18000px");
+
+        events.append("ol")
+            .selectAll("li")
+            .data(json.positions)
+            .enter()
+            .append("li")
+            .append("a")
+            .attr("href", "#0")
+            .attr("class", function (d) {
+                if (d.selected) return "selected";
+            })
+            .attr("data-date", function (d) {
+                return d.date;
+            })
+            .text(function (d) {
+                return d.time;
+            });
+
+        events.append("span")
+            .attr("class", "filling-line")
+            .attr("aria-hidden", "true");
+
+        timeline.append("ul")
+            .attr("class", "cd-timeline-navigation")
+            .selectAll("li")
+            .data([{"text": "Prev", "class": "prev inactive"}, {"text": "Next", "class": "next"}])
+            .enter()
+            .append("li")
+            .append("a")
+            .attr("href", "#0")
+            .attr("class", function (d) {
+                return d.class;
+            })
+            .text(function (d) {
+                return d.text;
+            });
+
+        var li = t.append("div")
+            .attr("class", "events-content")
+            .append("ol")
+            .selectAll("li")
+            .data(json.positions)
+            .enter()
+            .append("li")
+            .attr("class", function (d) {
+                if (d.selected) return "selected";
+            })
+            .attr("data-date", function (d) {
+                return d.date;
+            });
+
+        li.append("h3")
+            .text(function (d) {
+                return d.position;
+            });
+
+        li.append("em")
+            .append("a")
+            .attr("target", "_blank")
+            .attr("href", function (d) {
+                return d.organization.url;
+            })
+            .text(function (d) {
+                return d.organization.name;
+            });
+
+        li.append("p")
+            .text(function (d) {
+                return d.duration;
+            });
+
+        initTimeline(t);
+
+
         var a = section.append("div")
             .attr("class", "cotainer-fluid no-padding")
             .append("div")
@@ -194,8 +196,8 @@ $.getScript("include.js", function () {
             });
 
         node.append("text")
+            .style("fill", "#ffffff")
             .attr("text-anchor", "middle")
-            .attr("style", "fill: #ffffff")
             .attr("dy", "0.3em")
             .attr("font-size", function (d) {
                 return d.size * 0.35;

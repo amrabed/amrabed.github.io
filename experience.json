@@ -41,7 +41,10 @@
     },
     {
       "position": "Assistant Lecturer",
-      "organization": "Minia University",
+      "organization": {
+        "name": "Minia University",
+        "url": "http://www.minia.edu.eg/eng/index.php/en"
+      },
       "duration": "March 2007 - August 2010",
       "time": 2007,
       "date": "01/03/2007",
@@ -78,7 +81,7 @@
       "duration": "February 2013 - May 2013",
       "time": 2013,
       "date": "01/02/2013",
-      "selected": true
+      "selected": false
     },
     {
       "position": "Software Engineering Intern",
