@@ -64,6 +64,7 @@ $.getScript("../include.js", function () {
             })
             .enter()
             .append("li")
+            .attr("class", "text-justify")
             .text(function (d) {
                 return d;
             });
@@ -111,7 +112,8 @@ $.getScript("../include.js", function () {
 
         setHeading(products, "Products");
 
-        var product = getContainer(products, "container")
+        var product = products.append("div")
+            .attr("class", "container")
             .selectAll("div")
             .data(json.products)
             .enter()
@@ -122,6 +124,7 @@ $.getScript("../include.js", function () {
 
         product.append("a")
             .attr("target", "_blank")
+            .attr("class", "media-heading")
             .attr("href", function (d) {
                 return d.url;
             })
@@ -130,11 +133,6 @@ $.getScript("../include.js", function () {
                 return d.name;
             });
 
-        // product.append("h4")
-        //     .text(function (d) {
-        //         return d.position;
-        //     });
-
         product.append("p")
             .attr("class", "text-muted")
             .text(function (d) {
@@ -142,6 +140,7 @@ $.getScript("../include.js", function () {
             });
 
         product.append("p")
+            .attr("class", "text-justify")
             .text(function (d) {
                 return d.description;
             });

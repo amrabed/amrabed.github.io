@@ -59,7 +59,7 @@
     {
       "id": "iqama",
       "name": "Iqama Times - Android App",
-      "icon": "",
+      "icon": "https://lh3.googleusercontent.com/sxI_r3w2dDUJBQ6uiI_Xi6i-D5zY7pA2rydT0yV2XZvBBaAYnh70DO9WCqUDfvkkf08=w300-rw",
       "url": "https://github.com/amrabed/Iqama",
       "description": "",
       "release": "July 2016",
@@ -67,6 +67,17 @@
         "Java",
         "Android",
         "Google Calendar API"
+      ]
+    },
+    {
+      "id": "strace-docker",
+      "name": "strace-docker",
+      "url": "https://github.com/amrabed/strace-docker",
+      "description": "Linux background service for tracing system calls from Docker containers running on the system",
+      "release": "January 2015",
+      "skills": [
+        "Docker",
+        "Shell"
       ]
     },
     {
