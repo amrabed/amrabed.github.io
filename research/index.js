@@ -202,53 +202,61 @@ $.getScript("../include.js", function () {
 
         setHeading(section, "Publications");
 
-        var node = section.append("div")
+        var publication = section.append("div")
             .attr("class", "container")
             .selectAll("div")
-            .data(json.items)
+            .data(json.publications)
             .enter()
             .append("div")
             .attr("class", "row")
             .append("div")
             .attr("class", "col-lg-12");
 
-        node.append("a")
-            .attr("target", "_blank")
+        publication.append("h3")
+            .append("a")
             .attr("href", function (d) {
-                return d.doi;
+                return d.url;
             })
-            .append("h3")
+            .attr("target", "_blank")
             .text(function (d) {
                 return d.title;
             });
 
-        node.append("h4")
+        publication.append("h4")
             .text(function (d) {
                 return d.authors;
             });
 
-        node.append("p")
+        publication.append("p")
             .attr("class", "text-muted")
             .text(function (d) {
                 return d.venue;
             });
 
-        // node.append("p")
-        //     .attr("class", "list list-inline")
-        //     .selectAll("li")
-        //     .data(function (d) {
-        //         return d.keywords;
+        // publication.append("p")
+        //     .style("display", function (d) {
+        //         return d.doi == null ? "none" : null;
         //     })
-        //     .enter()
-        //     .append("li")
-        //     .append("label")
-        //     .attr("class", "label label-default")
-        //     .attr("style", "margin-right: -5px;")
+        //     .text("DOI: ")
+        //     .append("a")
+        //     .attr("href", function (d) {
+        //         return d.url;
+        //     })
+        //     .attr("target", "_blank")
         //     .text(function (d) {
-        //         return d;
+        //         return d.doi;
         //     });
 
-        node.append("a")
+        publication.append("span")
+            .attr("data-badge-popover", "right")
+            .attr("data-badge-type", "1")
+            .attr("data-hide-no-mentions", "true")
+            .attr("class", "altmetric-embed")
+            .attr("data-doi", function (d) {
+                return d.doi;
+            });
+
+        publication.append("a")
             .attr("class", "btn btn-default")
             .attr("target", "_blank")
             .attr("href", function (d) {
@@ -259,7 +267,7 @@ $.getScript("../include.js", function () {
             })
             .text("Full text");
 
-        node.append("a")
+        publication.append("a")
             .attr("class", "btn btn-default")
             .attr("target", "_blank")
             .attr("href", function (d) {
@@ -270,6 +278,10 @@ $.getScript("../include.js", function () {
             })
             .text("Presentation");
     });
+    !function(e, t, n) {
+        var d = "createElement", c = "getElementsByTagName", m = "setAttribute", n = document.getElementById(e);
+        return n && n.parentNode && n.parentNode.removeChild(n), n = document[d + "NS"] && document.documentElement.namespaceURI, n = n ? document[d + "NS"](n, "script") : document[d]("script"), n[m]("id", e), n[m]("src", t), (document[c]("head")[0] || document[c]("body")[0]).appendChild(n), n = new Image, void n[m]("src", "https://d1uo4w7k31k5mn.cloudfront.net/donut/0.png")
+    }("altmetric-embed-js", "https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-8f271adb184c21cc5169a7f67f7fe5ab.js");
 });
 
 /* Footer */
