@@ -1,7 +1,8 @@
 /**
  * Created by AmrAbed on 10/22/16.
  */
-$.getScript("../include.js", function () {
+// $.getScript("../include.js", function () {
+$.when($.getScript("../include.js"), $.getScript("../style/js/github-button.js")).done(function () {
 
     populateNavbar();
 
@@ -20,19 +21,19 @@ $.getScript("../include.js", function () {
 
         var project = getContainer(media, "col-lg-10");
 
+        project.append("h3")
+            .text(function (d) {
+                return d.position;
+            });
+
         project.append("a")
             .attr("target", "_blank")
             .attr("href", function (d) {
                 return d.project.url;
             })
-            .append("h3")
+            .append("h4")
             .text(function (d) {
                 return d.project.name;
-            });
-
-        project.append("h4")
-            .text(function (d) {
-                return d.position;
             });
 
         project.append("p")
@@ -53,7 +54,7 @@ $.getScript("../include.js", function () {
             .attr("id", function (d) {
                 return d.id;
             })
-            .attr("class", "collapse out")
+            .attr("class", "collapse in")
             .append("p")
             .append("em")
             .append("ul")
@@ -78,7 +79,7 @@ $.getScript("../include.js", function () {
             .enter()
             .append("li")
             .append("label")
-            .attr("class", "label label-default")
+            .attr("class", "label label-info")
             .style("margin-right", "-5px")
             .text(function (d) {
                 return d;
@@ -122,28 +123,55 @@ $.getScript("../include.js", function () {
             .append("div")
             .attr("class", "col-lg-12");
 
-        product.append("a")
+        var header = product.append("h3");
+
+        header.append("a").append("em")
             .attr("target", "_blank")
             .attr("class", "media-heading")
             .attr("href", function (d) {
                 return d.url;
             })
-            .append("h3")
             .text(function (d) {
                 return d.name;
             });
 
-        product.append("p")
-            .attr("class", "text-muted")
-            .text(function (d) {
-                return d.release;
-            });
+        // product.append("p")
+        //     .attr("class", "text-muted")
+        //     .text(function (d) {
+        //         return d.release;
+        //     });
+        header.append("a")
+            .style("display", function (d) {
+                return d.playstore ? null : "none";
+            })
+            .attr("target", "_blank")
+            .attr("href", function (d) {
+                return d.playstore;
+            })
+            .append("img")
+            .style("width", "150px")
+            .attr("alt", "Get in on Google Play")
+            .attr("src", "../style/img/google-play-badge.png");
 
         product.append("p")
             .attr("class", "text-justify")
             .text(function (d) {
                 return d.description;
             });
+
+        product.append("div")
+            .append("a")
+            .attr("class", "github-button")
+            .attr("href", function (d) {
+                return d.url;
+            })
+            .attr("data-style", "mega")
+            .attr("aria-label", function (d) {
+                return d.name + " on Github"
+            })
+            .text(function (d) {
+                return d.name;
+            }) && show_buttons();
 
         product.append("p")
             .attr("class", "list-inline")
@@ -154,7 +182,7 @@ $.getScript("../include.js", function () {
             .enter()
             .append("li")
             .append("label")
-            .attr("class", "label label-default")
+            .attr("class", "label label-info")
             .style("margin-right", "-5px")
             .text(function (d) {
                 return d;
