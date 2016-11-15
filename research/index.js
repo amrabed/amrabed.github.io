@@ -247,6 +247,21 @@ $.getScript("../include.js", function () {
         //         return d.doi;
         //     });
 
+        publication.append("a")
+            .attr("target", "_blank")
+            .attr("href", function (d) {
+                var title = d.short_title ? d.short_title : d.title;
+                return "https://twitter.com/intent/tweet?text=" + title + " " + d.fulltext + " via @amr_abed";
+            })
+            .append("img")
+            .attr("src", "../style/img/tweet.png")
+            .attr("alt", "Share")
+            .style("height", "30px")
+            .style("margin-right", "5px")
+            .style("display", function (d) {
+                return d.fulltext == null ? "none" : null;
+            });
+
         publication.append("span")
             .attr("data-badge-popover", "right")
             .attr("data-badge-type", "1")
@@ -265,19 +280,9 @@ $.getScript("../include.js", function () {
             .style("display", function (d) {
                 return d.fulltext == null ? "none" : null;
             })
-            .text("Full Text");
-
-        publication.append("button")
-            .attr("class", "btn btn-default btn-square")
-            // .attr("data-container", "body")
-            .attr("data-toggle", "popover")
-            .attr("data-placement", "top")
-            .attr("data-content", function (d) {
-                return d.citation;
-            })
-            .text("Citation");
-
-        $("[data-toggle=popover]").popover();
+            .append("i")
+            .attr("class", "fa fa-download")
+            .text(" Full Text");
 
         publication.append("a")
             .attr("class", "btn btn-default btn-square")
@@ -289,6 +294,18 @@ $.getScript("../include.js", function () {
                 return d.presentation == null ? "none" : null;
             })
             .text("Presentation");
+
+        publication.append("button")
+            .attr("class", "btn btn-default btn-square")
+            .attr("data-container", "body")
+            .attr("data-toggle", "popover")
+            .attr("data-placement", "top")
+            .attr("data-content", function (d) {
+                return d.citation;
+            })
+            .text("Citation");
+
+        $("[data-toggle=popover]").popover();
     });
 
     !function (e, t, n) {
