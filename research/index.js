@@ -251,13 +251,13 @@ $.getScript("../include.js", function () {
             .attr("target", "_blank")
             .attr("href", function (d) {
                 var title = d.short_title ? d.short_title : d.title;
-                return "https://twitter.com/intent/tweet?text=" + title + " " + d.fulltext + " via @amr_abed";
+                return "https://twitter.com/intent/tweet?text=" + title + "&url=" + d.fulltext + "&via=amr_abed";
             })
             .append("img")
             .attr("src", "../style/img/tweet.png")
             .attr("alt", "Share")
             .style("height", "30px")
-            .style("margin-right", "5px")
+            .style("padding-right", "5px")
             .style("display", function (d) {
                 return d.fulltext == null ? "none" : null;
             });
