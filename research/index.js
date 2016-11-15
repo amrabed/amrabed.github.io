@@ -257,7 +257,7 @@ $.getScript("../include.js", function () {
             });
 
         publication.append("a")
-            .attr("class", "btn btn-default")
+            .attr("class", "btn btn-default btn-square")
             .attr("target", "_blank")
             .attr("href", function (d) {
                 return d.fulltext;
@@ -265,10 +265,22 @@ $.getScript("../include.js", function () {
             .style("display", function (d) {
                 return d.fulltext == null ? "none" : null;
             })
-            .text("Full text");
+            .text("Full Text");
+
+        publication.append("button")
+            .attr("class", "btn btn-default btn-square")
+            // .attr("data-container", "body")
+            .attr("data-toggle", "popover")
+            .attr("data-placement", "top")
+            .attr("data-content", function (d) {
+                return d.citation;
+            })
+            .text("Citation");
+
+        $("[data-toggle=popover]").popover();
 
         publication.append("a")
-            .attr("class", "btn btn-default")
+            .attr("class", "btn btn-default btn-square")
             .attr("target", "_blank")
             .attr("href", function (d) {
                 return d.presentation;
@@ -278,7 +290,8 @@ $.getScript("../include.js", function () {
             })
             .text("Presentation");
     });
-    !function(e, t, n) {
+
+    !function (e, t, n) {
         var d = "createElement", c = "getElementsByTagName", m = "setAttribute", n = document.getElementById(e);
         return n && n.parentNode && n.parentNode.removeChild(n), n = document[d + "NS"] && document.documentElement.namespaceURI, n = n ? document[d + "NS"](n, "script") : document[d]("script"), n[m]("id", e), n[m]("src", t), (document[c]("head")[0] || document[c]("body")[0]).appendChild(n), n = new Image, void n[m]("src", "https://d1uo4w7k31k5mn.cloudfront.net/donut/0.png")
     }("altmetric-embed-js", "https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-8f271adb184c21cc5169a7f67f7fe5ab.js");
