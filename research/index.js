@@ -70,7 +70,7 @@ $.when($.getScript("../include.js"), $.getScript("../style/js/github-button.js")
                 return d.duration;
             });
 
-        header.append("p")
+        header.append("div")
             .selectAll("a")
             .data(function (d) {
                 return d.products;
@@ -122,8 +122,7 @@ $.when($.getScript("../include.js"), $.getScript("../style/js/github-button.js")
                 return d;
             });
 
-        header.append("p")
-            .append("a")
+        header.append("a")
             .attr("class", "btn btn-link")
             .attr("data-toggle", "collapse")
             .attr("data-target", function (d) {
