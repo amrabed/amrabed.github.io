@@ -1,8 +1,8 @@
 /**
  * Created by AmrAbed on 10/22/16.
  */
-$.getScript("../include.js", function () {
-
+// $.getScript("../include.js", function () {
+$.when($.getScript("../include.js"), $.getScript("../style/js/github-button.js")).done(function () {
     populateNavbar();
 
     /* Presentations Section */
@@ -70,52 +70,28 @@ $.getScript("../include.js", function () {
                 return d.duration;
             });
 
-        header.append("a")
-            .attr("class", "btn btn-link")
-            .attr("data-toggle", "collapse")
-            .attr("data-target", function (d) {
-                return "#" + d.id;
-            })
-            .text("+ Details");
-
-        var details = getContainer(header, "row")
-            .attr("id", function (d) {
-                return d.id;
-            })
-            .attr("class", "collapse out")
-            .append("div")
-            .attr("class", "col-lg-12");
-
-        details.append("p")
-            .append("em")
-            .text("Code: ")
-            .attr("class", "list-inline")
-            .selectAll("li")
+        header.append("p")
+            .selectAll("a")
             .data(function (d) {
                 return d.products;
             })
             .enter()
-            .append("li")
             .append("a")
-            .attr("class", "btn btn-link")
+            .attr("class", "github-button")
             .attr("href", function (d) {
                 return d.url;
             })
-            .attr("title", function (d) {
-                return d.name;
+            .attr("data-style", "mega")
+            .attr("aria-label", function (d) {
+                return d.name + " on Github"
             })
-            .attr("alt", function (d) {
-                return d.name;
-            })
-            .attr("target", "_blank")
-            .attr("style", "margin-right: -5px;")
             .text(function (d) {
                 return d.name;
-            });
+            }) && show_buttons();
 
-        details.append("p")
-            .append("em")
-            .text("Keywords: ")
+        var tags = header.append("p");
+
+        tags.append("i")
             .attr("class", "list-inline")
             .selectAll("li")
             .data(function (d) {
@@ -130,10 +106,8 @@ $.getScript("../include.js", function () {
                 return d;
             });
 
-
-        details.append("p")
-            .append("em")
-            .text("Tools: ")
+        tags.append("i")
+            .style("margin-left", "0px")
             .attr("class", "list-inline")
             .selectAll("li")
             .data(function (d) {
@@ -142,15 +116,29 @@ $.getScript("../include.js", function () {
             .enter()
             .append("li")
             .append("label")
-            .attr("class", "label label-default")
+            .attr("class", "label label-info")
             .attr("style", "margin-right: -5px")
             .text(function (d) {
                 return d;
             });
 
-        details.append("p")
+        header.append("p")
+            .append("a")
+            .attr("class", "btn btn-link")
+            .attr("data-toggle", "collapse")
+            .attr("data-target", function (d) {
+                return "#" + d.id;
+            })
+            .text("+ Details");
+
+        var details = getContainer(header, "row")
+            .attr("id", function (d) {
+                return d.id;
+            })
+            .attr("class", "collapse out")
+            .append("p")
+            .attr("class", "text-justify")
             .append("em")
-            .text("Tasks:")
             .append("ul")
             .attr("class", "list list-default")
             .selectAll("li")
@@ -192,7 +180,6 @@ $.getScript("../include.js", function () {
                 return d.logo;
             })
             .attr("style", "width: 100px;height:50px;");
-
     });
 
 
@@ -310,9 +297,7 @@ $.getScript("../include.js", function () {
             .append("i")
             .attr("class", "fa fa-quote-left")
             .attr("aria-hidden", "true")
-            .text(" Citation");
-
-        $("[data-toggle=popover]").popover();
+            .text(" Citation") && $("[data-toggle=popover]").popover();
     });
 
     !function (e, t, n) {
