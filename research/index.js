@@ -282,6 +282,7 @@ $.getScript("../include.js", function () {
             })
             .append("i")
             .attr("class", "fa fa-download")
+            .attr("aria-hidden", "true")
             .text(" Full Text");
 
         publication.append("a")
@@ -293,7 +294,10 @@ $.getScript("../include.js", function () {
             .style("display", function (d) {
                 return d.presentation == null ? "none" : null;
             })
-            .text("Presentation");
+            .append("i")
+            .attr("class", "fa fa-slideshare")
+            .attr("aria-hidden", "true")
+            .text(" Presentation");
 
         publication.append("button")
             .attr("class", "btn btn-default btn-square")
@@ -303,7 +307,10 @@ $.getScript("../include.js", function () {
             .attr("data-content", function (d) {
                 return d.citation;
             })
-            .text("Citation");
+            .append("i")
+            .attr("class", "fa fa-quote-left")
+            .attr("aria-hidden", "true")
+            .text(" Citation");
 
         $("[data-toggle=popover]").popover();
     });
