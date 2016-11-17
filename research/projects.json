@@ -7,7 +7,7 @@
         {
           "name": "Arlington County",
           "url": "https://www.arlingtonva.us",
-          "logo": "img/arlington.png"
+          "logo": "../style/img/sponsors/arlington.png"
         }
       ],
       "position": "Graduate Research Assistant",
@@ -46,12 +46,12 @@
         {
           "name": "S2ERC",
           "url": "https://www.serc.net/",
-          "logo": "img/serc.png"
+          "logo": "../style/img/sponsors/serc.png"
         },
         {
           "name": "Northrop Grumman",
           "url": "http://www.northropgrumman.com",
-          "logo": "img/ng.png"
+          "logo": "../style/img/sponsors/ng.png"
         }
       ],
       "position": "Graduate Research Assistant",
@@ -95,7 +95,7 @@
         {
           "name": "Siemens",
           "url": "https://www.siemens.com",
-          "logo": "img/siemens.png"
+          "logo": "../style/img/sponsors/siemens.png"
         }
       ],
       "position": "Graduate Research Assistant",
