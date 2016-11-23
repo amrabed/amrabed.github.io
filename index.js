@@ -2,13 +2,12 @@
  * Created by AmrAbed on 10/22/16.
  */
 
-$.when($.getScript("include.js"), $.getScript("style/js/timeline.js")).done(function () {
-    populateNavbar();
-
-    /* Education Section */
+/** Load Education Items
+ *
+ */
+function loadEducation() {
     d3.json("education.json", function (json) {
-        var section = d3.select("#education")
-            .append("div");
+        var section = d3.select("#education");
 
         setHeading(section, "Education");
 
@@ -30,7 +29,7 @@ $.when($.getScript("include.js"), $.getScript("style/js/timeline.js")).done(func
                 return d.degree
             });
 
-        degrees.append("p")
+        degrees.append("h4")
             .attr("class", "text-muted")
             .append("a")
             .attr("target", "_blank")
@@ -46,8 +45,13 @@ $.when($.getScript("include.js"), $.getScript("style/js/timeline.js")).done(func
                 return d.time;
             });
     });
+}
 
-    /* Experience Section */
+
+/** Load Experience
+ *
+ */
+function loadExperience() {
     d3.json("experience.json", function (json) {
         var section = d3.select("#experience");
         setHeading(section, "Experience");
@@ -167,36 +171,74 @@ $.when($.getScript("include.js"), $.getScript("style/js/timeline.js")).done(func
                 return d.text;
             });
     });
+}
 
-    /* Skills Section */
+/** Load Skills
+ *
+ */
+function loadSkills() {
     d3.json("skills.json", function (json) {
         var section = d3.select("#skills");
 
         setHeading(section, "Skills");
 
-        var node = section.append("div")
+        var skill = section.append("div")
             .attr("class", "container-fluid")
             .append("svg")
             .attr("viewBox", "0 0 600 280")
             .selectAll("g")
-            .data(json.nodes)
+            .data(json.skills)
             .enter()
             .append("g")
+            .attr("data-toggle", "modal")
+            .attr("data-target", function (d) {
+                return "#" + (d.id ? d.id : d.label);
+            })
             .attr("transform", function (d) {
-                return "translate(" + d.x + "," + d.y + ")";
+                return "translate(" + d.x + "," + (15 + d.y) + ")";
+            })
+            .on("mouseover", function () {
+                var g = d3.select(this)
+                    .each(function () {
+                        /* Bring to front (based on gist.github.com/trtg/3922684) */
+                        this.parentNode.appendChild(this);
+                    });
+
+                g.select("circle")
+                    .attr("fill-opacity", 1)
+                    .attr("r", function (d) {
+                        return d.size * 1.3;
+                    });
+
+                g.select("text").attr("font-size", function (d) {
+                    return d.size * 0.5;
+                })
+            })
+            .on("mouseout", function () {
+                var g = d3.select(this);
+
+                g.select("circle")
+                    .attr("fill-opacity", 0.85)
+                    .attr("r", function (d) {
+                        return d.size;
+                    });
+
+                g.select("text").attr("font-size", function (d) {
+                    return d.size * 0.35;
+                })
             });
 
-        node.append("circle")
+        skill.append("circle")
             .attr("r", function (d) {
                 return d.size;
             })
-            .attr("fill-opacity", 0.9)
+            .attr("fill-opacity", 0.85)
             .attr("fill", function (d) {
                 return "#" + d.color;
             });
 
-        node.append("text")
-            .style("fill", "#ffffff")
+        skill.append("text")
+            .style("fill", "white")
             .attr("text-anchor", "middle")
             .attr("dy", "0.3em")
             .attr("font-size", function (d) {
@@ -204,8 +246,82 @@ $.when($.getScript("include.js"), $.getScript("style/js/timeline.js")).done(func
             })
             .text(function (d) {
                 return d.label
+            });
+
+        var modal = section.data(json.skills)
+            .enter()
+            .append("div")
+            .attr("id", function (d) {
+                return d.id ? d.id : d.label;
             })
+            .attr("class", "modal fade")
+            .attr("tabindex", "-1")
+            .attr("role", "dialog")
+            .append("div")
+            .attr("class", "modal-dialog modal-sm")
+            .attr("role", "document")
+            .append("div")
+            .attr("class", "modal-content");
+
+        modal.append("div")
+            .attr("class", "modal-header")
+            .append("h4")
+            .attr("class", "modal-title")
+            .text(function (d) {
+                return d.label + " - Sample Projects";
+            });
+
+        modal.append("div")
+            .attr("class", "modal-body")
+            .selectAll("p")
+            .data(function (d) {
+                return d.projects;
+            })
+            .enter()
+            .append("p")
+            .attr("class", "text-center")
+            .append("a")
+            .attr("class", "btn btn-default")
+            .attr("target", "_blank")
+            .attr("href", function (d) {
+                return d.link;
+            })
+            .text(function (d) {
+                return d.name;
+            });
+
+        // modal.append("div")
+        //     .attr("class", "modal-body")
+        //     .selectAll("p")
+        //     .data(function (d) {
+        //         return d.projects;
+        //     })
+        //     .enter()
+        //     .append("p")
+        //     .attr("class", "text-center")
+        //     .style("vertical-align", "middle")
+        //     .append("a")
+        //     .attr("class", "github-button")
+        //     .attr("href", function (d) {
+        //         return  d.code;
+        //     })
+        //     .attr("data-style", "mega")
+        //     .attr("aria-label", function (d) {
+        //         return d.name + " on Github"
+        //     })
+        //     .text(function (d) {
+        //         return d.name;
+        //     })
+        // && show_buttons();
+
     });
+}
+
+$.when($.getScript("include.js"), $.getScript("style/js/timeline.js"), $.getScript("style/js/github-button.js")).done(function () {
+    populateNavbar();
+    loadEducation();
+    loadExperience();
+    loadSkills();
 });
 
 /* Footer */

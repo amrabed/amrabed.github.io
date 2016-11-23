@@ -282,7 +282,8 @@ function loadPublications(file, id, title) {
             .append("div")
             .attr("class", "row")
             .append("div")
-            .attr("class", "col-lg-12");
+            .attr("class", "col-lg-12")
+            .attr("data-role", "page");
 
         publication.append("h3")
             .append("a")
@@ -338,6 +339,7 @@ function loadPublications(file, id, title) {
             .attr("data-badge-popover", "top")
             .attr("data-badge-type", "1")
             .attr("data-hide-no-mentions", "true")
+            .attr("data-role", "page")
             .attr("class", "altmetric-embed")
             .attr("data-doi", function (d) {
                 return d.doi;
