@@ -2,11 +2,16 @@
  * Created by AmrAbed on 10/22/16.
  */
 
-$.when($.getScript("../include.js"), $.getScript("../style/js/github-button.js")).done(function () {
-        populateNavbar();
-        loadResearchProjects("projects.json", "#projects", "Research Projects");
-        loadPublications("publications.json", "#publications", "Publications");
+$.getScript("../include.js", function () {
+    populateNavbar();
+    loadResearchProjects("projects.json", "#projects", "Research Projects");
+    loadPublications("publications.json", "#publications", "Publications");
+    loadFooter("../footer.html")
 });
 
-/* Footer */
-$("#footer").load("../footer.html");
+// Show Github buttons
+$.getScript("https://buttons.github.io/buttons.js");
+
+// show Altmetric badges
+$.getScript("https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js");
+
