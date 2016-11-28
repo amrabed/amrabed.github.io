@@ -108,6 +108,11 @@ function loadEducation() {
 
         setHeading(section, "Education");
 
+        // Workaround to center content vertically
+        section.append("div")
+            .attr("class", "hidden-sm hidden-xs")
+            .style("height","200px");
+
         var degrees = section.append("div")
             .attr("class", "row")
             .selectAll("div")
@@ -141,9 +146,12 @@ function loadEducation() {
             .text(function (d) {
                 return d.time;
             });
+
+        section.append("div")
+            .attr("class", "hidden-sm hidden-xs")
+            .style("height","200px");
     });
 }
-
 
 /** Load Experience
  *
