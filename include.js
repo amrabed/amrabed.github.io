@@ -101,17 +101,20 @@ function getContainer(parent, type) {
 
 /** Load Education Items
  *
+ * @param file JSON file to read data from
+ * @param id Target section ID
+ * @param title to be used for the section heading
  */
-function loadEducation() {
-    d3.json("education.json", function (json) {
-        var section = d3.select("#education");
+function loadEducation(file, id, title) {
+    d3.json(file, function (json) {
+        var section = d3.select(id);
 
-        setHeading(section, "Education");
+        setHeading(section, title);
 
         // Workaround to center content vertically
         section.append("div")
             .attr("class", "hidden-sm hidden-xs")
-            .style("height","200px");
+            .style("height", "200px");
 
         var degrees = section.append("div")
             .attr("class", "row")
@@ -149,17 +152,20 @@ function loadEducation() {
 
         section.append("div")
             .attr("class", "hidden-sm hidden-xs")
-            .style("height","200px");
+            .style("height", "200px");
     });
 }
 
 /** Load Experience
  *
+ * @param file JSON file to read data from
+ * @param id Target section ID
+ * @param title to be used for the section heading
  */
-function loadExperience() {
-    d3.json("experience.json", function (json) {
-        var section = d3.select("#experience");
-        setHeading(section, "Experience");
+function loadExperience(file, id, title) {
+    d3.json(file, function (json) {
+        var section = d3.select(id);
+        setHeading(section, title);
 
         var t = section.append("div")
             .attr("class", "cd-horizontal-timeline");
@@ -280,12 +286,15 @@ function loadExperience() {
 
 /** Load Skills
  *
+ * @param file JSON file to read data from
+ * @param id Target section ID
+ * @param title to be used for the section heading
  */
-function loadSkills() {
-    d3.json("skills.json", function (json) {
-        var section = d3.select("#skills");
+function loadSkills(file, id, title) {
+    d3.json(file, function (json) {
+        var section = d3.select(id);
 
-        setHeading(section, "Skills");
+        setHeading(section, title);
 
         var skill = section.append("div")
             .attr("class", "container-fluid")
@@ -903,6 +912,149 @@ function loadProducts(file, id, title) {
             .text(function (d) {
                 return d;
             });
+    });
+}
+
+/** Load Courses
+ *
+ * @param file JSON file to read data from
+ * @param id Target section ID
+ * @param title Target section title
+ */
+function loadCourses(file, id, title) {
+    d3.json(file, function (json) {
+        var section = d3.select(id);
+
+        setHeading(section, title);
+
+        var row = section.append("div")
+            .attr("class", "container")
+            .selectAll("div")
+            .data(json.items)
+            .enter()
+            .append("div")
+            .attr("class", "row")
+            .append("div")
+            .attr("class", "col-lg-12");
+
+        row.append("h3")
+            .text(function (d) {
+                return d.organization.name;
+            });
+
+        row.append("ul")
+            .attr("class", "list-unstyled")
+            .selectAll("li")
+            .data(function (d) {
+                return d.courses;
+            })
+            .enter()
+            .append("li")
+            .append("h4")
+            .text(function (d) {
+                return d.title + " ";
+            })
+            .append("a")
+            .attr("target", "_blank")
+            .attr("href", function (d) {
+                return d.link;
+            })
+            .style("display", function (d) {
+                return d.link == null ? "none" : null;
+            })
+            .append("i")
+            .attr("class", "fa fa-external-link");
+    });
+}
+
+/** Load Teaching Experience
+ *
+ * @param file JSON file to read data from
+ * @param id Target section ID
+ * @param title Target section title
+ */
+function loadTeachingExperience(file, id, title) {
+    d3.json(file, function (json) {
+        var section = d3.select(id);
+
+        setHeading(section, title);
+
+        var row = section.append("div")
+            .attr("class", "container")
+            .selectAll("div")
+            .data(json.items)
+            .enter()
+            .append("div")
+            .attr("class", "row")
+            .append("div")
+            .attr("class", "col-lg-12");
+
+        row.append("a")
+            .attr("target", "_blank")
+            .attr("href", function (d) {
+                return d.organization.url;
+            })
+            .append("h3")
+            .text(function (d) {
+                return d.organization.name;
+            });
+
+        // row.append("h4")
+        //     .text(function (d) {
+        //         return d.position;
+        //     });
+
+        row.append("h4")
+            .attr("class", "text-muted")
+            .text(function (d) {
+                return d.duration;
+            });
+
+        // row.selectAll("p")
+        //     .data(function (d) {
+        //         return d.tasks;
+        //     })
+        //     .enter()
+        //     .append("p")
+        //     .text(function (d) {
+        //         return d;
+        //     });
+
+        // row.append("p")
+        //     .attr("class", "list-inline")
+        //     .selectAll("li")
+        //     .data(function (d) {
+        //         return d.courses;
+        //     })
+        //     .enter()
+        //     .append("li")
+        //     .append("label")
+        //     .attr("class", "label label-default")
+        //     .attr("style", "margin-right: -5px;")
+        //     .text(function (d) {
+        //         return d;
+        //     });
+
+        row.append("ul")
+            .selectAll("li")
+            .data(function (d) {
+                return d.courses;
+            })
+            .enter()
+            .append("li")
+            .text(function (d) {
+                return d.title + " ";
+            })
+            .append("a")
+            .attr("target", "_blank")
+            .attr("href", function (d) {
+                return d.link;
+            })
+            .style("display", function (d) {
+                return d.link == null ? "none" : null;
+            })
+            .append("i")
+            .attr("class", "fa fa-external-link")
     });
 }
 

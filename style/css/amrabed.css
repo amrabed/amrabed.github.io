@@ -2,15 +2,10 @@ section
 {
     min-height:100%;
 }
+
 .image-link, .image-link:hover, .image-link:focus
 {
     text-decoration: none;
-}
-.vertical-center {
-    min-height: 100%;
-
-    display: flex;
-    align-items: center;
 }
 
 .btn.btn-square {
