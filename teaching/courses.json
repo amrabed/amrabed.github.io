@@ -3,7 +3,8 @@
     {
       "position": "Assistant Lecturer",
       "organization": {
-        "name": "Faculty of Engineering, Minia University, Minia, Egypt",
+        "name": "Minia University",
+        "department": "Faculty of Engineering",
         "url": "http://www.minia.edu.eg/eng/index.php/en"
       },
       "duration": "March 2007 - August 2010",
@@ -11,16 +12,24 @@
         "Taught 8 different undergraduate courses to 4 different classes of an average of 25 students each"
       ],
       "courses": [
-        "C",
-        "Signals & Systems",
-        "Electrical Circuits",
-        "Operating Systems"
+        {
+          "title": "C Programming"
+        },
+        {
+          "title": "Signals and Systems"
+        },
+        {
+          "title": "Electrical Circuits"
+        },
+        {
+          "title": "Operating Systems"
+        }
       ]
     },
     {
       "position": "Instructor",
       "organization": {
-        "name": "Inform - IBM Authorized Training Center, Cairo, Egypt",
+        "name": "Inform - IBM Authorized Training Center",
         "url": "http://inform.com.eg"
       },
       "duration": "March 2006 - August 2010",
@@ -28,14 +37,18 @@
         "Taught C and C++ Programming to more than 150 students from different backgrounds, many of them were from outside the Engineering field"
       ],
       "courses": [
-        "C",
-        "C++"
+        {
+          "title": "C Programming"
+        },
+        {
+          "title": "C++ Programming"
+        }
       ]
     },
     {
       "position": "Instructor",
       "organization": {
-        "name": "Al-Sedeek Education Center, Giza, Egypt",
+        "name": "Al-Sedeek Education Center",
         "url": ""
       },
       "duration": "February 2008 - August 2010",
@@ -43,16 +56,34 @@
         "Taught C and C++ programming, and Algorithms & Data Structures using C and C++ courses to more than 300 students"
       ],
       "courses": [
-        "C",
-        "C++",
-        "Signals & Systems",
-        "Algorithms & Data Structures"
+        {
+          "title": "Signal and System Theory",
+          "code": "COMM 401",
+          "description": "Tutored more than 100 4th semester students of the German University in Cairo",
+          "link": "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=46"
+        },
+        {
+          "title": "Systems and Control",
+          "code": "COMM 501",
+          "link": "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=108"
+        },
+        {
+          "title": "Digital Signal Processing",
+          "code": "COMM 602",
+          "link": "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=62"
+        },
+        {
+          "title": "Data Structures and Algorithms",
+          "code": "CMP 102",
+          "link": "http://www.elearn.eng.cu.edu.eg/course/view.php?id=5"
+        }
       ]
     },
     {
       "position": "Assistant Lecturer",
       "organization": {
-        "name": "Higher Institute of Engineering, Shorouk Academy, Cairo, Egypt",
+        "name": "Shorouk Academy",
+        "department": "Higher Institute of Engineering",
         "url": "http://hie.sha.edu.eg"
       },
       "duration": "February 2006 - September 2007",
@@ -60,18 +91,32 @@
         "Taught 9 different undergraduate courses to 9 different classes of an average of 40 students each"
       ],
       "courses": [
-        "C",
-        "Digital Control",
-        "Analog Control",
-        "Neural Networks",
-        "Programmable Logic Controllers",
-        "Electronic Measurements"
+        {
+          "title": "Computer Programs",
+          "code": "ECE 107"
+        },
+        {
+          "title": "Digital Control"
+        },
+        {
+          "title": "Analog Control"
+        },
+        {
+          "title": "Neural Networks"
+        },
+        {
+          "title": "Programmable Logic Controllers"
+        },
+        {
+          "title": "Electronic Measurements"
+        }
       ]
     },
     {
       "position": "Assistant Lecturer",
       "organization": {
-        "name": "Faculty of Engineering, Modern Academy for Engineering and Technology, Cairo, Egypt",
+        "name": "Modern Academy for Engineering and Technology",
+        "department": "Faculty of Engineering",
         "url": "http://eng.modern-academy.edu.eg"
       },
       "duration": "September 2005 - May 2006",
@@ -79,13 +124,60 @@
         "Taught 6 different undergraduate courses to 9 different classes of an average of 40 students each"
       ],
       "courses": [
-        "C++",
-        "MATLAB",
-        "Logic Circuit Design",
-        "Modeling & Simulation",
-        "Microprocessors",
-        "Microcontrollers"
+        {
+          "title": "Program Design and Computer Languages",
+          "description": "Programming fundamentals using C++",
+          "code": "CMP 110",
+          "link": "courses/mam/cmp110.pdf"
+        },
+        {
+          "title": "Microprocessor Based Systems",
+          "description": "Writing assembly code for programming Intel 80x86 microprocessors",
+          "code": "CMP 410",
+          "link": "courses/mam/cmp410.pdf"
+        },
+        {
+          "title": "Logic Design II",
+          "description": "Advanced logic circuit design course",
+          "code": "CMP 426",
+          "link": "courses/mam/cmp426.pdf"
+        },
+        {
+          "title": "Embedded Systems",
+          "description": "Building embedded systems using Intel 8051 Microcontrollers",
+          "code": "CMP 433",
+          "link": "courses/mam/cmp433.pdf"
+        },
+        {
+          "title": "Computer Modeling and Simulation",
+          "description": "System modeling and simulation using MATLAB",
+          "code": "CMP 524",
+          "link": "courses/mam/cmp524.pdf"
+        }
       ]
+    }
+  ],
+  "courses": [
+    {
+      "title": "Signal and System Theory",
+      "code": "COMM 401",
+      "description": "Tutored more than 100 4th semester students of the German University in Cairo",
+      "link": "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=46"
+    },
+    {
+      "title": "Systems and Control",
+      "code": "COMM 501",
+      "link": "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=108"
+    },
+    {
+      "title": "Digital Signal Processing",
+      "code": "COMM 602",
+      "link": "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=62"
+    },
+    {
+      "title": "Data Structures and Algorithms",
+      "code": "CMP102",
+      "link": "http://www.elearn.eng.cu.edu.eg/course/view.php?id=5"
     }
   ]
 }

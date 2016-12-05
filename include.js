@@ -935,7 +935,7 @@ function loadCourses(file, id, title) {
             .append("div")
             .attr("class", "row")
             .append("div")
-            .attr("class", "col-lg-12");
+            .attr("class", "col-lg-8 col-lg-offset-2");
 
         row.append("h3")
             .text(function (d) {
@@ -964,97 +964,6 @@ function loadCourses(file, id, title) {
             })
             .append("i")
             .attr("class", "fa fa-external-link");
-    });
-}
-
-/** Load Teaching Experience
- *
- * @param file JSON file to read data from
- * @param id Target section ID
- * @param title Target section title
- */
-function loadTeachingExperience(file, id, title) {
-    d3.json(file, function (json) {
-        var section = d3.select(id);
-
-        setHeading(section, title);
-
-        var row = section.append("div")
-            .attr("class", "container")
-            .selectAll("div")
-            .data(json.items)
-            .enter()
-            .append("div")
-            .attr("class", "row")
-            .append("div")
-            .attr("class", "col-lg-12");
-
-        row.append("a")
-            .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.organization.url;
-            })
-            .append("h3")
-            .text(function (d) {
-                return d.organization.name;
-            });
-
-        // row.append("h4")
-        //     .text(function (d) {
-        //         return d.position;
-        //     });
-
-        row.append("h4")
-            .attr("class", "text-muted")
-            .text(function (d) {
-                return d.duration;
-            });
-
-        // row.selectAll("p")
-        //     .data(function (d) {
-        //         return d.tasks;
-        //     })
-        //     .enter()
-        //     .append("p")
-        //     .text(function (d) {
-        //         return d;
-        //     });
-
-        // row.append("p")
-        //     .attr("class", "list-inline")
-        //     .selectAll("li")
-        //     .data(function (d) {
-        //         return d.courses;
-        //     })
-        //     .enter()
-        //     .append("li")
-        //     .append("label")
-        //     .attr("class", "label label-default")
-        //     .attr("style", "margin-right: -5px;")
-        //     .text(function (d) {
-        //         return d;
-        //     });
-
-        row.append("ul")
-            .selectAll("li")
-            .data(function (d) {
-                return d.courses;
-            })
-            .enter()
-            .append("li")
-            .text(function (d) {
-                return d.title + " ";
-            })
-            .append("a")
-            .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.link;
-            })
-            .style("display", function (d) {
-                return d.link == null ? "none" : null;
-            })
-            .append("i")
-            .attr("class", "fa fa-external-link")
     });
 }
 
