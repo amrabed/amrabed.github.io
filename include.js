@@ -656,6 +656,7 @@ function loadPublications(file, id, title) {
             })
             .append("img")
             .attr("src", "../style/img/tweet.png")
+            .attr("title", "Share")
             .attr("alt", "Share")
             .style("height", "30px")
             .style("padding-right", "5px")
@@ -713,6 +714,19 @@ function loadPublications(file, id, title) {
             .attr("class", "fa fa-quote-left")
             .attr("aria-hidden", "true")
             .text(" Citation") && $("[data-toggle=popover]").popover();
+
+        publication.append("div")
+            .attr("display", function (d) {
+                var doi = d.doi;
+                return doi ? null : "none";
+            })
+            .append("img")
+            .attr("src", function (d) {
+                if (d.doi != null) {
+                    return "http://api.elsevier.com/content/abstract/citation-count?doi=" +
+                        d.doi + "&httpAccept=image/jpeg&apiKey=ed9196839729f61e0e1ab9cd1ff9f56b";
+                }
+            });
     });
 }
 
