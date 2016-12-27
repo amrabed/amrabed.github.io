@@ -45,12 +45,6 @@
       "size": 24
     },
     {
-      "name": "Academia.edu",
-      "url": "https://vt.academia.edu/AmrAbed",
-      "icon": "../style/img/social/academia.png",
-      "size": 24
-    },
-    {
       "name": "ORCiD",
       "url": "http://orcid.org/0000-0001-5582-9762",
       "icon": "../style/img/social/orcid.png",
