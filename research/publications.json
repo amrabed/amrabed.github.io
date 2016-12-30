@@ -36,9 +36,11 @@
     {
       "title": "Toward Smart Moving Target Defense for Linux Container Resiliency",
       "authors": "Mohamed Azab, Bassem Mokhtar, Amr S. Abed, Mohamed Eltoweissy",
-      "venue": "41st IEEE Conference on Local Computer Networks (LCN), 2016",
+      "url": "https://doi.org/10.1109/LCN.2016.106",
+      "doi": "10.1109/LCN.2016.106",
+      "venue": "IEEE 41st Conference on Local Computer Networks (LCN), 2016",
       "fulltext": "https://arxiv.org/pdf/1611.03065v1",
-      "citation": "@inproceedings{abed2016toward, title={Toward Smart Moving Target Defense for Linux Container Resiliency}, author={Mohamed Azab and Bassem Mahmoud Mokhtar and Amr S Abed and Mohamed Eltoweissy}, booktitle={41st Annual IEEE Conference on Local Computer Networks (LCN 2016)}, year={2016}}",
+      "citation": "@inproceedings{abed2016toward, title={Toward Smart Moving Target Defense for Linux Container Resiliency}, author={Mohamed Azab and Bassem Mahmoud Mokhtar and Amr S Abed and Mohamed Eltoweissy}, booktitle={IEEE 41st Conference on Local Computer Networks (LCN 2016)}, year={2016}}",
       "keywords": []
     },
     {
