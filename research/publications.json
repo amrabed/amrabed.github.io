@@ -1,27 +1,12 @@
 {
   "publications": [
     {
-      "title": "Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux Containers",
-      "short_title": "Applying BoSC for Anomalous Behavior Detection of Applications in Linux Containers",
-      "authors": "Amr S. Abed, Charles Clancy, David Levy",
-      "venue": "IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA), 2015",
-      "url": "http://dx.doi.org/10.1109/GLOCOMW.2015.7414047",
-      "doi": "10.1109/GLOCOMW.2015.7414047",
-      "fulltext": "https://arxiv.org/pdf/1611.03053v1",
-      "citation": "@inproceedings{abed2015applying, title={Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux Containers}, author={Amr S Abed and T Charles Clancy and David S Levy}, booktitle={2015 IEEE Globecom Workshops (GC Wkshps)}, pages={1-5}, year={2015}}",
-      "keywords": [
-        "Security",
-        "Linux Containers",
-        "Anomaly Detection",
-        "System Call Monitoring"
-      ]
-    },
-    {
       "title": "Intrusion Detection System for Applications using Linux Containers",
       "authors": "Amr S. Abed, Charles Clancy, David Levy",
       "venue": "International Workshop on Security and Trust Management (STM), 2015",
-      "url": "http://dx.doi.org/10.1007/978-3-319-24858-5_8",
+      "scopus": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84951875184&partnerID=MN8TOARS",
       "doi": "10.1007/978-3-319-24858-5_8",
+      "eid": "2-s2.0-84951875184",
       "fulltext": "https://arxiv.org/pdf/1611.03056v1",
       "citation": "@inproceedings{abed2015intrusion, title={Intrusion Detection System for Applications Using Linux Containers}, author={Amr S Abed and Charles Clancy and David S Levy}, booktitle={International Workshop on Security and Trust Management}, pages={123-135}, year={2015}}",
       "keywords": [
@@ -32,6 +17,23 @@
         "Security in cloud computing"
       ],
       "presentation": "http://www.slideshare.net/AmrAbed/intrusion-detection-system-for-applications-using-linux-containers"
+    },
+    {
+      "title": "Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux Containers",
+      "short_title": "Applying BoSC for Anomalous Behavior Detection of Applications in Linux Containers",
+      "authors": "Amr S. Abed, Charles Clancy, David Levy",
+      "venue": "IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA), 2015",
+      "scopus": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84971277782&partnerID=MN8TOARS",
+      "doi": "10.1109/GLOCOMW.2015.7414047",
+      "eid": "2-s2.0-84971277782",
+      "fulltext": "https://arxiv.org/pdf/1611.03053v1",
+      "citation": "@inproceedings{abed2015applying, title={Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux Containers}, author={Amr S Abed and T Charles Clancy and David S Levy}, booktitle={2015 IEEE Globecom Workshops (GC Wkshps)}, pages={1-5}, year={2015}}",
+      "keywords": [
+        "Security",
+        "Linux Containers",
+        "Anomaly Detection",
+        "System Call Monitoring"
+      ]
     },
     {
       "title": "Toward Smart Moving Target Defense for Linux Container Resiliency",
@@ -48,6 +50,7 @@
       "authors": "Mohamed Azab, Bassem Mokhtar, Amr S. Abed, Mohamed Eltoweissy",
       "venue": "2nd IEEE International Conference on Collaboration and Internet Computing, 2016",
       "citation": "@inproceedings{abed2016moving, title={A Moving Target Defense Approach for Linux Container Resiliency}, author={Mohamed Azab and Bassem Mahmoud Mokhtar and Amr S Abed and Mohamed Eltoweissy}, booktitle={2nd IEEE International Conference on Collaboration and Internet Computing}, year={2016}}",
+      "doi": "10.1109/CIC.2016.028",
       "keywords": []
     }
   ]
