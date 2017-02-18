@@ -83,17 +83,6 @@
         "Android",
         "Google Calendar API"
       ]
-    },
-    {
-      "id": "strace-docker",
-      "name": "strace-docker",
-      "url": "https://github.com/amrabed/strace-docker",
-      "description": "Linux background service for tracing system calls from Docker containers running on the system, implemented as part of my Ph.D. dissertation research",
-      "release": "January 2015",
-      "skills": [
-        "Docker",
-        "Shell"
-      ]
     }
   ]
 }

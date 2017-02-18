@@ -269,7 +269,7 @@ function loadPublications(file, id, title) {
                 return "https://twitter.com/intent/tweet?text=" + title + "&url=" + url + "&via=amr_abed";
             })
             .append("i")
-            .attr("class", "fa fa-share")
+            .attr("class", "fa fa-share-square-o")
             .attr("aria-hidden", "true")
             .text(" Share")
             // .append("img")

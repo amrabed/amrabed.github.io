@@ -14,16 +14,17 @@ function loadEngineeringPositions(file, id, title) {
 
         setHeading(positions, title);
 
-        var media = getContainer(positions, "container")
+        var row = getContainer(positions, "container")
             .selectAll("div")
             .data(json.positions)
             .enter()
             .append("div")
-            .attr("class", "row")
-            .append("div")
-            .attr("class","col-lg-12");
+            .attr("class", "row");
 
-        var project = getContainer(media, "col-lg-10");
+        var header= row.append("div")
+            .attr("class","col-md-10 col-md-offset-1");
+
+        var project = getContainer(header, "col-md-8");
 
         project.append("h3")
             .text(function (d) {
@@ -46,50 +47,8 @@ function loadEngineeringPositions(file, id, title) {
                 return d.duration;
             });
 
-        project.append("a")
-            .attr("class", "btn btn-link")
-            .attr("data-toggle", "collapse")
-            .attr("data-target", function (d) {
-                return "#" + d.id;
-            })
-            .text("+ Details");
 
-        getContainer(project, "row")
-            .attr("id", function (d) {
-                return d.id;
-            })
-            .attr("class", "collapse out")
-            .append("p")
-            .append("em")
-            .append("ul")
-            .attr("class", "list list-default")
-            .selectAll("li")
-            .data(function (d) {
-                return d.tasks;
-            })
-            .enter()
-            .append("li")
-            .attr("class", "text-justify")
-            .text(function (d) {
-                return d;
-            });
-
-        project.append("p")
-            .attr("class", "list-inline")
-            .selectAll("li")
-            .data(function (d) {
-                return d.skills;
-            })
-            .enter()
-            .append("li")
-            .append("label")
-            .attr("class", "label label-info")
-            .style("margin-right", "-5px")
-            .text(function (d) {
-                return d;
-            });
-
-        var organization = getContainer(media, "col-lg-2");
+        var organization = getContainer(header, "col-md-2");
 
         organization.selectAll("a")
             .data(function (d) {
@@ -112,6 +71,66 @@ function loadEngineeringPositions(file, id, title) {
                 return d.logo;
             })
             .style("width: 128px;");
+
+
+        var details = row.append("div").attr("class", "col-md-10 col-md-offset-1");
+
+        details.append("a")
+            .attr("class", "btn btn-link")
+            .attr("data-toggle", "collapse")
+            .attr("data-target", function (d) {
+                return "#" + d.id;
+            })
+            .text("+ Details");
+
+        getContainer(details, "row")
+            .attr("id", function (d) {
+                return d.id;
+            })
+            .attr("class", "collapse out")
+            .append("p")
+            .append("em")
+            .append("ul")
+            .attr("class", "list list-default")
+            .selectAll("li")
+            .data(function (d) {
+                return d.tasks;
+            })
+            .enter()
+            .append("li")
+            .attr("class", "text-justify")
+            .text(function (d) {
+                return d;
+            });
+
+        details.append("p")
+            .attr("class", "list-inline")
+            .selectAll("li")
+            .data(function (d) {
+                return d.skills;
+            })
+            .enter()
+            .append("li")
+            .append("label")
+            .attr("class", "label label-info")
+            .style("margin-right", "-5px")
+            .text(function (d) {
+                return d;
+            });
+
+        positions.append("div")
+            .attr("class", "container")
+            .append("div")
+            .attr("class", "row")
+            .append("div")
+            .attr("class", "col-md-10 col-md-offset-1")
+            .append("h3")
+            .attr("class", "text-muted")
+            .text("Go to my Research Projects ")
+            .append("a")
+            .attr("href", "../research#projects")
+            .append("i")
+            .attr("class", "fa fa-long-arrow-right");
     });
 }
 
@@ -135,7 +154,7 @@ function loadProducts(file, id, title) {
             .append("div")
             .attr("class", "row")
             .append("div")
-            .attr("class", "col-lg-12");
+            .attr("class", "col-md-10 col-md-offset-1");
 
         var header = product.append("h3");
 
