@@ -316,7 +316,7 @@ function loadPublications(file, id, title) {
 
 
 $.getScript("../include.js", function () {
-    populateNavbar();
+    populateNavbar("../social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", "SlideShare", "Twitter"]);
     loadResearchProjects("projects.json", "#projects", "Research Projects");
     loadPublications("publications.json", "#publications", "Publications");
     loadFooter("../footer.html")

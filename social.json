@@ -1,0 +1,39 @@
+{
+  "accounts": [
+    {
+      "name": "Email",
+      "url": "mailto:amraabed@gmail.com",
+      "icon": "fa-envelope"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/amrabed",
+      "icon": "fa-linkedin"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/amrabed",
+      "icon": "fa-github-alt"
+    },
+    {
+      "name": "Stack Overflow",
+      "url": "http://stackoverflow.com/users/2070636",
+      "icon": "fa-stack-overflow"
+    },
+    {
+      "name": "Google Scholar",
+      "url": "https://scholar.google.com/citations?user=vdrgnAYAAAAJ",
+      "icon": "fa-google"
+    },
+    {
+      "name": "SlideShare",
+      "url": "http://www.slideshare.net/AmrAbed",
+      "icon": "fa-slideshare"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://www.twitter.com/amr_abed",
+      "icon": "fa-twitter"
+    }
+  ]
+}
