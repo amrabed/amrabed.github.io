@@ -58,7 +58,7 @@ function populateNavbar(file, accounts, color) {
             .attr("class", "nav navbar-nav navbar-right")
             .style("margin", "10px 0px")
             .selectAll("a")
-            .data(json.accounts.filter(function(obj) {
+            .data(json.accounts.filter(function (obj) {
                 return accounts.indexOf(obj.name) > -1;
             }))
             .enter()
@@ -78,7 +78,7 @@ function populateNavbar(file, accounts, color) {
             .attr("class", "fa fa-circle fa-stack-2x");
         span.append("i")
             .attr("class", function (d) {
-                return "fa " +d.icon + " fa-stack-1x fa-inverse";
+                return "fa " + d.icon + " fa-stack-1x fa-inverse";
             });
     });
 }
