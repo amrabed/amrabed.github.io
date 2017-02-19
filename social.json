@@ -23,7 +23,27 @@
     {
       "name": "Google Scholar",
       "url": "https://scholar.google.com/citations?user=vdrgnAYAAAAJ",
-      "icon": "fa-google"
+      "icon": "fa-google-scholar"
+    },
+    {
+      "name": "ORCiD",
+      "url": "https://orcid.org/0000-0001-5582-9762",
+      "icon": "fa-orcid"
+    },
+    {
+      "name": "Impactstory",
+      "url": "https://impactstory.org/u/0000-0001-5582-9762",
+      "icon": "fa-impactstory"
+    },
+    {
+      "name": "Mendeley",
+      "url": "https://www.mendeley.com/profiles/amr-abed/",
+      "icon": "fa-mendeley"
+    },
+    {
+      "name": "Figshare",
+      "url": "https://figshare.com/authors/Amr_Abed/476690",
+      "icon": "fa-figshare"
     },
     {
       "name": "SlideShare",
