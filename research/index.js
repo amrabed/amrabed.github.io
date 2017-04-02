@@ -1,6 +1,12 @@
 /**
- * Created by AmrAbed on 10/22/16.
+ * Created by AmrAbed on 10/22/16
  */
+populateNavbar("../social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", "Mendeley", "SlideShare", "Twitter"]);
+loadResearchProjects("projects.json", "#projects", "Research Projects");
+loadPublications("publications.json", "#publications", "Publications");
+loadFooter("../footer.html");
+$.getScript("https://buttons.github.io/buttons.js");// Show Github buttons
+$.getScript("https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js");// show Altmetric badges
 
 /** Load Research Projects
  *
@@ -313,18 +319,3 @@ function loadPublications(file, id, title) {
             });
     });
 }
-
-
-$.getScript("../include.js", function () {
-    populateNavbar("../social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", "Mendeley", "SlideShare", "Twitter"]);
-    loadResearchProjects("projects.json", "#projects", "Research Projects");
-    loadPublications("publications.json", "#publications", "Publications");
-    loadFooter("../footer.html")
-});
-
-// Show Github buttons
-$.getScript("https://buttons.github.io/buttons.js");
-
-// show Altmetric badges
-$.getScript("https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js");
-

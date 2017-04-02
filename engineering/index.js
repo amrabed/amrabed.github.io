@@ -1,18 +1,12 @@
 /**
  * Created by AmrAbed on 10/22/16.
  */
-
-$.getScript("../include.js", function () {
-    populateNavbar("../social.json", ["Email", "LinkedIn", "GitHub", "Stack Overflow", "Twitter"]);
-    loadEngineeringPositions("projects.json", "#positions", "Positions");
-    // loadResearchProjects("../research/projects.json", "#projects", "Research Projects");
-    loadProducts("projects.json", "#products", "Products");
-    loadFooter("../footer.html")
-});
-
-// Show Github buttons
+populateNavbar("../social.json", ["Email", "LinkedIn", "GitHub", "Stack Overflow", "Twitter"]);
+loadEngineeringPositions("projects.json", "#positions", "Positions");
+// loadResearchProjects("../research/projects.json", "#projects", "Research Projects");
+loadProducts("projects.json", "#products", "Products");
+loadFooter("../footer.html");
 $.getScript("https://buttons.github.io/buttons.js");
-
 /** Load Enginineering Positions
  *
  * @param file JSON file to read data from
@@ -32,8 +26,8 @@ function loadEngineeringPositions(file, id, title) {
             .append("div")
             .attr("class", "row");
 
-        var header= row.append("div")
-            .attr("class","col-md-10 col-md-offset-1");
+        var header = row.append("div")
+            .attr("class", "col-md-10 col-md-offset-1");
 
         var project = getContainer(header, "col-md-8");
 

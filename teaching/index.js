@@ -1,12 +1,9 @@
 /**
- * Created by AmrAbed on 10/22/16.
+ * Created by AmrAbed on 10/22/16
  */
-
-$.getScript("../include.js", function () {
-    populateNavbar("../social.json", ["Email", "LinkedIn", "Twitter"]);
-    loadCourses("courses.json", "#courses", "Courses");
-    loadFooter("../footer.html");
-});
+populateNavbar("../social.json", ["Email", "LinkedIn", "Twitter"]);
+loadCourses("courses.json", "#courses", "Courses");
+loadFooter("../footer.html");
 
 /** Load Courses
  *

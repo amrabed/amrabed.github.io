@@ -1,15 +1,11 @@
 /**
- * Created by AmrAbed on 10/22/16.
+ * Created by AmrAbed on 10/22/16
  */
-
-$.when($.getScript("include.js"), $.getScript("style/js/timeline.js")).done(function () {
-    populateNavbar("social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", "Twitter"], "black");
-    loadEducation("education.json", "#education", "Education");
-    loadExperience("experience.json", "#experience", "Experience");
-    loadSkills("skills.json", "#skills", "Technical Skills");
-    loadFooter("footer.html")
-});
-
+populateNavbar("social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", "Twitter"], "black");
+loadEducation("education.json", "#education", "Education");
+loadExperience("experience.json", "#experience", "Experience");
+loadSkills("skills.json", "#skills", "Technical Skills");
+loadFooter("footer.html");
 /** Load Education Items
  *
  * @param file JSON file to read data from
@@ -341,6 +337,5 @@ function loadSkills(file, id, title) {
         //         return d.name;
         //     })
         // && show_github_buttons();
-
     });
 }
