@@ -164,15 +164,18 @@ function loadExperience(file, id, title) {
 
 
         var a = section.append("div")
-            .attr("class", "cotainer-fluid no-padding")
+            .attr("class", "no-padding")
+            .append("div")
+            .attr("class", "container-fluid")
             .append("div")
             .attr("class", "row no-gutter")
             .selectAll("div")
             .data(json.items)
             .enter()
             .append("div")
-            .attr("class", "col-lg-4 col-sm-6 portfolio-box")
+            .attr("class", "col-lg-4 col-sm-6")
             .append("a")
+            .attr("class", "portfolio-box")
             .attr("href", function (d) {
                 return d.ref;
             });
