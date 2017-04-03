@@ -1,7 +1,7 @@
 /**
  * Created by AmrAbed on 10/22/16
  */
-populateNavbar("social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", "Twitter"], "black", ["Education", "Experience", "skills"]);
+populateNavbar(["education", "experience", "skills"], ["Email", "LinkedIn", "GitHub", "Google Scholar", "Twitter"], "black");
 loadEducation("education.json", "#education", "Education");
 loadExperience("experience.json", "#experience", "Experience");
 loadSkills("skills.json", "#skills", "Technical Skills");

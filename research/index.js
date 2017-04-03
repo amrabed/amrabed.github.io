@@ -1,7 +1,7 @@
 /**
  * Created by AmrAbed on 10/22/16
  */
-populateNavbar("../social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", "Mendeley", "SlideShare", "Twitter"]);
+populateNavbar(["bio", "projects", "publications"], ["Email", "LinkedIn", "GitHub", "Google Scholar", "Mendeley", "SlideShare", "Twitter"]);
 loadResearchProjects("projects.json", "#projects", "Research Projects");
 loadPublications("publications.json", "#publications", "Publications");
 loadFooter();

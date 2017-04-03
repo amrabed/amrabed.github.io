@@ -1,7 +1,7 @@
 /**
  * Created by AmrAbed on 10/22/16
  */
-populateNavbar("../social.json", ["Email", "LinkedIn", "Twitter"]);
+populateNavbar(["philosophy", "courses"], ["Email", "LinkedIn", "Twitter"]);
 loadCourses("courses.json", "#courses", "Courses");
 loadFooter();
 

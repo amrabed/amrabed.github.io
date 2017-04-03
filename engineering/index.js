@@ -1,7 +1,7 @@
 /**
  * Created by AmrAbed on 10/22/16
  */
-populateNavbar("../social.json", ["Email", "LinkedIn", "GitHub", "Stack Overflow", "Twitter"]);
+populateNavbar(["positions", "products"], ["Email", "LinkedIn", "GitHub", "Stack Overflow", "Twitter"]);
 loadEngineeringPositions("projects.json", "#positions", "Positions");
 // loadResearchProjects("../research/projects.json", "#projects", "Research Projects");
 loadProducts("projects.json", "#products", "Products");
