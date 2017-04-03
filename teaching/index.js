@@ -3,7 +3,7 @@
  */
 populateNavbar("../social.json", ["Email", "LinkedIn", "Twitter"]);
 loadCourses("courses.json", "#courses", "Courses");
-loadFooter("../footer.html");
+loadFooter();
 
 /** Load Courses
  *

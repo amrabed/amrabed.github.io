@@ -4,7 +4,7 @@
 populateNavbar("../social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", "Mendeley", "SlideShare", "Twitter"]);
 loadResearchProjects("projects.json", "#projects", "Research Projects");
 loadPublications("publications.json", "#publications", "Publications");
-loadFooter("../footer.html");
+loadFooter();
 $.getScript("https://buttons.github.io/buttons.js");// Show Github buttons
 $.getScript("https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js");// show Altmetric badges
 

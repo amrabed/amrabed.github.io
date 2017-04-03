@@ -5,7 +5,7 @@ populateNavbar("social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", 
 loadEducation("education.json", "#education", "Education");
 loadExperience("experience.json", "#experience", "Experience");
 loadSkills("skills.json", "#skills", "Technical Skills");
-loadFooter("footer.html");
+loadFooter();
 /** Load Education Items
  *
  * @param file JSON file to read data from

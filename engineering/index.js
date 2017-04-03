@@ -5,7 +5,7 @@ populateNavbar("../social.json", ["Email", "LinkedIn", "GitHub", "Stack Overflow
 loadEngineeringPositions("projects.json", "#positions", "Positions");
 // loadResearchProjects("../research/projects.json", "#projects", "Research Projects");
 loadProducts("projects.json", "#products", "Products");
-loadFooter("../footer.html");
+loadFooter();
 $.getScript("https://buttons.github.io/buttons.js");
 /** Load Enginineering Positions
  *
