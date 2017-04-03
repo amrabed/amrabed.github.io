@@ -2,17 +2,17 @@
   "items": [
     {
       "text": "Computer Engineer",
-      "img": "style/img/portfolio/engineer.jpg",
+      "img": "assets/img/portfolio/engineer.jpg",
       "ref": "engineering"
     },
     {
       "text": "Researcher",
-      "img": "style/img/portfolio/researcher.jpg",
+      "img": "assets/img/portfolio/researcher.jpg",
       "ref": "research"
     },
     {
       "text": "Instructor",
-      "img": "style/img/portfolio/instructor.jpg",
+      "img": "assets/img/portfolio/instructor.jpg",
       "ref": "teaching"
     }
   ],

@@ -279,7 +279,7 @@ function loadPublications(file, id, title) {
             .attr("aria-hidden", "true")
             .text(" Share")
             // .append("img")
-            // .attr("src", "../style/img/tweet.png")
+            // .attr("src", "../assets/img/tweet.png")
             // .attr("title", "Share")
             // .attr("alt", "Share")
             // .style("height", "30px")
