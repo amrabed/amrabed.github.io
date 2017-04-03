@@ -1,5 +1,5 @@
 /**
- * Created by AmrAbed on 10/22/16.
+ * Created by AmrAbed on 10/22/16
  */
 populateNavbar("../social.json", ["Email", "LinkedIn", "GitHub", "Stack Overflow", "Twitter"]);
 loadEngineeringPositions("projects.json", "#positions", "Positions");
@@ -177,18 +177,18 @@ function loadProducts(file, id, title) {
         //     .text(function (d) {
         //         return d.release;
         //     });
-        header.append("a")
-            .style("display", function (d) {
-                return d.playstore ? null : "none";
-            })
-            .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.playstore;
-            })
-            .append("img")
-            .style("width", "150px")
-            .attr("alt", "Get in on Google Play")
-            .attr("src", "../style/img/google-play-badge.png");
+        // header.append("a")
+        //     .style("display", function (d) {
+        //         return d.playstore ? null : "none";
+        //     })
+        //     .attr("target", "_blank")
+        //     .attr("href", function (d) {
+        //         return d.playstore;
+        //     })
+        //     .append("img")
+        //     .style("width", "150px")
+        //     .attr("alt", "Get in on Google Play")
+        //     .attr("src", "../assets/img/google-play-badge.png");
 
         product.append("p")
             .attr("class", "text-justify")

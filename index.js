@@ -1,7 +1,7 @@
 /**
  * Created by AmrAbed on 10/22/16
  */
-populateNavbar("social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", "Twitter"], "black");
+populateNavbar("social.json", ["Email", "LinkedIn", "GitHub", "Google Scholar", "Twitter"], "black", ["Education", "Experience", "skills"]);
 loadEducation("education.json", "#education", "Education");
 loadExperience("experience.json", "#experience", "Experience");
 loadSkills("skills.json", "#skills", "Technical Skills");
@@ -34,7 +34,7 @@ function loadEducation(file, id, title) {
             .attr("class", "service-box");
 
         degrees.append("img")
-            .attr("src", "style/img/education/education.png");
+            .attr("src", "assets/img/education/education.png");
 
         degrees.append("h3")
             .text(function (d) {
@@ -323,13 +323,13 @@ function loadSkills(file, id, title) {
         //     .enter()
         //     .append("p")
         //     .attr("class", "text-center")
-        //     .style("vertical-align", "middle")
+        //     .assets("vertical-align", "middle")
         //     .append("a")
         //     .attr("class", "github-button")
         //     .attr("href", function (d) {
         //         return  d.code;
         //     })
-        //     .attr("data-style", "mega")
+        //     .attr("data-assets", "mega")
         //     .attr("aria-label", function (d) {
         //         return d.name + " on Github"
         //     })
