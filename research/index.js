@@ -313,7 +313,7 @@ function loadPublications(file, id, title) {
             .append("img")
             .attr("src", function (d) {
                 if (d.doi != null) {
-                    return "http://api.elsevier.com/content/abstract/citation-count?doi=" +
+                    return "https://api.elsevier.com/content/abstract/citation-count?doi=" +
                         d.doi + "&httpAccept=image/jpeg&apiKey=ed9196839729f61e0e1ab9cd1ff9f56b";
                 }
             });
