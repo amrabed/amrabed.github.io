@@ -67,7 +67,7 @@ function loadResearchProjects(file, id, title) {
             .attr("href", function (d) {
                 return d.url;
             })
-            .attr("data-style", "mega")
+            .attr("data-size", "large")
             .attr("aria-label", function (d) {
                 return d.name + " on Github"
             })
