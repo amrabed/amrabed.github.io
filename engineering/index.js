@@ -1,12 +1,12 @@
 /**
  * Created by AmrAbed on 10/22/16
  */
-populateNavbar(["positions", "products"], ["Email", "LinkedIn", "GitHub", "Stack Overflow", "Twitter"]);
+populateNavbar(["positions"], ["Email", "LinkedIn", "GitHub", "Stack Overflow", "Twitter"]);
 loadEngineeringPositions("projects.json", "#positions", "Positions");
 // loadResearchProjects("../research/projects.json", "#projects", "Research Projects");
-loadProducts("projects.json", "#products", "Products");
+// loadProducts("projects.json", "#products", "Products");
 loadFooter();
-$.getScript("https://buttons.github.io/buttons.js");
+// $.getScript("https://buttons.github.io/buttons.js");
 /** Load Enginineering Positions
  *
  * @param file JSON file to read data from

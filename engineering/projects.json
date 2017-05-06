@@ -54,35 +54,5 @@
         "Flex & Bison"
       ]
     }
-  ],
-  "products": [
-    {
-      "id": "evaluation",
-      "name": "Daily Evaluation - Android App",
-      "icon": "https://lh5.ggpht.com/QF6TLwtGUuCs-QVJyfI0WWgTeWJdFLS9KOmypThKbanXAqQuhdT1WDG89B--752Vnxs=w300-rw",
-      "url": "https://github.com/amrabed/evaluation",
-      "description": "Self-assessment app that started as a toy project for learning Android development, yet got over 3.3K organic downloads from around the world in the first year with almost no promotion",
-      "release": "December 2012",
-      "playstore": "https://play.google.com/store/apps/details?id=amrabed.android.release.evaluation",
-      "skills": [
-        "Java",
-        "Android",
-        "Google Drive API"
-      ]
-    },
-    {
-      "id": "iqama",
-      "name": "Iqama Times - Android App",
-      "icon": "https://lh3.googleusercontent.com/sxI_r3w2dDUJBQ6uiI_Xi6i-D5zY7pA2rydT0yV2XZvBBaAYnh70DO9WCqUDfvkkf08=w300-rw",
-      "url": "https://github.com/amrabed/Iqama",
-      "description": "",
-      "release": "July 2016",
-      "playstore": "https://play.google.com/store/apps/details?id=community.icb.iqama",
-      "skills": [
-        "Java",
-        "Android",
-        "Google Calendar API"
-      ]
-    }
   ]
 }
