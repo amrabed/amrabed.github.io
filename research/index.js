@@ -75,7 +75,7 @@ function loadResearchProjects(file, id, title) {
                 return d.name;
             });
 
-        var tags = header.append("p");
+        var tags = header.append("div");
 
         tags.append("i")
             .attr("class", "list-inline")
