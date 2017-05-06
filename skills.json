@@ -19,13 +19,11 @@
         },
         {
           "name": "Daily Evaluation - Android",
-          "link": "engineering#products",
-          "code": "https://github.com/amrabed/evaluation"
+          "link": "https://amrabed.me/evaluation"
         },
         {
           "name": "Iqama Times - Android",
-          "link": "engineering#products",
-          "code": "https://github.com/amrabed/iqama"
+          "link": "https://github.com/amrabed/iqama"
         },
         {
           "name": "Logger - Android",
@@ -70,7 +68,7 @@
         {
           "name": "RHIDS",
           "link": "research#projects",
-          "code": "https://github.com/amrabed/rhids"
+          "code": "https://amrabed.me/rhids"
         },
         {
           "name": "SodaCloud",
@@ -91,7 +89,7 @@
         },
         {
           "name": "Daily Evaluation",
-          "link": "https://github.com/amrabed/evaluation"
+          "link": "https://amrabed.me/evaluation"
         },
         {
           "name": "Iqama Times",
