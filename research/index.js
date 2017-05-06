@@ -77,7 +77,7 @@ function loadResearchProjects(file, id, title) {
 
         var tags = header.append("div");
 
-        tags.append("i")
+        tags.append("ul")
             .attr("class", "list-inline")
             .selectAll("li")
             .data(function (d) {
@@ -92,7 +92,7 @@ function loadResearchProjects(file, id, title) {
                 return d;
             });
 
-        tags.append("i")
+        tags.append("ul")
             .style("margin-left", "0px")
             .attr("class", "list-inline")
             .selectAll("li")
