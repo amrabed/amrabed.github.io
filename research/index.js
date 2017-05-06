@@ -75,9 +75,9 @@ function loadResearchProjects(file, id, title) {
                 return d.name;
             });
 
-        var tags = header.append("div");
+        var tags = header.append("p");
 
-        tags.append("ul")
+        tags.append("i")
             .attr("class", "list-inline")
             .selectAll("li")
             .data(function (d) {
@@ -92,7 +92,7 @@ function loadResearchProjects(file, id, title) {
                 return d;
             });
 
-        tags.append("ul")
+        tags.append("i")
             .style("margin-left", "0px")
             .attr("class", "list-inline")
             .selectAll("li")
