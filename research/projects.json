@@ -68,11 +68,12 @@
       ],
       "interests": [
         "Security"
-      ]
+      ],
+      "products": []
     },
     {
-       "id": "rhids",
-     "project": "RHIDS - Resilient Host-based Intrusion Detection System for Linux containers",
+      "id": "rhids",
+      "project": "RHIDS - Resilient Host-based Intrusion Detection System for Linux containers",
       "sponsors": [
         {
           "name": "S2ERC",
