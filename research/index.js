@@ -56,25 +56,6 @@ function loadResearchProjects(file, id, title) {
                 return d.duration;
             });
 
-        header.append("div")
-            .selectAll("a")
-            .data(function (d) {
-                return d.products;
-            })
-            .enter()
-            .append("a")
-            .attr("class", "github-button")
-            .attr("href", function (d) {
-                return d.url;
-            })
-            .attr("data-size", "large")
-            .attr("aria-label", function (d) {
-                return d.name + " on Github"
-            })
-            .text(function (d) {
-                return d.name;
-            });
-
         var tags = header.append("p");
 
         tags.append("i")
@@ -106,6 +87,25 @@ function loadResearchProjects(file, id, title) {
             .attr("style", "margin-right: -5px")
             .text(function (d) {
                 return d;
+            });
+
+        header.append("div")
+            .selectAll("a")
+            .data(function (d) {
+                return d.products;
+            })
+            .enter()
+            .append("a")
+            .attr("class", "github-button")
+            .attr("href", function (d) {
+                return d.url;
+            })
+            .attr("data-size", "large")
+            .attr("aria-label", function (d) {
+                return d.name + " on Github"
+            })
+            .text(function (d) {
+                return d.name;
             });
 
         header.append("a")
