@@ -15,7 +15,7 @@
         "name": "NCR Urban Living Lab, Virginia Tech",
         "url": "http://www.ncr.vt.edu/initiatives/urban_living_lab.html"
       },
-      "duration": "May 2016 - Present",
+      "duration": "May 2016 - July 2017",
       "tasks": [
         "Constructed a Raspberry Pi based IoT sensor for the MetroLab Network",
         "Designed and implemented a framework for the device to communicate with a remote MySQL server",
@@ -135,7 +135,7 @@
         "name": "Magnum Lab, Virginia Tech",
         "url": "https://github.com/VT-Magnum-Research"
       },
-      "duration": "May 2016 - Preset",
+      "duration": "Feb 2013 - May 2013",
       "tasks": [
         "Implemented the Docker-EC2 tool using Shell scripting to automate running and testing network applications using a Docker container on different instances of the Amazon-AWS EC2",
         "Maintained and troubleshot build issues of the SodaCloud project (Mobile/Cloud Computing project funded by Siemens) on GitHub and BuildHive using Maven"
