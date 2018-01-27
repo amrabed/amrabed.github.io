@@ -100,9 +100,20 @@
         "name": "Virginia Tech",
         "url": "http://www.vt.edu"
       },
-      "duration": "January 2015 - Present",
-      "time": "Current",
+      "duration": "January 2015 - July 2017",
+      "time": 2015,
       "date": "01/01/2015",
+      "selected": false
+    },
+    {
+      "position": "Assistant Professor",
+      "organization": {
+        "name": "Minia University",
+        "url": "http://www.minia.edu.eg/eng/index.php/en"
+      },
+      "duration": "November 2017 - Present",
+      "time": "current",
+      "date": "01/11/2017",
       "selected": true
     }
   ]
