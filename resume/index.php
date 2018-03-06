@@ -1,10 +1,8 @@
----
-title: Amr Abed - Résumé
----
 <html lang="en">
 
 <head>
-    {% include head.html %}
+    <title>Amr Abed - Résumé</title>
+    <?php include '../_includes/head.php' ?>
 </head>
 
 <body id="page-top">
@@ -219,7 +217,7 @@ title: Amr Abed - Résumé
             </li>
         </ul>
     </div>
-    
+
     <div id="volunteer">
         <h2>Volunteer Work</h2>
         <p><b>Docker Mentor</b>, March 2017 - Present</p>
@@ -234,10 +232,10 @@ title: Amr Abed - Résumé
             Ain-Shams University, Cairo, Egypt<br/>
         </p-->
     </div>
-    
+
     <div id="awards"><h2>Awards</h2>
         <p><b>VT-MENA Program Scholarship</b>,
-            September 2010 - Present<br/>
+            September 2010 - July 2017<br/>
             For candidate staff-members of the Egyptian Universities pursuing a graduate degree
             in Electrical and Computer
             Engineering from Virginia Tech</p>
@@ -279,13 +277,13 @@ title: Amr Abed - Résumé
         <p>
             Mona Kashkoush, Mohamed Azab, Gamal Attiya, and Amr Abed. 
             "<b>Online Smart Disguise: Real-time Diversification Evading Co-residency based Cloud Attacks</b>," 
-            in Cluster Computing, 2018, under review
+            in Cluster Computing, 2018
         </p>
     </div>
 </div>
 <aside></aside>
 
-{% include footer.html %}
+<?php include '../_includes/footer.php' ?>
 
 </body>
 </html>

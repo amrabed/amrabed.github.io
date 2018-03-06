@@ -1,16 +1,16 @@
----
-title: Amr Abed
----
 <html lang="en">
 
 <head>
-    {% include head.html %}
+    <?php include '_includes/head.php' ?>
+<!--    {% include head.html %} -->
     <link href="assets/css/timeline.min.css" rel="stylesheet">
+    <title> Amr Abed </title>
 </head>
 
 <body id="page-top">
 
-{% include navbar.html %}
+<?php include '_includes/navbar.php' ?>
+<!-- {% include navbar.html %} -->
 
 <header>
     <div class="header-content">
@@ -27,7 +27,8 @@ title: Amr Abed
 <section id="experience"></section>
 <section id="skills"></section>
 
-{% include footer.html %}
+<?php include '_includes/footer.php' ?>
+<!-- {% include footer.html %} -->
 
 <script src="assets/js/timeline.min.js"></script>
 <script src="index.js"></script>

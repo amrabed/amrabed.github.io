@@ -4,7 +4,7 @@
 <meta name="author" content="Amr Abed">
 <meta name="description" content="{{ page.title }}">
 
-<title>{{ page.title }}</title>
+<!--title>{{ page.title }}</title-->
 
 <link href="/favicon.ico" rel="icon">
 

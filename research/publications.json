@@ -52,6 +52,13 @@
       "citation": "@inproceedings{abed2016moving, title={A Moving Target Defense Approach for Linux Container Resiliency}, author={Mohamed Azab and Bassem Mahmoud Mokhtar and Amr S Abed and Mohamed Eltoweissy}, booktitle={2nd IEEE International Conference on Collaboration and Internet Computing}, year={2016}}",
       "doi": "10.1109/CIC.2016.028",
       "keywords": []
+    },
+    {
+      "title": "Online Smart Disguise: Real-time Diversication Evading Coresidency Based Cloud Attacks",
+      "authors": "Mona S. kashkoush, Mohamed Azab, Gamal Attiya, Amr S. Abed",
+      "venue": "Cluster Computing, 2018",
+      "citation": "@article{kashkoush2018, title={Online Smart Disguise: Real-time Diversication Evading Coresidency Based Cloud Attacks}, author={Mona S. kashkoush and Mohamed Azab and Gamal Attiya and Amr S. Abed}, journal={Cluster Computing}, year={2018}}",
+      "keywords": []
     }
   ]
 }

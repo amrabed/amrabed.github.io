@@ -1,15 +1,13 @@
----
-title: Amr Abed - Research
----
 <html lang="en">
 
 <head>
-    {% include head.html %}
+    <?php include '../_includes/head.php' ?>
+    <title>Amr Abed - Research</title>
 </head>
 
 <body id="page-top">
 
-{% include navbar.html %}
+<?php include '../_includes/navbar.php' ?>
 
 <aside class="bg-primary">
     <div class="container-fluid text-center">
@@ -57,7 +55,7 @@ title: Amr Abed - Research
 <section id="projects" class="bg-info"></section>
 <section id="publications"></section>
 
-{% include footer.html %}
+<?php include '../_includes/footer.php' ?>
 
 <script src="index.js"></script>
 <script src="../assets/js/analytics.min.js"></script>
