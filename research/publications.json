@@ -54,6 +54,12 @@
       "keywords": []
     },
     {
+      "title": "Resilient Intrusion Detection System for cloud containers",
+      "authors": "Amr S. Abed, Mohamed Azab, Charles Clancy, Mona Kashkoush",
+      "venue": "International Journal of Communication Networks and Distributed Systems, 2018",
+      "citation": "@article{abed2018, title={Resilient Intrusion Detection System for cloud containers}, journal={International Journal of Communication Networks and Distributed Systems}, year={2018}}"
+    },
+    {
       "title": "Online Smart Disguise: Real-time Diversication Evading Coresidency Based Cloud Attacks",
       "authors": "Mona S. kashkoush, Mohamed Azab, Gamal Attiya, Amr S. Abed",
       "venue": "Cluster Computing, 2018",

@@ -265,6 +265,11 @@
             in IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA), 2015
         </p>
         <p>
+            Amr Abed, Mohamed Azab, Charles Clancy, and Mona Kashkoush.
+            "<b>Resilient Intrusion Detection System for Cloud Containers</b>,"
+            in International Journal of Communication Networks and Distributed Systems, 2018
+        </p>
+        <p>
             Mohamed Azab, Bassem Mokhtar, Amr Abed, and Mohamed Eltoweissy. 
             "<b>Toward Smart Moving Target Defense for Linux Container Resiliency</b>," 
             in 41st IEEE Conference on Local Computer Networks (LCN 2016), 2016
