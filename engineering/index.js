@@ -7,7 +7,7 @@ loadEngineeringPositions("projects.json", "#positions", "Positions");
 // loadProducts("projects.json", "#products", "Products");
 loadFooter();
 // $.getScript("https://buttons.github.io/buttons.js");
-/** Load Enginineering Positions
+/** Load Engineering Positions
  *
  * @param file JSON file to read data from
  * @param id Target section ID
@@ -131,7 +131,7 @@ function loadEngineeringPositions(file, id, title) {
             .attr("class", "col-md-10 col-md-offset-1")
             .append("h3")
             .attr("class", "text-muted")
-            .text("Go to my Research Projects ")
+            .text("Go to my Industry-funded Research Projects ")
             .append("a")
             .attr("href", "../research#projects")
             .append("i")

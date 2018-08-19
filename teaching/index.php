@@ -57,13 +57,12 @@
                 topic.
             </p>
             <p>
-                I highly believe in learning by example, and I believe that practice makes better.
+                I highly believe in learning by example, and I believe that practice makes perfect.
                 This is how I like to learn myself, and this is how I encourage my students to master their material.
-                I often use my industry experience to help my students get better understanding of real-world
-                experiences.
+                I often use my industry experience to help my students get better understanding of real-world requirements.
             </p>
             <p>
-                When I get the opportunity to evaluate my students, I prefer to evaluate their understanding of the
+                When I evaluate my students, I prefer to evaluate their understanding of the
                 material and how they can use it in their studies and their careers, rather than just testing whether
                 they studied what I taught.
             </p>

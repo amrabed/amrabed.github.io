@@ -1,10 +1,43 @@
 {
   "items": [
     {
-      "position": "Assistant Lecturer",
+      "position": "Assistant Professor",
       "organization": {
         "name": "Minia University",
-        "department": "Faculty of Engineering",
+        "department": "Computer & System Engineering",
+        "url": "http://www.minia.edu.eg/eng/index.php/en"
+      },
+      "duration": "November 2017 - Present",
+      "courses": [
+        {
+          "id": "cse115",
+          "title": "Programming Languages",
+          "semester": "Fall 2018",
+          "code": "CSE 115",
+          "link": "http://courses.amrabed.me/course/index.php?categoryid=3"
+        },
+        {
+          "id": "cse415",
+          "title": "Mobile & Cloud Computing",
+          "semester": "Fall 2018",
+          "code": "CSE 415",
+          "link": "http://courses.amrabed.me/course/index.php?categoryid=3"
+        },
+        {
+          "id": "cse422",
+          "title": "Computer-Controlled Systems",
+          "semester": "Spring 2018",
+          "code": "CSE 422",
+          "link": "http://courses.amrabed.me/course/index.php?categoryid=2",
+          "description": "This course provides senior undergraduate CSE students with the fundamental principles of analysis, design, and implementation of computer-controlled systems"
+        }
+      ]
+    },
+    {
+      "position": "Teaching Assistant",
+      "organization": {
+        "name": "Minia University",
+        "department": "Computer & System Engineering",
         "url": "http://www.minia.edu.eg/eng/index.php/en"
       },
       "duration": "March 2007 - August 2010",
@@ -13,16 +46,30 @@
       ],
       "courses": [
         {
-          "title": "C Programming"
+          "id": "cse115ta",
+          "title": "Programming Languages (C Programming)",
+          "code": "CSE 115",
+          "description": "Introductory C-programming course taught to first year computer engineering students"
         },
         {
-          "title": "Signals and Systems"
+          "id": "cse314",
+          "title": "Signals and Systems",
+          "code": "CSE 314",
+          "description": "Signal and systems course taught to third year computer engineering students"
+
         },
         {
-          "title": "Electrical Circuits"
+          "id": "cse111",
+          "title": "Electrical Circuits",
+          "code": "CSE 111",
+          "description": "Fundamentals of DC and AC electric circuits taught to first year computer engineering students"
         },
         {
-          "title": "Operating Systems"
+          "id": "cse222",
+          "title": "Operating Systems",
+          "code": "CSE 222",
+          "description": "Fundamentals of operating system design using C. Course taught to second year computer engineering students "
+
         }
       ]
     },
@@ -58,29 +105,24 @@
       "courses": [
         {
           "title": "Signal and System Theory",
-          "code": "COMM 401",
-          "description": "Tutored more than 100 4th semester students of the German University in Cairo",
           "link": "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=46"
         },
         {
           "title": "Systems and Control",
-          "code": "COMM 501",
           "link": "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=108"
         },
         {
           "title": "Digital Signal Processing",
-          "code": "COMM 602",
           "link": "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=62"
         },
         {
           "title": "Data Structures and Algorithms",
-          "code": "CMP 102",
           "link": "http://www.elearn.eng.cu.edu.eg/course/view.php?id=5"
         }
       ]
     },
     {
-      "position": "Assistant Lecturer",
+      "position": "Teaching Assistant",
       "organization": {
         "name": "Shorouk Academy",
         "department": "Higher Institute of Engineering",
@@ -113,7 +155,7 @@
       ]
     },
     {
-      "position": "Assistant Lecturer",
+      "position": "Teaching Assistant",
       "organization": {
         "name": "Modern Academy for Engineering and Technology",
         "department": "Faculty of Engineering",
@@ -125,30 +167,35 @@
       ],
       "courses": [
         {
+          "id": "cmp110",
           "title": "Program Design and Computer Languages",
           "description": "Programming fundamentals using C++",
           "code": "CMP 110",
           "link": "courses/mam/cmp110.pdf"
         },
         {
+          "id": "cmp410",
           "title": "Microprocessor Based Systems",
           "description": "Writing assembly code for programming Intel 80x86 microprocessors",
           "code": "CMP 410",
           "link": "courses/mam/cmp410.pdf"
         },
         {
+          "id":"cmp426",
           "title": "Logic Design II",
           "description": "Advanced logic circuit design course",
           "code": "CMP 426",
           "link": "courses/mam/cmp426.pdf"
         },
         {
+          "id": "cmp433",
           "title": "Embedded Systems",
           "description": "Building embedded systems using Intel 8051 Microcontrollers",
           "code": "CMP 433",
           "link": "courses/mam/cmp433.pdf"
         },
         {
+          "id": "cmo524",
           "title": "Computer Modeling and Simulation",
           "description": "System modeling and simulation using MATLAB",
           "code": "CMP 524",
@@ -161,7 +208,6 @@
     {
       "title": "Signal and System Theory",
       "code": "COMM 401",
-      "description": "Tutored more than 100 4th semester students of the German University in Cairo",
       "link": "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=46"
     },
     {
