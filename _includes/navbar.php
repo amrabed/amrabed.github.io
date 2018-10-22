@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-items">
                 <span class="sr-only">Toggle navigation</span><!-- Menu -->
-                <i class="fa fa-bars"></i>
+                <em class="fa fa-bars"></em>
             </button>
             <a class="navbar-brand page-scroll" href="#page-top">Amr Abed</a>
         </div>

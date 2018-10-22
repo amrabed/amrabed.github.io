@@ -14,7 +14,7 @@ loadFooter();
  */
 function loadEducation(file, id, title) {
     d3.json(file, function (json) {
-        var section = d3.select(id);
+        const section = d3.select(id);
 
         setHeading(section, title);
 
@@ -23,7 +23,7 @@ function loadEducation(file, id, title) {
             .attr("class", "hidden-sm hidden-xs")
             .style("height", "200px");
 
-        var degrees = section.append("div")
+        const degrees = section.append("div")
             .attr("class", "row")
             .selectAll("div")
             .data(json.degrees)
@@ -71,16 +71,16 @@ function loadEducation(file, id, title) {
  */
 function loadExperience(file, id, title) {
     d3.json(file, function (json) {
-        var section = d3.select(id);
+        const section = d3.select(id);
         setHeading(section, title);
 
-        var t = section.append("div")
+        const t = section.append("div")
             .attr("class", "cd-horizontal-timeline");
 
-        var timeline = t.append("div")
+        const timeline = t.append("div")
             .attr("class", "timeline");
 
-        var events = timeline.append("div")
+        const events = timeline.append("div")
             .attr("class", "events-wrapper")
             .append("div")
             .attr("class", "events")
@@ -122,7 +122,7 @@ function loadExperience(file, id, title) {
                 return d.text;
             });
 
-        var li = t.append("div")
+        const li = t.append("div")
             .attr("class", "events-content")
             .append("ol")
             .selectAll("li")
@@ -159,7 +159,7 @@ function loadExperience(file, id, title) {
         initTimeline(t);
 
 
-        var a = section.append("div")
+        const a = section.append("div")
             .attr("class", "no-padding")
             .append("div")
             .attr("class", "container-fluid")
@@ -202,11 +202,11 @@ function loadExperience(file, id, title) {
  */
 function loadSkills(file, id, title) {
     d3.json(file, function (json) {
-        var section = d3.select(id);
+        const section = d3.select(id);
 
         setHeading(section, title);
 
-        var skill = section.append("div")
+        const skill = section.append("div")
             .attr("class", "container-fluid")
             .append("svg")
             .attr("viewBox", "0 0 600 280")
@@ -222,7 +222,7 @@ function loadSkills(file, id, title) {
                 return "translate(" + d.x + "," + (15 + d.y) + ")";
             })
             .on("mouseover", function () {
-                var g = d3.select(this)
+                const g = d3.select(this)
                     .each(function () {
                         /* Bring to front (based on gist.github.com/trtg/3922684) */
                         this.parentNode.appendChild(this);
@@ -239,7 +239,7 @@ function loadSkills(file, id, title) {
                 })
             })
             .on("mouseout", function () {
-                var g = d3.select(this);
+                const g = d3.select(this);
 
                 g.select("circle")
                     .attr("fill-opacity", 0.85)
@@ -272,7 +272,7 @@ function loadSkills(file, id, title) {
                 return d.label
             });
 
-        var modal = section.data(json.skills)
+        const modal = section.data(json.skills)
             .enter()
             .append("div")
             .attr("id", function (d) {
