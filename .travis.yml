@@ -1,0 +1,11 @@
+language: php
+
+php:
+  - 7.2
+
+addons:
+  sonarcloud:
+    organization: "amrabed-github"
+
+script:
+  - sonar-scanner
