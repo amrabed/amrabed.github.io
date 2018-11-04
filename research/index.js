@@ -16,11 +16,11 @@ $.getScript("https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js");// show Alt
  */
 function loadResearchProjects(file, id, title) {
     d3.json(file, function (json) {
-        var section = d3.select(id);
+        const section = d3.select(id);
 
         setHeading(section, title);
 
-        var media = section.append("div")
+        const media = section.append("div")
             .attr("class", "container")
             .selectAll("div")
             .data(json.items)
@@ -28,7 +28,7 @@ function loadResearchProjects(file, id, title) {
             .append("div")
             .attr("class", "row");
 
-        var header = getContainer(media, "col-lg-10");
+        const header = getContainer(media, "col-lg-10");
 
         header.append("h3")
             .text(function (d) {
@@ -56,7 +56,7 @@ function loadResearchProjects(file, id, title) {
                 return d.duration;
             });
 
-        var tags = header.append("p");
+        const tags = header.append("p");
 
         tags.append("i")
             .attr("class", "list-inline")
@@ -116,7 +116,7 @@ function loadResearchProjects(file, id, title) {
             })
             .text("+ Details");
 
-        var details = getContainer(header, "row")
+        getContainer(header, "row")
             .attr("id", function (d) {
                 return d.id;
             })
@@ -136,7 +136,7 @@ function loadResearchProjects(file, id, title) {
                 return d;
             });
 
-        var sponsors = getContainer(media, "col-lg-2 media-middle");
+        const sponsors = getContainer(media, "col-lg-2 media-middle");
 
         sponsors.append("h6")
             .attr("class", "text-muted")
@@ -175,11 +175,11 @@ function loadResearchProjects(file, id, title) {
  */
 function loadPublications(file, id, title) {
     d3.json(file, function (json) {
-        var section = d3.select(id);
+        const section = d3.select(id);
 
         setHeading(section, title);
 
-        var publication = section.append("div")
+        const publication = section.append("div")
             .attr("class", "container")
             .selectAll("div")
             .data(json.publications)
@@ -270,8 +270,8 @@ function loadPublications(file, id, title) {
             .attr("class", "btn btn-default btn-square")
             .attr("target", "_blank")
             .attr("href", function (d) {
-                var title = d.short_title ? d.short_title : d.title;
-                var url = d.fulltext ? d.fulltext : "https://dx.doi.org/" + d.doi;
+                const title = d.short_title ? d.short_title : d.title;
+                const url = d.fulltext ? d.fulltext : "https://dx.doi.org/" + d.doi;
                 return "https://twitter.com/intent/tweet?text=" + title + "&url=" + url + "&via=amr_abed";
             })
             .append("i")
@@ -288,7 +288,7 @@ function loadPublications(file, id, title) {
                 return d.fulltext || d.doi ? null : "none";
             });
 
-        var impact = publication;//.append("div");
+        const impact = publication;//.append("div");
 
 
         impact.append("span")

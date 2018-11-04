@@ -7,7 +7,7 @@ loadEngineeringPositions("projects.json", "#positions", "Positions");
 // loadProducts("projects.json", "#products", "Products");
 loadFooter();
 // $.getScript("https://buttons.github.io/buttons.js");
-/** Load Enginineering Positions
+/** Load Engineering Positions
  *
  * @param file JSON file to read data from
  * @param id Target section ID
@@ -15,21 +15,21 @@ loadFooter();
  */
 function loadEngineeringPositions(file, id, title) {
     d3.json(file, function (json) {
-        var positions = d3.select(id);
+        const positions = d3.select(id);
 
         setHeading(positions, title);
 
-        var row = getContainer(positions, "container")
+        const row = getContainer(positions, "container")
             .selectAll("div")
             .data(json.positions)
             .enter()
             .append("div")
             .attr("class", "row");
 
-        var header = row.append("div")
+        const header = row.append("div")
             .attr("class", "col-md-10 col-md-offset-1");
 
-        var project = getContainer(header, "col-md-8");
+        const project = getContainer(header, "col-md-8");
 
         project.append("h3")
             .text(function (d) {
@@ -53,7 +53,7 @@ function loadEngineeringPositions(file, id, title) {
             });
 
 
-        var organization = getContainer(header, "col-md-2");
+        const organization = getContainer(header, "col-md-2");
 
         organization.selectAll("a")
             .data(function (d) {
@@ -78,7 +78,7 @@ function loadEngineeringPositions(file, id, title) {
             .style("width: 128px;");
 
 
-        var details = row.append("div").attr("class", "col-md-10 col-md-offset-1");
+        const details = row.append("div").attr("class", "col-md-10 col-md-offset-1");
 
         details.append("a")
             .attr("class", "btn btn-link")
@@ -147,11 +147,11 @@ function loadEngineeringPositions(file, id, title) {
  */
 function loadProducts(file, id, title) {
     d3.json(file, function (json) {
-        var products = d3.select(id);
+        const products = d3.select(id);
 
         setHeading(products, title);
 
-        var product = products.append("div")
+        const product = products.append("div")
             .attr("class", "container")
             .selectAll("div")
             .data(json.products)
@@ -161,7 +161,7 @@ function loadProducts(file, id, title) {
             .append("div")
             .attr("class", "col-md-10 col-md-offset-1");
 
-        var header = product.append("h3");
+        const header = product.append("h3");
 
         header.append("a").append("em")
             .attr("target", "_blank")

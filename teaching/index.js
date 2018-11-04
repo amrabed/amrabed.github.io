@@ -13,11 +13,11 @@ loadFooter();
  */
 function loadCourses(file, id, title) {
     d3.json(file, function (json) {
-        var section = d3.select(id);
+        const section = d3.select(id);
 
         setHeading(section, title);
 
-        var row = section.append("div")
+        const row = section.append("div")
             .attr("class", "container")
             .selectAll("div")
             .data(json.items)
@@ -43,7 +43,7 @@ function loadCourses(file, id, title) {
                 return d.duration;
             });
 
-        var item = row.append("em").append("ul")
+        const item = row.append("em").append("ul")
             .attr("class", "list list-default")
             .selectAll("li")
             .data(function (d) {

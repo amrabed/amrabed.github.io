@@ -46,6 +46,6 @@
 <script src="/assets/js/analytics.min.js"></script>
 
 <script>
-    var path = window.location.pathname;
+    const path = window.location.pathname;
     $('.nav > li > a[href="' + path.substring(0, path.lastIndexOf("/")) + '"]').parent().addClass('active');
 </script>
