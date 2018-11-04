@@ -131,7 +131,7 @@ function loadEngineeringPositions(file, id, title) {
             .attr("class", "col-md-10 col-md-offset-1")
             .append("h3")
             .attr("class", "text-muted")
-            .text("Go to my Research Projects ")
+            .text("Go to my Industry-funded Research Projects ")
             .append("a")
             .attr("href", "../research#projects")
             .append("i")

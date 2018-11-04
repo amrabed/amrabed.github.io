@@ -23,24 +23,25 @@
     </div>
     <div class="container">
         <p class="text-justify">
-            I am a Ph.D. candidate in the <a href="http://www.ece.vt.edu" target="_blank">Bradley Department of
-            Electrical and Computer Engineering</a> at <a href="http://www.vt.edu" target="_blank">Virginia Tech</a>,
-            where I am currently working with <a href="http://www.hume.vt.edu/~tcc" target="_blank">Dr. Charles
-            Clancy</a> in the <a href="http://www.hume.vt.edu" target="_blank">Hume Center for National Security and
-            Technology</a>. I earned my B.S. degree in Computer and System Engineering in 2005 from the <a
-                href="http://eng.asu.edu.eg" target="_blank">Faculty of Engineering, Ain-Shams University</a> in
-            Cairo,
-            Egypt.
+            I am an Assistant Professor of Computer and System Engineering at Minia University in Egypt.
+            I got my Ph.D. in Computer Engineering from the
+            <a href="http://www.ece.vt.edu" target="_blank">Bradley Department of Electrical and Computer Engineering</a>
+            at <a href="http://www.vt.edu" target="_blank">Virginia Tech</a>, where I worked with
+            <a href="http://www.hume.vt.edu/~tcc" target="_blank">Prof. Charles Clancy</a> in the
+            <a href="http://www.hume.vt.edu" target="_blank">Hume Center for National Security and Technology</a>.
+            I earned my B.S. degree in Computer and System Engineering in 2005 from the
+            <a href="http://eng.asu.edu.eg" target="_blank">Faculty of Engineering, Ain Shams University</a> in
+            Cairo, Egypt.
             In 2010, I joined the Direct Ph.D. program in Computer Engineering at Virginia Tech, and got my M.S.
-            degree in Computer Engineering in 2013.
-            My current research interests are in IoT, Mobile, and Cloud Computing and Security.
+            degree in 2013 and my Ph.D. degree in 2017.
+            My current research interests include applying machine learning to mobile and cloud computing and security.
         </p>
         <p class="text-justify">
-            For my Ph.D. dissertation, I am working on a project for securing
+            For my Ph.D. dissertation, I worked on a project for securing cloud-based
             <a href="https://en.wikipedia.org/wiki/LXC" target="_blank">Linux containers</a> through anomaly-based
             <a href="https://en.wikipedia.org/wiki/Intrusion_detection_system" target="_blank">Intrusion detection</a>
-            and remediation.
-            The Prezi below gives an overview of how the system works. For more details, please refer to my
+            and remediation. The Prezi below gives an overview of how the system works.
+            For more details about my research, please refer to my
             <a class="page-scroll" href="#publications">publications <i class="fa fa-arrow-down"></i></a>
         </p>
     </div>
