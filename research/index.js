@@ -7,6 +7,7 @@ loadPublications("publications.json", "#publications", "Publications");
 loadFooter();
 $.getScript("https://buttons.github.io/buttons.js");// Show Github buttons
 $.getScript("https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js");// show Altmetric badges
+$.getScript("https://badge.dimensions.ai/badge.js");// Show Dimensions badge
 
 /** Load Research Projects
  *
@@ -290,9 +291,9 @@ function loadPublications(file, id, title) {
 
         const impact = publication;//.append("div");
 
-
         impact.append("span")
             .style("padding-right", "5px")
+            // .style("display", "inline")
             .attr("data-badge-popover", "top")
             .attr("data-badge-type", "1")
             .attr("data-hide-no-mentions", "true")
@@ -302,20 +303,29 @@ function loadPublications(file, id, title) {
                 return d.doi;
             });
 
-        impact.append("a")
-            .attr("target", "_blank")
-            .attr("display", function (d) {
-                return d.doi ? null : "none";
-            })
-            .attr("href", function (d) {
-                return d.scopus;
-            })
-            .append("img")
-            .attr("src", function (d) {
-                if (d.doi != null) {
-                    return "https://api.elsevier.com/content/abstract/citation-count?doi=" +
-                        d.doi + "&httpAccept=image/jpeg&apiKey=ed9196839729f61e0e1ab9cd1ff9f56b";
-                }
+        impact.append("span")
+            .style("display", "inline")
+            .attr("class", "__dimensions_badge_embed__")
+            .attr("data-hide-zero-citations", "true")
+            .attr("data-style", "large_rectangle")
+            .attr("data-doi", function (d) {
+                return d.doi;
             });
+
+        // impact.append("a")
+        //     .attr("target", "_blank")
+        //     .attr("display", function (d) {
+        //         return d.doi ? null : "none";
+        //     })
+        //     .attr("href", function (d) {
+        //         return d.scopus;
+        //     })
+        //     .append("img")
+        //     .attr("src", function (d) {
+        //         if (d.doi != null) {
+        //             return "https://api.elsevier.com/content/abstract/citation-count?doi=" +
+        //                 d.doi + "&httpAccept=image/jpeg&apiKey=ed9196839729f61e0e1ab9cd1ff9f56b";
+        //         }
+        //     });
     });
 }
