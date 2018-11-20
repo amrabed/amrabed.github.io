@@ -4,6 +4,7 @@
 populateNavbar(["bio", "projects", "publications"], ["Email", "LinkedIn", "GitHub", "Google Scholar", "Mendeley", "SlideShare", "Twitter"]);
 loadResearchProjects("projects.json", "#projects", "Research Projects");
 loadPublications("publications.json", "#publications", "Publications");
+loadPrezi();
 loadFooter();
 $.getScript("https://buttons.github.io/buttons.js");// Show Github buttons
 $.getScript("https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js");// show Altmetric badges
@@ -295,12 +296,6 @@ function loadPublications(file, id, title) {
             .attr("class", "fa fa-share-square-o")
             .attr("aria-hidden", "true")
             .text(" Share")
-            // .append("img")
-            // .attr("src", "../assets/img/tweet.png")
-            // .attr("title", "Share")
-            // .attr("alt", "Share")
-            // .style("height", "30px")
-            // .style("padding-right", "5px")
             .style("display", function (d) {
                 return d.fulltext || d.doi ? null : "none";
             });
@@ -326,21 +321,21 @@ function loadPublications(file, id, title) {
             .attr("data-doi", function (d) {
                 return d.doi;
             });
-
-        // impact.append("a")
-        //     .attr("target", "_blank")
-        //     .attr("display", function (d) {
-        //         return d.doi ? null : "none";
-        //     })
-        //     .attr("href", function (d) {
-        //         return d.scopus;
-        //     })
-        //     .append("img")
-        //     .attr("src", function (d) {
-        //         if (d.doi != null) {
-        //             return "https://api.elsevier.com/content/abstract/citation-count?doi=" +
-        //                 d.doi + "&httpAccept=image/jpeg&apiKey=ed9196839729f61e0e1ab9cd1ff9f56b";
-        //         }
-        //     });
     });
+}
+
+function loadPrezi() {
+    d3.select("#bio").append("div")
+        .attr("id", "prezi")
+        .attr("class", "container text-center")
+        .append("iframe")
+        .attr("allowfullscreen", "")
+        .attr("width", "960")
+        .attr("height", "574")
+        .attr("frameborder", "0")
+        .attr("marginwidth", "0")
+        .attr("marginheight", "0")
+        .attr("scrolling", "no")
+        .attr("style", "border:0 none; max-width: 100%; margin-top: 10px;")
+        .attr("src", "https://prezi.com/embed/pdcyfmyhcup9/?bgcolor=ffffff&lock_to_path=1&autoplay=1&autohide_ctrls=0&landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI0VTc1Y2lkdkdrT2V0UzgzWFFBYk5sa1R3PT0&amp;landing_sign=PJF_DAy5_3Jg9mPLEto5Ld4ASoECO0hUheFwIujSR38");
 }

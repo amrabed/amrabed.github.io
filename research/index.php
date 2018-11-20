@@ -45,13 +45,7 @@
             <a class="page-scroll" href="#publications">publications <i class="fa fa-arrow-down"></i></a>
         </p>
     </div>
-    <div id="prezi" class="container text-center">
-        <iframe allowfullscreen width="960" height="574" frameborder="0"
-                marginwidth="0" marginheight="0" scrolling="no"
-                style="border:0 none; max-width: 100%; margin-top: 10px;"
-                src="https://prezi.com/embed/pdcyfmyhcup9/?bgcolor=ffffff&lock_to_path=1&autoplay=1&autohide_ctrls=0&landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI0VTc1Y2lkdkdrT2V0UzgzWFFBYk5sa1R3PT0&amp;landing_sign=PJF_DAy5_3Jg9mPLEto5Ld4ASoECO0hUheFwIujSR38">
-        </iframe>
-    </div>
+
 </section>
 <section id="projects" class="bg-info"></section>
 <section id="publications"></section>
