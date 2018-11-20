@@ -237,7 +237,7 @@ function loadPublications(file, id, title) {
             .append("i")
             .attr("class", "fa fa-quote-left")
             .attr("aria-hidden", "true")
-            .text(" Citation") && $("[data-toggle=popover]").popover();
+            .text(" Cite") && $("[data-toggle=popover]").popover();
 
         publication.append("a")
             .attr("class", "btn btn-default btn-square")
@@ -251,7 +251,7 @@ function loadPublications(file, id, title) {
             .append("i")
             .attr("class", "fa fa-download")
             .attr("aria-hidden", "true")
-            .text(" Full Text");
+            .text(" Read");
 
         publication.append("a")
             .attr("class", "btn btn-default btn-square")
@@ -292,10 +292,8 @@ function loadPublications(file, id, title) {
         const impact = publication;//.append("div");
 
         impact.append("span")
-            .style("padding-right", "5px")
-            // .style("display", "inline")
             .attr("data-badge-popover", "top")
-            .attr("data-badge-type", "1")
+            .attr("data-badge-type", "3")
             .attr("data-hide-no-mentions", "true")
             .attr("data-role", "page")
             .attr("class", "altmetric-embed")
@@ -304,10 +302,11 @@ function loadPublications(file, id, title) {
             });
 
         impact.append("span")
+            .style("padding-left", "10px")
             .style("display", "inline")
             .attr("class", "__dimensions_badge_embed__")
             .attr("data-hide-zero-citations", "true")
-            .attr("data-style", "large_rectangle")
+            .attr("data-style", "small_rectangle")
             .attr("data-doi", function (d) {
                 return d.doi;
             });
