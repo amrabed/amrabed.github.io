@@ -2,13 +2,19 @@
   "publications": [
     {
       "title": "Intrusion Detection System for Applications using Linux Containers",
-      "authors": "Amr S. Abed, Charles Clancy, David Levy",
-      "venue": "International Workshop on Security and Trust Management (STM), 2015",
+      "authors": [
+        "Amr S. Abed",
+        "Charles Clancy",
+        "David Levy"
+      ],
+      "venue": "Security and Trust Management (STM)",
+      "year": "2015",
+      "pages": "123-135",
+      "type": "conference",
       "scopus": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84951875184&partnerID=MN8TOARS",
       "doi": "10.1007/978-3-319-24858-5_8",
       "eid": "2-s2.0-84951875184",
       "fulltext": "https://arxiv.org/pdf/1611.03056v1",
-      "citation": "@inproceedings{abed2015intrusion, title={Intrusion Detection System for Applications Using Linux Containers}, author={Amr S Abed and Charles Clancy and David S Levy}, booktitle={International Workshop on Security and Trust Management}, pages={123-135}, year={2015}}",
       "keywords": [
         "Intrusion detection",
         "Anomaly detection",
@@ -21,13 +27,19 @@
     {
       "title": "Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux Containers",
       "short_title": "Applying BoSC for Anomalous Behavior Detection of Applications in Linux Containers",
-      "authors": "Amr S. Abed, Charles Clancy, David Levy",
-      "venue": "IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA), 2015",
+      "authors": [
+        "Amr S. Abed",
+        "Charles Clancy",
+        "David Levy"
+      ],
+      "venue": "IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA)",
+      "year": "2015",
+      "pages": "1-5",
+      "type": "conference",
       "scopus": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84971277782&partnerID=MN8TOARS",
       "doi": "10.1109/GLOCOMW.2015.7414047",
       "eid": "2-s2.0-84971277782",
       "fulltext": "https://arxiv.org/pdf/1611.03053v1",
-      "citation": "@inproceedings{abed2015applying, title={Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux Containers}, author={Amr S Abed and T Charles Clancy and David S Levy}, booktitle={2015 IEEE Globecom Workshops (GC Wkshps)}, pages={1-5}, year={2015}}",
       "keywords": [
         "Security",
         "Linux Containers",
@@ -37,36 +49,58 @@
     },
     {
       "title": "Toward Smart Moving Target Defense for Linux Container Resiliency",
-      "authors": "Mohamed Azab, Bassem Mokhtar, Amr S. Abed, Mohamed Eltoweissy",
+      "authors": [
+        "Mohamed Azab",
+        "Bassem Mokhtar",
+        "Amr S. Abed",
+        "Mohamed Eltoweissy"
+      ],
       "url": "https://doi.org/10.1109/LCN.2016.106",
       "doi": "10.1109/LCN.2016.106",
-      "venue": "IEEE 41st Conference on Local Computer Networks (LCN), 2016",
-      "fulltext": "https://arxiv.org/pdf/1611.03065v1",
-      "citation": "@inproceedings{abed2016toward, title={Toward Smart Moving Target Defense for Linux Container Resiliency}, author={Mohamed Azab and Bassem Mahmoud Mokhtar and Amr S Abed and Mohamed Eltoweissy}, booktitle={IEEE 41st Conference on Local Computer Networks (LCN 2016)}, year={2016}}",
-      "keywords": []
+      "venue": "IEEE 41st Conference on Local Computer Networks (LCN 2016)",
+      "year": "2016",
+      "type": "conference",
+      "fulltext": "https://arxiv.org/pdf/1611.03065v1"
     },
     {
       "title": "A Moving Target Defense Approach for Linux Container Resiliency",
-      "authors": "Mohamed Azab, Bassem Mokhtar, Amr S. Abed, Mohamed Eltoweissy",
-      "venue": "2nd IEEE International Conference on Collaboration and Internet Computing, 2016",
-      "citation": "@inproceedings{abed2016moving, title={A Moving Target Defense Approach for Linux Container Resiliency}, author={Mohamed Azab and Bassem Mahmoud Mokhtar and Amr S Abed and Mohamed Eltoweissy}, booktitle={2nd IEEE International Conference on Collaboration and Internet Computing}, year={2016}}",
-      "doi": "10.1109/CIC.2016.028",
-      "keywords": []
+      "authors": [
+        "Mohamed Azab",
+        "Bassem Mokhtar",
+        "Amr S. Abed",
+        "Mohamed Eltoweissy"
+      ],
+      "venue": "2nd IEEE International Conference on Collaboration and Internet Computing",
+      "year": "2016",
+      "type": "conference",
+      "doi": "10.1109/CIC.2016.028"
     },
     {
       "title": "Resilient Intrusion Detection System for cloud containers",
-      "authors": "Amr S. Abed, Mohamed Azab, Charles Clancy, Mona Kashkoush",
-      "venue": "International Journal of Communication Networks and Distributed Systems, 2018",
-      "citation": "@article{abed2018, title={Resilient Intrusion Detection System for cloud containers}, journal={International Journal of Communication Networks and Distributed Systems}, year={2018}}"
+      "authors": [
+        "Amr S. Abed",
+        "Mohamed Azab",
+        "Charles Clancy",
+        "Mona Kashkoush"
+      ],
+      "venue": "International Journal of Communication Networks and Distributed Systems",
+      "year": "2018",
+      "type": "article"
     },
     {
       "title": "Online Smart Disguise: Real-time Diversication Evading Coresidency Based Cloud Attacks",
-      "authors": "Mona S. kashkoush, Mohamed Azab, Gamal Attiya, Amr S. Abed",
-      "venue": "Cluster Computing, 2018",
-      "citation": "@article{kashkoush2018, title={Online Smart Disguise: Real-time Diversication Evading Coresidency Based Cloud Attacks}, author={Mona S. kashkoush and Mohamed Azab and Gamal Attiya and Amr S. Abed}, journal={Cluster Computing}, year={2018}}",
+      "authors": [
+        "Mona S. kashkoush",
+        "Mohamed Azab",
+        "Gamal Attiya",
+        "Amr S. Abed"
+      ],
+      "venue": "Cluster Computing",
+      "year": "2018",
+      "pages": "1-16",
+      "type": "article",
       "doi": "10.1007/s10586-018-2851-2",
-      "fulltext": "https://link.springer.com/content/pdf/10.1007%2Fs10586-018-2851-2.pdf",
-      "keywords": []
+      "fulltext": "https://link.springer.com/content/pdf/10.1007%2Fs10586-018-2851-2.pdf"
     }
   ]
 }

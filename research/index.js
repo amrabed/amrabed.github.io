@@ -168,6 +168,14 @@ function loadResearchProjects(file, id, title) {
     });
 }
 
+function authorList(publication, separator) {
+    let list = "";
+    for (let i = 0; i < publication.authors.length; i++) {
+        list += publication.authors[i] + (i < publication.authors.length - 1 ? separator : "");
+    }
+    return list;
+}
+
 /** Load Publications
  *
  * @param file JSON file to read data from
@@ -202,14 +210,14 @@ function loadPublications(file, id, title) {
             });
 
         publication.append("h4")
-            .text(function (d) {
-                return d.authors;
+            .text(function (p) {
+                return authorList(p, ", ")
             });
 
         publication.append("p")
             .attr("class", "text-muted")
-            .text(function (d) {
-                return d.venue;
+            .text(function (p) {
+                return p.venue + ", " + p.year;
             });
 
         // publication.append("p")
@@ -231,8 +239,16 @@ function loadPublications(file, id, title) {
             .attr("data-container", "body")
             .attr("data-toggle", "popover")
             .attr("data-placement", "top")
-            .attr("data-content", function (d) {
-                return d.citation;
+            .attr("data-content", function (p) {
+                const author = p.authors[0];
+                const title = p.title;
+                const key = author.slice(author.lastIndexOf(" ") + 1) + p.year + title.slice(0, title.indexOf(" ", 1));
+                return `@${p.type}{${key},
+                    title = {${title}},
+                    author = {${authorList(p, " and ")}},
+                    ${(p.type === "article") ? "journal" : "booktitle"} = {${p.venue}},
+                    ${(p.pages == null) ? "" : "pages = {" + p.pages + "},"}
+                    year = {${p.year}}}`;
             })
             .append("i")
             .attr("class", "fa fa-quote-left")
