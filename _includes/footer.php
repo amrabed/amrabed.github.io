@@ -4,7 +4,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/">Amr Abed</a>
                     </li>
                     <li>
                         <a href="/engineering">Engineering</a>
@@ -20,6 +20,9 @@
                     </li>
                     <li>
                         <a href="/about">About</a>
+                    </li>
+                    <li>
+                        <a href="/blog">Blog</a>
                     </li>
                 </ul>
             </div>

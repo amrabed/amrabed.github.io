@@ -5,7 +5,7 @@
                 <span class="sr-only">Toggle navigation</span><!-- Menu -->
                 <span class="fa fa-bars"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Amr Abed</a>
+            <a class="navbar-brand page-scroll" href="/">Amr Abed</a>
         </div>
 
         <div class="collapse navbar-collapse" id="menu-items">
