@@ -3,7 +3,7 @@
 
 <head>
     <title>Amr Abed - Résumé</title>
-    <?php include '/_includes/header.php' ?>
+    <?php include '../_includes/header.php' ?>
 </head>
 
 <body id="page-top">
@@ -291,7 +291,7 @@
 </div>
 <aside></aside>
 
-<?php include '/_includes/footer.php' ?>
+<?php include '../_includes/footer.php' ?>
 
 </body>
 </html>

@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php include '/_includes/header.php' ?>
+    <?php include '../_includes/header.php' ?>
     <title>Amr Abed - Teaching</title>
 </head>
 
 <body id="page-top">
 
-<?php include '/_includes/navbar.php' ?>
+<?php include '../_includes/navbar.php' ?>
 
 <aside class="bg-primary">
     <div class="container-fluid text-center">
@@ -73,7 +73,7 @@
 </section>
 <section id="courses" class="bg-info"></section>
 
-<?php include '/_includes/footer.php' ?>
+<?php include '../_includes/footer.php' ?>
 
 <script src="index.js"></script>
 <script src="/assets/js/analytics.min.js"></script>
