@@ -16,7 +16,7 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <img src="assets/img/amrabed.jpg" alt="profile picture" class="img-circle" style="width: 140px">
+            <img src="assets/img/amrabed.jpeg" alt="profile picture" class="img-circle" style="width: 140px">
             <h1>Amr Abed</h1>
             <hr>
             <p>Computer Engineer • Researcher • Instructor</p>
