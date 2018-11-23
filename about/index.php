@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>Amr Abed - About</title>
-<?php include '../_includes/head.php' ?>
+    <?php include '/_includes/header.php' ?>
 </head>
 <body id="page-top">
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -44,7 +44,7 @@
 </div>
 <aside></aside>
 
-<?php include '../_includes/footer.php' ?>
+<?php include '/_includes/footer.php' ?>
 
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script src="https://www.goodreads.com/review/grid_widget/15582377?cover_size=medium&hide_link=true&hide_title=true&num_books=20&order=a&shelf=favorites&sort=date_added&widget_id=1480909593"

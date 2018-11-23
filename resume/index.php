@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Amr Abed - Résumé</title>
-    <?php include '../_includes/head.php' ?>
+    <?php include '/_includes/header.php' ?>
 </head>
 
 <body id="page-top">
@@ -72,13 +73,13 @@
     </aside>
     <div id="education">
         <h2>Education</h2>
-        <p><b>Ph.D. Computer Engineering</b>, August 2014 - July 2017<br>
-            <b>M.S. Computer Engineering</b>, August 2010 - July 2013<br>
+        <p><strong>Ph.D. Computer Engineering</strong>, August 2014 - July 2017<br>
+            <strong>M.S. Computer Engineering</strong>, August 2010 - July 2013<br>
             Virginia Tech, Blacksburg, VA<br>
             <em class="text-muted">GPA 3.8/4.0</em></p>
         <p>
-            <!--<b>Pre-Master Courses, Computer and System Engineering</b>, July 2006<br>-->
-            <b>B.S. Computer and System Engineering</b>, September 2000 - June 2005<br>
+            <!--<strong>Pre-Master Courses, Computer and System Engineering</strong>, July 2006<br>-->
+            <strong>B.S. Computer and System Engineering</strong>, September 2000 - June 2005<br>
             Ain-Shams University, Cairo, Egypt<br>
             <em class="text-muted">
                 Very Good (83.9%) with Honor (GPA <span class="math inline">∼</span>3.4/4.0) with Excellent project
@@ -97,13 +98,13 @@
         <p>Arabic, English, French</p>
     </div>
     <div id="current"><h2>Current Position</h2>
-        <p><b>Assistant Professor</b>,
+        <p><strong>Assistant Professor</strong>,
             November 2017 – Present<br/>
             Department of Computer and System Engineering<br/>
             Minia University, Minia, Egypt</p>
     </div>
     <div id="technical"><h2>Technical Experience</h2>
-        <p><b>Software Engineering Intern</b>,
+        <p><strong>Software Engineering Intern</strong>,
             May 2014 – August 2014<br/>
             Google Fit Team, Google, Mountain View, CA</p>
         <ul>
@@ -115,7 +116,7 @@
             </li>
             <li>Added features and fixed bugs for two other Android applications using the Google Fit APIs</li>
         </ul>
-        <p><b>Software Development Engineer</b>,
+        <p><strong>Software Development Engineer</strong>,
             November 2007 – November 2008<br/>
             Device Modeling Team, Mentor Graphics, Cairo, Egypt</p>
         <ul>
@@ -127,7 +128,7 @@
         </ul>
     </div>
     <div id="research"><h2>Research Experience</h2>
-        <p><b>Graduate Research Assistant</b>,
+        <p><strong>Graduate Research Assistant</strong>,
             May 2016 – July 2017<br/>
             National Capital Region Urban Living Lab<br/>
             Virginia Tech, Arlington, VA</p>
@@ -138,7 +139,7 @@
             </li>
             <li>Implemented a website using PHP and Plotly.js to display data from the database</li>
         </ul>
-        <p><b>Graduate Research Assistant</b>,
+        <p><strong>Graduate Research Assistant</strong>,
             January 2017 - May 2017<br/>
             Hume Center for National Security and Technology<br/>
             Virginia Tech, Arlington, VA</p>
@@ -147,7 +148,7 @@
             <li>Designed the threat model for testing the security solution using Metasploit</li>
             <li>Implemented a container-based web application as an attack target</li>
         </ul>
-        <p><b>Graduate Research Assistant</b>,
+        <p><strong>Graduate Research Assistant</strong>,
             January 2015 – May 2016<br/>
             Hume Center for National Security and Technology<br/>
             Virginia Tech, Blacksburg, VA</p>
@@ -156,7 +157,7 @@
             <li>Designed and implemented RHIDS, an intrusion detection system for cloud containers</li>
             <li>Tested the system using Docker containers deployed on Amazon-AWS EC2 instances</li>
         </ul>
-        <p><b>Graduate Research Assistant</b>,
+        <p><strong>Graduate Research Assistant</strong>,
             February 2013 – May 2013<br/>
             Magnum Group, Bradley Department of Electrical and Computer Engineering<br/>
             Virginia Tech, Blacksburg, VA</p>
@@ -171,7 +172,7 @@
     </div>
 
     <div id="teaching"><h2>Teaching Experience</h2>
-        <p><b>Instructor</b>,
+        <p><strong>Instructor</strong>,
             March 2006 – August 2010<br/>
             Inform - IBM Authorized Training Center, Cairo, Egypt</p>
         <ul>
@@ -180,7 +181,7 @@
                 outside the Engineering field
             </li>
         </ul>
-        <p><b>Instructor</b>,
+        <p><strong>Instructor</strong>,
             February 2008 – August 2010<br/>
             Al-Sedeek Education Center, Giza, Egypt</p>
         <ul>
@@ -189,7 +190,7 @@
                 300 students
             </li>
         </ul>
-        <p><b>Teaching Assistant</b>,
+        <p><strong>Teaching Assistant</strong>,
             March 2007 – August 2010<br/>
             Department of Computer and System Engineering<br/>
             Minia University, Minia, Egypt</p>
@@ -198,7 +199,7 @@
                 students each
             </li>
         </ul>
-        <p><b>Teaching Assistant</b>,
+        <p><strong>Teaching Assistant</strong>,
             February 2006 – September 2007<br/>
             Department of Electronics, Communications and Computer Engineering<br/>
             Al-Shorouk Academy, Cairo, Egypt</p>
@@ -207,7 +208,7 @@
                 students each
             </li>
         </ul>
-        <p><b>Teaching Assistant</b>,
+        <p><strong>Teaching Assistant</strong>,
             September 2005 – May 2006<br/>
             Department of Computer and Information Technology<br/>
             Modern Academy for Engineering and Technology, Cairo, Egypt</p>
@@ -220,12 +221,13 @@
 
     <div id="volunteer">
         <h2>Volunteer Work</h2>
-        <p><b>Docker Mentor</b>, March 2017 - Present</p>
-        <p><b>IEEE Peer Reviewer</b>, August 2016 - Present</p>
-        <p><b>Technical Program Committee Member</b>, Special session on IoT Cloud Platforms, July - December 2017</p>
-        <!--p><b>Google Local Guide</b>, December 2015 - Present</p-->
-        <p><b>President of Executive Board</b>, Islamic Center of Blacksburg, January – December 2016</p>
-        <!--p><b>Student Organizer</b>,
+        <p><strong>Docker Mentor</strong>, March 2017 - Present</p>
+        <p><strong>IEEE Peer Reviewer</strong>, August 2016 - Present</p>
+        <p><strong>Technical Program Committee Member</strong>, Special session on IoT Cloud Platforms, July - December
+            2017</p>
+        <!--p><strong>Google Local Guide</strong>, December 2015 - Present</p-->
+        <p><strong>President of Executive Board</strong>, Islamic Center of Blacksburg, January – December 2016</p>
+        <!--p><strong>Student Organizer</strong>,
             September 2004<br/>
             IEEE International Conference of Electrical, Electronic and Computer
             Engineering (ICEEC 04)<br/>
@@ -234,16 +236,16 @@
     </div>
 
     <div id="awards"><h2>Awards</h2>
-        <p><b>VT-MENA Program Scholarship</b>,
+        <p><strong>VT-MENA Program Scholarship</strong>,
             September 2010 - July 2017<br/>
             For candidate staff-members of the Egyptian Universities pursuing a graduate degree
             in Electrical and Computer
             Engineering from Virginia Tech</p>
-        <p><b>Egyptian Ministry of Higher Education Award</b>,
+        <p><strong>Egyptian Ministry of Higher Education Award</strong>,
             September 2004, 2003, 2002, 2001<br/>
             For distinction in undergraduate studies at Ain-Shams University, Faculty of
             Engineering</p>
-        <!--p><b>Egyptian Ministry of Education Award</b>,
+        <!--p><strong>Egyptian Ministry of Education Award</strong>,
             July 2000, 1999<br/>
             For Distinction in Studies of first and second stages of the General Certificate of
             Secondary Education</p-->
@@ -251,44 +253,45 @@
 
     <div id="publications"><h2>Publications</h2>
         <p>
-            Amr Abed. "<b>Securing Cloud Containers through Intrusion Detection and Remediation</b>," 
+            Amr Abed. "<strong>Securing Cloud Containers through Intrusion Detection and Remediation</strong>,"
             PhD dissertation, Virginia Tech, 2017
         </p>
         <p>
-            Amr Abed, Charles Clancy, and David Levy. 
-            "<b>Intrusion Detection System for Applications Using Linux Containers</b>," 
+            Amr Abed, Charles Clancy, and David Levy.
+            "<strong>Intrusion Detection System for Applications Using Linux Containers</strong>,"
             in Security and Trust Management, ser. Lecture Notes in Computer Science, vol. 9331, 2015, pp. 123-135
         </p>
         <p>
             Amr Abed, Charles Clancy, and David Levy.
-            "<b>Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux Containers</b>," 
+            "<strong>Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux
+                Containers</strong>,"
             in IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA), 2015
         </p>
         <p>
             Amr Abed, Mohamed Azab, Charles Clancy, and Mona Kashkoush.
-            "<b>Resilient Intrusion Detection System for Cloud Containers</b>,"
+            "<strong>Resilient Intrusion Detection System for Cloud Containers</strong>,"
             in International Journal of Communication Networks and Distributed Systems, 2018
         </p>
         <p>
-            Mohamed Azab, Bassem Mokhtar, Amr Abed, and Mohamed Eltoweissy. 
-            "<b>Toward Smart Moving Target Defense for Linux Container Resiliency</b>," 
+            Mohamed Azab, Bassem Mokhtar, Amr Abed, and Mohamed Eltoweissy.
+            "<strong>Toward Smart Moving Target Defense for Linux Container Resiliency</strong>,"
             in 41st IEEE Conference on Local Computer Networks (LCN 2016), 2016
         </p>
         <p>
-            Mohamed Azab, Bassem Mokhtar, Amr Abed, and Mohamed Eltoweissy. 
-            "<b>A Moving-Target Defense Approach for Linux Container Resiliency</b>," 
+            Mohamed Azab, Bassem Mokhtar, Amr Abed, and Mohamed Eltoweissy.
+            "<strong>A Moving-Target Defense Approach for Linux Container Resiliency</strong>,"
             in The 2nd IEEE International Conference on Collaboration and Internet Computing, 2016, invited paper
         </p>
         <p>
-            Mona Kashkoush, Mohamed Azab, Gamal Attiya, and Amr Abed. 
-            "<b>Online Smart Disguise: Real-time Diversification Evading Co-residency based Cloud Attacks</b>," 
+            Mona Kashkoush, Mohamed Azab, Gamal Attiya, and Amr Abed.
+            "<strong>Online Smart Disguise: Real-time Diversification Evading Co-residency based Cloud Attacks</strong>,"
             in Cluster Computing, 2018
         </p>
     </div>
 </div>
 <aside></aside>
 
-<?php include '../_includes/footer.php' ?>
+<?php include '/_includes/footer.php' ?>
 
 </body>
 </html>
