@@ -12,7 +12,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-items">
                 <span class="sr-only">Toggle navigation</span>
-                <i class="fa fa-bars"></i>
+                <span class="fa fa-bars"></span>
             </button>
             <a class="navbar-brand page-scroll" href="#page-top">Amr Abed</a>
         </div>
@@ -50,14 +50,14 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a target="_blank" title="Email me" href="mailto:amraabed@gmail.com">
-                        <i class="fa fa-envelope"></i> Contact
+                        <span class="fa fa-envelope"></span> Contact
                     </a>
                 </li>
                 <li>
                     <a href="https://github.com/amrabed/resume/blob/master/AmrAbed.pdf" target="_blank"
                        class="btn btn-default" title="Download as PDF" id="pdf"
                        aria-haspopup="true" aria-expanded="true">
-                        <i class="fa fa-file-pdf-o"></i> PDF
+                        <span class="fa fa-file-pdf-o"></span> PDF
                     </a>
                 </li>
             </ul>
