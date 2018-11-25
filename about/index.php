@@ -1,49 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Amr Abed - About</title>
+    <title>Amr Abed - About</title>
     <?php include '../_includes/header.php' ?>
 </head>
 <body id="page-top">
 
 <?php include '../_includes/navbar.php' ?>
 
-<aside style="background-size: cover;height: 25%;background-image:url(../assets/img/cover.jpg)"></aside>
-<div class="container">
-    <div class="col-lg-7 col-md-7 text-justify">
-        <div id="about" class="row">
-            <h3 class="text-left">About me</h3>
-            <p>I am a <a href="../engineering">Computer engineer</a>,
-                <a href="../research">Researcher</a>, and <a href="../teaching">Instructor</a>
-                recently completed my Ph.D. degree in Computer Engineering from the
-                <a href="http://ece.vt.edu">Bradley Department of Electrical and Computer Engineering</a> at
-                <a href="http://www.vt.edu" target="_blank">Virginia Tech</a>.
-                Special interest in Mobile, Cloud, and IoT Computing and Security.
-            </p>
+<aside class="h-25" style="background-size: cover;background-image:url(../assets/img/cover.jpg)"></aside>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="row">
+                <h3 class="text-left">About me</h3>
+                <p class="text-justify">I am a <a href="../engineering">Computer engineer</a>,
+                    <a href="../research">Researcher</a>, and <a href="../teaching">Instructor</a>
+                    recently completed my Ph.D. in Computer Engineering from the
+                    <a href="http://ece.vt.edu">Bradley Department of Electrical and Computer Engineering</a> at
+                    <a href="http://www.vt.edu" target="_blank">Virginia Tech</a>.
+                    Special interest in Mobile, Cloud, and IoT Computing and Security.
+                </p>
+            </div>
+            <div class="row">
+                <h3>My favorite quotes</h3>
+                <div class="row">
+                    <div class="col-xl-6 p-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <blockquote class="blockquote">
+                                    <p>Aim for the moon. If you miss, you may hit a star</p>
+                                    <footer class="blockquote-footer">W. Clement Stone</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 p-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <blockquote class="blockquote">
+                                    <p>I don't know anything, but I do know that everything is interesting if you go
+                                        into
+                                        it deeply enough</p>
+                                    <footer class="blockquote-footer">Richard Feynman</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 p-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <blockquote class="blockquote">
+                                    <p>Most people do not listen with the intent to understand; they listen with the
+                                        intent to reply</p>
+                                    <footer class="blockquote-footer">Stephen R. Covey</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 p-2">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <blockquote class="blockquote">
+                                    <p>Second place is the first loser</p>
+                                    <footer class="blockquote-footer">Dale Earnhardt</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>My favorite books of all time</h3>
+                <div id="gr_grid_widget_1480909593" class="p-2"></div>
+            </div>
         </div>
-        <div class="row">
-            <h3 class="text-left">My favorite books of all time</h3>
-            <div id="gr_grid_widget_1480909593"></div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-lg-offset-1">
-        <h3 class="text-left">My recent tweets
-            <span style="float: right; margin-top: 5px">
+        <div class="col-lg-4">
+            <h3 class="text-left">My recent tweets
+                <span style="float: right; margin-top: 5px">
                 <a href="https://twitter.com/amr_abed" class="twitter-follow-button" title="Follow me"
                    data-show-screen-name="false" data-show-count="false" data-size="large"></a>
             </span>
-        </h3>
-        <a class="twitter-timeline" href="https://twitter.com/amr_abed" data-tweet-limit="3"
-           data-chrome="noheader nofooter"></a>
+            </h3>
+            <a class="twitter-timeline" href="https://twitter.com/amr_abed" data-tweet-limit="4"
+               data-chrome="noheader nofooter"></a>
+        </div>
     </div>
-
 </div>
+
+
 <aside></aside>
 
 <?php include '../_includes/footer.php' ?>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script src="https://www.goodreads.com/review/grid_widget/15582377?cover_size=medium&hide_link=true&hide_title=true&num_books=20&order=a&shelf=favorites&sort=date_added&widget_id=1480909593"
-        type="text/javascript" charset="utf-8"></script>
-
 </body>
 </html>

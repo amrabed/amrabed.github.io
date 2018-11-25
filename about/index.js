@@ -1,0 +1,2 @@
+$.getScript("https://www.goodreads.com/review/grid_widget/15582377?cover_size=medium&hide_link=true&hide_title=true&num_books=20&order=a&shelf=favorites&sort=date_added&widget_id=1480909593");
+$.getScript("//platform.twitter.com/widgets.js");

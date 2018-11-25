@@ -21,4 +21,4 @@
       rel='stylesheet' type='text/css'>
 
 <link href="/assets/css/creative.min.css" rel="stylesheet">
-<!--<link href="/assets/css/amrabed.min.css" rel="stylesheet">-->
+<link href="/assets/css/amrabed.min.css" rel="stylesheet">
