@@ -235,10 +235,10 @@
         </p>
     </div>
 </div>
-<aside></aside>
+<aside class="mh-50 py-5"></aside>
 
 <?php include '../_includes/footer.php' ?>
-<!--<script populateNavebar ( [ "Education", "Skills", "Languages", "Technical", "Research", "Teaching", "Volunteer", "Awards", "Publications"], ["Email", "PDF"]);>-->
-<!--</script>-->
+<script src="index.js"></script>
+
 </body>
 </html>

@@ -169,14 +169,6 @@ function loadResearchProjects(file, id, title) {
     });
 }
 
-function authorList(publication, separator) {
-    let list = "";
-    for (let i = 0; i < publication.authors.length; i++) {
-        list += publication.authors[i] + (i < publication.authors.length - 1 ? separator : "");
-    }
-    return list;
-}
-
 /** Load Publications
  *
  * @param file JSON file to read data from
