@@ -3,7 +3,7 @@
 
 <head>
     <?php include '_includes/header.php' ?>
-<!--    {% include head.html %} -->
+    <!--    {% include head.html %} -->
     <link href="assets/css/timeline.min.css" rel="stylesheet">
     <title> Amr Abed </title>
 </head>
@@ -13,18 +13,21 @@
 <?php include '_includes/navbar.php' ?>
 <!-- {% include navbar.html %} -->
 
-<header>
-    <div class="header-content">
-        <div class="header-content-inner">
-            <img src="assets/img/amrabed.jpeg" alt="profile picture" class="img-circle" style="width: 140px">
-            <h1>Amr Abed</h1>
-            <hr>
-            <p>Computer Engineer • Researcher • Instructor</p>
+<header class="masthead text-center text-white d-flex">
+    <div class="container my-auto">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <img src="assets/img/amrabed.jpeg" alt="profile picture" class="rounded-circle" style="width: 140px">
+                <h1 class="text-uppercase">Amr Abed</h1>
+                <hr>
+            </div>
+            <div class="col-lg-8 mx-auto">
+                <p>Computer Engineer • Researcher • Instructor</p>
+            </div>
         </div>
-    </div>
 </header>
 
-<section id="education" class="bg-info"></section>
+<section id="education" class="bg-light"></section>
 <section id="experience"></section>
 <section id="skills"></section>
 
@@ -33,7 +36,6 @@
 
 <script src="assets/js/timeline.min.js"></script>
 <script src="index.js"></script>
-<script src="assets/js/analytics.min.js"></script>
 
 </body>
 </html>

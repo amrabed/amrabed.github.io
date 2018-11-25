@@ -7,67 +7,67 @@
 </head>
 
 <body id="page-top">
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-items">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="fa fa-bars"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Amr Abed</a>
-        </div>
 
-        <div class="collapse navbar-collapse" id="menu-items">
-            <ul class="nav navbar-nav navbar-left">
-                <li>
-                    <a class="page-scroll" href="#education">Education</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#skills">Skills</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#languages">Languages</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#technical">Technical</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#research">Research</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#teaching">Teaching</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#volunteer">Volunteer</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#awards">Awards</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#publications">Publications</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a target="_blank" title="Email me" href="mailto:amraabed@gmail.com">
-                        <span class="fa fa-envelope"></span> Contact
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/amrabed/resume/blob/master/AmrAbed.pdf" target="_blank"
-                       class="btn btn-default" title="Download as PDF" id="pdf"
-                       aria-haspopup="true" aria-expanded="true">
-                        <span class="fa fa-file-pdf-o"></span> PDF
-                    </a>
-                </li>
-            </ul>
-        </div>
+<?php include '../_includes/navbar.php' ?>
 
 
-    </div>
-</nav>
+<!-- <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">-->
+<!--    <div class="container-fluid">-->
+<!--        <a class="navbar-brand js-scroll-trigger" href="/">Amr Abed</a>-->
+<!--        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse"-->
+<!--                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"-->
+<!--                aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse" id="navbarResponsive">-->
+<!--            <ul class="nav navbar-nav navbar-left">-->
+<!--                <li>-->
+<!--                    <a class="js-page-scroll" href="#education">Education</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a class="js-page-scroll" href="#skills">Skills</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a class="page-scroll" href="#languages">Languages</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a class="page-scroll" href="#technical">Technical</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a class="page-scroll" href="#research">Research</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a class="page-scroll" href="#teaching">Teaching</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a class="page-scroll" href="#volunteer">Volunteer</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a class="page-scroll" href="#awards">Awards</a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a class="page-scroll" href="#publications">Publications</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul class="nav navbar-nav navbar-right">-->
+<!--                <li>-->
+<!--                    <a target="_blank" title="Email me" href="mailto:amraabed@gmail.com">-->
+<!--                        <span class="fas fa-envelope"></span> Contact-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="https://github.com/amrabed/resume/blob/master/AmrAbed.pdf" target="_blank"-->
+<!--                       class="btn btn-default" title="Download as PDF" id="pdf"-->
+<!--                       aria-haspopup="true" aria-expanded="true">-->
+<!--                        <span class="fa fa-file-pdf-o"></span> PDF-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
 <div class="container">
-    <aside class="row text-center">
+    <aside class="py-5 text-center">
         <h1>Amr Abed</h1>
         <p class="text-muted">Ph.D. in Computer Engineering</p>
     </aside>
@@ -144,7 +144,9 @@
             Hume Center for National Security and Technology<br/>
             Virginia Tech, Arlington, VA</p>
         <ul>
-            <li>Collaborated with members from Fujitsu in a joint research project to build an SDN-based security solution</li>
+            <li>Collaborated with members from Fujitsu in a joint research project to build an SDN-based security
+                solution
+            </li>
             <li>Designed the threat model for testing the security solution using Metasploit</li>
             <li>Implemented a container-based web application as an attack target</li>
         </ul>
@@ -292,6 +294,7 @@
 <aside></aside>
 
 <?php include '../_includes/footer.php' ?>
-
+<!--<script populateNavebar ( [ "Education", "Skills", "Languages", "Technical", "Research", "Teaching", "Volunteer", "Awards", "Publications"], ["Email", "PDF"]);>-->
+<!--</script>-->
 </body>
 </html>

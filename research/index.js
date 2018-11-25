@@ -5,7 +5,7 @@ populateNavbar(["bio", "projects", "publications"], ["Email", "LinkedIn", "GitHu
 loadResearchProjects("projects.json", "#projects", "Research Projects");
 loadPublications("publications.json", "#publications", "Publications");
 loadPrezi();
-loadFooter();
+
 $.getScript("https://buttons.github.io/buttons.js");// Show Github buttons
 $.getScript("https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js");// show Altmetric badges
 $.getScript("https://badge.dimensions.ai/badge.js");// Show Dimensions badge
@@ -30,7 +30,7 @@ function loadResearchProjects(file, id, title) {
             .append("div")
             .attr("class", "row");
 
-        const header = getContainer(media, "col-lg-10");
+        const header = media.append("div").attr("class", "col-lg-10");
 
         header.append("h3")
             .text(function (d) {
@@ -60,23 +60,22 @@ function loadResearchProjects(file, id, title) {
 
         const tags = header.append("p");
 
-        tags.append("i")
-            .attr("class", "list-inline")
+        tags.append("span")
+            .attr("class", "list-inline mr-2")
             .selectAll("li")
             .data(function (d) {
                 return d.interests;
             })
             .enter()
             .append("li")
-            .append("label")
-            .attr("class", "label label-warning")
-            .attr("style", "margin-right: -5px")
+            .attr("class", "list-inline-item")
+            .append("span")
+            .attr("class", "badge badge-warning p-2")
             .text(function (d) {
                 return d;
             });
 
-        tags.append("i")
-            .style("margin-left", "0px")
+        tags.append("span")
             .attr("class", "list-inline")
             .selectAll("li")
             .data(function (d) {
@@ -84,9 +83,9 @@ function loadResearchProjects(file, id, title) {
             })
             .enter()
             .append("li")
-            .append("label")
-            .attr("class", "label label-info")
-            .attr("style", "margin-right: -5px")
+            .attr("class", "list-inline-item")
+            .append("span")
+            .attr("class", "badge badge-primary p-2")
             .text(function (d) {
                 return d;
             });
@@ -118,7 +117,8 @@ function loadResearchProjects(file, id, title) {
             })
             .text("+ Details");
 
-        getContainer(header, "row")
+        header.append("div")
+            .attr("class", "row")
             .attr("id", function (d) {
                 return d.id;
             })
@@ -138,7 +138,7 @@ function loadResearchProjects(file, id, title) {
                 return d;
             });
 
-        const sponsors = getContainer(media, "col-lg-2 media-middle");
+        const sponsors = media.append("div").attr("class", "col-lg-2 media-middle");
 
         sponsors.append("h6")
             .attr("class", "text-muted")
@@ -236,7 +236,7 @@ function loadPublications(file, id, title) {
         //     });
 
         publication.append("button")
-            .attr("class", "btn btn-default btn-square")
+            .attr("class", "btn btn-link")
             .attr("data-container", "body")
             .attr("data-toggle", "popover")
             .attr("data-placement", "top")
@@ -251,13 +251,14 @@ function loadPublications(file, id, title) {
                     ${(p.pages == null) ? "" : "pages = {" + p.pages + "},"}
                     year = {${p.year}}}`;
             })
-            .append("i")
-            .attr("class", "fa fa-quote-left")
+            .append("span")
+            .attr("class", "fas fa-quote-left")
             .attr("aria-hidden", "true")
             .text(" Cite") && $("[data-toggle=popover]").popover();
 
         publication.append("a")
-            .attr("class", "btn btn-default btn-square")
+            .attr("class", "btn btn-link")
+            .attr("role", "button")
             .attr("target", "_blank")
             .attr("href", function (d) {
                 return d.fulltext;
@@ -265,13 +266,14 @@ function loadPublications(file, id, title) {
             .style("display", function (d) {
                 return d.fulltext == null ? "none" : null;
             })
-            .append("i")
-            .attr("class", "fa fa-download")
+            .append("span")
+            .attr("class", "fas fa-file-pdf")
             .attr("aria-hidden", "true")
             .text(" Read");
 
         publication.append("a")
-            .attr("class", "btn btn-default btn-square")
+            .attr("class", "btn btn-link")
+            .attr("role", "button")
             .attr("target", "_blank")
             .attr("href", function (d) {
                 return d.presentation;
@@ -279,21 +281,22 @@ function loadPublications(file, id, title) {
             .style("display", function (d) {
                 return d.presentation == null ? "none" : null;
             })
-            .append("i")
-            .attr("class", "fa fa-slideshare")
+            .append("span")
+            .attr("class", "fab fa-slideshare")
             .attr("aria-hidden", "true")
             .text(" Presentation");
 
         publication.append("a")
-            .attr("class", "btn btn-default btn-square")
+            .attr("class", "btn btn-link")
+            .attr("role", "button")
             .attr("target", "_blank")
             .attr("href", function (d) {
                 const title = d.short_title ? d.short_title : d.title;
                 const url = d.fulltext ? d.fulltext : "https://dx.doi.org/" + d.doi;
                 return "https://twitter.com/intent/tweet?text=" + title + "&url=" + url + "&via=amr_abed";
             })
-            .append("i")
-            .attr("class", "fa fa-share-square-o")
+            .append("span")
+            .attr("class", "fas fa-share-square")
             .attr("aria-hidden", "true")
             .text(" Share")
             .style("display", function (d) {

@@ -5,7 +5,7 @@ populateNavbar(["education", "experience", "skills"], ["Email", "LinkedIn", "Git
 loadEducation("education.json", "#education", "Education");
 loadExperience("experience.json", "#experience", "Experience");
 loadSkills("skills.json", "#skills", "Technical Skills");
-loadFooter();
+
 /** Load Education Items
  *
  * @param file JSON file to read data from
@@ -24,17 +24,18 @@ function loadEducation(file, id, title) {
             .style("height", "200px");
 
         const degrees = section.append("div")
-            .attr("class", "row")
+            .attr("class", "container-fluid align-middle")
+            .append("div").attr("class", "row")
             .selectAll("div")
             .data(json.degrees)
             .enter()
             .append("div")
             .attr("class", "col-lg-4 col-md-6 text-center")
             .append("div")
-            .attr("class", "service-box");
+            .attr("class", "service-box mt-5 mx-auto");
 
         degrees.append("img")
-            .attr("src", "assets/img/education/education.png");
+            .attr("src", "assets/img/education.png");
 
         degrees.append("h3")
             .text(function (d) {
@@ -160,16 +161,16 @@ function loadExperience(file, id, title) {
 
 
         const a = section.append("div")
-            .attr("class", "no-padding")
+            .attr("class", "p-0")
             .append("div")
-            .attr("class", "container-fluid")
+            .attr("class", "container-fluid p-0")
             .append("div")
-            .attr("class", "row no-gutter")
+            .attr("class", "row no-gutter popup-gallery")
             .selectAll("div")
             .data(json.items)
             .enter()
             .append("div")
-            .attr("class", "col-lg-4 col-sm-6")
+            .attr("class", "col-md-4 col-sm-6 p-0")
             .append("a")
             .attr("class", "portfolio-box")
             .attr("href", function (d) {
@@ -177,7 +178,7 @@ function loadExperience(file, id, title) {
             });
 
         a.append("img")
-            .attr("class", "img-responsive")
+            .attr("class", "img-fluid")
             .attr("src", function (d) {
                 return d.img;
             });

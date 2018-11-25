@@ -5,13 +5,9 @@
     <?php include '../_includes/header.php' ?>
 </head>
 <body id="page-top">
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand page-scroll" href="#page-top">Amr Abed</a>
-        </div>
-    </div>
-</nav>
+
+<?php include '../_includes/navbar.php' ?>
+
 <aside style="background-size: cover;height: 25%;background-image:url(../assets/img/cover.jpg)"></aside>
 <div class="container">
     <div class="col-lg-7 col-md-7 text-justify">
@@ -45,7 +41,6 @@
 <aside></aside>
 
 <?php include '../_includes/footer.php' ?>
-
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script src="https://www.goodreads.com/review/grid_widget/15582377?cover_size=medium&hide_link=true&hide_title=true&num_books=20&order=a&shelf=favorites&sort=date_added&widget_id=1480909593"
         type="text/javascript" charset="utf-8"></script>

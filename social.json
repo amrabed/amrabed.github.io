@@ -3,57 +3,57 @@
     {
       "name": "Email",
       "url": "mailto:amraabed@gmail.com",
-      "icon": "fa-envelope"
+      "icon": "fas fa-envelope"
     },
     {
       "name": "LinkedIn",
       "url": "https://www.linkedin.com/in/amrabed",
-      "icon": "fa-linkedin"
+      "icon": "fab fa-linkedin-in"
     },
     {
       "name": "GitHub",
       "url": "https://github.com/amrabed",
-      "icon": "fa-github-alt"
+      "icon": "fab fa-github-alt"
     },
     {
       "name": "Stack Overflow",
       "url": "http://stackoverflow.com/users/2070636",
-      "icon": "fa-stack-overflow"
+      "icon": "fab fa-stack-overflow"
     },
     {
       "name": "Google Scholar",
       "url": "https://scholar.google.com/citations?user=vdrgnAYAAAAJ",
-      "icon": "fa-google-scholar"
+      "icon": "ai ai-google-scholar"
     },
     {
       "name": "ORCiD",
       "url": "https://orcid.org/0000-0001-5582-9762",
-      "icon": "fa-orcid"
+      "icon": "ai ai-orcid"
     },
     {
       "name": "Impactstory",
       "url": "https://impactstory.org/u/0000-0001-5582-9762",
-      "icon": "fa-impactstory"
+      "icon": "ai ai-impactstory"
     },
     {
       "name": "Mendeley",
       "url": "https://www.mendeley.com/profiles/amr-abed/",
-      "icon": "fa-mendeley"
+      "icon": "ai ai-mendeley"
     },
     {
       "name": "Figshare",
       "url": "https://figshare.com/authors/Amr_Abed/476690",
-      "icon": "fa-figshare"
+      "icon": "ai ai-figshare"
     },
     {
       "name": "SlideShare",
       "url": "http://www.slideshare.net/AmrAbed",
-      "icon": "fa-slideshare"
+      "icon": "fab fa-slideshare"
     },
     {
       "name": "Twitter",
       "url": "https://www.twitter.com/amr_abed",
-      "icon": "fa-twitter"
+      "icon": "fab fa-twitter"
     }
   ]
 }

@@ -1,14 +1,12 @@
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-items">
-                <span class="sr-only">Toggle navigation</span><!-- Menu -->
-                <span class="fa fa-bars"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="/">Amr Abed</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="menu-items">
+        <a class="navbar-brand js-scroll-trigger" href="/">Amr Abed</a>
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
         </div>
     </div>
 </nav>

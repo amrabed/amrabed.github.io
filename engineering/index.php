@@ -10,8 +10,8 @@
 
 <?php include '../_includes/navbar.php' ?>
 
-<aside class="bg-primary">
-    <div class="container-fluid text-center">
+<aside class="mh-50 pt-5 bg-primary">
+    <div class="container-fluid py-5 text-center text-white">
         <!--<h2>“Scientists dream about doing great things. Engineers do them”</h2>-->
         <!--<p>James Michener - Author</p>-->
         <h3>“Engineers like to solve problems. If there are no problems handily available, they will create their own

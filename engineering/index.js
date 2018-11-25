@@ -5,7 +5,6 @@ populateNavbar(["positions"], ["Email", "LinkedIn", "GitHub", "Stack Overflow", 
 loadEngineeringPositions("projects.json", "#positions", "Positions");
 // loadResearchProjects("../research/projects.json", "#projects", "Research Projects");
 // loadProducts("projects.json", "#products", "Products");
-loadFooter();
 // $.getScript("https://buttons.github.io/buttons.js");
 /** Load Engineering Positions
  *
@@ -19,17 +18,17 @@ function loadEngineeringPositions(file, id, title) {
 
         setHeading(positions, title);
 
-        const row = getContainer(positions, "container")
+        const row = positions.append("div").attr("class", "container")
             .selectAll("div")
             .data(json.positions)
             .enter()
             .append("div")
-            .attr("class", "row");
+            .attr("class", "row my-5");
 
         const header = row.append("div")
             .attr("class", "col-md-10 col-md-offset-1");
 
-        const project = getContainer(header, "col-md-8");
+        const project = header.append("div").attr("class", "col-md-8");
 
         project.append("h3")
             .text(function (d) {
@@ -53,7 +52,7 @@ function loadEngineeringPositions(file, id, title) {
             });
 
 
-        const organization = getContainer(header, "col-md-2");
+        const organization = header.append("div").attr("class", "col-md-2");
 
         organization.selectAll("a")
             .data(function (d) {
@@ -74,8 +73,8 @@ function loadEngineeringPositions(file, id, title) {
             .append("img")
             .attr("src", function (d) {
                 return d.logo;
-            })
-            .style("width: 128px;");
+            });
+        // .style("width: 128px;");
 
 
         const details = row.append("div").attr("class", "col-md-10 col-md-offset-1");
@@ -88,7 +87,8 @@ function loadEngineeringPositions(file, id, title) {
             })
             .text("+ Details");
 
-        getContainer(details, "row")
+        details.append("div")
+            .attr("class row")
             .attr("id", function (d) {
                 return d.id;
             })
@@ -116,9 +116,9 @@ function loadEngineeringPositions(file, id, title) {
             })
             .enter()
             .append("li")
-            .append("label")
-            .attr("class", "label label-info")
-            .style("margin-right", "-5px")
+            .attr("class", "list-inline-item")
+            .append("span")
+            .attr("class", "badge badge-info p-2")
             .text(function (d) {
                 return d;
             });
@@ -135,7 +135,7 @@ function loadEngineeringPositions(file, id, title) {
             .append("a")
             .attr("href", "../research#projects")
             .append("i")
-            .attr("class", "fa fa-long-arrow-right");
+            .attr("class", "fas fa-external-link-alt");
     });
 }
 
@@ -218,9 +218,8 @@ function loadProducts(file, id, title) {
             })
             .enter()
             .append("li")
-            .append("label")
-            .attr("class", "label label-info")
-            .style("margin-right", "-5px")
+            .append("span")
+            .attr("class", "badge badge-info p-2")
             .text(function (d) {
                 return d;
             });

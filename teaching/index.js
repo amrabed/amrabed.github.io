@@ -3,7 +3,6 @@
  */
 populateNavbar(["philosophy", "courses"], ["Email", "LinkedIn", "Twitter"]);
 loadCourses("courses.json", "#courses", "Courses");
-loadFooter();
 
 /** Load Courses
  *

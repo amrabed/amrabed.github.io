@@ -10,8 +10,8 @@
 
 <?php include '../_includes/navbar.php' ?>
 
-<aside class="bg-primary">
-    <div class="container-fluid text-center">
+<aside class="mh-50 pt-5 bg-primary">
+    <div class="container-fluid py-5 text-center text-white">
         <h3>“If you can't explain it simply, you don't understand it well enough”</h3>
         <p><em>attributed to</em> Albert Einstein</p>
     </div>
@@ -24,7 +24,7 @@
             <hr>
         </div>
 
-        <div class="col-lg-8 col-lg-offset-2 text-justify" style="margin-top: 50px">
+        <div class="w-75 mx-auto text-justify" style="margin-top: 50px">
             <p>
                 I have always considered teaching to be a learning opportunity not only for my students but also for
                 myself.
@@ -71,12 +71,11 @@
     </div>
 
 </section>
-<section id="courses" class="bg-info"></section>
+<section id="courses" class="bg-light"></section>
 
 <?php include '../_includes/footer.php' ?>
 
 <script src="index.js"></script>
-<script src="/assets/js/analytics.min.js"></script>
 
 </body>
 </html>

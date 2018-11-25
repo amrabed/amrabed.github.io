@@ -10,8 +10,8 @@
 
 <?php include '../_includes/navbar.php' ?>
 
-<aside class="bg-primary">
-    <div class="container-fluid text-center">
+<aside class="mh-50 pt-5 bg-primary">
+    <div class="container-fluid py-5 text-center text-white">
         <h3>“I don't know anything, but I do know that everything is interesting if you go into it deeply enough”</h3>
         <p>Richard Feynman - Nobel Prize Winner</p>
     </div>
@@ -48,13 +48,12 @@
     </div>
 
 </section>
-<section id="projects" class="bg-info"></section>
+<section id="projects" class="bg-light"></section>
 <section id="publications"></section>
 
 <?php include '../_includes/footer.php' ?>
 
 <script src="index.js"></script>
-<script src="/assets/js/analytics.min.js"></script>
 
 </body>
 </html>
