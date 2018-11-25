@@ -238,7 +238,6 @@
 <aside class="mh-50 py-5"></aside>
 
 <?php include '../_includes/footer.php' ?>
-<script src="index.js"></script>
 
 </body>
 </html>

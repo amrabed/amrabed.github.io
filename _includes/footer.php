@@ -26,7 +26,7 @@
             </ul>
         </div>
     </nav>
-    <footer class="panel-footer text-center">
+    <footer class="p-2 panel-footer text-center">
         Created by <a href="/">Amr Abed</a> using <a href="https://d3js.org" target="_blank">D3.js</a> |
         Theme: <a href="https://startbootstrap.com/template-overviews/creative" target="_blank">Creative</a>
         by <a href="https://startbootstrap.com/" target="_blank">Start Bootstrap</a> |
@@ -50,6 +50,7 @@
 <script src="https://unpkg.com/scrollreveal@4.0.1/dist/scrollreveal.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="/assets/js/amrabed.min.js"></script>
+<script src="index.js"></script>
 <script src="/assets/js/creative.min.js"></script>
 
 <script>

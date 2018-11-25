@@ -75,7 +75,5 @@
 
 <?php include '../_includes/footer.php' ?>
 
-<script src="index.js"></script>
-
 </body>
 </html>

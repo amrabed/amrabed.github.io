@@ -15,7 +15,7 @@
             <h3 class="text-left">About me</h3>
             <p>I am a <a href="../engineering">Computer engineer</a>,
                 <a href="../research">Researcher</a>, and <a href="../teaching">Instructor</a>
-                currently working on my Ph.D. degree in Computer Engineering from the
+                recently completed my Ph.D. degree in Computer Engineering from the
                 <a href="http://ece.vt.edu">Bradley Department of Electrical and Computer Engineering</a> at
                 <a href="http://www.vt.edu" target="_blank">Virginia Tech</a>.
                 Special interest in Mobile, Cloud, and IoT Computing and Security.

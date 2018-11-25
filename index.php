@@ -35,7 +35,6 @@
 <!-- {% include footer.html %} -->
 
 <script src="assets/js/timeline.min.js"></script>
-<script src="index.js"></script>
 
 </body>
 </html>

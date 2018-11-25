@@ -61,7 +61,7 @@ function loadEngineeringPositions(file, id, title) {
             .enter()
             .append("a")
             .attr("href", function (d) {
-                return d.url;
+                return d.url ? d.url : "";
             })
             .attr("title", function (d) {
                 return d.name;
@@ -88,7 +88,7 @@ function loadEngineeringPositions(file, id, title) {
             .text("+ Details");
 
         details.append("div")
-            .attr("class row")
+            .attr("class", "row")
             .attr("id", function (d) {
                 return d.id;
             })

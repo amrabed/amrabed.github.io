@@ -24,8 +24,6 @@
 <!--<section id="products" class="bg-info"></section>-->
 
 <?php include '../_includes/footer.php' ?>
-<script src="index.js"></script>
-<script src="/assets/js/analytics.min.js"></script>
 
 </body>
 </html>
