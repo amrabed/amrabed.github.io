@@ -10,64 +10,8 @@
 
 <?php include '../_includes/navbar.php' ?>
 
-
-<!-- <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">-->
-<!--    <div class="container-fluid">-->
-<!--        <a class="navbar-brand js-scroll-trigger" href="/">Amr Abed</a>-->
-<!--        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse"-->
-<!--                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"-->
-<!--                aria-label="Toggle navigation">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-<!--        <div class="collapse navbar-collapse" id="navbarResponsive">-->
-<!--            <ul class="nav navbar-nav navbar-left">-->
-<!--                <li>-->
-<!--                    <a class="js-page-scroll" href="#education">Education</a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a class="js-page-scroll" href="#skills">Skills</a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a class="page-scroll" href="#languages">Languages</a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a class="page-scroll" href="#technical">Technical</a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a class="page-scroll" href="#research">Research</a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a class="page-scroll" href="#teaching">Teaching</a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a class="page-scroll" href="#volunteer">Volunteer</a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a class="page-scroll" href="#awards">Awards</a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a class="page-scroll" href="#publications">Publications</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul class="nav navbar-nav navbar-right">-->
-<!--                <li>-->
-<!--                    <a target="_blank" title="Email me" href="mailto:amraabed@gmail.com">-->
-<!--                        <span class="fas fa-envelope"></span> Contact-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a href="https://github.com/amrabed/resume/blob/master/AmrAbed.pdf" target="_blank"-->
-<!--                       class="btn btn-default" title="Download as PDF" id="pdf"-->
-<!--                       aria-haspopup="true" aria-expanded="true">-->
-<!--                        <span class="fa fa-file-pdf-o"></span> PDF-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</nav>-->
 <div class="container">
-    <aside class="py-5 text-center">
+    <aside class="mh-50 py-5 text-center">
         <h1>Amr Abed</h1>
         <p class="text-muted">Ph.D. in Computer Engineering</p>
     </aside>
