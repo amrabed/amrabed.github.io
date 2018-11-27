@@ -1,5 +1,5 @@
 <div>
-    <nav id="pageNav" class="navbar navbar-expand-lg bg-dark">
+    <nav id="pageNav" class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
             <ul class="nav navbar-nav mx-auto text-center">
                 <li class="nav-item mx-2">
