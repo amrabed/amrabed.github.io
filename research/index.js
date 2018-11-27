@@ -28,7 +28,7 @@ function loadResearchProjects(file, id, title) {
             .data(json.items)
             .enter()
             .append("div")
-            .attr("class", "row");
+            .attr("class", "row mb-4");
 
         const header = media.append("div").attr("class", "col-lg-10");
 
@@ -109,13 +109,19 @@ function loadResearchProjects(file, id, title) {
                 return d.name;
             });
 
-        header.append("a")
+        const chevron = header.append("a")
             .attr("class", "btn btn-link")
+            .attr("aria-expanded", "false")
             .attr("data-toggle", "collapse")
             .attr("data-target", function (d) {
                 return "#" + d.id;
-            })
-            .text("+ Details");
+            });
+
+        chevron.append("span")
+            .attr("class", "fas fa-chevron-right");
+        chevron.append("span")
+            .attr("class", "fas fa-chevron-down");
+        chevron.append("span").attr("class", "pl-2").text("Details");
 
         header.append("div")
             .attr("class", "row")

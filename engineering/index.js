@@ -23,12 +23,9 @@ function loadEngineeringPositions(file, id, title) {
             .data(json.positions)
             .enter()
             .append("div")
-            .attr("class", "row my-5");
+            .attr("class", "row mx-auto mb-4");
 
-        const header = row.append("div")
-            .attr("class", "col-md-10 col-md-offset-1");
-
-        const project = header.append("div").attr("class", "col-md-8");
+        const project = row.append("div").attr("class", "col-md-8");
 
         project.append("h3")
             .text(function (d) {
@@ -52,7 +49,7 @@ function loadEngineeringPositions(file, id, title) {
             });
 
 
-        const organization = header.append("div").attr("class", "col-md-2");
+        const organization = row.append("div").attr("class", "col-md-2");
 
         organization.selectAll("a")
             .data(function (d) {
@@ -76,16 +73,38 @@ function loadEngineeringPositions(file, id, title) {
             });
         // .style("width: 128px;");
 
-
         const details = row.append("div").attr("class", "col-md-10 col-md-offset-1");
 
-        details.append("a")
+        details.append("p")
+            .attr("class", "list-inline")
+            .selectAll("li")
+            .data(function (d) {
+                return d.skills;
+            })
+            .enter()
+            .append("li")
+            .attr("class", "list-inline-item")
+            .append("span")
+            .attr("class", "badge badge-info p-2")
+            .text(function (d) {
+                return d;
+            });
+
+        const chevron = details.append("a")
             .attr("class", "btn btn-link")
             .attr("data-toggle", "collapse")
             .attr("data-target", function (d) {
                 return "#" + d.id;
             })
-            .text("+ Details");
+            .attr("aria-expanded", "false");
+
+        chevron.append("span")
+            .attr("class", "fas fa-chevron-right");
+        chevron.append("span")
+            .attr("class", "fas fa-chevron-down");
+
+        chevron.append("span").attr("class", "pl-2").text("Details");
+
 
         details.append("div")
             .attr("class", "row")
@@ -104,21 +123,6 @@ function loadEngineeringPositions(file, id, title) {
             .enter()
             .append("li")
             .attr("class", "text-justify")
-            .text(function (d) {
-                return d;
-            });
-
-        details.append("p")
-            .attr("class", "list-inline")
-            .selectAll("li")
-            .data(function (d) {
-                return d.skills;
-            })
-            .enter()
-            .append("li")
-            .attr("class", "list-inline-item")
-            .append("span")
-            .attr("class", "badge badge-info p-2")
             .text(function (d) {
                 return d;
             });

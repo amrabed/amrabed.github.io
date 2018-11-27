@@ -22,7 +22,6 @@
             Virginia Tech, Blacksburg, VA<br>
             <em class="text-muted">GPA 3.8/4.0</em></p>
         <p>
-            <!--<strong>Pre-Master Courses, Computer and System Engineering</strong>, July 2006<br>-->
             <strong>B.S. Computer and System Engineering</strong>, September 2000 - June 2005<br>
             Ain-Shams University, Cairo, Egypt<br>
             <em class="text-muted">
@@ -171,14 +170,7 @@
         <p><strong>IEEE Peer Reviewer</strong>, August 2016 - Present</p>
         <p><strong>Technical Program Committee Member</strong>, Special session on IoT Cloud Platforms, July - December
             2017</p>
-        <!--p><strong>Google Local Guide</strong>, December 2015 - Present</p-->
         <p><strong>President of Executive Board</strong>, Islamic Center of Blacksburg, January – December 2016</p>
-        <!--p><strong>Student Organizer</strong>,
-            September 2004<br/>
-            IEEE International Conference of Electrical, Electronic and Computer
-            Engineering (ICEEC 04)<br/>
-            Ain-Shams University, Cairo, Egypt<br/>
-        </p-->
     </div>
 
     <div id="awards"><h2>Awards</h2>
@@ -191,10 +183,6 @@
             September 2004, 2003, 2002, 2001<br/>
             For distinction in undergraduate studies at Ain-Shams University, Faculty of
             Engineering</p>
-        <!--p><strong>Egyptian Ministry of Education Award</strong>,
-            July 2000, 1999<br/>
-            For Distinction in Studies of first and second stages of the General Certificate of
-            Secondary Education</p-->
     </div>
 
     <div id="publications"><h2>Publications</h2>
