@@ -17,7 +17,7 @@ $.getScript("https://badge.dimensions.ai/badge.js");// Show Dimensions badge
  * @param title to be used for the section heading
  */
 function loadResearchProjects(file, id, title) {
-    d3.json(file, function (json) {
+    d3.json(file).then(function (json) {
         const section = d3.select(id);
 
         setHeading(section, title);
@@ -32,12 +32,12 @@ function loadResearchProjects(file, id, title) {
 
         const header = media.append("div").attr("class", "col-lg-10");
 
-        header.append("h3")
+        header.append("h4")
             .text(function (d) {
                 return d.project;
             });
 
-        header.append("h4")
+        header.append("h5")
             .text(function (d) {
                 return d.position;
             });
@@ -47,7 +47,7 @@ function loadResearchProjects(file, id, title) {
             .attr("href", function (d) {
                 return d.organization.url;
             })
-            .append("h4")
+            .append("h5")
             .text(function (d) {
                 return d.organization.name;
             });
@@ -182,7 +182,7 @@ function loadResearchProjects(file, id, title) {
  * @param title to be used for the section heading
  */
 function loadPublications(file, id, title) {
-    d3.json(file, function (json) {
+    d3.json(file).then(function (json) {
         const section = d3.select(id);
 
         setHeading(section, title);
@@ -198,7 +198,7 @@ function loadPublications(file, id, title) {
             .attr("class", "col-lg-12")
             .attr("data-role", "page");
 
-        publication.append("h3")
+        publication.append("h4")
             .append("a")
             .attr("href", function (d) {
                 return d.doi ? "https://dx.doi.org/" + d.doi : "";
@@ -208,7 +208,7 @@ function loadPublications(file, id, title) {
                 return d.title;
             });
 
-        publication.append("h4")
+        publication.append("h5")
             .text(function (p) {
                 return authorList(p, ", ")
             });

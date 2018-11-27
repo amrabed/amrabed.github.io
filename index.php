@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <?php include '_includes/header.php' ?>
-    <!--    {% include head.html %} -->
     <link href="assets/css/timeline.min.css" rel="stylesheet">
     <title> Amr Abed </title>
 </head>
-
 <body id="page-top">
-
 <?php include '_includes/navbar.php' ?>
-<!-- {% include navbar.html %} -->
-
 <header class="masthead text-center text-white d-flex">
     <div class="container my-auto">
         <div class="row">
@@ -26,15 +20,10 @@
             </div>
         </div>
 </header>
-
 <section id="education" class="bg-light"></section>
 <section id="experience"></section>
 <section id="skills"></section>
-
 <?php include '_includes/footer.php' ?>
-<!-- {% include footer.html %} -->
-
 <script src="assets/js/timeline.min.js"></script>
-
 </body>
 </html>

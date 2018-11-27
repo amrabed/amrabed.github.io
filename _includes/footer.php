@@ -48,7 +48,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script src="https://unpkg.com/scrollreveal@4.0.1/dist/scrollreveal.min.js"></script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="/assets/js/amrabed.min.js"></script>
 <script src="index.js"></script>
 <script src="/assets/js/creative.min.js"></script>

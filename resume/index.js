@@ -44,7 +44,7 @@ function populateIcons() {
  * @param id Target section ID
  */
 function loadPublications(file, id) {
-    d3.json("../research/publications.json", function (json) {
+    d3.json("../research/publications.json").then(function (json) {
         d3.select("#publications")
             .selectAll("p")
             .data(json.publications)

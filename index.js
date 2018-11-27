@@ -13,7 +13,7 @@ loadSkills("skills.json", "#skills", "Technical Skills");
  * @param title to be used for the section heading
  */
 function loadEducation(file, id, title) {
-    d3.json(file, function (json) {
+    d3.json(file).then(function (json) {
         const section = d3.select(id);
 
         setHeading(section, title);
@@ -71,7 +71,7 @@ function loadEducation(file, id, title) {
  * @param title to be used for the section heading
  */
 function loadExperience(file, id, title) {
-    d3.json(file, function (json) {
+    d3.json(file).then(function (json) {
         const section = d3.select(id);
         setHeading(section, title);
 
@@ -202,7 +202,7 @@ function loadExperience(file, id, title) {
  * @param title to be used for the section heading
  */
 function loadSkills(file, id, title) {
-    d3.json(file, function (json) {
+    d3.json(file).then(function (json) {
         const section = d3.select(id);
 
         setHeading(section, title);

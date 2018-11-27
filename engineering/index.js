@@ -13,7 +13,7 @@ loadEngineeringPositions("projects.json", "#positions", "Positions");
  * @param title Target section title
  */
 function loadEngineeringPositions(file, id, title) {
-    d3.json(file, function (json) {
+    d3.json(file).then(function (json) {
         const positions = d3.select(id);
 
         setHeading(positions, title);
@@ -150,7 +150,7 @@ function loadEngineeringPositions(file, id, title) {
  * @param title Target section title
  */
 function loadProducts(file, id, title) {
-    d3.json(file, function (json) {
+    d3.json(file).then(function (json) {
         const products = d3.select(id);
 
         setHeading(products, title);

@@ -12,7 +12,7 @@ loadTraining("teaching.json", "#training", "Professional Training");
  * @param title Target section title
  */
 function loadCourses(file, id, title) {
-    d3.json(file, function (json) {
+    d3.json(file).then(function (json) {
         const section = d3.select(id);
 
         setHeading(section, title);
@@ -107,7 +107,7 @@ function loadCourses(file, id, title) {
  * @param title Target section title
  */
 function loadTraining(file, id, title) {
-    d3.json(file, function (json) {
+    d3.json(file).then(function (json) {
         const section = d3.select(id);
 
         setHeading(section, title);
