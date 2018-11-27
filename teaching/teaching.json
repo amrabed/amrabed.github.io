@@ -14,14 +14,16 @@
           "title": "Programming Languages",
           "semester": "Fall 2018",
           "code": "CSE 115",
-          "link": "http://courses.amrabed.me/course/index.php?categoryid=3"
+          "link": "http://courses.amrabed.me/course/index.php?categoryid=3",
+          "description": "This course teaches first-year Computer & System Engineering (CSE) students the basic principles of programming using C++"
         },
         {
           "id": "cse415",
-          "title": "Mobile & Cloud Computing",
+          "title": "Cloud Computing",
           "semester": "Fall 2018",
           "code": "CSE 415",
-          "link": "http://courses.amrabed.me/course/index.php?categoryid=3"
+          "link": "http://courses.amrabed.me/course/index.php?categoryid=3",
+          "description": "This course teaches senior undergraduate Computer Engineering students the fundamental concepts of cloud computing, and provides a hands-on experience of the area that prepares them for the job market"
         },
         {
           "id": "cse422",
@@ -225,5 +227,26 @@
       "code": "CMP102",
       "link": "http://www.elearn.eng.cu.edu.eg/course/view.php?id=5"
     }
+  ],
+  "training": [
+    {
+      "title": "Use of Technology in Teaching",
+      "date": "January 2018",
+      "center": "Training & Development Center",
+      "institution": "Ain Shams University"
+    },
+    {
+      "title": "Exams & Student Evaluation Systems",
+      "date": "December 2017",
+      "center": "Faculty & Leadership Development Center",
+      "institution": "Cairo University"
+    },
+    {
+      "title": "Ethics of Scientific Research & Publication",
+      "date": "December 2017",
+      "center": "Faculty & Leadership Development Center",
+      "institution": "Minia University"
+    }
+
   ]
 }

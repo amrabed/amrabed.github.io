@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <?php include '../_includes/header.php' ?>
     <title>Amr Abed - Teaching</title>
 </head>
-
 <body id="page-top">
-
 <?php include '../_includes/navbar.php' ?>
-
 <aside class="mh-50 pt-5 bg-primary">
     <div class="container-fluid py-5 text-center text-white">
         <h3>“If you can't explain it simply, you don't understand it well enough”</h3>
         <p><em>attributed to</em> Albert Einstein</p>
     </div>
 </aside>
-
 <section id="philosophy">
     <div class="container">
         <div class="text-center">
@@ -24,7 +19,7 @@
             <hr>
         </div>
 
-        <div class="w-75 mx-auto text-justify" style="margin-top: 50px">
+        <div class="col-lg-8 col-lg-offset-2 mx-auto text-justify" style="margin-top: 50px">
             <p>
                 I have always considered teaching to be a learning opportunity not only for my students but also for
                 myself.
@@ -69,11 +64,9 @@
             </p>
         </div>
     </div>
-
 </section>
 <section id="courses" class="bg-light"></section>
-
+<section id="training"></section>
 <?php include '../_includes/footer.php' ?>
-
 </body>
 </html>
