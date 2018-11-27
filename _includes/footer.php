@@ -1,3 +1,7 @@
+<a id="back2top" href="#page-top" title="Back to top">
+    <span class="fas fa-arrow-up fa-lg" onclick="goUp()"></span>
+</a>
+
 <div>
     <nav id="pageNav" class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
@@ -54,6 +58,23 @@
 <script src="/assets/js/creative.min.js"></script>
 
 <script>
+    // Activate current page in bottom navbar
     const path = window.location.pathname;
     $('.nav > li > a[href="' + path.substring(0, path.lastIndexOf("/")) + '"]').parent().addClass('active');
+    // Show and hide back-to-top arrow on scroll
+    window.onscroll = function () {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            document.getElementById("back2top").style.display = "block";
+        } else {
+            document.getElementById("back2top").style.display = "none";
+        }
+    };
+
+    // Smoothly go up
+    function goUp() {
+        $("#back2top").click(function () {
+            $("html, body").animate({scrollTop: 0}, "slow");
+            return false;
+        });
+    }
 </script>
