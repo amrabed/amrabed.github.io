@@ -37,12 +37,12 @@ function loadEducation(file, id, title) {
         degrees.append("img")
             .attr("src", "assets/img/education.png");
 
-        degrees.append("h3")
+        degrees.append("h4")
             .text(function (d) {
                 return d.degree
             });
 
-        degrees.append("h4")
+        degrees.append("h5")
             .attr("class", "text-muted")
             .append("a")
             .attr("target", "_blank")
@@ -142,7 +142,8 @@ function loadExperience(file, id, title) {
                 return d.position;
             });
 
-        li.append("em")
+        li.append("h4")
+            .attr("class", "py-1")
             .append("a")
             .attr("target", "_blank")
             .attr("href", function (d) {
@@ -152,7 +153,8 @@ function loadExperience(file, id, title) {
                 return d.organization.name;
             });
 
-        li.append("p")
+        li.append("h5")
+            .attr("class", "text-muted font-italic py-1")
             .text(function (d) {
                 return d.duration;
             });
@@ -290,7 +292,7 @@ function loadSkills(file, id, title) {
 
         modal.append("div")
             .attr("class", "modal-header")
-            .append("h4")
+            .append("h5")
             .attr("class", "modal-title")
             .text(function (d) {
                 return d.label + " - Sample Projects";
