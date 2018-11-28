@@ -1,5 +1,5 @@
 <a id="back2top" class="js-scroll-trigger" href="#page-top" title="Back to top">
-    <span class="fas fa-arrow-up fa-lg" onclick="goUp()"></span>
+    <span class="fas fa-arrow-up fa-lg"></span>
 </a>
 
 <div>
@@ -63,6 +63,6 @@
     $('.nav > li > a[href="' + path.substring(0, path.lastIndexOf("/")) + '"]').parent().addClass('active');
     // Show and hide back-to-top arrow on scroll
     $(document).scroll(function () {
-        if ($(this).scrollTop() > 800) $("#back2top").fadeIn(); else $("#back2top").fadeOut()
+        if ($(this).scrollTop() > 800) $("#back2top").fadeIn(); else $("#back2top").fadeOut();
     });
 </script>
