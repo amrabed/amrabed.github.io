@@ -107,7 +107,12 @@
       "x": 413.5,
       "y": 62,
       "color": "D35C3B",
-      "projects": []
+      "projects": [
+        {
+          "name": "amrabed.me (This website)",
+          "link": "https://github.com/amrabed/amrabed.github.io"
+        }
+      ]
     },
     {
       "label": "Shell",
@@ -152,6 +157,10 @@
       "y": 80,
       "color": "7580B3",
       "projects": [
+        {
+          "name": "amrabed.me (This website)",
+          "link": "https://github.com/amrabed/amrabed.github.io"
+        },
         {
           "name": "Metrolab",
           "link": "research#projects",
