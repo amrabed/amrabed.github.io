@@ -1,4 +1,4 @@
-<a id="back2top" href="#page-top" title="Back to top">
+<a id="back2top" class="js-scroll-trigger" href="#page-top" title="Back to top">
     <span class="fas fa-arrow-up fa-lg" onclick="goUp()"></span>
 </a>
 
@@ -62,19 +62,7 @@
     const path = window.location.pathname;
     $('.nav > li > a[href="' + path.substring(0, path.lastIndexOf("/")) + '"]').parent().addClass('active');
     // Show and hide back-to-top arrow on scroll
-    window.onscroll = function () {
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            document.getElementById("back2top").style.display = "block";
-        } else {
-            document.getElementById("back2top").style.display = "none";
-        }
-    };
-
-    // Smoothly go up
-    function goUp() {
-        $("#back2top").click(function () {
-            $("html, body").animate({scrollTop: 0}, "slow");
-            return false;
-        });
-    }
+    $(document).scroll(function () {
+        if ($(this).scrollTop() > 800) $("#back2top").fadeIn(); else $("#back2top").fadeOut()
+    });
 </script>

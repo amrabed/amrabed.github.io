@@ -43,7 +43,7 @@
             <a href="https://en.wikipedia.org/wiki/Intrusion_detection_system" target="_blank">Intrusion detection</a>
             and remediation. The Prezi below gives an overview of how the system works.
             For more details about my research, please refer to my
-            <a class="page-scroll" href="#publications">publications <span class="fa fa-arrow-down"></span></a>
+            <a class="js-scroll-trigger" href="#publications">publications <span class="fa fa-arrow-down"></span></a>
         </p>
     </div>
 
