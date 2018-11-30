@@ -30,7 +30,7 @@
             </ul>
         </div>
     </nav>
-    <footer class="p-2 panel-footer text-center">
+    <footer id="footer" class="p-2 panel-footer text-center">
         Created by <a href="/">Amr Abed</a> using <a href="https://d3js.org" target="_blank">D3.js</a> |
         Theme: <a href="https://startbootstrap.com/template-overviews/creative" target="_blank">Creative</a>
         by <a href="https://startbootstrap.com/" target="_blank">Start Bootstrap</a> |
