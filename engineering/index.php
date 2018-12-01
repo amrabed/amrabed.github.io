@@ -12,8 +12,8 @@
 
 <aside class="mh-50 pt-5 bg-primary">
     <div class="container-fluid py-5 text-center text-white">
-        <h3>“Engineers like to solve problems. If there are no problems handily available, they will create their own
-            problems”</h3>
+        <h4>“Engineers like to solve problems. If there are no problems handily available, they will create their own
+            problems”</h4>
         <p>Scott Adams - Creator of 'Dilbert'</p>
     </div>
 </aside>

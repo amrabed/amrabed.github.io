@@ -8,7 +8,7 @@
 <?php include '../_includes/navbar.php' ?>
 <aside class="mh-50 pt-5 bg-primary">
     <div class="container-fluid py-5 text-center text-white">
-        <h3>“If you can't explain it simply, you don't understand it well enough”</h3>
+        <h4>“If you can't explain it simply, you don't understand it well enough”</h4>
         <p><em>attributed to</em> Albert Einstein</p>
     </div>
 </aside>
@@ -18,7 +18,6 @@
             <h2>Teaching Philosophy</h2>
             <hr>
         </div>
-
         <div class="col-lg-8 col-lg-offset-2 mx-auto text-justify" style="margin-top: 50px">
             <p>
                 I have always considered teaching to be a learning opportunity not only for my students but also for
@@ -55,7 +54,8 @@
             <p>
                 I highly believe in learning by example, and I believe that practice makes perfect.
                 This is how I like to learn myself, and this is how I encourage my students to master their material.
-                I often use my industry experience to help my students get better understanding of real-world requirements.
+                I often use my industry experience to help my students get better understanding of real-world
+                requirements.
             </p>
             <p>
                 When I evaluate my students, I prefer to evaluate their understanding of the

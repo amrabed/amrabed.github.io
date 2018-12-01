@@ -12,7 +12,7 @@
 
 <aside class="mh-50 pt-5 bg-primary">
     <div class="container-fluid py-5 text-center text-white">
-        <h3>“I don't know anything, but I do know that everything is interesting if you go into it deeply enough”</h3>
+        <h4>“I don't know anything, but I do know that everything is interesting if you go into it deeply enough”</h4>
         <p>Richard Feynman - Nobel Prize Winner</p>
     </div>
 </aside>
