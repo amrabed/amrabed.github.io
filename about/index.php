@@ -5,9 +5,7 @@
     <?php include '../_includes/header.php' ?>
 </head>
 <body id="page-top">
-
 <?php include '../_includes/navbar.php' ?>
-
 <aside class="h-25" style="background-size: cover;background-image:url(../assets/img/cover.jpg)"></aside>
 <div class="container p-4">
     <div class="row">
@@ -26,7 +24,7 @@
                 <h3>My favorite quotes</h3>
                 <div class="row">
                     <div class="col-xl-6 p-2">
-                        <div class="card h-100">
+                        <div class="card h-25">
                             <div class="card-body">
                                 <blockquote class="blockquote">
                                     <p>Aim for the moon. If you miss, you may hit a star</p>
@@ -36,7 +34,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6 p-2">
-                        <div class="card h-100">
+                        <div class="card h-25">
                             <div class="card-body">
                                 <blockquote class="blockquote">
                                     <p>I don't know anything, but I do know that everything is interesting if you go
@@ -48,7 +46,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6 p-2">
-                        <div class="card h-100">
+                        <div class="card h-25">
                             <div class="card-body">
                                 <blockquote class="blockquote">
                                     <p>Most people do not listen with the intent to understand; they listen with the
@@ -59,7 +57,7 @@
                         </div>
                     </div>
                     <div class="col-xl-6 p-2">
-                        <div class="card h-100">
+                        <div class="card h-25">
                             <div class="card-body">
                                 <blockquote class="blockquote">
                                     <p>Second place is the first loser</p>
@@ -87,10 +85,7 @@
         </div>
     </div>
 </div>
-
-
 <aside></aside>
-
 <?php include '../_includes/footer.php' ?>
 </body>
 </html>

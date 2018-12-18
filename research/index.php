@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <?php include '../_includes/header.php' ?>
     <title>Amr Abed - Research</title>
 </head>
-
 <body id="page-top">
-
 <?php include '../_includes/navbar.php' ?>
-
 <aside class="mh-50 pt-5 bg-primary">
     <div class="container-fluid py-5 text-center text-white">
         <h4>“I don't know anything, but I do know that everything is interesting if you go into it deeply enough”</h4>
         <p>Richard Feynman - Nobel Prize Winner</p>
     </div>
 </aside>
-
 <section id="bio">
     <div class="container-fluid text-center">
         <h2>Biography</h2>
@@ -46,12 +41,9 @@
             <a class="js-scroll-trigger" href="#publications">publications <span class="fa fa-arrow-down"></span></a>
         </p>
     </div>
-
 </section>
 <section id="projects" class="bg-light"></section>
 <section id="publications"></section>
-
 <?php include '../_includes/footer.php' ?>
-
 </body>
 </html>

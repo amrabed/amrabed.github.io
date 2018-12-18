@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Amr Abed - Résumé</title>
     <?php include '../_includes/header.php' ?>
 </head>
-
 <body id="page-top">
-
 <?php include '../_includes/navbar.php' ?>
-
 <div class="container">
     <aside class="mh-50 py-5 text-center">
         <h1>Amr Abed</h1>
@@ -30,13 +26,11 @@
             </em>
         </p>
     </div>
-
     <div id="skills">
         <h2>Technical Skills</h2>
         <p>Android SDK, Docker, Java, C++, C, Linux Shell Scripting, Python, LaTeX, MATLAB & Simulink,
             SQL, SQLite, OrientDB, PHP, HTML</p>
     </div>
-
     <div id="languages"><h2>Languages</h2>
         <p>Arabic, English, French</p>
     </div>
@@ -224,8 +218,6 @@
     </div>
 </div>
 <aside class="mh-50 py-5"></aside>
-
 <?php include '../_includes/footer.php' ?>
-
 </body>
 </html>
