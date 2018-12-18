@@ -1,15 +1,12 @@
-<!DOCTYPE html>
+---
+title: Amr Abed - Résumé
+---
 <html lang="en">
-
 <head>
-    <title>Amr Abed - Résumé</title>
-    <?php include '../_includes/header.php' ?>
+    {% include header.html%}
 </head>
-
 <body id="page-top">
-
-<?php include '../_includes/navbar.php' ?>
-
+{% include navbar.html%}
 <div class="container">
     <aside class="mh-50 py-5 text-center">
         <h1>Amr Abed</h1>
@@ -198,7 +195,7 @@
         <p>
             Amr Abed, Charles Clancy, and David Levy.
             "<strong>Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux
-                Containers</strong>,"
+            Containers</strong>,"
             in IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA), 2015
         </p>
         <p>
@@ -224,8 +221,6 @@
     </div>
 </div>
 <aside class="mh-50 py-5"></aside>
-
-<?php include '../_includes/footer.php' ?>
-
+{% include footer.html%}
 </body>
 </html>
