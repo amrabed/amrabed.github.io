@@ -1,6 +1,23 @@
 {
   "publications": [
     {
+      "title": "Securing Cloud Containers through Intrusion Detection and Remediation",
+      "authors": [
+        "Amr S. Abed"
+      ],
+      "venue": "Virginia Tech",
+      "year": "2017",
+      "type": "Ph.D. Dissertation",
+      "fulltext": "http://vtechworks.lib.vt.edu/handle/10919/87730",
+      "keywords": [
+        "Intrusion detection",
+        "Anomaly detection",
+        "System call monitoring",
+        "Container security",
+        "Security in cloud computing"
+      ]
+    },
+    {
       "title": "Intrusion Detection System for Applications using Linux Containers",
       "authors": [
         "Amr S. Abed",

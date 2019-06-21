@@ -10,6 +10,14 @@
       "duration": "November 2017 - Present",
       "courses": [
         {
+          "id": "cse315",
+          "title": "Database Systems",
+          "semester": "Spring 2019",
+          "code": "CSE 315",
+          "link": "http://courses.amrabed.me/course/index.php?categoryid=4",
+          "description": "This course teaches senior undergraduate Computer Engineering students the basic concepts of databases management systems, focusing on relational databases and SQL"
+        },
+        {
           "id": "cse115",
           "title": "Programming Languages",
           "semester": "Fall 2018",
