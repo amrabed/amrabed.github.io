@@ -14,7 +14,7 @@ function populateIcons() {
         {
             title: "Download as PDF",
             text: "PDF",
-            url: "https://github.com/amrabed/resume/blob/master/AmrAbed.pdf",
+            url: "https://github.com/amrabed/resume/releases/download/v1.0/AmrAbed.pdf",
             icon: "fas fa-file-pdf"
         }];
     d3.select("#navbarResponsive")
