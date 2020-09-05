@@ -111,9 +111,31 @@
         "name": "Minia University",
         "url": "http://www.minia.edu.eg/eng/index.php/en"
       },
-      "duration": "November 2017 - Present",
-      "time": "current",
+      "duration": "November 2017 - January 2020",
+      "time": "2017",
       "date": "01/11/2017",
+      "selected": false
+    },
+    {
+      "position": "Learning Content Team Lead",
+      "organization": {
+        "name": "RoboGarden",
+        "url": "https://robogarden.ca"
+      },
+      "duration": "December 2018 - August 2019",
+      "time": "2019",
+      "date": "01/01/2019",
+      "selected": false
+    },
+    {
+      "position": "Founder",
+      "organization": {
+        "name": "Abed Solutions",
+        "url": "https://abed.solutions"
+      },
+      "duration": "January 2020 - Present",
+      "time": "current",
+      "date": "01/01/2020",
       "selected": true
     }
   ]
