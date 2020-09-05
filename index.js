@@ -1,8 +1,9 @@
 /**
  * Created by AmrAbed on 10/22/16
  */
-populateNavbar(["education", "experience", "skills"], ["Email", "LinkedIn", "GitHub", "Google Scholar", "Twitter"], "black");
+populateNavbar(["education", "certifications", "experience", "skills"], ["Email", "LinkedIn", "GitHub", "Google Scholar", "Twitter"], "black");
 loadEducation("education.json", "#education", "Education");
+loadCertifications("certifications.json", "#certifications", "Certifications");
 loadExperience("experience.json", "#experience", "Experience");
 loadSkills("skills.json", "#skills", "Technical Skills");
 
@@ -63,6 +64,54 @@ function loadEducation(file, id, title) {
             .style("height", "200px");
     });
 }
+
+/**
+ * Load Certifications
+ *
+ */
+function loadCertifications(file, id, title) {
+    d3.json(file).then(json => {
+        const section = d3.select(id);
+
+        setHeading(section, title);
+
+        // Workaround to center content vertically
+        section.append("div")
+            .attr("class", "hidden-sm hidden-xs")
+            .style("height", "100px");
+
+        const certifications = section.append("div")
+            .attr("class", "container-fluid align-middle")
+            .append("div").attr("class", "row")
+            .selectAll("div")
+            .data(json)
+            .enter()
+            .append("div")
+            .attr("class", "col-lg-4 col-md-6 text-center")
+            .append("div")
+            .attr("class", "service-box mt-5 mx-auto");
+
+        certifications
+            .append("a").attr("href", c => c.link).attr("target", "_blank")
+            .append("img").style("height", "200px").attr("src", c => c.badge);
+
+        certifications.append("div").append("h4")
+            .append("a").attr("target", "_blank").attr("href", c => c.link)
+            .text(c => c.title);
+
+        certifications.append("h5").attr("class", "text-muted")
+            // .append("a").attr("target", "_blank").attr("href", c => c.organization.url)
+            .text(c => c.organization.name);
+
+        certifications.append("p")
+            .attr("class", "text-muted")
+            .text(c => c.date);
+        section.append("div")
+            .attr("class", "hidden-sm hidden-xs")
+            .style("height", "200px");
+    });
+}
+
 
 /** Load Experience
  *

@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Associate Cloud Engineer",
+    "organization": {
+      "name": "Google Cloud",
+      "url": "https://cloud.google.com/certification"
+    },
+    "badge": "/assets/img/badges/gce.png",
+    "link": "https://www.credential.net/fbeb9d71-88ba-4cba-8d22-458cd6ffea50",
+    "date": "July 2020"
+  },
+  {
+    "title": "Certified Scrum Master",
+    "organization": {
+      "name": "Scrum Alliance",
+      "url": "https://www.scrumalliance.org"
+    },
+    "badge": "/assets/img/badges/csm.png",
+    "link": "http://bcert.me/swmyzzefi",
+    "date": "June 2020"
+  },
+  {
+    "title": "Certified Scrum Product Owner",
+    "organization": {
+      "name": "Scrum Alliance",
+      "url": "https://www.scrumalliance.org"
+    },
+    "badge": "/assets/img/badges/cspo.png",
+    "link": "http://bcert.me/spcxpsler",
+    "date": "June 2020"
+  }
+]
