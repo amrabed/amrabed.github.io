@@ -1,11 +1,11 @@
 /**
  * Created by AmrAbed on 10/22/16
  */
-populateNavbar(["positions"], ["Email", "LinkedIn", "GitHub", "Stack Overflow", "Twitter"]);
-loadEngineeringPositions("projects.json", "#positions", "Positions");
-// loadResearchProjects("../research/projects.json", "#projects", "Research Projects");
-// loadProducts("projects.json", "#products", "Products");
-// $.getScript("https://buttons.github.io/buttons.js");
+populateNavbar(["positions", "projects"], ["Email", "LinkedIn", "GitHub", "Stack Overflow", "Twitter"]);
+loadEngineeringPositions("positions.json", "#positions", "Positions");
+loadProjects("projects.json", "#projects", "Open Source Projects");
+$.getScript("https://buttons.github.io/buttons.js");
+
 /** Load Engineering Positions
  *
  * @param file JSON file to read data from
@@ -13,89 +13,68 @@ loadEngineeringPositions("projects.json", "#positions", "Positions");
  * @param title Target section title
  */
 function loadEngineeringPositions(file, id, title) {
-    d3.json(file).then(function (json) {
-        const positions = d3.select(id);
+    const positions = d3.select(id);
+    setHeading(positions, title);
 
-        setHeading(positions, title);
-
-        const row = positions.append("div").attr("class", "container")
+    d3.json(file).then(data => {
+        const position = positions.append("div")
+            .attr("class", "container")
             .selectAll("div")
-            .data(json.positions)
+            .data(data)
             .enter()
             .append("div")
-            .attr("class", "row mx-auto mb-4");
+            .attr("class", "row mx-auto mb-4")
 
-        const project = row.append("div").attr("class", "col-md-8");
+        const heading = position.append("div")
+            .attr("class", "col-md-10");
 
-        project.append("h3")
-            .text(function (d) {
-                return d.position;
-            });
+        heading.append("h4").text(d => d.position);
 
-        project.append("a")
-            .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.project.url;
-            })
-            .append("h4")
-            .text(function (d) {
-                return d.project.name;
-            });
-
-        project.append("p")
-            .attr("class", "text-muted")
-            .text(function (d) {
-                return d.duration;
-            });
-
-
-        const organization = row.append("div").attr("class", "col-md-2");
-
-        organization.selectAll("a")
-            .data(function (d) {
-                return d.organization;
-            })
+        heading.append("div")
+            .selectAll("a")
+            .data(d => d.organization)
             .enter()
             .append("a")
-            .attr("href", function (d) {
-                return d.url ? d.url : "";
-            })
-            .attr("title", function (d) {
-                return d.name;
-            })
-            .attr("alt", function (d) {
-                return d.name;
-            })
+            .attr("href", d => d.url)
+            .attr("target", "_blank")
+            .append("h5")
+            .text(d => d.name);
+
+        heading.append("p")
+            .attr("class", "text-muted")
+            .text(d => d.duration);
+
+        position.append("div")
+            .attr("class", "col-md-2")
+            .selectAll("a")
+            .data(d => d.organization)
+            .enter()
+            .append("a")
+            .attr("href", d => d.url ? d.url : "")
+            .attr("title", d => d.name)
+            .attr("alt", d => d.name)
             .attr("target", "_blank")
             .append("img")
-            .attr("src", function (d) {
-                return d.logo;
-            });
-        // .style("width: 128px;");
+            .attr("src", d => d.logo)
+            .style("height:50px");
 
-        const details = row.append("div").attr("class", "col-md-10 col-md-offset-1");
+        const details = position.append("div").attr("class", "col-md-12 col-md-offset-1");
 
         details.append("p")
             .attr("class", "list-inline")
             .selectAll("li")
-            .data(function (d) {
-                return d.skills;
-            })
+            .data(d => d.skills)
             .enter()
             .append("li")
             .attr("class", "list-inline-item")
             .append("span")
             .attr("class", "badge badge-info p-2")
-            .text(function (d) {
-                return d;
-            });
+            .text(d => d);
 
         const chevron = details.append("a")
             .attr("class", "btn btn-link")
             .attr("data-toggle", "collapse")
-            .attr("data-target", function (d) {
-                return "#" + d.id;
-            })
+            .attr("data-target", d => "#" + d.id)
             .attr("aria-expanded", "false");
 
         chevron.append("span")
@@ -108,24 +87,18 @@ function loadEngineeringPositions(file, id, title) {
 
         details.append("div")
             .attr("class", "row")
-            .attr("id", function (d) {
-                return d.id;
-            })
+            .attr("id", d => d.id)
             .attr("class", "collapse out")
             .append("p")
             .append("em")
             .append("ul")
             .attr("class", "list list-default")
             .selectAll("li")
-            .data(function (d) {
-                return d.tasks;
-            })
+            .data(d => d.tasks)
             .enter()
             .append("li")
             .attr("class", "text-justify")
-            .text(function (d) {
-                return d;
-            });
+            .text(d => d);
 
         positions.append("div")
             .attr("class", "container")
@@ -143,89 +116,95 @@ function loadEngineeringPositions(file, id, title) {
     });
 }
 
-/** Load Products
+/** Load Projects
  *
  * @param file JSON file to read data from
  * @param id Target section ID
  * @param title Target section title
  */
-function loadProducts(file, id, title) {
-    d3.json(file).then(function (json) {
-        const products = d3.select(id);
+function loadProjects(file, id, title) {
+    const projects = d3.select(id);
+    setHeading(projects, title);
 
-        setHeading(products, title);
-
-        const product = products.append("div")
+    d3.json(file).then(data => {
+        const project = projects.append("div")
             .attr("class", "container")
             .selectAll("div")
-            .data(json.products)
+            .data(data)
             .enter()
             .append("div")
-            .attr("class", "row")
-            .append("div")
-            .attr("class", "col-md-10 col-md-offset-1");
+            .attr("class", "row mx-auto mb-4")
 
-        const header = product.append("h3");
-
-        header.append("a").append("em")
-            .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.url;
-            })
-            .text(function (d) {
-                return d.name;
-            });
-
-        // product.append("p")
-        //     .attr("class", "text-muted")
-        //     .text(function (d) {
-        //         return d.release;
-        //     });
-        // header.append("a")
-        //     .style("display", function (d) {
-        //         return d.playstore ? null : "none";
-        //     })
-        //     .attr("target", "_blank")
-        //     .attr("href", function (d) {
-        //         return d.playstore;
-        //     })
-        //     .append("img")
-        //     .style("width", "150px")
-        //     .attr("alt", "Get in on Google Play")
-        //     .attr("src", "../assets/img/google-play-badge.png");
-
-        product.append("p")
-            .attr("class", "text-justify")
-            .text(function (d) {
-                return d.description;
-            });
-
-        product.append("div")
+        project.append("div")
+            .attr("class", "col-md-10")
+            .append("h3")
+            .text(d => d.name)
+            .append("p")
             .append("a")
             .attr("class", "github-button")
-            .attr("href", function (d) {
-                return d.url;
-            })
-            .attr("data-style", "mega")
-            .attr("aria-label", function (d) {
-                return d.name + " on Github"
-            })
-            .text(function (d) {
-                return d.name;
-            });
+            .attr("href", d => "https://github.com/" + d.github)
+            .attr("data-size", "large")
+            .attr("aria-label", d => d.name + " on Github")
+            .text(d => d.github);
 
-        product.append("p")
-            .attr("class", "list-inline")
+        project.append("div")
+            .style("display", d => d.app && d.status === "published" ? null : "none")
+            .attr("class", "col-md-2")
+            .append("a")
+            .attr("target", "_blank")
+            .attr("href", d => "https://play.google.com/store/apps/details?id=" + d.app)
+            .append("img")
+            .style("width", "150px")
+            .attr("alt", "Get the app on Google Play Store")
+            .attr("src", "../assets/img/google-play.png");
+
+        let demo = project.append("div")
+            .style("display", d => d.demo ? null : "none")
+            .attr("class", "col-md-2")
+        demo.append("a")
+            .attr("target", "_blank")
+            .attr("href", d => d.demo)
+            .append("img")
+            .style("width", "100px")
+            .attr("text", "Watch a demo")
+            .attr("alt", "Watch a demo")
+            .attr("src", "../assets/img/youtube.png")
+        demo.append("p")
+            // .attr("class", "text-muted")
+            .text("Watch a demo")
+
+
+        // project.append("p")
+        //     .attr("class", "text-muted")
+        //     .text(d => "First released " + d.released);
+        project.append("p")
+            .attr("class", "col-md-12 col-md-offset-1 text-justify text-muted")
+            .text(d => d.description)
+
+        let tags = project.append("div")
+            .attr("class", "col-md-12 col-md-offset-1")
+
+        tags.append("span")
+            .attr("class", "list-inline mr-2")
             .selectAll("li")
-            .data(function (d) {
-                return d.skills;
-            })
+            .data(d => d.tags)
             .enter()
             .append("li")
+            .attr("class", "list-inline-item")
             .append("span")
             .attr("class", "badge badge-info p-2")
-            .text(function (d) {
-                return d;
-            });
+            .text(d => d);
+
+        tags.append("span")
+            .attr("class", "list-inline")
+            .selectAll("li")
+            .data(d => d.tools)
+            .enter()
+            .append("li")
+            .attr("class", "list-inline-item")
+            .append("span")
+            .attr("class", "badge badge-primary p-2")
+            .text(d => d);
+
     });
 }
