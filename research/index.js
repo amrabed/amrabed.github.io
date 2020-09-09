@@ -240,10 +240,10 @@ function loadPublications(file, id, title) {
             .attr("data-placement", "top")
             .attr("data-content", function (p) {
                 const author = p.authors[0];
-                const title = p.title;
-                const key = author.slice(author.lastIndexOf(" ") + 1) + p.year + title.slice(0, title.indexOf(" ", 1));
+                const paperTitle = p.title;
+                const key = author.slice(author.lastIndexOf(" ") + 1) + p.year + paperTitle.slice(0, paperTitle.indexOf(" ", 1));
                 return `@${p.type}{${key},
-                    title = {${title}},
+                    title = {${paperTitle}},
                     author = {${authorList(p, " and ")}},
                     ${(p.type === "article") ? "journal" : "booktitle"} = {${p.venue}},
                     ${(p.pages == null) ? "" : "pages = {" + p.pages + "},"}
@@ -289,9 +289,9 @@ function loadPublications(file, id, title) {
             .attr("role", "button")
             .attr("target", "_blank")
             .attr("href", function (d) {
-                const title = d.short_title ? d.short_title : d.title;
+                const paperTitle = d.short_title ? d.short_title : d.title;
                 const url = d.fulltext ? d.fulltext : "https://dx.doi.org/" + d.doi;
-                return "https://twitter.com/intent/tweet?text=" + title + "&url=" + url + "&via=amr_abed";
+                return "https://twitter.com/intent/tweet?text=" + paperTitle + "&url=" + url + "&via=amr_abed";
             })
             .append("span")
             .attr("class", "fas fa-share-square")
