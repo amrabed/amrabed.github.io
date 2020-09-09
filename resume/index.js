@@ -1,8 +1,6 @@
 populateNavbar(["education", "skills", "languages", "technical", "research", "teaching", "volunteer", "awards", "publications"]);
 populateIcons();
 
-// loadPublications("../research/publications.json", "#publications");
-
 function populateIcons() {
     const list = [
         {
@@ -31,29 +29,5 @@ function populateIcons() {
             return a.url;
         }).attr("title", function (a) {
         return a.title;
-    }).append("span").attr("class", function (a) {
-        return a.icon;
-    }).text(function (a) {
-        return " " + a.text;
-    });
-}
-
-/** Load Publications
- *
- * @param file JSON file to read data from
- * @param id Target section ID
- */
-function loadPublications(file, id) {
-    d3.json("../research/publications.json").then(function (json) {
-        d3.select("#publications")
-            .selectAll("p")
-            .data(json.publications)
-            .enter()
-            .append("p")
-            .text(function (p) {
-                return `${authorList(p, ", ")}.
-                    "<strong>${p.title}</strong>,"
-                    in ${p.venue}, ${p.year}`;
-            });
-    });
+    }).append("span").attr("class", a => a.icon).text(a => " " + a.text);
 }

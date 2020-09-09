@@ -7,84 +7,56 @@ loadCertifications("certifications.json", "#certifications", "Certifications");
 loadExperience("experience.json", "#experience", "Experience");
 loadSkills("skills.json", "#skills", "Technical Skills");
 
-/** Load Education Items
- *
- * @param file JSON file to read data from
- * @param id Target section ID
- * @param title to be used for the section heading
+/**
+ * Load Education Items
  */
 function loadEducation(file, id, title) {
-    d3.json(file).then(function (json) {
-        const section = d3.select(id);
-
-        setHeading(section, title);
-
+    const section = d3.select(id);
+    setHeading(section, title);
+    d3.json(file).then(data => {
         // Workaround to center content vertically
-        section.append("div")
-            .attr("class", "hidden-sm hidden-xs")
-            .style("height", "200px");
+        section.append("div").attr("class", "hidden-sm hidden-xs").style("height", "200px");
 
         const degrees = section.append("div")
             .attr("class", "container-fluid align-middle")
             .append("div").attr("class", "row")
             .selectAll("div")
-            .data(json.degrees)
+            .data(data)
             .enter()
             .append("div")
             .attr("class", "col-lg-4 col-md-6 text-center")
             .append("div")
             .attr("class", "service-box mt-5 mx-auto");
 
-        degrees.append("img")
-            .attr("src", "assets/img/education.png");
-
-        degrees.append("h4")
-            .text(function (d) {
-                return d.degree
-            });
-
+        degrees.append("img").attr("src", "assets/img/education.png");
+        degrees.append("h4").text(d => d.degree);
         degrees.append("h5")
             .attr("class", "text-muted")
             .append("a")
             .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.institute.url;
-            }).text(function (d) {
-            return d.institute.name;
-        });
+            .attr("href", d => d.institute.url)
+            .text(d => d.institute.name);
 
-        degrees.append("p")
-            .attr("class", "text-muted")
-            .text(function (d) {
-                return d.time;
-            });
-
-        section.append("div")
-            .attr("class", "hidden-sm hidden-xs")
-            .style("height", "200px");
+        degrees.append("p").attr("class", "text-muted").text(d => d.time);
+        section.append("div").attr("class", "hidden-sm hidden-xs").style("height", "200px");
     });
 }
 
 /**
  * Load Certifications
- *
  */
 function loadCertifications(file, id, title) {
-    d3.json(file).then(json => {
-        const section = d3.select(id);
-
-        setHeading(section, title);
-
+    const section = d3.select(id);
+    setHeading(section, title);
+    d3.json(file).then(data => {
         // Workaround to center content vertically
-        section.append("div")
-            .attr("class", "hidden-sm hidden-xs")
-            .style("height", "100px");
+        section.append("div").attr("class", "hidden-sm hidden-xs").style("height", "100px");
 
         const certifications = section.append("div")
             .attr("class", "container-fluid align-middle")
             .append("div").attr("class", "row")
             .selectAll("div")
-            .data(json)
+            .data(data)
             .enter()
             .append("div")
             .attr("class", "col-lg-4 col-md-6 text-center")
@@ -113,22 +85,17 @@ function loadCertifications(file, id, title) {
 }
 
 
-/** Load Experience
- *
- * @param file JSON file to read data from
- * @param id Target section ID
- * @param title to be used for the section heading
+/**
+ * Load Experience
  */
 function loadExperience(file, id, title) {
-    d3.json(file).then(function (json) {
-        const section = d3.select(id);
-        setHeading(section, title);
+    const section = d3.select(id);
+    setHeading(section, title);
 
-        const t = section.append("div")
-            .attr("class", "cd-horizontal-timeline");
+    d3.json(file).then(json => {
+        const t = section.append("div").attr("class", "cd-horizontal-timeline");
 
-        const timeline = t.append("div")
-            .attr("class", "timeline");
+        const timeline = t.append("div").attr("class", "timeline");
 
         const events = timeline.append("div")
             .attr("class", "events-wrapper")
@@ -143,19 +110,11 @@ function loadExperience(file, id, title) {
             .append("li")
             .append("a")
             .attr("href", "#0")
-            .attr("class", function (d) {
-                if (d.selected) return "selected";
-            })
-            .attr("data-date", function (d) {
-                return d.date;
-            })
-            .text(function (d) {
-                return d.time;
-            });
+            .attr("class", d => d.selected ? "selected" : "")
+            .attr("data-date", d => d.date)
+            .text(d => d.time);
 
-        events.append("span")
-            .attr("class", "filling-line")
-            .attr("aria-hidden", "true");
+        events.append("span").attr("class", "filling-line").attr("aria-hidden", "true");
 
         timeline.append("ul")
             .attr("class", "cd-timeline-navigation")
@@ -165,12 +124,8 @@ function loadExperience(file, id, title) {
             .append("li")
             .append("a")
             .attr("href", "#0")
-            .attr("class", function (d) {
-                return d.class;
-            })
-            .text(function (d) {
-                return d.text;
-            });
+            .attr("class", d => d.class)
+            .text(d => d.text);
 
         const li = t.append("div")
             .attr("class", "events-content")
@@ -179,37 +134,21 @@ function loadExperience(file, id, title) {
             .data(json.positions)
             .enter()
             .append("li")
-            .attr("class", function (d) {
-                if (d.selected) return "selected";
-            })
-            .attr("data-date", function (d) {
-                return d.date;
-            });
+            .attr("class", d => d.selected ? "selected" : "")
+            .attr("data-date", d => d.date);
 
-        li.append("h3")
-            .text(function (d) {
-                return d.position;
-            });
+        li.append("h3").text(d => d.position);
 
         li.append("h4")
             .attr("class", "py-1")
             .append("a")
             .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.organization.url;
-            })
-            .text(function (d) {
-                return d.organization.name;
-            });
+            .attr("href", d => d.organization.url)
+            .text(d => d.organization.name);
 
-        li.append("h5")
-            .attr("class", "text-muted font-italic py-1")
-            .text(function (d) {
-                return d.duration;
-            });
+        li.append("h5").attr("class", "text-muted font-italic py-1").text(d => d.duration);
 
         initTimeline(t);
-
 
         const a = section.append("div")
             .attr("class", "p-0")
@@ -224,15 +163,9 @@ function loadExperience(file, id, title) {
             .attr("class", "col-md-4 col-sm-6 p-0")
             .append("a")
             .attr("class", "portfolio-box")
-            .attr("href", function (d) {
-                return d.ref;
-            });
+            .attr("href", d => d.ref);
 
-        a.append("img")
-            .attr("class", "img-fluid")
-            .attr("src", function (d) {
-                return d.img;
-            });
+        a.append("img").attr("class", "img-fluid").attr("src", d => d.img);
 
         a.append("div")
             .attr("class", "portfolio-box-caption")
@@ -240,96 +173,59 @@ function loadExperience(file, id, title) {
             .attr("class", "portfolio-box-caption-content")
             .append("div")
             .attr("class", "project-name")
-            .text(function (d) {
-                return d.text;
-            });
+            .text(d => d.text);
     });
 }
 
-/** Load Skills
- *
- * @param file JSON file to read data from
- * @param id Target section ID
- * @param title to be used for the section heading
+/**
+ * Load Skills
  */
 function loadSkills(file, id, title) {
-    d3.json(file).then(function (json) {
-        const section = d3.select(id);
+    const section = d3.select(id);
+    setHeading(section, title);
 
-        setHeading(section, title);
-
+    d3.json(file).then(data => {
         const skill = section.append("div")
             .attr("class", "container-fluid")
             .append("svg")
             .attr("viewBox", "0 0 600 280")
             .selectAll("g")
-            .data(json.skills)
+            .data(data)
             .enter()
             .append("g")
             .attr("data-toggle", "modal")
-            .attr("data-target", function (d) {
-                return "#" + (d.id ? d.id : d.label);
+            .attr("data-target", d => "#" + (d.id ? d.id : d.label))
+            .attr("transform", d => "translate(" + d.x + "," + (15 + d.y) + ")")
+            .on("mouseover", () => {
+                const g = d3.select(this).each(() => {
+                    /* Bring to front (based on gist.github.com/trtg/3922684) */
+                    this.parentNode.appendChild(this);
+                });
+                g.select("circle").attr("fill-opacity", 1).attr("r", d => d.size * 1.3);
+                g.select("text").attr("font-size", d => d.size * 0.5)
             })
-            .attr("transform", function (d) {
-                return "translate(" + d.x + "," + (15 + d.y) + ")";
-            })
-            .on("mouseover", function () {
-                const g = d3.select(this)
-                    .each(function () {
-                        /* Bring to front (based on gist.github.com/trtg/3922684) */
-                        this.parentNode.appendChild(this);
-                    });
-
-                g.select("circle")
-                    .attr("fill-opacity", 1)
-                    .attr("r", function (d) {
-                        return d.size * 1.3;
-                    });
-
-                g.select("text").attr("font-size", function (d) {
-                    return d.size * 0.5;
-                })
-            })
-            .on("mouseout", function () {
+            .on("mouseout", () => {
                 const g = d3.select(this);
-
-                g.select("circle")
-                    .attr("fill-opacity", 0.85)
-                    .attr("r", function (d) {
-                        return d.size;
-                    });
-
-                g.select("text").attr("font-size", function (d) {
-                    return d.size * 0.35;
-                })
+                g.select("circle").attr("fill-opacity", 0.85).attr("r", d => d.size);
+                g.select("text").attr("font-size", d => d.size * 0.35)
             });
 
         skill.append("circle")
-            .attr("r", function (d) {
-                return d.size;
-            })
+            .attr("r", d => d.size)
             .attr("fill-opacity", 0.85)
-            .attr("fill", function (d) {
-                return "#" + d.color;
-            });
+            .attr("fill", d => "#" + d.color);
 
         skill.append("text")
             .style("fill", "white")
             .attr("text-anchor", "middle")
             .attr("dy", "0.3em")
-            .attr("font-size", function (d) {
-                return d.size * 0.35;
-            })
-            .text(function (d) {
-                return d.label
-            });
+            .attr("font-size", d => d.size * 0.35)
+            .text(d => d.label);
 
-        const modal = section.data(json.skills)
+        const modal = section.data(data)
             .enter()
             .append("div")
-            .attr("id", function (d) {
-                return d.id ? d.id : d.label;
-            })
+            .attr("id", d => d.id ? d.id : d.label)
             .attr("class", "modal fade")
             .attr("tabindex", "-1")
             .attr("role", "dialog")
@@ -343,51 +239,19 @@ function loadSkills(file, id, title) {
             .attr("class", "modal-header")
             .append("h5")
             .attr("class", "modal-title")
-            .text(function (d) {
-                return d.label + " - Sample Projects";
-            });
+            .text(d => d.label + " - Sample Projects");
 
         modal.append("div")
             .attr("class", "modal-body")
             .selectAll("p")
-            .data(function (d) {
-                return d.projects;
-            })
+            .data(d => d.projects)
             .enter()
             .append("p")
             .attr("class", "text-center")
             .append("a")
             .attr("class", "btn btn-default")
             .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.link;
-            })
-            .text(function (d) {
-                return d.name;
-            });
-
-        // modal.append("div")
-        //     .attr("class", "modal-body")
-        //     .selectAll("p")
-        //     .data(function (d) {
-        //         return d.projects;
-        //     })
-        //     .enter()
-        //     .append("p")
-        //     .attr("class", "text-center")
-        //     .assets("vertical-align", "middle")
-        //     .append("a")
-        //     .attr("class", "github-button")
-        //     .attr("href", function (d) {
-        //         return  d.code;
-        //     })
-        //     .attr("data-assets", "mega")
-        //     .attr("aria-label", function (d) {
-        //         return d.name + " on Github"
-        //     })
-        //     .text(function (d) {
-        //         return d.name;
-        //     })
-        // && show_github_buttons();
+            .attr("href", d => d.link)
+            .text(d => d.name);
     });
 }

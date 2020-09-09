@@ -6,11 +6,8 @@ loadEngineeringPositions("positions.json", "#positions", "Positions");
 loadProjects("projects.json", "#projects", "Open Source Projects");
 $.getScript("https://buttons.github.io/buttons.js");
 
-/** Load Engineering Positions
- *
- * @param file JSON file to read data from
- * @param id Target section ID
- * @param title Target section title
+/**
+ * Load Engineering Positions
  */
 function loadEngineeringPositions(file, id, title) {
     const positions = d3.select(id);
@@ -116,11 +113,8 @@ function loadEngineeringPositions(file, id, title) {
     });
 }
 
-/** Load Projects
- *
- * @param file JSON file to read data from
- * @param id Target section ID
- * @param title Target section title
+/**
+ * Load Projects
  */
 function loadProjects(file, id, title) {
     const projects = d3.select(id);
@@ -170,7 +164,6 @@ function loadProjects(file, id, title) {
             .attr("alt", "Watch a demo")
             .attr("src", "../assets/img/youtube.png")
         demo.append("p")
-            // .attr("class", "text-muted")
             .text("Watch a demo")
 
 
@@ -205,6 +198,5 @@ function loadProjects(file, id, title) {
             .append("span")
             .attr("class", "badge badge-primary p-2")
             .text(d => d);
-
     });
 }

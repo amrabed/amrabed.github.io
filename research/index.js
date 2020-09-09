@@ -10,112 +10,77 @@ $.getScript("https://buttons.github.io/buttons.js");// Show Github buttons
 $.getScript("https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js");// show Altmetric badges
 $.getScript("https://badge.dimensions.ai/badge.js");// Show Dimensions badge
 
-/** Load Research Projects
- *
- * @param file JSON file to read data from
- * @param id Target section ID
- * @param title to be used for the section heading
+/**
+ * Load Research Projects
  */
 function loadResearchProjects(file, id, title) {
-    d3.json(file).then(function (json) {
-        const section = d3.select(id);
+    const section = d3.select(id);
+    setHeading(section, title);
 
-        setHeading(section, title);
-
+    d3.json(file).then(data => {
         const media = section.append("div")
             .attr("class", "container")
             .selectAll("div")
-            .data(json.items)
+            .data(data)
             .enter()
             .append("div")
             .attr("class", "row mb-4");
 
         const header = media.append("div").attr("class", "col-lg-10");
 
-        header.append("h4")
-            .text(function (d) {
-                return d.project;
-            });
-
-        header.append("h5")
-            .text(function (d) {
-                return d.position;
-            });
+        header.append("h4").text(d => d.project);
+        header.append("h5").text(d => d.position);
 
         header.append("a")
             .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.organization.url;
-            })
+            .attr("href", d => d.organization.url)
             .append("h5")
-            .text(function (d) {
-                return d.organization.name;
-            });
+            .text(d => d.organization.name);
 
         header.append("p")
             .attr("class", "text-muted")
-            .text(function (d) {
-                return d.duration;
-            });
+            .text(d => d.duration);
 
         const tags = header.append("p");
 
         tags.append("span")
             .attr("class", "list-inline mr-2")
             .selectAll("li")
-            .data(function (d) {
-                return d.interests;
-            })
+            .data(d => d.interests)
             .enter()
             .append("li")
             .attr("class", "list-inline-item")
             .append("span")
             .attr("class", "badge badge-warning p-2")
-            .text(function (d) {
-                return d;
-            });
+            .text(d => d);
 
         tags.append("span")
             .attr("class", "list-inline")
             .selectAll("li")
-            .data(function (d) {
-                return d.skills;
-            })
+            .data(d => d.skills)
             .enter()
             .append("li")
             .attr("class", "list-inline-item")
             .append("span")
             .attr("class", "badge badge-primary p-2")
-            .text(function (d) {
-                return d;
-            });
+            .text(d => d);
 
         header.append("div")
             .selectAll("a")
-            .data(function (d) {
-                return d.products;
-            })
+            .data(d => d.products)
             .enter()
             .append("a")
             .attr("class", "github-button")
-            .attr("href", function (d) {
-                return d.url;
-            })
+            .attr("href", d => d.url)
             .attr("data-size", "large")
-            .attr("aria-label", function (d) {
-                return d.name + " on Github"
-            })
-            .text(function (d) {
-                return d.name;
-            });
+            .attr("aria-label", d => d.name + " on Github")
+            .text(d => d.name);
 
         const chevron = header.append("a")
             .attr("class", "btn btn-link")
             .attr("aria-expanded", "false")
             .attr("data-toggle", "collapse")
-            .attr("data-target", function (d) {
-                return "#" + d.id;
-            });
+            .attr("data-target", d => "#" + d.id);
 
         chevron.append("span")
             .attr("class", "fas fa-chevron-right");
@@ -125,9 +90,7 @@ function loadResearchProjects(file, id, title) {
 
         header.append("div")
             .attr("class", "row")
-            .attr("id", function (d) {
-                return d.id;
-            })
+            .attr("id", d => d.id)
             .attr("class", "collapse out")
             .append("p")
             .attr("class", "text-justify")
@@ -135,14 +98,10 @@ function loadResearchProjects(file, id, title) {
             .append("ul")
             .attr("class", "list list-default")
             .selectAll("li")
-            .data(function (d) {
-                return d.tasks;
-            })
+            .data(d => d.tasks)
             .enter()
             .append("li")
-            .text(function (d) {
-                return d;
-            });
+            .text(d => d);
 
         const sponsors = media.append("div").attr("class", "col-lg-2 media-middle");
 
@@ -151,46 +110,32 @@ function loadResearchProjects(file, id, title) {
             .text("Sponsor");
 
         sponsors.selectAll("a")
-            .data(function (d) {
-                return d.sponsors;
-            })
+            .data(d => d.sponsors)
             .enter()
             .append("a")
-            .attr("href", function (d) {
-                return d.url;
-            })
-            .attr("title", function (d) {
-                return d.name;
-            })
-            .attr("alt", function (d) {
-                return d.name;
-            })
+            .attr("href", d => d.url)
+            .attr("title", d => d.name)
+            .attr("alt", d => d.name)
             .attr("target", "_blank")
             .attr("style", "margin-right: 5px;")
             .append("img")
-            .attr("src", function (d) {
-                return d.logo;
-            })
+            .attr("src", d => d.logo)
             .attr("style", "width: 100px;height:50px;");
     });
 }
 
-/** Load Publications
- *
- * @param file JSON file to read data from
- * @param id Target section ID
- * @param title to be used for the section heading
+/**
+ * Load Publications
  */
 function loadPublications(file, id, title) {
-    d3.json(file).then(function (json) {
-        const section = d3.select(id);
+    const section = d3.select(id);
+    setHeading(section, title);
 
-        setHeading(section, title);
-
+    d3.json(file).then(data => {
         const publication = section.append("div")
             .attr("class", "container")
             .selectAll("div")
-            .data(json.publications)
+            .data(data)
             .enter()
             .append("div")
             .attr("class", "row")
@@ -200,51 +145,25 @@ function loadPublications(file, id, title) {
 
         publication.append("h4")
             .append("a")
-            .attr("href", function (d) {
-                return d.doi ? "https://dx.doi.org/" + d.doi : "";
-            })
+            .attr("href", p => p.doi ? "https://dx.doi.org/" + p.doi : "")
             .attr("target", "_blank")
-            .text(function (d) {
-                return d.title;
-            });
+            .text(p => p.title);
 
-        publication.append("h5")
-            .text(function (p) {
-                return authorList(p, ", ")
-            });
-
-        publication.append("p")
-            .attr("class", "text-muted")
-            .text(function (p) {
-                return p.venue + ", " + p.year;
-            });
-
-        // publication.append("p")
-        //     .style("display", function (d) {
-        //         return d.doi == null ? "none" : null;
-        //     })
-        //     .text("DOI: ")
-        //     .append("a")
-        //     .attr("href", function (d) {
-        //         return d.url;
-        //     })
-        //     .attr("target", "_blank")
-        //     .text(function (d) {
-        //         return d.doi;
-        //     });
+        publication.append("h5").text(p => p.authors.join(", "));
+        publication.append("p").attr("class", "text-muted").text(p => p.venue + ", " + p.year);
 
         publication.append("button")
             .attr("class", "btn btn-link")
             .attr("data-container", "body")
             .attr("data-toggle", "popover")
             .attr("data-placement", "top")
-            .attr("data-content", function (p) {
+            .attr("data-content", p => {
                 const author = p.authors[0];
                 const paperTitle = p.title;
                 const key = author.slice(author.lastIndexOf(" ") + 1) + p.year + paperTitle.slice(0, paperTitle.indexOf(" ", 1));
                 return `@${p.type}{${key},
                     title = {${paperTitle}},
-                    author = {${authorList(p, " and ")}},
+                    author = {${p.authors.join(" and ")}},
                     ${(p.type === "article") ? "journal" : "booktitle"} = {${p.venue}},
                     ${(p.pages == null) ? "" : "pages = {" + p.pages + "},"}
                     year = {${p.year}}}`;
@@ -258,12 +177,8 @@ function loadPublications(file, id, title) {
             .attr("class", "btn btn-link")
             .attr("role", "button")
             .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.fulltext;
-            })
-            .style("display", function (d) {
-                return d.fulltext == null ? "none" : null;
-            })
+            .attr("href", p => p.fulltext)
+            .style("display", p => p.fulltext ? null : "none")
             .append("span")
             .attr("class", "fas fa-file-pdf")
             .attr("aria-hidden", "true")
@@ -273,12 +188,8 @@ function loadPublications(file, id, title) {
             .attr("class", "btn btn-link")
             .attr("role", "button")
             .attr("target", "_blank")
-            .attr("href", function (d) {
-                return d.presentation;
-            })
-            .style("display", function (d) {
-                return d.presentation == null ? "none" : null;
-            })
+            .attr("href", p => p.presentation)
+            .style("display", p => p.presentation ? null : "none")
             .append("span")
             .attr("class", "fab fa-slideshare")
             .attr("aria-hidden", "true")
@@ -288,40 +199,32 @@ function loadPublications(file, id, title) {
             .attr("class", "btn btn-link")
             .attr("role", "button")
             .attr("target", "_blank")
-            .attr("href", function (d) {
-                const paperTitle = d.short_title ? d.short_title : d.title;
-                const url = d.fulltext ? d.fulltext : "https://dx.doi.org/" + d.doi;
+            .attr("href", p => {
+                const paperTitle = p.short_title ? p.short_title : p.title;
+                const url = p.fulltext ? p.fulltext : "https://dx.doi.org/" + p.doi;
                 return "https://twitter.com/intent/tweet?text=" + paperTitle + "&url=" + url + "&via=amr_abed";
             })
             .append("span")
             .attr("class", "fas fa-share-square")
             .attr("aria-hidden", "true")
             .text(" Share")
-            .style("display", function (d) {
-                return d.fulltext || d.doi ? null : "none";
-            });
+            .style("display", p => p.fulltext || p.doi ? null : "none");
 
-        const impact = publication;//.append("div");
-
-        impact.append("span")
+        publication.append("span")
             .attr("data-badge-popover", "top")
             .attr("data-badge-type", "3")
             .attr("data-hide-no-mentions", "true")
             .attr("data-role", "page")
             .attr("class", "altmetric-embed")
-            .attr("data-doi", function (d) {
-                return d.doi;
-            });
+            .attr("data-doi", p => p.doi);
 
-        impact.append("span")
+        publication.append("span")
             .style("padding-left", "10px")
             .style("display", "inline")
             .attr("class", "__dimensions_badge_embed__")
             .attr("data-hide-zero-citations", "true")
             .attr("data-style", "small_rectangle")
-            .attr("data-doi", function (d) {
-                return d.doi;
-            });
+            .attr("data-doi", p => p.doi);
     });
 }
 
