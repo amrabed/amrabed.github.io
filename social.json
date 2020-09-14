@@ -1,7 +1,7 @@
 [
   {
     "name": "Email",
-    "url": "mailto:amraabed@gmail.com",
+    "url": "mailto:email@amrabed.com",
     "icon": "fas fa-envelope"
   },
   {
@@ -53,5 +53,15 @@
     "name": "Twitter",
     "url": "https://www.twitter.com/amr_abed",
     "icon": "fab fa-twitter"
+  },
+  {
+    "name": "Medium",
+    "url": "https://medium.com/@AmrAbed",
+    "icon": "fab fa-medium"
+  },
+  {
+    "name": "YouTube",
+    "url": "https://www.youtube.com/channel/UCBBm1gYb3QT2NAC7Q-nv5Og",
+    "icon": "fab fa-youtube"
   }
 ]
