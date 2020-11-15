@@ -1,5 +1,15 @@
 [
   {
+    "title": "AWS Certified Solutions Architect",
+    "organization": {
+      "name": "AWS Certification",
+      "url": "https://aws.amazon.com/certification"
+    },
+    "badge": "/assets/img/badges/saa.png",
+    "link": "https://www.youracclaim.com/badges/2d566076-370f-4b1b-8103-ed467325228d",
+    "date": "October 2020"
+  },
+  {
     "title": "Associate Cloud Engineer",
     "organization": {
       "name": "Google Cloud",
