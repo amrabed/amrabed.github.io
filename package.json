@@ -10,7 +10,7 @@
     "url": "https://github.com/amrabed/amrabed.github.io.git"
   },
   "dependencies": {
-    "d3": "^5.7.0",
+    "d3": "^7.0.0",
     "startbootstrap-creative": "^6.0.0",
     "@fortawesome/fontawesome-free": "^5.5.0",
     "bootstrap": "^4.1.3",
