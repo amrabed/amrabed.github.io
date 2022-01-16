@@ -1,5 +1,32 @@
 [
   {
+    "id": "sophi",
+    "position": "Senior Software Engineer, Machine Learning",
+    "organization": [
+      {
+        "name": "Sophi - The Globe and Mail",
+        "url": "https://sophi.io",
+        "logo": "img/sophi.webp"
+      }
+    ],
+    "duration": "January 2021 - Present",
+    "tasks": [
+      "Designed AWS cloud solutions for deploying and using TensorFlow deep learning models",
+      "Created and maintained backend services for ML-based decision making using Python",
+      "Built APIs for users and system admins to communicate with backend services"
+    ],
+    "skills": [
+      "TensorFlow",
+      "AWS",
+      "Python",
+      "Docker"
+    ],
+    "tags": [
+      "Machine Learning",
+      "Cloud"
+    ]
+  },
+  {
     "id": "abed",
     "position": "Founder",
     "organization": [
@@ -11,8 +38,8 @@
     ],
     "duration": "January 2020 - Present",
     "tasks": [
-      "Developing and maintaining 5 different cross-platform applications",
-      "Building a template cross-platform application with essential features and built-in cloud integration, automated CI/CD, and code quality and security monitoring"
+      "Developed and maintained 5 different cross-platform applications",
+      "Built a template cross-platform application with essential features and built-in cloud integration, automated CI/CD, and code quality and security monitoring"
     ],
     "skills": [
       "Kotlin",

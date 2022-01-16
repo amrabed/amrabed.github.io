@@ -134,8 +134,19 @@
         "url": "https://abed.solutions"
       },
       "duration": "January 2020 - Present",
-      "time": "current",
+      "time": "2020",
       "date": "01/01/2020",
+      "selected": false
+    },
+    {
+      "position": "Senior Software Engineer, Machine Learning",
+      "organization": {
+        "name": "Sophi - The Globe and Mail",
+        "url": "https://sophi.io/"
+      },
+      "duration": "January 2021 - Present",
+      "time": "current",
+      "date": "25/01/2021",
       "selected": true
     }
   ]
