@@ -141,12 +141,34 @@
     {
       "position": "Senior Software Engineer, Machine Learning",
       "organization": {
-        "name": "Sophi - The Globe and Mail",
+        "name": "Sophi",
         "url": "https://sophi.io/"
       },
-      "duration": "January 2021 - Present",
-      "time": "current",
+      "duration": "January 2021 - April 2022",
+      "time": "2021",
       "date": "25/01/2021",
+      "selected": false
+    },
+    {
+      "position": "Lead Software Engineer",
+      "organization": {
+        "name": "Sophi",
+        "url": "https://sophi.io/"
+      },
+      "duration": "April 2022 - November 2022",
+      "time": "2022",
+      "date": "01/04/2022",
+      "selected": false
+    },
+    {
+      "position": "Engineering Manager",
+      "organization": {
+        "name": "Sophi",
+        "url": "https://sophi.io/"
+      },
+      "duration": "November 2022 - Present",
+      "time": "2023",
+      "date": "01/11/2022",
       "selected": true
     }
   ]

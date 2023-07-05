@@ -1,15 +1,67 @@
 [
   {
-    "id": "sophi",
-    "position": "Senior Software Engineer, Machine Learning",
+    "id": "sophi-manager",
+    "position": "Engineering Manager",
     "organization": [
       {
-        "name": "Sophi - The Globe and Mail",
+        "name": "Sophi",
         "url": "https://sophi.io",
         "logo": "img/sophi.webp"
       }
     ],
-    "duration": "January 2021 - Present",
+    "duration": "November 2022 - Present",
+    "tasks": [
+      "Leading the Engineering team to build the 2nd generation of the Sophi Paywall products to accommodate the growing customer base"
+    ],
+    "skills": [
+      "TensorFlow",
+      "AWS",
+      "Python",
+      "Docker"
+    ],
+    "tags": [
+      "Machine Learning",
+      "Cloud"
+    ]
+  },
+  {
+    "id": "sophi-lead",
+    "position": "Lead Software Engineer",
+    "organization": [
+      {
+        "name": "Sophi",
+        "url": "https://sophi.io",
+        "logo": "img/sophi.webp"
+      }
+    ],
+    "duration": "April 2022 - November 2022",
+    "tasks": [
+      "Led a team of 3 engineers to redesign the code for Print Laydown Automation",
+      "Collaborated with DevOps team to redesign the architecture of different projects"
+    ],
+    "skills": [
+      "TensorFlow",
+      "AWS",
+      "Python",
+      "Docker",
+      "Terraform"
+    ],
+    "tags": [
+      "Machine Learning",
+      "Cloud"
+    ]
+  },
+  {
+    "id": "sophi-senior",
+    "position": "Senior Software Engineer, Machine Learning",
+    "organization": [
+      {
+        "name": "Sophi",
+        "url": "https://sophi.io",
+        "logo": "img/sophi.webp"
+      }
+    ],
+    "duration": "January 2021 - April 2022",
     "tasks": [
       "Designed AWS cloud solutions for deploying and using TensorFlow deep learning models",
       "Created and maintained backend services for ML-based decision making using Python",
