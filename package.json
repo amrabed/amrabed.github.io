@@ -17,6 +17,6 @@
     "popper.js": "^1.14.3",
     "jquery": "^3.3.1",
     "jquery.easing": "^1.4.1",
-    "scrollreveal": "4.0.7"
+    "scrollreveal": "4.0.9"
   }
 }
