@@ -12,11 +12,9 @@
   "dependencies": {
     "d3": "^7.0.0",
     "startbootstrap-creative": "^7.0.0",
-    "@fortawesome/fontawesome-free": "^6.0.2",
-    "bootstrap": "^5.0.0",
-    "popper.js": "^1.14.3",
-    "jquery": "^3.3.1",
-    "jquery.easing": "^1.4.1",
-    "scrollreveal": "4.0.7"
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "bootstrap": "^5.0.2",
+    "jquery": "^3.7.1",
+    "scrollreveal": "4.0.9"
   }
 }
