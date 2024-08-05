@@ -1,5 +1,5 @@
 /**
- * Created by AmrAbed on 10/22/16
+ * Created by AmrAbed on October 22, 2016. Last updated by AmrAbed on August 5, 2024
  */
 populateNavbar(["positions", "projects"], ["Email", "LinkedIn", "GitHub", "Stack Overflow", "Twitter"]);
 loadEngineeringPositions("positions.json", "#positions", "Positions");
@@ -65,13 +65,13 @@ function loadEngineeringPositions(file, id, title) {
             .append("li")
             .attr("class", "list-inline-item")
             .append("span")
-            .attr("class", "badge badge-info p-2")
+            .attr("class", "badge text-bg-primary p-2")
             .text(d => d);
 
         const chevron = details.append("a")
             .attr("class", "btn btn-link")
-            .attr("data-toggle", "collapse")
-            .attr("data-target", d => "#" + d.id)
+            .attr("data-bs-toggle", "collapse")
+            .attr("data-bs-target", d => "#" + d.id)
             .attr("aria-expanded", "false");
 
         chevron.append("span")
@@ -79,7 +79,7 @@ function loadEngineeringPositions(file, id, title) {
         chevron.append("span")
             .attr("class", "fas fa-chevron-down");
 
-        chevron.append("span").attr("class", "pl-2").text("Details");
+        chevron.append("span").attr("class", "pl-2").text(" Details");
 
 
         details.append("div")
@@ -89,7 +89,7 @@ function loadEngineeringPositions(file, id, title) {
             .append("p")
             .append("em")
             .append("ul")
-            .attr("class", "list list-default")
+            // .attr("class", "list")
             .selectAll("li")
             .data(d => d.tasks)
             .enter()
@@ -137,7 +137,7 @@ function loadProjects(file, id, title) {
             .append("a")
             .attr("class", "github-button")
             .attr("href", d => "https://github.com/" + d.github)
-            .attr("data-size", "large")
+            .attr("data-bs-size", "large")
             .attr("aria-label", d => d.name + " on Github")
             .text(d => d.github);
 
@@ -178,14 +178,14 @@ function loadProjects(file, id, title) {
             .attr("class", "col-md-12 col-md-offset-1")
 
         tags.append("span")
-            .attr("class", "list-inline mr-2")
+            .attr("class", "list-inline p-2")
             .selectAll("li")
             .data(d => d.tags)
             .enter()
             .append("li")
             .attr("class", "list-inline-item")
             .append("span")
-            .attr("class", "badge badge-info p-2")
+            .attr("class", "badge text-bg-dark p-2")
             .text(d => d);
 
         tags.append("span")
@@ -196,7 +196,7 @@ function loadProjects(file, id, title) {
             .append("li")
             .attr("class", "list-inline-item")
             .append("span")
-            .attr("class", "badge badge-primary p-2")
+            .attr("class", "badge text-bg-primary p-2")
             .text(d => d);
     });
 }
