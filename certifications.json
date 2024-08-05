@@ -1,11 +1,21 @@
 [
   {
+    "title": "AWS Certified Machine Learning - Specialty",
+    "organization": {
+      "name": "AWS Certification",
+      "url": "https://aws.amazon.com/certification"
+    },
+    "badge": "/assets/img/badges/aws-mls.png",
+    "link": "https://www.credly.com/badges/8ea3bcee-014b-42df-bc37-3e49d1e4166e/public_url",
+    "date": "June 2024"
+  },
+  {
     "title": "AWS Certified Solutions Architect",
     "organization": {
       "name": "AWS Certification",
       "url": "https://aws.amazon.com/certification"
     },
-    "badge": "/assets/img/badges/saa.png",
+    "badge": "/assets/img/badges/aws-saa.png",
     "link": "https://www.youracclaim.com/badges/2d566076-370f-4b1b-8103-ed467325228d",
     "date": "October 2020"
   },
