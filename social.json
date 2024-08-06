@@ -22,12 +22,12 @@
   {
     "name": "Google Scholar",
     "url": "https://scholar.google.com/citations?user=vdrgnAYAAAAJ",
-    "icon": "ai ai-google-scholar"
+    "icon": "fab fa-google-scholar"
   },
   {
     "name": "ORCiD",
     "url": "https://orcid.org/0000-0001-5582-9762",
-    "icon": "ai ai-orcid"
+    "icon": "fab fa-orcid"
   },
   {
     "name": "Impactstory",
@@ -37,7 +37,7 @@
   {
     "name": "Mendeley",
     "url": "https://www.mendeley.com/profiles/amr-abed/",
-    "icon": "ai ai-mendeley"
+    "icon": "fab fa-mendeley"
   },
   {
     "name": "Figshare",
@@ -50,8 +50,8 @@
     "icon": "fab fa-slideshare"
   },
   {
-    "name": "Twitter",
-    "url": "https://www.twitter.com/amr_abed",
+    "name": "X",
+    "url": "https://x.com/amr_abed",
     "icon": "fab fa-twitter"
   },
   {

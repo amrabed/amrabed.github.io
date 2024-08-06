@@ -44,14 +44,14 @@ function loadResearchProjects(file, id, title) {
         const tags = header.append("p");
 
         tags.append("span")
-            .attr("class", "list-inline mr-2")
+            .attr("class", "list-inline p-2")
             .selectAll("li")
             .data(d => d.interests)
             .enter()
             .append("li")
             .attr("class", "list-inline-item")
             .append("span")
-            .attr("class", "badge badge-warning p-2")
+            .attr("class", "badge text-bg-dark p-2")
             .text(d => d);
 
         tags.append("span")
@@ -62,7 +62,7 @@ function loadResearchProjects(file, id, title) {
             .append("li")
             .attr("class", "list-inline-item")
             .append("span")
-            .attr("class", "badge badge-primary p-2")
+            .attr("class", "badge text-bg-primary p-2")
             .text(d => d);
 
         header.append("div")
@@ -72,21 +72,21 @@ function loadResearchProjects(file, id, title) {
             .append("a")
             .attr("class", "github-button")
             .attr("href", d => d.url)
-            .attr("data-size", "large")
+            .attr("data-bs-size", "large")
             .attr("aria-label", d => d.name + " on Github")
             .text(d => d.name);
 
         const chevron = header.append("a")
             .attr("class", "btn btn-link")
             .attr("aria-expanded", "false")
-            .attr("data-toggle", "collapse")
-            .attr("data-target", d => "#" + d.id);
+            .attr("data-bs-toggle", "collapse")
+            .attr("data-bs-target", d => "#" + d.id);
 
         chevron.append("span")
             .attr("class", "fas fa-chevron-right");
         chevron.append("span")
             .attr("class", "fas fa-chevron-down");
-        chevron.append("span").attr("class", "pl-2").text("Details");
+        chevron.append("span").attr("class", "pl-2").text(" Details");
 
         header.append("div")
             .attr("class", "row")
@@ -96,7 +96,7 @@ function loadResearchProjects(file, id, title) {
             .attr("class", "text-justify")
             .append("em")
             .append("ul")
-            .attr("class", "list list-default")
+            .attr("class", "list")
             .selectAll("li")
             .data(d => d.tasks)
             .enter()
@@ -141,7 +141,7 @@ function loadPublications(file, id, title) {
             .attr("class", "row")
             .append("div")
             .attr("class", "col-lg-12")
-            .attr("data-role", "page");
+            .attr("data-bs-role", "page");
 
         publication.append("h4")
             .append("a")
@@ -154,10 +154,10 @@ function loadPublications(file, id, title) {
 
         publication.append("button")
             .attr("class", "btn btn-link")
-            .attr("data-container", "body")
-            .attr("data-toggle", "popover")
-            .attr("data-placement", "top")
-            .attr("data-content", p => {
+            .attr("data-bs-container", "body")
+            .attr("data-bs-toggle", "popover")
+            .attr("data-bs-placement", "top")
+            .attr("data-bs-content", p => {
                 const author = p.authors[0];
                 const paperTitle = p.title;
                 const key = author.slice(author.lastIndexOf(" ") + 1) + p.year + paperTitle.slice(0, paperTitle.indexOf(" ", 1));
@@ -171,7 +171,7 @@ function loadPublications(file, id, title) {
             .append("span")
             .attr("class", "fas fa-quote-left")
             .attr("aria-hidden", "true")
-            .text(" Cite") && $("[data-toggle=popover]").popover();
+            .text(" Cite") && $("[data-bs-toggle=popover]").popover();
 
         publication.append("a")
             .attr("class", "btn btn-link")
@@ -211,20 +211,20 @@ function loadPublications(file, id, title) {
             .style("display", p => p.fulltext || p.doi ? null : "none");
 
         publication.append("span")
-            .attr("data-badge-popover", "top")
-            .attr("data-badge-type", "3")
-            .attr("data-hide-no-mentions", "true")
-            .attr("data-role", "page")
+            .attr("data-bs-badge-popover", "top")
+            .attr("data-bs-badge-type", "3")
+            .attr("data-bs-hide-no-mentions", "true")
+            .attr("data-bs-role", "page")
             .attr("class", "altmetric-embed")
-            .attr("data-doi", p => p.doi);
+            .attr("data-bs-doi", p => p.doi);
 
         publication.append("span")
             .style("padding-left", "10px")
             .style("display", "inline")
             .attr("class", "__dimensions_badge_embed__")
-            .attr("data-hide-zero-citations", "true")
-            .attr("data-style", "small_rectangle")
-            .attr("data-doi", p => p.doi);
+            .attr("data-bs-hide-zero-citations", "true")
+            .attr("data-bs-style", "small_rectangle")
+            .attr("data-bs-doi", p => p.doi);
     });
 }
 
