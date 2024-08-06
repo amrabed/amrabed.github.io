@@ -33,8 +33,8 @@ function loadCourses(file, id, title) {
 
         const chevron = item.append("a")
             .attr("class", "btn btn-link")
-            .attr("data-toggle", "collapse")
-            .attr("data-target", d => "#" + d.id)
+            .attr("data-bs-toggle", "collapse")
+            .attr("data-bs-target", d => "#" + d.id)
             .attr("aria-expanded", "false");
 
         chevron.append("span")
