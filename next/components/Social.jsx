@@ -1,21 +1,26 @@
-import React, { Fragment } from "react";
 import Link from "next/link";
+import React, { Fragment } from "react";
 
 import { profiles } from "@/data/profiles";
 
 const SocialMedia = () => (
   <Fragment>
     <div className="flex justify-center">
-      <div className='fixed bottom-10 flex flex-row gap-4 z-10'>
+      <div className="fixed bottom-10 flex flex-row gap-4 z-10">
         {profiles.map((profile) => (
-          <Link className='w-fit' href={profile.link} key={profile.name} target="_blank" rel="noreferrer">
+          <Link
+            className="w-fit"
+            href={profile.link}
+            key={profile.name}
+            target="_blank"
+            rel="noreferrer"
+          >
             <div className="p-2 rounded-full text-xl text-white bg-black">
               {profile.icon}
             </div>
           </Link>
         ))}
       </div>
-
     </div>
   </Fragment>
 );

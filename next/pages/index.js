@@ -1,16 +1,17 @@
-import { Fragment } from "react";
-import Head from "next/head";
 import dynamic from "next/dynamic";
+import Head from "next/head";
+import { Fragment } from "react";
 
-const Header = dynamic(() => import("@/components/Header"))
-const Footer = dynamic(() => import("@/components/Footer"))
-const SocialMedia = dynamic(() => import("@/components/Social"))
-const ScrollToTopButton = dynamic(() => import("@/components/ScrollToTopButton"))
-const Intro = dynamic(() => import("@/sections/intro"))
-const Skills = dynamic(() => import("@/sections/skills"))
-const Certifications = dynamic(() => import("@/sections/Certifications"))
-const Education = dynamic(() => import("@/sections/Education"))
-
+const Header = dynamic(() => import("@/components/Header"));
+const Footer = dynamic(() => import("@/components/Footer"));
+const SocialMedia = dynamic(() => import("@/components/Social"));
+const ScrollToTopButton = dynamic(
+  () => import("@/components/ScrollToTopButton"),
+);
+const Intro = dynamic(() => import("@/sections/intro"));
+const Skills = dynamic(() => import("@/sections/skills"));
+const Certifications = dynamic(() => import("@/sections/Certifications"));
+const Education = dynamic(() => import("@/sections/Education"));
 
 const Home = () => (
   <Fragment>

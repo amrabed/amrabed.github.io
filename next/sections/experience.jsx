@@ -1,8 +1,9 @@
 "use client";
-import React, { Fragment, useState, useEffect, useRef } from "react";
-import { MdWork } from "react-icons/md";
-import { ImLocation } from "react-icons/im";
+
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { BsArrowDownCircle } from "react-icons/bs";
+import { ImLocation } from "react-icons/im";
+import { MdWork } from "react-icons/md";
 
 import { positions } from "@/data/experience";
 
@@ -19,7 +20,7 @@ const Experience = () => {
       },
       {
         rootMargin: "-100px",
-      }
+      },
     );
 
     expeObserver.observe(expeRef.current);
@@ -33,13 +34,14 @@ const Experience = () => {
 
   return (
     <Fragment>
-      <section id='experience' ref={expeRef}>
+      <section id="experience" ref={expeRef}>
         <div className="min-h-[100vh] overflow-x-hidden content-center items-center justify-between">
-
-          <h2 className='text-3xl font-bold text-center p-4 flex justify-center items-center gap-3'>Experience</h2>
+          <h2 className="text-3xl font-bold text-center p-4 flex justify-center items-center gap-3">
+            Experience
+          </h2>
 
           <div
-            className='pop-down-child pb-[30px] px-[20px]'
+            className="pop-down-child pb-[30px] px-[20px]"
             ref={expeBoxesRef}
           >
             {positions.map((position, index) =>
@@ -49,29 +51,28 @@ const Experience = () => {
                   key={position.organization.name}
                 >
                   <div
-                    className='md:w-[45%] cursor-pointer p-3'
+                    className="md:w-[45%] cursor-pointer p-3"
                     onClick={() =>
-                      setDesc(
-                        desc === position.tasks
-                          ? ""
-                          : position.tasks[0]
-                      )
+                      setDesc(desc === position.tasks ? "" : position.tasks[0])
                     }
                   >
-                    <div className='flex justify-between gap-2'>
-                      <p className='text-xl md:text-2xl font-bold text-red-600'>
+                    <div className="flex justify-between gap-2">
+                      <p className="text-xl md:text-2xl font-bold text-red-600">
                         {position.organization.name}
                       </p>
-                      <image src={position.organization.logo} alt="${position.organization}-logo" />
+                      <image
+                        src={position.organization.logo}
+                        alt="${position.organization}-logo"
+                      />
                     </div>
 
-                    <div className='flex justify-between text-gray-600 dark:text-gray-400 gap-2 mt-2'>
-                      <p className='font-semibold'>{position.position}</p>
+                    <div className="flex justify-between text-gray-600 dark:text-gray-400 gap-2 mt-2">
+                      <p className="font-semibold">{position.position}</p>
                       <p>{position.duration}</p>
                     </div>
 
                     <p
-                      className='mt-2 text-justify transition-all duration-500 overflow-hidden text-gray-700 dark:text-gray-500'
+                      className="mt-2 text-justify transition-all duration-500 overflow-hidden text-gray-700 dark:text-gray-500"
                       style={
                         desc == position.description
                           ? { maxHeight: "400px" }
@@ -84,32 +85,35 @@ const Experience = () => {
                 </div>
               ) : (
                 <div
-                  className='md:flex justify-end items-end mt-7 gap-2 transition-all duration-500 '
+                  className="md:flex justify-end items-end mt-7 gap-2 transition-all duration-500 "
                   key={position.organization.name}
                 >
                   <div
-                    className='md:w-[45%] cursor-pointer  transition-all duration-500 p-3'
+                    className="md:w-[45%] cursor-pointer  transition-all duration-500 p-3"
                     onClick={() =>
                       setDesc(
                         desc === position.description
                           ? ""
-                          : position.description
+                          : position.description,
                       )
                     }
                   >
-                    <div className='flex justify-between gap-2'>
-                      <p className='text-xl md:text-2xl font-bold text-red-600'>
+                    <div className="flex justify-between gap-2">
+                      <p className="text-xl md:text-2xl font-bold text-red-600">
                         {position.organization.name}
                       </p>
-                      <image src={position.organization.logo} alt="${position.organization}-logo" />
+                      <image
+                        src={position.organization.logo}
+                        alt="${position.organization}-logo"
+                      />
                     </div>
 
-                    <div className='flex justify-between text-gray-600 dark:text-gray-400 mt-2 gap-2'>
-                      <p className='font-semibold'>{position.position}</p>
+                    <div className="flex justify-between text-gray-600 dark:text-gray-400 mt-2 gap-2">
+                      <p className="font-semibold">{position.position}</p>
                       <p>{position.duration}</p>
                     </div>
                     <p
-                      className='mt-2 overflow-hidden transition-all duration-500 text-justify text-gray-700 dark:text-gray-500'
+                      className="mt-2 overflow-hidden transition-all duration-500 text-justify text-gray-700 dark:text-gray-500"
                       style={
                         desc == position.description
                           ? { maxHeight: "400px" }
@@ -120,7 +124,7 @@ const Experience = () => {
                     </p>
                   </div>
                 </div>
-              )
+              ),
             )}
           </div>
         </div>

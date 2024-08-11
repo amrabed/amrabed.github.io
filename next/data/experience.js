@@ -1,174 +1,132 @@
 export const positions = [
   {
-    "id": "sophi-manager",
-    "position": "Engineering Manager",
-    "organization":
-    {
-      "name": "Sophi",
-      "url": "https://sophi.io",
-      "logo": "/images/sophi.webp"
+    id: "sophi-manager",
+    position: "Engineering Manager",
+    organization: {
+      name: "Sophi",
+      url: "https://sophi.io",
+      logo: "/images/sophi.webp",
     },
-    "duration": "November 2022 - Present",
-    "tasks": [
-      "Leading the Engineering team to build the 2nd generation of the Sophi Paywall products to accommodate the growing customer base"
+    duration: "November 2022 - Present",
+    tasks: [
+      "Leading the Engineering team to build the 2nd generation of the Sophi Paywall products to accommodate the growing customer base",
     ],
-    "skills": [
-      "TensorFlow",
-      "AWS",
-      "Python",
-      "Docker"
-    ],
-    "tags": [
-      "Machine Learning",
-      "Cloud"
-    ]
+    skills: ["TensorFlow", "AWS", "Python", "Docker"],
+    tags: ["Machine Learning", "Cloud"],
   },
   {
-    "id": "sophi-lead",
-    "position": "Lead Software Engineer",
-    "organization":
-    {
-      "name": "Sophi",
-      "url": "https://sophi.io",
-      "logo": "images/sophi.webp"
+    id: "sophi-lead",
+    position: "Lead Software Engineer",
+    organization: {
+      name: "Sophi",
+      url: "https://sophi.io",
+      logo: "images/sophi.webp",
     },
-    "duration": "April 2022 - November 2022",
-    "tasks": [
+    duration: "April 2022 - November 2022",
+    tasks: [
       "Led a team of 3 engineers to redesign the code for Print Laydown Automation",
-      "Collaborated with DevOps team to redesign the architecture of different projects"
+      "Collaborated with DevOps team to redesign the architecture of different projects",
     ],
-    "skills": [
-      "TensorFlow",
-      "AWS",
-      "Python",
-      "Docker",
-      "Terraform"
-    ],
-    "tags": [
-      "Machine Learning",
-      "Cloud"
-    ]
+    skills: ["TensorFlow", "AWS", "Python", "Docker", "Terraform"],
+    tags: ["Machine Learning", "Cloud"],
   },
   {
-    "id": "sophi-senior",
-    "position": "Senior Software Engineer, Machine Learning",
-    "organization":
-    {
-      "name": "Sophi",
-      "url": "https://sophi.io",
-      "logo": "/images/sophi.webp"
+    id: "sophi-senior",
+    position: "Senior Software Engineer, Machine Learning",
+    organization: {
+      name: "Sophi",
+      url: "https://sophi.io",
+      logo: "/images/sophi.webp",
     },
-    "duration": "January 2021 - April 2022",
-    "tasks": [
+    duration: "January 2021 - April 2022",
+    tasks: [
       "Designed AWS cloud solutions for deploying and using TensorFlow deep learning models",
       "Created and maintained backend services for ML-based decision making using Python",
-      "Built APIs for users and system admins to communicate with backend services"
+      "Built APIs for users and system admins to communicate with backend services",
     ],
-    "skills": [
-      "TensorFlow",
-      "AWS",
-      "Python",
-      "Docker"
-    ],
-    "tags": [
-      "Machine Learning",
-      "Cloud"
-    ]
+    skills: ["TensorFlow", "AWS", "Python", "Docker"],
+    tags: ["Machine Learning", "Cloud"],
   },
   {
-    "id": "abed",
-    "position": "Founder",
-    "organization":
-    {
-      "name": "Abed Solutions",
-      "url": "https://abed.solutions",
-      "logo": "/images/abed.png"
+    id: "abed",
+    position: "Founder",
+    organization: {
+      name: "Abed Solutions",
+      url: "https://abed.solutions",
+      logo: "/images/abed.png",
     },
-    "duration": "January 2020 - Present",
-    "tasks": [
+    duration: "January 2020 - Present",
+    tasks: [
       "Developed and maintained 5 different cross-platform applications",
-      "Built a template cross-platform application with essential features and built-in cloud integration, automated CI/CD, and code quality and security monitoring"
+      "Built a template cross-platform application with essential features and built-in cloud integration, automated CI/CD, and code quality and security monitoring",
     ],
-    "skills": [
-      "Kotlin",
-      "Swift",
-      "Java",
-      "Android",
-      "Firebase"
-    ]
+    skills: ["Kotlin", "Swift", "Java", "Android", "Firebase"],
   },
   {
-    "id": "robogarden",
-    "position": "Learning Content Team Lead",
-    "organization":
-    {
-      "name": "RoboGarden",
-      "url": "https://robogarden.ca",
-      "logo": "/images/robogarden.png"
+    id: "robogarden",
+    position: "Learning Content Team Lead",
+    organization: {
+      name: "RoboGarden",
+      url: "https://robogarden.ca",
+      logo: "/images/robogarden.png",
     },
-    "duration": "December 2018 - August 2019",
-    "tasks": [
+    duration: "December 2018 - August 2019",
+    tasks: [
       "Created content for a Python Machine Learning course to be taught in a continuing-education program of one of the top universities in Canada",
-      "Led a team of 6 engineers to deliver contents for 6 different courses"
+      "Led a team of 6 engineers to deliver contents for 6 different courses",
     ],
-    "skills": [
+    skills: [
       "Python",
       "Scikit-Learn",
       "Keras",
       "Machine Learning",
-      "Deep Learning"
-    ]
+      "Deep Learning",
+    ],
   },
   {
-    "id": "gfit",
-    "project": {
-      "name": "Google Fit for Android",
-      "url": "https://www.google.com/fit"
+    id: "gfit",
+    project: {
+      name: "Google Fit for Android",
+      url: "https://www.google.com/fit",
     },
-    "position": "Software Engineering Intern",
-    "organization":
-    {
-      "name": "Google",
-      "url": "http://www.google.com/about",
-      "logo": "/images/google.png"
+    position: "Software Engineering Intern",
+    organization: {
+      name: "Google",
+      url: "http://www.google.com/about",
+      logo: "/images/google.png",
     },
-    "duration": "May 2014 - August 2014",
-    "tasks": [
+    duration: "May 2014 - August 2014",
+    tasks: [
       "Implemented an Android application that communicates with Google visual-search service and Google knowledge graph",
       "Collaborated with members from three different teams to successfully complete project on time",
-      "Added features and fixed bugs for two other Android applications using the Google Fit APIs"
+      "Added features and fixed bugs for two other Android applications using the Google Fit APIs",
     ],
-    "skills": [
+    skills: [
       "Java",
       "Android",
       "Google Knowledge Graph",
       "Google Fit API",
-      "Google Visual Search"
-    ]
+      "Google Visual Search",
+    ],
   },
   {
-    "id": "spec2el",
-    "project": {
-      "name": "Spectre2Eldo Syntax Converter",
-      "url": "#"
+    id: "spec2el",
+    project: {
+      name: "Spectre2Eldo Syntax Converter",
+      url: "#",
     },
-    "position": "Software Development Engineer",
-    "organization":
-    {
-      "name": "Mentor Graphics",
-      "url": "http://www.mentor.com",
-      "logo": "/images/mentor.png"
+    position: "Software Development Engineer",
+    organization: {
+      name: "Mentor Graphics",
+      url: "http://www.mentor.com",
+      logo: "/images/mentor.png",
     },
-    "duration": "November 2007 - November 2008",
-    "tasks": [
+    duration: "November 2007 - November 2008",
+    tasks: [
       "Studied and analyzed the C-based version of the Spectre2Eldo syntax converter",
       "Designed and implemented the OO-based version of the Spectre2Eldo syntax converter using C++ STL",
-      "Solved problems related to using a Flex & Bison parser with C++"
+      "Solved problems related to using a Flex & Bison parser with C++",
     ],
-    "skills": [
-      "C++",
-      "C++ STL",
-      "Flex & Bison"
-    ]
-  }
+    skills: ["C++", "C++ STL", "Flex & Bison"],
+  },
 ];

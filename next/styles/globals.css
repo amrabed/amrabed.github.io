@@ -34,39 +34,39 @@ div {
   scale: 1;
 }
 
-.pop-down-child>div {
+.pop-down-child > div {
   opacity: 0;
   scale: 0;
 }
 
-.pop-up-child>div {
+.pop-up-child > div {
   opacity: 1;
   scale: 1;
 }
 
 /* Section */
 .section {
-  @apply min-h-[100vh] overflow-x-hidden content-evenly items-center justify-evenly shadow-zinc-300 dark:shadow-zinc-700 shadow-sm overflow-hidden
+  @apply min-h-[100vh] overflow-x-hidden content-evenly items-center justify-evenly shadow-zinc-300 dark:shadow-zinc-700 shadow-sm overflow-hidden;
 }
 
 .section-heading {
-  @apply uppercase text-3xl text-center p-4 flex justify-center items-center gap-5
+  @apply uppercase text-3xl text-center p-4 flex justify-center items-center gap-5;
 }
 
 .section-body {
-  @apply flex min-h-[450px] py-[30px] px-[20px] md:px-[100px] justify-evenly flex-wrap items-center gap-5
+  @apply flex min-h-[450px] py-[30px] px-[20px] md:px-[100px] justify-evenly flex-wrap items-center gap-5;
 }
 
 .section-item {
-  @apply flex flex-col items-center gap-2
+  @apply flex flex-col items-center gap-2;
 }
 
 /* Social Media animation */
-.social-hide>div {
+.social-hide > div {
   transform: scale(0);
 }
 
-.social-show>div {
+.social-show > div {
   transform: scale(0.9);
 }
 

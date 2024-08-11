@@ -1,13 +1,14 @@
 "use client";
+
 import React, { Fragment, useContext, useEffect, useState } from "react";
-import ToggleThemeButton from "./ToggleThemeButton";
 
-import MobileNavbar from "./mobile/Sidebar";
-import NavbarMobile from "./mobile/Header";
-
-import { ThemeContext } from "@/context/themeContext";
 import NavbarLinks from "./NavbarLinks";
 import PageTitle from "./PageTitle";
+import ToggleThemeButton from "./ToggleThemeButton";
+import NavbarMobile from "./mobile/Header";
+import MobileNavbar from "./mobile/Sidebar";
+
+import { ThemeContext } from "@/context/themeContext";
 
 const Header = () => {
   const [top, setTop] = useState("0");
@@ -32,12 +33,11 @@ const Header = () => {
     <Fragment>
       {/* Desktop Header */}
       <div
-        className='w-full h-[70px] px-8 bg-[rgba(255,255,255,0.8)] dark:bg-[rgba(0,0,0,0.8)] backdrop-filter backdrop-blur-lg hidden md:flex justify-between items-center gap-4 shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500'
+        className="w-full h-[70px] px-8 bg-[rgba(255,255,255,0.8)] dark:bg-[rgba(0,0,0,0.8)] backdrop-filter backdrop-blur-lg hidden md:flex justify-between items-center gap-4 shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500"
         style={{ top: top }}
       >
         <PageTitle />
         <NavbarLinks />
-
 
         <ToggleThemeButton theme={theme} toggleTheme={toggleTheme} />
       </div>
@@ -53,7 +53,7 @@ const Header = () => {
 
       {/* SideMenu For Mobile Screen */}
       <MobileNavbar setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
-    </Fragment >
+    </Fragment>
   );
 };
 
