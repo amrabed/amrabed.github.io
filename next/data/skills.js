@@ -5,54 +5,67 @@ import { DiSwift } from "react-icons/di";
 export const skills = [
   {
     name: "Python",
-    icon: <FaPython className="md:text-4xl text-2xl" />,
+    icon: <FaPython />,
+    color: "#3776AB"
   },
   {
     name: "TensorFlow",
-    icon: <SiTensorflow className="md:text-4xl text-2xl" />,
+    icon: <SiTensorflow />,
+    color: "#FF6F00"
   },
   {
     name: "AWS",
-    icon: <FaAws className="md:text-4xl text-2xl" />,
+    icon: <FaAws />,
+    color: "#FF9900"
   },
   {
     name: "Google Cloud",
-    icon: <SiGooglecloud className="md:text-4xl text-2xl" />,
+    icon: <SiGooglecloud />,
+    color: "#4285F4"
   },
   {
     name: "Docker",
-    icon: <FaDocker className="md:text-4xl text-2xl" />,
+    icon: <FaDocker />,
+    color: "#2496ED"
   },
   {
     name: "Kubernetes",
-    icon: <SiKubernetes className="md:text-4xl text-2xl" />,
+    icon: <SiKubernetes />,
+    color: "#326CE5"
   },
   {
     name: "Firebase",
-    icon: <SiFirebase className="md:text-4xl text-2xl" />
+    icon: <SiFirebase />,
+    color: "#FFC107"
   },
   {
     name: "Android",
-    icon: <FaAndroid className="md:text-4xl text-2xl" />
+    icon: <FaAndroid />,
+    color: "#A4C639"
   },
   {
     name: "Kotlin",
-    icon: <SiKotlin className="md:text-4xl text-2xl" />
+    icon: <SiKotlin />,
+    color: "#7F52A2"
   },
   {
     name: "Java",
-    icon: <FaJava className="md:text-4xl text-2xl" />
+    icon: <FaJava />,
+    color: "#B00040"
   },
   {
     name: "C/C++",
-    icon: <SiCplusplus className="md:text-4xl text-2xl" />
+    icon: <SiCplusplus />,
+    color: "#00599C"
   },
   {
     name: "Swift",
-    icon: <DiSwift className="md:text-4xl text-2xl" />
+    icon: <DiSwift />,
+    color: "#FF9900"
   },
   {
     name: "Flutter",
-    icon: <SiFlutter className="md:text-4xl text-2xl" />
+    icon: <SiFlutter />,
+    color: "#02569B"
   },
 ];

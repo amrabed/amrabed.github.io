@@ -7,19 +7,19 @@ const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState("dark");
 
     // Toggle Theme
-    const setThemeFun = () => {
+    const toggleTheme = () => {
         if (theme === "dark") {
             setTheme("light");
-            localStorage.setItem("myPortfolioProfileTheme", "light");
+            localStorage.setItem("currentTheme", "light");
         } else {
             setTheme("dark");
-            localStorage.setItem("myPortfolioProfileTheme", "dark");
+            localStorage.setItem("currentTheme", "dark");
         }
     };
 
     // Get Theme Value From LocalStorage
     useEffect(() => {
-        const getTheme = localStorage.getItem("myPortfolioProfileTheme");
+        const getTheme = localStorage.getItem("currentTheme");
         if (!getTheme) {
             return
         }
@@ -27,7 +27,7 @@ const ThemeProvider = ({ children }) => {
     }, []);
 
     return (
-        <ThemeContext.Provider value={{ theme, setThemeFun }}>
+        <ThemeContext.Provider value={{ theme, toggleTheme: toggleTheme }}>
             <div className={theme === "dark" ? "dark" : ""}>
                 <div className='dark:text-white dark:bg-black'>{children}</div>
             </div>

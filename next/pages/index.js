@@ -23,7 +23,6 @@ const Home = () => (
       <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     </Head>
     <Header />
-    <SocialMedia />
     <div>
       <Intro />
       <Skills />
@@ -31,6 +30,7 @@ const Home = () => (
       <Education />
       {/* <Experience /> */}
       {/* <Projects /> */}
+      <SocialMedia />
       <Footer />
     </div>
     <ScrollToTopButton />

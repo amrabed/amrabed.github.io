@@ -1,7 +1,7 @@
 import { FaXTwitter, FaStackOverflow, FaLinkedinIn, FaGithub, FaGoodreadsG, FaGoogleScholar, FaMedium, FaYoutube } from "react-icons/fa6";
 import { TbBrandStackshare } from "react-icons/tb";
 
-export const social = [
+export const profiles = [
   {
     icon: <FaLinkedinIn />,
     name: "LinkedIn",

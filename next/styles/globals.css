@@ -13,9 +13,9 @@ div {
   text-align: justify;
 }
 
-.sectionHeading {
+/* .sectionHeading {
   @apply px-4 text-center flex justify-center items-center text-3xl md:text-4xl font-medium dark:text-[#07d0e5] text-[#c72c6c] pb-8 md:pb-10;
-}
+} */
 
 /* Home Animation and About Animation */
 .slide-in {
@@ -42,6 +42,23 @@ div {
 .pop-up-child>div {
   opacity: 1;
   scale: 1;
+}
+
+/* Section */
+.section {
+  @apply min-h-[100vh] overflow-x-hidden content-evenly items-center justify-evenly shadow-zinc-300 dark:shadow-zinc-700 shadow-sm overflow-hidden
+}
+
+.section-heading {
+  @apply uppercase text-3xl font-bold text-center p-4 flex justify-center items-center gap-5
+}
+
+.section-body {
+  @apply flex min-h-[450px] py-[30px] px-[20px] md:px-[100px] flex-wrap justify-evenly items-center gap-5
+}
+
+.section-item {
+  @apply flex flex-col items-center gap-2
 }
 
 /* Social Media animation */

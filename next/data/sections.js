@@ -1,14 +1,14 @@
-export const NavbarMenu = [
+export const sections = [
     {
-        name: "SKILLS",
+        name: "Skills",
         link: "#skills",
     },
     {
-        name: "CERTIFICATIONS",
+        name: "Certifications",
         link: "#certifications",
     },
     {
-        name: "EDUCATION",
+        name: "Education",
         link: "#education",
     },
     // {
