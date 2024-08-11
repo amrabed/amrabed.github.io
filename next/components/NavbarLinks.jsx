@@ -3,17 +3,17 @@ import Link from "next/link";
 import { sections } from "@/data/sections";
 
 export const MobileNavbarLinks = () => (
-    <div className='p-2 flex flex-col gap-2'>
+    <div className='p-3 flex flex-col gap-3'>
         {sections.map((section) => (
             <Link
-                className='text-lg p-2'
+                className='text-lg p-2 hover:text-primary hover:dark:text-darkPrimary'
                 href={section.link}
                 key={section.name}
             >
                 {section.name}
             </Link>
         ))}
-    </div>
+    </div >
 
 );
 
@@ -21,7 +21,7 @@ const NavbarLinks = () => (
     <div className='h-full flex gap-4'>
         {sections.map((section) => (
             <Link
-                className={"text-primary dark:text-darkPrimary"}
+                className={"hover:text-primary hover:dark:text-darkPrimary"}
                 href={section.link}
                 key={section.name}
             >

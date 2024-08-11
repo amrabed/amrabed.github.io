@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 
+import PageTitle from "../PageTitle";
 import SidebarButton from "./SidebarButton";
 import { MobileNavbarLinks } from "@/components/NavbarLinks";
 
@@ -15,13 +16,10 @@ const MobileNavbar = ({ showSidebar, setShowSidebar }) => (
         className={`w-[70%] h-screen bg-white dark:bg-black shadow-sm shadow-gray-600 dark:shadow-gray-300 ${showSidebar ? null : "translate-x-[-450px]"
           } transition-all duration-1000`}
       >
-        <div className='p-3 flex items-center gap-3'>
+        <div className=' px-5 py-3 flex items-center gap-3'>
           <SidebarButton showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-          <div className='flex items-center gap-2'>
-            <p>
-              <span className='text-lg font-bold'>Amr Abed</span>
-            </p>
-          </div>
+
+          <PageTitle />
         </div>
         <MobileNavbarLinks />
       </div>
