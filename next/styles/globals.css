@@ -54,7 +54,7 @@ div {
 }
 
 .section-body {
-  @apply flex min-h-[450px] py-[30px] px-[20px] md:px-[100px] flex-wrap justify-evenly items-center gap-5
+  @apply flex min-h-[450px] py-[30px] px-[20px] md:px-[100px] justify-evenly flex-wrap items-center gap-5
 }
 
 .section-item {
@@ -74,7 +74,7 @@ div {
 .scroll-to-top {
   position: fixed;
   bottom: 5rem;
-  left: 2%;
+  right: 2%;
   z-index: 1000;
 }
 
