@@ -11,7 +11,7 @@ const Education = () => (
           <div className='section-item'>
             <Image src={degree.university.logo} alt={`${degree.university.name} logo`} height={150} width={150} />
             <p className='text-xl md:text-2xl text-secondary-600'>{degree.title}</p>
-            <p className='dark:text-[#07d0e5] text-[#c72c6c]'>{degree.university.name}</p>
+            <p className='dark:text-darkPrimary text-primary'>{degree.university.name}</p>
             <p className='dark:text-zinc-400 text-zinc-600'>{degree.duration}</p>
           </div>
         </a>

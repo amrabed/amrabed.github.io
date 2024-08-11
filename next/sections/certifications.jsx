@@ -11,7 +11,7 @@ const Certifications = () => (
                     <div className='section-item p-3 md:p-1'>
                         <Image src={certificate.badge} alt={`Badge for ${certificate.title}`} width={150} height={150} />
                         <p className='text-nowrap text-xl text-secondary-600'>{certificate.title}</p>
-                        <p className='dark:text-[#07d0e5] text-[#665DC3]'>{certificate.organization.name}</p>
+                        <p className='dark:text-darkPrimary text-primary'>{certificate.organization.name}</p>
                         <p className='dark:text-zinc-400 text-zinc-600'>{certificate.date}</p>
                     </div>
                 </a>

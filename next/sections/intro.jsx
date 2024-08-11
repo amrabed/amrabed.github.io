@@ -65,13 +65,13 @@ const Intro = () => {
             {/* Profile Name */}
             <p className='text-2xl md:text-4xl py-2 font-semibold font-sans text-center text-nowrap'>
               I&apos;m
-              <span className="text-[#665DC3] dark:text-[#07d0e5]">
+              <span className="text-primary dark:text-darkPrimary">
                 {" a"}
                 <TypeAnimation
                   sequence={["n ENGINEER", 2000, " RESEARCHER", 2000, "n INSTRUCTOR", 2000, " CREATOR", 2000]}
                   wrapper="span"
                   speed={10}
-                  // style={{ className="text-[#c72c6c] dark:text-[#07d0e5]" }}
+                  // style={{ className="text-primary dark:text-darkPrimary" }}
                   repeat={Infinity}
                 />
               </span>

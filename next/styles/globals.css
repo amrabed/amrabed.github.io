@@ -14,7 +14,7 @@ div {
 }
 
 /* .sectionHeading {
-  @apply px-4 text-center flex justify-center items-center text-3xl md:text-4xl font-medium dark:text-[#07d0e5] text-[#c72c6c] pb-8 md:pb-10;
+  @apply px-4 text-center flex justify-center items-center text-3xl md:text-4xl font-medium dark:text-darkPrimary text-primary pb-8 md:pb-10;
 } */
 
 /* Home Animation and About Animation */
@@ -50,7 +50,7 @@ div {
 }
 
 .section-heading {
-  @apply uppercase text-3xl font-bold text-center p-4 flex justify-center items-center gap-5
+  @apply uppercase text-3xl text-center p-4 flex justify-center items-center gap-5
 }
 
 .section-body {

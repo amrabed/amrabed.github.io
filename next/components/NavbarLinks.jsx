@@ -21,11 +21,11 @@ const NavbarLinks = () => (
     <div className='h-full flex gap-4'>
         {sections.map((section) => (
             <Link
-                className={"text-[#665DC3] dark:text-[#07d0e5]"}
+                className={"text-primary dark:text-darkPrimary"}
                 href={section.link}
                 key={section.name}
             >
-                <div className='h-full pb-1 hover:pb-0 px-2 flex items-center hover:border-b-4  border-[#665DC3] dark:border-[#07d0e5] transition-all'>
+                <div className='h-full pb-1 hover:pb-0 px-2 flex items-center hover:border-b-4  border-primary dark:border-darkPrimary transition-all'>
                     {section.name}
                 </div>
             </Link>

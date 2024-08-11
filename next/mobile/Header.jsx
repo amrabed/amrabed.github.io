@@ -27,7 +27,7 @@ const NavbarMobile = ({ setShowMenu, setThemeFun, theme, showMenu, top }) => {
       {/* Toggle Theme Button */}
       <div className='flex items-center gap-4'>
         <button
-          className='text-[#c72c6c] dark:text-[#07d0e5] text-2xl font-semibold hover:scale-110'
+          className='text-primary dark:text-darkPrimary text-2xl font-semibold hover:scale-110'
           onClick={setThemeFun}
         >
           {theme === "dark" ? <FaSun /> : <FaMoon />}
