@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth !important;
+  -webkit-scroll-behavior: smooth !important;
+  /* other browsers */
+}
+
+p,
+div {
+  text-align: justify;
+}
+
+.sectionHeading {
+  @apply px-4 text-center flex justify-center items-center text-3xl md:text-4xl font-medium dark:text-[#07d0e5] text-[#c72c6c] pb-8 md:pb-10;
+}
+
+/* Home Animation and About Animation */
+.slide-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Skills, Experience, Education, Projects animation */
+.pop-down {
+  opacity: 0;
+  scale: 0;
+}
+
+.pop-up {
+  opacity: 1;
+  scale: 1;
+}
+
+.pop-down-child>div {
+  opacity: 0;
+  scale: 0;
+}
+
+.pop-up-child>div {
+  opacity: 1;
+  scale: 1;
+}
+
+/* Social Media animation */
+.social-hide>div {
+  transform: scale(0);
+}
+
+.social-show>div {
+  transform: scale(0.9);
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 5rem;
+  left: 2%;
+  z-index: 1000;
+}
+
+.scroll-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.scroll-button:hover {
+  background-color: #555;
+}
