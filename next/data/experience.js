@@ -92,7 +92,7 @@ export const positions = [
     position: "Software Engineering Intern",
     organization: {
       name: "Google",
-      url: "http://www.google.com/about",
+      url: "https://www.google.com/about",
       logo: "/images/google.png",
     },
     duration: "May 2014 - August 2014",
@@ -118,7 +118,7 @@ export const positions = [
     position: "Software Development Engineer",
     organization: {
       name: "Mentor Graphics",
-      url: "http://www.mentor.com",
+      url: "https://www.mentor.com",
       logo: "/images/mentor.png",
     },
     duration: "November 2007 - November 2008",

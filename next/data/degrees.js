@@ -3,7 +3,7 @@ export const degrees = [
     title: "Ph.D. Computer Engineering",
     university: {
       name: "Virginia Tech",
-      url: "http://www.vt.edu",
+      url: "https://www.vt.edu",
       logo: "/vt.png",
     },
     duration: "August 2014 - July 2017",
@@ -21,7 +21,7 @@ export const degrees = [
     title: "B.S. Computer Engineering",
     university: {
       name: "Ain Shams University",
-      url: "http://eng.asu.edu.eg",
+      url: "https://eng.asu.edu.eg",
       logo: "/asu.png",
     },
     duration: "September 2000 - June 2005",

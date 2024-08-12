@@ -36,7 +36,7 @@ export const certificates = [
       url: "https://www.scrumalliance.org",
     },
     badge: "/csm.png",
-    link: "http://bcert.me/swmyzzefi",
+    link: "https://bcert.me/swmyzzefi",
     date: "June 2020",
   },
   {
@@ -46,7 +46,7 @@ export const certificates = [
       url: "https://www.scrumalliance.org",
     },
     badge: "/cspo.png",
-    link: "http://bcert.me/spcxpsler",
+    link: "https://bcert.me/spcxpsler",
     date: "June 2020",
   },
 ];
