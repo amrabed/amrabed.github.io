@@ -12,3 +12,9 @@ lint:
 
 local:
 	pnpm dev
+
+build:
+	pnpm build
+
+deploy: build
+	firebase deploy --only hosting

@@ -2,6 +2,7 @@
 const path = require("path");
 
 const nextConfig = {
+  output: "export",
   reactStrictMode: true,
   images: {
     domains: [
@@ -12,6 +13,7 @@ const nextConfig = {
       "portal.eng.asu.edu.eg",
       "open-scope.com",
     ],
+    unoptimized: true
   },
   eslint: {
     ignoreDuringBuilds: true,

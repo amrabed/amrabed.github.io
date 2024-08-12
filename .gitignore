@@ -5,3 +5,5 @@ Icon*
 
 blog/
 _site/
+firebase-key.json
+.firebase/
