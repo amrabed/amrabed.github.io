@@ -7,7 +7,7 @@ install:
 format:
 	pnpm format
 
-lint: format
+lint:
 	pnpm lint
 
 local:
