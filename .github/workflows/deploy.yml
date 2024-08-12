@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 on:
   pull_request:
     types: [closed]
-    paths: [next]
+    paths: ['next']
     branches: [main]
 
 defaults:
