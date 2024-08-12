@@ -2,8 +2,8 @@ name: Deploy to GitHub Pages
 on:
   pull_request:
     types: [closed]
-    paths: ['next']
     branches: [main]
+    paths: ['next/**']
 
 defaults:
   run:
