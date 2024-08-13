@@ -68,7 +68,7 @@ const Intro = () => {
             ref={introRef}
           >
             {/* Profile Name */}
-            <p className="text-2xl md:text-4xl py-2 font-semibold font-sans text-center text-nowrap">
+            <p className="text-2xl md:text-4xl py-2 font-sans text-center text-nowrap">
               I&apos;m
               <span className="text-primary dark:text-darkPrimary">
                 {" a"}

@@ -1,8 +1,8 @@
 import React from "react";
 
-import PageTitle from "../PageTitle";
-import ToggleThemeButton from "../ToggleThemeButton";
-import SidebarButton from "./SidebarButton";
+import PageTitle from "../pageTitle";
+import ToggleThemeButton from "../toggleThemeButton";
+import SidebarButton from "./sidebarButton";
 
 const NavbarMobile = ({
   theme,

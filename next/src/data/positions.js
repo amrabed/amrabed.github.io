@@ -1,4 +1,4 @@
-export const positions = [
+const positions = [
   {
     id: "sophi-manager",
     position: "Engineering Manager",
@@ -130,3 +130,5 @@ export const positions = [
     skills: ["C++", "C++ STL", "Flex & Bison"],
   },
 ];
+
+export default positions;

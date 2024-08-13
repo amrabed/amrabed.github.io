@@ -1,20 +1,20 @@
 const sections = [
   {
-    name: "Skills",
+    name: "skills",
     link: "#skills",
   },
   {
-    name: "Certifications",
+    name: "certifications",
     link: "#certifications",
   },
   {
-    name: "Education",
+    name: "education",
     link: "#education",
   },
-  {
-    name: "Experience",
-    link: "#experience",
-  },
+  // {
+  //   name: "Experience",
+  //   link: "#experience",
+  // },
   // {
   //   name: "Projects",
   //   link: "#project",
