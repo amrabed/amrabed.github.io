@@ -1,4 +1,4 @@
-export const sections = [
+const sections = [
   {
     name: "Skills",
     link: "#skills",
@@ -11,8 +11,14 @@ export const sections = [
     name: "Education",
     link: "#education",
   },
+  {
+    name: "Experience",
+    link: "#experience",
+  },
   // {
-  //     name: "PROJECTS",
-  //     link: "#project",
+  //   name: "Projects",
+  //   link: "#project",
   // },
 ];
+
+export default sections;

@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa6";
 import { TbBrandStackshare } from "react-icons/tb";
 
-export const profiles = [
+const profiles = [
   {
     icon: <FaLinkedinIn />,
     name: "LinkedIn",
@@ -57,3 +57,5 @@ export const profiles = [
     link: "https://twitter.com/amr_abed",
   },
 ];
+
+export default profiles;

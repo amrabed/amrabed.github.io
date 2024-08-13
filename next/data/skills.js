@@ -10,7 +10,7 @@ import {
   SiTensorflow,
 } from "react-icons/si";
 
-export const skills = [
+const skills = [
   {
     name: "Python",
     icon: <FaPython />,
@@ -77,3 +77,5 @@ export const skills = [
     color: "#02569B",
   },
 ];
+
+export default skills;

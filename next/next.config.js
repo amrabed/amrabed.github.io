@@ -13,7 +13,7 @@ const nextConfig = {
       "portal.eng.asu.edu.eg",
       "open-scope.com",
     ],
-    unoptimized: true
+    unoptimized: true,
   },
   eslint: {
     ignoreDuringBuilds: true,

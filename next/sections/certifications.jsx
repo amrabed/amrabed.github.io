@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import Section from "@/components/Section";
-import { certificates } from "@/data/certifications";
+import certificates from "@/data/certifications";
 
 const Certifications = () => (
   <Section id="certifications" title="Certifications">
