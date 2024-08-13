@@ -4,9 +4,9 @@ import PortfolioProvider from "@/contexts/portfolio";
 import ThemeProvider from "@/contexts/theme";
 
 const Providers = ({ children }) => (
-  <ThemeProvider>
-    <PortfolioProvider>{children}</PortfolioProvider>
-  </ThemeProvider>
+  <PortfolioProvider>
+    <ThemeProvider>{children}</ThemeProvider>
+  </PortfolioProvider>
 );
 
 export default Providers;

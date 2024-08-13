@@ -27,7 +27,7 @@ const ThemeProvider = ({ children }) => {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme: toggleTheme }}>
       <div className={theme === "dark" ? "dark" : ""}>
         <div className="dark:text-white dark:bg-black">{children}</div>
       </div>
