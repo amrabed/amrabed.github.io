@@ -5,7 +5,7 @@ import { BsArrowDownCircle } from "react-icons/bs";
 import { ImLocation } from "react-icons/im";
 import { MdWork } from "react-icons/md";
 
-import { positions } from "@/data/experience";
+import positions from "@/data/experience";
 
 const Experience = () => {
   const [desc, setDesc] = useState("");

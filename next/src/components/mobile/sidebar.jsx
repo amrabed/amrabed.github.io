@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 
-import { MobileNavbarLinks } from "../NavbarLinks";
-import PageTitle from "../PageTitle";
-import SidebarButton from "./SidebarButton";
+import { MobileNavbarLinks } from "../navbarLinks";
+import PageTitle from "../pageTitle";
+import SidebarButton from "./sidebarButton";
 
 const MobileNavbar = ({ showSidebar, setShowSidebar }) => (
   <Fragment>

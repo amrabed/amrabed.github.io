@@ -1,8 +1,10 @@
-const { useState, createContext } = require("react");
+"use client";
+
+import React, { createContext, useEffect, useState } from "react";
 
 export const PortfolioContext = createContext();
 
-export const PortfolioProvider = ({ children }) => {
+const PortfolioProvider = ({ children }) => {
   const [dark, setDark] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
@@ -14,3 +16,5 @@ export const PortfolioProvider = ({ children }) => {
     </PortfolioContext.Provider>
   );
 };
+
+export default PortfolioProvider;

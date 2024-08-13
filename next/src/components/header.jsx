@@ -2,13 +2,13 @@
 
 import React, { Fragment, useContext, useEffect, useState } from "react";
 
-import NavbarLinks from "./NavbarLinks";
-import PageTitle from "./PageTitle";
-import ToggleThemeButton from "./ToggleThemeButton";
-import NavbarMobile from "./mobile/Header";
-import MobileNavbar from "./mobile/Sidebar";
+import { ThemeContext } from "@/contexts/theme";
 
-import { ThemeContext } from "@/context/themeContext";
+import NavbarMobile from "./mobile/header";
+import MobileNavbar from "./mobile/sidebar";
+import NavbarLinks from "./navbarLinks";
+import PageTitle from "./pageTitle";
+import ToggleThemeButton from "./toggleThemeButton";
 
 const Header = () => {
   const [top, setTop] = useState("0");
