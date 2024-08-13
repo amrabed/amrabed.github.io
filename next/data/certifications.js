@@ -1,4 +1,4 @@
-export const certificates = [
+const certifications = [
   {
     title: "AWS Certified Machine Learning - Specialty",
     organization: {
@@ -50,3 +50,5 @@ export const certificates = [
     date: "June 2020",
   },
 ];
+
+export default certifications;

@@ -1,5 +1,5 @@
 import Section from "@/components/Section";
-import { skills } from "@/data/skills";
+import skills from "@/data/skills";
 
 const Skills = () => (
   <Section id="skills" title="Technical Skills" className="justify-center">

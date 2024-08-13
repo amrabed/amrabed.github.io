@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { sections } from "@/data/sections";
+import sections from "@/data/sections";
 
 export const MobileNavbarLinks = () => (
   <div className="p-3 flex flex-col gap-3">

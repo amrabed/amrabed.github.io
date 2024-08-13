@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { Fragment } from "react";
 
-import { profiles } from "@/data/profiles";
+import profiles from "@/data/profiles";
 
 const SocialMedia = () => (
   <Fragment>

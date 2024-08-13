@@ -1,4 +1,4 @@
-export const degrees = [
+const degrees = [
   {
     title: "Ph.D. Computer Engineering",
     university: {
@@ -27,3 +27,5 @@ export const degrees = [
     duration: "September 2000 - June 2005",
   },
 ];
+
+export default degrees;
