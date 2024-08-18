@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-
 import colors from "tailwindcss/colors";
 
 const config: Config = {
@@ -8,12 +7,12 @@ const config: Config = {
   theme: {
     colors: {
       primary: {
-        "DEFAULT": "#006994", //"#665DC3",
-        "dark": "#07d0e5", // "#87ceeb",
+        DEFAULT: "#006994", //"#665DC3",
+        dark: "#07d0e5", // "#87ceeb",
       },
-      "secondary":{
-        "DEFAULT": "#f7f7f7", // colors.white
-        "dark": "#333333",  // colors.black
+      secondary: {
+        DEFAULT: "#f7f7f7", // colors.white
+        dark: "#333333", // colors.black
       },
       background: colors.gray[100],
       zinc: colors.zinc,

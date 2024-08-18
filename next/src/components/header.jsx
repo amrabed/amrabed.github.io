@@ -2,13 +2,13 @@
 
 import React, { Fragment, useContext, useEffect, useState } from "react";
 
+import ToggleThemeButton from "@/components/toggleThemeButton";
 import { ThemeContext } from "@/contexts/theme";
 
 import NavbarMobile from "./mobile/header";
 import MobileNavbar from "./mobile/sidebar";
 import NavbarLinks from "./navbarLinks";
 import PageTitle from "./pageTitle";
-import ToggleThemeButton from "@/components/toggleThemeButton";
 
 const Header = () => {
   const [top, setTop] = useState("-80px");
