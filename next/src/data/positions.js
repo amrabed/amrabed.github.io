@@ -7,7 +7,7 @@ const positions = [
       url: "https://sophi.io",
       logo: "/images/sophi.webp",
     },
-    duration: "November 2022 - Present",
+    duration: "Nov 2022 - Present",
     tasks: [
       "Leading the Engineering team to build the 2nd generation of the Sophi Paywall products to accommodate the growing customer base",
     ],
@@ -22,7 +22,7 @@ const positions = [
       url: "https://sophi.io",
       logo: "images/sophi.webp",
     },
-    duration: "April 2022 - November 2022",
+    duration: "Apr 2022 - Nov 2022",
     tasks: [
       "Led a team of 3 engineers to redesign the code for Print Laydown Automation",
       "Collaborated with DevOps team to redesign the architecture of different projects",
@@ -38,7 +38,7 @@ const positions = [
       url: "https://sophi.io",
       logo: "/images/sophi.webp",
     },
-    duration: "January 2021 - April 2022",
+    duration: "Jan 2021 - Apr 2022",
     tasks: [
       "Designed AWS cloud solutions for deploying and using TensorFlow deep learning models",
       "Created and maintained backend services for ML-based decision making using Python",
@@ -55,7 +55,7 @@ const positions = [
       url: "https://abed.solutions",
       logo: "/images/abed.png",
     },
-    duration: "January 2020 - Present",
+    duration: "Jan 2020 - Present",
     tasks: [
       "Developed and maintained 5 different cross-platform applications",
       "Built a template cross-platform application with essential features and built-in cloud integration, automated CI/CD, and code quality and security monitoring",
@@ -70,7 +70,7 @@ const positions = [
       url: "https://robogarden.ca",
       logo: "/images/robogarden.png",
     },
-    duration: "December 2018 - August 2019",
+    duration: "Dec 2018 - Aug 2019",
     tasks: [
       "Created content for a Python Machine Learning course to be taught in a continuing-education program of one of the top universities in Canada",
       "Led a team of 6 engineers to deliver contents for 6 different courses",
@@ -95,7 +95,7 @@ const positions = [
       url: "https://www.google.com/about",
       logo: "/images/google.png",
     },
-    duration: "May 2014 - August 2014",
+    duration: "May 2014 - Aug 2014",
     tasks: [
       "Implemented an Android application that communicates with Google visual-search service and Google knowledge graph",
       "Collaborated with members from three different teams to successfully complete project on time",
@@ -121,7 +121,7 @@ const positions = [
       url: "https://www.mentor.com",
       logo: "/images/mentor.png",
     },
-    duration: "November 2007 - November 2008",
+    duration: "Nov 2007 - Nov 2008",
     tasks: [
       "Studied and analyzed the C-based version of the Spectre2Eldo syntax converter",
       "Designed and implemented the OO-based version of the Spectre2Eldo syntax converter using C++ STL",

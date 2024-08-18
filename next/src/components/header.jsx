@@ -3,6 +3,7 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 
 import ToggleThemeButton from "@/components/toggleThemeButton";
+import HeaderProvider from "@/contexts/header";
 import { ThemeContext } from "@/contexts/theme";
 
 import NavbarMobile from "./mobile/header";
@@ -31,17 +32,13 @@ const Header = () => {
 
   return (
     <Fragment>
-      {/* Desktop Header */}
-      <div
-        className="w-full h-[50px] px-8 backdrop-filter backdrop-blur-lg hidden md:flex justify-between items-center gap-4 shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500"
-        style={{ top: top }}
-      >
+      <HeaderProvider>
         <PageTitle />
         <div className="flex gap-4">
           <NavbarLinks />
           <ToggleThemeButton theme={theme} toggleTheme={toggleTheme} />
         </div>
-      </div>
+      </HeaderProvider>
 
       {/* Mobile Header */}
       <NavbarMobile
