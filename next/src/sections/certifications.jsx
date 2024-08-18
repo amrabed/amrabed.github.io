@@ -18,7 +18,7 @@ const Certifications = () => (
             <p className="text-nowrap text-xl text-secondary-600">
               {certificate.title}
             </p>
-            <p className="dark:text-darkPrimary text-primary">
+            <p className="text-primary dark:text-primary-dark">
               {certificate.organization.name}
             </p>
             <p className="dark:text-zinc-400 text-zinc-600">

@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,7 +31,7 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
 
 * {
   scroll-behavior: smooth !important;
@@ -44,7 +45,7 @@ div {
 }
 
 /* .sectionHeading {
-  @apply px-4 text-center flex justify-center items-center text-3xl md:text-4xl font-medium dark:text-darkPrimary text-primary pb-8 md:pb-10;
+  @apply px-4 text-center flex justify-center items-center text-3xl md:text-4xl font-medium dark:text-primary-dark text-primary pb-8 md:pb-10;
 } */
 
 /* Home Animation and About Animation */

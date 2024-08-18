@@ -1,20 +1,20 @@
 import type { Config } from "tailwindcss";
 
-const colors = require("tailwindcss/colors");
+import colors from "tailwindcss/colors";
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  darkMode: "selector",
   theme: {
     colors: {
-      primary: "#006994", //"#665DC3",
-      darkPrimary: "#07d0e5", // "#87ceeb",
-      // secondary: colors.white,
-      // darkSecondary: colors.black,
+      primary: {
+        "DEFAULT": "#006994", //"#665DC3",
+        "dark": "#07d0e5", // "#87ceeb",
+      },
+      "secondary":{
+        "DEFAULT": "#f7f7f7", // colors.white
+        "dark": "#333333",  // colors.black
+      },
       background: colors.gray[100],
       zinc: colors.zinc,
       black: colors.black,

@@ -5,8 +5,8 @@ import { Inter } from "next/font/google";
 import "@/styles/animation.css";
 import "@/styles/cssGrid.css";
 import "@/styles/globals.css";
+import ThemeProvider from "@/contexts/theme";
 
-import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Providers>
-        <body className={inter.className}>{children}</body>
-      </Providers>
+        <body className={`${inter.className} antialiased` }><ThemeProvider>{children}</ThemeProvider></body>
     </html>
   );
 }
