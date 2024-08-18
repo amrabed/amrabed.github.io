@@ -70,7 +70,7 @@ const Intro = () => {
             {/* Profile Name */}
             <p className="text-2xl md:text-4xl py-2 font-sans text-center text-nowrap">
               I&apos;m
-              <span className="text-primary dark:text-darkPrimary">
+              <span className="text-primary dark:text-primary-dark">
                 {" a"}
                 <TypeAnimation
                   sequence={[
@@ -85,7 +85,7 @@ const Intro = () => {
                   ]}
                   wrapper="span"
                   speed={10}
-                  // style={{ className="text-primary dark:text-darkPrimary" }}
+                  // style={{ className="text-primary dark:text-primary-dark" }}
                   repeat={Infinity}
                 />
               </span>

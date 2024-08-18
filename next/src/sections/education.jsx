@@ -18,7 +18,7 @@ const Education = () => (
             <p className="text-xl md:text-2xl text-secondary-600">
               {degree.title}
             </p>
-            <p className="dark:text-darkPrimary text-primary">
+            <p className="dark:text-primary-dark text-primary">
               {degree.university.name}
             </p>
             <p className="dark:text-zinc-400 text-zinc-600">
