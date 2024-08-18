@@ -11,10 +11,10 @@ const sections = [
     name: "education",
     link: "#education",
   },
-  // {
-  //   name: "Experience",
-  //   link: "#experience",
-  // },
+  {
+    name: "experience",
+    link: "./positions",
+  },
   // {
   //   name: "Projects",
   //   link: "#project",

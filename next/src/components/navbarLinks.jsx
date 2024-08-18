@@ -24,7 +24,7 @@ const NavbarLinks = () => (
         href={section.link}
         key={section.name}
       >
-        <div className="h-full pb-1 hover:pb-0 px-2 flex items-center hover:border-b-2  border-primary dark:border-primary-dark transition-all">
+        <div className="h-full pb-1 hover:pb-0 px-2 flex items-center border-primary dark:border-primary-dark transition-all">
           {section.name}
         </div>
       </Link>
