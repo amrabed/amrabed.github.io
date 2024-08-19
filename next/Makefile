@@ -1,20 +1,20 @@
-pnpm:
-	npm install pnpm
-
 install:
-	pnpm install
+	npm install
 
 format:
-	pnpm format
+	npm run format
 
 lint:
-	pnpm lint
+	npm run lint
 
 local:
-	pnpm dev
+	npm run dev
 
 build:
-	pnpm build
+	npm run build
 
 deploy: build
 	firebase deploy --only hosting
+
+clean:
+	rm -rf node_modules .next out
