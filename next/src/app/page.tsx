@@ -20,8 +20,6 @@ const Home = () => (
       <Skills />
       <Certifications />
       <Education />
-      {/* <Experience /> */}
-      {/* <Projects /> */}
       <SocialMedia />
     </div>
     <ScrollToTopButton />

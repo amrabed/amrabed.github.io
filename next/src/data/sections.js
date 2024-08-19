@@ -15,10 +15,10 @@ const sections = [
     name: "experience",
     link: "./positions",
   },
-  // {
-  //   name: "Projects",
-  //   link: "#project",
-  // },
+  {
+    name: "createions",
+    link: "./projects",
+  },
 ];
 
 export default sections;
