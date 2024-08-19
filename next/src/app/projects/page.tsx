@@ -12,29 +12,28 @@ import HeaderProvider from "@/contexts/header";
 import { ThemeContext } from "@/contexts/theme";
 import projects from "@/data/projects";
 
-
 const Timeline = ({ items }) => (
-        <div className="flex justify-center">
-        <ul className="list-none">
-        {items.map((item) => (
+  <div className="flex justify-center">
+    <ul className="list-none">
+      {items.map((item) => (
         <li className="mb-5" key={item.id}>
-            <div className="">
+          <div className="">
             <span className="relative left-5 xl:left-[-90px] xl:top-5 text-zinc">
-                {item.released}
+              {item.released}
             </span>
             <div
-                className="border-r-4 border-black dark:border-gray-800 absolute h-full top-5"
-                style={{ left: "9px" }}
+              className="border-r-4 border-black dark:border-gray-800 absolute h-full top-5"
+              style={{ left: "9px" }}
             ></div>
-            </div>
-            <div className="flex group">
+          </div>
+          <div className="flex group">
             <div className="bg-gray-800 dark:bg-gray-600 group-hover:bg-primary z-10 rounded-full border-4 border-black dark:border-gray-800 h-5 w-5">
-                <div className="bg-black dark:bg-gray-800 h-1 w-6 items-center ml-4 mt-1"></div>
+              <div className="bg-black dark:bg-gray-800 h-1 w-6 items-center ml-4 mt-1"></div>
             </div>
             <div className="flex-auto ml-6 z-10 font-medium">
-                <div className="order-1 space-y-2 bg-gray-800 group-hover:bg-primary rounded-lg shadow-only transition-ease w-3/5 px-6 py-4">
+              <div className="order-1 space-y-2 bg-gray-800 group-hover:bg-primary rounded-lg shadow-only transition-ease w-3/5 px-6 py-4">
                 <h3 className="mb-3 font-semibold text-white text-lg">
-                    {item.name}
+                  {item.name}
                 </h3>
                 {/* <p className="pb-4 text-sm text-gray-100">
                     {item.organization.name}
@@ -49,15 +48,14 @@ const Timeline = ({ items }) => (
                     {item.tasks[1]}
                     </li>
                 </ul> */}
-                </div>
+              </div>
             </div>
-            </div>
+          </div>
         </li>
-        ))}
-        </ul>
-        </div>
+      ))}
+    </ul>
+  </div>
 );
-
 
 const Page = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -71,7 +69,7 @@ const Page = () => {
         <ToggleThemeButton theme={theme} toggleTheme={toggleTheme} />
       </HeaderProvider>
       <Section id="projects" title="Projects">
-          <Timeline items={projects} />
+        <Timeline items={projects} />
       </Section>
     </Fragment>
   );

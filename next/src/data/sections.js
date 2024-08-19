@@ -16,7 +16,7 @@ const sections = [
     link: "./positions",
   },
   {
-    name: "createions",
+    name: "creations",
     link: "./projects",
   },
 ];
