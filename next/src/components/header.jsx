@@ -8,7 +8,7 @@ import { ThemeContext } from "@/contexts/theme";
 
 import NavbarMobile from "./mobile/header";
 import MobileNavbar from "./mobile/sidebar";
-import NavbarLinks from "./navbarLinks";
+import NavbarLinks from "./navLinks";
 import PageTitle from "./pageTitle";
 
 const Header = () => {

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import { MobileNavbarLinks } from "../navbarLinks";
+import { MobileNavbarLinks } from "../navLinks";
 import PageTitle from "../pageTitle";
 import SidebarButton from "./sidebarButton";
 
