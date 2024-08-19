@@ -12,10 +12,10 @@ import HeaderProvider from "@/contexts/header";
 import { ThemeContext } from "@/contexts/theme";
 import projects from "@/data/projects";
 
-const Timeline = ({ items }) => (
+const Timeline = () => (
   <div className="flex justify-center">
     <ul className="list-none">
-      {items.map((item) => (
+      {projects.map((item) => (
         <li className="mb-5" key={item.id}>
           <div className="">
             <span className="relative left-5 xl:left-[-90px] xl:top-5 text-zinc">
@@ -69,7 +69,7 @@ const Page = () => {
         <ToggleThemeButton theme={theme} toggleTheme={toggleTheme} />
       </HeaderProvider>
       <Section id="projects" title="Projects">
-        <Timeline items={projects} />
+        <Timeline />
       </Section>
     </Fragment>
   );
