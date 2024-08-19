@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import { Fragment } from "react";
 
 const Header = dynamic(() => import("@/components/header"));
-const Footer = dynamic(() => import("@/components/Footer"));
 const SocialMedia = dynamic(() => import("@/components/Social"));
 const ScrollToTopButton = dynamic(
   () => import("@/components/scrollToTopButton"),
@@ -24,7 +23,6 @@ const Home = () => (
       {/* <Experience /> */}
       {/* <Projects /> */}
       <SocialMedia />
-      <Footer />
     </div>
     <ScrollToTopButton />
   </Fragment>
