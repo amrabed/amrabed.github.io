@@ -25,7 +25,9 @@ const Page = () => {
         <ToggleThemeButton theme={theme} toggleTheme={toggleTheme} />
       </HeaderProvider>
       <Section id="experience" title="Experience">
-        <Timeline items={positions} />
+        <div className="flex text-center items-center content-center justify-center">
+          <Timeline items={positions} />
+        </div>
       </Section>
     </Fragment>
   );
