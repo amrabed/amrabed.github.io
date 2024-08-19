@@ -170,7 +170,7 @@ const projects = [
     position: "Graduate Research Assistant",
     organization: {
       name: "NCR Urban Living Lab, Virginia Tech",
-      url: "http://www.ncr.vt.edu/initiatives/urban_living_lab.html",
+      url: "https://www.ncr.vt.edu/initiatives/urban_living_lab.html",
     },
     duration: "May 2016 - July 2017",
     tasks: [
@@ -200,7 +200,7 @@ const projects = [
     position: "Graduate Research Assistant",
     organization: {
       name: "Hume Center, Virginia Tech",
-      url: "http://www.hume.vt.edu",
+      url: "https://www.hume.vt.edu",
     },
     duration: "January 2017 - May 2017",
     tasks: [
@@ -224,14 +224,14 @@ const projects = [
       },
       {
         name: "Northrop Grumman",
-        url: "http://www.northropgrumman.com",
+        url: "https://www.northropgrumman.com",
         logo: "img/ng.png",
       },
     ],
     position: "Graduate Research Assistant",
     organization: {
       name: "Hume Center, Virginia Tech",
-      url: "http://www.hume.vt.edu",
+      url: "https://www.hume.vt.edu",
     },
     duration: "January 2015 - May 2016",
     tasks: [
