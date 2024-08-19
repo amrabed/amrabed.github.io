@@ -8,6 +8,10 @@ import "@/styles/cssGrid.css";
 import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const ScrollToTopButton = dynamic(
+  () => import("@/components/scrollToTopButton"),
+);
+
 const Footer = dynamic(() => import("@/components/Footer"));
 
 export const metadata: Metadata = {
@@ -33,6 +37,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider>
           {children}
+          <ScrollToTopButton />
           <Footer />
         </ThemeProvider>
       </body>
