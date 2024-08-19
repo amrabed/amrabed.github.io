@@ -6,6 +6,7 @@ const projects = [
       "Automatically run and test an application using Docker image running on different Amazon AWS EC2 instances",
     github: "amrabed/docker-ec2",
     released: "2013-05-20",
+    roles: ["researcher", "engineer"],
     tools: ["docker", "aws", "aws-ec2", "bash"],
     tags: ["Cloud"],
   },
@@ -31,7 +32,7 @@ const projects = [
     released: "2015-03-19",
     roles: ["research"],
     tools: ["java", "docker", "bash", "gradle"],
-    tags: ["Cloud", "Shell"],
+    tags: ["Cloud", "Machine Learning", "Shell"],
   },
   {
     id: "deep-hids",
@@ -53,7 +54,7 @@ const projects = [
     github: "amrabed/skeleton",
     released: "2020-03-03",
     roles: ["freelance", "entrepreneur"],
-    tools: ["android", "kotlin", "firebase"],
+    tools: ["kotlin", "firebase", "android"],
     tags: ["Mobile", "Cloud", "Database"],
   },
   {
@@ -74,7 +75,7 @@ const projects = [
       "javascript",
       "plotly",
     ],
-    tags: ["IoT", "Smart City", "Cloud", "Web"],
+    tags: ["Cloud", "Web", "IoT", "Smart City"],
   },
   {
     id: "logger",
@@ -118,6 +119,16 @@ const projects = [
     tags: ["Mobile", "Cloud", "Database"],
   },
   {
+    id: "muslim-day-ios",
+    name: "Muslim Day - iOS App",
+    github: "amrabed/MuslimDay-iOS",
+    released: "2022-04-01",
+    status: "in-progress",
+    roles: ["community"],
+    tools: ["swift", "firebase"],
+    tags: ["Mobile", "Cloud", "Database"],
+  },
+  {
     id: "iqama-times",
     name: "Iqama Times - Android App",
     description:
@@ -131,19 +142,13 @@ const projects = [
     tools: ["android", "java"],
     tags: ["Mobile"],
   },
-  {
-    id: "muslim-day-ios",
-    name: "Muslim Day - iOS App",
-    github: "amrabed/MuslimDay-iOS",
-    status: "in-progress",
-    roles: ["community"],
-    tools: ["swift", "firebase"],
-    tags: ["Mobile", "Cloud", "Database"],
-  },
+
   {
     id: "sodacloud",
     name: "SodaCloud",
-    description: "",
+    description:
+      "A research project conducted as part of the Magnum group at Virginia Tech with sponsorship from Siemens",
+    released: "2013-05-01",
     github: "vt-magnum-research/sodacloud",
     roles: ["research", "engineering"],
     tools: ["git", "maven"],
@@ -152,145 +157,148 @@ const projects = [
   {
     id: "fujitsu",
     name: "VT-Fujitsu Joint Research Project",
+    description:
+      "A joint research project between Virginia Tech and Vujitsu Japan",
     github: "amrabed/vt-fujitsu",
+    released: "2017-05-01",
     roles: ["research"],
     tools: ["docker", "php", "mysql", "metasploit"],
     tags: ["Security", "Web", "SDN"],
   },
-  {
-    id: "metrolab",
-    project: "Metrolab Sensor Network",
-    sponsors: [
-      {
-        name: "Arlington County",
-        url: "https://www.arlingtonva.us",
-        logo: "img/arlington.png",
-      },
-    ],
-    position: "Graduate Research Assistant",
-    organization: {
-      name: "NCR Urban Living Lab, Virginia Tech",
-      url: "https://www.ncr.vt.edu/initiatives/urban_living_lab.html",
-    },
-    duration: "May 2016 - July 2017",
-    tasks: [
-      "Constructed a Raspberry Pi based IoT sensor for the MetroLab Network",
-      "Designed and implemented a framework for the device to communicate with a remote MySQL server",
-      "Implemented a website using PHP and Plotly.js to display data from the database",
-    ],
-    skills: ["Python", "PHP", "MySQL", "Raspberry Pi", "Plotly.js"],
-    interests: ["IoT", "Smart City"],
-    products: [
-      {
-        name: "Metrolab",
-        url: "https://github.com/amrabed/metrolab",
-      },
-    ],
-  },
-  {
-    id: "fujitsu",
-    project: "VT-Fujitsu Joint Research Project",
-    sponsors: [
-      {
-        name: "Fujitsu",
-        url: "https://www.fujitsu.com",
-        logo: "img/fujitsu.png",
-      },
-    ],
-    position: "Graduate Research Assistant",
-    organization: {
-      name: "Hume Center, Virginia Tech",
-      url: "https://www.hume.vt.edu",
-    },
-    duration: "January 2017 - May 2017",
-    tasks: [
-      "Collaborated with members from Fujitsu in a joint research project to build an SDN-based security solution",
-      "Designed the threat model for testing the security solution using Metasploit",
-      "Implemented a container-based web application as an attack target",
-    ],
-    skills: ["Docker", "PHP", "MySQL", "Metasploit"],
-    interests: ["Security"],
-    products: [],
-  },
-  {
-    id: "rhids",
-    project:
-      "RHIDS - Resilient Host-based Intrusion Detection System for Linux containers",
-    sponsors: [
-      {
-        name: "S2ERC",
-        url: "https://www.serc.net/",
-        logo: "img/serc.png",
-      },
-      {
-        name: "Northrop Grumman",
-        url: "https://www.northropgrumman.com",
-        logo: "img/ng.png",
-      },
-    ],
-    position: "Graduate Research Assistant",
-    organization: {
-      name: "Hume Center, Virginia Tech",
-      url: "https://www.hume.vt.edu",
-    },
-    duration: "January 2015 - May 2016",
-    tasks: [
-      "Assisted in writing a winning proposal for an NSF Industry/University Cooperative Research Center",
-      "Designed and implemented RHIDS, an intrusion detection system for cloud containers",
-      "Tested the system using Docker containers deployed on Amazon-AWS EC2 instances",
-    ],
-    skills: ["Java", "Docker", "Amazon AWS", "Shell"],
-    interests: [
-      "Cloud Computing",
-      "Cloud Security",
-      "Linux Container",
-      "Anomaly Detection",
-    ],
-    products: [
-      {
-        name: "RHIDS",
-        url: "https://github.com/amrabed/rhids",
-      },
-      {
-        name: "strace-docker",
-        url: "https://github.com/amrabed/strace-docker",
-      },
-    ],
-  },
-  {
-    id: "sodacloud",
-    project:
-      "SodaCloud - Shared Object Distribution Architecture for Cloud systems",
-    sponsors: [
-      {
-        name: "Siemens",
-        url: "https://www.siemens.com",
-        logo: "img/siemens.png",
-      },
-    ],
-    position: "Graduate Research Assistant",
-    organization: {
-      name: "Magnum Lab, Virginia Tech",
-      url: "https://github.com/VT-Magnum-Research",
-    },
-    duration: "Feb 2013 - May 2013",
-    tasks: [
-      "Implemented the Docker-EC2 tool using Shell scripting to automate running and testing network applications using a Docker container on different instances of the Amazon-AWS EC2",
-      "Maintained and troubleshot build issues of the SodaCloud project (Mobile/Cloud Computing project funded by Siemens) on GitHub and BuildHive using Maven",
-    ],
-    skills: ["Docker", "Amazon AWS", "Shell", "Maven"],
-    interests: ["Mobile Computing", "Cloud Computing"],
-    products: [
-      {
-        name: "Docker-EC2",
-        url: "https://github.com/amrabed/docker-ec2",
-      },
-      {
-        name: "SodaCloud",
-        url: "https://github.com/VT-Magnum-Research/sodacloud",
-      },
-    ],
-  },
+  // {
+  //   id: "metrolab",
+  //   project: "Metrolab Sensor Network",
+  //   sponsors: [
+  //     {
+  //       name: "Arlington County",
+  //       url: "https://www.arlingtonva.us",
+  //       logo: "img/arlington.png",
+  //     },
+  //   ],
+  //   position: "Graduate Research Assistant",
+  //   organization: {
+  //     name: "NCR Urban Living Lab, Virginia Tech",
+  //     url: "https://www.ncr.vt.edu/initiatives/urban_living_lab.html",
+  //   },
+  //   duration: "May 2016 - July 2017",
+  //   tasks: [
+  //     "Constructed a Raspberry Pi based IoT sensor for the MetroLab Network",
+  //     "Designed and implemented a framework for the device to communicate with a remote MySQL server",
+  //     "Implemented a website using PHP and Plotly.js to display data from the database",
+  //   ],
+  //   skills: ["Python", "PHP", "MySQL", "Raspberry Pi", "Plotly.js"],
+  //   interests: ["IoT", "Smart City"],
+  //   products: [
+  //     {
+  //       name: "Metrolab",
+  //       url: "https://github.com/amrabed/metrolab",
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: "fujitsu",
+  //   project: "VT-Fujitsu Joint Research Project",
+  //   sponsors: [
+  //     {
+  //       name: "Fujitsu",
+  //       url: "https://www.fujitsu.com",
+  //       logo: "img/fujitsu.png",
+  //     },
+  //   ],
+  //   position: "Graduate Research Assistant",
+  //   organization: {
+  //     name: "Hume Center, Virginia Tech",
+  //     url: "https://www.hume.vt.edu",
+  //   },
+  //   duration: "January 2017 - May 2017",
+  //   tasks: [
+  //     "Collaborated with members from Fujitsu in a joint research project to build an SDN-based security solution",
+  //     "Designed the threat model for testing the security solution using Metasploit",
+  //     "Implemented a container-based web application as an attack target",
+  //   ],
+  //   skills: ["Docker", "PHP", "MySQL", "Metasploit"],
+  //   interests: ["Security"],
+  //   products: [],
+  // },
+  // {
+  //   id: "rhids",
+  //   project:
+  //     "RHIDS - Resilient Host-based Intrusion Detection System for Linux containers",
+  //   sponsors: [
+  //     {
+  //       name: "S2ERC",
+  //       url: "https://www.serc.net/",
+  //       logo: "img/serc.png",
+  //     },
+  //     {
+  //       name: "Northrop Grumman",
+  //       url: "https://www.northropgrumman.com",
+  //       logo: "img/ng.png",
+  //     },
+  //   ],
+  //   position: "Graduate Research Assistant",
+  //   organization: {
+  //     name: "Hume Center, Virginia Tech",
+  //     url: "https://www.hume.vt.edu",
+  //   },
+  //   duration: "January 2015 - May 2016",
+  //   tasks: [
+  //     "Assisted in writing a winning proposal for an NSF Industry/University Cooperative Research Center",
+  //     "Designed and implemented RHIDS, an intrusion detection system for cloud containers",
+  //     "Tested the system using Docker containers deployed on Amazon-AWS EC2 instances",
+  //   ],
+  //   skills: ["Java", "Docker", "AWS", "Shell"],
+  //   interests: [
+  //     "Cloud Computing",
+  //     "Cloud Security",
+  //     "Linux Container",
+  //     "Anomaly Detection",
+  //   ],
+  //   products: [
+  //     {
+  //       name: "RHIDS",
+  //       url: "https://github.com/amrabed/rhids",
+  //     },
+  //     {
+  //       name: "strace-docker",
+  //       url: "https://github.com/amrabed/strace-docker",
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: "sodacloud",
+  //   project:
+  //     "SodaCloud - Shared Object Distribution Architecture for Cloud systems",
+  //   sponsors: [
+  //     {
+  //       name: "Siemens",
+  //       url: "https://www.siemens.com",
+  //       logo: "img/siemens.png",
+  //     },
+  //   ],
+  //   position: "Graduate Research Assistant",
+  //   organization: {
+  //     name: "Magnum Lab, Virginia Tech",
+  //     url: "https://github.com/VT-Magnum-Research",
+  //   },
+  //   duration: "Feb 2013 - May 2013",
+  //   tasks: [
+  //     "Implemented the Docker-EC2 tool using Shell scripting to automate running and testing network applications using a Docker container on different instances of the Amazon-AWS EC2",
+  //     "Maintained and troubleshot build issues of the SodaCloud project (Mobile/Cloud Computing project funded by Siemens) on GitHub and BuildHive using Maven",
+  //   ],
+  //   skills: ["Docker", "AWS", "Shell", "Maven"],
+  //   interests: ["Mobile Computing", "Cloud Computing"],
+  //   products: [
+  //     {
+  //       name: "Docker-EC2",
+  //       url: "https://github.com/amrabed/docker-ec2",
+  //     },
+  //     {
+  //       name: "SodaCloud",
+  //       url: "https://github.com/VT-Magnum-Research/sodacloud",
+  //     },
+  //   ],
+  // },
 ];
 
 export default projects;

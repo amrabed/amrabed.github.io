@@ -8,6 +8,7 @@ import {
   SiKotlin,
   SiKubernetes,
   SiTensorflow,
+  SiGnubash,
 } from "react-icons/si";
 
 const skills = [
@@ -75,6 +76,11 @@ const skills = [
     name: "Flutter",
     icon: <SiFlutter />,
     color: "#02569B",
+  },
+  {
+    name: "Bash",
+    icon: <SiGnubash />,
+    color: "#4EAA25",
   },
 ];
 

@@ -4,9 +4,6 @@ import { Fragment } from "react";
 
 const Header = dynamic(() => import("@/components/header"));
 const SocialMedia = dynamic(() => import("@/components/Social"));
-const ScrollToTopButton = dynamic(
-  () => import("@/components/scrollToTopButton"),
-);
 const Intro = dynamic(() => import("@/sections/intro"));
 const Skills = dynamic(() => import("@/sections/skills"));
 const Certifications = dynamic(() => import("@/sections/certifications"));
@@ -22,7 +19,6 @@ const Home = () => (
       <Education />
       <SocialMedia />
     </div>
-    <ScrollToTopButton />
   </Fragment>
 );
 
