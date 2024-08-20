@@ -16,25 +16,17 @@ const Card = ({ item }) => {
   const onClick = () => {
     setHidden(!isHidden);
   };
-  const match_item = ({ item }) => {};
 
   return (
-    <div className="flex-fit ml-6 z-10 font-medium w-screen md:w-1/2">
-      <div className="bg-gray-800 group-hover:bg-primary rounded-lg shadow-only transition-ease px-6 py-4">
-        <h3 className="mb-3 font-semibold text-white text-2xl">
+    <div className="flex-fit ml-6 font-medium w-screen md:w-1/2">
+      <div className="dark:bg-gray-800 bg-gray-100 group-hover:bg-primary rounded-lg shadow-only transition-ease px-6 py-4">
+        <h3 className="mb-3 font-semibold text-zinc text-2xl">
           <div className="flex  justify-between">
             <div className="flex md:flex-row gap-4 text-xl">
-              {item.name}
+              <div className="text-primary dark:text-primary-dark">{item.name}</div>
               <ul className="flex flex-row gap-2 text-2xl">
                 {item.tools.map((tool) => (
-                  <li title={tool} key={tool}>
-                    {
-                      skills.find(
-                        (skill) =>
-                          skill.name.toLowerCase() == tool.toLowerCase(),
-                      )?.icon
-                    }
-                  </li>
+                  <li title={tool} key={tool}>{skills[tool.toLowerCase()]?.icon}</li>
                 ))}
               </ul>
             </div>
@@ -48,14 +40,14 @@ const Card = ({ item }) => {
                 <ChevronUpIcon className="size-6" hidden={isHidden} />
             </button> */}
 
-        <p className={`pb-4 text-sm text-gray-100 ${isHidden && "hidden"}`}>
+        <p className={`pb-4 text-sm text-zinc ${isHidden && "hidden"}`}>
           {item.description}
         </p>
         <ul
           className={`flex flex-row gap-2 p-1 text-md ${isHidden ? "hidden" : null}`}
         >
           {item.tags.map((tag) => (
-            <li key={tag} className="size-6 text-zinc-300" title={tag}>
+            <li key={tag} className="size-6 text-zinc" title={tag}>
               {areas[tag.toLowerCase()]?.icon}
             </li>
           ))}
@@ -64,12 +56,12 @@ const Card = ({ item }) => {
           <ul className="flex flex-row justify-start">
             {item.roles.map((role) => (
               <li key={role}>
-                <p className="p-1 text-sm text-gray-500">{role}</p>
+                <p className="p-1 text-sm text-zinc-500">{role}</p>
               </li>
             ))}
           </ul>
 
-          <p className="text-zinc-400 text-end">
+          <p className="text-zinc-500 text-end">
             {new Date(item.released).getFullYear()}
           </p>
         </div>
