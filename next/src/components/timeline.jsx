@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 
 const Card = ({ item }) => {
@@ -15,9 +16,7 @@ const Card = ({ item }) => {
         <h3 className="mb-3 font-semibold text-white text-lg">
           {item.position}
         </h3>
-        <p className="pb-4 text-sm text-gray-100">
-          {item.organization.name}
-        </p>
+        <p className="pb-4 text-sm text-gray-100">{item.organization.name}</p>
         <hr />
         <ul className="">
           <li className="text-sm font-medium leading-snug tracking-wide text-gray-300 text-opacity-100">
@@ -34,7 +33,7 @@ const Card = ({ item }) => {
           ))} */}
         </ul>
       </div>
-    </div >
+    </div>
   );
 };
 

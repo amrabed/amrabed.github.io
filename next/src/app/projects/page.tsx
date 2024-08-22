@@ -24,10 +24,16 @@ const Page = () => {
         </Link>
         <ToggleThemeButton theme={theme} toggleTheme={toggleTheme} />
       </HeaderProvider>
-      <Section id="projects" title="Projects">
-        {projects.map((project) => (
-          <Card key={project.id} item={project} />
-        ))}
+      <Section id="projects" title="Creations">
+        {projects
+          .sort(
+            (project1, project2) =>
+              new Date(project2.date).getFullYear() -
+              new Date(project1.date).getFullYear(),
+          )
+          .map((project) => (
+            <Card key={project.id} item={project} />
+          ))}
       </Section>
     </Fragment>
   );

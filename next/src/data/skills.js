@@ -8,6 +8,7 @@ import {
   SiKotlin,
   SiKubernetes,
   SiTensorflow,
+  SiScikitlearn,
   SiGnubash,
 } from "react-icons/si";
 
@@ -21,6 +22,11 @@ const skills = {
     name: "TensorFlow",
     icon: <SiTensorflow />,
     color: "#FF6F00",
+  },
+  "scikit-learn": {
+    name: "Scikit-Learn",
+    icon: <SiScikitlearn />,
+    color: "#F7931E",
   },
   aws: {
     name: "AWS",
@@ -62,7 +68,7 @@ const skills = {
     icon: <FaJava />,
     color: "#B00040",
   },
-  c: {
+  "c++": {
     name: "C/C++",
     icon: <SiCplusplus />,
     color: "#00599C",
