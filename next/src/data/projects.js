@@ -21,7 +21,7 @@ const projects = [
   },
   {
     id: "cpp-programming-course",
-    name: "Introduction to Programming using C++",
+    name: "Introduction to Programming",
     description:
       "A course to introduce first-year Computer Engineering students to programming using C++",
     github: "ProgrammingLanguagesClass",

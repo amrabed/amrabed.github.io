@@ -1,12 +1,12 @@
 import React from "react";
-import { FiSidebar } from "react-icons/fi";
+import { RiSidebarFoldLine, RiSidebarUnfoldLine } from "react-icons/ri";
 
 const SidebarButton = ({ showSidebar, setShowSidebar }) => (
   <button
     className="text-black dark:text-white"
     onClick={() => setShowSidebar(!showSidebar)}
   >
-    <FiSidebar />
+    {showSidebar ? <RiSidebarFoldLine /> : <RiSidebarUnfoldLine />}
   </button>
 );
 
