@@ -1,30 +1,23 @@
-"use client";
-
 import Link from "next/link";
 
-import React, { Fragment, useContext } from "react";
+import { Fragment } from "react";
 
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 
 import Section from "@/components/Section";
 import Card from "@/components/card";
-import ToggleThemeButton from "@/components/toggleThemeButton";
 import HeaderProvider from "@/contexts/header";
-import { ThemeContext } from "@/contexts/theme";
 import projects from "@/data/projects";
 
-const Page = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-
-  return (
-    <Fragment>
-      <HeaderProvider>
-        <Link href="/">
-          <ChevronLeftIcon className="size-8 gap-4" />
-        </Link>
-        <ToggleThemeButton theme={theme} toggleTheme={toggleTheme} />
-      </HeaderProvider>
-      <Section id="projects" title="Creations">
+const Page = () => (
+  <Fragment>
+    <HeaderProvider>
+      <Link href="/">
+        <ChevronLeftIcon className="size-8 gap-4" />
+      </Link>
+    </HeaderProvider>
+    <Section id="projects" title="Creations">
+      <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
         {projects
           .sort(
             (project1, project2) =>
@@ -34,9 +27,9 @@ const Page = () => {
           .map((project) => (
             <Card key={project.id} item={project} />
           ))}
-      </Section>
-    </Fragment>
-  );
-};
+      </div>
+    </Section>
+  </Fragment>
+);
 
 export default Page;

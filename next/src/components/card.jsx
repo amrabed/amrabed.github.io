@@ -24,69 +24,87 @@ const IconLink = ({ title, url, children }) =>
     </Link>
   );
 
-const Card = ({ item }) => (
-  <div className="flex-fit ml-6 font-medium w-screen lg:w-1/2">
-    <div className="dark:bg-gray-800 bg-gray-100 group-hover:bg-primary rounded-lg shadow-only transition-ease px-6 py-4">
-      <h3 className="mb-3 font-semibold text-zinc">
-        <div className="flex justify-between">
-          <div className="flex md:flex-row flex-col gap-4">
-            <div className="text-primary dark:text-primary-dark text-lg md:text-xl">
-              {item.name}
-            </div>
-            <ul className="flex flex-row gap-2 text-2xl">
-              {item.tools.map((tool) => (
-                <li title={tool} key={tool}>
-                  {skills[tool.toLowerCase()]?.icon}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div id="links" className="flex flex-row gap-2 text-2xl">
-            <IconLink url={item.homepage} title="homepage">
-              <FaLink />
-            </IconLink>
-            <IconLink url={item.app} title="app">
-              {item.app?.includes("apple") ? <FaApple /> : <BiLogoPlayStore />}
-            </IconLink>
-            <IconLink url={item.publication} title="publication">
-              <DocumentIcon className="size-6" />
-            </IconLink>
-            <IconLink url={item.presentation} title="demo">
-              <RiSlideshow2Line />
-            </IconLink>
-            <IconLink url={item.demo} title="demo">
-              <FaYoutube />
-            </IconLink>
-            <IconLink
-              url={item.github ? "https://github.com/" + item.github : null}
-              title="github"
-            >
-              <FaGithub />
-            </IconLink>
-          </div>
-        </div>
-      </h3>
-      <p className="pb-4 text-sm text-zinc">{item.description}</p>
-      <ul className="flex flex-row gap-2 p-1 text-md">
-        {item.tags.map((tag) => (
-          <li key={tag} className="size-6 text-zinc" title={tag}>
-            {areas[tag.toLowerCase()]?.icon}
-          </li>
-        ))}
-      </ul>
-      <div className="flex justify-between">
-        <ul className="flex flex-row justify-start">
-          {item.roles.map((role) => (
-            <li key={role}>
-              <p className="p-1 text-sm text-zinc-500">{role}</p>
-            </li>
-          ))}
-        </ul>
+const Links = ({ item }) => (
+  <div id="links" className="flex flex-row gap-2 text-2xl text-zinc">
+    <IconLink url={item.homepage} title="homepage">
+      <FaLink />
+    </IconLink>
+    <IconLink url={item.app} title="app">
+      {item.app?.includes("apple") ? <FaApple /> : <BiLogoPlayStore />}
+    </IconLink>
+    <IconLink url={item.publication} title="publication">
+      <DocumentIcon className="size-6" />
+    </IconLink>
+    <IconLink url={item.presentation} title="demo">
+      <RiSlideshow2Line />
+    </IconLink>
+    <IconLink url={item.demo} title="demo">
+      <FaYoutube />
+    </IconLink>
+    <IconLink
+      url={item.github ? "https://github.com/" + item.github : null}
+      title="github"
+    >
+      <FaGithub />
+    </IconLink>
+  </div>
+);
 
-        <p className="text-zinc-500 text-end">
-          {new Date(item.date).getFullYear()}
-        </p>
+const Tools = ({ tools }) => (
+  <ul className="flex flex-row gap-2 text-2xl">
+    {tools.map((tool) => {
+      const icon = skills[tool.toLowerCase()]?.icon;
+      return (
+        icon && (
+          <li title={tool} key={tool}>
+            {icon}
+          </li>
+        )
+      );
+    })}
+  </ul>
+);
+
+const Tags = ({ tags }) => (
+  <ul className="flex flex-row gap-2 p-1 text-md">
+    {tags.map((tag) => (
+      <li key={tag} className="size-6 text-zinc" title={tag}>
+        {areas[tag.toLowerCase()]?.icon}
+      </li>
+    ))}
+  </ul>
+);
+
+const Roles = ({ roles }) => (
+  <ul className="flex flex-row gap-2">
+    {roles.map((role) => (
+      <li key={role}>
+        <label className="text-sm text-zinc-500">{role}</label>
+      </li>
+    ))}
+  </ul>
+);
+
+const Card = ({ item }) => (
+  <div className="group overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 md:gap-8 hover:border-zinc-400/50 border-zinc-600 p-4">
+    <h3 className="mb-3 font-semibold text-zinc">
+      <div className="flex justify-between">
+        <div className="flex md:flex-row flex-col gap-4">
+          <div className="text-primary dark:text-primary-dark text-lg md:text-xl">
+            {item.name}
+          </div>
+          <Tools tools={item.tools} />
+        </div>
+        <Links item={item} />
       </div>
+    </h3>
+    <p className="pb-4 xl:h-20 text-sm text-zinc">{item.description}</p>
+    <Tags tags={item.tags} />
+    <div className="flex flex-row justify-between">
+      <Roles roles={item.roles} />
+      <p className="text-zinc-500 text-end text-md">
+        {new Date(item.date).getFullYear()}
+      </p>
     </div>
   </div>
 );
