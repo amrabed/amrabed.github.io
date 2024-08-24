@@ -1,25 +1,15 @@
 import type { Config } from "tailwindcss";
-import colors, { indigo, teal } from "tailwindcss/colors";
+import colors from "tailwindcss/colors";
+
+import { nextui } from "@nextui-org/react";
 
 const config: Config = {
-  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: "selector",
   theme: {
-    colors: {
-      primary: {
-        DEFAULT: "#006994", //"#665DC3",
-        dark: "#07d0e5", // "#87ceeb",
-      },
-      secondary: {
-        DEFAULT: "#f7f7f7", // colors.white
-        dark: "#333333", // colors.black
-      },
-      background: colors.gray[100],
-      zinc: colors.zinc,
-      black: colors.black,
-      white: colors.white,
-      gray: colors.gray,
-    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -28,6 +18,24 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    nextui({
+      addCommonColors: true,
+      themes: {
+        dark: {
+          colors: {
+            primary: "#07d0e5",
+            secondary: "#333333",
+          },
+        },
+        light: {
+          colors: {
+            primary: "#006994",
+            secondary: "#f7f7f7",
+          },
+        },
+      },
+    }),
+  ],
 };
 export default config;
