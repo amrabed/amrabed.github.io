@@ -9,6 +9,8 @@ import {
   SiKubernetes,
   SiTensorflow,
   SiScikitlearn,
+  SiJavascript,
+  SiTypescript,
   SiGnubash,
 } from "react-icons/si";
 
@@ -82,6 +84,16 @@ const skills = {
     name: "Flutter",
     icon: <SiFlutter />,
     color: "#02569B",
+  },
+  javascript: {
+    name: "JavaScript",
+    icon: <SiJavascript />,
+    color: "#F7DF1E",
+  },
+  typescript: {
+    name: "TypeScript",
+    icon: <SiTypescript />,
+    color: "#3178C6",
   },
   bash: {
     name: "Bash",

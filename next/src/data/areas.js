@@ -1,6 +1,5 @@
-import { color } from "framer-motion";
-
 import { BiBrain } from "react-icons/bi";
+import { CiGlobe } from "react-icons/ci";
 import colors from "tailwindcss/colors";
 
 import {
@@ -36,6 +35,9 @@ const areas = {
   database: {
     icon: <CircleStackIcon />,
     color: "yellow",
+  },
+  web: {
+    icon: <CiGlobe size="xl" />,
   },
   iot: {
     color: "purple",
