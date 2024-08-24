@@ -8,6 +8,7 @@ const projects = [
     tools: ["aws", "TensorFlow", "Docker", "bash"],
     tags: ["cloud", "machine learning", "Database", "programming", "DevOps"],
     roles: ["engineer", "manager"],
+    group: 0,
   },
   {
     id: "skeleton-flutter",
@@ -18,6 +19,21 @@ const projects = [
     roles: ["freelancer", "entrepreneur", "engineer"],
     tools: ["flutter", "firebase", "android", "swift"],
     tags: ["Mobile", "Cloud", "Database"],
+    group: 1,
+  },
+  {
+    id: "skeleton-android",
+    name: "Skeleton - Android",
+    summary: "Skeleton - Template Android App",
+    description: "Template project for Android applications",
+    details:
+      "The project comes out of the box with Java 8 Support, Automatic App Signing, GitHub Version Control, Firebase Integration, FastLane App Automation, CircleCI Continuous Integration and Delivery, SonarCloud Code Quality, Snyk Vulnerability Check, README file with shield-style badges, MIT License file",
+    github: "amrabed/skeleton",
+    date: "2020-03-03",
+    roles: ["freelancer", "entrepreneur"],
+    tools: ["kotlin", "firebase", "android"],
+    tags: ["Mobile", "Cloud", "Database"],
+    group: 1,
   },
   {
     id: "cpp-programming-course",
@@ -29,6 +45,7 @@ const projects = [
     roles: ["instructor"],
     tools: ["c++"],
     tags: ["programming"],
+    group: 2,
   },
   {
     id: "python-machine-learning",
@@ -41,6 +58,39 @@ const projects = [
     roles: ["instructor", "engineer", "manager"],
     tools: ["Python", "TensorFlow", "Scikit-learn"],
     tags: ["machine learning", "programming"],
+    group: 2,
+  },
+  {
+    id: "muslim-day-android",
+    name: "Muslim Day - Android App",
+    description:
+      "An Android productivity app tailored to the satisfaction of the worldwide end-users of the app",
+    details:
+      "The app allows the user to keep track of their daily tasks while monitoring and visualizing their daily, monthly, and yearly progress for every task and for every day as a whole. The app is currently available in English and Arabic and is being translated to 5 other languages. The user can select and switch the app language from within the app settings.",
+    homepage: "https://muslimday.app",
+    github: "amrabed/MuslimDay",
+    app: "https://play.google.com/store/apps/details?id=amrabed.android.release.evaluation",
+    date: "2012-12-27",
+    status: "published",
+    roles: ["community"],
+    tools: ["android", "java", "kotlin", "firebase", "sqlite"],
+    tags: ["Mobile", "Cloud", "Database"],
+    group: 3,
+  },
+  {
+    id: "muslim-day-ios",
+    name: "Muslim Day - iOS",
+    description:
+      "An iOS productivity app to help the Muslim community around the world to keep track of their daily rituals",
+    homepage: "https://muslimday.app",
+    app: "https://apps.apple.com/app/id6446234217",
+    github: "amrabed/MuslimDay-iOS",
+    date: "2022-04-01",
+    status: "published",
+    roles: ["community"],
+    tools: ["swift", "firebase"],
+    tags: ["Mobile", "Cloud", "Database"],
+    group: 3,
   },
   {
     id: "docker-ec2",
@@ -53,6 +103,7 @@ const projects = [
     roles: ["researcher", "engineer"],
     tools: ["docker", "aws", "aws-ec2", "bash"],
     tags: ["Cloud"],
+    group: 4,
   },
   {
     id: "strace-docker",
@@ -66,6 +117,7 @@ const projects = [
     roles: ["researcher"],
     tools: ["docker", "sysdig", "bash"],
     tags: ["Cloud", "DevOps", "Shell"],
+    group: 4,
   },
   {
     id: "rhids",
@@ -80,6 +132,7 @@ const projects = [
     roles: ["researcher"],
     tools: ["java", "docker", "bash", "gradle"],
     tags: ["Cloud", "Machine Learning", "Shell"],
+    group: 4,
   },
   {
     id: "deep-hids",
@@ -91,20 +144,9 @@ const projects = [
     roles: ["researcher"],
     tools: ["Pyhton", "TensorFlow", "Docker"],
     tags: ["Cloud", "Machine Learning", "Deep Learning"],
+    group: 4,
   },
-  {
-    id: "skeleton-android",
-    name: "Skeleton - Android",
-    summary: "Skeleton - Template Android App",
-    description: "Template project for Android applications",
-    details:
-      "The project comes out of the box with Java 8 Support, Automatic App Signing, GitHub Version Control, Firebase Integration, FastLane App Automation, CircleCI Continuous Integration and Delivery, SonarCloud Code Quality, Snyk Vulnerability Check, README file with shield-style badges, MIT License file",
-    github: "amrabed/skeleton",
-    date: "2020-03-03",
-    roles: ["freelancer", "entrepreneur"],
-    tools: ["kotlin", "firebase", "android"],
-    tags: ["Mobile", "Cloud", "Database"],
-  },
+
   {
     id: "metrolab",
     name: "Metrolab research project",
@@ -124,6 +166,7 @@ const projects = [
       "plotly",
     ],
     tags: ["Cloud", "Web", "IoT", "Smart City"],
+    group: 5,
   },
   {
     id: "logger",
@@ -137,6 +180,19 @@ const projects = [
     roles: ["researcher"],
     tools: ["android", "java", "sqlite"],
     tags: ["Mobile", "Database"],
+    group: 5,
+  },
+  {
+    id: "sodacloud",
+    name: "SodaCloud",
+    description:
+      "A research project conducted as part of the Magnum group at Virginia Tech with sponsorship from Siemens",
+    date: "2013-05-01",
+    github: "vt-magnum-researcher/sodacloud",
+    roles: ["researcher", "engineer"],
+    tools: ["git", "maven"],
+    tags: ["Cloud", "Mobile", "DevOps"],
+    group: 5,
   },
   {
     id: "isnrv-android",
@@ -151,36 +207,7 @@ const projects = [
     roles: ["community", "freelancer"],
     tools: ["android", "java", "firebase", "fastlane", "gradle"],
     tags: ["Mobile", "Cloud"],
-  },
-  {
-    id: "muslim-day-android",
-    name: "Muslim Day - Android App",
-    description:
-      "An Android productivity app tailored to the satisfaction of the worldwide end-users of the app",
-    details:
-      "The app allows the user to keep track of their daily tasks while monitoring and visualizing their daily, monthly, and yearly progress for every task and for every day as a whole. The app is currently available in English and Arabic and is being translated to 5 other languages. The user can select and switch the app language from within the app settings.",
-    homepage: "https://muslimday.app",
-    github: "amrabed/MuslimDay",
-    app: "https://play.google.com/store/apps/details?id=amrabed.android.release.evaluation",
-    date: "2012-12-27",
-    status: "published",
-    roles: ["community"],
-    tools: ["android", "java", "kotlin", "firebase", "sqlite"],
-    tags: ["Mobile", "Cloud", "Database"],
-  },
-  {
-    id: "muslim-day-ios",
-    name: "Muslim Day - iOS",
-    description:
-      "An iOS productivity app to help the Muslim community around the world to keep track of their daily rituals",
-    homepage: "https://muslimday.app",
-    app: "https://apps.apple.com/app/id6446234217",
-    github: "amrabed/MuslimDay-iOS",
-    date: "2022-04-01",
-    status: "published",
-    roles: ["community"],
-    tools: ["swift", "firebase"],
-    tags: ["Mobile", "Cloud", "Database"],
+    group: 6,
   },
   {
     id: "iqama-times",
@@ -197,18 +224,7 @@ const projects = [
     roles: ["community", "freelancer"],
     tools: ["android", "java"],
     tags: ["Mobile"],
-  },
-
-  {
-    id: "sodacloud",
-    name: "SodaCloud",
-    description:
-      "A research project conducted as part of the Magnum group at Virginia Tech with sponsorship from Siemens",
-    date: "2013-05-01",
-    github: "vt-magnum-researcher/sodacloud",
-    roles: ["researcher", "engineer"],
-    tools: ["git", "maven"],
-    tags: ["Cloud", "Mobile", "DevOps"],
+    group: 6,
   },
   {
     id: "fujitsu",
@@ -220,6 +236,7 @@ const projects = [
     roles: ["researcher"],
     tools: ["docker", "php", "mysql", "metasploit"],
     tags: ["Security", "Web", "SDN"],
+    group: 5,
   },
   // {
   //   id: "metrolab",

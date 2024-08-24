@@ -3,13 +3,7 @@
 import Link from "next/link";
 
 import { BiLogoPlayStore } from "react-icons/bi";
-import {
-  FaGithub,
-  FaYoutube,
-  FaApple,
-  FaLink,
-  FaSlideshare,
-} from "react-icons/fa6";
+import { FaGithub, FaYoutube, FaApple, FaLink } from "react-icons/fa6";
 import { RiSlideshow2Line } from "react-icons/ri";
 
 import { DocumentIcon } from "@heroicons/react/24/outline";
@@ -90,9 +84,7 @@ const Card = ({ item }) => (
     <h3 className="mb-3 font-semibold text-zinc">
       <div className="flex justify-between">
         <div className="flex md:flex-row flex-col gap-4">
-          <div className="text-primary dark:text-primary-dark text-lg md:text-xl">
-            {item.name}
-          </div>
+          <div className="text-slated-500 text-lg md:text-xl">{item.name}</div>
           <Tools tools={item.tools} />
         </div>
         <Links item={item} />
