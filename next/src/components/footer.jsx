@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 
-import ToggleThemeButton from "@/components/toggleThemeButton";
+import ThemeSelector from "@/components/themeSelector";
 import { ThemeContext } from "@/contexts/theme";
 
 const Footer = () => {
@@ -16,7 +16,7 @@ const Footer = () => {
           Next.js
         </a>
       </div>
-      <ToggleThemeButton theme={theme} toggleTheme={toggleTheme} />
+      <ThemeSelector theme={theme} toggleTheme={toggleTheme} />
     </div>
   );
 };
