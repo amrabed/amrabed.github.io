@@ -2,10 +2,11 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 
-import ThemeProvider from "@/contexts/theme";
 import "@/styles/animation.css";
 import "@/styles/cssGrid.css";
 import "@/styles/globals.css";
+
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 const ScrollToTopButton = dynamic(
@@ -35,11 +36,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <ThemeProvider>
+        <Providers>
           {children}
           <ScrollToTopButton />
           <Footer />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
