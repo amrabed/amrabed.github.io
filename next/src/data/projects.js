@@ -1,5 +1,17 @@
 const projects = [
   {
+    id: "amrabed.com",
+    name: "amrabed.com",
+    description: "This website using Next.js and Tailwind CSS",
+    github: "amrabed/amrabed.github.io",
+    date: "2024-09-01",
+    homepage: "/",
+    tools: ["JavaScript", "TypeScript"],
+    tags: ["programming", "web"],
+    roles: ["freelancer"],
+    group: -1,
+  },
+  {
     id: "sophi-paywall",
     name: "Sophi Paywall",
     description: "Paywall system for online publications",
