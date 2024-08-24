@@ -7,7 +7,7 @@ import profiles from "@/data/profiles";
 const SocialMedia = () => (
   <Fragment>
     <div className="flex justify-center">
-      <div className="fixed bottom-12 md:bottom-0 flex flex-row gap-4 z-10 p-2">
+      <div className="fixed bottom-12 flex flex-row gap-2 z-10 p-2">
         {profiles.map((profile) => (
           <Link
             className="w-fit"
