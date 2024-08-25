@@ -1,3 +1,5 @@
+"use client";
+
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -8,26 +10,20 @@ import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import Section from "@/components/Section";
 import Card from "@/components/card";
 import Search from "@/components/search";
+import { useSearch } from "@/contexts/search";
 import projects from "@/data/projects";
 
-export const dynamic = "force-dynamic";
-
-export const metadata: Metadata = {
-  title: "Amr Abed - Projects",
-};
+// export const metadata: Metadata = {
+//   title: "Amr Abed - Projects",
+// };
 
 const match = (values: string[], query: string) => {
   return values.find((value) => value.toLowerCase().includes(query));
 };
 
-const Page = ({
-  searchParams,
-}: {
-  searchParams?: {
-    query?: string;
-  };
-}) => {
-  const query = searchParams?.query?.toLocaleLowerCase() || "";
+const Page = () => {
+  const { query, setQuery } = useSearch();
+
   return (
     <Fragment>
       <div className="w-full p-5 backdrop-filter backdrop-blur-lg md:flex justify-between items-center gap-4 shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500">
@@ -38,7 +34,11 @@ const Page = ({
             </Link>
             <h1 className="text-xl p-1 hidden md:flex">Projects</h1>
           </div>
-          <Search placeholder="Search projects by name, role, skill, or tool" />
+          <Search
+            placeholder="Search projects by name, role, skill, or tool"
+            query={query}
+            setQuery={setQuery}
+          />
         </div>
       </div>
       <Section id="projects" title="">
