@@ -3,11 +3,6 @@ on:
   pull_request:
     types: [closed]
     branches: [main]
-    paths: ['next/**']
-
-defaults:
-  run:
-    working-directory: next
 
 permissions:
   contents: read
@@ -30,14 +25,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-            node-version: 20
+          node-version: 20
       - name: Setup GitHuib Pages
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
       - name: Install dependencies
         run: make install
-      
+
       - name: Build with Next.js
         run: make build
       - name: Upload artifact
