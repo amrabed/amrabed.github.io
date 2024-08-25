@@ -2,7 +2,7 @@
 .idea/
 Icon*
 *.bak*
-
+*.log
 blog/
 _site/
 firebase-key.json
