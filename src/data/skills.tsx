@@ -14,7 +14,9 @@ import {
   SiGnubash,
 } from "react-icons/si";
 
-const skills = {
+import { Skill } from "@/types";
+
+const skills: Record<string, Skill> = {
   python: {
     name: "Python",
     icon: <FaPython />,

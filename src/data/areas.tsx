@@ -11,7 +11,9 @@ import {
   Cog6ToothIcon,
 } from "@heroicons/react/24/outline";
 
-const areas = {
+import { Area } from "@/types";
+
+const areas: Record<string, Area> = {
   cloud: {
     icon: <CloudIcon />,
     color: colors.indigo,
@@ -38,9 +40,7 @@ const areas = {
   },
   web: {
     icon: <CiGlobe size="xl" />,
-  },
-  iot: {
-    color: "purple",
+    color: colors.blue,
   },
   security: {
     icon: <ShieldCheckIcon />,

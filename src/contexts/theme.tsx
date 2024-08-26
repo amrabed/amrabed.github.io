@@ -1,10 +1,32 @@
 "use client";
 
-import React, { createContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
-export const ThemeContext = createContext();
+export type ThemeContextType = {
+  theme: string;
+  toggleTheme: () => void;
+};
 
-const ThemeProvider = ({ children }) => {
+export const ThemeContext = createContext<ThemeContextType | undefined>(
+  undefined,
+);
+
+// Custom hook to use the theme context
+export const useTheme: () => ThemeContextType = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useSearch must be used within a SearchProvider");
+  }
+  return context;
+};
+
+const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState("dark");
 
   const toggleTheme = () => {

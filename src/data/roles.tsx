@@ -1,4 +1,6 @@
-const roles = {
+import { Role } from "@/types";
+
+const roles: Record<string, Role> = {
   engineer: {
     color: "blue",
   },

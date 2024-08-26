@@ -1,10 +1,31 @@
 "use client";
 
-import React, { createContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
-export const HeaderContext = createContext();
+type HeaderContextType = {
+  top: string;
+  setTop: (top: string) => void;
+};
+export const HeaderContext = createContext<HeaderContextType | undefined>(
+  undefined,
+);
 
-const HeaderProvider = ({ children }) => {
+// Custom hook to use the header context
+export const useTheme: () => HeaderContextType = () => {
+  const context = useContext(HeaderContext);
+  if (!context) {
+    throw new Error("useSearch must be used within a SearchProvider");
+  }
+  return context;
+};
+
+const HeaderProvider = ({ children }: { children: ReactNode }) => {
   const [top, setTop] = useState("-80px");
 
   // show/hide header on scroll from top

@@ -1,4 +1,6 @@
-const certifications = [
+import { Certification } from "@/types";
+
+const certifications: Certification[] = [
   {
     title: "AWS Certified Machine Learning - Specialty",
     organization: {

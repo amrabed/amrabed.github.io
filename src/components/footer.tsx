@@ -1,12 +1,10 @@
 "use client";
 
-import { useContext } from "react";
-
 import ThemeSelector from "@/components/themeSelector";
-import { ThemeContext } from "@/contexts/theme";
+import { useTheme } from "@/contexts/theme";
 
 const Footer = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="flex flex-row justify-between p-2">

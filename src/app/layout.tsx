@@ -13,7 +13,7 @@ const ScrollToTopButton = dynamic(
   () => import("@/components/scrollToTopButton"),
 );
 
-const Footer = dynamic(() => import("@/components/Footer"));
+const Footer = dynamic(() => import("@/components/footer"));
 
 export const metadata: Metadata = {
   title: "Amr Abed",

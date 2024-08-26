@@ -1,9 +1,10 @@
 import Section from "@/components/Section";
 import skills from "@/data/skills";
+import { Skill } from "@/types";
 
 const Skills = () => (
-  <Section id="skills" title="Technical Skills" className="justify-center">
-    {Object.values(skills).map((skill) => (
+  <Section id="skills" title="Technical Skills">
+    {Object.values(skills).map((skill: Skill) => (
       <div
         className="transition-all duration-700 section-item md:py-5 w-[120px] md:w-[150px]"
         key={skill.name}

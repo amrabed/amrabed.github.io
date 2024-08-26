@@ -1,4 +1,4 @@
-const PageTitle = ({ showSidebar, setShowSidebar }) => (
+const PageTitle = () => (
   <div className="flex items-center gap-2 text-primary dark:text-primary-dark">
     <p>
       <a href="#">

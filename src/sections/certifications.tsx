@@ -2,10 +2,11 @@ import Image from "next/image";
 
 import Section from "@/components/Section";
 import certificates from "@/data/certifications";
+import { Certification } from "@/types";
 
 const Certifications = () => (
   <Section id="certifications" title="Certifications">
-    {certificates.map((certificate) => (
+    {certificates.map((certificate: Certification) => (
       <div className="transition-all duration-700" key={certificate.title}>
         <a href={certificate.link} target="_blank">
           <div className="section-item p-3 md:p-1">

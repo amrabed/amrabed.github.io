@@ -1,4 +1,6 @@
-const degrees = [
+import { Degree } from "@/types";
+
+const degrees: Degree[] = [
   {
     title: "Ph.D. Computer Engineering",
     university: {

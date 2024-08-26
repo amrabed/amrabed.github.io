@@ -18,7 +18,7 @@ const Page = () => (
     </HeaderProvider>
     <Section id="experience" title="Experience">
       <div className="flex text-center items-center content-center justify-center">
-        <Timeline items={positions} />
+        <Timeline positions={positions} />
       </div>
     </Section>
   </Fragment>

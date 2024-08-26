@@ -12,6 +12,7 @@ import Card from "@/components/card";
 import Search from "@/components/search";
 import { useSearch } from "@/contexts/search";
 import projects from "@/data/projects";
+import { Project } from "@/types";
 
 // export const metadata: Metadata = {
 //   title: "Amr Abed - Projects",
@@ -57,8 +58,8 @@ const Page = () => {
                 new Date(project2.date).getFullYear() -
                   new Date(project1.date).getFullYear(),
             )
-            .map((project) => (
-              <Card key={project.id} item={project} />
+            .map((project: Project) => (
+              <Card key={project.id} project={project} />
             ))}
         </div>
       </Section>

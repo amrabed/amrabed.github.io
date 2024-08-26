@@ -4,7 +4,13 @@ import { MobileNavbarLinks } from "../navLinks";
 import PageTitle from "../pageTitle";
 import SidebarButton from "./sidebarButton";
 
-const MobileNavbar = ({ showSidebar, setShowSidebar }) => (
+const MobileNavbar = ({
+  showSidebar,
+  setShowSidebar,
+}: {
+  showSidebar: boolean;
+  setShowSidebar: (showSidebar: boolean) => void;
+}) => (
   <Fragment>
     <div
       className={`w-full h-screen bg-[rgba(255,255,255,0.3)] dark:bg-[rgba(0,0,0,0.3)] fixed ${

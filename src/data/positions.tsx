@@ -1,7 +1,9 @@
-const positions = [
+import { Position } from "@/types";
+
+const positions: Position[] = [
   {
     id: "sophi-manager",
-    position: "Engineering Manager",
+    title: "Engineering Manager",
     organization: {
       name: "Sophi",
       url: "https://sophi.io",
@@ -16,7 +18,7 @@ const positions = [
   },
   {
     id: "sophi-lead",
-    position: "Lead Software Engineer",
+    title: "Lead Software Engineer",
     organization: {
       name: "Sophi",
       url: "https://sophi.io",
@@ -32,7 +34,7 @@ const positions = [
   },
   {
     id: "sophi-senior",
-    position: "Senior Software Engineer, Machine Learning",
+    title: "Senior Software Engineer, Machine Learning",
     organization: {
       name: "Sophi",
       url: "https://sophi.io",
@@ -49,7 +51,7 @@ const positions = [
   },
   {
     id: "abed",
-    position: "Founder",
+    title: "Founder",
     organization: {
       name: "Abed Solutions",
       url: "https://abed.solutions",
@@ -61,10 +63,11 @@ const positions = [
       "Built a template cross-platform application with essential features and built-in cloud integration, automated CI/CD, and code quality and security monitoring",
     ],
     skills: ["Kotlin", "Swift", "Java", "Android", "Firebase"],
+    tags: ["Mobile", "Cloud"],
   },
   {
     id: "robogarden",
-    position: "Learning Content Team Lead",
+    title: "Learning Content Team Lead",
     organization: {
       name: "RoboGarden",
       url: "https://robogarden.ca",
@@ -82,14 +85,15 @@ const positions = [
       "Machine Learning",
       "Deep Learning",
     ],
+    tags: ["machine learning"],
   },
   {
     id: "gfit",
-    project: {
-      name: "Google Fit for Android",
-      url: "https://www.google.com/fit",
-    },
-    position: "Software Engineering Intern",
+    // project: {
+    //   name: "Google Fit for Android",
+    //   url: "https://www.google.com/fit",
+    // },
+    title: "Software Engineering Intern",
     organization: {
       name: "Google",
       url: "https://www.google.com/about",
@@ -108,27 +112,28 @@ const positions = [
       "Google Fit API",
       "Google Visual Search",
     ],
+    tags: ["mobile"],
   },
-  {
-    id: "spec2el",
-    project: {
-      name: "Spectre2Eldo Syntax Converter",
-      url: "#",
-    },
-    position: "Software Development Engineer",
-    organization: {
-      name: "Mentor Graphics",
-      url: "https://www.mentor.com",
-      logo: "/images/mentor.png",
-    },
-    duration: "Nov 2007 - Nov 2008",
-    tasks: [
-      "Studied and analyzed the C-based version of the Spectre2Eldo syntax converter",
-      "Designed and implemented the OO-based version of the Spectre2Eldo syntax converter using C++ STL",
-      "Solved problems related to using a Flex & Bison parser with C++",
-    ],
-    skills: ["C++", "C++ STL", "Flex & Bison"],
-  },
+  // {
+  // id: "spec2el",
+  //   project: {
+  //   name: "Spectre2Eldo Syntax Converter",
+  //     url: "#",
+  //   },
+  // title: "Software Development Engineer",
+  //   organization: {
+  //   name: "Mentor Graphics",
+  //     url: "https://www.mentor.com",
+  //       logo: "/images/mentor.png",
+  //   },
+  // duration: "Nov 2007 - Nov 2008",
+  //   tasks: [
+  //     "Studied and analyzed the C-based version of the Spectre2Eldo syntax converter",
+  //     "Designed and implemented the OO-based version of the Spectre2Eldo syntax converter using C++ STL",
+  //     "Solved problems related to using a Flex & Bison parser with C++",
+  //   ],
+  //     skills: ["C++", "C++ STL", "Flex & Bison"],
+  // },
 ];
 
 export default positions;

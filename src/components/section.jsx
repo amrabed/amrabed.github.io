@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { Fragment, ReactNode, useEffect, useRef, useState } from "react";
 
 const Section = ({ id, title, children }) => {
   const [isVisible, setIsVisible] = useState(false);
