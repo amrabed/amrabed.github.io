@@ -11,7 +11,7 @@ const projects: Project[] = [
       github: "amrabed/amrabed.github.io",
     },
     tools: ["JavaScript", "TypeScript"],
-    tags: ["programming", "web"],
+    tags: ["Programming", "Web"],
     roles: ["freelancer"],
     group: -1,
   },
@@ -24,7 +24,7 @@ const projects: Project[] = [
       homepage: "https://www.mathereconomics.com/sophi-paywall-engine",
     },
     tools: ["aws", "TensorFlow", "Docker", "bash"],
-    tags: ["cloud", "machine learning", "Database", "programming", "DevOps"],
+    tags: ["Cloud", "Machine learning", "Database", "Programming", "DevOps"],
     roles: ["engineer", "manager"],
     group: 0,
   },
@@ -67,7 +67,7 @@ const projects: Project[] = [
     },
     roles: ["instructor"],
     tools: ["c++"],
-    tags: ["programming"],
+    tags: ["Programming"],
     group: 2,
   },
   {
@@ -82,7 +82,7 @@ const projects: Project[] = [
     },
     roles: ["instructor", "engineer", "manager"],
     tools: ["Python", "TensorFlow", "Scikit-learn"],
-    tags: ["machine learning", "programming"],
+    tags: ["Machine learning", "Programming"],
     group: 2,
   },
   {
@@ -304,7 +304,7 @@ const projects: Project[] = [
   //   tasks: [
   //     "Constructed a Raspberry Pi based IoT sensor for the MetroLab Network",
   //     "Designed and implemented a framework for the device to communicate with a remote MySQL server",
-  //     "Implemented a website using PHP and Plotly.js to display data from the database",
+  //     "Implemented a Website using PHP and Plotly.js to display data from the database",
   //   ],
   //   skills: ["Python", "PHP", "MySQL", "Raspberry Pi", "Plotly.js"],
   //   interests: ["IoT", "Smart City"],
@@ -334,7 +334,7 @@ const projects: Project[] = [
   //   tasks: [
   //     "Collaborated with members from Fujitsu in a joint researcher project to build an SDN-based security solution",
   //     "Designed the threat model for testing the security solution using Metasploit",
-  //     "Implemented a container-based web application as an attack target",
+  //     "Implemented a container-based Web application as an attack target",
   //   ],
   //   skills: ["Docker", "PHP", "MySQL", "Metasploit"],
   //   interests: ["Security"],

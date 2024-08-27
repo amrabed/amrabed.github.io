@@ -8,6 +8,7 @@ import { FaGithub, FaYoutube, FaApple, FaLink } from "react-icons/fa6";
 import { RiSlideshow2Line } from "react-icons/ri";
 
 import { DocumentIcon } from "@heroicons/react/24/outline";
+import { Tooltip } from "@nextui-org/react";
 
 import areas from "@/data/areas";
 import skills from "@/data/skills";
@@ -23,9 +24,11 @@ const IconLink = ({
   children: ReactNode;
 }) =>
   url && (
-    <Link title={title ? title : undefined} href={url} target="_blank">
-      {children}
-    </Link>
+    <Tooltip content={title}>
+      <Link href={url} target="_blank">
+        {children}
+      </Link>
+    </Tooltip>
   );
 
 const Links = ({ links }: { links: ProjectLinks }) => (
@@ -39,7 +42,7 @@ const Links = ({ links }: { links: ProjectLinks }) => (
     <IconLink url={links.publication} title="publication">
       <DocumentIcon className="size-6" />
     </IconLink>
-    <IconLink url={links.presentation} title="demo">
+    <IconLink url={links.presentation} title="presentation">
       <RiSlideshow2Line />
     </IconLink>
     <IconLink url={links.demo} title="demo">
@@ -60,9 +63,13 @@ const Tools = ({ tools }: { tools: string[] }) => (
       const icon = skills[tool.toLowerCase()]?.icon;
       return (
         icon && (
-          <li title={tool} key={tool}>
-            {icon}
-          </li>
+          <Tooltip
+            key={tool}
+            content={skills[tool.toLowerCase()]?.name}
+            color="foreground"
+          >
+            <li>{icon}</li>
+          </Tooltip>
         )
       );
     })}
@@ -72,9 +79,9 @@ const Tools = ({ tools }: { tools: string[] }) => (
 const Tags = ({ tags }: { tags: string[] }) => (
   <ul className="flex flex-row gap-2 p-1 text-md">
     {tags.map((tag: string) => (
-      <li key={tag} className="size-6 text-zinc" title={tag}>
-        {areas[tag.toLowerCase()]?.icon}
-      </li>
+      <Tooltip key={tag} content={tag} color="foreground">
+        <li className="size-6 text-zinc">{areas[tag.toLowerCase()]?.icon}</li>
+      </Tooltip>
     ))}
   </ul>
 );
