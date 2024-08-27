@@ -51,7 +51,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme: toggleTheme }}>
       <div className={theme === "dark" ? "dark" : ""}>
-        <div className="dark:text-white dark:bg-black">{children}</div>
+        <div className="dark:text-slate-400 dark:bg-slate-900">{children}</div>
       </div>
     </ThemeContext.Provider>
   );

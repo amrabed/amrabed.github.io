@@ -16,7 +16,7 @@ const SocialMedia = () => (
             target="_blank"
             rel="noreferrer"
           >
-            <div className="p-2 rounded-full text-xl text-white bg-black">
+            <div className="p-2 rounded-full text-xl text-white bg-slate-900">
               {profile.icon}
             </div>
           </Link>

@@ -32,7 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body
+        className={`${inter.className} antialiased text-slate-600 bg-white`}
+      >
         <Providers>
           {children}
           <ScrollToTopButton />
