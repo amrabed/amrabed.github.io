@@ -23,7 +23,15 @@ const projects: Project[] = [
     links: {
       homepage: "https://www.mathereconomics.com/sophi-paywall-engine",
     },
-    tools: ["aws", "TensorFlow", "Docker", "bash"],
+    tools: [
+      "AWS",
+      "Python",
+      "TensorFlow",
+      "MLflow",
+      "Docker",
+      "Kubernetes",
+      "bash",
+    ],
     tags: ["Cloud", "Machine learning", "Database", "Programming", "DevOps"],
     roles: ["engineer", "manager"],
     group: 0,

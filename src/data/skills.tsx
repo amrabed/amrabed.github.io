@@ -12,6 +12,7 @@ import {
   SiJavascript,
   SiTypescript,
   SiGnubash,
+  SiMlflow,
 } from "react-icons/si";
 
 import { Skill } from "@/types";
@@ -31,6 +32,11 @@ const skills: Record<string, Skill> = {
     name: "Scikit-Learn",
     icon: <SiScikitlearn />,
     color: "#F7931E",
+  },
+  mlflow: {
+    name: "MLflow",
+    icon: <SiMlflow />,
+    color: "#0194E2",
   },
   aws: {
     name: "AWS",
