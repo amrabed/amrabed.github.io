@@ -51,9 +51,7 @@ const Header = () => {
     <Fragment>
       <HeaderProvider>
         <PageTitle />
-        <div className="flex gap-4">
-          <NavigationLinks />
-        </div>
+        <NavigationLinks />
       </HeaderProvider>
 
       {/* Mobile Header */}

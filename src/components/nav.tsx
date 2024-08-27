@@ -28,7 +28,7 @@ export const pages = [
     link: "./projects",
   },
   {
-    name: "experience",
+    name: "positions",
     link: "./positions",
   },
 ];
@@ -46,7 +46,7 @@ export const NavigationLinks = () => (
         </div>
       </Link>
     ))}
-    <Divider orientation="vertical" className="h-100" />
+    <Divider orientation="vertical" className="h-100 my-3 mx-2" />
     {pages.map((page) => (
       <Link
         className={"hover:text-primary hover:dark:text-primary-dark"}
