@@ -29,7 +29,10 @@ const ScrollToTopButton = () => {
   return (
     <div className="scroll-to-top flex justify-center">
       {isVisible && (
-        <button onClick={scrollToTop} className="scroll-button">
+        <button
+          onClick={scrollToTop}
+          className="scroll-button bg-black dark:bg-slate-800 hover:bg-zinc-600 dark:hover:bg-slate-500"
+        >
           <FaArrowUp />
         </button>
       )}

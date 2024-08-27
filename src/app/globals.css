@@ -109,7 +109,6 @@ div {
 }
 
 .scroll-button {
-  background-color: #000;
   color: #fff;
   border: none;
   padding: 1rem;
@@ -117,8 +116,4 @@ div {
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: opacity 0.3s ease-in-out;
-}
-
-.scroll-button:hover {
-  background-color: #555;
 }
