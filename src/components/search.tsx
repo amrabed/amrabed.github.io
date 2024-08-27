@@ -14,7 +14,7 @@ const Search = ({
       Search
     </label>
     <input
-      className="peer rounded-lg border border-gray-200 py-[9px] pl-10 text-sm outline-none w-fit w-full"
+      className="peer rounded-lg bg-white dark:bg-slate-800 border border-gray-200 py-[9px] pl-10 text-sm outline-none w-full"
       placeholder={placeholder}
       value={query}
       onChange={(e) => setQuery(e.target.value)}
