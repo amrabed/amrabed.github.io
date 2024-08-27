@@ -2,10 +2,7 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 
-import "@/styles/animation.css";
-import "@/styles/cssGrid.css";
-import "@/styles/globals.css";
-
+import "./globals.css";
 import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
