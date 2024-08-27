@@ -1,11 +1,16 @@
 "use client";
 
+import Link from "next/link";
+
 import React, { Fragment, useEffect, useState } from "react";
+
+import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 
 import HeaderProvider from "@/contexts/header";
 
 import { Sidebar, NavigationLinks, SidebarButton } from "./nav";
 import PageTitle from "./pageTitle";
+import Search from "./search";
 
 const MobileHeader = ({
   showSidebar,
@@ -66,5 +71,29 @@ const Header = () => {
     </Fragment>
   );
 };
+
+export const PageHeader = ({
+  title,
+  query,
+  setQuery,
+  placeholder,
+}: {
+  title: string;
+  query: string;
+  setQuery: (query: string) => void;
+  placeholder: string;
+}) => (
+  <div className="w-full p-5 backdrop-filter backdrop-blur-lg md:flex justify-between items-center gap-4 shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500">
+    <div className="flex flex-row justify-between w-full">
+      <div className="flex flex-row gap-1 p-1">
+        <Link href="/">
+          <ChevronLeftIcon className="size-8 text-xl" color="primary" />
+        </Link>
+        <h1 className="text-xl p-1 hidden md:flex">{title}</h1>
+      </div>
+      <Search placeholder={placeholder} query={query} setQuery={setQuery} />
+    </div>
+  </div>
+);
 
 export default Header;

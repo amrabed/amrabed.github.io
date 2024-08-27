@@ -1,5 +1,9 @@
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
+export const match = (values: string[], query: string) => {
+  return values.find((value) => value.toLowerCase().includes(query));
+};
+
 const Search = ({
   placeholder,
   query,

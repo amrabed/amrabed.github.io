@@ -10,8 +10,7 @@ import { RiSlideshow2Line } from "react-icons/ri";
 import { DocumentIcon } from "@heroicons/react/24/outline";
 import { Tooltip } from "@nextui-org/react";
 
-import areas from "@/data/areas";
-import skills from "@/data/skills";
+import { Roles, Tags, Tools } from "@/components/skills";
 import { Project, ProjectLinks } from "@/types";
 
 const IconLink = ({
@@ -57,46 +56,7 @@ const Links = ({ links }: { links: ProjectLinks }) => (
   </div>
 );
 
-const Tools = ({ tools }: { tools: string[] }) => (
-  <ul className="flex flex-row gap-2 text-2xl">
-    {tools.map((tool: string) => {
-      const icon = skills[tool.toLowerCase()]?.icon;
-      return (
-        icon && (
-          <Tooltip
-            key={tool}
-            content={skills[tool.toLowerCase()]?.name}
-            color="foreground"
-          >
-            <li>{icon}</li>
-          </Tooltip>
-        )
-      );
-    })}
-  </ul>
-);
-
-const Tags = ({ tags }: { tags: string[] }) => (
-  <ul className="flex flex-row gap-2 p-1 text-md">
-    {tags.map((tag: string) => (
-      <Tooltip key={tag} content={tag} color="foreground">
-        <li className="size-6 text-zinc">{areas[tag.toLowerCase()]?.icon}</li>
-      </Tooltip>
-    ))}
-  </ul>
-);
-
-const Roles = ({ roles }: { roles: string[] }) => (
-  <ul className="flex flex-row gap-2">
-    {roles.map((role: string) => (
-      <li key={role}>
-        <label className="text-sm text-zinc-500">{role}</label>
-      </li>
-    ))}
-  </ul>
-);
-
-const Card = ({ project }: { project: Project }) => (
+const ProjectView = ({ project }: { project: Project }) => (
   <div className="group overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 md:gap-8 hover:border-zinc-400/50 border-zinc-600 p-4">
     <h3 className="mb-3 font-semibold text-zinc">
       <div className="flex justify-between">
@@ -120,4 +80,4 @@ const Card = ({ project }: { project: Project }) => (
   </div>
 );
 
-export default Card;
+export default ProjectView;

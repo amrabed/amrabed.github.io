@@ -1,27 +1,40 @@
-import Link from "next/link";
+"use client";
 
 import { Fragment } from "react";
 
-import { ChevronLeftIcon } from "@heroicons/react/24/outline";
-
 import Section from "@/components/Section";
-import Timeline from "@/components/timeline";
-import HeaderProvider from "@/contexts/header";
+import { PageHeader } from "@/components/header";
+import { match } from "@/components/search";
+import { useSearch } from "@/contexts/search";
 import positions from "@/data/positions";
 
-const Page = () => (
-  <Fragment>
-    <HeaderProvider>
-      <Link href="/">
-        <ChevronLeftIcon className="size-8 gap-4" />
-      </Link>
-    </HeaderProvider>
-    <Section id="experience" title="Experience">
-      <div className="flex text-center items-center content-center justify-center">
-        <Timeline positions={positions} />
-      </div>
-    </Section>
-  </Fragment>
-);
+import Timeline from "./timeline";
+
+const Page = () => {
+  const { query, setQuery } = useSearch();
+
+  return (
+    <Fragment>
+      <PageHeader
+        title="Positions"
+        query={query}
+        setQuery={setQuery}
+        placeholder="Search positions by title, skill, or tool"
+      />
+      <Section id="experience" title="">
+        <div className="flex text-center items-center content-center justify-center mt-[50px]">
+          <Timeline
+            positions={positions.filter(
+              (position) =>
+                position.title.toLowerCase().includes(query) ||
+                match(position.skills, query) ||
+                match(position.tags, query),
+            )}
+          />
+        </div>
+      </Section>
+    </Fragment>
+  );
+};
 
 export default Page;
