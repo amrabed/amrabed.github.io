@@ -13,12 +13,13 @@ export interface Skill extends Icon {
 }
 
 export interface Area extends Icon {
+  name: string;
   icon: ReactNode;
   color: Color;
 }
 
 export interface Role {
-  name?: string;
+  name: string;
   color: Color;
 }
 

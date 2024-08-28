@@ -1,5 +1,6 @@
 import { NextUIProvider } from "@nextui-org/react";
 
+import { FilterProvider } from "@/contexts/filter";
 import { SearchProvider } from "@/contexts/search";
 import ThemeProvider from "@/contexts/theme";
 
@@ -10,7 +11,9 @@ const Providers = ({
 }>) => (
   <NextUIProvider>
     <ThemeProvider>
-      <SearchProvider>{children}</SearchProvider>
+      <FilterProvider>
+        <SearchProvider>{children}</SearchProvider>
+      </FilterProvider>
     </ThemeProvider>
   </NextUIProvider>
 );
