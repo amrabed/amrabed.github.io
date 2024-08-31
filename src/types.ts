@@ -55,6 +55,7 @@ export interface Organization {
   name: string;
   url: string;
   logo?: string;
+  department?: string;
 }
 
 export interface Certification {
@@ -86,3 +87,23 @@ export interface Position {
   tags: string[];
   roles: string[];
 }
+
+export interface Course {
+  id?: string;
+  title: string;
+  description?: string;
+  code?: string;
+  link?: string;
+  semester?: string;
+}
+
+export interface TeachingPosition extends Position {
+  courses?: Course[];
+}
+
+export interface ResearchPosition extends Position {
+  project?: string;
+  sponsors?: Organization[];
+}
+
+export type AnyPosition = TeachingPosition | ResearchPosition | Position;

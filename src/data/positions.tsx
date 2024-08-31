@@ -1,6 +1,6 @@
-import { Position } from "@/types";
+import { AnyPosition } from "@/types";
 
-const positions: Position[] = [
+const positions: AnyPosition[] = [
   {
     id: "sophi-manager",
     title: "Engineering Manager",
@@ -206,12 +206,12 @@ const positions: Position[] = [
       // "IoT",
       // "Smart City"
     ],
-    products: [
-      {
-        name: "Metrolab",
-        url: "https://github.com/amrabed/metrolab",
-      },
-    ],
+    // products: [
+    //   {
+    //     name: "Metrolab",
+    //     url: "https://github.com/amrabed/metrolab",
+    //   },
+    // ],
   },
   {
     id: "fujitsu",
@@ -237,7 +237,6 @@ const positions: Position[] = [
     ],
     skills: ["Docker", "PHP", "MySQL", "Metasploit"],
     tags: ["Security"],
-    products: [],
   },
   {
     id: "rhids",
@@ -269,16 +268,16 @@ const positions: Position[] = [
     ],
     skills: ["Java", "Docker", "Amazon AWS", "Shell"],
     tags: ["Cloud", "Security"],
-    products: [
-      {
-        name: "RHIDS",
-        url: "https://github.com/amrabed/rhids",
-      },
-      {
-        name: "strace-docker",
-        url: "https://github.com/amrabed/strace-docker",
-      },
-    ],
+    // products: [
+    //   {
+    //     name: "RHIDS",
+    //     url: "https://github.com/amrabed/rhids",
+    //   },
+    //   {
+    //     name: "strace-docker",
+    //     url: "https://github.com/amrabed/strace-docker",
+    //   },
+    // ],
   },
   {
     id: "sodacloud",
@@ -304,16 +303,16 @@ const positions: Position[] = [
     ],
     skills: ["Docker", "Amazon AWS", "Shell", "Maven"],
     tags: ["Mobile", "Cloud"],
-    products: [
-      {
-        name: "Docker-EC2",
-        url: "https://github.com/amrabed/docker-ec2",
-      },
-      {
-        name: "SodaCloud",
-        url: "https://github.com/VT-Magnum-Research/sodacloud",
-      },
-    ],
+    // products: [
+    //   {
+    //     name: "Docker-EC2",
+    //     url: "https://github.com/amrabed/docker-ec2",
+    //   },
+    //   {
+    //     name: "SodaCloud",
+    //     url: "https://github.com/VT-Magnum-Research/sodacloud",
+    //   },
+    // ],
   },
   {
     id: "minia-ta",
