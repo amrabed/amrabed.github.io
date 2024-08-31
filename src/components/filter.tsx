@@ -108,8 +108,7 @@ export const FilterModal = ({ children }: { children: ReactNode }) => {
       <Button isIconOnly className="bg-slate-800" onPress={onOpen}>
         <AdjustmentsHorizontalIcon className="size-6" />
       </Button>
-
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal isOpen={isOpen} placement="top" onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
@@ -119,9 +118,6 @@ export const FilterModal = ({ children }: { children: ReactNode }) => {
                 <Button color="default" variant="light" onPress={onClose}>
                   Close
                 </Button>
-                {/* <Button color="primary" onPress={onClose}>
-                  Apply
-                </Button> */}
               </ModalFooter>
             </>
           )}
