@@ -36,7 +36,7 @@ const PositionView = ({ position }: { position: Position }) => (
     <CardFooter className="justify-between">
       <div className="flex flex-row">
         <Tags tags={position.tags} />
-        <Divider orientation="vertical" className="h-50 mx-2" />
+        <Divider orientation="vertical" className="h-30 mx-2" />
         <Tools tools={position.skills} />
       </div>
       <ul className="flex flex-row gap-2 text-zinc-400">

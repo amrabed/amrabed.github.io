@@ -23,7 +23,7 @@ export const Tools = ({ tools }: { tools: string[] }) => (
 );
 
 export const Tags = ({ tags }: { tags: string[] }) => (
-  <ul className="flex flex-row gap-2 p-1 text-md">
+  <ul className="flex flex-row gap-2 text-md">
     {tags.map((tag: string) => (
       <Tooltip key={tag} content={tag} color="foreground">
         <li className="size-6 text-zinc">{areas[tag.toLowerCase()]?.icon}</li>
