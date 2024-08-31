@@ -10,6 +10,7 @@ import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import areas from "@/data/areas";
 import positions from "@/data/positions";
+import roles from "@/data/roles";
 import skills from "@/data/skills";
 import { Position } from "@/types";
 
@@ -31,11 +32,14 @@ const Page = () => {
     useFilter();
   const { selected: selectedAreas, setSelected: setSelectedAreas } =
     useFilter();
+  const { selected: selectedRoles, setSelected: setSelectedRoles } =
+    useFilter();
 
   const filteredPositions = positions.filter(
     (position) =>
       filterByQuery(position, query) &&
       (filterBySelection(position.tags, selectedAreas) ||
+        filterBySelection(position.roles, selectedRoles) ||
         filterBySelection(position.skills, selectedSkills)),
   );
 
@@ -48,6 +52,12 @@ const Page = () => {
         placeholder="Search positions by title, skill, or tool"
       >
         <FilterModal>
+          <Filters
+            label="skills"
+            values={Object.values(roles).map((role) => role.name)}
+            selected={selectedRoles}
+            setSelected={setSelectedRoles}
+          />
           <Filters
             label="skills"
             values={Object.values(skills).map((skill) => skill.name)}

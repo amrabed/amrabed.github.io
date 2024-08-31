@@ -33,11 +33,17 @@ const PositionView = ({ position }: { position: Position }) => (
       </ul>
     </CardBody>
     <Divider />
-    <CardFooter>
-      <div className="flex flex-row gap-2" />
-      <Tags tags={position.tags} />
-      <Divider orientation="vertical" className="mx-2" />
-      <Tools tools={position.skills} />
+    <CardFooter className="justify-between">
+      <div className="flex flex-row">
+        <Tags tags={position.tags} />
+        <Divider orientation="vertical" className="h-50 mx-2" />
+        <Tools tools={position.skills} />
+      </div>
+      <ul className="flex flex-row gap-2 text-zinc-400">
+        {position.roles.map((role, index) => (
+          <li key={index}>{role}</li>
+        ))}
+      </ul>
     </CardFooter>
   </Card>
 );
@@ -49,7 +55,7 @@ const Timeline = ({ positions }: { positions: Position[] }) => (
         <li className="group mb-5" key={position.id}>
           <div className="">
             <span className="relative left-5 xl:left-[-170px] xl:top-5 text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-focus:text-zinc-900 dark:group-focus:text-zinc-100">
-              {position.duration}
+              {position.duration.start + " - " + position.duration.end}
             </span>
             <div
               className="border-r-2 border-slate-500 absolute h-full top-5"

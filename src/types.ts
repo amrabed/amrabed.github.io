@@ -65,6 +65,11 @@ export interface Certification {
   date: string;
 }
 
+export interface Duration {
+  start: string;
+  end: string;
+}
+
 export interface Degree {
   title: string;
   university: Organization;
@@ -75,8 +80,9 @@ export interface Position {
   id: string;
   title: string;
   organization: Organization;
-  duration: string;
+  duration: Duration;
   tasks: string[];
   skills: string[];
   tags: string[];
+  roles: string[];
 }
