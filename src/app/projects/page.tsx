@@ -3,7 +3,7 @@
 import { Fragment } from "react";
 
 import Section from "@/components/Section";
-import Filters, { FilterModal } from "@/components/filter";
+import { Selections, Filter } from "@/components/filter";
 import { PageHeader } from "@/components/header";
 import { match } from "@/components/search";
 import { useFilter } from "@/contexts/filter";
@@ -48,7 +48,7 @@ const Page = () => {
       (project1, project2) =>
         project1.group - project2.group ||
         new Date(project2.date).getFullYear() -
-          new Date(project1.date).getFullYear(),
+        new Date(project1.date).getFullYear(),
     );
 
   return (
@@ -59,26 +59,26 @@ const Page = () => {
         setQuery={setQuery}
         placeholder="Search projects by name, role, skill, or tool"
       >
-        <FilterModal>
-          <Filters
+        <Filter>
+          <Selections
             label="roles"
             values={Object.values(roles).map((role) => role.name)}
             selected={selectedRoles}
             setSelected={setSelectedRoles}
           />
-          <Filters
+          <Selections
             label="skills"
             values={Object.values(skills).map((skill) => skill.name)}
             selected={selectedSkills}
             setSelected={setSelectedSkills}
           />
-          <Filters
+          <Selections
             label="areas"
             values={Object.values(areas).map((areas) => areas.name)}
             selected={selectedAreas}
             setSelected={setSelectedAreas}
           />
-        </FilterModal>
+        </Filter>
       </PageHeader>
       <Section id="projects" title="">
         <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 pt-[50px] gap-5">

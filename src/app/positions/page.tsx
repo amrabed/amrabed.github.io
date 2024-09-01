@@ -3,7 +3,7 @@
 import { Fragment } from "react";
 
 import Section from "@/components/Section";
-import Filters, { FilterModal } from "@/components/filter";
+import { Selections, Filter } from "@/components/filter";
 import { PageHeader } from "@/components/header";
 import { match } from "@/components/search";
 import { useFilter } from "@/contexts/filter";
@@ -51,26 +51,26 @@ const Page = () => {
         setQuery={setQuery}
         placeholder="Search positions by title, skill, or tool"
       >
-        <FilterModal>
-          <Filters
+        <Filter>
+          <Selections
             label="skills"
             values={Object.values(roles).map((role) => role.name)}
             selected={selectedRoles}
             setSelected={setSelectedRoles}
           />
-          <Filters
+          <Selections
             label="skills"
             values={Object.values(skills).map((skill) => skill.name)}
             selected={selectedSkills}
             setSelected={setSelectedSkills}
           />
-          <Filters
+          <Selections
             label="areas"
             values={Object.values(areas).map((areas) => areas.name)}
             selected={selectedAreas}
             setSelected={setSelectedAreas}
           />
-        </FilterModal>
+        </Filter>
       </PageHeader>
       <Section id="experience" title="">
         <div className="flex text-center items-center content-center justify-center mt-[50px]">

@@ -39,7 +39,7 @@ const checkbox = tv({
   },
 });
 
-export const Filter = (props: any) => {
+export const Selection = (props: any) => {
   const {
     children,
     isSelected,
@@ -72,7 +72,7 @@ export const Filter = (props: any) => {
   );
 };
 
-const Filters = ({
+export const Selections = ({
   label,
   values,
   selected,
@@ -92,15 +92,15 @@ const Filters = ({
       onChange={setSelected}
     >
       {values.map((value) => (
-        <Filter key={value} value={value.toLowerCase()}>
+        <Selection key={value} value={value.toLowerCase()}>
           {value}
-        </Filter>
+        </Selection>
       ))}
     </CheckboxGroup>
   </div>
 );
 
-export const FilterModal = ({ children }: { children: ReactNode }) => {
+export const Filter = ({ children }: { children: ReactNode }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -126,5 +126,3 @@ export const FilterModal = ({ children }: { children: ReactNode }) => {
     </>
   );
 };
-
-export default Filters;
