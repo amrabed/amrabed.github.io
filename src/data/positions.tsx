@@ -100,7 +100,7 @@ const positions: AnyPosition[] = [
     organization: {
       name: "Minia University",
       department: "Computer & System Engineering",
-      url: "http://www.minia.edu.eg/eng/index.php/en",
+      url: "https://www.minia.edu.eg/eng/index.php/en",
     },
     duration: { start: "Nov 2017", end: "Jan 2020" },
     tasks: [
@@ -190,7 +190,7 @@ const positions: AnyPosition[] = [
     title: "Graduate Research Assistant",
     organization: {
       name: "NCR Urban Living Lab, Virginia Tech",
-      url: "http://www.ncr.vt.edu/initiatives/urban_living_lab.html",
+      url: "https://www.ncr.vt.edu/initiatives/urban_living_lab.html",
     },
     duration: { start: "May 2016", end: "Jul 2017" },
     roles: ["researcher"],
@@ -226,7 +226,7 @@ const positions: AnyPosition[] = [
     title: "Graduate Research Assistant",
     organization: {
       name: "Hume Center, Virginia Tech",
-      url: "http://www.hume.vt.edu",
+      url: "https://www.hume.vt.edu",
     },
     duration: { start: "Jan 2017", end: "May 2017" },
     roles: ["researcher"],
@@ -250,14 +250,14 @@ const positions: AnyPosition[] = [
       },
       {
         name: "Northrop Grumman",
-        url: "http://www.northropgrumman.com",
+        url: "https://www.northropgrumman.com",
         logo: "img/ng.png",
       },
     ],
     title: "Graduate Research Assistant",
     organization: {
       name: "Hume Center, Virginia Tech",
-      url: "http://www.hume.vt.edu",
+      url: "https://www.hume.vt.edu",
     },
     duration: { start: "Jan 2015", end: "May 2016" },
     roles: ["researcher"],
@@ -320,7 +320,7 @@ const positions: AnyPosition[] = [
     organization: {
       name: "Minia University",
       department: "Computer & System Engineering",
-      url: "http://www.minia.edu.eg/eng/index.php/en",
+      url: "https://www.minia.edu.eg/eng/index.php/en",
     },
     duration: { start: "Mar 2007", end: "Aug 2010" },
     tasks: [
@@ -365,7 +365,7 @@ const positions: AnyPosition[] = [
     title: "Instructor",
     organization: {
       name: "Inform - IBM Authorized Training Center",
-      url: "http://inform.com.eg",
+      url: "https://inform.com.eg",
     },
     duration: { start: "Mar 2006", end: "Aug 2010" },
     tasks: [
@@ -418,19 +418,19 @@ const positions: AnyPosition[] = [
   //   courses: [
   //     {
   //       title: "Signal and System Theory",
-  //       link: "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=46"
+  //       link: "https://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=46"
   //     },
   //     {
   //       title: "Systems and Control",
-  //       link: "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=108"
+  //       link: "https://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=108"
   //     },
   //     {
   //       title: "Digital Signal Processing",
-  //       link: "http://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=62"
+  //       link: "https://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=62"
   //     },
   //     {
   //       title: "Data Structures and Algorithms",
-  //       link: "http://www.elearn.eng.cu.edu.eg/course/view.php?id=5"
+  //       link: "https://www.elearn.eng.cu.edu.eg/course/view.php?id=5"
   //     }
   //   ]
   // },
@@ -439,7 +439,7 @@ const positions: AnyPosition[] = [
     title: "Teaching Assistant",
     organization: {
       name: "Shorouk Academy",
-      url: "http://hie.sha.edu.eg",
+      url: "https://hie.sha.edu.eg",
     },
     duration: { start: "Feb 2006", end: "Sep 2007" },
     tasks: [
@@ -475,7 +475,7 @@ const positions: AnyPosition[] = [
     title: "Teaching Assistant",
     organization: {
       name: "Modern Academy for Engineering and Technology",
-      url: "http://eng.modern-academy.edu.eg",
+      url: "https://eng.modern-academy.edu.eg",
     },
     duration: { start: "Sep 2005", end: "May 2006" },
     tasks: [
