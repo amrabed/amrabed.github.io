@@ -48,7 +48,7 @@ const Page = () => {
       (project1, project2) =>
         project1.group - project2.group ||
         new Date(project2.date).getFullYear() -
-        new Date(project1.date).getFullYear(),
+          new Date(project1.date).getFullYear(),
     );
 
   return (
@@ -57,23 +57,23 @@ const Page = () => {
         title="Projects"
         query={query}
         setQuery={setQuery}
-        placeholder="Search projects by name, role, skill, or tool"
+        placeholder="Search by name, role, skill, or tool"
       >
         <Filter>
           <Selections
-            label="roles"
+            label="Roles"
             values={Object.values(roles).map((role) => role.name)}
             selected={selectedRoles}
             setSelected={setSelectedRoles}
           />
           <Selections
-            label="skills"
+            label="Tools"
             values={Object.values(skills).map((skill) => skill.name)}
             selected={selectedSkills}
             setSelected={setSelectedSkills}
           />
           <Selections
-            label="areas"
+            label="Skills"
             values={Object.values(areas).map((areas) => areas.name)}
             selected={selectedAreas}
             setSelected={setSelectedAreas}

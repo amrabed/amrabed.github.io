@@ -3,55 +3,38 @@ import { ReactNode } from "react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 import {
+  Button,
   CheckboxGroup,
   useCheckbox,
   Chip,
   VisuallyHidden,
   tv,
-} from "@nextui-org/react";
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  useDisclosure,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
 } from "@nextui-org/react";
 
 const checkbox = tv({
   slots: {
-    base: "border-default hover:bg-default-200",
-    content: "text-default-500",
+    base: "border-none bg-default-100 hover:bg-default-200",
+    content: "text-foreground-500 hover:text-foreground",
   },
   variants: {
     isSelected: {
       true: {
-        base: "border-primary bg-primary hover:bg-primary-500 hover:border-primary-500",
-        content: "text-primary-white pl-1",
-      },
-    },
-    isFocusVisible: {
-      true: {
-        base: "outline-none ring-2 ring-focus ring-offset-2 ring-offset-background",
+        base: "border-none bg-foreground hover:bg-primary",
+        content: "text-white hover:text-zinc-100 pl-1",
       },
     },
   },
 });
 
 export const Selection = (props: any) => {
-  const {
-    children,
-    isSelected,
-    isFocusVisible,
-    getBaseProps,
-    getLabelProps,
-    getInputProps,
-  } = useCheckbox({
+  const { children, isSelected, getBaseProps, getInputProps } = useCheckbox({
     ...props,
   });
 
-  const styles = checkbox({ isSelected, isFocusVisible });
+  const styles = checkbox({ isSelected });
 
   return (
     <label {...getBaseProps()}>
@@ -63,7 +46,11 @@ export const Selection = (props: any) => {
           base: styles.base(),
           content: styles.content(),
         }}
-        startContent={isSelected ? <CheckIcon className="size-4 ml-1" /> : null}
+        startContent={
+          isSelected ? (
+            <CheckIcon className="size-4 ml-1" color="white" />
+          ) : null
+        }
         variant="faded"
       >
         {children}
@@ -83,9 +70,9 @@ export const Selections = ({
   selected: string[];
   setSelected: (previous: string[]) => void;
 }) => (
-  <div className="flex flex-col gap-1 w-full">
+  <div className="flex flex-row gap-1 w-full">
     <CheckboxGroup
-      className="gap-1"
+      className="gap-4"
       label={label}
       orientation="horizontal"
       value={selected}
@@ -100,29 +87,19 @@ export const Selections = ({
   </div>
 );
 
-export const Filter = ({ children }: { children: ReactNode }) => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
-  return (
-    <>
-      <Button isIconOnly className="bg-slate-800" onPress={onOpen}>
+export const Filter = ({ children }: { children: ReactNode }) => (
+  <Popover
+    offset={10}
+    size="lg"
+    placement="bottom"
+    backdrop="opaque"
+    className="dark:bg-slate-800"
+  >
+    <PopoverTrigger>
+      <Button variant="light" isIconOnly>
         <AdjustmentsHorizontalIcon className="size-6" />
       </Button>
-      <Modal isOpen={isOpen} placement="top" onOpenChange={onOpenChange}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">Filter</ModalHeader>
-              <ModalBody>{children}</ModalBody>
-              <ModalFooter>
-                <Button color="default" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
-    </>
-  );
-};
+    </PopoverTrigger>
+    <PopoverContent className="w-[500px] p-4 gap-6">{children}</PopoverContent>
+  </Popover>
+);

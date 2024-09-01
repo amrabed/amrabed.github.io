@@ -6,9 +6,7 @@ import "./globals.css";
 import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
-const ScrollToTopButton = dynamic(
-  () => import("@/components/scrollToTopButton"),
-);
+const ScrollToTopButton = dynamic(() => import("@/components/upArrow"));
 
 const Footer = dynamic(() => import("@/components/footer"));
 

@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
-const ScrollToTopButton = () => {
+import { Button } from "@nextui-org/react";
+
+const UpArrow = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -29,15 +31,19 @@ const ScrollToTopButton = () => {
   return (
     <div className="scroll-to-top flex justify-center">
       {isVisible && (
-        <button
+        <Button
           onClick={scrollToTop}
-          className="scroll-button bg-black dark:bg-slate-800 hover:bg-zinc-600 dark:hover:bg-slate-500"
+          radius="full"
+          size="lg"
+          variant="light"
+          isIconOnly
+          // className="scroll-button bg-black dark:bg-slate-800 hover:bg-zinc-600 dark:hover:bg-slate-500"
         >
           <FaArrowUp />
-        </button>
+        </Button>
       )}
     </div>
   );
 };
 
-export default ScrollToTopButton;
+export default UpArrow;
