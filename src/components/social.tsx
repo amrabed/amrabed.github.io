@@ -1,29 +1,29 @@
-import Link from "next/link";
-
-import React, { Fragment } from "react";
+import { Button, Link, Tooltip } from "@nextui-org/react";
 
 import profiles from "@/data/profiles";
 
 const SocialMedia = () => (
-  <Fragment>
+  <>
     <div className="flex justify-center">
-      <div className="fixed bottom-12 flex flex-row gap-2 z-10 p-2">
-        {profiles.map((profile) => (
-          <Link
-            className="w-fit"
-            href={profile.link}
-            key={profile.name}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="p-2 rounded-full text-xl text-white bg-slate-900">
-              {profile.icon}
-            </div>
-          </Link>
+      <div className="fixed bottom-12 flex flex-row z-10">
+        {profiles.map((profile, index) => (
+          <Tooltip key={index} content={profile.name}>
+            <Link href={profile.link} isExternal rel="noreferrer">
+              <Button
+                isIconOnly
+                variant="light"
+                size="lg"
+                radius="full"
+                className="text-xl"
+              >
+                {profile.icon}
+              </Button>
+            </Link>
+          </Tooltip>
         ))}
       </div>
     </div>
-  </Fragment>
+  </>
 );
 
 export default SocialMedia;

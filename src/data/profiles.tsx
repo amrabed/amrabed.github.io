@@ -43,7 +43,7 @@ const profiles = [
   },
   {
     icon: <FaMedium />,
-    name: "Menium",
+    name: "Medium",
     link: "https://amrabed.medium.com",
   },
   {
