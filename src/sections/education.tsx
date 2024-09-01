@@ -5,7 +5,7 @@ import degrees from "@/data/degrees";
 import { Degree } from "@/types";
 
 const Education = () => (
-  <Section id="education" title="Education">
+  <Section id="degrees" title="Education">
     {degrees.map((degree: Degree) => (
       <div className="transition-all duration-700 gap-6" key={degree.title}>
         <a href={degree.university.url} target="_blank">
