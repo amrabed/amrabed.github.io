@@ -50,20 +50,15 @@ const Title = () => (
 
 export const MainHeader = () => (
   <Navbar>
-    <NavbarContent className="sm:hidden" justify="start">
+    <NavbarBrand>
+      <Title />
+    </NavbarBrand>
+
+    <NavbarContent className="sm:hidden" justify="end">
       <NavbarMenuToggle />
     </NavbarContent>
 
-    <NavbarContent className="sm:hidden pr-3" justify="center">
-      <NavbarBrand>
-        <Title />
-      </NavbarBrand>
-    </NavbarContent>
-
     <NavbarContent className="hidden sm:flex gap-4" justify="start">
-      <NavbarBrand>
-        <Title />
-      </NavbarBrand>
       {sections.map((section, index) => (
         <NavbarItem key={index}>
           <Link
@@ -95,10 +90,12 @@ export const MainHeader = () => (
       {sections.map((section, index) => (
         <NavbarMenuItem key={index}>
           <Link
-            className="text-lg p-2 hover:text-primary hover:dark:text-primary-dark"
+            className="hover:text-primary hover:dark:text-primary-dark"
             href={section.link}
           >
-            {section.name}
+            <div className="text-lg p-1 hover:text-primary hover:dark:text-primary-dark">
+              {section.name}
+            </div>
           </Link>
         </NavbarMenuItem>
       ))}
@@ -109,7 +106,7 @@ export const MainHeader = () => (
             className={"hover:text-primary hover:dark:text-primary-dark"}
             href={page.link}
           >
-            <div className="text-lg p-2 hover:text-primary hover:dark:text-primary-dark">
+            <div className="text-lg p-1 hover:text-primary hover:dark:text-primary-dark">
               {page.name}
             </div>
           </Link>
