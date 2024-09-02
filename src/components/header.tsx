@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
 
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import {
@@ -48,73 +50,79 @@ const Title = () => (
   </Link>
 );
 
-export const MainHeader = () => (
-  <Navbar>
-    <NavbarBrand>
-      <Title />
-    </NavbarBrand>
+export const MainHeader = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    <NavbarContent className="sm:hidden" justify="end">
-      <NavbarMenuToggle />
-    </NavbarContent>
+  return (
+    <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+      <NavbarBrand>
+        <Title />
+      </NavbarBrand>
 
-    <NavbarContent className="hidden sm:flex gap-4" justify="start">
-      {sections.map((section, index) => (
-        <NavbarItem key={index}>
-          <Link
-            className={"hover:text-primary hover:dark:text-primary-dark"}
-            href={section.link}
-          >
-            <div className="h-full pb-1 hover:pb-0 flex items-center border-primary dark:border-primary-dark transition-all">
-              {section.name}
-            </div>
-          </Link>
-        </NavbarItem>
-      ))}
-      <Divider orientation="vertical" className="h-10 my-4" />
-      {pages.map((page, index) => (
-        <NavbarItem key={index}>
-          <Link
-            className={"hover:text-primary hover:dark:text-primary-dark"}
-            href={page.link}
-          >
-            <div className="h-full pb-1 hover:pb-0 flex items-center border-primary dark:border-primary-dark transition-all">
-              {page.name}
-            </div>
-          </Link>
-        </NavbarItem>
-      ))}{" "}
-    </NavbarContent>
+      <NavbarContent className="sm:hidden" justify="end">
+        <NavbarMenuToggle />
+      </NavbarContent>
 
-    <NavbarMenu className="w-[70%] h-screen bg-white dark:bg-slate-800 transition-all duration-1000">
-      {sections.map((section, index) => (
-        <NavbarMenuItem key={index}>
-          <Link
-            className="hover:text-primary hover:dark:text-primary-dark"
-            href={section.link}
-          >
-            <div className="text-lg p-1 hover:text-primary hover:dark:text-primary-dark">
-              {section.name}
-            </div>
-          </Link>
-        </NavbarMenuItem>
-      ))}
-      <Divider />
-      {pages.map((page, index) => (
-        <NavbarMenuItem key={index}>
-          <Link
-            className={"hover:text-primary hover:dark:text-primary-dark"}
-            href={page.link}
-          >
-            <div className="text-lg p-1 hover:text-primary hover:dark:text-primary-dark">
-              {page.name}
-            </div>
-          </Link>
-        </NavbarMenuItem>
-      ))}
-    </NavbarMenu>
-  </Navbar>
-);
+      <NavbarContent className="hidden sm:flex gap-4" justify="start">
+        {sections.map((section, index) => (
+          <NavbarItem key={index}>
+            <Link
+              className={"hover:text-primary hover:dark:text-primary-dark"}
+              href={section.link}
+            >
+              <div className="h-full pb-1 hover:pb-0 flex items-center border-primary dark:border-primary-dark transition-all">
+                {section.name}
+              </div>
+            </Link>
+          </NavbarItem>
+        ))}
+        <Divider orientation="vertical" className="h-10 my-4" />
+        {pages.map((page, index) => (
+          <NavbarItem key={index}>
+            <Link
+              className={"hover:text-primary hover:dark:text-primary-dark"}
+              href={page.link}
+            >
+              <div className="h-full pb-1 hover:pb-0 flex items-center border-primary dark:border-primary-dark transition-all">
+                {page.name}
+              </div>
+            </Link>
+          </NavbarItem>
+        ))}{" "}
+      </NavbarContent>
+
+      <NavbarMenu className="dark:bg-background backdrop-blur-500 transition-all duration-1000">
+        {sections.map((section, index) => (
+          <NavbarMenuItem key={index}>
+            <Link
+              className="hover:text-primary hover:dark:text-primary-dark"
+              href={section.link}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <div className="text-lg p-1 hover:text-primary hover:dark:text-primary-dark">
+                {section.name}
+              </div>
+            </Link>
+          </NavbarMenuItem>
+        ))}
+        <Divider />
+        {pages.map((page, index) => (
+          <NavbarMenuItem key={index}>
+            <Link
+              className={"hover:text-primary hover:dark:text-primary-dark"}
+              href={page.link}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <div className="text-lg p-1 hover:text-primary hover:dark:text-primary-dark">
+                {page.name}
+              </div>
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
+  );
+};
 
 export const PageHeader = ({
   title,
