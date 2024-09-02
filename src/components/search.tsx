@@ -1,10 +1,17 @@
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  useDisclosure,
+} from "@nextui-org/react";
 
 export const match = (values: string[], query: string) => {
   return values.find((value) => value.toLowerCase().includes(query));
 };
 
-const Search = ({
+export const Searchbar = ({
   placeholder,
   query,
   setQuery,
@@ -13,12 +20,12 @@ const Search = ({
   query: string;
   setQuery: (query: string) => void;
 }) => (
-  <div className="relative flex w-full md:w-1/2">
+  <div className="relative flex w-full">
     <label htmlFor="search" className="sr-only">
       Search
     </label>
     <input
-      className="peer rounded-lg bg-white dark:bg-slate-800 border border-gray-200 py-[9px] pl-10 text-sm outline-none w-full"
+      className="peer border-none rounded-lg bg-white dark:bg-slate-800 border border-gray-200 py-[9px] pl-10 text-sm outline-none w-full"
       placeholder={placeholder}
       value={query}
       onChange={(e) => setQuery(e.target.value)}
@@ -33,4 +40,27 @@ const Search = ({
   </div>
 );
 
-export default Search;
+export const SearchIcon = (props: any) => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  return (
+    <>
+      <Button isIconOnly variant="light" onClick={onOpen}>
+        <MagnifyingGlassIcon className="size-6" />
+      </Button>
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        placement="top"
+        backdrop="transparent"
+        hideCloseButton
+      >
+        <ModalContent>
+          <ModalBody>
+            <Searchbar {...props} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};

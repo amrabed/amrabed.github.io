@@ -14,7 +14,7 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 
-import Search from "./search";
+import { Searchbar, SearchIcon } from "./search";
 
 export const sections = [
   {
@@ -135,10 +135,25 @@ export const PageHeader = ({
         <Link href="/">
           <ChevronLeftIcon className="size-8 text-xl" color="primary" />
         </Link>
-        <h1 className="text-xl p-1 hidden md:flex">{title}</h1>
+        <h1 className="text-xl p-1">{title}</h1>
       </div>
-      <Search placeholder={placeholder} query={query} setQuery={setQuery} />
-      {children}
+      <div className="hidden sm:flex w-1/2 lg:w-1/3">
+        <Searchbar
+          placeholder={placeholder}
+          query={query}
+          setQuery={setQuery}
+        />
+      </div>
+      <div className="flex flex-row">
+        <div className="flex sm:hidden">
+          <SearchIcon
+            placeholder={placeholder}
+            query={query}
+            setQuery={setQuery}
+          />
+        </div>
+        {children}
+      </div>
     </div>
   </div>
 );
