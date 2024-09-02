@@ -12,9 +12,8 @@ const SocialMedia = () => (
               <Button
                 isIconOnly
                 variant="light"
-                size="lg"
                 radius="full"
-                className="text-xl"
+                className="md:text-xl"
               >
                 {profile.icon}
               </Button>
