@@ -31,14 +31,14 @@ const Certifications = () => (
     {certificates.map((certificate: Certification) => (
       <div className="transition-all duration-700" key={certificate.title}>
         <a href={certificate.link} target="_blank">
-          <div className="section-item p-3 md:p-1">
+          <div className="section-item p-3">
             <Image
               src={certificate.badge}
               alt={`Badge for ${certificate.title}`}
               width={150}
               height={150}
             />
-            <p className="text-nowrap md:text-xl">{certificate.title}</p>
+            <p className="md:text-xl text-foreground">{certificate.title}</p>
             <p className="text-primary">{certificate.organization.name}</p>
             <p className="text-secondary">{certificate.date}</p>
           </div>
@@ -53,7 +53,7 @@ const Degrees = () => (
     {degrees.map((degree: Degree) => (
       <div className="transition-all duration-700 gap-6" key={degree.title}>
         <a href={degree.university.url} target="_blank">
-          <div className="section-item">
+          <div className="section-item p-3">
             <Image
               src={degree.university.logo ?? ""}
               alt={`${degree.university.name} logo`}
