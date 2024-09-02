@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 import { nextui } from "@nextui-org/react";
 
@@ -14,14 +15,18 @@ const config: Config = {
       themes: {
         dark: {
           colors: {
-            primary: "#07d0e5",
-            secondary: "#333333",
+            primary: colors.indigo[300],
+            secondary: colors.zinc[400],
+            foreground: colors.slate[400],
+            background: colors.slate[950],
           },
         },
         light: {
           colors: {
-            primary: "#006994",
-            secondary: "#f7f7f7",
+            primary: colors.indigo[600],
+            secondary: colors.zinc[600],
+            foreground: colors.slate[600],
+            background: colors.white,
           },
         },
       },

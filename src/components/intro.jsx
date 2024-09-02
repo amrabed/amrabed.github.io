@@ -70,7 +70,7 @@ const Intro = () => {
             {/* Profile Name */}
             <p className="text-2xl md:text-4xl py-2 font-sans text-center text-nowrap">
               I&apos;m
-              <span className="text-primary dark:text-primary-dark">
+              <span className="text-primary">
                 {" a"}
                 <TypeAnimation
                   sequence={[
