@@ -49,7 +49,7 @@ const Intro = () => {
       </Head>
       <section id="home">
         <div
-          className="min-h-[100vh] overflow-x-hidden px-[20px] md:px-[100px] lg:px-[200px] xl:px-[400px] 2xl:px-[600px] md:flex content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm"
+          className="min-h-[100vh] overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[200px] 2xl:px-[400px] md:flex content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm"
           ref={homeRef}
         >
           <div
