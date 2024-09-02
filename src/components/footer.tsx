@@ -1,7 +1,27 @@
 "use client";
 
-import ThemeSelector from "@/components/themeSelector";
+import { SunIcon } from "@heroicons/react/24/outline";
+import { MoonIcon } from "@heroicons/react/24/solid";
+import { Switch } from "@nextui-org/react";
+
 import { useTheme } from "@/contexts/theme";
+
+const ThemeSelector = ({
+  theme,
+  toggleTheme,
+}: {
+  theme: string | undefined;
+  toggleTheme: (theme: string) => void;
+}) => (
+  <Switch
+    defaultSelected
+    size="lg"
+    value={theme}
+    onChange={(e) => toggleTheme(e.target.value)}
+    startContent={<SunIcon color="white" />}
+    endContent={<MoonIcon />}
+  />
+);
 
 const Footer = () => {
   const { theme, toggleTheme } = useTheme();
