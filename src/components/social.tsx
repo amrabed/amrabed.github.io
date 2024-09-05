@@ -4,13 +4,12 @@ import profiles from "@/data/profiles";
 
 const SocialMedia = () => (
   <>
-    <div className="flex justify-center bg-background">
-      <div className="fixed bottom-12 flex flex-row z-10">
+    <div className="w-full fixed bottom-0 p-4 z-10">
+      <div className="flex flex-row justify-center">
         {profiles.map((profile, index) => (
           <Tooltip key={index} content={profile.name}>
             <Link href={profile.link} isExternal rel="noreferrer">
-              <div className="bg-background  rounded-full p-1">
-
+              <div className="bg-background rounded-full p-1">
                 <Button
                   isIconOnly
                   variant="light"
