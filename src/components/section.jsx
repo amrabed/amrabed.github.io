@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Fragment, ReactNode, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Section = ({ id, title, children }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,14 +32,12 @@ const Section = ({ id, title, children }) => {
   }, [isVisible]);
 
   return (
-    <Fragment>
-      <section id={id} className="section" ref={dataRef}>
-        <h2 className="section-heading">{title}</h2>
-        <div className="pop-down-child section-body" ref={itemRef}>
-          {children}
-        </div>
-      </section>
-    </Fragment>
+    <section id={id} className="section" ref={dataRef}>
+      <h2 className="section-heading">{title}</h2>
+      <div className="pop-down-child section-body" ref={itemRef}>
+        {children}
+      </div>
+    </section>
   );
 };
 

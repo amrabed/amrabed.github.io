@@ -1,7 +1,9 @@
 import { ReactNode } from "react";
 
-import { CheckIcon } from "@heroicons/react/24/outline";
-import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
+import {
+  AdjustmentsHorizontalIcon,
+  CheckIcon,
+} from "@heroicons/react/24/outline";
 import {
   Button,
   CheckboxGroup,

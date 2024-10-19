@@ -1,7 +1,6 @@
 "use client";
 
-import { SunIcon } from "@heroicons/react/24/outline";
-import { MoonIcon } from "@heroicons/react/24/outline";
+import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { Switch } from "@nextui-org/react";
 
 import { useTheme } from "@/contexts/theme";
