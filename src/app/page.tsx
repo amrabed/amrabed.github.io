@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 
 import Section from "@/components/Section";
+import { Banner } from "@/components/banner";
 import { MainHeader } from "@/components/header";
 import certificates from "@/data/certifications";
 import degrees from "@/data/degrees";
@@ -76,6 +77,7 @@ const Degrees = () => (
 
 const Home = () => (
   <>
+    <Banner />
     <MainHeader />
     <Intro />
     <Skills />

@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import "./globals.css";
 import Providers from "./providers";
 
@@ -39,6 +41,7 @@ export default function RootLayout({
           <Footer />
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-JKPDWZ2PLD" />
     </html>
   );
 }
