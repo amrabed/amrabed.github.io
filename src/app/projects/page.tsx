@@ -23,8 +23,7 @@ const filterByQuery = (project: Project, query: string) =>
   match(project.tags, query);
 
 const filterBySelection = (values: string[], selections: string[]) =>
-  !selections ||
-  !selections.length ||
+  !selections?.length ||
   values.filter((value) => selections.includes(value.toLowerCase())).length;
 
 const Page = () => {

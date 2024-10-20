@@ -22,8 +22,7 @@ const filterByQuery = (position: Position, query: string) =>
   match(position.tags, query);
 
 const filterBySelection = (values: string[], selections: string[]) =>
-  !selections ||
-  !selections.length ||
+  !selections?.length ||
   values.filter((value) => selections.includes(value.toLowerCase())).length;
 
 const Page = () => {

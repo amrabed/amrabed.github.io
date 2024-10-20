@@ -37,7 +37,7 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     // Update the URL when filters change
     const params = new URLSearchParams();
-    if (selected && selected.length) {
+    if (selected?.length) {
       params.set("filters", selected.join(","));
     } else {
       params.delete("filters");
