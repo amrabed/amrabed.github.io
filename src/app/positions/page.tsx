@@ -2,10 +2,10 @@
 
 import { Fragment } from "react";
 
-import Section from "@/components/Section";
 import { Selections, Filter } from "@/components/filter";
 import { PageHeader } from "@/components/header";
 import { match } from "@/components/search";
+import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import areas from "@/data/areas";

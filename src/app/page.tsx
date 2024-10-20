@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
-import Section from "@/components/Section";
 import { Banner } from "@/components/banner";
 import { MainHeader } from "@/components/header";
+import { Section } from "@/components/section";
 import certificates from "@/data/certifications";
 import degrees from "@/data/degrees";
 import skills from "@/data/skills";

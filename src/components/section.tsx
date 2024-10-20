@@ -1,11 +1,19 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
-const Section = ({ id, title, children }) => {
+export const Section = ({
+  id,
+  title,
+  children,
+}: {
+  id: string;
+  title: string;
+  children: ReactNode;
+}) => {
   const [isVisible, setIsVisible] = useState(false);
-  const dataRef = useRef();
-  const itemRef = useRef();
+  const dataRef = useRef<HTMLElement | null>(null);
+  const itemRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const getScreenWidth = () =>
@@ -22,12 +30,24 @@ const Section = ({ id, title, children }) => {
       },
     );
 
-    observer.observe(dataRef.current);
+    if (dataRef.current) {
+      observer.observe(dataRef.current);
+    }
 
-    if (isVisible) {
-      itemRef.current.classList.add("pop-up-child");
-    } else {
-      itemRef.current.classList.remove("pop-up-child");
+    return () => {
+      if (dataRef.current) {
+        observer.unobserve(dataRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (itemRef.current) {
+      if (isVisible) {
+        itemRef.current.classList.add("pop-up-child");
+      } else {
+        itemRef.current.classList.remove("pop-up-child");
+      }
     }
   }, [isVisible]);
 
@@ -40,5 +60,3 @@ const Section = ({ id, title, children }) => {
     </section>
   );
 };
-
-export default Section;
