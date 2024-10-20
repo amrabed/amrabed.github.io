@@ -8,6 +8,7 @@ import {
   useEffect,
   useContext,
   createContext,
+  useMemo,
 } from "react";
 
 type FilterContextType = {
@@ -44,8 +45,13 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
     replace(`${pathname}?${params.toString()}`);
   }, [selected, replace, pathname]);
 
+  const contextValue = useMemo(
+    () => ({ selected, setSelected }),
+    [selected, setSelected],
+  );
+
   return (
-    <FilterContext.Provider value={{ selected, setSelected: setSelected }}>
+    <FilterContext.Provider value={contextValue}>
       {children}
     </FilterContext.Provider>
   );

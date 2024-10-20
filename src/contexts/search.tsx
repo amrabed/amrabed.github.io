@@ -8,6 +8,7 @@ import {
   useEffect,
   useContext,
   createContext,
+  useMemo,
 } from "react";
 
 type SearchContextType = {
@@ -43,9 +44,10 @@ export const SearchProvider = ({ children }: { children: ReactNode }) => {
     }
     replace(`${pathname}?${params.toString()}`);
   }, [query, replace, pathname]);
+  const contextValue = useMemo(() => ({ query, setQuery }), [query, setQuery]);
 
   return (
-    <SearchContext.Provider value={{ query, setQuery: setQuery }}>
+    <SearchContext.Provider value={contextValue}>
       {children}
     </SearchContext.Provider>
   );

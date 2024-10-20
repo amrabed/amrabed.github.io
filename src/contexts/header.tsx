@@ -5,6 +5,7 @@ import React, {
   ReactNode,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 
@@ -41,8 +42,10 @@ const HeaderProvider = ({ children }: { children: ReactNode }) => {
     };
   }, []);
 
+  const contextValue = useMemo(() => ({ top, setTop }), [top, setTop]);
+
   return (
-    <HeaderContext.Provider value={{ top, setTop: setTop }}>
+    <HeaderContext.Provider value={contextValue}>
       <div
         className="w-full h-[50px] px-8 bg-white dark:bg-slate-800 backdrop-filter backdrop-blur-lg hidden md:flex justify-between items-center gap-4 shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500"
         style={{ top: top }}

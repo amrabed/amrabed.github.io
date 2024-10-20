@@ -5,6 +5,7 @@ import React, {
   ReactNode,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 
@@ -48,8 +49,13 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     setTheme(getTheme);
   }, []);
 
+  const contextValue = useMemo(
+    () => ({ theme, toggleTheme }),
+    [theme, toggleTheme],
+  );
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme: toggleTheme }}>
+    <ThemeContext.Provider value={contextValue}>
       <div className={theme === "dark" ? "dark" : ""}>
         <div className="dark:text-slate-400 dark:bg-background">{children}</div>
       </div>
