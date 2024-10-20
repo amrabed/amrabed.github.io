@@ -13,10 +13,6 @@ div {
   text-align: justify;
 }
 
-/* .sectionHeading {
-  @apply px-4 text-center flex justify-center items-center text-3xl md:text-4xl font-medium dark:text-primary-dark text-primary pb-8 md:pb-10;
-} */
-
 /* Home Animation and About Animation */
 .slide-in {
   transform: translateX(0);

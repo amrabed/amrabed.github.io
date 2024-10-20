@@ -22,9 +22,9 @@ const PositionView = ({ position }: { position: Position }) => (
     <Divider />
     <CardBody>
       <ul>
-        {position.tasks.map((task, index) => (
+        {position.tasks.map((task) => (
           <li
-            key={index}
+            key={task}
             className="text-sm font-medium leading-snug tracking-wide text-slate-500 dark:text-slate-400"
           >
             {task}
@@ -40,8 +40,8 @@ const PositionView = ({ position }: { position: Position }) => (
         <Tools tools={position.skills} />
       </div>
       <ul className="flex flex-row gap-2 text-zinc-400">
-        {position.roles.map((role, index) => (
-          <li key={index}>{role}</li>
+        {position.roles.map((role) => (
+          <li key={role}>{role}</li>
         ))}
       </ul>
     </CardFooter>

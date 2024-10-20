@@ -68,8 +68,8 @@ export const MainHeader = () => {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="start">
-        {sections.map((section, index) => (
-          <NavbarItem key={index}>
+        {sections.map((section) => (
+          <NavbarItem key={section.name}>
             <Link
               className={"hover:text-primary hover:dark:text-primary-dark"}
               href={section.link}
@@ -81,8 +81,8 @@ export const MainHeader = () => {
           </NavbarItem>
         ))}
         <Divider orientation="vertical" className="h-10 my-4" />
-        {pages.map((page, index) => (
-          <NavbarItem key={index}>
+        {pages.map((page) => (
+          <NavbarItem key={page.name}>
             <Link
               className={"hover:text-primary hover:dark:text-primary-dark"}
               href={page.link}
@@ -96,8 +96,8 @@ export const MainHeader = () => {
       </NavbarContent>
 
       <NavbarMenu className="dark:bg-background backdrop-blur-500 transition-all duration-1000">
-        {sections.map((section, index) => (
-          <NavbarMenuItem key={index}>
+        {sections.map((section) => (
+          <NavbarMenuItem key={section.name}>
             <Link
               className="hover:text-primary hover:dark:text-primary-dark"
               href={section.link}
@@ -110,8 +110,8 @@ export const MainHeader = () => {
           </NavbarMenuItem>
         ))}
         <Divider />
-        {pages.map((page, index) => (
-          <NavbarMenuItem key={index}>
+        {pages.map((page) => (
+          <NavbarMenuItem key={page.name}>
             <Link
               className={"hover:text-primary hover:dark:text-primary-dark"}
               href={page.link}
