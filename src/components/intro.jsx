@@ -67,13 +67,13 @@ const Intro = () => {
               {" a"}
               <TypeAnimation
                 sequence={[
-                  "n ENGINEER",
+                  "n Engineer",
                   2000,
-                  " RESEARCHER",
+                  " Researcher",
                   2000,
-                  "n INSTRUCTOR",
+                  " Teacher",
                   2000,
-                  " CREATOR",
+                  " Creator",
                   2000,
                 ]}
                 wrapper="span"
