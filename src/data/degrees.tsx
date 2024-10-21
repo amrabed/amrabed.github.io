@@ -6,7 +6,7 @@ const degrees: Degree[] = [
     university: {
       name: "Virginia Tech",
       url: "https://www.vt.edu",
-      logo: "/vt.png",
+      logo: "/vt.webp",
     },
     duration: "August 2014 - July 2017",
   },
@@ -15,7 +15,7 @@ const degrees: Degree[] = [
     university: {
       name: "Virginia Tech",
       url: "https://vt.edu",
-      logo: "/vt.png",
+      logo: "/vt.webp",
     },
     duration: "August 2010 - July 2013",
   },
@@ -24,7 +24,7 @@ const degrees: Degree[] = [
     university: {
       name: "Ain Shams University",
       url: "https://eng.asu.edu.eg",
-      logo: "/asu.png",
+      logo: "/asu.webp",
     },
     duration: "September 2000 - June 2005",
   },

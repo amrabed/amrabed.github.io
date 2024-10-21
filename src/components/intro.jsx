@@ -51,10 +51,7 @@ const Intro = () => {
             "translate-x-[500px] transition-all opacity-0 duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-cover m-auto md:m-0 mt-[40px] md:mt-0 bg-no-repeat rounded-full"
           }
           ref={profileRef}
-          style={{
-            backgroundImage:
-              "url(https://avatars.githubusercontent.com/u/3361565?v=4)",
-          }}
+          style={{ backgroundImage: "url(/amr.webp)" }}
         />
 
         <div

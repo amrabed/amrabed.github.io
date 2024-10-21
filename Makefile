@@ -7,7 +7,7 @@ format:
 lint:
 	npm run lint
 
-local:
+local: install format lint
 	npm run dev
 
 build:
