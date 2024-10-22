@@ -13,11 +13,13 @@ const ThemeSelector = ({
   toggleTheme: (theme: string) => void;
 }) => (
   <Switch
+    name="themeToggle"
     size="lg"
     color="primary"
     value={theme}
     onChange={(e) => toggleTheme(e.target.value)}
     thumbIcon={theme == "dark" ? <MoonIcon /> : <SunIcon />}
+    aria-label="Theme"
   />
 );
 
