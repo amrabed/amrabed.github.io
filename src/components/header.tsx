@@ -64,7 +64,9 @@ export const MainHeader = () => {
       </NavbarBrand>
 
       <NavbarContent className="sm:hidden" justify="end">
-        <NavbarMenuToggle />
+        <NavbarItem key="toggle">
+          <NavbarMenuToggle />
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="start">
@@ -80,7 +82,9 @@ export const MainHeader = () => {
             </Link>
           </NavbarItem>
         ))}
-        <Divider orientation="vertical" className="h-10 my-4" />
+        <NavbarItem key="separator">
+          <Divider orientation="vertical" className="h-10 my-4" />
+        </NavbarItem>
         {pages.map((page) => (
           <NavbarItem key={page.name}>
             <Link
@@ -95,7 +99,7 @@ export const MainHeader = () => {
         ))}{" "}
       </NavbarContent>
 
-      <NavbarMenu className="dark:bg-background backdrop-blur-500 transition-all duration-1000">
+      <NavbarMenu className="pt-10 dark:bg-background backdrop-blur-500 transition-all duration-1000">
         {sections.map((section) => (
           <NavbarMenuItem key={section.name}>
             <Link
@@ -109,7 +113,9 @@ export const MainHeader = () => {
             </Link>
           </NavbarMenuItem>
         ))}
-        <Divider />
+        <NavbarItem key="separator">
+          <Divider />
+        </NavbarItem>
         {pages.map((page) => (
           <NavbarMenuItem key={page.name}>
             <Link

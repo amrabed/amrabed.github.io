@@ -31,12 +31,14 @@ export const Searchbar = ({
       onChange={(e) => setQuery(e.target.value)}
     />
     <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-zinc-900 dark:peer-focus:text-zinc-100" />
-    <button
+    <Button
+      id="clear"
+      isIconOnly
       onClick={() => setQuery("")}
       className="absolute right-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-zinc-500 peer-focus:text-zinc-900 dark:peer-focus:text-zinc-100"
     >
       <XMarkIcon />
-    </button>
+    </Button>
   </div>
 );
 
@@ -45,7 +47,7 @@ export const SearchIcon = (props: any) => {
 
   return (
     <>
-      <Button isIconOnly variant="light" onClick={onOpen}>
+      <Button id="search" isIconOnly variant="light" onClick={onOpen}>
         <MagnifyingGlassIcon className="size-6" />
       </Button>
       <Modal

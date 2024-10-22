@@ -32,6 +32,7 @@ const UpArrow = () => {
     <div className="scroll-to-top flex justify-center">
       {isVisible && (
         <Button
+          id="up"
           onClick={scrollToTop}
           radius="full"
           size="lg"

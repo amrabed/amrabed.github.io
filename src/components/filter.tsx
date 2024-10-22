@@ -98,7 +98,7 @@ export const Filter = ({ children }: { children: ReactNode }) => (
     className="dark:bg-slate-800"
   >
     <PopoverTrigger>
-      <Button variant="light" isIconOnly>
+      <Button id="filter" variant="light" isIconOnly>
         <AdjustmentsHorizontalIcon className="size-6" />
       </Button>
     </PopoverTrigger>
