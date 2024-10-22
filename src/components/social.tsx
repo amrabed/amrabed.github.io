@@ -9,6 +9,7 @@ const SocialMedia = () => (
         <Link href={profile.link} isExternal rel="noreferrer">
           <div className="bg-background rounded-full p-1">
             <Button
+              id={profile.name}
               isIconOnly
               variant="light"
               radius="full"
