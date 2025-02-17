@@ -21,7 +21,7 @@ const projects: Project[] = [
     description: "Paywall system for online publications",
     date: "2024-08-01",
     links: {
-      homepage: "https://www.mathereconomics.com/sophi-paywall-engine",
+      homepage: "https://www.mathereconomics.com/sophi-dynamic-paywall-engine",
     },
     tools: [
       "AWS",
@@ -34,6 +34,21 @@ const projects: Project[] = [
     ],
     tags: ["Cloud", "Machine learning", "Database", "Programming", "DevOps"],
     roles: ["engineer", "manager"],
+    group: 0,
+  },
+  {
+    id: "python-project-template",
+    name: "Python Project Template",
+    description:
+      "Start your next Python Project with all the necessary tools in no time using this GitHub template",
+    date: "2024-12-21",
+    links: {
+      homepage: "https://amrabed.com/python-project-template",
+      github: "amrabed/python-project-template",
+    },
+    tools: ["Python", "Docker", "bash"],
+    tags: ["Programming", "DevOps"],
+    roles: ["engineer"],
     group: 0,
   },
   {
