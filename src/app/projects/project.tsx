@@ -8,7 +8,7 @@ import { FaGithub, FaYoutube, FaApple, FaLink } from "react-icons/fa6";
 import { RiSlideshow2Line } from "react-icons/ri";
 
 import { DocumentIcon } from "@heroicons/react/24/outline";
-import { Tooltip } from "@heroui/react";
+import { Tooltip } from "@nextui-org/react";
 
 import { Roles, Tags, Tools } from "@/components/skills";
 import { Project, ProjectLinks } from "@/types";

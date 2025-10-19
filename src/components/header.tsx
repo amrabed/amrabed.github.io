@@ -14,7 +14,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-} from "@heroui/react";
+} from "@nextui-org/react";
 
 import { Searchbar, SearchIcon } from "./search";
 

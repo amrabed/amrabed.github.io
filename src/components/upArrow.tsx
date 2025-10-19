@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
-import { Button } from "@heroui/react";
+import { Button } from "@nextui-org/react";
 
 const UpArrow = () => {
   const [isVisible, setIsVisible] = useState(false);

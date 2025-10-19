@@ -14,7 +14,7 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@heroui/react";
+} from "@nextui-org/react";
 
 const checkbox = tv({
   slots: {
