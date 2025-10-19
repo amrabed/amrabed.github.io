@@ -7,13 +7,13 @@ const SocialMedia = () => (
     {profiles.map((profile) => (
       <Tooltip key={profile.name} content={profile.name}>
         <Link href={profile.link} isExternal rel="noreferrer">
-          <div className="bg-background rounded-full">
+          <div className="bg-background px-3 rounded-full">
             <Button
               title={profile.name}
               isIconOnly
               variant="light"
               radius="full"
-              size="lg"
+              size="md"
               className="text-2xl text-foreground"
             >
               {profile.icon}
