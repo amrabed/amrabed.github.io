@@ -34,7 +34,7 @@ export const Searchbar = ({
     <Button
       id="clear"
       isIconOnly
-      onClick={() => setQuery("")}
+      onPress={() => setQuery("")}
       className="absolute right-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-zinc-500 peer-focus:text-zinc-900 dark:peer-focus:text-zinc-100"
     >
       <XMarkIcon />
