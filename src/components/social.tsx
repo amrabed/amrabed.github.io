@@ -1,4 +1,4 @@
-import { Button, Link, Tooltip } from "@nextui-org/react";
+import { Button, Link, Tooltip } from "@heroui/react";
 
 import profiles from "@/data/profiles";
 

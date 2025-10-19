@@ -5,7 +5,7 @@ import {
   ModalBody,
   ModalContent,
   useDisclosure,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export const match = (values: string[], query: string) => {
   return values.find((value) => value.toLowerCase().includes(query));

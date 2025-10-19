@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Divider,
-} from "@nextui-org/react";
+import { Card, CardBody, CardFooter, CardHeader, Divider } from "@heroui/react";
 
 import { Tags, Tools } from "@/components/skills";
 import { Position } from "@/types";
