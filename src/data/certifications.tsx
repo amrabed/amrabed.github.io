@@ -2,6 +2,16 @@ import { Certification } from "@/types";
 
 const certifications: Certification[] = [
   {
+    title: "AWS Certified Generative AI Developer - Professional",
+    organization: {
+      name: "AWS Certification",
+      url: "https://aws.amazon.com/certification",
+    },
+    badge: "/aws-genai-prof.png",
+    link: "https://www.credly.com/badges/ec8af76c-b6f0-40d7-94c2-7df06820af50",
+    date: "March 2026",
+  },
+  {
     title: "AWS Certified Machine Learning - Specialty",
     organization: {
       name: "AWS Certification",
@@ -20,16 +30,6 @@ const certifications: Certification[] = [
     badge: "/aws-saa.webp",
     link: "https://www.youracclaim.com/badges/2d566076-370f-4b1b-8103-ed467325228d",
     date: "October 2020",
-  },
-  {
-    title: "Associate Cloud Engineer",
-    organization: {
-      name: "Google Cloud",
-      url: "https://cloud.google.com/certification",
-    },
-    badge: "/gce.webp",
-    link: "https://www.credential.net/fbeb9d71-88ba-4cba-8d22-458cd6ffea50",
-    date: "July 2020",
   },
   {
     title: "Certified Scrum Master",
