@@ -32,16 +32,6 @@ const certifications: Certification[] = [
     date: "October 2020",
   },
   {
-    title: "Associate Cloud Engineer",
-    organization: {
-      name: "Google Cloud",
-      url: "https://cloud.google.com/certification",
-    },
-    badge: "/gce.webp",
-    link: "https://www.credential.net/fbeb9d71-88ba-4cba-8d22-458cd6ffea50",
-    date: "July 2020",
-  },
-  {
     title: "Certified Scrum Master",
     organization: {
       name: "Scrum Alliance",
