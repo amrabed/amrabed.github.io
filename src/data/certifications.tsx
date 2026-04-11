@@ -2,6 +2,16 @@ import { Certification } from "@/types";
 
 const certifications: Certification[] = [
   {
+    title: "AWS Certified Generative AI Developer - Professional",
+    organization: {
+      name: "AWS Certification",
+      url: "https://aws.amazon.com/certification",
+    },
+    badge: "/aws-genai-prof.png",
+    link: "https://www.credly.com/badges/ec8af76c-b6f0-40d7-94c2-7df06820af50",
+    date: "March 2026",
+  },
+  {
     title: "AWS Certified Machine Learning - Specialty",
     organization: {
       name: "AWS Certification",
