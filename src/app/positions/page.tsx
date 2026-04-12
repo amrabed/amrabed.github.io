@@ -30,9 +30,9 @@ const Page = () => {
   const filteredPositions = positions.filter(
     (position) =>
       filterByQuery(position, query) &&
-      (filterBySelection(position.tags, selectedSkills) ||
-        filterBySelection(position.roles, selectedRoles) ||
-        filterBySelection(position.skills, selectedTools)),
+      filterBySelection(position.tags, selectedSkills) &&
+      filterBySelection(position.roles, selectedRoles) &&
+      filterBySelection(position.skills, selectedTools),
   );
 
   return (

@@ -25,20 +25,24 @@ export const Searchbar = ({
       Search
     </label>
     <input
-      className="peer border-none rounded-lg bg-white dark:bg-slate-800 border border-gray-200 py-[9px] pl-10 text-sm outline-none w-full"
+      className="peer border-none rounded-lg bg-white dark:bg-slate-800 border border-gray-200 py-[9px] pl-10 pr-10 text-sm outline-none w-full"
       placeholder={placeholder}
       value={query}
       onChange={(e) => setQuery(e.target.value)}
     />
     <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-zinc-900 dark:peer-focus:text-zinc-100" />
-    <Button
-      id="clear"
-      isIconOnly
-      onPress={() => setQuery("")}
-      className="absolute right-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-zinc-500 peer-focus:text-zinc-900 dark:peer-focus:text-zinc-100"
-    >
-      <XMarkIcon />
-    </Button>
+    {query && (
+      <Button
+        id="clear"
+        isIconOnly
+        variant="light"
+        size="sm"
+        onPress={() => setQuery("")}
+        className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+      >
+        <XMarkIcon className="size-4" />
+      </Button>
+    )}
   </div>
 );
 

@@ -32,9 +32,9 @@ const Page = () => {
     .filter(
       (project) =>
         filterByQuery(project, query) &&
-        (filterBySelection(project.roles, selectedRoles) ||
-          filterBySelection(project.tags, selectedSkills) ||
-          filterBySelection(project.tools, selectedTools)),
+        filterBySelection(project.roles, selectedRoles) &&
+        filterBySelection(project.tags, selectedSkills) &&
+        filterBySelection(project.tools, selectedTools),
     )
     .sort(
       (project1, project2) =>
