@@ -1,4 +1,6 @@
-import { NextUIProvider } from "@nextui-org/react";
+"use client";
+
+import { HeroUIProvider } from "@heroui/react";
 
 import { FilterProvider } from "@/contexts/filter";
 import { SearchProvider } from "@/contexts/search";
@@ -9,13 +11,13 @@ const Providers = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => (
-  <NextUIProvider>
+  <HeroUIProvider>
     <ThemeProvider>
       <FilterProvider>
         <SearchProvider>{children}</SearchProvider>
       </FilterProvider>
     </ThemeProvider>
-  </NextUIProvider>
+  </HeroUIProvider>
 );
 
 export default Providers;

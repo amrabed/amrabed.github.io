@@ -1,4 +1,4 @@
-import { Tooltip } from "@nextui-org/react";
+import { Tooltip } from "@heroui/react";
 
 import areas from "@/data/areas";
 import skills from "@/data/skills";
