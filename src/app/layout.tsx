@@ -13,11 +13,34 @@ const ScrollToTopButton = dynamic(() => import("@/components/upArrow"));
 const Footer = dynamic(() => import("@/components/footer"));
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://amrabed.com"),
   title: "Amr Abed",
   description: "Amr Abed's personal website",
   keywords: "Amr Abed, personal website, portfolio, resume",
   authors: [{ name: "Amr Abed" }],
   robots: "index, follow",
+  openGraph: {
+    title: "Amr Abed",
+    description: "Amr Abed's personal website",
+    url: "https://amrabed.com",
+    siteName: "Amr Abed",
+    images: [
+      {
+        url: "/amr.webp",
+        width: 800,
+        height: 600,
+        alt: "Amr Abed",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Amr Abed",
+    description: "Amr Abed's personal website",
+    images: ["/amr.webp"],
+  },
 };
 
 export const viewport: Viewport = {

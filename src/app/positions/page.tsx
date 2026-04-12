@@ -27,19 +27,18 @@ const filterBySelection = (values: string[], selections: string[]) =>
 
 const Page = () => {
   const { query, setQuery } = useSearch();
-  const { selected: selectedSkills, setSelected: setSelectedSkills } =
-    useFilter();
-  const { selected: selectedAreas, setSelected: setSelectedAreas } =
-    useFilter();
-  const { selected: selectedRoles, setSelected: setSelectedRoles } =
-    useFilter();
+  const { selected, setSelected } = useFilter();
+
+  const selectedRoles = selected["roles"] || [];
+  const selectedTools = selected["tools"] || [];
+  const selectedSkills = selected["skills"] || [];
 
   const filteredPositions = positions.filter(
     (position) =>
       filterByQuery(position, query) &&
-      (filterBySelection(position.tags, selectedAreas) ||
+      (filterBySelection(position.tags, selectedSkills) ||
         filterBySelection(position.roles, selectedRoles) ||
-        filterBySelection(position.skills, selectedSkills)),
+        filterBySelection(position.skills, selectedTools)),
   );
 
   return (
@@ -55,19 +54,19 @@ const Page = () => {
             label="Roles"
             values={Object.values(roles).map((role) => role.name)}
             selected={selectedRoles}
-            setSelected={setSelectedRoles}
+            setSelected={(values) => setSelected("roles", values)}
           />
           <Selections
             label="Tools"
             values={Object.values(skills).map((skill) => skill.name)}
-            selected={selectedSkills}
-            setSelected={setSelectedSkills}
+            selected={selectedTools}
+            setSelected={(values) => setSelected("tools", values)}
           />
           <Selections
             label="Skills"
-            values={Object.values(areas).map((areas) => areas.name)}
-            selected={selectedAreas}
-            setSelected={setSelectedAreas}
+            values={Object.values(areas).map((area) => area.name)}
+            selected={selectedSkills}
+            setSelected={(values) => setSelected("skills", values)}
           />
         </Filter>
       </PageHeader>

@@ -22,15 +22,16 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(
 export const useTheme: () => ThemeContextType = () => {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error("useSearch must be used within a SearchProvider");
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 };
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState("dark");
+  const [mounted, setMounted] = useState(false);
 
-  const toggleTheme = () => {
+  const toggleTheme = React.useCallback(() => {
     if (theme === "dark") {
       setTheme("light");
       localStorage.setItem("currentTheme", "light");
@@ -38,10 +39,11 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
       setTheme("dark");
       localStorage.setItem("currentTheme", "dark");
     }
-  };
+  }, [theme]);
 
   // Get Theme Value From LocalStorage
   useEffect(() => {
+    setMounted(true);
     const getTheme = localStorage.getItem("currentTheme");
     if (!getTheme) {
       return;
@@ -56,7 +58,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <ThemeContext.Provider value={contextValue}>
-      <div className={theme === "dark" ? "dark" : ""}>
+      <div className={!mounted || theme === "dark" ? "dark" : ""}>
         <div className="dark:text-slate-400 dark:bg-background">{children}</div>
       </div>
     </ThemeContext.Provider>

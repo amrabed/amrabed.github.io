@@ -9,11 +9,12 @@ import {
   useContext,
   createContext,
   useMemo,
+  useCallback,
 } from "react";
 
 type FilterContextType = {
-  selected: string[];
-  setSelected: (selected: string[]) => void;
+  selected: Record<string, string[]>;
+  setSelected: (category: string, selected: string[]) => void;
 };
 
 export const FilterContext = createContext<FilterContextType | undefined>(
@@ -30,19 +31,27 @@ export const useFilter: () => FilterContextType = () => {
 };
 
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelectedState] = useState<Record<string, string[]>>({});
   const pathname = usePathname();
   const { replace } = useRouter();
+
+  const setSelected = useCallback((category: string, values: string[]) => {
+    setSelectedState((prev) => ({
+      ...prev,
+      [category]: values,
+    }));
+  }, []);
 
   useEffect(() => {
     // Update the URL when filters change
     const params = new URLSearchParams();
-    if (selected?.length) {
-      params.set("filters", selected.join(","));
-    } else {
-      params.delete("filters");
-    }
-    replace(`${pathname}?${params.toString()}`);
+    Object.entries(selected).forEach(([category, values]) => {
+      if (values?.length) {
+        params.set(category, values.join(","));
+      }
+    });
+    const queryString = params.toString();
+    replace(`${pathname}${queryString ? `?${queryString}` : ""}`);
   }, [selected, replace, pathname]);
 
   const contextValue = useMemo(
