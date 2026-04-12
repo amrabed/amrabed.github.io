@@ -57,6 +57,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.className} antialiased text-slate-600 bg-white`}
+        data-new-gr-c-s-check-loaded="14.1282.0"
+        data-gr-ext-installed=""
       >
         <Providers>
           {children}
