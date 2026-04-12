@@ -21,7 +21,7 @@ const projects: Project[] = [
     description: "Paywall system for online publications",
     date: "2024-08-01",
     links: {
-      homepage: "https://www.mathereconomics.com/sophi-dynamic-paywall-engine",
+      homepage: "https://mathereconomics.com/sophi-paywall",
     },
     tools: [
       "AWS",
@@ -37,6 +37,21 @@ const projects: Project[] = [
     group: 0,
   },
   {
+    id: "aws-lambda-templates",
+    name: "AWS Lambda Templates",
+    description:
+      "Production-ready AWS Lambda templates for Python to help you get started with serverless applications in no time",
+    date: "2024-12-21",
+    links: {
+      homepage: "https://amrabed.com/aws-lambda-templates",
+      github: "amrabed/aws-lambda-templates",
+    },
+    tools: ["Python", "aws", "ai"],
+    tags: ["Programming", "DevOps"],
+    roles: ["engineer"],
+    group: 0,
+  },
+  {
     id: "python-project-template",
     name: "Python Project Template",
     description:
@@ -46,7 +61,7 @@ const projects: Project[] = [
       homepage: "https://amrabed.com/python-project-template",
       github: "amrabed/python-project-template",
     },
-    tools: ["Python", "Docker", "bash"],
+    tools: ["Python", "Docker"],
     tags: ["Programming", "DevOps"],
     roles: ["engineer"],
     group: 0,
