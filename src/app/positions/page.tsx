@@ -1,13 +1,13 @@
 "use client";
 
+import { match } from "@/components/search";
+import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import positions from "@/data/positions";
 import { Position } from "@/types";
 
 import { FilterBase } from "../../components/filter-base";
-import { Section } from "@/components/section";
-import { match } from "@/components/search";
 import Timeline from "./timeline";
 
 const filterByQuery = (position: Position, query: string) =>
@@ -36,7 +36,10 @@ const Page = () => {
   );
 
   return (
-    <FilterBase title="Positions" placeholder="Search by title, role, skill, or tool">
+    <FilterBase
+      title="Positions"
+      placeholder="Search by title, role, skill, or tool"
+    >
       <Section id="experience" title="">
         <div className="flex text-center items-center content-center justify-center mt-[50px]">
           <Timeline positions={filteredPositions} />

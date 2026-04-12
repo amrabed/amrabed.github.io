@@ -1,12 +1,13 @@
+import { ReactNode, Fragment } from "react";
+
 import { Selections, Filter } from "@/components/filter";
 import { PageHeader } from "@/components/header";
 import { Section } from "@/components/section";
+import { useFilter } from "@/contexts/filter";
+import { useSearch } from "@/contexts/search";
 import areas from "@/data/areas";
 import roles from "@/data/roles";
 import skills from "@/data/skills";
-import { useFilter } from "@/contexts/filter";
-import { useSearch } from "@/contexts/search";
-import { ReactNode, Fragment } from "react";
 
 interface FilterBaseProps {
   title: string;
@@ -14,7 +15,11 @@ interface FilterBaseProps {
   children: ReactNode;
 }
 
-export const FilterBase = ({ title, placeholder, children }: FilterBaseProps) => {
+export const FilterBase = ({
+  title,
+  placeholder,
+  children,
+}: FilterBaseProps) => {
   const { query, setQuery } = useSearch();
   const { selected, setSelected } = useFilter();
 

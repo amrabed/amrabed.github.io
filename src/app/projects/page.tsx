@@ -1,13 +1,13 @@
 "use client";
 
+import { match } from "@/components/search";
+import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import projects from "@/data/projects";
 import type { Project } from "@/types";
 
 import { FilterBase } from "../../components/filter-base";
-import { Section } from "@/components/section";
-import { match } from "@/components/search";
 import ProjectView from "./project";
 
 const filterByQuery = (project: Project, query: string) =>
@@ -44,7 +44,10 @@ const Page = () => {
     );
 
   return (
-    <FilterBase title="Projects" placeholder="Search by name, role, skill, or tool">
+    <FilterBase
+      title="Projects"
+      placeholder="Search by name, role, skill, or tool"
+    >
       <Section id="projects" title="">
         <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 pt-[50px] gap-5">
           {filteredProjects.map((project: Project) => (
