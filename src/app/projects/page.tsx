@@ -1,19 +1,13 @@
 "use client";
 
-import { Fragment } from "react";
-
-import { Selections, Filter } from "@/components/filter";
-import { PageHeader } from "@/components/header";
-import { match } from "@/components/search";
-import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
-import areas from "@/data/areas";
 import projects from "@/data/projects";
-import roles from "@/data/roles";
-import skills from "@/data/skills";
 import type { Project } from "@/types";
 
+import { FilterBase } from "../../components/filter-base";
+import { Section } from "@/components/section";
+import { match } from "@/components/search";
 import ProjectView from "./project";
 
 const filterByQuery = (project: Project, query: string) =>
@@ -27,8 +21,8 @@ const filterBySelection = (values: string[], selections: string[]) =>
   values.filter((value) => selections.includes(value.toLowerCase())).length;
 
 const Page = () => {
-  const { query, setQuery } = useSearch();
-  const { selected, setSelected } = useFilter();
+  const { query } = useSearch();
+  const { selected } = useFilter();
 
   const selectedRoles = selected["roles"] || [];
   const selectedTools = selected["tools"] || [];
@@ -50,34 +44,7 @@ const Page = () => {
     );
 
   return (
-    <Fragment>
-      <PageHeader
-        title="Projects"
-        query={query}
-        setQuery={setQuery}
-        placeholder="Search by name, role, skill, or tool"
-      >
-        <Filter>
-          <Selections
-            label="Roles"
-            values={Object.values(roles).map((role) => role.name)}
-            selected={selectedRoles}
-            setSelected={(values) => setSelected("roles", values)}
-          />
-          <Selections
-            label="Tools"
-            values={Object.values(skills).map((skill) => skill.name)}
-            selected={selectedTools}
-            setSelected={(values) => setSelected("tools", values)}
-          />
-          <Selections
-            label="Skills"
-            values={Object.values(areas).map((area) => area.name)}
-            selected={selectedSkills}
-            setSelected={(values) => setSelected("skills", values)}
-          />
-        </Filter>
-      </PageHeader>
+    <FilterBase title="Projects" placeholder="Search by name, role, skill, or tool">
       <Section id="projects" title="">
         <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 pt-[50px] gap-5">
           {filteredProjects.map((project: Project) => (
@@ -85,7 +52,7 @@ const Page = () => {
           ))}
         </div>
       </Section>
-    </Fragment>
+    </FilterBase>
   );
 };
 
