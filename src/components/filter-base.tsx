@@ -1,3 +1,5 @@
+import { ReactNode, Fragment } from "react";
+
 import { Selections, Filter } from "@/components/filter";
 import { PageHeader } from "@/components/header";
 import { useFilter } from "@/contexts/filter";
@@ -5,7 +7,6 @@ import { useSearch } from "@/contexts/search";
 import areas from "@/data/areas";
 import roles from "@/data/roles";
 import skills from "@/data/skills";
-import { ReactNode, Fragment } from "react";
 
 interface FilterBaseProps {
   title: string;
