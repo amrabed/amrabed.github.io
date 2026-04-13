@@ -30,13 +30,14 @@ export const Section = ({
       },
     );
 
-    if (dataRef.current) {
-      observer.observe(dataRef.current);
+    const currentDataRef = dataRef.current;
+    if (currentDataRef) {
+      observer.observe(currentDataRef);
     }
 
     return () => {
-      if (dataRef.current) {
-        observer.unobserve(dataRef.current);
+      if (currentDataRef) {
+        observer.unobserve(currentDataRef);
       }
     };
   }, []);

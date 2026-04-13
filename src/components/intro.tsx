@@ -1,14 +1,16 @@
 "use client";
 
+import Image from "next/image";
+
 import React, { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 const Intro = () => {
   const [isHome, setIsHome] = useState(false);
 
-  const homeRef = useRef();
-  const introRef = useRef();
-  const profileRef = useRef();
+  const homeRef = useRef<HTMLElement>(null);
+  const introRef = useRef<HTMLDivElement>(null);
+  const profileRef = useRef<HTMLDivElement>(null);
 
   // Intersection observer animation on scroll
   useEffect(() => {
@@ -17,8 +19,9 @@ const Intro = () => {
       document.documentElement.clientWidth ||
       document.body.clientWidth;
 
+    const currentHomeRef = homeRef.current;
     // Scroll Animation
-    if (homeRef.current) {
+    if (currentHomeRef) {
       const homeObserver = new IntersectionObserver(
         ([homeEntry]) => {
           setIsHome(homeEntry.isIntersecting);
@@ -28,31 +31,39 @@ const Intro = () => {
         },
       );
 
-      homeObserver.observe(homeRef.current);
+      homeObserver.observe(currentHomeRef);
 
-      if (isHome) {
-        profileRef.current.classList.add("slide-in");
-        introRef.current.classList.add("slide-in");
-      } else {
-        profileRef.current.classList.remove("slide-in");
-        introRef.current.classList.remove("slide-in");
-      }
+      return () => {
+        homeObserver.unobserve(currentHomeRef);
+      };
     }
-  }, [homeRef, isHome]);
+  }, []);
+
+  useEffect(() => {
+    if (isHome) {
+      profileRef.current?.classList.add("slide-in");
+      introRef.current?.classList.add("slide-in");
+    } else {
+      profileRef.current?.classList.remove("slide-in");
+      introRef.current?.classList.remove("slide-in");
+    }
+  }, [isHome]);
 
   return (
-    <section id="home">
-      <div
-        className="min-h-[100vh] overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[200px] 2xl:px-[400px] md:flex content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm"
-        ref={homeRef}
-      >
+    <section id="home" ref={homeRef}>
+      <div className="min-h-[100vh] overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[200px] 2xl:px-[400px] md:flex content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm">
         <div
-          className={
-            "translate-x-[500px] transition-all opacity-0 duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-cover m-auto md:m-0 mt-[40px] md:mt-0 bg-no-repeat rounded-full"
-          }
+          className="translate-x-[500px] transition-all opacity-0 duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] relative m-auto md:m-0 mt-[40px] md:mt-0"
           ref={profileRef}
-          style={{ backgroundImage: "url(/amr.webp)" }}
-        />
+        >
+          <Image
+            src="/amr.webp"
+            alt="Amr Abed"
+            fill
+            className="rounded-full object-cover"
+            priority
+          />
+        </div>
 
         <div
           className="translate-x-[-500px] transition-all duration-700 opacity-0"

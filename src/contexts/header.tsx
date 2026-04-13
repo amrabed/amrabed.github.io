@@ -18,10 +18,10 @@ export const HeaderContext = createContext<HeaderContextType | undefined>(
 );
 
 // Custom hook to use the header context
-export const useTheme: () => HeaderContextType = () => {
+export const useHeader: () => HeaderContextType = () => {
   const context = useContext(HeaderContext);
   if (!context) {
-    throw new Error("useSearch must be used within a SearchProvider");
+    throw new Error("useHeader must be used within a HeaderProvider");
   }
   return context;
 };
