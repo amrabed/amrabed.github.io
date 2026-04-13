@@ -1,17 +1,17 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import {
   ReactNode,
   useState,
-  useEffect,
   useContext,
   createContext,
   useMemo,
   useCallback,
-  Suspense,
 } from "react";
+
+import { useUrlSync, withSuspense } from "./utils";
 
 type FilterContextType = {
   selected: Record<string, string[]>;
@@ -44,9 +44,6 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
     return initialSelected;
   });
 
-  const pathname = usePathname();
-  const { replace } = useRouter();
-
   const setSelected = useCallback((category: string, values: string[]) => {
     setSelectedState((prev) => ({
       ...prev,
@@ -54,32 +51,26 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
     }));
   }, []);
 
-  useEffect(() => {
-    // Update the URL when filters change
-    const params = new URLSearchParams(searchParams);
+  const updateUrl = useCallback(
+    (params: URLSearchParams, selected: Record<string, string[]>) => {
+      Array.from(params.keys()).forEach((key) => {
+        if (key !== "query") params.delete(key);
+      });
 
-    // Clear existing filter params (everything except query)
-    const existingKeys = Array.from(params.keys());
-    existingKeys.forEach((key) => {
-      if (key !== "query") {
-        params.delete(key);
-      }
-    });
+      Object.entries(selected).forEach(([category, values]) => {
+        if (values?.length) {
+          params.set(category, values.join(","));
+        }
+      });
+    },
+    []
+  );
 
-    Object.entries(selected).forEach(([category, values]) => {
-      if (values?.length) {
-        params.set(category, values.join(","));
-      }
-    });
-    const queryString = params.toString();
-    replace(`${pathname}${queryString ? `?${queryString}` : ""}`, {
-      scroll: false,
-    });
-  }, [selected, replace, pathname, searchParams]);
+  useUrlSync(selected, updateUrl);
 
   const contextValue = useMemo(
     () => ({ selected, setSelected }),
-    [selected, setSelected],
+    [selected, setSelected]
   );
 
   return (
@@ -89,8 +80,4 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export const FilterProvider = ({ children }: { children: ReactNode }) => (
-  <Suspense>
-    <FilterContent>{children}</FilterContent>
-  </Suspense>
-);
+export const FilterProvider = withSuspense(FilterContent);
