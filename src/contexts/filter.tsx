@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import {
   ReactNode,
@@ -10,6 +10,7 @@ import {
   createContext,
   useMemo,
   useCallback,
+  Suspense,
 } from "react";
 
 type FilterContextType = {
@@ -30,8 +31,19 @@ export const useFilter: () => FilterContextType = () => {
   return context;
 };
 
-export const FilterProvider = ({ children }: { children: ReactNode }) => {
-  const [selected, setSelectedState] = useState<Record<string, string[]>>({});
+const FilterContent = ({ children }: { children: ReactNode }) => {
+  const searchParams = useSearchParams();
+
+  const [selected, setSelectedState] = useState<Record<string, string[]>>(() => {
+    const initialSelected: Record<string, string[]> = {};
+    searchParams.forEach((value, key) => {
+      if (key !== "query") {
+        initialSelected[key] = value.split(",");
+      }
+    });
+    return initialSelected;
+  });
+
   const pathname = usePathname();
   const { replace } = useRouter();
 
@@ -44,15 +56,26 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     // Update the URL when filters change
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams);
+
+    // Clear existing filter params (everything except query)
+    const existingKeys = Array.from(params.keys());
+    existingKeys.forEach((key) => {
+      if (key !== "query") {
+        params.delete(key);
+      }
+    });
+
     Object.entries(selected).forEach(([category, values]) => {
       if (values?.length) {
         params.set(category, values.join(","));
       }
     });
     const queryString = params.toString();
-    replace(`${pathname}${queryString ? `?${queryString}` : ""}`);
-  }, [selected, replace, pathname]);
+    replace(`${pathname}${queryString ? `?${queryString}` : ""}`, {
+      scroll: false,
+    });
+  }, [selected, replace, pathname, searchParams]);
 
   const contextValue = useMemo(
     () => ({ selected, setSelected }),
@@ -65,3 +88,9 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
     </FilterContext.Provider>
   );
 };
+
+export const FilterProvider = ({ children }: { children: ReactNode }) => (
+  <Suspense>
+    <FilterContent>{children}</FilterContent>
+  </Suspense>
+);

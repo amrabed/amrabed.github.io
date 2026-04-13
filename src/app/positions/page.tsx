@@ -10,10 +10,14 @@ import { Position } from "@/types";
 import { FilterBase } from "../../components/filter-base";
 import Timeline from "./timeline";
 
-const filterByQuery = (position: Position, query: string) =>
-  position.title.toLowerCase().includes(query) ||
-  match(position.skills, query) ||
-  match(position.tags, query);
+const filterByQuery = (position: Position, query: string) => {
+  const lowercaseQuery = query.toLowerCase();
+  return (
+    position.title.toLowerCase().includes(lowercaseQuery) ||
+    match(position.skills, lowercaseQuery) ||
+    match(position.tags, lowercaseQuery)
+  );
+};
 
 const filterBySelection = (values: string[], selections: string[]) =>
   !selections?.length ||

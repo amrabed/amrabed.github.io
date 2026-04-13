@@ -10,11 +10,15 @@ import type { Project } from "@/types";
 import { FilterBase } from "../../components/filter-base";
 import ProjectView from "./project";
 
-const filterByQuery = (project: Project, query: string) =>
-  project.name.toLowerCase().includes(query) ||
-  match(project.roles, query) ||
-  match(project.tools, query) ||
-  match(project.tags, query);
+const filterByQuery = (project: Project, query: string) => {
+  const lowercaseQuery = query.toLowerCase();
+  return (
+    project.name.toLowerCase().includes(lowercaseQuery) ||
+    match(project.roles, lowercaseQuery) ||
+    match(project.tools, lowercaseQuery) ||
+    match(project.tags, lowercaseQuery)
+  );
+};
 
 const filterBySelection = (values: string[], selections: string[]) =>
   !selections?.length ||
