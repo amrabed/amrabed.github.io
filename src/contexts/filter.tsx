@@ -1,7 +1,6 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-
 import {
   ReactNode,
   useState,
@@ -10,7 +9,6 @@ import {
   useMemo,
   useCallback,
 } from "react";
-
 import { useUrlSync, withSuspense } from "./utils";
 
 type FilterContextType = {
@@ -22,7 +20,6 @@ export const FilterContext = createContext<FilterContextType | undefined>(
   undefined,
 );
 
-// Custom hook to use the filter context
 export const useFilter: () => FilterContextType = () => {
   const context = useContext(FilterContext);
   if (!context) {
@@ -35,49 +32,31 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
   const searchParams = useSearchParams();
 
   const [selected, setSelectedState] = useState<Record<string, string[]>>(() => {
-    const initialSelected: Record<string, string[]> = {};
-    searchParams.forEach((value, key) => {
-      if (key !== "query") {
-        initialSelected[key] = value.split(",");
-      }
+    const initial: Record<string, string[]> = {};
+    searchParams.forEach((val, k) => {
+      if (k !== "query") initial[k] = val.split(",");
     });
-    return initialSelected;
+    return initial;
   });
 
-  const setSelected = useCallback((category: string, values: string[]) => {
-    setSelectedState((prev) => ({
-      ...prev,
-      [category]: values,
-    }));
+  const setSelected = useCallback((cat: string, vals: string[]) => {
+    setSelectedState((prev) => ({ ...prev, [cat]: vals }));
   }, []);
 
-  const updateUrl = useCallback(
-    (params: URLSearchParams, selected: Record<string, string[]>) => {
-      Array.from(params.keys()).forEach((key) => {
-        if (key !== "query") params.delete(key);
-      });
+  const update = useCallback((p: URLSearchParams, s: Record<string, string[]>) => {
+    Array.from(p.keys()).forEach((k) => {
+      if (k !== "query") p.delete(k);
+    });
+    Object.entries(s).forEach(([k, v]) => {
+      if (v?.length) p.set(k, v.join(","));
+    });
+  }, []);
 
-      Object.entries(selected).forEach(([category, values]) => {
-        if (values?.length) {
-          params.set(category, values.join(","));
-        }
-      });
-    },
-    []
-  );
+  useUrlSync(selected, update);
 
-  useUrlSync(selected, updateUrl);
+  const contextValue = useMemo(() => ({ selected, setSelected }), [selected, setSelected]);
 
-  const contextValue = useMemo(
-    () => ({ selected, setSelected }),
-    [selected, setSelected]
-  );
-
-  return (
-    <FilterContext.Provider value={contextValue}>
-      {children}
-    </FilterContext.Provider>
-  );
+  return <FilterContext.Provider value={contextValue}>{children}</FilterContext.Provider>;
 };
 
 export const FilterProvider = withSuspense(FilterContent);
