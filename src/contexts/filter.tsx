@@ -9,7 +9,9 @@ import {
   useMemo,
   useCallback,
 } from "react";
-import { useUrlSync, withSuspense } from "./utils";
+import { withSuspense } from "@/components/suspense";
+
+import { useUrlSync } from "./sync";
 
 type FilterContextType = {
   selected: Record<string, string[]>;

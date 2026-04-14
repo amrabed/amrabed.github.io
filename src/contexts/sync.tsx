@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 
 export const useUrlSync = (
   state: any,
@@ -16,14 +16,4 @@ export const useUrlSync = (
     updateUrl(params, state);
     replace(`${pathname}?${params.toString()}`, { scroll: false });
   }, [state, replace, pathname, searchParams, updateUrl]);
-};
-
-export const withSuspense = (Component: React.ComponentType<any>) => {
-  const SuspendedComponent = (props: any) => (
-    <Suspense>
-      <Component {...props} />
-    </Suspense>
-  );
-  SuspendedComponent.displayName = `withSuspense(${Component.displayName || Component.name || "Component"})`;
-  return SuspendedComponent;
 };

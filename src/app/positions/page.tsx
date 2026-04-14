@@ -5,7 +5,7 @@ import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import positions from "@/data/positions";
 import { Position } from "@/types";
-import { filterByQuery, filterBySelection } from "@/utils";
+import { filterByQuery, filterBySelection } from "@/filter";
 
 import { FilterBase } from "../../components/filter-base";
 import Timeline from "./timeline";

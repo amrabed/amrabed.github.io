@@ -7,11 +7,6 @@ import {
   useDisclosure,
 } from "@heroui/react";
 
-export const match = (values: string[], query: string) => {
-  const lowercaseQuery = query.toLowerCase();
-  return values.find((value) => value.toLowerCase().includes(lowercaseQuery));
-};
-
 export const Searchbar = ({
   placeholder,
   query,

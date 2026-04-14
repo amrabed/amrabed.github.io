@@ -1,5 +1,9 @@
-import { match } from "@/components/search";
 import type { Position, Project } from "@/types";
+
+export const match = (values: string[], query: string) => {
+  const lowercaseQuery = query.toLowerCase();
+  return values.find((value) => value.toLowerCase().includes(lowercaseQuery));
+};
 
 export const filterByQuery = (item: Project | Position, query: string) => {
   const lowercaseQuery = query.toLowerCase();
