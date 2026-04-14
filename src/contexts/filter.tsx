@@ -36,6 +36,8 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
   const [selected, setSelectedState] = useState<Record<string, string[]>>(() => {
     const initial: Record<string, string[]> = {};
     searchParams.forEach((val, k) => {
+      // Security: val is from URL params, but we only use it for filtering.
+      // split(",") on an untrusted string is safe here as it doesn't execute or render raw HTML.
       if (k !== "query") initial[k] = val.split(",");
     });
     return initial;
