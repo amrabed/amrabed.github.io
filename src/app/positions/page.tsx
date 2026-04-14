@@ -1,23 +1,14 @@
 "use client";
 
-import { match } from "@/components/search";
 import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import positions from "@/data/positions";
 import { Position } from "@/types";
+import { filterByQuery, filterBySelection } from "@/filter";
 
 import { FilterBase } from "../../components/filter-base";
 import Timeline from "./timeline";
-
-const filterByQuery = (position: Position, query: string) =>
-  position.title.toLowerCase().includes(query) ||
-  match(position.skills, query) ||
-  match(position.tags, query);
-
-const filterBySelection = (values: string[], selections: string[]) =>
-  !selections?.length ||
-  values.filter((value) => selections.includes(value.toLowerCase())).length;
 
 const Page = () => {
   const { query } = useSearch();

@@ -7,10 +7,6 @@ import {
   useDisclosure,
 } from "@heroui/react";
 
-export const match = (values: string[], query: string) => {
-  return values.find((value) => value.toLowerCase().includes(query));
-};
-
 export const Searchbar = ({
   placeholder,
   query,
@@ -29,6 +25,11 @@ export const Searchbar = ({
       placeholder={placeholder}
       value={query}
       onChange={(e) => setQuery(e.target.value)}
+      autoFocus
+      autoCapitalize="none"
+      autoComplete="off"
+      autoCorrect="off"
+      spellCheck="false"
     />
     <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-zinc-900 dark:peer-focus:text-zinc-100" />
     {query && (

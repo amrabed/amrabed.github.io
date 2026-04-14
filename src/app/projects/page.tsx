@@ -1,24 +1,14 @@
 "use client";
 
-import { match } from "@/components/search";
 import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import projects from "@/data/projects";
 import type { Project } from "@/types";
+import { filterByQuery, filterBySelection } from "@/filter";
 
 import { FilterBase } from "../../components/filter-base";
 import ProjectView from "./project";
-
-const filterByQuery = (project: Project, query: string) =>
-  project.name.toLowerCase().includes(query) ||
-  match(project.roles, query) ||
-  match(project.tools, query) ||
-  match(project.tags, query);
-
-const filterBySelection = (values: string[], selections: string[]) =>
-  !selections?.length ||
-  values.filter((value) => selections.includes(value.toLowerCase())).length;
 
 const Page = () => {
   const { query } = useSearch();

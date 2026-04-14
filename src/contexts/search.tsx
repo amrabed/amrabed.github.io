@@ -1,15 +1,19 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import {
   ReactNode,
   useState,
-  useEffect,
   useContext,
   createContext,
   useMemo,
+  useCallback,
 } from "react";
+
+import { withSuspense } from "./suspense";
+
+import { useUrlSync } from "./sync";
 
 type SearchContextType = {
   query: string;
@@ -29,22 +33,21 @@ export const useSearch: () => SearchContextType = () => {
   return context;
 };
 
-export const SearchProvider = ({ children }: { children: ReactNode }) => {
-  const [query, setQuery] = useState<string>("");
-  const pathname = usePathname();
-  const { replace } = useRouter();
+const SearchContent = ({ children }: { children: ReactNode }) => {
+  const searchParams = useSearchParams();
+  const [query, setQuery] = useState<string>(searchParams.get("query") || "");
 
-  useEffect(() => {
-    // Update the URL when query changes
-    const params = new URLSearchParams();
+  const updateUrl = useCallback((params: URLSearchParams, query: string) => {
     if (query) {
       params.set("query", query);
     } else {
       params.delete("query");
     }
-    replace(`${pathname}?${params.toString()}`);
-  }, [query, replace, pathname]);
-  const contextValue = useMemo(() => ({ query, setQuery }), [query, setQuery]);
+  }, []);
+
+  useUrlSync(query, updateUrl);
+
+  const contextValue = useMemo(() => ({ query, setQuery }), [query]);
 
   return (
     <SearchContext.Provider value={contextValue}>
@@ -52,3 +55,5 @@ export const SearchProvider = ({ children }: { children: ReactNode }) => {
     </SearchContext.Provider>
   );
 };
+
+export const SearchProvider = withSuspense(SearchContent);
