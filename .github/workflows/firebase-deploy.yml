@@ -2,22 +2,22 @@ name: Deploy to Firebase
 
 on:
   push:
-    branches: ["**"]
+    branches: ["main"]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 20
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
       - name: Install dependencies
         run: make install
       - name: Deploy to Firebase
-        run: make deploy
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AMRABED_GIVE }}
+          projectId: amrabed-give
