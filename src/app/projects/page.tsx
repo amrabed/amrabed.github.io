@@ -1,28 +1,14 @@
 "use client";
 
-import { match } from "@/components/search";
 import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import projects from "@/data/projects";
 import type { Project } from "@/types";
+import { filterByQuery, filterBySelection } from "@/utils";
 
 import { FilterBase } from "../../components/filter-base";
 import ProjectView from "./project";
-
-const filterByQuery = (project: Project, query: string) => {
-  const lowercaseQuery = query.toLowerCase();
-  return (
-    project.name.toLowerCase().includes(lowercaseQuery) ||
-    match(project.roles, lowercaseQuery) ||
-    match(project.tools, lowercaseQuery) ||
-    match(project.tags, lowercaseQuery)
-  );
-};
-
-const filterBySelection = (values: string[], selections: string[]) =>
-  !selections?.length ||
-  values.filter((value) => selections.includes(value.toLowerCase())).length;
 
 const Page = () => {
   const { query } = useSearch();

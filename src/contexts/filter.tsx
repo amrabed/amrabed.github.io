@@ -1,7 +1,6 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-
 import {
   ReactNode,
   useState,
@@ -10,8 +9,7 @@ import {
   useMemo,
   useCallback,
 } from "react";
-
-import { useUrlSync, withSuspense } from "./sync";
+import { useUrlSync, withSuspense } from "./utils";
 
 type FilterContextType = {
   selected: Record<string, string[]>;
@@ -33,44 +31,32 @@ export const useFilter: () => FilterContextType = () => {
 const FilterContent = ({ children }: { children: ReactNode }) => {
   const searchParams = useSearchParams();
 
-  const [selected, setSelectedState] = useState<Record<string, string[]>>(
-    () => {
-      const initial: Record<string, string[]> = {};
-      searchParams.forEach((val, k) => {
-        if (k !== "query") initial[k] = val.split(",");
-      });
-      return initial;
-    },
-  );
+  const [selected, setSelectedState] = useState<Record<string, string[]>>(() => {
+    const initial: Record<string, string[]> = {};
+    searchParams.forEach((val, k) => {
+      if (k !== "query") initial[k] = val.split(",");
+    });
+    return initial;
+  });
 
   const setSelected = useCallback((cat: string, vals: string[]) => {
     setSelectedState((prev) => ({ ...prev, [cat]: vals }));
   }, []);
 
-  const update = useCallback(
-    (p: URLSearchParams, s: Record<string, string[]>) => {
-      Array.from(p.keys()).forEach((k) => {
-        if (k !== "query") p.delete(k);
-      });
-      Object.entries(s).forEach(([k, v]) => {
-        if (v?.length) p.set(k, v.join(","));
-      });
-    },
-    [],
-  );
+  const update = useCallback((p: URLSearchParams, s: Record<string, string[]>) => {
+    Array.from(p.keys()).forEach((k) => {
+      if (k !== "query") p.delete(k);
+    });
+    Object.entries(s).forEach(([k, v]) => {
+      if (v?.length) p.set(k, v.join(","));
+    });
+  }, []);
 
   useUrlSync(selected, update);
 
-  const contextValue = useMemo(
-    () => ({ selected, setSelected }),
-    [selected, setSelected],
-  );
+  const contextValue = useMemo(() => ({ selected, setSelected }), [selected, setSelected]);
 
-  return (
-    <FilterContext.Provider value={contextValue}>
-      {children}
-    </FilterContext.Provider>
-  );
+  return <FilterContext.Provider value={contextValue}>{children}</FilterContext.Provider>;
 };
 
 export const FilterProvider = withSuspense(FilterContent);

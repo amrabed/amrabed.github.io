@@ -1,12 +1,11 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-
 import { Suspense, useEffect } from "react";
 
 export const useUrlSync = (
   state: any,
-  updateUrl: (params: URLSearchParams, state: any) => void,
+  updateUrl: (params: URLSearchParams, state: any) => void
 ) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
