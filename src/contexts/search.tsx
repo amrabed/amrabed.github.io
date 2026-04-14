@@ -11,7 +11,7 @@ import {
   useCallback,
 } from "react";
 
-import { useUrlSync, withSuspense } from "./utils";
+import { useUrlSync, withSuspense } from "./sync";
 
 type SearchContextType = {
   query: string;
