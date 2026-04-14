@@ -11,7 +11,7 @@ import {
   useCallback,
 } from "react";
 
-import { withSuspense } from "@/components/suspense";
+import { withSuspense } from "./suspense";
 
 import { useUrlSync } from "./sync";
 
