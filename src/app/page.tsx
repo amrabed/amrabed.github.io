@@ -11,7 +11,6 @@ import type { Certification, Degree, Skill } from "@/types";
 import "@/types";
 
 const Intro = dynamic(() => import("@/components/intro"));
-const SocialMedia = dynamic(() => import("@/components/social"));
 
 const Skills = () => (
   <Section id="skills" title="Technical Skills">
@@ -83,7 +82,6 @@ const Home = () => (
     <Skills />
     <Certifications />
     <Degrees />
-    <SocialMedia />
   </>
 );
 

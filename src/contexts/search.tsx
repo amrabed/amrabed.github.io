@@ -12,6 +12,7 @@ import {
 } from "react";
 
 import { withSuspense } from "./suspense";
+
 import { useUrlSync } from "./sync";
 
 type SearchContextType = {
