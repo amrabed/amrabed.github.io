@@ -1,11 +1,12 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
 import { useEffect } from "react";
 
-export const useUrlSync = (
-  state: any,
-  updateUrl: (params: URLSearchParams, state: any) => void
+export const useUrlSync = <P extends object>(
+  state: P,
+  updateUrl: (params: URLSearchParams, state: P) => void,
 ) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();

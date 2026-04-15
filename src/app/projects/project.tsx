@@ -40,8 +40,8 @@ const Links = ({ links }: { links: ProjectLinks }) => (
         <FaGithub className="size-5" />
       </IconLink>
     )}
-    {(links as any).youtube && (
-      <IconLink href={(links as any).youtube} title="YouTube">
+    {links.youtube && (
+      <IconLink href={links.youtube} title="YouTube">
         <FaYoutube className="size-5" />
       </IconLink>
     )}

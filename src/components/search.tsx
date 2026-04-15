@@ -1,3 +1,5 @@
+import { type ComponentProps } from "react";
+
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button, Modal, useOverlayState } from "@heroui/react";
 
@@ -40,7 +42,7 @@ export const Searchbar = ({
   </div>
 );
 
-export const SearchIcon = (props: any) => {
+export const SearchIcon = (props: ComponentProps<typeof Searchbar>) => {
   const state = useOverlayState();
 
   return (
