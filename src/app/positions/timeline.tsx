@@ -1,20 +1,20 @@
-import { Card, CardBody, CardFooter, CardHeader, Divider } from "@heroui/react";
+import { Card, Separator } from "@heroui/react";
 
 import { Tags, Tools } from "@/components/skills";
 import { Position } from "@/types";
 
 const PositionView = ({ position }: { position: Position }) => (
-  <Card className="w-full bg-transparent border-2 border-slate-500 ml-6 shadow-only">
-    <CardHeader className="flex gap-3">
+  <Card className="w-full bg-transparent border-2 border-slate-500 ml-6 shadow-none">
+    <Card.Header className="flex gap-3">
       <div className="flex flex-col">
         <p className="text-md">{position.title}</p>
         <p className="text-small text-slate-500">
           {position.organization.name}
         </p>
       </div>
-    </CardHeader>
-    <Divider />
-    <CardBody>
+    </Card.Header>
+    <Separator />
+    <Card.Content>
       <ul>
         {position.tasks.map((task) => (
           <li
@@ -25,12 +25,12 @@ const PositionView = ({ position }: { position: Position }) => (
           </li>
         ))}
       </ul>
-    </CardBody>
-    <Divider />
-    <CardFooter className="justify-between">
+    </Card.Content>
+    <Separator />
+    <Card.Footer className="justify-between">
       <div className="flex flex-row">
         <Tags tags={position.tags} />
-        <Divider orientation="vertical" className="h-30 mx-2" />
+        <Separator orientation="vertical" className="h-30 mx-2" />
         <Tools tools={position.skills} />
       </div>
       <ul className="flex flex-row gap-2 text-zinc-400">
@@ -38,7 +38,7 @@ const PositionView = ({ position }: { position: Position }) => (
           <li key={role}>{role}</li>
         ))}
       </ul>
-    </CardFooter>
+    </Card.Footer>
   </Card>
 );
 
@@ -47,7 +47,7 @@ const Timeline = ({ positions }: { positions: Position[] }) => (
     <ul>
       {positions.map((position: Position) => (
         <li className="group mb-5" key={position.id}>
-          <div className="">
+          <div className="relative">
             <span className="relative left-5 xl:left-[-170px] xl:top-5 text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-focus:text-zinc-900 dark:group-focus:text-zinc-100">
               {position.duration.start + " - " + position.duration.end}
             </span>

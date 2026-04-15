@@ -7,14 +7,13 @@ import {
 import {
   Button,
   CheckboxGroup,
-  useCheckbox,
+  Checkbox,
+  Label,
   Chip,
-  VisuallyHidden,
   tv,
   Popover,
-  PopoverTrigger,
-  PopoverContent,
 } from "@heroui/react";
+import { VisuallyHidden } from "@react-aria/visually-hidden";
 
 const checkbox = tv({
   slots: {
@@ -31,33 +30,41 @@ const checkbox = tv({
   },
 });
 
-export const Selection = (props: any) => {
-  const { children, isSelected, getBaseProps, getInputProps } = useCheckbox({
-    ...props,
-  });
-
-  const styles = checkbox({ isSelected });
-
+export const Selection = ({
+  value,
+  children,
+}: {
+  value: string;
+  children: ReactNode;
+}) => {
   return (
-    <label {...getBaseProps()}>
-      <VisuallyHidden>
-        <input {...getInputProps()} />
-      </VisuallyHidden>
-      <Chip
-        classNames={{
-          base: styles.base(),
-          content: styles.content(),
-        }}
-        startContent={
-          isSelected ? (
-            <CheckIcon className="size-4 ml-1" color="white" />
-          ) : null
-        }
-        variant="faded"
-      >
-        {children}
-      </Chip>
-    </label>
+    <Checkbox value={value}>
+      {(state) => {
+        const styles = checkbox({ isSelected: state.isSelected });
+        return (
+          <div className="flex items-center">
+            <VisuallyHidden>
+              <Checkbox.Control>
+                <Checkbox.Indicator />
+              </Checkbox.Control>
+            </VisuallyHidden>
+            <Chip
+              className={styles.base()}
+              variant="soft"
+            >
+              <div className="flex items-center gap-1">
+                {state.isSelected && (
+                  <CheckIcon className="size-4" color="white" />
+                )}
+                <Chip.Label className={styles.content()}>
+                  {children}
+                </Chip.Label>
+              </div>
+            </Chip>
+          </div>
+        );
+      }}
+    </Checkbox>
   );
 };
 
@@ -70,38 +77,39 @@ export const Selections = ({
   label: string;
   values: string[];
   selected: string[];
-  setSelected: (previous: string[]) => void;
+  setSelected: (values: string[]) => void;
 }) => (
   <div className="flex flex-row gap-1 w-full">
     <CheckboxGroup
       className="gap-4"
-      label={label}
-      orientation="horizontal"
       value={selected}
-      onChange={setSelected}
+      onChange={(values) => setSelected(values as string[])}
     >
-      {values.map((value) => (
-        <Selection key={value} value={value.toLowerCase()}>
-          {value}
-        </Selection>
-      ))}
+      <Label className="text-sm font-medium text-slate-500 mb-2">{label}</Label>
+      <div className="flex flex-wrap gap-2 flex-row">
+        {values.map((value) => (
+          <Selection key={value} value={value.toLowerCase()}>
+            {value}
+          </Selection>
+        ))}
+      </div>
     </CheckboxGroup>
   </div>
 );
 
 export const Filter = ({ children }: { children: ReactNode }) => (
-  <Popover
-    offset={10}
-    size="lg"
-    placement="bottom"
-    backdrop="opaque"
-    className="dark:bg-slate-800"
-  >
-    <PopoverTrigger>
-      <Button id="filter" variant="light" isIconOnly>
-        <AdjustmentsHorizontalIcon className="size-6" />
-      </Button>
-    </PopoverTrigger>
-    <PopoverContent className="w-[500px] p-4 gap-6">{children}</PopoverContent>
+  <Popover>
+    <Button id="filter" variant="ghost" isIconOnly>
+      <AdjustmentsHorizontalIcon className="size-6" />
+    </Button>
+    <Popover.Content
+      offset={10}
+      placement="bottom"
+      className="dark:bg-slate-800"
+    >
+      <Popover.Dialog className="w-[500px] p-4 gap-6">
+        {children}
+      </Popover.Dialog>
+    </Popover.Content>
   </Popover>
 );
