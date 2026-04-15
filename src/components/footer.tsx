@@ -3,7 +3,6 @@
 import { Switch } from "@heroui/react";
 
 import { useTheme } from "@/contexts/theme";
-
 import profiles from "@/data/profiles";
 
 import Social from "./social";
