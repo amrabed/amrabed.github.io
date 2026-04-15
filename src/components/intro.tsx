@@ -53,7 +53,7 @@ const Intro = () => {
     <section id="home" ref={homeRef}>
       <div className="min-h-[100vh] overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[200px] 2xl:px-[400px] md:flex content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm">
         <div
-          className="translate-x-[500px] transition-all opacity-0 duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] relative m-auto md:m-0 mt-[40px] md:mt-0"
+          className="translate-x-[500px] transition-all opacity-0 duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] relative m-auto md:m-0 mt-[40px] md:mt-0 md:order-last"
           ref={profileRef}
         >
           <Image
@@ -66,7 +66,7 @@ const Intro = () => {
         </div>
 
         <div
-          className="translate-x-[-500px] transition-all duration-700 opacity-0"
+          className="translate-x-[-500px] transition-all duration-700 opacity-0 md:order-first"
           ref={introRef}
         >
           <p className="text-2xl md:text-4xl py-2 font-sans text-center text-nowrap">

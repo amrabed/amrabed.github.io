@@ -2,10 +2,8 @@
 
 import { Suspense } from "react";
 
-export const withSuspense = <P extends object>(
-  Component: React.ComponentType<P>,
-) => {
-  const SuspendedComponent = (props: P) => (
+export const withSuspense = (Component: React.ComponentType<any>) => {
+  const SuspendedComponent = (props: any) => (
     <Suspense>
       <Component {...props} />
     </Suspense>

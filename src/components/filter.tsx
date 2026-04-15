@@ -48,12 +48,17 @@ export const Selection = ({
                 <Checkbox.Indicator />
               </Checkbox.Control>
             </VisuallyHidden>
-            <Chip className={styles.base()} variant="soft">
+            <Chip
+              className={styles.base()}
+              variant="soft"
+            >
               <div className="flex items-center gap-1">
                 {state.isSelected && (
                   <CheckIcon className="size-4" color="white" />
                 )}
-                <Chip.Label className={styles.content()}>{children}</Chip.Label>
+                <Chip.Label className={styles.content()}>
+                  {children}
+                </Chip.Label>
               </div>
             </Chip>
           </div>

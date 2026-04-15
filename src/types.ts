@@ -30,7 +30,6 @@ export interface Profile extends Icon {
 
 export interface ProjectLinks {
   github?: string;
-  youtube?: string;
   demo?: string;
   app?: string;
   publication?: string;
