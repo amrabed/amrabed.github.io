@@ -1,11 +1,5 @@
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalContent,
-  useDisclosure,
-} from "@heroui/react";
+import { Button, Modal, useOverlayState } from "@heroui/react";
 
 export const Searchbar = ({
   placeholder,
@@ -35,8 +29,7 @@ export const Searchbar = ({
     {query && (
       <Button
         id="clear"
-        isIconOnly
-        variant="light"
+        variant="ghost"
         size="sm"
         onPress={() => setQuery("")}
         className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 min-w-0 h-7 w-7"
@@ -48,26 +41,22 @@ export const Searchbar = ({
 );
 
 export const SearchIcon = (props: any) => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const state = useOverlayState();
 
   return (
-    <>
-      <Button id="search" isIconOnly variant="light" onClick={onOpen}>
+    <Modal state={state}>
+      <Button id="search" variant="ghost" isIconOnly onPress={state.open}>
         <MagnifyingGlassIcon className="size-6" />
       </Button>
-      <Modal
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        placement="top"
-        backdrop="transparent"
-        hideCloseButton
-      >
-        <ModalContent>
-          <ModalBody>
-            <Searchbar {...props} />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    </>
+      <Modal.Backdrop variant="transparent">
+        <Modal.Container placement="top">
+          <Modal.Dialog>
+            <Modal.Body>
+              <Searchbar {...props} />
+            </Modal.Body>
+          </Modal.Dialog>
+        </Modal.Container>
+      </Modal.Backdrop>
+    </Modal>
   );
 };

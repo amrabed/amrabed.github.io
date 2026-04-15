@@ -4,7 +4,6 @@ import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import positions from "@/data/positions";
-import { Position } from "@/types";
 import { filterByQuery, filterBySelection } from "@/filter";
 
 import { FilterBase } from "../../components/filter-base";
