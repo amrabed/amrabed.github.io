@@ -43,10 +43,10 @@ const PositionView = ({ position }: { position: Position }) => (
 );
 
 const Timeline = ({ positions }: { positions: Position[] }) => (
-  <div className="flex w-100 justify-center">
-    <ul>
+  <div className="flex w-full justify-center">
+    <ul className="w-full">
       {positions.map((position: Position) => (
-        <li className="group mb-5" key={position.id}>
+        <li className="group mb-5 w-full" key={position.id}>
           <div className="relative">
             <span className="relative left-5 xl:left-[-170px] xl:top-5 text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-focus:text-zinc-900 dark:group-focus:text-zinc-100">
               {position.duration.start + " - " + position.duration.end}

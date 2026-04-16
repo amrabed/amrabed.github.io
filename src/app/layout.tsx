@@ -55,9 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} antialiased text-slate-600 bg-white`}
-      >
+      <body className={`${inter.className} antialiased`}>
         <Providers>
           {children}
           <ScrollToTopButton />

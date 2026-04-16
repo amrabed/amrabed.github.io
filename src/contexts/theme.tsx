@@ -59,7 +59,9 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
   return (
     <ThemeContext.Provider value={contextValue}>
       <div className={!mounted || theme === "dark" ? "dark" : ""}>
-        <div className="dark:text-slate-400 dark:bg-background">{children}</div>
+        <div className="min-h-screen bg-background text-foreground transition-colors duration-500">
+          {children}
+        </div>
       </div>
     </ThemeContext.Provider>
   );
