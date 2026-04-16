@@ -30,7 +30,7 @@ const PositionView = ({ position }: { position: Position }) => (
     <Card.Footer className="justify-between">
       <div className="flex flex-row">
         <Tags tags={position.tags} />
-        <Separator orientation="vertical" className="h-30 mx-2" />
+        <Separator orientation="vertical" className="h-6 mx-2" />
         <Tools tools={position.skills} />
       </div>
       <ul className="flex flex-row gap-2 text-zinc-400">

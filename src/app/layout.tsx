@@ -54,8 +54,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${inter.className} antialiased bg-background text-foreground transition-colors duration-500`}
+      >
         <Providers>
           {children}
           <ScrollToTopButton />
