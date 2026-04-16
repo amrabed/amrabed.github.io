@@ -46,17 +46,17 @@ const Timeline = ({ positions }: { positions: Position[] }) => (
   <div className="flex w-full justify-center">
     <ul className="w-full">
       {positions.map((position: Position) => (
-        <li className="group mb-5 w-full" key={position.id}>
-          <div className="relative">
+        <li className="group mb-5 w-full relative" key={position.id}>
+          <div
+            className="absolute left-[9px] top-5 bottom-0 border-r-2 border-slate-500"
+            style={{ height: "calc(100% + 1.25rem)" }}
+          ></div>
+          <div>
             <span className="relative left-5 xl:left-[-170px] xl:top-5 text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-focus:text-zinc-900 dark:group-focus:text-zinc-100">
               {position.duration.start + " - " + position.duration.end}
             </span>
-            <div
-              className="border-r-2 border-slate-500 absolute h-full top-5"
-              style={{ left: "9px" }}
-            ></div>
           </div>
-          <div className="flex">
+          <div className="flex relative">
             <div className="bg-gray-800 dark:bg-gray-600 group-hover:bg-primary z-10 rounded-full border-2 border-slate-500 h-5 w-5">
               <div className="bg-slate-500 h-0.5 w-7 items-center ml-4 mt-2"></div>
             </div>

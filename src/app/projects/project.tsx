@@ -13,7 +13,7 @@ import {
   FaPersonChalkboard,
 } from "react-icons/fa6";
 
-import { Tooltip } from "@heroui/react";
+import { Card, Tooltip } from "@heroui/react";
 
 import skills from "@/data/skills";
 import { Project, ProjectLinks } from "@/types";
