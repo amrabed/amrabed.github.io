@@ -1,5 +1,6 @@
 install:
 	npm install
+	npm install -g firebase-tools
 
 format:
 	npm run format
