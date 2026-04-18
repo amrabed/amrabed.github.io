@@ -8,7 +8,7 @@ import { Profile } from "@/types";
 const Social = ({ profiles: propsProfiles }: { profiles?: Profile[] }) => {
   const socialProfiles = propsProfiles || profiles;
   return (
-    <div className="flex flex-row justify-center gap-4">
+    <div className="flex flex-row flex-wrap justify-center gap-4 px-4">
       {socialProfiles.map((profile) => (
         <Tooltip key={profile.name}>
           <Tooltip.Trigger>

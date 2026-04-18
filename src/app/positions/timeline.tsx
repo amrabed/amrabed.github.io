@@ -4,7 +4,7 @@ import { Areas, Tools } from "@/components/skills";
 import { Position } from "@/types";
 
 const PositionView = ({ position }: { position: Position }) => (
-  <Card className="w-full bg-transparent border-1 border-slate-500 ml-6 shadow-none">
+  <Card className="w-full bg-transparent border-1 border-slate-500 ml-6 shadow-none group-hover:border-primary transition-colors duration-300">
     <Card.Header className="flex gap-3">
       <div className="flex flex-col">
         <p className="text-md">{position.title}</p>
@@ -56,8 +56,8 @@ const Timeline = ({ positions }: { positions: Position[] }) => (
             </span>
           </div>
           <div className="flex relative">
-            <div className="bg-gray-800 dark:bg-gray-600 group-hover:bg-primary z-10 rounded-full border-1 border-slate-500 h-5 w-5">
-              <div className="bg-slate-500 h-px w-7 items-center ml-4 mt-[9px]"></div>
+            <div className="bg-gray-800 dark:bg-gray-600 group-hover:bg-primary z-10 rounded-full border-1 border-slate-500 group-hover:border-primary h-5 w-5 transition-colors duration-300">
+              <div className="bg-slate-500 group-hover:bg-primary h-px w-7 items-center ml-4 mt-[9px] transition-colors duration-300"></div>
             </div>
             <PositionView position={position} />
           </div>

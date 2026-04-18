@@ -91,7 +91,7 @@ const Links = ({ links }: { links: ProjectLinks }) => {
 
 const ProjectView = ({ project }: { project: Project }) => {
   return (
-    <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border-1 border-slate-500/50 shadow-none h-full">
+    <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border-1 border-slate-500/50 shadow-none h-full hover:border-primary transition-colors duration-300">
       <div className="flex justify-between items-start">
         <div className="flex flex-row items-center gap-2">
           <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
