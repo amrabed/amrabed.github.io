@@ -14,6 +14,8 @@ jobs:
           node-version: 20
       - name: Install dependencies
         run: make install
+      - name: Install Firebase
+        run: make firebase
       - name: Deploy to Firebase
         run: make deploy
         env:
