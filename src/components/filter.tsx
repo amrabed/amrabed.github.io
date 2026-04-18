@@ -80,7 +80,7 @@ export const Selections = ({
       value={selected}
       onChange={(values) => setSelected(values as string[])}
     >
-      <Label className="text-sm font-medium text-slate-500 mb-2">{label}</Label>
+      <Label className="text-sm font-medium text-slate-500">{label}</Label>
       <div className="flex flex-wrap gap-2 flex-row">
         {values.map((value) => (
           <Selection key={value} value={value.toLowerCase()}>
@@ -102,7 +102,7 @@ export const Filter = ({ children }: { children: ReactNode }) => (
       placement="bottom"
       className="dark:bg-slate-800"
     >
-      <Popover.Dialog className="w-[500px] p-4 gap-6">
+      <Popover.Dialog className="flex flex-col w-[500px] p-4 gap-6">
         {children}
       </Popover.Dialog>
     </Popover.Content>
