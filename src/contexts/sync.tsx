@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { useEffect } from "react";
 
-export const useUrlSync = <P extends object>(
+export const useUrlSync = <P,>(
   state: P,
   updateUrl: (params: URLSearchParams, state: P) => void,
 ) => {
