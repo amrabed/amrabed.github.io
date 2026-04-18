@@ -2,82 +2,125 @@
 
 import Link from "next/link";
 
-import { ReactNode } from "react";
-import { BiLogoPlayStore } from "react-icons/bi";
-import { FaGithub, FaYoutube, FaApple, FaLink } from "react-icons/fa6";
-import { RiSlideshow2Line } from "react-icons/ri";
+import React from "react";
+import {
+  FaGithub,
+  FaYoutube,
+  FaApple,
+  FaLink,
+  FaGooglePlay,
+  FaFileLines,
+  FaPersonChalkboard,
+} from "react-icons/fa6";
 
-import { DocumentIcon } from "@heroicons/react/24/outline";
 import { Tooltip } from "@heroui/react";
 
-import { Roles, Tags, Tools } from "@/components/skills";
+import { Areas, Tools } from "@/components/skills";
 import { Project, ProjectLinks } from "@/types";
 
 const IconLink = ({
+  href,
   title,
-  url,
   children,
 }: {
+  href: string;
   title: string;
-  url: string | undefined;
-  children: ReactNode;
-}) =>
-  url && (
-    <Tooltip content={title}>
-      <Link href={url} target="_blank">
+  children: React.ReactNode;
+}) => (
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Link
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className="text-slate-500 hover:text-primary transition-colors"
+      >
         {children}
       </Link>
-    </Tooltip>
-  );
-
-const Links = ({ links }: { links: ProjectLinks }) => (
-  <div id="links" className="flex flex-row gap-2 text-2xl text-zinc">
-    <IconLink url={links.homepage} title="homepage">
-      <FaLink />
-    </IconLink>
-    <IconLink url={links.app} title="app">
-      {links.app?.includes("apple") ? <FaApple /> : <BiLogoPlayStore />}
-    </IconLink>
-    <IconLink url={links.publication} title="publication">
-      <DocumentIcon className="size-6" />
-    </IconLink>
-    <IconLink url={links.presentation} title="presentation">
-      <RiSlideshow2Line />
-    </IconLink>
-    <IconLink url={links.demo} title="demo">
-      <FaYoutube />
-    </IconLink>
-    <IconLink
-      url={links.github ? "https://github.com/" + links.github : undefined}
-      title="github"
-    >
-      <FaGithub />
-    </IconLink>
-  </div>
+    </Tooltip.Trigger>
+    <Tooltip.Content>
+      <Tooltip.Arrow />
+      {title}
+    </Tooltip.Content>
+  </Tooltip>
 );
 
-const ProjectView = ({ project }: { project: Project }) => (
-  <div className="group overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 md:gap-8 hover:border-zinc-400/50 border-zinc-600 p-4">
-    <h3 className="mb-3 font-semibold text-zinc">
-      <div className="flex justify-between">
-        <div className="flex md:flex-row flex-col gap-4">
-          <div className="text-slated-500 text-lg md:text-xl">
+const Links = ({ links }: { links: ProjectLinks }) => {
+  return (
+    <div className="flex flex-row gap-4">
+      {links.github && (
+        <IconLink href={links.github} title="GitHub">
+          <FaGithub className="size-5" />
+        </IconLink>
+      )}
+      {links.demo && (
+        <IconLink href={links.demo} title="Demo">
+          <FaYoutube className="size-5" />
+        </IconLink>
+      )}
+      {links.app && (
+        <IconLink
+          href={links.app}
+          title={links.app.includes("apple.com") ? "App Store" : "Google Play"}
+        >
+          {links.app.includes("apple.com") ? (
+            <FaApple className="size-5" />
+          ) : (
+            <FaGooglePlay className="size-5" />
+          )}
+        </IconLink>
+      )}
+      {links.publication && (
+        <IconLink href={links.publication} title="Publication">
+          <FaFileLines className="size-5" />
+        </IconLink>
+      )}
+      {links.presentation && (
+        <IconLink href={links.presentation} title="Presentation">
+          <FaPersonChalkboard className="size-5" />
+        </IconLink>
+      )}
+      {links.homepage && (
+        <IconLink href={links.homepage} title="Website">
+          <FaLink className="size-5" />
+        </IconLink>
+      )}
+    </div>
+  );
+};
+
+const ProjectView = ({ project }: { project: Project }) => {
+  return (
+    <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border-1 border-slate-500/50 shadow-none h-full hover:border-primary transition-colors duration-300">
+      <div className="flex justify-between items-start">
+        <div className="flex flex-row items-center gap-2">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
             {project.name}
+          </h3>
+          <div className="flex flex-row gap-1">
+            <Tools tools={project.tools} compact />
           </div>
-          <Tools tools={project.tools} />
         </div>
         <Links links={project.links} />
       </div>
-    </h3>
-    <p className="pb-4 xl:h-20 text-sm text-zinc">{project.description}</p>
-    <Tags tags={project.tags} />
-    <div className="flex flex-row justify-between">
-      <Roles roles={project.roles} />
-      <p className="text-zinc-500 text-end text-md">
-        {new Date(project.date).getFullYear()}
+      <p className="text-slate-600 dark:text-slate-400 text-sm flex-grow mt-2">
+        {project.description}
       </p>
+      <div className="flex flex-row justify-between items-center mt-6">
+        <div className="flex flex-row items-center gap-4">
+          <Areas areas={project.tags} />
+          <ul className="flex flex-row gap-2 text-zinc-400 text-sm">
+            {project.roles.map((role) => (
+              <li key={role}>{role}</li>
+            ))}
+          </ul>
+        </div>
+        <span className="text-zinc-400 text-sm">
+          {new Date(project.date).getFullYear()}
+        </span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default ProjectView;

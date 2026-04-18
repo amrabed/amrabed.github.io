@@ -5,16 +5,7 @@ import Link from "next/link";
 import { ReactNode, useState } from "react";
 
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
-import {
-  Divider,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-} from "@heroui/react";
+import { Separator } from "@heroui/react";
 
 import { Searchbar, SearchIcon } from "./search";
 
@@ -45,7 +36,7 @@ export const pages = [
 ];
 
 const Title = () => (
-  <Link href="#" className="text-lg font-sembold">
+  <Link href="#" className="text-lg font-semibold">
     Amr Abed
   </Link>
 );
@@ -54,83 +45,100 @@ export const MainHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <Navbar
-      isMenuOpen={isMenuOpen}
-      onMenuOpenChange={setIsMenuOpen}
-      className="pt-10"
-    >
-      <NavbarBrand>
+    <nav className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur-lg pt-10 px-6">
+      <header className="max-w-7xl mx-auto flex h-16 items-center justify-between">
         <Title />
-      </NavbarBrand>
 
-      <NavbarContent className="sm:hidden" justify="end">
-        <NavbarItem key="toggle">
-          <NavbarMenuToggle />
-        </NavbarItem>
-      </NavbarContent>
-
-      <NavbarContent className="hidden sm:flex gap-4" justify="start">
-        {sections.map((section) => (
-          <NavbarItem key={section.name}>
-            <Link
-              className={"hover:text-primary hover:dark:text-primary-dark"}
-              href={section.link}
+        <div className="sm:hidden">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+            className="p-2"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <div className="h-full pb-1 hover:pb-0 flex items-center border-primary dark:border-primary-dark transition-all">
+              {isMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
+
+        <ul className="hidden sm:flex items-center gap-4">
+          {sections.map((section) => (
+            <li key={section.name}>
+              <Link
+                className="hover:text-primary transition-colors"
+                href={section.link}
+              >
                 {section.name}
-              </div>
-            </Link>
-          </NavbarItem>
-        ))}
-        <NavbarItem key="separator">
-          <Divider orientation="vertical" className="h-10 my-4" />
-        </NavbarItem>
-        {pages.map((page) => (
-          <NavbarItem key={page.name}>
-            <Link
-              className={"hover:text-primary hover:dark:text-primary-dark"}
-              href={page.link}
-            >
-              <div className="h-full pb-1 hover:pb-0 flex items-center border-primary dark:border-primary-dark transition-all">
+              </Link>
+            </li>
+          ))}
+          <li key="separator">
+            <Separator orientation="vertical" className="h-10 mx-2" />
+          </li>
+          {pages.map((page) => (
+            <li key={page.name}>
+              <Link
+                className="hover:text-primary transition-colors"
+                href={page.link}
+              >
                 {page.name}
-              </div>
-            </Link>
-          </NavbarItem>
-        ))}{" "}
-      </NavbarContent>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </header>
 
-      <NavbarMenu className="pt-10 dark:bg-background backdrop-blur-500 transition-all duration-1000">
-        {sections.map((section) => (
-          <NavbarMenuItem key={section.name}>
-            <Link
-              className="hover:text-primary hover:dark:text-primary-dark"
-              href={section.link}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <div className="text-lg p-1 hover:text-primary hover:dark:text-primary-dark">
-                {section.name}
-              </div>
-            </Link>
-          </NavbarMenuItem>
-        ))}
-        <NavbarItem key="separator">
-          <Divider />
-        </NavbarItem>
-        {pages.map((page) => (
-          <NavbarMenuItem key={page.name}>
-            <Link
-              className={"hover:text-primary hover:dark:text-primary-dark"}
-              href={page.link}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <div className="text-lg p-1 hover:text-primary hover:dark:text-primary-dark">
-                {page.name}
-              </div>
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+      {isMenuOpen && (
+        <div className="sm:hidden pb-6 transition-all duration-300">
+          <ul className="flex flex-col gap-4">
+            {sections.map((section) => (
+              <li key={section.name}>
+                <Link
+                  className="block text-lg py-2 hover:text-primary transition-colors"
+                  href={section.link}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {section.name}
+                </Link>
+              </li>
+            ))}
+            <li key="separator">
+              <Separator />
+            </li>
+            {pages.map((page) => (
+              <li key={page.name}>
+                <Link
+                  className="block text-lg py-2 hover:text-primary transition-colors"
+                  href={page.link}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {page.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </nav>
   );
 };
 
@@ -147,11 +155,11 @@ export const PageHeader = ({
   placeholder: string;
   children: ReactNode;
 }) => (
-  <div className="w-full p-5 backdrop-filter backdrop-blur-lg md:flex justify-between items-center gap-4 shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500">
-    <div className="flex flex-row justify-between w-full">
+  <div className="w-full p-5 backdrop-filter backdrop-blur-lg shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500">
+    <div className="max-w-7xl mx-auto flex flex-row justify-between w-full">
       <div className="flex flex-row gap-1 p-1">
         <Link href="/">
-          <ChevronLeftIcon className="size-8 text-xl" color="primary" />
+          <ChevronLeftIcon className="size-8 text-xl text-primary" />
         </Link>
         <h1 className="text-xl p-1">{title}</h1>
       </div>

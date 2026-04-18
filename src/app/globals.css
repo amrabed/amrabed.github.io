@@ -1,6 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@heroui/styles";
+
+@theme {
+  --color-primary: var(--heroui-primary);
+  --color-secondary: var(--heroui-secondary);
+  --color-foreground: var(--heroui-foreground);
+  --color-background: var(--heroui-background);
+}
+
+@layer base {
+  :root {
+    --heroui-primary: #4f46e5; /* colors.indigo[600] */
+    --heroui-secondary: #52525b; /* colors.zinc[600] */
+    --heroui-foreground: #475569; /* colors.slate[600] */
+    --heroui-background: #ffffff;
+  }
+
+  .dark {
+    --heroui-primary: #a5b4fc; /* colors.indigo[300] */
+    --heroui-secondary: #a1a1aa; /* colors.zinc[400] */
+    --heroui-foreground: #94a3b8; /* colors.slate[400] */
+    --heroui-background: #020617; /* colors.slate[950] */
+  }
+}
 
 * {
   scroll-behavior: smooth !important;
@@ -42,7 +64,7 @@ div {
 
 /* Section */
 .section {
-  @apply min-h-[100vh] overflow-x-hidden content-evenly items-center justify-evenly shadow-zinc-300 dark:shadow-zinc-700 shadow-sm overflow-hidden;
+  @apply min-h-[100vh] w-full flex flex-col overflow-x-hidden content-evenly items-center justify-evenly shadow-sm overflow-hidden;
 }
 
 .section-heading {

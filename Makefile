@@ -1,6 +1,5 @@
 install:
 	npm install
-	npm install -g firebase-tools
 
 format:
 	npm run format
@@ -13,6 +12,10 @@ local: install format lint
 
 build:
 	npm run build
+
+.PHONY: firebase
+firebase:
+	npm install -g firebase-tools
 
 deploy: build
 	firebase deploy --only hosting

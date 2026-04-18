@@ -39,21 +39,11 @@ const Intro = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (isHome) {
-      profileRef.current?.classList.add("slide-in");
-      introRef.current?.classList.add("slide-in");
-    } else {
-      profileRef.current?.classList.remove("slide-in");
-      introRef.current?.classList.remove("slide-in");
-    }
-  }, [isHome]);
-
   return (
-    <section id="home" ref={homeRef}>
-      <div className="min-h-[100vh] overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[200px] 2xl:px-[400px] md:flex content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm">
+    <section id="home" ref={homeRef} className="w-full">
+      <div className="min-h-[100vh] w-full overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[200px] 2xl:px-[400px] flex flex-col md:flex-row content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm">
         <div
-          className="translate-x-[500px] transition-all opacity-0 duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] relative m-auto md:m-0 mt-[40px] md:mt-0"
+          className={`${isHome ? "translate-x-0 opacity-100" : "translate-x-[-500px] opacity-0"} transition-all duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] relative m-auto md:m-0 mt-[40px] md:mt-0 order-last md:order-first`}
           ref={profileRef}
         >
           <Image
@@ -66,7 +56,7 @@ const Intro = () => {
         </div>
 
         <div
-          className="translate-x-[-500px] transition-all duration-700 opacity-0"
+          className={`${isHome ? "translate-x-0 opacity-100" : "translate-x-[500px] opacity-0"} transition-all duration-700 order-first md:order-last`}
           ref={introRef}
         >
           <p className="text-2xl md:text-4xl py-2 font-sans text-center text-nowrap">
