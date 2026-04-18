@@ -46,7 +46,7 @@ export const MainHeader = () => {
 
   return (
     <nav className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur-lg pt-10 px-6">
-      <header className="flex h-16 items-center justify-between">
+      <header className="max-w-7xl mx-auto flex h-16 items-center justify-between">
         <Title />
 
         <div className="sm:hidden">
@@ -155,8 +155,8 @@ export const PageHeader = ({
   placeholder: string;
   children: ReactNode;
 }) => (
-  <div className="w-full p-5 backdrop-filter backdrop-blur-lg md:flex justify-between items-center gap-4 shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500">
-    <div className="flex flex-row justify-between w-full">
+  <div className="w-full p-5 backdrop-filter backdrop-blur-lg shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500">
+    <div className="max-w-7xl mx-auto flex flex-row justify-between w-full">
       <div className="flex flex-row gap-1 p-1">
         <Link href="/">
           <ChevronLeftIcon className="size-8 text-xl text-primary" />
