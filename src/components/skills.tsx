@@ -1,9 +1,46 @@
 import { Tooltip } from "@heroui/react";
 
+import areasData from "@/data/areas";
 import skillsData from "@/data/skills";
 import { Skill } from "@/types";
 
-export const Tools = ({ tools }: { tools: string[] }) => (
+export const Areas = ({
+  areas,
+  className,
+}: {
+  areas: string[];
+  className?: string;
+}) => (
+  <ul className={`flex flex-row flex-wrap gap-2 ${className}`}>
+    {areas.map((areaId) => {
+      const area = areasData[areaId.toLowerCase()];
+      if (!area) return null;
+      return (
+        <li key={area.name}>
+          <Tooltip>
+            <Tooltip.Trigger>
+              <div className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center">
+                {area.icon}
+              </div>
+            </Tooltip.Trigger>
+            <Tooltip.Content>
+              <Tooltip.Arrow />
+              {area.name}
+            </Tooltip.Content>
+          </Tooltip>
+        </li>
+      );
+    })}
+  </ul>
+);
+
+export const Tools = ({
+  tools,
+  compact = false,
+}: {
+  tools: string[];
+  compact?: boolean;
+}) => (
   <ul className="flex flex-row flex-wrap gap-2">
     {tools.map((toolId) => {
       const tool = skillsData[toolId.toLowerCase()];
@@ -12,11 +49,17 @@ export const Tools = ({ tools }: { tools: string[] }) => (
         <li key={tool.name} className="flex flex-col items-center">
           <Tooltip>
             <Tooltip.Trigger>
-              <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                <div className="size-6 text-slate-600 dark:text-slate-400 flex items-center justify-center">
+              {compact ? (
+                <div className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center">
                   {tool.icon}
                 </div>
-              </div>
+              ) : (
+                <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                  <div className="size-6 text-slate-600 dark:text-slate-400 flex items-center justify-center">
+                    {tool.icon}
+                  </div>
+                </div>
+              )}
             </Tooltip.Trigger>
             <Tooltip.Content>
               <Tooltip.Arrow />

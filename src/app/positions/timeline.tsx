@@ -1,10 +1,10 @@
 import { Card, Separator } from "@heroui/react";
 
-import { Tags, Tools } from "@/components/skills";
+import { Areas, Tools } from "@/components/skills";
 import { Position } from "@/types";
 
 const PositionView = ({ position }: { position: Position }) => (
-  <Card className="w-full bg-transparent border-2 border-slate-500 ml-6 shadow-none">
+  <Card className="w-full bg-transparent border-1 border-slate-500 ml-6 shadow-none">
     <Card.Header className="flex gap-3">
       <div className="flex flex-col">
         <p className="text-md">{position.title}</p>
@@ -13,7 +13,7 @@ const PositionView = ({ position }: { position: Position }) => (
         </p>
       </div>
     </Card.Header>
-    <Separator />
+    <Separator className="bg-slate-500/30" />
     <Card.Content>
       <ul>
         {position.tasks.map((task) => (
@@ -26,14 +26,13 @@ const PositionView = ({ position }: { position: Position }) => (
         ))}
       </ul>
     </Card.Content>
-    <Separator />
+    <Separator className="bg-slate-500/30" />
     <Card.Footer className="justify-between">
-      <div className="flex flex-row">
-        <Tags tags={position.tags} />
-        <Separator orientation="vertical" className="h-6 mx-2" />
-        <Tools tools={position.skills} />
+      <div className="flex flex-row items-center gap-4">
+        <Areas areas={position.tags} />
+        <Tools tools={position.skills} compact />
       </div>
-      <ul className="flex flex-row gap-2 text-zinc-400">
+      <ul className="flex flex-row gap-2 text-zinc-400 text-sm">
         {position.roles.map((role) => (
           <li key={role}>{role}</li>
         ))}
@@ -48,7 +47,7 @@ const Timeline = ({ positions }: { positions: Position[] }) => (
       {positions.map((position: Position) => (
         <li className="group mb-5 w-full relative" key={position.id}>
           <div
-            className="absolute left-[9px] top-5 bottom-0 border-r-2 border-slate-500"
+            className="absolute left-[9px] top-5 bottom-0 border-r-1 border-slate-500"
             style={{ height: "calc(100% + 1.25rem)" }}
           ></div>
           <div>
@@ -57,8 +56,8 @@ const Timeline = ({ positions }: { positions: Position[] }) => (
             </span>
           </div>
           <div className="flex relative">
-            <div className="bg-gray-800 dark:bg-gray-600 group-hover:bg-primary z-10 rounded-full border-2 border-slate-500 h-5 w-5">
-              <div className="bg-slate-500 h-0.5 w-7 items-center ml-4 mt-2"></div>
+            <div className="bg-gray-800 dark:bg-gray-600 group-hover:bg-primary z-10 rounded-full border-1 border-slate-500 h-5 w-5">
+              <div className="bg-slate-500 h-px w-7 items-center ml-4 mt-[9px]"></div>
             </div>
             <PositionView position={position} />
           </div>
