@@ -14,7 +14,7 @@ build:
 	npm run build
 
 deploy: build
-	npx firebase deploy --only hosting
+	firebase deploy --only hosting
 
 clean:
 	rm -rf node_modules .next out
