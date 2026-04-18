@@ -51,6 +51,16 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     setTheme(getTheme);
   }, []);
 
+  useEffect(() => {
+    if (mounted) {
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    }
+  }, [theme, mounted]);
+
   const contextValue = useMemo(
     () => ({ theme, toggleTheme }),
     [theme, toggleTheme],
@@ -58,9 +68,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <ThemeContext.Provider value={contextValue}>
-      <div className={!mounted || theme === "dark" ? "dark" : ""}>
-        <div className="dark:text-slate-400 dark:bg-background">{children}</div>
-      </div>
+      {children}
     </ThemeContext.Provider>
   );
 };

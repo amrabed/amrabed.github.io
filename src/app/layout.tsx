@@ -54,9 +54,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} antialiased text-slate-600 bg-white`}
+        className={`${inter.className} antialiased bg-background text-foreground transition-colors duration-500`}
       >
         <Providers>
           {children}

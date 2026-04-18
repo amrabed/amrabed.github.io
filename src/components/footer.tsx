@@ -27,12 +27,8 @@ const Footer = () => {
         </div>
 
         <div className="flex items-center gap-3 order-3">
-          <Switch
-            isSelected={theme === "dark"}
-            onChange={toggleTheme}
-            className="data-[selected=true]:bg-primary"
-          >
-            <Switch.Control>
+          <Switch isSelected={theme === "dark"} onChange={toggleTheme}>
+            <Switch.Control className="data-[selected=true]:bg-primary">
               <Switch.Thumb />
             </Switch.Control>
           </Switch>
