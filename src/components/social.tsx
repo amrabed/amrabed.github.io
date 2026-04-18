@@ -8,17 +8,18 @@ import { Profile } from "@/types";
 const Social = ({ profiles: propsProfiles }: { profiles?: Profile[] }) => {
   const socialProfiles = propsProfiles || profiles;
   return (
-    <div className="flex flex-row justify-center gap-2">
+    <div className="flex flex-row justify-center gap-6">
       {socialProfiles.map((profile) => (
         <Tooltip key={profile.name}>
           <Tooltip.Trigger>
             <Button
               variant="ghost"
               size="lg"
-              className="text-slate-500 hover:text-primary min-w-0 p-2 h-auto"
+              isIconOnly
+              className="text-slate-500 hover:text-primary rounded-full"
               onPress={() => window.open(profile.link, "_blank", "noreferrer")}
             >
-              {profile.icon}
+              <span className="text-2xl">{profile.icon}</span>
             </Button>
           </Tooltip.Trigger>
           <Tooltip.Content>
