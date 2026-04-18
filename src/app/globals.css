@@ -64,7 +64,7 @@ div {
 
 /* Section */
 .section {
-  @apply min-h-[100vh] overflow-x-hidden content-evenly items-center justify-evenly shadow-sm overflow-hidden;
+  @apply min-h-[100vh] w-full flex flex-col overflow-x-hidden content-evenly items-center justify-evenly shadow-sm overflow-hidden;
 }
 
 .section-heading {
