@@ -53,6 +53,8 @@ export const MainHeader = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
             className="p-2"
           >
             <svg
@@ -108,7 +110,10 @@ export const MainHeader = () => {
       </header>
 
       {isMenuOpen && (
-        <div className="sm:hidden pb-6 transition-all duration-300">
+        <div
+          id="mobile-menu"
+          className="sm:hidden pb-6 transition-all duration-300"
+        >
           <ul className="flex flex-col gap-4">
             {sections.map((section) => (
               <li key={section.name}>
