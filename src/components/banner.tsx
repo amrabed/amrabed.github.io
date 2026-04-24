@@ -4,7 +4,7 @@ export const Banner = () => (
     <a
       href="https://freepalestine.dev"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       className="text-link ms-0 text-white hover:underline sm:ms-1"
     >
       <div className="mr-1 inline text-white sm:hidden">🇵🇸</div>

@@ -17,7 +17,9 @@ const Social = ({ profiles: propsProfiles }: { profiles?: Profile[] }) => {
               size="lg"
               isIconOnly
               className="text-slate-500 hover:text-primary rounded-full text-2xl"
-              onPress={() => window.open(profile.link, "_blank", "noreferrer")}
+              onPress={() =>
+                window.open(profile.link, "_blank", "noopener,noreferrer")
+              }
             >
               {profile.icon}
             </Button>
