@@ -30,7 +30,6 @@ const Certifications = () => (
   <Section id="certifications" title="Certifications">
     {certificates.map((certificate: Certification) => (
       <div className="transition-all duration-700" key={certificate.title}>
-        {/* Added rel="noopener" to prevent reverse tabnabbing security vulnerability */}
         <a href={certificate.link} target="_blank" rel="noopener noreferrer">
           <div className="section-item p-3">
             <Image
@@ -53,7 +52,6 @@ const Degrees = () => (
   <Section id="degrees" title="Education">
     {degrees.map((degree: Degree) => (
       <div className="transition-all duration-700 gap-6" key={degree.title}>
-        {/* Added rel="noopener" to prevent reverse tabnabbing security vulnerability */}
         <a
           href={degree.university.url}
           target="_blank"

@@ -18,7 +18,6 @@ const Social = ({ profiles: propsProfiles }: { profiles?: Profile[] }) => {
               isIconOnly
               className="text-slate-500 hover:text-primary rounded-full text-2xl"
               onPress={() =>
-                // Added noopener to prevent reverse tabnabbing security vulnerability
                 window.open(profile.link, "_blank", "noopener,noreferrer")
               }
             >

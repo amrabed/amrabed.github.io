@@ -29,7 +29,6 @@ const IconLink = ({
 }) => (
   <Tooltip>
     <Tooltip.Trigger>
-      {/* Added rel="noopener" to prevent reverse tabnabbing security vulnerability */}
       <Link
         href={href}
         target="_blank"
