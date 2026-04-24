@@ -29,10 +29,11 @@ const IconLink = ({
 }) => (
   <Tooltip>
     <Tooltip.Trigger>
+      {/* Added rel="noopener" to prevent reverse tabnabbing security vulnerability */}
       <Link
         href={href}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className="text-slate-500 hover:text-primary transition-colors"
       >
         {children}
