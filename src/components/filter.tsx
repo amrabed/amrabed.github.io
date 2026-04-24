@@ -94,7 +94,13 @@ export const Selections = ({
 
 export const Filter = ({ children }: { children: ReactNode }) => (
   <Popover>
-    <Button id="filter" variant="ghost" isIconOnly>
+    <Button
+      id="filter-trigger"
+      variant="ghost"
+      isIconOnly
+      aria-label="Open filters"
+      aria-haspopup="dialog"
+    >
       <AdjustmentsHorizontalIcon className="size-6" />
     </Button>
     <Popover.Content

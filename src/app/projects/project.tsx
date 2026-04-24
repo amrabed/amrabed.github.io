@@ -32,7 +32,8 @@ const IconLink = ({
       <Link
         href={href}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
+        aria-label={title}
         className="text-slate-500 hover:text-primary transition-colors"
       >
         {children}
