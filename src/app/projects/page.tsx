@@ -1,6 +1,8 @@
 "use client";
 
 import { Section } from "@/components/section";
+import React, { useMemo } from "react";
+
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import projects from "@/data/projects";
@@ -14,24 +16,27 @@ const Page = () => {
   const { query } = useSearch();
   const { selected } = useFilter();
 
-  const selectedRoles = selected["roles"] || [];
-  const selectedTools = selected["tools"] || [];
-  const selectedSkills = selected["skills"] || [];
+  const filteredProjects = useMemo(() => {
+    const lowercaseQuery = query.toLowerCase();
+    const roleSet = new Set((selected["roles"] || []).map((s) => s.toLowerCase()));
+    const toolSet = new Set((selected["tools"] || []).map((s) => s.toLowerCase()));
+    const skillSet = new Set((selected["skills"] || []).map((s) => s.toLowerCase()));
 
-  const filteredProjects = projects
-    .filter(
-      (project) =>
-        filterByQuery(project, query) &&
-        filterBySelection(project.roles, selectedRoles) &&
-        filterBySelection(project.tags, selectedSkills) &&
-        filterBySelection(project.tools, selectedTools),
-    )
-    .sort(
-      (project1, project2) =>
-        project1.group - project2.group ||
-        new Date(project2.date).getFullYear() -
-          new Date(project1.date).getFullYear(),
-    );
+    return projects
+      .filter(
+        (project) =>
+          filterByQuery(project, lowercaseQuery) &&
+          filterBySelection(project.roles, roleSet) &&
+          filterBySelection(project.tags, skillSet) &&
+          filterBySelection(project.tools, toolSet),
+      )
+      .sort(
+        (project1, project2) =>
+          project1.group - project2.group ||
+          new Date(project2.date).getFullYear() -
+            new Date(project1.date).getFullYear(),
+      );
+  }, [query, selected]);
 
   return (
     <FilterBase

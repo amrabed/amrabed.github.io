@@ -1,6 +1,8 @@
 "use client";
 
 import { Section } from "@/components/section";
+import React, { useMemo } from "react";
+
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import positions from "@/data/positions";
@@ -13,17 +15,20 @@ const Page = () => {
   const { query } = useSearch();
   const { selected } = useFilter();
 
-  const selectedRoles = selected["roles"] || [];
-  const selectedTools = selected["tools"] || [];
-  const selectedSkills = selected["skills"] || [];
+  const filteredPositions = useMemo(() => {
+    const lowercaseQuery = query.toLowerCase();
+    const roleSet = new Set((selected["roles"] || []).map((s) => s.toLowerCase()));
+    const toolSet = new Set((selected["tools"] || []).map((s) => s.toLowerCase()));
+    const skillSet = new Set((selected["skills"] || []).map((s) => s.toLowerCase()));
 
-  const filteredPositions = positions.filter(
-    (position) =>
-      filterByQuery(position, query) &&
-      filterBySelection(position.tags, selectedSkills) &&
-      filterBySelection(position.roles, selectedRoles) &&
-      filterBySelection(position.skills, selectedTools),
-  );
+    return positions.filter(
+      (position) =>
+        filterByQuery(position, lowercaseQuery) &&
+        filterBySelection(position.tags, skillSet) &&
+        filterBySelection(position.roles, roleSet) &&
+        filterBySelection(position.skills, toolSet),
+    );
+  }, [query, selected]);
 
   return (
     <FilterBase
