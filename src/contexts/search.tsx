@@ -10,12 +10,14 @@ import {
   useMemo,
   useCallback,
 } from "react";
+import { useDebounce } from "use-debounce";
 
 import { withSuspense } from "./suspense";
 import { useUrlSync } from "./sync";
 
 type SearchContextType = {
   query: string;
+  debouncedQuery: string;
   setQuery: (query: string) => void;
 };
 
@@ -35,6 +37,7 @@ export const useSearch: () => SearchContextType = () => {
 const SearchContent = ({ children }: { children: ReactNode }) => {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState<string>(searchParams.get("query") || "");
+  const [debouncedQuery] = useDebounce(query, 300);
 
   const updateUrl = useCallback((params: URLSearchParams, query: string) => {
     if (query) {
@@ -44,9 +47,12 @@ const SearchContent = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  useUrlSync(query, updateUrl);
+  useUrlSync(debouncedQuery, updateUrl);
 
-  const contextValue = useMemo(() => ({ query, setQuery }), [query]);
+  const contextValue = useMemo(
+    () => ({ query, debouncedQuery, setQuery }),
+    [query, debouncedQuery],
+  );
 
   return (
     <SearchContext.Provider value={contextValue}>

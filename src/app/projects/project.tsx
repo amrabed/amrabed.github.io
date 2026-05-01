@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import React from "react";
+import React, { memo } from "react";
 import {
   FaGithub,
   FaYoutube,
@@ -90,7 +90,7 @@ const Links = ({ links }: { links: ProjectLinks }) => {
   );
 };
 
-const ProjectView = ({ project }: { project: Project }) => {
+const ProjectView = memo(({ project }: { project: Project }) => {
   return (
     <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border-1 border-slate-500/50 shadow-none h-full hover:border-primary transition-colors duration-300">
       <div className="flex justify-between items-start">
@@ -122,6 +122,8 @@ const ProjectView = ({ project }: { project: Project }) => {
       </div>
     </div>
   );
-};
+});
+
+ProjectView.displayName = "ProjectView";
 
 export default ProjectView;

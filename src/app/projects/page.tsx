@@ -13,11 +13,11 @@ import { FilterBase } from "../../components/filter-base";
 import ProjectView from "./project";
 
 const Page = () => {
-  const { query } = useSearch();
+  const { debouncedQuery } = useSearch();
   const { selected } = useFilter();
 
   const filteredProjects = useMemo(() => {
-    const lowercaseQuery = query.toLowerCase();
+    const lowercaseQuery = debouncedQuery.toLowerCase();
     const roleSet = new Set((selected["roles"] || []).map((s) => s.toLowerCase()));
     const toolSet = new Set((selected["tools"] || []).map((s) => s.toLowerCase()));
     const skillSet = new Set((selected["skills"] || []).map((s) => s.toLowerCase()));
@@ -36,7 +36,7 @@ const Page = () => {
           new Date(project2.date).getFullYear() -
             new Date(project1.date).getFullYear(),
       );
-  }, [query, selected]);
+  }, [debouncedQuery, selected]);
 
   return (
     <FilterBase
