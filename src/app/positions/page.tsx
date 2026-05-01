@@ -12,11 +12,11 @@ import { FilterBase } from "../../components/filter-base";
 import Timeline from "./timeline";
 
 const Page = () => {
-  const { query } = useSearch();
+  const { debouncedQuery } = useSearch();
   const { selected } = useFilter();
 
   const filteredPositions = useMemo(() => {
-    const lowercaseQuery = query.toLowerCase();
+    const lowercaseQuery = debouncedQuery.toLowerCase();
     const roleSet = new Set((selected["roles"] || []).map((s) => s.toLowerCase()));
     const toolSet = new Set((selected["tools"] || []).map((s) => s.toLowerCase()));
     const skillSet = new Set((selected["skills"] || []).map((s) => s.toLowerCase()));
@@ -28,7 +28,7 @@ const Page = () => {
         filterBySelection(position.roles, roleSet) &&
         filterBySelection(position.skills, toolSet),
     );
-  }, [query, selected]);
+  }, [debouncedQuery, selected]);
 
   return (
     <FilterBase

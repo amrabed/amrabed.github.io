@@ -1,9 +1,11 @@
+import React, { memo } from "react";
+
 import { Card, Separator } from "@heroui/react";
 
 import { Areas, Tools } from "@/components/skills";
 import { Position } from "@/types";
 
-const PositionView = ({ position }: { position: Position }) => (
+const PositionView = memo(({ position }: { position: Position }) => (
   <Card className="w-full bg-transparent border-1 border-slate-500 ml-6 shadow-none group-hover:border-primary transition-colors duration-300">
     <Card.Header className="flex gap-3">
       <div className="flex flex-col">
@@ -39,9 +41,11 @@ const PositionView = ({ position }: { position: Position }) => (
       </ul>
     </Card.Footer>
   </Card>
-);
+));
 
-const Timeline = ({ positions }: { positions: Position[] }) => (
+PositionView.displayName = "PositionView";
+
+const Timeline = memo(({ positions }: { positions: Position[] }) => (
   <div className="flex w-full justify-center">
     <ul className="w-full">
       {positions.map((position: Position) => (
@@ -65,6 +69,8 @@ const Timeline = ({ positions }: { positions: Position[] }) => (
       ))}
     </ul>
   </div>
-);
+));
+
+Timeline.displayName = "Timeline";
 
 export default Timeline;
