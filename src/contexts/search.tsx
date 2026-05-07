@@ -47,7 +47,7 @@ const SearchContent = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  useUrlSync(debouncedQuery, updateUrl);
+  useUrlSync(query, updateUrl);
 
   const contextValue = useMemo(
     () => ({ query, debouncedQuery, setQuery }),

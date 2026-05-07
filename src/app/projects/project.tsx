@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { memo } from "react";
+import React from "react";
 import {
   FaGithub,
   FaYoutube,
@@ -25,7 +25,7 @@ const IconLink = ({
 }: {
   href: string;
   title: string;
-  children: import("react").ReactNode;
+  children: React.ReactNode;
 }) => (
   <Tooltip>
     <Tooltip.Trigger>
@@ -90,7 +90,7 @@ const Links = ({ links }: { links: ProjectLinks }) => {
   );
 };
 
-const ProjectView = memo(({ project }: { project: Project }) => {
+const ProjectView = ({ project }: { project: Project }) => {
   return (
     <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border-1 border-slate-500/50 shadow-none h-full hover:border-primary transition-colors duration-300">
       <div className="flex justify-between items-start">
@@ -122,8 +122,6 @@ const ProjectView = memo(({ project }: { project: Project }) => {
       </div>
     </div>
   );
-});
-
-ProjectView.displayName = "ProjectView";
+};
 
 export default ProjectView;
