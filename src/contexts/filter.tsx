@@ -17,6 +17,7 @@ import { useUrlSync } from "./sync";
 type FilterContextType = {
   selected: Record<string, string[]>;
   setSelected: (category: string, selected: string[]) => void;
+  clearAll: () => void;
 };
 
 export const FilterContext = createContext<FilterContextType | undefined>(
@@ -49,6 +50,10 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
     setSelectedState((prev) => ({ ...prev, [cat]: vals }));
   }, []);
 
+  const clearAll = useCallback(() => {
+    setSelectedState({});
+  }, []);
+
   const update = useCallback(
     (p: URLSearchParams, s: Record<string, string[]>) => {
       Array.from(p.keys()).forEach((k) => {
@@ -64,8 +69,8 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
   useUrlSync(selected, update);
 
   const contextValue = useMemo(
-    () => ({ selected, setSelected }),
-    [selected, setSelected],
+    () => ({ selected, setSelected, clearAll }),
+    [selected, setSelected, clearAll],
   );
 
   return (

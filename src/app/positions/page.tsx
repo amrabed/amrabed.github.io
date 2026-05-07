@@ -8,6 +8,8 @@ import { useSearch } from "@/contexts/search";
 import positions from "@/data/positions";
 import { filterByQuery, filterBySelection } from "@/filter";
 
+import { EmptyState } from "@/components/empty-state";
+
 import { FilterBase } from "../../components/filter-base";
 import Timeline from "./timeline";
 
@@ -36,9 +38,13 @@ const Page = () => {
       placeholder="Search by title, role, skill, or tool"
     >
       <Section id="experience" title="">
-        <div className="flex text-center items-center content-center justify-center mt-[50px]">
-          <Timeline positions={filteredPositions} />
-        </div>
+        {filteredPositions.length > 0 ? (
+          <div className="flex text-center items-center content-center justify-center mt-[50px]">
+            <Timeline positions={filteredPositions} />
+          </div>
+        ) : (
+          <EmptyState />
+        )}
       </Section>
     </FilterBase>
   );

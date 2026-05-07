@@ -9,6 +9,8 @@ import projects from "@/data/projects";
 import { filterByQuery, filterBySelection } from "@/filter";
 import type { Project } from "@/types";
 
+import { EmptyState } from "@/components/empty-state";
+
 import { FilterBase } from "../../components/filter-base";
 import ProjectView from "./project";
 
@@ -44,11 +46,15 @@ const Page = () => {
       placeholder="Search by name, role, skill, or tool"
     >
       <Section id="projects" title="">
-        <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 pt-[50px] gap-5">
-          {filteredProjects.map((project: Project) => (
-            <ProjectView key={project.id} project={project} />
-          ))}
-        </div>
+        {filteredProjects.length > 0 ? (
+          <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 pt-[50px] gap-5">
+            {filteredProjects.map((project: Project) => (
+              <ProjectView key={project.id} project={project} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState />
+        )}
       </Section>
     </FilterBase>
   );
