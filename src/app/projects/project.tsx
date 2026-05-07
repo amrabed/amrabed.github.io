@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import React, { memo } from "react";
+import { memo } from "react";
 import {
   FaGithub,
   FaYoutube,
@@ -25,7 +25,7 @@ const IconLink = ({
 }: {
   href: string;
   title: string;
-  children: React.ReactNode;
+  children: import("react").ReactNode;
 }) => (
   <Tooltip>
     <Tooltip.Trigger>
