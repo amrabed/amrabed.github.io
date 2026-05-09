@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 
 import { ChevronUpIcon } from "@heroicons/react/24/outline";
-import { Button } from "@heroui/react";
+import { Button, Tooltip } from "@heroui/react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,16 +30,33 @@ const ScrollToTopButton = () => {
 
   return (
     <div className="scroll-to-top">
-      {isVisible && (
-        <Button
-          isIconOnly
-          onPress={scrollToTop}
-          className="scroll-button bg-primary hover:bg-indigo-700 h-12 w-12 min-w-0 p-0 rounded-full"
-          aria-label="Scroll to top"
-        >
-          <ChevronUpIcon className="size-6 text-white" />
-        </Button>
-      )}
+      <AnimatePresence>
+        {isVisible && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Tooltip>
+              <Tooltip.Trigger>
+                <Button
+                  isIconOnly
+                  onPress={scrollToTop}
+                  className="scroll-button bg-primary hover:bg-indigo-700 h-12 w-12 min-w-0 p-0 rounded-full"
+                  aria-label="Scroll to top"
+                >
+                  <ChevronUpIcon className="size-6 text-white" />
+                </Button>
+              </Tooltip.Trigger>
+              <Tooltip.Content>
+                <Tooltip.Arrow />
+                Scroll to top
+              </Tooltip.Content>
+            </Tooltip>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
