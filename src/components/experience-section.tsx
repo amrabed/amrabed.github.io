@@ -23,12 +23,9 @@ export const ExperienceSection = () => {
 
   return (
     <Section id="experience" title="Experience" count={filteredPositions.length}>
-      <div className="w-full mt-8">
+      <div className="w-full mt-8 px-4 md:px-10">
         <Timeline positions={filteredPositions} />
       </div>
-      {filteredPositions.length === 0 && (
-        <p className="text-center text-slate-500 w-full py-8">No positions match your filters.</p>
-      )}
     </Section>
   );
 };

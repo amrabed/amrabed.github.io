@@ -21,47 +21,45 @@ export const UnifiedFilterBar = () => {
   };
 
   return (
-    <div className="sticky top-[104px] z-30 w-full bg-background/80 backdrop-blur-md border-b border-divider py-4 px-6 transition-all duration-500">
-      <div className="max-w-7xl mx-auto flex flex-col gap-4">
-        <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-          <div className="w-full lg:w-1/3">
-            <Searchbar
-              placeholder="Search skills, certifications, projects..."
-              query={query}
-              setQuery={setQuery}
-            />
-          </div>
-          <div className="flex flex-wrap gap-2 flex-1 justify-center lg:justify-start lg:px-4">
-            {Object.entries(areas).map(([key, area]) => {
-              const isSelected = selectedAreas.has(key);
-              return (
-                <Button
-                  key={key}
-                  size="sm"
-                  variant={isSelected ? "primary" : "secondary"}
-                  onPress={() => toggleArea(key)}
-                  aria-pressed={isSelected}
-                  className="h-8 px-3 transition-all rounded-full flex gap-2 items-center"
-                >
-                  <span className="flex items-center size-4">{area.icon}</span>
-                  {area.name}
-                </Button>
-              );
-            })}
-          </div>
-          <div className="min-w-[100px] flex justify-end">
-            {hasFilters && (
+    <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl bg-background/90 backdrop-blur-md border border-divider py-4 px-6 rounded-2xl shadow-2xl transition-all duration-500">
+      <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+        <div className="w-full lg:w-1/3">
+          <Searchbar
+            placeholder="Search everything..."
+            query={query}
+            setQuery={setQuery}
+          />
+        </div>
+        <div className="flex flex-wrap gap-2 flex-1 justify-center lg:justify-start lg:px-4">
+          {Object.entries(areas).map(([key, area]) => {
+            const isSelected = selectedAreas.has(key);
+            return (
               <Button
-                variant="danger-soft"
+                key={key}
                 size="sm"
-                onPress={handleClearAll}
-                className="font-medium flex gap-1 items-center"
+                variant={isSelected ? "primary" : "secondary"}
+                onPress={() => toggleArea(key)}
+                aria-pressed={isSelected}
+                className="h-8 px-3 transition-all rounded-full flex gap-2 items-center"
               >
-                <XMarkIcon className="size-4" />
-                Clear all
+                <span className="flex items-center size-4">{area.icon}</span>
+                <span className="hidden sm:inline">{area.name}</span>
               </Button>
-            )}
-          </div>
+            );
+          })}
+        </div>
+        <div className="min-w-[100px] flex justify-end">
+          {hasFilters && (
+            <Button
+              variant="danger-soft"
+              size="sm"
+              onPress={handleClearAll}
+              className="font-medium flex gap-1 items-center"
+            >
+              <XMarkIcon className="size-4" />
+              <span className="hidden sm:inline">Clear all</span>
+            </Button>
+          )}
         </div>
       </div>
     </div>

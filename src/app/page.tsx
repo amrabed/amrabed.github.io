@@ -15,13 +15,12 @@ const Intro = dynamic(() => import("@/components/intro"), { ssr: false });
 
 const Home = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen pb-32">
       <Banner />
       <MainHeader />
       <Intro />
-      <UnifiedFilterBar />
       <main className="flex-grow">
-        <div className="max-w-7xl mx-auto px-6 space-y-24 py-24">
+        <div className="space-y-0">
           <SkillsSection />
           <CertificationsSection />
           <EducationSection />
@@ -30,6 +29,7 @@ const Home = () => {
           <AboutSection />
         </div>
       </main>
+      <UnifiedFilterBar />
     </div>
   );
 };

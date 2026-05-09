@@ -20,7 +20,7 @@ firebase:
 deploy: build
 	firebase deploy --only hosting
 
-deploy-dev: build
+preview: build
 	firebase hosting:channel:deploy dev
 
 clean:

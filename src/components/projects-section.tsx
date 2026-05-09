@@ -28,14 +28,11 @@ export const ProjectsSection = () => {
 
   return (
     <Section id="projects" title="Projects" count={filteredProjects.length}>
-      <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full">
+      <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full px-4 md:px-10">
         {filteredProjects.map((project) => (
           <ProjectView key={project.id} project={project} />
         ))}
       </div>
-      {filteredProjects.length === 0 && (
-        <p className="text-center text-slate-500 w-full py-8">No projects match your filters.</p>
-      )}
     </Section>
   );
 };

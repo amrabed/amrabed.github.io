@@ -2,7 +2,6 @@
 
 import { useMemo } from "react";
 import Image from "next/image";
-import { Card } from "@heroui/react";
 import { useSearch } from "@/contexts/search";
 import degreesData from "@/data/degrees";
 import { filterByQuery } from "@/filter";
@@ -17,40 +16,32 @@ export const EducationSection = () => {
   }, [debouncedQuery]);
 
   return (
-    <Section id="education" title="Education" count={filteredDegrees.length}>
-      <div className="flex flex-col gap-6 w-full">
-        {filteredDegrees.map((degree) => (
+    <Section id="degrees" title="Education" count={filteredDegrees.length}>
+      {filteredDegrees.map((degree) => (
+        <div className="transition-all duration-700 gap-6" key={degree.title}>
           <a
-            key={degree.title}
             href={degree.university.url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Card className="hover:border-primary border-1 transition-all duration-300 bg-white dark:bg-slate-900 p-6 flex flex-col md:flex-row items-center gap-6">
-              <div className="relative size-24 shrink-0">
-                <Image
-                  src={degree.university.logo ?? ""}
-                  alt={`${degree.university.name} logo`}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex flex-col gap-1 text-center md:text-left">
-                <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                  {degree.title}
-                </h3>
-                <p className="text-primary font-medium text-lg">
-                  {degree.university.name}
-                </p>
-                <p className="text-secondary">{degree.duration}</p>
-              </div>
-            </Card>
+            <div className="section-item p-3">
+              <Image
+                src={degree.university.logo ?? ""}
+                alt={`${degree.university.name} logo`}
+                height={150}
+                width={150}
+              />
+              <p className="text-xl md:text-2xl text-foreground">
+                {degree.title}
+              </p>
+              <p className="dark:text-primary-dark text-primary">
+                {degree.university.name}
+              </p>
+              <p className="text-secondary">{degree.duration}</p>
+            </div>
           </a>
-        ))}
-      </div>
-      {filteredDegrees.length === 0 && (
-        <p className="text-center text-slate-500 w-full py-8">No education entries match your search.</p>
-      )}
+        </div>
+      ))}
     </Section>
   );
 };

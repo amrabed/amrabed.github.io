@@ -2,7 +2,6 @@
 
 import { useMemo } from "react";
 import Image from "next/image";
-import { Card, Chip } from "@heroui/react";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import certificationsData from "@/data/certifications";
@@ -24,43 +23,23 @@ export const CertificationsSection = () => {
 
   return (
     <Section id="certifications" title="Certifications" count={filteredCerts.length}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-        {filteredCerts.map((cert) => (
-          <a
-            key={cert.title}
-            href={cert.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block h-full"
-          >
-            <Card className="h-full hover:border-primary border-1 transition-all duration-300 bg-white dark:bg-slate-900 p-6 flex flex-col items-center text-center gap-4">
-              <div className="relative size-32">
-                <Image
-                  src={cert.badge}
-                  alt={`Badge for ${cert.title}`}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-lg font-bold text-foreground leading-tight">{cert.title}</h3>
-                <p className="text-primary font-medium">{cert.organization.name}</p>
-                <p className="text-secondary text-sm">{cert.date}</p>
-              </div>
-              <div className="flex flex-wrap gap-1 justify-center mt-auto pt-4">
-                {cert.areas?.map(area => (
-                  <Chip key={area} size="sm" variant="soft" color="accent" className="capitalize text-[10px]">
-                    {area}
-                  </Chip>
-                ))}
-              </div>
-            </Card>
+      {filteredCerts.map((certificate) => (
+        <div className="transition-all duration-700" key={certificate.title}>
+          <a href={certificate.link} target="_blank" rel="noopener noreferrer">
+            <div className="section-item p-3">
+              <Image
+                src={certificate.badge}
+                alt={`Badge for ${certificate.title}`}
+                width={150}
+                height={150}
+              />
+              <p className="md:text-xl text-foreground">{certificate.title}</p>
+              <p className="text-primary">{certificate.organization.name}</p>
+              <p className="text-secondary">{certificate.date}</p>
+            </div>
           </a>
-        ))}
-      </div>
-      {filteredCerts.length === 0 && (
-        <p className="text-center text-slate-500 w-full py-8">No certifications match your filters.</p>
-      )}
+        </div>
+      ))}
     </Section>
   );
 };
