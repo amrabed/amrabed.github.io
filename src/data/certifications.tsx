@@ -10,6 +10,8 @@ const certifications: Certification[] = [
     badge: "/aws-genai-prof.png",
     link: "https://www.credly.com/badges/ec8af76c-b6f0-40d7-94c2-7df06820af50",
     date: "March 2026",
+    skills: ["python", "aws", "tensorflow", "mlflow"],
+    areas: ["machine learning", "cloud"],
   },
   {
     title: "AWS Certified Machine Learning - Specialty",
@@ -20,6 +22,8 @@ const certifications: Certification[] = [
     badge: "/aws-mls.webp",
     link: "https://www.credly.com/badges/8ea3bcee-014b-42df-bc37-3e49d1e4166e/public_url",
     date: "June 2024",
+    skills: ["python", "aws", "tensorflow", "scikit-learn", "mlflow"],
+    areas: ["machine learning", "cloud"],
   },
   {
     title: "AWS Certified Solutions Architect",
@@ -30,6 +34,8 @@ const certifications: Certification[] = [
     badge: "/aws-saa.webp",
     link: "https://www.youracclaim.com/badges/2d566076-370f-4b1b-8103-ed467325228d",
     date: "October 2020",
+    skills: ["aws", "docker", "kubernetes"],
+    areas: ["cloud", "devops"],
   },
   {
     title: "Certified Scrum Master",
@@ -40,6 +46,8 @@ const certifications: Certification[] = [
     badge: "/csm.webp",
     link: "https://bcert.me/swmyzzefi",
     date: "June 2020",
+    skills: [],
+    areas: ["devops"],
   },
   {
     title: "Certified Scrum Product Owner",
@@ -50,6 +58,8 @@ const certifications: Certification[] = [
     badge: "/cspo.webp",
     link: "https://bcert.me/spcxpsler",
     date: "June 2020",
+    skills: [],
+    areas: ["devops"],
   },
 ];
 

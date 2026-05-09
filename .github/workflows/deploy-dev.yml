@@ -1,0 +1,36 @@
+name: Deploy to Firebase (Dev)
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch or commit SHA to deploy'
+        required: false
+        default: 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Install dependencies
+        run: make install
+      - name: Install Firebase CLI
+        run: make firebase
+      - name: Deploy to Firebase Dev
+        run: make deploy-dev
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+# NOTE: Before this workflow runs successfully, the Firebase dev hosting site must be created
+# and the .firebaserc must map the dev target to its Firebase site name:
+#   firebase target:apply hosting dev <your-dev-site-name>
+# This updates .firebaserc which should be committed to the repo.

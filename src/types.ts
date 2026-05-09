@@ -65,6 +65,8 @@ export interface Certification {
   badge: string;
   link: string;
   date: string;
+  skills?: string[];
+  areas?: string[];
 }
 
 export interface Duration {

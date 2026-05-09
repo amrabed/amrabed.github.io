@@ -18,7 +18,10 @@ firebase:
 	npm install -g firebase-tools
 
 deploy: build
-	firebase deploy --only hosting
+	firebase deploy --only hosting:prod
+
+deploy-dev: build
+	firebase deploy --only hosting:dev
 
 clean:
 	rm -rf node_modules .next out

@@ -1,92 +1,37 @@
-import dynamic from "next/dynamic";
-import Image from "next/image";
+"use client";
 
+import dynamic from "next/dynamic";
 import { Banner } from "@/components/banner";
 import { MainHeader } from "@/components/header";
-import { Section } from "@/components/section";
-import certificates from "@/data/certifications";
-import degrees from "@/data/degrees";
-import skills from "@/data/skills";
-import type { Certification, Degree, Skill } from "@/types";
-import "@/types";
+import { UnifiedFilterBar } from "@/components/unified-filter-bar";
+import { SkillsSection } from "@/components/skills-section";
+import { CertificationsSection } from "@/components/certifications-section";
+import { EducationSection } from "@/components/education-section";
+import { ProjectsSection } from "@/components/projects-section";
+import { ExperienceSection } from "@/components/experience-section";
+import { AboutSection } from "@/components/about-section";
 
-const Intro = dynamic(() => import("@/components/intro"));
+const Intro = dynamic(() => import("@/components/intro"), { ssr: false });
 
-const Skills = () => (
-  <Section id="skills" title="Technical Skills">
-    {Object.values(skills).map((skill: Skill) => (
-      <div
-        className="transition-all duration-700 section-item md:py-5 w-[120px] md:w-[150px]"
-        key={skill.name}
-      >
-        <p className="md:text-4xl text-2xl">{skill.icon}</p>
-        <p>{skill.name}</p>
-      </div>
-    ))}
-  </Section>
-);
-
-const Certifications = () => (
-  <Section id="certifications" title="Certifications">
-    {certificates.map((certificate: Certification) => (
-      <div className="transition-all duration-700" key={certificate.title}>
-        <a href={certificate.link} target="_blank" rel="noopener noreferrer">
-          <div className="section-item p-3">
-            <Image
-              src={certificate.badge}
-              alt={`Badge for ${certificate.title}`}
-              width={150}
-              height={150}
-            />
-            <p className="md:text-xl text-foreground">{certificate.title}</p>
-            <p className="text-primary">{certificate.organization.name}</p>
-            <p className="text-secondary">{certificate.date}</p>
-          </div>
-        </a>
-      </div>
-    ))}
-  </Section>
-);
-
-const Degrees = () => (
-  <Section id="degrees" title="Education">
-    {degrees.map((degree: Degree) => (
-      <div className="transition-all duration-700 gap-6" key={degree.title}>
-        <a
-          href={degree.university.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="section-item p-3">
-            <Image
-              src={degree.university.logo ?? ""}
-              alt={`${degree.university.name} logo`}
-              height={150}
-              width={150}
-            />
-            <p className="text-xl md:text-2xl text-foreground">
-              {degree.title}
-            </p>
-            <p className="dark:text-primary-dark text-primary">
-              {degree.university.name}
-            </p>
-            <p className="text-secondary">{degree.duration}</p>
-          </div>
-        </a>
-      </div>
-    ))}
-  </Section>
-);
-
-const Home = () => (
-  <>
-    <Banner />
-    <MainHeader />
-    <Intro />
-    <Skills />
-    <Certifications />
-    <Degrees />
-  </>
-);
+const Home = () => {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Banner />
+      <MainHeader />
+      <Intro />
+      <UnifiedFilterBar />
+      <main className="flex-grow">
+        <div className="max-w-7xl mx-auto px-6 space-y-24 py-24">
+          <SkillsSection />
+          <CertificationsSection />
+          <EducationSection />
+          <ProjectsSection />
+          <ExperienceSection />
+          <AboutSection />
+        </div>
+      </main>
+    </div>
+  );
+};
 
 export default Home;
