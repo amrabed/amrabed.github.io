@@ -9,14 +9,15 @@ import { Section } from "./section";
 
 export const SkillsSection = () => {
   const { debouncedQuery } = useSearch();
-  const { selectedAreas } = useFilter();
+  const { selected } = useFilter();
 
   const filteredSkills = useMemo(() => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
 
     // Determine which skills are matching the area filter
+    const selectedAreas = selected["areas"] || [];
     const areaMatchingSkills = new Set<string>();
-    if (selectedAreas.size === 0) {
+    if (selectedAreas.length === 0) {
       Object.keys(skillsData).forEach(s => areaMatchingSkills.add(s));
     } else {
       selectedAreas.forEach(area => {
@@ -29,7 +30,7 @@ export const SkillsSection = () => {
       const matchesArea = areaMatchingSkills.has(key);
       return matchesQuery && matchesArea;
     });
-  }, [debouncedQuery, selectedAreas]);
+  }, [debouncedQuery, selected]);
 
   return (
     <Section id="skills" title="Technical Skills" count={filteredSkills.length}>

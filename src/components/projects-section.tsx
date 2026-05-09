@@ -10,21 +10,27 @@ import { Section } from "./section";
 
 export const ProjectsSection = () => {
   const { debouncedQuery } = useSearch();
-  const { selectedAreas } = useFilter();
+  const { selected } = useFilter();
 
   const filteredProjects = useMemo(() => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
+    const selectedAreas = new Set(selected["areas"] || []);
+    const selectedRoles = new Set(selected["roles"] || []);
+    const selectedTools = new Set(selected["tools"] || []);
+
     return projectsData
       .filter((project) => {
         const matchesQuery = filterByQuery(project, lowercaseQuery);
         const matchesArea = filterByArea(project.tags, selectedAreas);
-        return matchesQuery && matchesArea;
+        const matchesRole = selectedRoles.size === 0 || project.roles.some(r => selectedRoles.has(r.toLowerCase()));
+        const matchesTool = selectedTools.size === 0 || project.tools.some(t => selectedTools.has(t.toLowerCase()));
+        return matchesQuery && matchesArea && matchesRole && matchesTool;
       })
       .sort((a, b) => {
         if (a.group !== b.group) return a.group - b.group;
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       });
-  }, [debouncedQuery, selectedAreas]);
+  }, [debouncedQuery, selected]);
 
   return (
     <Section id="projects" title="Projects" count={filteredProjects.length}>

@@ -10,16 +10,17 @@ import { Section } from "./section";
 
 export const CertificationsSection = () => {
   const { debouncedQuery } = useSearch();
-  const { selectedAreas } = useFilter();
+  const { selected } = useFilter();
 
   const filteredCerts = useMemo(() => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
+    const selectedAreas = new Set(selected["areas"] || []);
     return certificationsData.filter((cert) => {
       const matchesQuery = filterByQuery(cert, lowercaseQuery);
       const matchesArea = filterByArea(cert.areas || [], selectedAreas);
       return matchesQuery && matchesArea;
     });
-  }, [debouncedQuery, selectedAreas]);
+  }, [debouncedQuery, selected]);
 
   return (
     <Section id="certifications" title="Certifications" count={filteredCerts.length}>

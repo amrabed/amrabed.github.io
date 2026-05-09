@@ -15,8 +15,8 @@ import { withSuspense } from "./suspense";
 import { useUrlSync } from "./sync";
 
 type FilterContextType = {
-  selectedAreas: Set<string>;
-  toggleArea: (area: string) => void;
+  selected: Record<string, string[]>;
+  setSelected: (category: string, selected: string[]) => void;
   clearAll: () => void;
 };
 
@@ -35,40 +35,39 @@ export const useFilter: () => FilterContextType = () => {
 const FilterContent = ({ children }: { children: ReactNode }) => {
   const searchParams = useSearchParams();
 
-  const [selectedAreas, setSelectedAreas] = useState<Set<string>>(() => {
-    const areas = searchParams.get("areas");
-    return areas ? new Set(areas.split(",")) : new Set();
-  });
+  const [selected, setSelectedState] = useState<Record<string, string[]>>(
+    () => {
+      const initial: Record<string, string[]> = {};
+      const params = Array.from(searchParams.entries());
+      params.forEach(([k, val]) => {
+        if (k !== "query") initial[k] = val.split(",");
+      });
+      return initial;
+    },
+  );
 
-  const toggleArea = useCallback((area: string) => {
-    setSelectedAreas((prev) => {
-      const next = new Set(prev);
-      if (next.has(area)) {
-        next.delete(area);
-      } else {
-        next.add(area);
-      }
-      return next;
-    });
+  const setSelected = useCallback((cat: string, vals: string[]) => {
+    setSelectedState((prev) => ({ ...prev, [cat]: vals }));
   }, []);
 
   const clearAll = useCallback(() => {
-    setSelectedAreas(new Set());
+    setSelectedState({});
   }, []);
 
-  const updateUrl = useCallback((params: URLSearchParams, areas: Set<string>) => {
-    if (areas.size > 0) {
-      params.set("areas", Array.from(areas).join(","));
-    } else {
-      params.delete("areas");
-    }
+  const updateUrl = useCallback((params: URLSearchParams, s: Record<string, string[]>) => {
+    Array.from(params.keys()).forEach((k) => {
+      if (k !== "query") params.delete(k);
+    });
+    Object.entries(s).forEach(([k, v]) => {
+      if (v?.length) params.set(k, v.join(","));
+    });
   }, []);
 
-  useUrlSync(selectedAreas, updateUrl);
+  useUrlSync(selected, updateUrl);
 
   const contextValue = useMemo(
-    () => ({ selectedAreas, toggleArea, clearAll }),
-    [selectedAreas, toggleArea, clearAll],
+    () => ({ selected, setSelected, clearAll }),
+    [selected, setSelected, clearAll],
   );
 
   return (

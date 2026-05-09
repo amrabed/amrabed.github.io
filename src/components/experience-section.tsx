@@ -10,16 +10,22 @@ import { Section } from "./section";
 
 export const ExperienceSection = () => {
   const { debouncedQuery } = useSearch();
-  const { selectedAreas } = useFilter();
+  const { selected } = useFilter();
 
   const filteredPositions = useMemo(() => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
+    const selectedAreas = new Set(selected["areas"] || []);
+    const selectedRoles = new Set(selected["roles"] || []);
+    const selectedSkills = new Set(selected["skills"] || []);
+
     return positionsData.filter((position) => {
       const matchesQuery = filterByQuery(position, lowercaseQuery);
       const matchesArea = filterByArea(position.tags, selectedAreas);
-      return matchesQuery && matchesArea;
+      const matchesRole = selectedRoles.size === 0 || position.roles.some(r => selectedRoles.has(r.toLowerCase()));
+      const matchesSkill = selectedSkills.size === 0 || position.skills.some(s => selectedSkills.has(s.toLowerCase()));
+      return matchesQuery && matchesArea && matchesRole && matchesSkill;
     });
-  }, [debouncedQuery, selectedAreas]);
+  }, [debouncedQuery, selected]);
 
   return (
     <Section id="experience" title="Experience" count={filteredPositions.length}>
