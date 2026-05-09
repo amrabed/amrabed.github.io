@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useSearch } from "@/contexts/search";
 import degreesData from "@/data/degrees";
 import { filterByQuery } from "@/filter";
-import { Section } from "./section";
+import { Section } from "../section";
 
 export const EducationSection = () => {
   const { debouncedQuery } = useSearch();

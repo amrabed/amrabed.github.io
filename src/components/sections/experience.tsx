@@ -6,7 +6,7 @@ import { useSearch } from "@/contexts/search";
 import positionsData from "@/data/positions";
 import { filterByQuery, filterByArea } from "@/filter";
 import Timeline from "@/app/positions/timeline";
-import { Section } from "./section";
+import { Section } from "../section";
 
 export const ExperienceSection = () => {
   const { debouncedQuery } = useSearch();

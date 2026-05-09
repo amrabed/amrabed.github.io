@@ -1,6 +1,6 @@
 "use client";
 
-import { Section } from "./section";
+import { Section } from "../section";
 
 export const AboutSection = () => {
   return (

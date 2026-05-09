@@ -5,7 +5,7 @@ import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import areaSkills from "@/data/areaSkills";
 import skillsData from "@/data/skills";
-import { Section } from "./section";
+import { Section } from "../section";
 
 export const SkillsSection = () => {
   const { debouncedQuery } = useSearch();

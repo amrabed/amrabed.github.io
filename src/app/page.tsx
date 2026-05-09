@@ -4,12 +4,12 @@ import dynamic from "next/dynamic";
 import { Banner } from "@/components/banner";
 import { MainHeader } from "@/components/header";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
-import { SkillsSection } from "@/components/skills-section";
-import { CertificationsSection } from "@/components/certifications-section";
-import { EducationSection } from "@/components/education-section";
-import { ProjectsSection } from "@/components/projects-section";
-import { ExperienceSection } from "@/components/experience-section";
-import { AboutSection } from "@/components/about-section";
+import { SkillsSection } from "@/components/sections/skills";
+import { CertificationsSection } from "@/components/sections/certifications";
+import { EducationSection } from "@/components/sections/education";
+import { ProjectsSection } from "@/components/sections/projects";
+import { ExperienceSection } from "@/components/sections/experience";
+import { AboutSection } from "@/components/sections/about";
 
 const Intro = dynamic(() => import("@/components/intro"), { ssr: false });
 

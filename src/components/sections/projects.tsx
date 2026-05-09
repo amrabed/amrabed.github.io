@@ -6,7 +6,7 @@ import { useSearch } from "@/contexts/search";
 import projectsData from "@/data/projects";
 import { filterByQuery, filterByArea } from "@/filter";
 import ProjectView from "@/app/projects/project";
-import { Section } from "./section";
+import { Section } from "../section";
 
 export const ProjectsSection = () => {
   const { debouncedQuery } = useSearch();
