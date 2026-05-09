@@ -21,8 +21,8 @@ export const UnifiedFilterBar = () => {
   };
 
   return (
-    <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl bg-background/90 backdrop-blur-md border border-divider py-4 px-6 rounded-2xl shadow-2xl transition-all duration-500">
-      <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+    <div className="fixed bottom-0 left-0 right-0 z-50 w-full bg-background/90 backdrop-blur-md border-t border-divider py-4 px-6 shadow-[0_-10px_50px_-15px_rgba(0,0,0,0.3)] transition-all duration-500">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-4 items-center justify-between">
         <div className="w-full lg:w-1/3">
           <Searchbar
             placeholder="Search everything..."

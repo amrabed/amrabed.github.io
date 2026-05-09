@@ -1,7 +1,6 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { Badge } from "@heroui/react";
 
 export const Section = ({
   id,
@@ -58,12 +57,14 @@ export const Section = ({
   return (
     <section id={id} className="section scroll-mt-48" ref={dataRef}>
       <div className="flex items-center gap-4 mb-8">
-        <h2 className="section-heading mb-0">{title}</h2>
-        {count !== undefined && (
-          <Badge color="accent" variant="soft" size="lg" className="font-semibold">
-            {count}
-          </Badge>
-        )}
+        <h2 className="section-heading mb-0">
+          {title}
+          {count !== undefined && (
+            <span className="ml-4 text-primary lowercase font-light">
+              ({count})
+            </span>
+          )}
+        </h2>
       </div>
       <div className="pop-down-child section-body" ref={itemRef}>
         {children}
