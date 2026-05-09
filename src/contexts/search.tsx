@@ -47,7 +47,8 @@ const SearchContent = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  useUrlSync(query, updateUrl);
+  // Use debouncedQuery for URL synchronization to reduce router.replace calls during typing
+  useUrlSync(debouncedQuery, updateUrl);
 
   const contextValue = useMemo(
     () => ({ query, debouncedQuery, setQuery }),
