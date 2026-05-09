@@ -6,6 +6,7 @@ interface GitHubRepo {
   name: string;
   fork: boolean;
   pushed_at: string;
+  has_pages: boolean;
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -38,7 +39,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const repoEntries: MetadataRoute.Sitemap = repos
       .filter(
-        (repo: GitHubRepo) => !repo.fork && repo.name !== "amrabed.github.io",
+        (repo: GitHubRepo) =>
+          !repo.fork && repo.name !== "amrabed.github.io" && repo.has_pages,
       )
       .map((repo: GitHubRepo) => ({
         url: `https://amrabed.com/${repo.name}`,
