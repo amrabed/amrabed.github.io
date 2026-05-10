@@ -249,7 +249,7 @@ const projects: Project[] = [
     id: "logger",
     name: "Logger - Android App",
     description:
-      "Logger collected anonymous mobile-usage data as part of a researcher study conducted at Virginia Tech",
+      "Logger collected anonymous mobile-usage data as part of a research study conducted at Virginia Tech",
     links: {
       github: "amrabed/logger",
       // app: "https://play.google.com/store/apps/details?id=org.magnum.logger",
@@ -313,7 +313,7 @@ const projects: Project[] = [
     id: "fujitsu",
     name: "VT-Fujitsu joint research Project",
     description:
-      "A joint researcher project between Virginia Tech and Vujitsu Japan",
+      "A joint research project between Virginia Tech and Vujitsu Japan",
     links: {
       github: "amrabed/vt-fujitsu",
     },

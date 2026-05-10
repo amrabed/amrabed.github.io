@@ -7,9 +7,10 @@ export const AboutSection = () => {
     <Section id="about" title="About">
       <div className="max-w-4xl mx-auto text-lg leading-relaxed text-slate-600 dark:text-slate-400 space-y-4 pb-20">
         <p>
-          I am a passionate software engineer, researcher, and educator with a
-          focus on cloud computing, machine learning, and mobile development.
-          With a background in Computer Engineering and years of experience in
+          I am a passionate software engineer, research scientist, and educator
+          with a focus on cloud computing, machine learning, and mobile
+          development. With a background in Computer Engineering and years of
+          experience in
           both academia and industry, I strive to build impactful solutions that
           bridge the gap between complex research and practical application.
         </p>
