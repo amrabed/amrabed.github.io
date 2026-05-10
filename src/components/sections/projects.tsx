@@ -7,6 +7,7 @@ import projectsData from "@/data/projects";
 import { filterByQuery, filterByArea } from "@/filter";
 import ProjectView from "@/app/projects/project";
 import { Section } from "../section";
+import { EmptyState } from "../empty-state";
 
 export const ProjectsSection = () => {
   const { debouncedQuery } = useSearch();
@@ -34,11 +35,15 @@ export const ProjectsSection = () => {
 
   return (
     <Section id="projects" title="Projects">
-      <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full px-4 md:px-10">
-        {filteredProjects.map((project) => (
-          <ProjectView key={project.id} project={project} />
-        ))}
-      </div>
+      {filteredProjects.length > 0 ? (
+        <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full px-4 md:px-10">
+          {filteredProjects.map((project) => (
+            <ProjectView key={project.id} project={project} />
+          ))}
+        </div>
+      ) : (
+        <EmptyState />
+      )}
     </Section>
   );
 };

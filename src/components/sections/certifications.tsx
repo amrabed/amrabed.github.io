@@ -7,6 +7,7 @@ import { useSearch } from "@/contexts/search";
 import certificationsData from "@/data/certifications";
 import { filterByQuery, filterByArea } from "@/filter";
 import { Section } from "../section";
+import { EmptyState } from "../empty-state";
 
 export const CertificationsSection = () => {
   const { debouncedQuery } = useSearch();
@@ -24,23 +25,29 @@ export const CertificationsSection = () => {
 
   return (
     <Section id="certifications" title="Certifications">
-      {filteredCerts.map((certificate) => (
-        <div className="transition-all duration-700" key={certificate.title}>
-          <a href={certificate.link} target="_blank" rel="noopener noreferrer">
-            <div className="section-item p-3">
-              <Image
-                src={certificate.badge}
-                alt={`Badge for ${certificate.title}`}
-                width={150}
-                height={150}
-              />
-              <p className="md:text-xl text-foreground">{certificate.title}</p>
-              <p className="text-primary">{certificate.organization.name}</p>
-              <p className="text-secondary">{certificate.date}</p>
+      <div className="section-body">
+        {filteredCerts.length > 0 ? (
+          filteredCerts.map((certificate) => (
+            <div className="transition-all duration-700" key={certificate.title}>
+              <a href={certificate.link} target="_blank" rel="noopener noreferrer">
+                <div className="section-item p-3">
+                  <Image
+                    src={certificate.badge}
+                    alt={`Badge for ${certificate.title}`}
+                    width={150}
+                    height={150}
+                  />
+                  <p className="md:text-xl text-foreground">{certificate.title}</p>
+                  <p className="text-primary">{certificate.organization.name}</p>
+                  <p className="text-secondary">{certificate.date}</p>
+                </div>
+              </a>
             </div>
-          </a>
-        </div>
-      ))}
+          ))
+        ) : (
+          <EmptyState />
+        )}
+      </div>
     </Section>
   );
 };

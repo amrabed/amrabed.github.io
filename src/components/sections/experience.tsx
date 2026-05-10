@@ -7,6 +7,7 @@ import positionsData from "@/data/positions";
 import { filterByQuery, filterByArea } from "@/filter";
 import Timeline from "@/app/positions/timeline";
 import { Section } from "../section";
+import { EmptyState } from "../empty-state";
 
 export const ExperienceSection = () => {
   const { debouncedQuery } = useSearch();
@@ -29,9 +30,13 @@ export const ExperienceSection = () => {
 
   return (
     <Section id="experience" title="Experience">
-      <div className="w-full mt-8 px-4 md:px-10">
-        <Timeline positions={filteredPositions} />
-      </div>
+      {filteredPositions.length > 0 ? (
+        <div className="w-full mt-8 px-4 md:px-10">
+          <Timeline positions={filteredPositions} />
+        </div>
+      ) : (
+        <EmptyState />
+      )}
     </Section>
   );
 };

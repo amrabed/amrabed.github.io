@@ -6,6 +6,7 @@ import { useSearch } from "@/contexts/search";
 import areaSkills from "@/data/areaSkills";
 import skillsData from "@/data/skills";
 import { Section } from "../section";
+import { EmptyState } from "../empty-state";
 
 export const SkillsSection = () => {
   const { debouncedQuery } = useSearch();
@@ -34,15 +35,21 @@ export const SkillsSection = () => {
 
   return (
     <Section id="skills" title="Technical Skills">
-      {filteredSkills.map(([, skill]) => (
-        <div
-          className="transition-all duration-700 section-item md:py-5 w-[120px] md:w-[150px]"
-          key={skill.name}
-        >
-          <p className="md:text-4xl text-2xl">{skill.icon}</p>
-          <p>{skill.name}</p>
-        </div>
-      ))}
+      <div className="section-body">
+        {filteredSkills.length > 0 ? (
+          filteredSkills.map(([, skill]) => (
+            <div
+              className="transition-all duration-700 section-item md:py-5 w-[120px] md:w-[150px]"
+              key={skill.name}
+            >
+              <p className="md:text-4xl text-2xl">{skill.icon}</p>
+              <p>{skill.name}</p>
+            </div>
+          ))
+        ) : (
+          <EmptyState />
+        )}
+      </div>
     </Section>
   );
 };

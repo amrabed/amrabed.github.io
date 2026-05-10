@@ -1,23 +1,13 @@
 "use client";
 
-import { useMemo } from "react";
 import Image from "next/image";
-import { useSearch } from "@/contexts/search";
 import degreesData from "@/data/degrees";
-import { filterByQuery } from "@/filter";
 import { Section } from "../section";
 
 export const EducationSection = () => {
-  const { debouncedQuery } = useSearch();
-
-  const filteredDegrees = useMemo(() => {
-    const lowercaseQuery = debouncedQuery.toLowerCase();
-    return degreesData.filter((degree) => filterByQuery(degree, lowercaseQuery));
-  }, [debouncedQuery]);
-
   return (
     <Section id="degrees" title="Education">
-      {filteredDegrees.map((degree) => (
+      {degreesData.map((degree) => (
         <div className="transition-all duration-700 gap-6" key={degree.title}>
           <a
             href={degree.university.url}
