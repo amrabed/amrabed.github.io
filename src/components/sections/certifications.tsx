@@ -19,10 +19,15 @@ export const CertificationsSection = () => {
   const filteredCerts = useMemo(() => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
     const selectedAreas = new Set(selected["areas"] || []);
+    const selectedSkills = new Set(selected["skills"] || []);
+
     return certificationsData.filter((cert) => {
       const matchesQuery = filterByQuery(cert, lowercaseQuery);
       const matchesArea = filterByArea(cert.areas || [], selectedAreas);
-      return matchesQuery && matchesArea;
+      const matchesSkill =
+        selectedSkills.size === 0 ||
+        (cert.skills || []).some((s) => selectedSkills.has(s.toLowerCase()));
+      return matchesQuery && matchesArea && matchesSkill;
     });
   }, [debouncedQuery, selected]);
 

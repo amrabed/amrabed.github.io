@@ -19,7 +19,7 @@ export const ProjectsSection = () => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
     const selectedAreas = new Set(selected["areas"] || []);
     const selectedRoles = new Set(selected["roles"] || []);
-    const selectedTools = new Set(selected["tools"] || []);
+    const selectedSkills = new Set(selected["skills"] || []);
 
     return projectsData
       .filter((project) => {
@@ -28,10 +28,10 @@ export const ProjectsSection = () => {
         const matchesRole =
           selectedRoles.size === 0 ||
           project.roles.some((r) => selectedRoles.has(r.toLowerCase()));
-        const matchesTool =
-          selectedTools.size === 0 ||
-          project.tools.some((t) => selectedTools.has(t.toLowerCase()));
-        return matchesQuery && matchesArea && matchesRole && matchesTool;
+        const matchesSkill =
+          selectedSkills.size === 0 ||
+          project.tools.some((t) => selectedSkills.has(t.toLowerCase()));
+        return matchesQuery && matchesArea && matchesRole && matchesSkill;
       })
       .sort((a, b) => {
         if (a.group !== b.group) return a.group - b.group;
