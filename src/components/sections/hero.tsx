@@ -6,7 +6,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 const Intro = () => {
-  const [isHome, setIsHome] = useState(false);
+  const [isHome, setIsHome] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   const homeRef = useRef<HTMLElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
@@ -14,6 +15,7 @@ const Intro = () => {
 
   // Intersection observer animation on scroll
   useEffect(() => {
+    setMounted(true);
     const getScreenWidth = () =>
       window.innerWidth ||
       document.documentElement.clientWidth ||
@@ -63,21 +65,25 @@ const Intro = () => {
             I&apos;m
             <span className="text-primary">
               {" a"}
-              <TypeAnimation
-                sequence={[
-                  "n Engineer",
-                  2000,
-                  " Researcher",
-                  2000,
-                  " Teacher",
-                  2000,
-                  " Creator",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={10}
-                repeat={Infinity}
-              />
+              {!mounted ? (
+                "n Engineer"
+              ) : (
+                <TypeAnimation
+                  sequence={[
+                    "n Engineer",
+                    2000,
+                    " Researcher",
+                    2000,
+                    " Teacher",
+                    2000,
+                    " Creator",
+                    2000,
+                  ]}
+                  wrapper="span"
+                  speed={10}
+                  repeat={Infinity}
+                />
+              )}
             </span>
           </p>
         </div>

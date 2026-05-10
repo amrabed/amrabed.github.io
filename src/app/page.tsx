@@ -1,11 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
 import { useEffect, useState } from "react";
 
 import { Banner } from "@/components/banner";
 import { MainHeader } from "@/components/header";
+import Intro from "@/components/sections/hero";
 import { AboutSection } from "@/components/sections/about";
 import { CertificationsSection } from "@/components/sections/certifications";
 import { EducationSection } from "@/components/sections/education";
@@ -13,8 +12,6 @@ import { ExperienceSection } from "@/components/sections/experience";
 import { ProjectsSection } from "@/components/sections/projects";
 import { SkillsSection } from "@/components/sections/skills";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
-
-const Intro = dynamic(() => import("@/components/sections/hero"), { ssr: false });
 
 const Home = () => {
   const [showFilter, setShowFilter] = useState(false);
