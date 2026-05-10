@@ -9,14 +9,15 @@ import areas from "@/data/areas";
 import roles from "@/data/roles";
 import skills from "@/data/skills";
 
-import { Searchbar } from "./search";
 import { Filter, Selections } from "./filter";
+import { Searchbar } from "./search";
 
 export const UnifiedFilterBar = () => {
   const { query, setQuery } = useSearch();
   const { selected, setSelected, clearAll } = useFilter();
 
-  const hasFilters = query !== "" || Object.values(selected).some(v => v.length > 0);
+  const hasFilters =
+    query !== "" || Object.values(selected).some((v) => v.length > 0);
 
   const handleClearAll = () => {
     setQuery("");
@@ -36,22 +37,33 @@ export const UnifiedFilterBar = () => {
           <Filter className="rounded-l-none rounded-r-2xl border-l-0 bg-white dark:bg-slate-800 h-[38px] min-w-[48px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border-zinc-200 dark:border-zinc-700">
             <Selections
               label="Areas"
-              values={Object.values(areas).map((a) => ({ id: a.name.toLowerCase(), name: a.name, icon: a.icon }))}
+              values={Object.values(areas).map((a) => ({
+                id: a.name.toLowerCase(),
+                name: a.name,
+                icon: a.icon,
+              }))}
               selected={selected["areas"] || []}
               setSelected={(vals) => setSelected("areas", vals)}
             />
             <Selections
               label="Skills"
-              values={Object.values(skills).map((s) => ({ id: s.name.toLowerCase(), name: s.name, icon: s.icon }))}
+              values={Object.values(skills).map((s) => ({
+                id: s.name.toLowerCase(),
+                name: s.name,
+                icon: s.icon,
+              }))}
               selected={selected["skills"] || []}
               setSelected={(vals) => setSelected("skills", vals)}
             />
             <Selections
-                label="Roles"
-                values={Object.values(roles).map((r) => ({ id: r.name.toLowerCase(), name: r.name }))}
-                selected={selected["roles"] || []}
-                setSelected={(vals) => setSelected("roles", vals)}
-              />
+              label="Roles"
+              values={Object.values(roles).map((r) => ({
+                id: r.name.toLowerCase(),
+                name: r.name,
+              }))}
+              selected={selected["roles"] || []}
+              setSelected={(vals) => setSelected("roles", vals)}
+            />
           </Filter>
         </div>
 

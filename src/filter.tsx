@@ -18,7 +18,10 @@ const filterProjectByQuery = (project: Project, lowercaseQuery: string) => {
   );
 };
 
-const filterCertificationByQuery = (cert: Certification, lowercaseQuery: string) => {
+const filterCertificationByQuery = (
+  cert: Certification,
+  lowercaseQuery: string,
+) => {
   return (
     cert.title.toLowerCase().includes(lowercaseQuery) ||
     cert.organization.name.toLowerCase().includes(lowercaseQuery) ||
@@ -58,8 +61,10 @@ export const filterByQuery = (
   if ("name" in item) return filterProjectByQuery(item, lowercaseQuery);
 
   if ("title" in item) {
-    if ("university" in item) return filterDegreeByQuery(item as Degree, lowercaseQuery);
-    if ("badge" in item) return filterCertificationByQuery(item as Certification, lowercaseQuery);
+    if ("university" in item)
+      return filterDegreeByQuery(item as Degree, lowercaseQuery);
+    if ("badge" in item)
+      return filterCertificationByQuery(item as Certification, lowercaseQuery);
     return filterPositionByQuery(item as Position, lowercaseQuery);
   }
 

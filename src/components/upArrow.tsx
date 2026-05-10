@@ -1,10 +1,11 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
+
 import { useEffect, useState } from "react";
 
 import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import { Button, Tooltip } from "@heroui/react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);

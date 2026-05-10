@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+
 import degreesData from "@/data/degrees";
+
 import { Section } from "../section";
 
 export const EducationSection = () => {

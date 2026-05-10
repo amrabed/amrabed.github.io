@@ -1,13 +1,15 @@
 "use client";
 
 import { useMemo } from "react";
+
+import Timeline from "@/app/positions/timeline";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import positionsData from "@/data/positions";
 import { filterByQuery, filterByArea } from "@/filter";
-import Timeline from "@/app/positions/timeline";
-import { Section } from "../section";
+
 import { EmptyState } from "../empty-state";
+import { Section } from "../section";
 
 export const ExperienceSection = () => {
   const { debouncedQuery } = useSearch();
@@ -22,8 +24,12 @@ export const ExperienceSection = () => {
     return positionsData.filter((position) => {
       const matchesQuery = filterByQuery(position, lowercaseQuery);
       const matchesArea = filterByArea(position.tags, selectedAreas);
-      const matchesRole = selectedRoles.size === 0 || position.roles.some(r => selectedRoles.has(r.toLowerCase()));
-      const matchesSkill = selectedSkills.size === 0 || position.skills.some(s => selectedSkills.has(s.toLowerCase()));
+      const matchesRole =
+        selectedRoles.size === 0 ||
+        position.roles.some((r) => selectedRoles.has(r.toLowerCase()));
+      const matchesSkill =
+        selectedSkills.size === 0 ||
+        position.skills.some((s) => selectedSkills.has(s.toLowerCase()));
       return matchesQuery && matchesArea && matchesRole && matchesSkill;
     });
   }, [debouncedQuery, selected]);

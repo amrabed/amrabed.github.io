@@ -80,12 +80,16 @@ export const Selections = ({
       value={selected}
       onChange={(values) => setSelected(values as string[])}
     >
-      <Label className="text-sm font-medium text-slate-500 uppercase tracking-wider">{label}</Label>
+      <Label className="text-sm font-medium text-slate-500 uppercase tracking-wider">
+        {label}
+      </Label>
       <div className="flex flex-wrap gap-2 flex-row">
         {values.map((v) => (
           <Selection key={v.id} value={v.id}>
             <div className="flex items-center gap-2">
-              {v.icon && <span className="size-4 flex items-center">{v.icon}</span>}
+              {v.icon && (
+                <span className="size-4 flex items-center">{v.icon}</span>
+              )}
               {v.name}
             </div>
           </Selection>
@@ -97,7 +101,7 @@ export const Selections = ({
 
 export const Filter = ({
   children,
-  className
+  className,
 }: {
   children: ReactNode;
   className?: string;

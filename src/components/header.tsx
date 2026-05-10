@@ -5,20 +5,19 @@ import { useEffect, useState } from "react";
 export const sections = [
   { name: "Skills", link: "#skills" },
   { name: "Certifications", link: "#certifications" },
-  { name: "Education", link: "#degrees" },
   { name: "Projects", link: "#projects" },
   { name: "Experience", link: "#experience" },
+  { name: "Education", link: "#degrees" },
   { name: "About", link: "#about" },
 ];
 
 const Title = ({ onClick }: { onClick: (e: React.MouseEvent) => void }) => (
-  <a
-    href="#"
+  <button
     onClick={onClick}
     className="text-lg font-semibold cursor-pointer hover:text-primary transition-colors"
   >
     Amr Abed
-  </a>
+  </button>
 );
 
 export const MainHeader = () => {
@@ -44,7 +43,10 @@ export const MainHeader = () => {
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
 
     sections.forEach((section) => {
       const element = document.getElementById(section.link.substring(1));
@@ -93,11 +95,26 @@ export const MainHeader = () => {
             aria-controls="mobile-menu"
             className="p-2"
           >
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
@@ -108,7 +125,9 @@ export const MainHeader = () => {
             <li key={section.name}>
               <a
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === section.link.substring(1) ? "text-primary" : "text-foreground-500"
+                  activeSection === section.link.substring(1)
+                    ? "text-primary"
+                    : "text-foreground-500"
                 }`}
                 href={section.link}
                 onClick={(e) => handleScroll(e, section.link)}
@@ -121,13 +140,18 @@ export const MainHeader = () => {
       </header>
 
       {isMenuOpen && (
-        <div id="mobile-menu" className="sm:hidden pb-6 transition-all duration-300">
+        <div
+          id="mobile-menu"
+          className="sm:hidden pb-6 transition-all duration-300"
+        >
           <ul className="flex flex-col gap-4">
             {sections.map((section) => (
               <li key={section.name}>
                 <a
                   className={`block text-lg py-2 transition-colors hover:text-primary ${
-                    activeSection === section.link.substring(1) ? "text-primary" : ""
+                    activeSection === section.link.substring(1)
+                      ? "text-primary"
+                      : ""
                   }`}
                   href={section.link}
                   onClick={(e) => handleScroll(e, section.link)}

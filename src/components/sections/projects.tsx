@@ -1,13 +1,15 @@
 "use client";
 
 import { useMemo } from "react";
+
+import ProjectView from "@/app/projects/project";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import projectsData from "@/data/projects";
 import { filterByQuery, filterByArea } from "@/filter";
-import ProjectView from "@/app/projects/project";
-import { Section } from "../section";
+
 import { EmptyState } from "../empty-state";
+import { Section } from "../section";
 
 export const ProjectsSection = () => {
   const { debouncedQuery } = useSearch();
@@ -23,8 +25,12 @@ export const ProjectsSection = () => {
       .filter((project) => {
         const matchesQuery = filterByQuery(project, lowercaseQuery);
         const matchesArea = filterByArea(project.tags, selectedAreas);
-        const matchesRole = selectedRoles.size === 0 || project.roles.some(r => selectedRoles.has(r.toLowerCase()));
-        const matchesTool = selectedTools.size === 0 || project.tools.some(t => selectedTools.has(t.toLowerCase()));
+        const matchesRole =
+          selectedRoles.size === 0 ||
+          project.roles.some((r) => selectedRoles.has(r.toLowerCase()));
+        const matchesTool =
+          selectedTools.size === 0 ||
+          project.tools.some((t) => selectedTools.has(t.toLowerCase()));
         return matchesQuery && matchesArea && matchesRole && matchesTool;
       })
       .sort((a, b) => {

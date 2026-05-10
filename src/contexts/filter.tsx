@@ -54,14 +54,17 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
     setSelectedState({});
   }, []);
 
-  const updateUrl = useCallback((params: URLSearchParams, s: Record<string, string[]>) => {
-    Array.from(params.keys()).forEach((k) => {
-      if (k !== "query") params.delete(k);
-    });
-    Object.entries(s).forEach(([k, v]) => {
-      if (v?.length) params.set(k, v.join(","));
-    });
-  }, []);
+  const updateUrl = useCallback(
+    (params: URLSearchParams, s: Record<string, string[]>) => {
+      Array.from(params.keys()).forEach((k) => {
+        if (k !== "query") params.delete(k);
+      });
+      Object.entries(s).forEach(([k, v]) => {
+        if (v?.length) params.set(k, v.join(","));
+      });
+    },
+    [],
+  );
 
   useUrlSync(selected, updateUrl);
 
