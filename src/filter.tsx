@@ -62,10 +62,10 @@ export const filterByQuery = (
 
   if ("title" in item) {
     if ("university" in item)
-      return filterDegreeByQuery(item as Degree, lowercaseQuery);
+      return filterDegreeByQuery(item, lowercaseQuery);
     if ("badge" in item)
-      return filterCertificationByQuery(item as Certification, lowercaseQuery);
-    return filterPositionByQuery(item as Position, lowercaseQuery);
+      return filterCertificationByQuery(item, lowercaseQuery);
+    return filterPositionByQuery(item, lowercaseQuery);
   }
 
   return false;
