@@ -47,11 +47,7 @@ const IconLink = ({
 );
 
 const Links = ({ links }: { links: ProjectLinks }) => {
-  const githubLink = links.github
-    ? links.github.startsWith("http")
-      ? links.github
-      : `https://github.com/${links.github}`
-    : null;
+  const githubLink = links.github ? `https://github.com/${links.github}` : null;
 
   return (
     <div className="flex flex-row gap-4">
