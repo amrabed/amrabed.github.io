@@ -14,7 +14,7 @@ import { ProjectsSection } from "@/components/sections/projects";
 import { SkillsSection } from "@/components/sections/skills";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
 
-const Intro = dynamic(() => import("@/components/intro"), { ssr: false });
+const Intro = dynamic(() => import("@/components/sections/hero"), { ssr: false });
 
 const Home = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -33,7 +33,7 @@ const Home = () => {
         // Adjusted to hide when reaching the About section
         setShowFilter(
           window.scrollY > skillsTop - 200 &&
-            window.scrollY + window.innerHeight < experienceBottom + 100,
+          window.scrollY + window.innerHeight < experienceBottom + 100,
         );
       }
     };
