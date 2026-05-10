@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const sections = [
+  { name: "Education", link: "#degrees" },
   { name: "Skills", link: "#skills" },
   { name: "Certifications", link: "#certifications" },
-  { name: "Education", link: "#education" },
   { name: "Projects", link: "#projects" },
   { name: "Experience", link: "#experience" },
   { name: "About", link: "#about" },

@@ -33,7 +33,7 @@ export const ProjectsSection = () => {
   }, [debouncedQuery, selected]);
 
   return (
-    <Section id="projects" title="Projects" count={filteredProjects.length}>
+    <Section id="projects" title="Projects">
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full px-4 md:px-10">
         {filteredProjects.map((project) => (
           <ProjectView key={project.id} project={project} />

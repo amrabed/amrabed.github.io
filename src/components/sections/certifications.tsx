@@ -23,7 +23,7 @@ export const CertificationsSection = () => {
   }, [debouncedQuery, selected]);
 
   return (
-    <Section id="certifications" title="Certifications" count={filteredCerts.length}>
+    <Section id="certifications" title="Certifications">
       {filteredCerts.map((certificate) => (
         <div className="transition-all duration-700" key={certificate.title}>
           <a href={certificate.link} target="_blank" rel="noopener noreferrer">

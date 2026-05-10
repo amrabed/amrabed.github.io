@@ -16,7 +16,7 @@ export const EducationSection = () => {
   }, [debouncedQuery]);
 
   return (
-    <Section id="degrees" title="Education" count={filteredDegrees.length}>
+    <Section id="degrees" title="Education">
       {filteredDegrees.map((degree) => (
         <div className="transition-all duration-700 gap-6" key={degree.title}>
           <a

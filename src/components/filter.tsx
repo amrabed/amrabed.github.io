@@ -70,21 +70,24 @@ export const Selections = ({
   setSelected,
 }: {
   label: string;
-  values: string[];
+  values: { id: string; name: string; icon?: ReactNode }[];
   selected: string[];
   setSelected: (values: string[]) => void;
 }) => (
   <div className="flex flex-row gap-1 w-full">
     <CheckboxGroup
-      className="gap-4"
+      className="gap-4 w-full"
       value={selected}
       onChange={(values) => setSelected(values as string[])}
     >
-      <Label className="text-sm font-medium text-slate-500">{label}</Label>
+      <Label className="text-sm font-medium text-slate-500 uppercase tracking-wider">{label}</Label>
       <div className="flex flex-wrap gap-2 flex-row">
-        {values.map((value) => (
-          <Selection key={value} value={value.toLowerCase()}>
-            {value}
+        {values.map((v) => (
+          <Selection key={v.id} value={v.id}>
+            <div className="flex items-center gap-2">
+              {v.icon && <span className="size-4 flex items-center">{v.icon}</span>}
+              {v.name}
+            </div>
           </Selection>
         ))}
       </div>
@@ -92,7 +95,13 @@ export const Selections = ({
   </div>
 );
 
-export const Filter = ({ children }: { children: ReactNode }) => (
+export const Filter = ({
+  children,
+  className
+}: {
+  children: ReactNode;
+  className?: string;
+}) => (
   <Popover>
     <Button
       id="filter-trigger"
@@ -100,15 +109,16 @@ export const Filter = ({ children }: { children: ReactNode }) => (
       isIconOnly
       aria-label="Open filters"
       aria-haspopup="dialog"
+      className={className}
     >
       <AdjustmentsHorizontalIcon className="size-6" />
     </Button>
     <Popover.Content
       offset={10}
       placement="bottom"
-      className="dark:bg-slate-800"
+      className="dark:bg-slate-800 rounded-3xl"
     >
-      <Popover.Dialog className="flex flex-col w-[500px] p-4 gap-6">
+      <Popover.Dialog className="flex flex-col w-[90vw] max-w-[500px] p-6 gap-8">
         {children}
       </Popover.Dialog>
     </Popover.Content>

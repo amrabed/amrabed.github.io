@@ -28,7 +28,7 @@ export const ExperienceSection = () => {
   }, [debouncedQuery, selected]);
 
   return (
-    <Section id="experience" title="Experience" count={filteredPositions.length}>
+    <Section id="experience" title="Experience">
       <div className="w-full mt-8 px-4 md:px-10">
         <Timeline positions={filteredPositions} />
       </div>

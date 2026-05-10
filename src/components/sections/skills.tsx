@@ -33,7 +33,7 @@ export const SkillsSection = () => {
   }, [debouncedQuery, selected]);
 
   return (
-    <Section id="skills" title="Technical Skills" count={filteredSkills.length}>
+    <Section id="skills" title="Technical Skills">
       {filteredSkills.map(([, skill]) => (
         <div
           className="transition-all duration-700 section-item md:py-5 w-[120px] md:w-[150px]"

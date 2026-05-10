@@ -24,50 +24,50 @@ export const UnifiedFilterBar = () => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 w-full bg-background/90 backdrop-blur-md border-t border-divider py-4 px-6 shadow-[0_-10px_50px_-15px_rgba(0,0,0,0.3)] transition-all duration-500">
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-        <div className="flex-grow max-w-2xl">
+    <div className="fixed bottom-0 left-0 right-0 z-50 w-full bg-background/90 backdrop-blur-md border-t border-divider py-3 px-4 sm:px-6 shadow-[0_-10px_50px_-15px_rgba(0,0,0,0.3)] transition-all duration-500">
+      <div className="max-w-7xl mx-auto flex items-center justify-center">
+        <div className="flex-grow max-w-2xl flex items-center">
           <Searchbar
             placeholder="Search everything..."
             query={query}
             setQuery={setQuery}
+            className="rounded-l-2xl rounded-r-none border-r-0"
           />
-        </div>
-
-        <div className="flex items-center gap-2">
-          <Filter>
+          <Filter className="rounded-l-none rounded-r-2xl border-l-0 bg-white dark:bg-slate-800 h-[38px] min-w-[48px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border-zinc-200 dark:border-zinc-700">
             <Selections
               label="Areas"
-              values={Object.values(areas).map((a) => a.name)}
+              values={Object.values(areas).map((a) => ({ id: a.name.toLowerCase(), name: a.name, icon: a.icon }))}
               selected={selected["areas"] || []}
               setSelected={(vals) => setSelected("areas", vals)}
             />
             <Selections
               label="Skills"
-              values={Object.values(skills).map((s) => s.name)}
+              values={Object.values(skills).map((s) => ({ id: s.name.toLowerCase(), name: s.name, icon: s.icon }))}
               selected={selected["skills"] || []}
               setSelected={(vals) => setSelected("skills", vals)}
             />
             <Selections
                 label="Roles"
-                values={Object.values(roles).map((r) => r.name)}
+                values={Object.values(roles).map((r) => ({ id: r.name.toLowerCase(), name: r.name }))}
                 selected={selected["roles"] || []}
                 setSelected={(vals) => setSelected("roles", vals)}
               />
           </Filter>
+        </div>
 
-          {hasFilters && (
+        {hasFilters && (
+          <div className="ml-2 flex items-center">
             <Button
               variant="danger-soft"
               size="sm"
               onPress={handleClearAll}
-              className="font-medium flex gap-1 items-center"
+              className="font-medium flex gap-1 items-center rounded-full px-4"
             >
               <XMarkIcon className="size-4" />
-              <span className="hidden sm:inline">Clear all</span>
+              <span>Clear</span>
             </Button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
