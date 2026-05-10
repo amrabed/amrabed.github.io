@@ -20,8 +20,5 @@ firebase:
 deploy: build
 	firebase deploy --only hosting
 
-preview: build
-	firebase hosting:channel:deploy dev
-
 clean:
 	rm -rf node_modules .next out
