@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 
-import ProjectView from "@/app/projects/project";
+import ProjectView from "@/components/project";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import projectsData from "@/data/projects";

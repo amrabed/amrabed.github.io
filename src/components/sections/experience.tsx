@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 
-import Timeline from "@/app/positions/timeline";
+import Timeline from "@/components/timeline";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import positionsData from "@/data/positions";
