@@ -1,53 +1,91 @@
 "use client";
 
-import Link from "next/link";
-
-import { ReactNode, useState } from "react";
-
-import { ChevronLeftIcon } from "@heroicons/react/24/outline";
-import { Separator } from "@heroui/react";
-
-import { Searchbar, SearchIcon } from "./search";
+import { useEffect, useState } from "react";
 
 export const sections = [
-  {
-    name: "skills",
-    link: "#skills",
-  },
-  {
-    name: "certifications",
-    link: "#certifications",
-  },
-  {
-    name: "degrees",
-    link: "#degrees",
-  },
+  { name: "Skills", link: "#skills" },
+  { name: "Certifications", link: "#certifications" },
+  { name: "Projects", link: "#projects" },
+  { name: "Experience", link: "#experience" },
+  { name: "Education", link: "#degrees" },
+  { name: "About", link: "#about" },
 ];
 
-export const pages = [
-  {
-    name: "projects",
-    link: "./projects",
-  },
-  {
-    name: "positions",
-    link: "./positions",
-  },
-];
-
-const Title = () => (
-  <Link href="#" className="text-lg font-semibold">
+const Title = ({ onClick }: { onClick: (e: React.MouseEvent) => void }) => (
+  <button
+    onClick={onClick}
+    className="text-lg font-semibold cursor-pointer hover:text-primary transition-colors"
+  >
     Amr Abed
-  </Link>
+  </button>
 );
 
 export const MainHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-30% 0px -60% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === "home") {
+            setActiveSection("");
+          } else {
+            setActiveSection(entry.target.id);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section.link.substring(1));
+      if (element) observer.observe(element);
+    });
+
+    const home = document.getElementById("home");
+    if (home) observer.observe(home);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleScroll = (e: React.MouseEvent, link: string) => {
+    e.preventDefault();
+    const targetId = link.substring(1);
+    const element = document.getElementById(targetId);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 100, // Adjusted offset for better centering
+        behavior: "smooth",
+      });
+      setIsMenuOpen(false);
+    }
+  };
+
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setIsMenuOpen(false);
+    setActiveSection("");
+  };
 
   return (
-    <nav className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur-lg pt-10 px-6">
+    <nav className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur-lg pt-10 px-6 border-b border-divider h-26">
       <header className="max-w-7xl mx-auto flex h-16 items-center justify-between">
-        <Title />
+        <Title onClick={handleScrollToTop} />
 
         <div className="sm:hidden">
           <button
@@ -75,35 +113,26 @@ export const MainHeader = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
+                  d="M19 9l-7 7-7-7"
                 />
               )}
             </svg>
           </button>
         </div>
 
-        <ul className="hidden sm:flex items-center gap-4">
+        <ul className="hidden sm:flex items-center gap-6">
           {sections.map((section) => (
             <li key={section.name}>
-              <Link
-                className="hover:text-primary transition-colors"
+              <a
+                className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === section.link.substring(1)
+                  ? "text-primary"
+                  : "text-foreground-500"
+                  }`}
                 href={section.link}
+                onClick={(e) => handleScroll(e, section.link)}
               >
                 {section.name}
-              </Link>
-            </li>
-          ))}
-          <li key="separator">
-            <Separator orientation="vertical" className="h-10 mx-2" />
-          </li>
-          {pages.map((page) => (
-            <li key={page.name}>
-              <Link
-                className="hover:text-primary transition-colors"
-                href={page.link}
-              >
-                {page.name}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
@@ -112,32 +141,21 @@ export const MainHeader = () => {
       {isMenuOpen && (
         <div
           id="mobile-menu"
-          className="sm:hidden pb-6 transition-all duration-300"
+          className="sm:hidden pb-6 transition-all duration-300 bg-background/95 backdrop-blur-lg border-b border-divider"
         >
           <ul className="flex flex-col gap-4">
             {sections.map((section) => (
               <li key={section.name}>
-                <Link
-                  className="block text-lg py-2 hover:text-primary transition-colors"
+                <a
+                  className={`block text-lg py-2 transition-colors hover:text-primary ${activeSection === section.link.substring(1)
+                    ? "text-primary"
+                    : "text-foreground-500"
+                    }`}
                   href={section.link}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => handleScroll(e, section.link)}
                 >
                   {section.name}
-                </Link>
-              </li>
-            ))}
-            <li key="separator">
-              <Separator />
-            </li>
-            {pages.map((page) => (
-              <li key={page.name}>
-                <Link
-                  className="block text-lg py-2 hover:text-primary transition-colors"
-                  href={page.link}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {page.name}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -146,45 +164,3 @@ export const MainHeader = () => {
     </nav>
   );
 };
-
-export const PageHeader = ({
-  title,
-  query,
-  setQuery,
-  placeholder,
-  children,
-}: {
-  title: string;
-  query: string;
-  setQuery: (query: string) => void;
-  placeholder: string;
-  children: ReactNode;
-}) => (
-  <div className="w-full p-5 backdrop-filter backdrop-blur-lg shadow-sm shadow-gray-300 dark:shadow-gray-800 fixed z-10 transition-all duration-500">
-    <div className="max-w-7xl mx-auto flex flex-row justify-between w-full">
-      <div className="flex flex-row gap-1 p-1">
-        <Link href="/">
-          <ChevronLeftIcon className="size-8 text-xl text-primary" />
-        </Link>
-        <h1 className="text-xl p-1">{title}</h1>
-      </div>
-      <div className="hidden sm:flex w-1/2 lg:w-1/3">
-        <Searchbar
-          placeholder={placeholder}
-          query={query}
-          setQuery={setQuery}
-        />
-      </div>
-      <div className="flex flex-row">
-        <div className="flex sm:hidden">
-          <SearchIcon
-            placeholder={placeholder}
-            query={query}
-            setQuery={setQuery}
-          />
-        </div>
-        {children}
-      </div>
-    </div>
-  </div>
-);

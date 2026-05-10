@@ -7,10 +7,12 @@ export const Searchbar = ({
   placeholder,
   query,
   setQuery,
+  className,
 }: {
   placeholder: string;
   query: string;
   setQuery: (query: string) => void;
+  className?: string;
 }) => {
   const inputId = useId();
   return (
@@ -20,7 +22,7 @@ export const Searchbar = ({
       </label>
       <input
         id={inputId}
-        className="peer border-none rounded-lg bg-white dark:bg-slate-800 border border-gray-200 py-[9px] pl-10 pr-10 text-sm outline-none w-full"
+        className={`peer border-none bg-white dark:bg-slate-800 border border-gray-200 py-[9px] pl-10 pr-10 text-sm outline-none w-full ${className}`}
         placeholder={placeholder}
         value={query}
         onChange={(e) => setQuery(e.target.value)}

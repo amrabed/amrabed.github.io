@@ -54,19 +54,19 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
     setSelectedState({});
   }, []);
 
-  const update = useCallback(
-    (p: URLSearchParams, s: Record<string, string[]>) => {
-      Array.from(p.keys()).forEach((k) => {
-        if (k !== "query") p.delete(k);
+  const updateUrl = useCallback(
+    (params: URLSearchParams, s: Record<string, string[]>) => {
+      Array.from(params.keys()).forEach((k) => {
+        if (k !== "query") params.delete(k);
       });
       Object.entries(s).forEach(([k, v]) => {
-        if (v?.length) p.set(k, v.join(","));
+        if (v?.length) params.set(k, v.join(","));
       });
     },
     [],
   );
 
-  useUrlSync(selected, update);
+  useUrlSync(selected, updateUrl);
 
   const contextValue = useMemo(
     () => ({ selected, setSelected, clearAll }),

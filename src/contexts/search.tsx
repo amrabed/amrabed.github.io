@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { useDebounce } from "use-debounce";
 
 import {
   ReactNode,
@@ -10,7 +11,6 @@ import {
   useMemo,
   useCallback,
 } from "react";
-import { useDebounce } from "use-debounce";
 
 import { withSuspense } from "./suspense";
 import { useUrlSync } from "./sync";

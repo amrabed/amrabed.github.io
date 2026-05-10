@@ -6,7 +6,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 const Intro = () => {
-  const [isHome, setIsHome] = useState(false);
+  const [isHome, setIsHome] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   const homeRef = useRef<HTMLElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
@@ -14,6 +15,7 @@ const Intro = () => {
 
   // Intersection observer animation on scroll
   useEffect(() => {
+    setMounted(true);
     const getScreenWidth = () =>
       window.innerWidth ||
       document.documentElement.clientWidth ||
@@ -43,11 +45,11 @@ const Intro = () => {
     <section id="home" ref={homeRef} className="w-full">
       <div className="min-h-[100vh] w-full overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[200px] 2xl:px-[400px] flex flex-col md:flex-row content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm">
         <div
-          className={`${isHome ? "translate-x-0 opacity-100" : "translate-x-[-500px] opacity-0"} transition-all duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] relative m-auto md:m-0 mt-[40px] md:mt-0 order-last md:order-first`}
+          className={`${isHome ? "translate-x-0 opacity-100" : "translate-x-[-500px] opacity-0"} transition-all duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] relative m-auto md:m-0 mt-[40px] md:mt-0 order-last md:order-last`}
           ref={profileRef}
         >
           <Image
-            src="/amr.webp"
+            src="/amrabed.webp"
             alt="Amr Abed"
             fill
             className="rounded-full object-cover"
@@ -56,28 +58,32 @@ const Intro = () => {
         </div>
 
         <div
-          className={`${isHome ? "translate-x-0 opacity-100" : "translate-x-[500px] opacity-0"} transition-all duration-700 order-first md:order-last`}
+          className={`${isHome ? "translate-x-0 opacity-100" : "translate-x-[500px] opacity-0"} transition-all duration-700 order-first md:order-first`}
           ref={introRef}
         >
           <p className="text-2xl md:text-4xl py-2 font-sans text-center text-nowrap">
             I&apos;m
             <span className="text-primary">
               {" a"}
-              <TypeAnimation
-                sequence={[
-                  "n Engineer",
-                  2000,
-                  " Researcher",
-                  2000,
-                  " Teacher",
-                  2000,
-                  " Creator",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={10}
-                repeat={Infinity}
-              />
+              {!mounted ? (
+                "n Engineer"
+              ) : (
+                <TypeAnimation
+                  sequence={[
+                    "n Engineer",
+                    2000,
+                    " Researcher",
+                    2000,
+                    " Teacher",
+                    2000,
+                    " Creator",
+                    2000,
+                  ]}
+                  wrapper="span"
+                  speed={10}
+                  repeat={Infinity}
+                />
+              )}
             </span>
           </p>
         </div>

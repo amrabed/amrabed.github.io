@@ -1,92 +1,62 @@
-import dynamic from "next/dynamic";
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
 
 import { Banner } from "@/components/banner";
 import { MainHeader } from "@/components/header";
-import { Section } from "@/components/section";
-import certificates from "@/data/certifications";
-import degrees from "@/data/degrees";
-import skills from "@/data/skills";
-import type { Certification, Degree, Skill } from "@/types";
-import "@/types";
+import Intro from "@/components/sections/hero";
+import { AboutSection } from "@/components/sections/about";
+import { CertificationsSection } from "@/components/sections/certifications";
+import { EducationSection } from "@/components/sections/education";
+import { ExperienceSection } from "@/components/sections/experience";
+import { ProjectsSection } from "@/components/sections/projects";
+import { SkillsSection } from "@/components/sections/skills";
+import { UnifiedFilterBar } from "@/components/unified-filter-bar";
 
-const Intro = dynamic(() => import("@/components/intro"));
+const Home = () => {
+  const [showFilter, setShowFilter] = useState(false);
 
-const Skills = () => (
-  <Section id="skills" title="Technical Skills">
-    {Object.values(skills).map((skill: Skill) => (
-      <div
-        className="transition-all duration-700 section-item md:py-5 w-[120px] md:w-[150px]"
-        key={skill.name}
-      >
-        <p className="md:text-4xl text-2xl">{skill.icon}</p>
-        <p>{skill.name}</p>
-      </div>
-    ))}
-  </Section>
-);
+  useEffect(() => {
+    const handleScroll = () => {
+      const skillsSection = document.getElementById("skills");
+      const experienceSection = document.getElementById("experience");
 
-const Certifications = () => (
-  <Section id="certifications" title="Certifications">
-    {certificates.map((certificate: Certification) => (
-      <div className="transition-all duration-700" key={certificate.title}>
-        <a href={certificate.link} target="_blank" rel="noopener noreferrer">
-          <div className="section-item p-3">
-            <Image
-              src={certificate.badge}
-              alt={`Badge for ${certificate.title}`}
-              width={150}
-              height={150}
-            />
-            <p className="md:text-xl text-foreground">{certificate.title}</p>
-            <p className="text-primary">{certificate.organization.name}</p>
-            <p className="text-secondary">{certificate.date}</p>
-          </div>
-        </a>
-      </div>
-    ))}
-  </Section>
-);
+      if (skillsSection && experienceSection) {
+        const skillsTop = skillsSection.offsetTop;
+        const experienceBottom =
+          experienceSection.offsetTop + experienceSection.offsetHeight;
 
-const Degrees = () => (
-  <Section id="degrees" title="Education">
-    {degrees.map((degree: Degree) => (
-      <div className="transition-all duration-700 gap-6" key={degree.title}>
-        <a
-          href={degree.university.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="section-item p-3">
-            <Image
-              src={degree.university.logo ?? ""}
-              alt={`${degree.university.name} logo`}
-              height={150}
-              width={150}
-            />
-            <p className="text-xl md:text-2xl text-foreground">
-              {degree.title}
-            </p>
-            <p className="dark:text-primary-dark text-primary">
-              {degree.university.name}
-            </p>
-            <p className="text-secondary">{degree.duration}</p>
-          </div>
-        </a>
-      </div>
-    ))}
-  </Section>
-);
+        // Show filter bar when between skills top and experience bottom
+        // Adjusted to hide when reaching the About section
+        setShowFilter(
+          window.scrollY > skillsTop - 200 &&
+          window.scrollY + window.innerHeight < experienceBottom + 100,
+        );
+      }
+    };
 
-const Home = () => (
-  <>
-    <Banner />
-    <MainHeader />
-    <Intro />
-    <Skills />
-    <Certifications />
-    <Degrees />
-  </>
-);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Banner />
+      <MainHeader />
+      <Intro />
+      <main className="flex-grow">
+        <div className="space-y-0">
+          <SkillsSection />
+          <CertificationsSection />
+          <ProjectsSection />
+          <ExperienceSection />
+          <EducationSection />
+          <AboutSection />
+        </div>
+      </main>
+      {showFilter && <UnifiedFilterBar />}
+    </div>
+  );
+};
 
 export default Home;

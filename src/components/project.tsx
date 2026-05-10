@@ -47,10 +47,12 @@ const IconLink = ({
 );
 
 const Links = ({ links }: { links: ProjectLinks }) => {
+  const githubLink = links.github ? `https://github.com/${links.github}` : null;
+
   return (
     <div className="flex flex-row gap-4">
-      {links.github && (
-        <IconLink href={links.github} title="GitHub">
+      {githubLink && (
+        <IconLink href={githubLink} title="GitHub">
           <FaGithub className="size-5" />
         </IconLink>
       )}
