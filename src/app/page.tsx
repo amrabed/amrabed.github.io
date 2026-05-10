@@ -46,9 +46,9 @@ const Home = () => {
       <Intro />
       <main className="flex-grow">
         <div className="space-y-0">
-          <EducationSection />
           <SkillsSection />
           <CertificationsSection />
+          <EducationSection />
           <ProjectsSection />
           <ExperienceSection />
           <AboutSection />
