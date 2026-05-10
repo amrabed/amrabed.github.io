@@ -17,7 +17,7 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 
 const checkbox = tv({
   slots: {
-    base: "border-none bg-default-100 hover:bg-default-200",
+    base: "border-none bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700",
     content: "text-foreground-500 hover:text-foreground",
   },
   variants: {

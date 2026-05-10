@@ -27,8 +27,11 @@ const Home = () => {
         const experienceBottom = experienceSection.offsetTop + experienceSection.offsetHeight;
 
         // Show filter bar when between skills top and experience bottom
-        // Using window.scrollY to check if we have scrolled past skills
-        setShowFilter(window.scrollY > skillsTop - 200 && window.scrollY < experienceBottom - 100);
+        // Adjusted to hide when reaching the About section
+        setShowFilter(
+          window.scrollY > skillsTop - 200 &&
+          window.scrollY + window.innerHeight < experienceBottom + 100
+        );
       }
     };
 
