@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const sections = [
@@ -12,10 +11,14 @@ export const sections = [
   { name: "About", link: "#about" },
 ];
 
-const Title = () => (
-  <Link href="#" className="text-lg font-semibold">
+const Title = ({ onClick }: { onClick: (e: React.MouseEvent) => void }) => (
+  <a
+    href="#"
+    onClick={onClick}
+    className="text-lg font-semibold cursor-pointer hover:text-primary transition-colors"
+  >
     Amr Abed
-  </Link>
+  </a>
 );
 
 export const MainHeader = () => {
@@ -25,14 +28,18 @@ export const MainHeader = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -70% 0px",
+      rootMargin: "-30% 0px -60% 0px",
       threshold: 0,
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+          if (entry.target.id === "home") {
+            setActiveSection("");
+          } else {
+            setActiveSection(entry.target.id);
+          }
         }
       });
     };
@@ -44,30 +51,39 @@ export const MainHeader = () => {
       if (element) observer.observe(element);
     });
 
-    // Also observe hero/intro if needed to clear active section
     const home = document.getElementById("home");
     if (home) observer.observe(home);
 
     return () => observer.disconnect();
   }, []);
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+  const handleScroll = (e: React.MouseEvent, link: string) => {
     e.preventDefault();
     const targetId = link.substring(1);
     const element = document.getElementById(targetId);
     if (element) {
       window.scrollTo({
-        top: element.offsetTop - 180, // Adjust for sticky header + filter bar
+        top: element.offsetTop - 100, // Adjusted offset for better centering
         behavior: "smooth",
       });
       setIsMenuOpen(false);
     }
   };
 
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setIsMenuOpen(false);
+    setActiveSection("");
+  };
+
   return (
     <nav className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur-lg pt-10 px-6 border-b border-divider h-26">
       <header className="max-w-7xl mx-auto flex h-16 items-center justify-between">
-        <Title />
+        <Title onClick={handleScrollToTop} />
 
         <div className="sm:hidden">
           <button
