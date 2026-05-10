@@ -124,11 +124,10 @@ export const MainHeader = () => {
           {sections.map((section) => (
             <li key={section.name}>
               <a
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === section.link.substring(1)
-                    ? "text-primary"
-                    : "text-foreground-500"
-                }`}
+                className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === section.link.substring(1)
+                  ? "text-primary"
+                  : "text-foreground-500"
+                  }`}
                 href={section.link}
                 onClick={(e) => handleScroll(e, section.link)}
               >
@@ -142,17 +141,16 @@ export const MainHeader = () => {
       {isMenuOpen && (
         <div
           id="mobile-menu"
-          className="sm:hidden pb-6 transition-all duration-300"
+          className="sm:hidden pb-6 transition-all duration-300 bg-background/95 backdrop-blur-lg border-b border-divider"
         >
           <ul className="flex flex-col gap-4">
             {sections.map((section) => (
               <li key={section.name}>
                 <a
-                  className={`block text-lg py-2 transition-colors hover:text-primary ${
-                    activeSection === section.link.substring(1)
-                      ? "text-primary"
-                      : ""
-                  }`}
+                  className={`block text-lg py-2 transition-colors hover:text-primary ${activeSection === section.link.substring(1)
+                    ? "text-primary"
+                    : "text-foreground-500"
+                    }`}
                   href={section.link}
                   onClick={(e) => handleScroll(e, section.link)}
                 >
