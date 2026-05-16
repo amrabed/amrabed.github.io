@@ -37,7 +37,7 @@ export const SkillsSection = () => {
   }, [debouncedQuery, selected]);
 
   return (
-    <Section id="skills" title="Technical Skills">
+    <Section id="skills" title="Technical Skills" count={filteredSkills.length}>
       <div className="section-body">
         {filteredSkills.length > 0 ? (
           filteredSkills.map(([, skill]) => (

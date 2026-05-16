@@ -2,13 +2,17 @@
 
 import { ReactNode, useEffect, useRef, useState } from "react";
 
+import { Chip } from "@heroui/react";
+
 export const Section = ({
   id,
   title,
+  count,
   children,
 }: {
   id: string;
   title: string;
+  count?: number;
   children: ReactNode;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -54,8 +58,13 @@ export const Section = ({
 
   return (
     <section id={id} className="section scroll-mt-48" ref={dataRef}>
-      <div className="flex items-center gap-4 mb-8">
+      <div className="flex items-baseline gap-4 mb-8">
         <h2 className="section-heading mb-0">{title}</h2>
+        {count !== undefined && (
+          <Chip color="accent" variant="soft" size="sm" className="font-semibold">
+            {count}
+          </Chip>
+        )}
       </div>
       <div className="pop-down-child section-body" ref={itemRef}>
         {children}

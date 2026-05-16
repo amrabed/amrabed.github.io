@@ -8,7 +8,7 @@ import { Section } from "../section";
 
 export const EducationSection = () => {
   return (
-    <Section id="degrees" title="Education">
+    <Section id="degrees" title="Education" count={degreesData.length}>
       {degreesData.map((degree) => (
         <div className="transition-all duration-700 gap-6" key={degree.title}>
           <a

@@ -32,7 +32,11 @@ export const CertificationsSection = () => {
   }, [debouncedQuery, selected]);
 
   return (
-    <Section id="certifications" title="Certifications">
+    <Section
+      id="certifications"
+      title="Certifications"
+      count={filteredCerts.length}
+    >
       <div className="section-body">
         {filteredCerts.length > 0 ? (
           filteredCerts.map((certificate) => (
