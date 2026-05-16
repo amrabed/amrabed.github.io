@@ -40,7 +40,7 @@ export const ProjectsSection = () => {
   }, [debouncedQuery, selected]);
 
   return (
-    <Section id="projects" title="Projects">
+    <Section id="projects" title="Projects" count={filteredProjects.length}>
       {filteredProjects.length > 0 ? (
         <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full px-4 md:px-10">
           {filteredProjects.map((project) => (
