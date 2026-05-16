@@ -61,7 +61,7 @@ export const Section = ({
       <div className="flex items-baseline gap-4 mb-8">
         <h2 className="section-heading mb-0">{title}</h2>
         {count !== undefined && (
-          <Chip color="primary" variant="soft" size="sm" className="font-semibold">
+          <Chip color="accent" variant="soft" size="sm" className="font-semibold">
             {count}
           </Chip>
         )}
