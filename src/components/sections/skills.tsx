@@ -14,19 +14,25 @@ export const SkillsSection = () => {
   const { debouncedQuery } = useSearch();
   const { selected } = useFilter();
 
-  const filteredSkills = useMemo(() => {
-    const lowercaseQuery = debouncedQuery.toLowerCase();
+  const areas = selected["areas"];
 
-    // Determine which skills are matching the area filter
-    const selectedAreas = selected["areas"] || [];
-    const areaMatchingSkills = new Set<string>();
-    if (selectedAreas.length === 0) {
-      Object.keys(skillsData).forEach((s) => areaMatchingSkills.add(s));
+  // ⚡ Optimization: Memoize areaMatchingSkills separately from the query filter.
+  // This avoids re-calculating the matching skills set when only the search query changes.
+  const areaMatchingSkills = useMemo(() => {
+    const matchingSkills = new Set<string>();
+    if (!areas || areas.length === 0) {
+      Object.keys(skillsData).forEach((s) => matchingSkills.add(s));
     } else {
-      selectedAreas.forEach((area) => {
-        areaSkills[area]?.forEach((skill) => areaMatchingSkills.add(skill));
+      areas.forEach((area) => {
+        areaSkills[area]?.forEach((skill) => matchingSkills.add(skill));
       });
     }
+    return matchingSkills;
+  }, [areas]);
+
+  // ⚡ Optimization: filteredSkills now only depends on debouncedQuery and the memoized areaMatchingSkills.
+  const filteredSkills = useMemo(() => {
+    const lowercaseQuery = debouncedQuery.toLowerCase();
 
     return Object.entries(skillsData).filter(([key, skill]) => {
       const matchesQuery =
@@ -34,7 +40,7 @@ export const SkillsSection = () => {
       const matchesArea = areaMatchingSkills.has(key);
       return matchesQuery && matchesArea;
     });
-  }, [debouncedQuery, selected]);
+  }, [debouncedQuery, areaMatchingSkills]);
 
   return (
     <Section id="skills" title="Technical Skills">

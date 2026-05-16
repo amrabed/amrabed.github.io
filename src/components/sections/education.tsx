@@ -4,9 +4,14 @@ import Image from "next/image";
 
 import degreesData from "@/data/degrees";
 
+import { memo } from "react";
+
 import { Section } from "../section";
 
-export const EducationSection = () => {
+// ⚡ Optimization: EducationSection is memoized to prevent unnecessary re-renders.
+// Since it only depends on static data (degreesData) and doesn't consume filter/search contexts,
+// it should only re-render if its parent (Home) re-renders, which we also want to avoid.
+export const EducationSection = memo(() => {
   return (
     <Section id="degrees" title="Education">
       {degreesData.map((degree) => (
@@ -36,4 +41,6 @@ export const EducationSection = () => {
       ))}
     </Section>
   );
-};
+});
+
+EducationSection.displayName = "EducationSection";
