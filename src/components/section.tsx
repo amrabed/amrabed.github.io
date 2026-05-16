@@ -1,8 +1,9 @@
 "use client";
 
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { memo, ReactNode, useEffect, useRef, useState } from "react";
 
-export const Section = ({
+// ⚡ Optimization: Section component is memoized to prevent redundant re-renders of the section wrapper.
+export const Section = memo(({
   id,
   title,
   children,
@@ -62,4 +63,6 @@ export const Section = ({
       </div>
     </section>
   );
-};
+});
+
+Section.displayName = "Section";
