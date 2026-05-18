@@ -109,12 +109,7 @@ export const Filter = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Popover
-      isOpen={isOpen}
-      onOpenChange={setIsOpen}
-      isDismissable={true}
-      shouldCloseOnInteractOutside={(el) => !el.closest(".heroui-popover")}
-    >
+    <Popover isOpen={isOpen} onOpenChange={setIsOpen}>
       <Button
         id="filter-trigger"
         variant="ghost"
@@ -130,6 +125,7 @@ export const Filter = ({
         offset={10}
         placement="bottom"
         className="dark:bg-slate-800 rounded-3xl"
+        shouldCloseOnInteractOutside={(el) => !el.closest(".heroui-popover")}
       >
         <Popover.Dialog className="flex flex-col w-[90vw] max-w-[500px] p-6 gap-8">
           {children}
