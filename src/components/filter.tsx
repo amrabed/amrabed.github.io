@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 import {
   AdjustmentsHorizontalIcon,
@@ -105,26 +105,36 @@ export const Filter = ({
 }: {
   children: ReactNode;
   className?: string;
-}) => (
-  <Popover>
-    <Button
-      id="filter-trigger"
-      variant="ghost"
-      isIconOnly
-      aria-label="Open filters"
-      aria-haspopup="dialog"
-      className={className}
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Popover
+      isOpen={isOpen}
+      onOpenChange={setIsOpen}
+      isDismissable={true}
+      shouldCloseOnInteractOutside={(el) => !el.closest(".heroui-popover")}
     >
-      <AdjustmentsHorizontalIcon className="size-6" />
-    </Button>
-    <Popover.Content
-      offset={10}
-      placement="bottom"
-      className="dark:bg-slate-800 rounded-3xl"
-    >
-      <Popover.Dialog className="flex flex-col w-[90vw] max-w-[500px] p-6 gap-8">
-        {children}
-      </Popover.Dialog>
-    </Popover.Content>
-  </Popover>
-);
+      <Button
+        id="filter-trigger"
+        variant="ghost"
+        isIconOnly
+        aria-label="Open filters"
+        aria-haspopup="dialog"
+        className={className}
+        onPress={() => setIsOpen(!isOpen)}
+      >
+        <AdjustmentsHorizontalIcon className="size-6" />
+      </Button>
+      <Popover.Content
+        offset={10}
+        placement="bottom"
+        className="dark:bg-slate-800 rounded-3xl"
+      >
+        <Popover.Dialog className="flex flex-col w-[90vw] max-w-[500px] p-6 gap-8">
+          {children}
+        </Popover.Dialog>
+      </Popover.Content>
+    </Popover>
+  );
+};
