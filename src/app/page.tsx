@@ -45,7 +45,7 @@ const Home = () => {
       // Use cached dimensions to avoid expensive DOM lookups and reflows during scroll.
       setShowFilter(
         window.scrollY > skillsTop - 200 &&
-          window.scrollY + window.innerHeight < lastSectionBottom + 100,
+        window.scrollY + window.innerHeight < lastSectionBottom + 100,
       );
     };
 

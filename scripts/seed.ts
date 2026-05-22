@@ -1,9 +1,12 @@
-import { adminDb } from "../src/lib/firebase";
+import { FieldValue } from "firebase-admin/firestore";
 import fs from "fs";
 import path from "path";
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
+
 import { embedMany } from "ai";
-import { FieldValue } from "firebase-admin/firestore";
+
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
+
+import { adminDb } from "../src/lib/firebase";
 
 const google = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
@@ -56,7 +59,13 @@ function stringify(obj: any, indent = ""): string {
 
   if (typeof obj === "object") {
     return Object.entries(obj)
-      .filter(([, v]) => v !== null && v !== undefined && v !== "" && (Array.isArray(v) ? v.length > 0 : true))
+      .filter(
+        ([, v]) =>
+          v !== null &&
+          v !== undefined &&
+          v !== "" &&
+          (Array.isArray(v) ? v.length > 0 : true),
+      )
       .map(([k, v]) => `${indent}${k}: ${stringify(v, indent + "  ")}`)
       .join("\n");
   }
@@ -83,7 +92,11 @@ async function main() {
   }
 
   const dataDir = path.join(process.cwd(), "src/data");
-  const files = fs.readdirSync(dataDir).filter(f => f.endsWith(".tsx") || f.endsWith(".ts") || f.endsWith(".json"));
+  const files = fs
+    .readdirSync(dataDir)
+    .filter(
+      (f) => f.endsWith(".tsx") || f.endsWith(".ts") || f.endsWith(".json"),
+    );
 
   console.log(`Found ${files.length} data files.`);
 
@@ -137,7 +150,7 @@ async function main() {
         await batch.commit();
 
         if (j + 10 < chunks.length) {
-          await new Promise(r => setTimeout(r, 500));
+          await new Promise((r) => setTimeout(r, 500));
         }
       }
     }
@@ -145,7 +158,9 @@ async function main() {
   }
 
   const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);
-  console.log(`Seeding complete! Items: ${totalItems}, Chunks: ${totalChunks}, Time: ${totalTime}s`);
+  console.log(
+    `Seeding complete! Items: ${totalItems}, Chunks: ${totalChunks}, Time: ${totalTime}s`,
+  );
 }
 
 main().catch(console.error);

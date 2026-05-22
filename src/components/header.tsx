@@ -126,11 +126,10 @@ export const MainHeader = () => {
           {sections.map((section) => (
             <li key={section.name}>
               <a
-                className={`text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1 ${
-                  activeSection === section.link.substring(1)
+                className={`text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1 ${activeSection === section.link.substring(1)
                     ? "text-primary"
                     : "text-foreground-500"
-                }`}
+                  }`}
                 href={section.link}
                 onClick={(e) => handleScroll(e, section.link)}
               >
@@ -150,11 +149,10 @@ export const MainHeader = () => {
             {sections.map((section) => (
               <li key={section.name}>
                 <a
-                  className={`block text-lg py-2 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-2 ${
-                    activeSection === section.link.substring(1)
+                  className={`block text-lg py-2 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-2 ${activeSection === section.link.substring(1)
                       ? "text-primary"
                       : "text-foreground-500"
-                  }`}
+                    }`}
                   href={section.link}
                   onClick={(e) => handleScroll(e, section.link)}
                 >

@@ -9,7 +9,9 @@ export function getAdminApp() {
   }
 
   if (!FIREBASE_SERVICE_ACCOUNT_KEY) {
-    console.warn("FIREBASE_SERVICE_ACCOUNT_KEY is not defined. Firebase Admin SDK not initialized.");
+    console.warn(
+      "FIREBASE_SERVICE_ACCOUNT_KEY is not defined. Firebase Admin SDK not initialized.",
+    );
     return null;
   }
 
