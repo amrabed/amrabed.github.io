@@ -74,11 +74,10 @@ export default function ChatWidgetClient() {
                 className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${
-                    m.role === "user"
+                  className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${m.role === "user"
                       ? "bg-teal-600 text-white"
                       : "bg-default-100 text-default-900"
-                  }`}
+                    }`}
                 >
                   <div className="prose prose-sm dark:prose-invert max-w-none">
                     <ReactMarkdown>{m.content}</ReactMarkdown>
@@ -137,11 +136,6 @@ export default function ChatWidgetClient() {
               </Button>
             </div>
           </form>
-
-          {/* Footer */}
-          <div className="bg-zinc-50 dark:bg-zinc-800/50 pb-2 text-center text-[10px] text-default-400">
-            Powered by Gemma 4 · Free to use
-          </div>
         </div>
       )}
 
