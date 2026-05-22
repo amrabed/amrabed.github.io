@@ -1,14 +1,17 @@
 "use client";
 
-import { useChat } from "@ai-sdk/react";
-import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
+
+import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+
+import { useChat } from "@ai-sdk/react";
 import { Button } from "@heroui/react";
 
 export default function ChatWidgetClient() {
   const [isOpen, setIsOpen] = useState(false);
-  const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat() as any;
+  const { messages, input, handleInputChange, handleSubmit, isLoading, error } =
+    useChat() as any;
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -34,7 +37,8 @@ export default function ChatWidgetClient() {
 
   const toggleChat = () => setIsOpen(!isOpen);
 
-  const isRateLimited = error?.message?.includes("429") || (error as any)?.status === 429;
+  const isRateLimited =
+    error?.message?.includes("429") || (error as any)?.status === 429;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
@@ -77,9 +81,7 @@ export default function ChatWidgetClient() {
                   }`}
                 >
                   <div className="prose prose-sm dark:prose-invert max-w-none">
-                    <ReactMarkdown>
-                      {m.content}
-                    </ReactMarkdown>
+                    <ReactMarkdown>{m.content}</ReactMarkdown>
                   </div>
                 </div>
               </div>

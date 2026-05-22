@@ -1,7 +1,9 @@
+import { embed, streamText } from "ai";
+
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
-import { embed, streamText } from "ai";
+
 import { findSimilarChunks } from "@/lib/ai/queries";
 
 const redis = new Redis({
@@ -27,19 +29,24 @@ export async function POST(req: Request) {
 
   if (!success) {
     return new Response(
-      JSON.stringify({ error: "You've reached the daily limit. Come back tomorrow!" }),
-      { status: 429, headers: { "Content-Type": "application/json" } }
+      JSON.stringify({
+        error: "You've reached the daily limit. Come back tomorrow!",
+      }),
+      { status: 429, headers: { "Content-Type": "application/json" } },
     );
   }
 
   const { messages } = await req.json();
   const lastMessage = messages[messages.length - 1];
 
-  if (typeof lastMessage.content !== "string" || lastMessage.content.length > 500) {
-    return new Response(
-      JSON.stringify({ error: "Message too long." }),
-      { status: 400, headers: { "Content-Type": "application/json" } }
-    );
+  if (
+    typeof lastMessage.content !== "string" ||
+    lastMessage.content.length > 500
+  ) {
+    return new Response(JSON.stringify({ error: "Message too long." }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
   const recentMessages = messages.slice(-6);
