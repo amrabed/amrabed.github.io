@@ -16,10 +16,7 @@ const Intro = () => {
   // Intersection observer animation on scroll
   useEffect(() => {
     setMounted(true);
-    const getScreenWidth = () =>
-      window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body.clientWidth;
+    const screenWidth = window.innerWidth;
 
     const currentHomeRef = homeRef.current;
     // Scroll Animation
@@ -29,7 +26,7 @@ const Intro = () => {
           setIsHome(homeEntry.isIntersecting);
         },
         {
-          rootMargin: `${getScreenWidth() <= 700 ? "-100px" : "-300px"}`,
+          rootMargin: `${screenWidth <= 700 ? "-100px" : "-300px"}`,
         },
       );
 
@@ -54,6 +51,7 @@ const Intro = () => {
             fill
             className="rounded-full object-cover"
             priority
+            sizes="(max-width: 768px) 300px, 400px"
           />
         </div>
 
