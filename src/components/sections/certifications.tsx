@@ -40,9 +40,7 @@ export const CertificationsSection = () => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
     if (!lowercaseQuery) return matchingCerts;
 
-    return matchingCerts.filter((cert) =>
-      filterByQuery(cert, lowercaseQuery),
-    );
+    return matchingCerts.filter((cert) => filterByQuery(cert, lowercaseQuery));
   }, [debouncedQuery, matchingCerts]);
 
   return (

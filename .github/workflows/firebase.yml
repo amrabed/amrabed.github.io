@@ -8,15 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 20
-      - name: Install dependencies
-        run: make install
-      - name: Install Firebase
-        run: make firebase
+      - uses: jdx/mise-action@v4
       - name: Deploy to Firebase
-        run: make deploy
+        run: mise run deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

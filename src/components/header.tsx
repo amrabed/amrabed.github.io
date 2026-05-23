@@ -124,10 +124,11 @@ export const MainHeader = () => {
           {sections.map((section) => (
             <li key={section.name}>
               <a
-                className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === section.link.substring(1)
-                  ? "text-primary"
-                  : "text-foreground-500"
-                  }`}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === section.link.substring(1)
+                    ? "text-primary"
+                    : "text-foreground-500"
+                }`}
                 href={section.link}
                 onClick={(e) => handleScroll(e, section.link)}
               >
@@ -147,10 +148,11 @@ export const MainHeader = () => {
             {sections.map((section) => (
               <li key={section.name}>
                 <a
-                  className={`block text-lg py-2 transition-colors hover:text-primary ${activeSection === section.link.substring(1)
-                    ? "text-primary"
-                    : "text-foreground-500"
-                    }`}
+                  className={`block text-lg py-2 transition-colors hover:text-primary ${
+                    activeSection === section.link.substring(1)
+                      ? "text-primary"
+                      : "text-foreground-500"
+                  }`}
                   href={section.link}
                   onClick={(e) => handleScroll(e, section.link)}
                 >
