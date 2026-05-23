@@ -84,7 +84,7 @@ export const MainHeader = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur-lg pt-10 px-6 border-b border-divider h-26">
+    <nav className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur-lg px-6 border-b border-divider h-16">
       <header className="max-w-7xl mx-auto flex h-16 items-center justify-between">
         <Title onClick={handleScrollToTop} />
 
