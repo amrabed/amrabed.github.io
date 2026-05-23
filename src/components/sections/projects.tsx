@@ -15,29 +15,41 @@ export const ProjectsSection = () => {
   const { debouncedQuery } = useSearch();
   const { selected } = useFilter();
 
+  const areas = selected["areas"];
+  const roles = selected["roles"];
+  const skills = selected["skills"];
+
+  // ⚡ Optimization: Memoize filter sets separately to avoid recreating them
+  // unless the specific filter category changes.
+  const selectedAreas = useMemo(() => new Set(areas || []), [areas]);
+  const selectedRoles = useMemo(() => new Set(roles || []), [roles]);
+  const selectedSkills = useMemo(() => new Set(skills || []), [skills]);
+
+  // ⚡ Optimization: Pre-filter projects by selected area, role, and skill.
+  // This avoids re-running these checks when only the search query changes.
+  const matchingProjects = useMemo(() => {
+    return projectsData.filter((project) => {
+      const matchesArea = filterByArea(project.tags, selectedAreas);
+      const matchesRole =
+        selectedRoles.size === 0 ||
+        project.roles.some((r) => selectedRoles.has(r.toLowerCase()));
+      const matchesSkill =
+        selectedSkills.size === 0 ||
+        project.tools.some((t) => selectedSkills.has(t.toLowerCase()));
+      return matchesArea && matchesRole && matchesSkill;
+    });
+  }, [selectedAreas, selectedRoles, selectedSkills]);
+
   const filteredProjects = useMemo(() => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
-    const selectedAreas = new Set(selected["areas"] || []);
-    const selectedRoles = new Set(selected["roles"] || []);
-    const selectedSkills = new Set(selected["skills"] || []);
 
-    return projectsData
-      .filter((project) => {
-        const matchesQuery = filterByQuery(project, lowercaseQuery);
-        const matchesArea = filterByArea(project.tags, selectedAreas);
-        const matchesRole =
-          selectedRoles.size === 0 ||
-          project.roles.some((r) => selectedRoles.has(r.toLowerCase()));
-        const matchesSkill =
-          selectedSkills.size === 0 ||
-          project.tools.some((t) => selectedSkills.has(t.toLowerCase()));
-        return matchesQuery && matchesArea && matchesRole && matchesSkill;
-      })
+    return matchingProjects
+      .filter((project) => filterByQuery(project, lowercaseQuery))
       .sort((a, b) => {
         if (a.group !== b.group) return a.group - b.group;
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       });
-  }, [debouncedQuery, selected]);
+  }, [debouncedQuery, matchingProjects]);
 
   return (
     <Section id="projects" title="Projects">
