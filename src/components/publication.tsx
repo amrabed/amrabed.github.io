@@ -97,33 +97,6 @@ const Links = ({ links }: { links: PublicationLinks }) => {
   );
 };
 
-const IconOnlyLinks = ({ links }: { links: PublicationLinks }) => {
-  return (
-    <div className="flex flex-row gap-4">
-      {links.fulltext && (
-        <IconLink href={links.fulltext} title="Read">
-          <FaFileLines className="size-5" />
-        </IconLink>
-      )}
-      {links.presentation && (
-        <IconLink href={links.presentation} title="Presentation">
-          <FaPersonChalkboard className="size-5" />
-        </IconLink>
-      )}
-      {links.doi && (
-        <IconLink href={`https://dx.doi.org/${links.doi}`} title="DOI">
-          <FaLink className="size-5" />
-        </IconLink>
-      )}
-      {links.scopus && (
-        <IconLink href={links.scopus} title="Scopus">
-          <SiScopus className="size-5" />
-        </IconLink>
-      )}
-    </div>
-  );
-};
-
 const PublicationView = React.memo(
   ({
     publication,
@@ -145,8 +118,10 @@ const PublicationView = React.memo(
               {publication.authors.join(", ")}
             </p>
           </div>
-          <div className="flex flex-row gap-1 shrink-0">
-            <IconOnlyLinks links={publication.links} />
+          <div className="flex flex-row items-center gap-4 shrink-0">
+            <Areas areas={publication.tags} />
+            <span className="text-slate-500/30">|</span>
+            <Tools tools={publication.skills} compact />
           </div>
         </Card.Header>
 
@@ -158,13 +133,8 @@ const PublicationView = React.memo(
         </Card.Content>
 
         <Card.Footer className="flex flex-col gap-4 mt-6 p-0 bg-transparent overflow-visible">
-          <div className="flex flex-row flex-wrap justify-between items-center gap-4 w-full">
+          <div className="flex flex-row flex-wrap justify-end items-center gap-4 w-full">
             <div className="flex flex-row items-center gap-4">
-              <Areas areas={publication.tags} />
-              <span className="text-slate-500/30">|</span>
-              <Tools tools={publication.skills} compact />
-            </div>
-            <div className="flex-grow flex justify-end items-center gap-4">
               <CiteButton publication={publication} />
               <Links links={publication.links} />
             </div>

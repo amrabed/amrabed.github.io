@@ -69,6 +69,10 @@ const ProjectView = React.memo(({ project }: { project: Project }) => {
       <Card.Header className="flex justify-between items-start p-0 bg-transparent">
         <div className="flex flex-row items-center gap-2">
           <h3 className="card-title text-xl">{project.name}</h3>
+          <span className="mx-1 text-slate-500/30">|</span>
+          <Areas areas={project.tags} />
+          <span className="text-slate-500/30">|</span>
+          <Tools tools={project.tools} compact />
         </div>
         <Links links={project.links} />
       </Card.Header>
@@ -81,10 +85,7 @@ const ProjectView = React.memo(({ project }: { project: Project }) => {
 
       <Card.Footer className="flex flex-row justify-between items-center mt-6 p-0 bg-transparent">
         <div className="flex flex-row items-center gap-4">
-          <Areas areas={project.tags} />
-          <span className="text-slate-500/30">|</span>
-          <Tools tools={project.tools} compact />
-          <ul className="flex flex-row gap-2 text-zinc-400 text-sm ml-2">
+          <ul className="flex flex-row gap-2 text-zinc-400 text-sm">
             {project.roles.map((role) => (
               <li key={role}>{role}</li>
             ))}

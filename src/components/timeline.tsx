@@ -7,12 +7,17 @@ import { Position } from "@/types";
 
 const PositionView = memo(({ position }: { position: Position }) => (
   <Card className="w-full bg-transparent border-1 border-slate-500 ml-6 shadow-none group-hover:border-primary transition-colors duration-300">
-    <Card.Header className="flex gap-3">
+    <Card.Header className="flex justify-between items-center gap-3">
       <div className="flex flex-col">
         <p className="text-md">{position.title}</p>
         <p className="text-small text-slate-500">
           {position.organization.name}
         </p>
+      </div>
+      <div className="flex flex-row items-center gap-4">
+        <Areas areas={position.tags} />
+        <span className="text-slate-500/30">|</span>
+        <Tools tools={position.skills} compact />
       </div>
     </Card.Header>
     <Separator className="bg-slate-500/30" />
@@ -30,11 +35,6 @@ const PositionView = memo(({ position }: { position: Position }) => (
     </Card.Content>
     <Separator className="bg-slate-500/30" />
     <Card.Footer className="justify-between">
-      <div className="flex flex-row items-center gap-4">
-        <Areas areas={position.tags} />
-        <span className="text-slate-500/30">|</span>
-        <Tools tools={position.skills} compact />
-      </div>
       <ul className="flex flex-row gap-2 text-zinc-400 text-sm">
         {position.roles.map((role) => (
           <li key={role}>{role}</li>
