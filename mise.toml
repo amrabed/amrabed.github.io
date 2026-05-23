@@ -5,29 +5,47 @@ node = 'lts'
 [env]
 _.path = ['{{config_root}}/node_modules/.bin']
 
+[shell_alias]
+m = 'mise run'
+i = 'mise run install'
+l = 'mise run lint'
+d = 'mise run dev'
+ll = 'ls -l'
+la = 'ls -A'
+g = 'git'
+ga = 'git add'
+gc = 'git commit'
+gs = 'git status'
+gp = 'git push'
+
 [tasks.install]
+alias = 'i'
 description = 'Installs dependencies with pnpm'
 run = 'pnpm install'
 sources = ['package.json', 'pnpm-lock.yaml', 'mise.toml']
 outputs = ['node_modules/.pnpm/lock.yaml']
 
 [tasks.format]
+alias = 'f'
 description = 'Format code'
 run = 'pnpm run format'
 
 [tasks.lint]
+alias = 'l'
 description = 'Run ESLint'
 run = 'pnpm run lint'
+depends = ['format']
 
 [tasks.build]
+alias = 'b'
 description = 'Build the project'
 run = 'pnpm run build'
 
 [tasks.dev]
-alias = 'local'
+alias = ['d', 'local']
 description = 'Start development server'
 run = 'pnpm run dev'
-depends = ['install', 'format', 'lint']
+depends = ['install', 'lint']
 
 [tasks.firebase]
 description = 'Install firebase-tools'
