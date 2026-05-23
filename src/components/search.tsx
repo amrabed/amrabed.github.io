@@ -53,6 +53,7 @@ export const Searchbar = ({
         placeholder={placeholder}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        maxLength={100}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         autoFocus
