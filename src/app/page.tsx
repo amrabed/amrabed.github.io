@@ -43,8 +43,12 @@ const Home = () => {
     <div className="flex flex-col min-h-screen">
       <Banner />
       <MainHeader />
-      <Intro />
-      <main className="flex-grow">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex-grow outline-none focus:ring-0"
+      >
+        <Intro />
         <div className="space-y-0">
           <SkillsSection />
           <CertificationsSection />
