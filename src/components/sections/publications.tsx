@@ -3,83 +3,49 @@
 import { useMemo } from "react";
 
 import PublicationView from "@/components/publication";
-import { useFilter } from "@/contexts/filter";
-import { useSearch } from "@/contexts/search";
 import publicationsData from "@/data/publications";
-import { filterByQuery, filterByArea } from "@/filter";
 
-import { EmptyState } from "../empty-state";
-import { Section } from "../section";
+import { FilterableSection } from "../filterable-section";
 
 export const PublicationsSection = () => {
-  const { debouncedQuery } = useSearch();
-  const { selected } = useFilter();
-
-  const areas = selected["areas"];
-  const roles = selected["roles"];
-  const skills = selected["skills"];
-
-  const selectedAreas = useMemo(() => new Set(areas || []), [areas]);
-  const selectedRoles = useMemo(() => new Set(roles || []), [roles]);
-  const selectedSkills = useMemo(() => new Set(skills || []), [skills]);
-
-  const matchingPublications = useMemo(() => {
-    return publicationsData.filter((publication) => {
-      const matchesArea = filterByArea(publication.tags, selectedAreas);
-      const matchesRole =
-        selectedRoles.size === 0 ||
-        publication.roles.some((r) => selectedRoles.has(r.toLowerCase()));
-      const matchesSkill =
-        selectedSkills.size === 0 ||
-        publication.skills.some((s) => selectedSkills.has(s.toLowerCase()));
-      return matchesArea && matchesRole && matchesSkill;
-    });
-  }, [selectedAreas, selectedRoles, selectedSkills]);
-
-  const filteredPublications = useMemo(() => {
-    const lowercaseQuery = debouncedQuery.toLowerCase();
-
-    return matchingPublications
-      .filter((publication) => filterByQuery(publication, lowercaseQuery))
-      .sort((a, b) => Number(b.year) - Number(a.year));
-  }, [debouncedQuery, matchingPublications]);
-
-  const { featuredPublications, nonFeaturedPublications } = useMemo(() => {
-    return {
-      featuredPublications: filteredPublications.filter((p) => p.featured),
-      nonFeaturedPublications: filteredPublications.filter((p) => !p.featured),
-    };
-  }, [filteredPublications]);
-
   return (
-    <Section id="publications" title="Publications">
-      {filteredPublications.length > 0 ? (
-        <div className="flex flex-col gap-6 w-full px-4 md:px-10">
-          {featuredPublications.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
-              {featuredPublications.map((publication) => (
-                <PublicationView
-                  key={publication.id}
-                  publication={publication}
-                  featured
-                />
-              ))}
-            </div>
-          )}
-          {nonFeaturedPublications.length > 0 && (
-            <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
-              {nonFeaturedPublications.map((publication) => (
-                <PublicationView
-                  key={publication.id}
-                  publication={publication}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-      ) : (
-        <EmptyState />
-      )}
-    </Section>
+    <FilterableSection
+      id="publications"
+      title="Publications"
+      data={publicationsData}
+      renderItem={(items: any) => {
+        const publications = items as any[];
+        const featuredPublications = publications.filter((p) => p.featured);
+        const nonFeaturedPublications = publications.filter((p) => !p.featured);
+
+        return (
+          <div className="flex flex-col gap-6 w-full px-4 md:px-10" key="publications-container">
+            {featuredPublications.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
+                {featuredPublications.map((publication) => (
+                  <PublicationView
+                    key={publication.id}
+                    publication={publication}
+                    featured
+                  />
+                ))}
+              </div>
+            )}
+            {nonFeaturedPublications.length > 0 && (
+              <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
+                {nonFeaturedPublications.map((publication) => (
+                  <PublicationView
+                    key={publication.id}
+                    publication={publication}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      }}
+      sortFn={(a, b) => Number(b.year) - Number(a.year)}
+      isSingleContainer
+    />
   );
 };

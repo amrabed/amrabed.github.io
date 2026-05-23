@@ -22,9 +22,10 @@ interface FilterableSectionProps<T extends FilterableItem> {
   id: string;
   title: string;
   data: T[];
-  renderItem: (item: T) => React.ReactNode;
+  renderItem: (items: T[] | T) => React.ReactNode;
   sortFn?: (a: T, b: T) => number;
   gridClassName?: string;
+  isSingleContainer?: boolean;
 }
 
 export const FilterableSection = <T extends FilterableItem>({
@@ -34,6 +35,7 @@ export const FilterableSection = <T extends FilterableItem>({
   renderItem,
   sortFn,
   gridClassName = "grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full px-4 md:px-10",
+  isSingleContainer = false,
 }: FilterableSectionProps<T>) => {
   const { debouncedQuery } = useSearch();
   const { selected } = useFilter();
@@ -73,7 +75,13 @@ export const FilterableSection = <T extends FilterableItem>({
   return (
     <Section id={id} title={title}>
       {filteredItems.length > 0 ? (
-        <div className={gridClassName}>{filteredItems.map(renderItem)}</div>
+        isSingleContainer ? (
+          renderItem(filteredItems)
+        ) : (
+          <div className={gridClassName}>
+            {(filteredItems as T[]).map((item) => renderItem(item) as any)}
+          </div>
+        )
       ) : (
         <EmptyState />
       )}
