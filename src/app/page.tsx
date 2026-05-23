@@ -9,8 +9,8 @@ import { CertificationsSection } from "@/components/sections/certifications";
 import { EducationSection } from "@/components/sections/education";
 import { ExperienceSection } from "@/components/sections/experience";
 import Intro from "@/components/sections/hero";
-import { PublicationsSection } from "@/components/sections/publications";
 import { ProjectsSection } from "@/components/sections/projects";
+import { PublicationsSection } from "@/components/sections/publications";
 import { SkillsSection } from "@/components/sections/skills";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
 
@@ -34,7 +34,7 @@ const Home = () => {
         // Adjusted to hide when reaching the About section
         setShowFilter(
           window.scrollY > skillsTop - 200 &&
-          window.scrollY + window.innerHeight < lastSectionBottom + 100,
+            window.scrollY + window.innerHeight < lastSectionBottom + 100,
         );
       }
     };

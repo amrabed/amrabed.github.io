@@ -11,7 +11,9 @@ export const ProjectsSection = () => {
       id="projects"
       title="Projects"
       data={projectsData}
-      renderItem={(project) => <ProjectView key={project.id} project={project} />}
+      renderItem={(project) => (
+        <ProjectView key={project.id} project={project} />
+      )}
       sortFn={(a, b) => {
         if (a.group !== b.group) return a.group - b.group;
         return new Date(b.date!).getTime() - new Date(a.date!).getTime();

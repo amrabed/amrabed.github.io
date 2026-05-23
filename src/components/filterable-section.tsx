@@ -2,13 +2,12 @@
 
 import React, { useMemo } from "react";
 
+import { EmptyState } from "@/components/empty-state";
+import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import { filterByQuery, filterByArea } from "@/filter";
 import { Position, Project, Certification, Degree, Publication } from "@/types";
-
-import { EmptyState } from "@/components/empty-state";
-import { Section } from "@/components/section";
 
 export interface FilterableItem {
   tags?: string[];
@@ -54,7 +53,10 @@ export const FilterableSection = <T extends FilterableItem>({
 
   const matchingItems = useMemo(() => {
     return data.filter((item) => {
-      const matchesArea = filterByArea(item.tags || item.areas || [], selectedAreas);
+      const matchesArea = filterByArea(
+        item.tags || item.areas || [],
+        selectedAreas,
+      );
       const matchesRole =
         selectedRoles.size === 0 ||
         (item.roles || []).some((r) => selectedRoles.has(r.toLowerCase()));

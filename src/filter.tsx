@@ -14,10 +14,7 @@ export const match = (values: string[], lowercaseQuery: string) => {
   return values.some((value) => value.toLowerCase().includes(lowercaseQuery));
 };
 
-const filterPublicationByQuery = (
-  pub: Publication,
-  lowercaseQuery: string,
-) => {
+const filterPublicationByQuery = (pub: Publication, lowercaseQuery: string) => {
   return (
     pub.title.toLowerCase().includes(lowercaseQuery) ||
     pub.venue.toLowerCase().includes(lowercaseQuery) ||

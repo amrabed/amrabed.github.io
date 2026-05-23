@@ -3,7 +3,8 @@ import { Publication } from "@/types";
 const publications: Publication[] = [
   {
     id: "phd-thesis",
-    title: "Securing Cloud Containers through Intrusion Detection and Remediation",
+    title:
+      "Securing Cloud Containers through Intrusion Detection and Remediation",
     authors: ["Amr S. Abed"],
     featured: true,
     venue: "Virginia Tech",
@@ -84,7 +85,8 @@ const publications: Publication[] = [
       "Amr S. Abed",
       "Mohamed Eltoweissy",
     ],
-    venue: "2nd IEEE International Conference on Collaboration and Internet Computing",
+    venue:
+      "2nd IEEE International Conference on Collaboration and Internet Computing",
     year: "2016",
     type: "conference",
     links: {
@@ -97,8 +99,14 @@ const publications: Publication[] = [
   {
     id: "ijcnds-2018",
     title: "Resilient Intrusion Detection System for Cloud Containers",
-    authors: ["Amr S. Abed", "Mohamed Azab", "Charles Clancy", "Mona Kashkoush"],
-    venue: "International Journal of Communication Networks and Distributed Systems",
+    authors: [
+      "Amr S. Abed",
+      "Mohamed Azab",
+      "Charles Clancy",
+      "Mona Kashkoush",
+    ],
+    venue:
+      "International Journal of Communication Networks and Distributed Systems",
     year: "2018",
     type: "article",
     links: {},
@@ -110,13 +118,19 @@ const publications: Publication[] = [
     id: "cluster-2018",
     title:
       "Online Smart Disguise: Real-time Diversication Evading Coresidency Based Cloud Attacks",
-    authors: ["Mona S. kashkoush", "Mohamed Azab", "Gamal Attiya", "Amr S. Abed"],
+    authors: [
+      "Mona S. kashkoush",
+      "Mohamed Azab",
+      "Gamal Attiya",
+      "Amr S. Abed",
+    ],
     venue: "Cluster Computing",
     year: "2018",
     type: "article",
     links: {
       doi: "10.1007/s10586-018-2851-2",
-      fulltext: "https://link.springer.com/content/pdf/10.1007%2Fs10586-018-2851-2.pdf",
+      fulltext:
+        "https://link.springer.com/content/pdf/10.1007%2Fs10586-018-2851-2.pdf",
     },
     skills: ["docker"],
     tags: ["security", "cloud"],
