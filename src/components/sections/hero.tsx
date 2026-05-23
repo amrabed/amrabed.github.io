@@ -16,7 +16,10 @@ const Intro = () => {
   // Intersection observer animation on scroll
   useEffect(() => {
     setMounted(true);
-    const screenWidth = window.innerWidth;
+    const getScreenWidth = () =>
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
 
     const currentHomeRef = homeRef.current;
     // Scroll Animation
@@ -26,7 +29,7 @@ const Intro = () => {
           setIsHome(homeEntry.isIntersecting);
         },
         {
-          rootMargin: `${screenWidth <= 700 ? "-100px" : "-300px"}`,
+          rootMargin: `${getScreenWidth() <= 700 ? "-100px" : "-300px"}`,
         },
       );
 

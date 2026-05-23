@@ -18,14 +18,17 @@ export const Section = memo(
     const itemRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-      const screenWidth = window.innerWidth;
+      const getScreenWidth = () =>
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth;
 
       const observer = new IntersectionObserver(
         ([entry]) => {
           setIsVisible(entry.isIntersecting);
         },
         {
-          rootMargin: `${screenWidth <= 700 ? "-100px" : "-250px"}`,
+          rootMargin: `${getScreenWidth() <= 700 ? "-100px" : "-250px"}`,
         },
       );
 
