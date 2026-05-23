@@ -60,7 +60,7 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
 }`;
 
   return (
-    <Popover placement="top" isDismissable={true}>
+    <Popover>
       <Popover.Trigger>
         <button
           aria-label="Cite"
@@ -70,7 +70,10 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
           <span>Cite</span>
         </button>
       </Popover.Trigger>
-      <Popover.Content className="dark:bg-slate-800 rounded-3xl">
+      <Popover.Content
+        placement="top"
+        className="dark:bg-slate-800 rounded-3xl"
+      >
         <Popover.Dialog className="p-4 max-w-md bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-xl">
           <pre className="text-xs font-mono whitespace-pre-wrap overflow-x-auto text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-950 p-3 rounded border border-slate-100 dark:border-slate-900">
             {bibtex}
@@ -78,7 +81,7 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
           <div className="mt-3 flex justify-end">
             <Button
               size="sm"
-              color="primary"
+              variant="primary"
               onPress={() => {
                 navigator.clipboard.writeText(bibtex);
               }}
