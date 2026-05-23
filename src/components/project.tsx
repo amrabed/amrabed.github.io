@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 import React from "react";
 import {
   FaGithub,
@@ -13,38 +11,11 @@ import {
   FaPersonChalkboard,
 } from "react-icons/fa6";
 
-import { Tooltip, Card } from "@heroui/react";
+import { Card } from "@heroui/react";
 
+import { IconLink } from "@/components/icon-link";
 import { Areas, Tools } from "@/components/skills";
 import { Project, ProjectLinks } from "@/types";
-
-const IconLink = ({
-  href,
-  title,
-  children,
-}: {
-  href: string;
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <Tooltip>
-    <Tooltip.Trigger>
-      <Link
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={title}
-        className="icon-link"
-      >
-        {children}
-      </Link>
-    </Tooltip.Trigger>
-    <Tooltip.Content>
-      <Tooltip.Arrow />
-      {title}
-    </Tooltip.Content>
-  </Tooltip>
-);
 
 const Links = ({ links }: { links: ProjectLinks }) => {
   const githubLink = links.github ? `https://github.com/${links.github}` : null;
