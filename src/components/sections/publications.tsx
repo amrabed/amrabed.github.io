@@ -45,7 +45,7 @@ export const PublicationsSection = () => {
 
     return matchingPublications
       .filter((publication) => filterByQuery(publication, lowercaseQuery))
-      .sort((a, b) => parseInt(b.year) - parseInt(a.year));
+      .sort((a, b) => Number(b.year) - Number(a.year));
   }, [debouncedQuery, matchingPublications]);
 
   return (
