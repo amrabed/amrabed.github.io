@@ -1,7 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
-
 import PublicationView from "@/components/publication";
 import publicationsData from "@/data/publications";
 
@@ -13,8 +11,8 @@ export const PublicationsSection = () => {
       id="publications"
       title="Publications"
       data={publicationsData}
-      renderItem={(items: any) => {
-        const publications = items as any[];
+      renderItem={() => null}
+      renderContainer={(publications) => {
         const featuredPublications = publications.filter((p) => p.featured);
         const nonFeaturedPublications = publications.filter((p) => !p.featured);
 
@@ -45,7 +43,6 @@ export const PublicationsSection = () => {
         );
       }}
       sortFn={(a, b) => Number(b.year) - Number(a.year)}
-      isSingleContainer
     />
   );
 };

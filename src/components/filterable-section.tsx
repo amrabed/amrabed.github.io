@@ -5,27 +5,31 @@ import React, { useMemo } from "react";
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
 import { filterByQuery, filterByArea } from "@/filter";
+import { Position, Project, Certification, Degree, Publication } from "@/types";
 
 import { EmptyState } from "@/components/empty-state";
 import { Section } from "@/components/section";
 
-interface FilterableItem {
-  tags: string[];
-  roles: string[];
+export interface FilterableItem {
+  tags?: string[];
+  roles?: string[];
+  areas?: string[];
   skills?: string[];
   tools?: string[];
   year?: string;
   date?: string;
 }
 
+type SupportedItem = Project | Position | Certification | Degree | Publication;
+
 interface FilterableSectionProps<T extends FilterableItem> {
   id: string;
   title: string;
   data: T[];
-  renderItem: (items: T[] | T) => React.ReactNode;
+  renderItem: (item: T) => React.ReactNode;
+  renderContainer?: (items: T[]) => React.ReactNode;
   sortFn?: (a: T, b: T) => number;
   gridClassName?: string;
-  isSingleContainer?: boolean;
 }
 
 export const FilterableSection = <T extends FilterableItem>({
@@ -33,9 +37,9 @@ export const FilterableSection = <T extends FilterableItem>({
   title,
   data,
   renderItem,
+  renderContainer,
   sortFn,
   gridClassName = "grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full px-4 md:px-10",
-  isSingleContainer = false,
 }: FilterableSectionProps<T>) => {
   const { debouncedQuery } = useSearch();
   const { selected } = useFilter();
@@ -50,10 +54,10 @@ export const FilterableSection = <T extends FilterableItem>({
 
   const matchingItems = useMemo(() => {
     return data.filter((item) => {
-      const matchesArea = filterByArea(item.tags, selectedAreas);
+      const matchesArea = filterByArea(item.tags || item.areas || [], selectedAreas);
       const matchesRole =
         selectedRoles.size === 0 ||
-        item.roles.some((r) => selectedRoles.has(r.toLowerCase()));
+        (item.roles || []).some((r) => selectedRoles.has(r.toLowerCase()));
       const matchesSkill =
         selectedSkills.size === 0 ||
         (item.skills || item.tools || []).some((s) =>
@@ -66,20 +70,20 @@ export const FilterableSection = <T extends FilterableItem>({
   const filteredItems = useMemo(() => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
     const filtered = matchingItems.filter((item) =>
-      filterByQuery(item as any, lowercaseQuery),
+      filterByQuery(item as unknown as SupportedItem, lowercaseQuery),
     );
 
-    return sortFn ? filtered.sort(sortFn) : filtered;
+    return sortFn ? [...filtered].sort(sortFn) : filtered;
   }, [debouncedQuery, matchingItems, sortFn]);
 
   return (
     <Section id={id} title={title}>
       {filteredItems.length > 0 ? (
-        isSingleContainer ? (
-          renderItem(filteredItems)
+        renderContainer ? (
+          renderContainer(filteredItems)
         ) : (
           <div className={gridClassName}>
-            {(filteredItems as T[]).map((item) => renderItem(item) as any)}
+            {filteredItems.map((item) => renderItem(item))}
           </div>
         )
       ) : (

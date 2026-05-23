@@ -11,12 +11,12 @@ export const ExperienceSection = () => {
       id="experience"
       title="Experience"
       data={positionsData}
-      renderItem={(positions) => (
+      renderItem={() => null}
+      renderContainer={(items) => (
         <div className="w-full mt-8 px-4 md:px-10" key="experience-timeline">
-          <Timeline positions={positions as any} />
+          <Timeline positions={items} />
         </div>
       )}
-      isSingleContainer
     />
   );
 };

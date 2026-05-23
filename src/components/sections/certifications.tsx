@@ -41,8 +41,8 @@ export const CertificationsSection = () => {
     <FilterableSection
       id="certifications"
       title="Certifications"
-      data={certificationsData as any}
-      renderItem={(certificate: any) => (
+      data={certificationsData}
+      renderItem={(certificate) => (
         <div className="transition-all duration-700" key={certificate.title}>
           <a href={certificate.link} target="_blank" rel="noopener noreferrer">
             <div className="section-item p-3">
