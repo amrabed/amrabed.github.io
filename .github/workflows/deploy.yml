@@ -24,10 +24,11 @@ jobs:
         uses: actions/configure-pages@v6
         with:
           static_site_generator: next
+      - uses: jdx/mise-action@v2
       - name: Install dependencies
-        run: make install
+        run: mise run install
       - name: Build with Next.js
-        run: make build
+        run: mise run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:

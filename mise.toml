@@ -1,0 +1,42 @@
+[tools]
+node = 'lts'
+
+[env]
+_.path = ['{{config_root}}/node_modules/.bin']
+
+[tasks.install]
+description = 'Installs dependencies with pnpm'
+run = 'pnpm install'
+sources = ['package.json', 'pnpm-lock.yaml']
+outputs = ['node_modules/.pnpm/lock.yaml']
+
+[tasks.format]
+description = 'Format code'
+run = 'pnpm run format'
+
+[tasks.lint]
+description = 'Run ESLint'
+run = 'pnpm run lint'
+
+[tasks.build]
+description = 'Build the project'
+run = 'pnpm run build'
+
+[tasks.dev]
+alias = 'local'
+description = 'Start development server'
+run = 'pnpm run dev'
+depends = ['install', 'format', 'lint']
+
+[tasks.firebase]
+description = 'Install firebase-tools'
+run = 'npm install -g firebase-tools'
+
+[tasks.deploy]
+description = 'Deploy to Firebase'
+run = 'firebase deploy --only hosting'
+depends = ['build']
+
+[tasks.clean]
+description = 'Clean build artifacts'
+run = 'rm -rf node_modules .next out'

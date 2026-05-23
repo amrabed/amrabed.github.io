@@ -13,7 +13,8 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 20
+      - uses: jdx/mise-action@v2
       - name: Install dependencies
-        run: make install
+        run: mise run install
       - name: Format and lint
-        run: make lint
+        run: mise run lint
