@@ -15,14 +15,20 @@ export const ExperienceSection = () => {
   const { debouncedQuery } = useSearch();
   const { selected } = useFilter();
 
-  const filteredPositions = useMemo(() => {
-    const lowercaseQuery = debouncedQuery.toLowerCase();
-    const selectedAreas = new Set(selected["areas"] || []);
-    const selectedRoles = new Set(selected["roles"] || []);
-    const selectedSkills = new Set(selected["skills"] || []);
+  const areas = selected["areas"];
+  const roles = selected["roles"];
+  const skills = selected["skills"];
 
+  // ⚡ Optimization: Memoize filter sets separately to avoid recreating them
+  // unless the specific filter category changes.
+  const selectedAreas = useMemo(() => new Set(areas || []), [areas]);
+  const selectedRoles = useMemo(() => new Set(roles || []), [roles]);
+  const selectedSkills = useMemo(() => new Set(skills || []), [skills]);
+
+  // ⚡ Optimization: Pre-filter positions by selected area, role, and skill.
+  // This avoids re-running these checks when only the search query changes.
+  const matchingPositions = useMemo(() => {
     return positionsData.filter((position) => {
-      const matchesQuery = filterByQuery(position, lowercaseQuery);
       const matchesArea = filterByArea(position.tags, selectedAreas);
       const matchesRole =
         selectedRoles.size === 0 ||
@@ -30,9 +36,18 @@ export const ExperienceSection = () => {
       const matchesSkill =
         selectedSkills.size === 0 ||
         position.skills.some((s) => selectedSkills.has(s.toLowerCase()));
-      return matchesQuery && matchesArea && matchesRole && matchesSkill;
+      return matchesArea && matchesRole && matchesSkill;
     });
-  }, [debouncedQuery, selected]);
+  }, [selectedAreas, selectedRoles, selectedSkills]);
+
+  const filteredPositions = useMemo(() => {
+    const lowercaseQuery = debouncedQuery.toLowerCase();
+    if (!lowercaseQuery) return matchingPositions;
+
+    return matchingPositions.filter((position) =>
+      filterByQuery(position, lowercaseQuery),
+    );
+  }, [debouncedQuery, matchingPositions]);
 
   return (
     <Section id="experience" title="Experience">
