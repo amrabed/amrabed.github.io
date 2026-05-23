@@ -38,6 +38,26 @@ export interface ProjectLinks {
   homepage?: string;
 }
 
+export interface PublicationLinks {
+  doi?: string;
+  fulltext?: string;
+  presentation?: string;
+  scopus?: string;
+}
+
+export interface Publication {
+  id: string;
+  title: string;
+  authors: string[];
+  venue: string;
+  year: string;
+  type: string;
+  links: PublicationLinks;
+  skills: string[];
+  tags: string[];
+  roles: string[];
+}
+
 export interface Project {
   id: string;
   name: string;

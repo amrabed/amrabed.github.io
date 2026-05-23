@@ -9,6 +9,7 @@ import { CertificationsSection } from "@/components/sections/certifications";
 import { EducationSection } from "@/components/sections/education";
 import { ExperienceSection } from "@/components/sections/experience";
 import Intro from "@/components/sections/hero";
+import { PublicationsSection } from "@/components/sections/publications";
 import { ProjectsSection } from "@/components/sections/projects";
 import { SkillsSection } from "@/components/sections/skills";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
@@ -19,18 +20,21 @@ const Home = () => {
   useEffect(() => {
     const handleScroll = () => {
       const skillsSection = document.getElementById("skills");
-      const experienceSection = document.getElementById("experience");
 
-      if (skillsSection && experienceSection) {
+      if (skillsSection) {
         const skillsTop = skillsSection.offsetTop;
-        const experienceBottom =
-          experienceSection.offsetTop + experienceSection.offsetHeight;
+        const lastSection =
+          document.getElementById("publications") ||
+          document.getElementById("experience");
+        const lastSectionBottom = lastSection
+          ? lastSection.offsetTop + lastSection.offsetHeight
+          : 0;
 
-        // Show filter bar when between skills top and experience bottom
+        // Show filter bar when between skills top and last filterable section bottom
         // Adjusted to hide when reaching the About section
         setShowFilter(
           window.scrollY > skillsTop - 200 &&
-            window.scrollY + window.innerHeight < experienceBottom + 100,
+          window.scrollY + window.innerHeight < lastSectionBottom + 100,
         );
       }
     };
@@ -54,6 +58,7 @@ const Home = () => {
           <CertificationsSection />
           <ProjectsSection />
           <ExperienceSection />
+          <PublicationsSection />
           <EducationSection />
           <AboutSection />
         </div>

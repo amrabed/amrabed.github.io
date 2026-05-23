@@ -1,4 +1,10 @@
-import type { Position, Project, Certification, Degree } from "@/types";
+import type {
+  Position,
+  Project,
+  Certification,
+  Degree,
+  Publication,
+} from "@/types";
 
 /**
  * Checks if any of the values match the query (case-insensitive).
@@ -6,6 +12,20 @@ import type { Position, Project, Certification, Degree } from "@/types";
  */
 export const match = (values: string[], lowercaseQuery: string) => {
   return values.some((value) => value.toLowerCase().includes(lowercaseQuery));
+};
+
+const filterPublicationByQuery = (
+  pub: Publication,
+  lowercaseQuery: string,
+) => {
+  return (
+    pub.title.toLowerCase().includes(lowercaseQuery) ||
+    pub.venue.toLowerCase().includes(lowercaseQuery) ||
+    match(pub.authors || [], lowercaseQuery) ||
+    match(pub.roles || [], lowercaseQuery) ||
+    match(pub.skills || [], lowercaseQuery) ||
+    match(pub.tags || [], lowercaseQuery)
+  );
 };
 
 const filterProjectByQuery = (project: Project, lowercaseQuery: string) => {
@@ -49,11 +69,11 @@ const filterDegreeByQuery = (degree: Degree, lowercaseQuery: string) => {
 };
 
 /**
- * Filters a project, position, certification or degree by a query string.
+ * Filters a project, position, certification, publication or degree by a query string.
  * Optimizes performance by lowercasing the query once.
  */
 export const filterByQuery = (
-  item: Project | Position | Certification | Degree,
+  item: Project | Position | Certification | Degree | Publication,
   lowercaseQuery: string,
 ) => {
   if (!lowercaseQuery) return true;
@@ -64,6 +84,8 @@ export const filterByQuery = (
     if ("university" in item) return filterDegreeByQuery(item, lowercaseQuery);
     if ("badge" in item)
       return filterCertificationByQuery(item, lowercaseQuery);
+    if ("authors" in item)
+      return filterPublicationByQuery(item, lowercaseQuery);
     return filterPositionByQuery(item, lowercaseQuery);
   }
 

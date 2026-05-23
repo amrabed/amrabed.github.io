@@ -7,6 +7,7 @@ export const sections = [
   { name: "Certifications", link: "#certifications" },
   { name: "Projects", link: "#projects" },
   { name: "Experience", link: "#experience" },
+  { name: "Publications", link: "#publications" },
   { name: "Education", link: "#degrees" },
   { name: "About", link: "#about" },
 ];
