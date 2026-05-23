@@ -9,7 +9,7 @@ const publications: Publication[] = [
     year: "2017",
     type: "phdthesis",
     links: {
-      fulltext: "http://vtechworks.lib.vt.edu/handle/10919/87730",
+      fulltext: "https://vtechworks.lib.vt.edu/handle/10919/87730",
       presentation: "https://www.slideshare.net/secret/dWT9Fwk08rZqJU",
     },
     skills: ["docker", "python", "tensorflow"],
@@ -27,9 +27,9 @@ const publications: Publication[] = [
       doi: "10.1007/978-3-319-24858-5_8",
       fulltext: "https://arxiv.org/pdf/1611.03056v1",
       presentation:
-        "http://www.slideshare.net/AmrAbed/intrusion-detection-system-for-applications-using-linux-containers",
+        "https://www.slideshare.net/AmrAbed/intrusion-detection-system-for-applications-using-linux-containers",
       scopus:
-        "http://www.scopus.com/inward/record.url?eid=2-s2.0-84951875184&partnerID=MN8TOARS",
+        "https://www.scopus.com/inward/record.url?eid=2-s2.0-84951875184&partnerID=MN8TOARS",
     },
     skills: ["docker", "java", "bash"],
     tags: ["security", "cloud", "machine learning"],
@@ -48,7 +48,7 @@ const publications: Publication[] = [
       doi: "10.1109/GLOCOMW.2015.7414047",
       fulltext: "https://arxiv.org/pdf/1611.03053v1",
       scopus:
-        "http://www.scopus.com/inward/record.url?eid=2-s2.0-84971277782&partnerID=MN8TOARS",
+        "https://www.scopus.com/inward/record.url?eid=2-s2.0-84971277782&partnerID=MN8TOARS",
     },
     skills: ["docker", "java", "bash"],
     tags: ["security", "cloud", "machine learning"],
