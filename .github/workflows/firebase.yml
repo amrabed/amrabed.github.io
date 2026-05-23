@@ -9,10 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: jdx/mise-action@v4
-      - name: Install dependencies
-        run: mise run install
-      - name: Install Firebase
-        run: mise run firebase
       - name: Deploy to Firebase
         run: mise run deploy
         env:

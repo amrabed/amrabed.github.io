@@ -1,6 +1,7 @@
 [tools]
 node = 'lts'
 "npm:pnpm" = 'latest'
+"npm:firebase-tools" = 'latest'
 
 [env]
 _.path = ['{{config_root}}/node_modules/.bin']
@@ -34,22 +35,19 @@ run = 'pnpm run format'
 alias = 'l'
 description = 'Run ESLint'
 run = 'pnpm run lint'
-depends = ['format']
+depends = ['install', 'format']
 
 [tasks.build]
 alias = 'b'
 description = 'Build the project'
 run = 'pnpm run build'
+depends = ['install']
 
 [tasks.dev]
 alias = ['d', 'local']
 description = 'Start development server'
 run = 'pnpm run dev'
 depends = ['install', 'lint']
-
-[tasks.firebase]
-description = 'Install firebase-tools'
-run = 'npm install -g firebase-tools'
 
 [tasks.deploy]
 description = 'Deploy to Firebase'
