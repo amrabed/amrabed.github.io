@@ -1,6 +1,6 @@
 [tools]
 node = 'lts'
-pnpm = 'latest'
+"npm:pnpm" = 'latest'
 
 [env]
 _.path = ['{{config_root}}/node_modules/.bin']
