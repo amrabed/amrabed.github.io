@@ -19,14 +19,10 @@ export const PublicationsSection = () => {
   const roles = selected["roles"];
   const skills = selected["skills"];
 
-  // ⚡ Optimization: Memoize filter sets separately to avoid recreating them
-  // unless the specific filter category changes.
   const selectedAreas = useMemo(() => new Set(areas || []), [areas]);
   const selectedRoles = useMemo(() => new Set(roles || []), [roles]);
   const selectedSkills = useMemo(() => new Set(skills || []), [skills]);
 
-  // ⚡ Optimization: Pre-filter publications by selected area, role, and skill.
-  // This avoids re-running these checks when only the search query changes.
   const matchingPublications = useMemo(() => {
     return publicationsData.filter((publication) => {
       const matchesArea = filterByArea(publication.tags, selectedAreas);
@@ -48,12 +44,11 @@ export const PublicationsSection = () => {
       .sort((a, b) => Number(b.year) - Number(a.year));
   }, [debouncedQuery, matchingPublications]);
 
-  const featuredPublications = useMemo(() => {
-    return filteredPublications.filter((p) => p.featured);
-  }, [filteredPublications]);
-
-  const nonFeaturedPublications = useMemo(() => {
-    return filteredPublications.filter((p) => !p.featured);
+  const { featuredPublications, nonFeaturedPublications } = useMemo(() => {
+    return {
+      featuredPublications: filteredPublications.filter((p) => p.featured),
+      nonFeaturedPublications: filteredPublications.filter((p) => !p.featured),
+    };
   }, [filteredPublications]);
 
   return (
