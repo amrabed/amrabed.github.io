@@ -32,6 +32,7 @@ const PositionView = memo(({ position }: { position: Position }) => (
     <Card.Footer className="justify-between">
       <div className="flex flex-row items-center gap-4">
         <Areas areas={position.tags} />
+        <span className="text-slate-500/30">|</span>
         <Tools tools={position.skills} compact />
       </div>
       <ul className="flex flex-row gap-2 text-zinc-400 text-sm">
