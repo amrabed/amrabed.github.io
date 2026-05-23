@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa6";
 import { SiScopus } from "react-icons/si";
 
-import { Tooltip, Popover, Button } from "@heroui/react";
+import { Tooltip, Popover, Button, Card } from "@heroui/react";
 
 import { Areas, Tools } from "@/components/skills";
 import { Publication, PublicationLinks } from "@/types";
@@ -135,12 +135,12 @@ const PublicationView = React.memo(
     featured?: boolean;
   }) => {
     return (
-      <div className={`card-container h-full ${featured ? "md:col-span-2 xl:col-span-2 2xl:col-span-3" : ""}`}>
-        <div className="flex justify-between items-start gap-4">
+      <Card
+        className={`card-container h-full ${featured ? "md:col-span-2 xl:col-span-2 2xl:col-span-3" : ""}`}
+      >
+        <Card.Header className="flex justify-between items-start gap-4 p-0 bg-transparent">
           <div className="flex flex-col gap-1">
-            <h3
-              className={`${featured ? "text-2xl" : "text-xl"} font-bold text-slate-900 dark:text-slate-100 leading-tight`}
-            >
+            <h3 className={`card-title ${featured ? "text-2xl" : "text-xl"}`}>
               {publication.title}
             </h3>
             <p className="text-slate-700 dark:text-slate-300 font-medium">
@@ -150,15 +150,17 @@ const PublicationView = React.memo(
           <div className="flex flex-row gap-1 shrink-0">
             <Tools tools={publication.skills} compact />
           </div>
-        </div>
-        <p className="text-primary font-medium text-sm mt-1 italic">
-          {publication.venue}, {publication.year}
-        </p>
+        </Card.Header>
 
-        <div className="flex-grow"></div>
+        <Card.Content className="p-0 mt-1 bg-transparent overflow-visible">
+          <p className="text-primary font-medium text-sm italic">
+            {publication.venue}, {publication.year}
+          </p>
+          <div className="flex-grow"></div>
+        </Card.Content>
 
-        <div className="flex flex-col gap-4 mt-6">
-          <div className="flex flex-row flex-wrap justify-between items-center gap-4">
+        <Card.Footer className="flex flex-col gap-4 mt-6 p-0 bg-transparent overflow-visible">
+          <div className="flex flex-row flex-wrap justify-between items-center gap-4 w-full">
             <div className="flex flex-row items-center gap-4">
               <Areas areas={publication.tags} />
               <CiteButton publication={publication} />
@@ -167,8 +169,8 @@ const PublicationView = React.memo(
               <Links links={publication.links} />
             </div>
           </div>
-        </div>
-      </div>
+        </Card.Footer>
+      </Card>
     );
   },
 );

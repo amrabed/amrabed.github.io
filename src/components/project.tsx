@@ -13,7 +13,7 @@ import {
   FaPersonChalkboard,
 } from "react-icons/fa6";
 
-import { Tooltip } from "@heroui/react";
+import { Tooltip, Card } from "@heroui/react";
 
 import { Areas, Tools } from "@/components/skills";
 import { Project, ProjectLinks } from "@/types";
@@ -34,7 +34,7 @@ const IconLink = ({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={title}
-        className="text-slate-500 hover:text-primary transition-colors"
+        className="icon-link"
       >
         {children}
       </Link>
@@ -94,22 +94,24 @@ const Links = ({ links }: { links: ProjectLinks }) => {
 
 const ProjectView = React.memo(({ project }: { project: Project }) => {
   return (
-    <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border-1 border-slate-500/50 shadow-none h-full hover:border-primary transition-colors duration-300">
-      <div className="flex justify-between items-start">
+    <Card className="card-container h-full">
+      <Card.Header className="flex justify-between items-start p-0 bg-transparent">
         <div className="flex flex-row items-center gap-2">
-          <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-            {project.name}
-          </h3>
+          <h3 className="card-title text-xl">{project.name}</h3>
           <div className="flex flex-row gap-1">
             <Tools tools={project.tools} compact />
           </div>
         </div>
         <Links links={project.links} />
-      </div>
-      <p className="text-slate-600 dark:text-slate-400 text-sm flex-grow mt-2">
-        {project.description}
-      </p>
-      <div className="flex flex-row justify-between items-center mt-6">
+      </Card.Header>
+
+      <Card.Content className="p-0 mt-2 bg-transparent flex-grow">
+        <p className="text-slate-600 dark:text-slate-400 text-sm">
+          {project.description}
+        </p>
+      </Card.Content>
+
+      <Card.Footer className="flex flex-row justify-between items-center mt-6 p-0 bg-transparent">
         <div className="flex flex-row items-center gap-4">
           <Areas areas={project.tags} />
           <ul className="flex flex-row gap-2 text-zinc-400 text-sm">
@@ -121,8 +123,8 @@ const ProjectView = React.memo(({ project }: { project: Project }) => {
         <span className="text-zinc-400 text-sm">
           {new Date(project.date).getFullYear()}
         </span>
-      </div>
-    </div>
+      </Card.Footer>
+    </Card>
   );
 });
 
