@@ -56,6 +56,7 @@ export interface Publication {
   skills: string[];
   tags: string[];
   roles: string[];
+  featured?: boolean;
 }
 
 export interface Project {

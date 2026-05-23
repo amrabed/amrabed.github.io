@@ -5,6 +5,7 @@ const publications: Publication[] = [
     id: "phd-thesis",
     title: "Securing Cloud Containers through Intrusion Detection and Remediation",
     authors: ["Amr S. Abed"],
+    featured: true,
     venue: "Virginia Tech",
     year: "2017",
     type: "phdthesis",

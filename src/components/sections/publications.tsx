@@ -48,13 +48,39 @@ export const PublicationsSection = () => {
       .sort((a, b) => Number(b.year) - Number(a.year));
   }, [debouncedQuery, matchingPublications]);
 
+  const featuredPublications = useMemo(() => {
+    return filteredPublications.filter((p) => p.featured);
+  }, [filteredPublications]);
+
+  const nonFeaturedPublications = useMemo(() => {
+    return filteredPublications.filter((p) => !p.featured);
+  }, [filteredPublications]);
+
   return (
     <Section id="publications" title="Publications">
       {filteredPublications.length > 0 ? (
-        <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full px-4 md:px-10">
-          {filteredPublications.map((publication) => (
-            <PublicationView key={publication.id} publication={publication} />
-          ))}
+        <div className="flex flex-col gap-6 w-full px-4 md:px-10">
+          {featuredPublications.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
+              {featuredPublications.map((publication) => (
+                <PublicationView
+                  key={publication.id}
+                  publication={publication}
+                  featured
+                />
+              ))}
+            </div>
+          )}
+          {nonFeaturedPublications.length > 0 && (
+            <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
+              {nonFeaturedPublications.map((publication) => (
+                <PublicationView
+                  key={publication.id}
+                  publication={publication}
+                />
+              ))}
+            </div>
+          )}
         </div>
       ) : (
         <EmptyState />

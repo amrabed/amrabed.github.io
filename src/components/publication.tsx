@@ -32,7 +32,7 @@ const IconLink = ({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={title}
-        className="text-slate-500 hover:text-primary transition-colors flex items-center gap-1"
+        className="icon-link"
       >
         {children}
       </Link>
@@ -124,12 +124,20 @@ const Links = ({ links }: { links: PublicationLinks }) => {
 };
 
 const PublicationView = React.memo(
-  ({ publication }: { publication: Publication }) => {
+  ({
+    publication,
+    featured = false,
+  }: {
+    publication: Publication;
+    featured?: boolean;
+  }) => {
     return (
-      <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border-1 border-slate-500/50 shadow-none h-full hover:border-primary transition-colors duration-300">
+      <div className={`card-container h-full ${featured ? "md:col-span-2 xl:col-span-2 2xl:col-span-3" : ""}`}>
         <div className="flex justify-between items-start gap-4">
           <div className="flex flex-col gap-1">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">
+            <h3
+              className={`${featured ? "text-2xl" : "text-xl"} font-bold text-slate-900 dark:text-slate-100 leading-tight`}
+            >
               {publication.title}
             </h3>
             <p className="text-slate-700 dark:text-slate-300 font-medium">
@@ -152,7 +160,9 @@ const PublicationView = React.memo(
               <Areas areas={publication.tags} />
               <CiteButton publication={publication} />
             </div>
-            <Links links={publication.links} />
+            <div className="flex-grow flex justify-end">
+              <Links links={publication.links} />
+            </div>
           </div>
         </div>
       </div>
