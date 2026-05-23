@@ -105,3 +105,15 @@ div {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: opacity 0.3s ease-in-out;
 }
+
+.icon-link {
+  @apply text-slate-500 hover:text-primary transition-colors flex items-center gap-1;
+}
+
+.card-container {
+  @apply flex flex-col gap-2 p-6 rounded-2xl bg-transparent border-1 border-slate-500/50 shadow-none hover:border-primary transition-colors duration-300;
+}
+
+.card-title {
+  @apply font-bold text-slate-900 dark:text-slate-100 leading-tight;
+}
