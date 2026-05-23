@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 import { Banner } from "@/components/banner";
 import { MainHeader } from "@/components/header";
-import Intro from "@/components/sections/hero";
 import { AboutSection } from "@/components/sections/about";
 import { CertificationsSection } from "@/components/sections/certifications";
 import { EducationSection } from "@/components/sections/education";
 import { ExperienceSection } from "@/components/sections/experience";
+import Intro from "@/components/sections/hero";
 import { ProjectsSection } from "@/components/sections/projects";
 import { SkillsSection } from "@/components/sections/skills";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
@@ -30,7 +30,7 @@ const Home = () => {
         // Adjusted to hide when reaching the About section
         setShowFilter(
           window.scrollY > skillsTop - 200 &&
-          window.scrollY + window.innerHeight < experienceBottom + 100,
+            window.scrollY + window.innerHeight < experienceBottom + 100,
         );
       }
     };

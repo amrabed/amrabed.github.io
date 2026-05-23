@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 
-import degreesData from "@/data/degrees";
-
 import { memo } from "react";
+
+import degreesData from "@/data/degrees";
 
 import { Section } from "../section";
 

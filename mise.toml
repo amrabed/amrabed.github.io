@@ -11,12 +11,17 @@ m = 'mise run'
 i = 'mise run install'
 l = 'mise run lint'
 d = 'mise run dev'
+
 ll = 'ls -l'
 la = 'ls -A'
+
 g = 'git'
+gb = 'git branch'
+go = 'git checkout'
+gd = 'git diff'
+gs = 'git status'
 ga = 'git add'
 gc = 'git commit'
-gs = 'git status'
 gp = 'git push'
 
 [tasks.install]
