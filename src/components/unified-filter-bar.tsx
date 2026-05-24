@@ -37,8 +37,8 @@ export const UnifiedFilterBar = () => {
           <Filter className="rounded-l-none rounded-r-2xl border-l-0 bg-white dark:bg-slate-800 h-[38px] min-w-[48px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border-zinc-200 dark:border-zinc-700">
             <Selections
               label="Areas"
-              values={Object.values(areas).map((a) => ({
-                id: a.name.toLowerCase(),
+              values={Object.entries(areas).map(([id, a]) => ({
+                id,
                 name: a.name,
                 icon: a.icon,
               }))}
@@ -47,8 +47,8 @@ export const UnifiedFilterBar = () => {
             />
             <Selections
               label="Skills"
-              values={Object.values(skills).map((s) => ({
-                id: s.name.toLowerCase(),
+              values={Object.entries(skills).map(([id, s]) => ({
+                id,
                 name: s.name,
                 icon: s.icon,
               }))}
@@ -57,8 +57,8 @@ export const UnifiedFilterBar = () => {
             />
             <Selections
               label="Roles"
-              values={Object.values(roles).map((r) => ({
-                id: r.name.toLowerCase(),
+              values={Object.entries(roles).map(([id, r]) => ({
+                id,
                 name: r.name,
               }))}
               selected={selected["roles"] || []}
