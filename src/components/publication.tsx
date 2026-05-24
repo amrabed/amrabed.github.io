@@ -6,10 +6,11 @@ import {
   FaPersonChalkboard,
   FaQuoteLeft,
   FaLink,
+  FaCopy,
+  FaCheck,
 } from "react-icons/fa6";
-import { SiScopus } from "react-icons/si";
 
-import { Popover, Button, Card, Separator } from "@heroui/react";
+import { Popover, Button, Card, Separator, Tooltip } from "@heroui/react";
 
 import { IconLink } from "@/components/icon-link";
 import { Areas, Tools } from "@/components/skills";
@@ -30,6 +31,7 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
   year = {${publication.year}}
 }`;
 
+  const [copied, setCopied] = React.useState(false);
   return (
     <Popover>
       <Popover.Trigger>
@@ -45,24 +47,34 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
         placement="top"
         className="dark:bg-slate-800 rounded-3xl"
       >
-        <Popover.Dialog className="p-4 max-w-md bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-xl">
-          <pre className="text-xs font-mono whitespace-pre-wrap overflow-x-auto text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-950 p-3 rounded border border-slate-100 dark:border-slate-900">
-            {bibtex}
-          </pre>
-          <div className="mt-3 flex justify-end">
+        <div className="flex flex-row justify-end text-muted-foreground p-2">
+          {copied && <span className="flex flex-row text-sm font-medium p-2 gap-1"><FaCheck className="size-4 text-green-500" /> Copied</span>}
+          <Tooltip>
             <Button
               size="sm"
-              variant="primary"
+              variant="ghost"
               onPress={() => {
                 navigator.clipboard.writeText(bibtex);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
               }}
+              aria-label="Copy BibTeX to clipboard"
+              isIconOnly
+              className="text-muted-foreground hover:text-primary transition-colors"
             >
-              Copy to Clipboard
+              <FaCopy className="size-4" />
             </Button>
-          </div>
-        </Popover.Dialog>
+            <Tooltip.Content>
+              <Tooltip.Arrow />
+              Copy to clipboard
+            </Tooltip.Content>
+          </Tooltip>
+        </div>
+        <pre className="text-sm font-mono whitespace-pre-wrap overflow-x-auto text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-950 p-3 rounded border border-slate-100 dark:border-slate-900">
+          {bibtex}
+        </pre>
       </Popover.Content>
-    </Popover>
+    </Popover >
   );
 };
 
