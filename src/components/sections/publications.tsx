@@ -1,5 +1,6 @@
 "use client";
 
+import { FeaturedSectionContainer } from "@/components/featured-section-container";
 import PublicationView from "@/components/publication";
 import publicationsData from "@/data/publications";
 
@@ -12,38 +13,14 @@ export const PublicationsSection = () => {
       title="Publications"
       data={publicationsData}
       renderItem={() => null}
-      renderContainer={(publications) => {
-        const featuredPublications = publications.filter((p) => p.featured);
-        const nonFeaturedPublications = publications.filter((p) => !p.featured);
-
-        return (
-          <div
-            className="flex flex-col gap-6 w-full px-4 md:px-10"
-            key="publications-container"
-          >
-            {featuredPublications.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
-                {featuredPublications.map((publication) => (
-                  <PublicationView
-                    key={publication.id}
-                    publication={publication}
-                  />
-                ))}
-              </div>
-            )}
-            {nonFeaturedPublications.length > 0 && (
-              <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
-                {nonFeaturedPublications.map((publication) => (
-                  <PublicationView
-                    key={publication.id}
-                    publication={publication}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        );
-      }}
+      renderContainer={(publications) => (
+        <FeaturedSectionContainer
+          items={publications}
+          renderItem={(publication) => (
+            <PublicationView key={publication.id} publication={publication} />
+          )}
+        />
+      )}
       sortFn={(a, b) => Number(b.year) - Number(a.year)}
     />
   );

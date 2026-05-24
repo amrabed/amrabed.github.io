@@ -72,7 +72,7 @@ export interface Project {
   status?: string;
   group: number;
   featured?: boolean;
-  priority?: number;
+  priority: number;
 }
 
 export interface Organization {
