@@ -54,6 +54,7 @@ const Intro = () => {
             fill
             className="rounded-full object-cover"
             priority
+            sizes="(max-width: 768px) 300px, 400px"
           />
         </div>
 
