@@ -122,18 +122,17 @@ const Links = ({
 const PublicationView = React.memo(
   ({
     publication,
-    featured = false,
   }: {
     publication: Publication;
-    featured?: boolean;
   }) => {
+    const isFeatured = publication.featured;
     return (
       <Card
-        className={`card-container h-full ${featured ? "md:col-span-2 xl:col-span-2 2xl:col-span-3" : ""}`}
+        className={`card-container h-full ${isFeatured ? "md:col-span-2 xl:col-span-2 2xl:col-span-3" : ""}`}
       >
         <Card.Header className="flex justify-between items-start gap-4 p-0 bg-transparent">
           <div className="flex flex-col gap-1">
-            <h3 className={`card-title ${featured ? "text-2xl" : "text-xl"}`}>
+            <h3 className={`card-title ${isFeatured ? "text-2xl" : "text-xl"}`}>
               {publication.title}
             </h3>
             <p className="text-slate-700 dark:text-slate-300 font-medium">

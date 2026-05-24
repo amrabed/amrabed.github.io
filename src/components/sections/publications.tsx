@@ -27,7 +27,6 @@ export const PublicationsSection = () => {
                   <PublicationView
                     key={publication.id}
                     publication={publication}
-                    featured
                   />
                 ))}
               </div>
