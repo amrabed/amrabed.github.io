@@ -64,11 +64,14 @@ const Links = ({ links }: { links: ProjectLinks }) => {
 };
 
 const ProjectView = React.memo(({ project }: { project: Project }) => {
+  const isFeatured = project.featured;
   return (
     <Card className="card-container h-full">
       <Card.Header className="flex justify-between items-start p-0 bg-transparent">
         <div className="flex justify-between w-full">
-          <h3 className="card-title text-xl">{project.name}</h3>
+          <h3 className={`card-title ${isFeatured ? "text-2xl" : "text-xl"}`}>
+            {project.name}
+          </h3>
           <Links links={project.links} />
         </div>
       </Card.Header>

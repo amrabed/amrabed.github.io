@@ -14,6 +14,8 @@ const projects: Project[] = [
     tags: ["Programming", "Web"],
     roles: ["freelancer"],
     group: -1,
+    featured: true,
+    priority: 40,
   },
   {
     id: "sophi-paywall",
@@ -35,6 +37,8 @@ const projects: Project[] = [
     tags: ["Cloud", "Machine learning", "Database", "Programming", "DevOps"],
     roles: ["engineer", "manager"],
     group: 0,
+    featured: true,
+    priority: 10,
   },
   {
     id: "aws-lambda-templates",
@@ -50,6 +54,8 @@ const projects: Project[] = [
     tags: ["Programming", "DevOps"],
     roles: ["engineer"],
     group: 0,
+    featured: true,
+    priority: 20,
   },
   {
     id: "python-project-template",
@@ -65,6 +71,8 @@ const projects: Project[] = [
     tags: ["Programming", "DevOps"],
     roles: ["engineer"],
     group: 0,
+    featured: true,
+    priority: 30,
   },
   {
     id: "skeleton-flutter",

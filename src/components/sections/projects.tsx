@@ -1,5 +1,6 @@
 "use client";
 
+import { FeaturedSectionContainer } from "@/components/featured-section-container";
 import ProjectView from "@/components/project";
 import projectsData from "@/data/projects";
 
@@ -11,11 +12,19 @@ export const ProjectsSection = () => {
       id="projects"
       title="Projects"
       data={projectsData}
-      renderItem={(project) => (
-        <ProjectView key={project.id} project={project} />
+      renderItem={() => null}
+      renderContainer={(projects) => (
+        <FeaturedSectionContainer
+          items={projects}
+          renderItem={(project) => (
+            <ProjectView key={project.id} project={project} />
+          )}
+        />
       )}
       sortFn={(a, b) => {
-        if (a.group !== b.group) return a.group - b.group;
+        const pA = a.priority ?? Infinity;
+        const pB = b.priority ?? Infinity;
+        if (pA !== pB) return pA - pB;
         return new Date(b.date!).getTime() - new Date(a.date!).getTime();
       }}
     />

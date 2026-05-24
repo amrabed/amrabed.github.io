@@ -71,6 +71,8 @@ export interface Project {
   links: ProjectLinks;
   status?: string;
   group: number;
+  featured?: boolean;
+  priority?: number;
 }
 
 export interface Organization {
