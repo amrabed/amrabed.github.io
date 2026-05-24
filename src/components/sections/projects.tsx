@@ -22,7 +22,9 @@ export const ProjectsSection = () => {
         />
       )}
       sortFn={(a, b) => {
-        if (a.priority !== b.priority) return a.priority - b.priority;
+        const pA = a.priority ?? Infinity;
+        const pB = b.priority ?? Infinity;
+        if (pA !== pB) return pA - pB;
         return new Date(b.date!).getTime() - new Date(a.date!).getTime();
       }}
     />

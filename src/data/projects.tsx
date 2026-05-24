@@ -86,7 +86,6 @@ const projects: Project[] = [
     tools: ["flutter", "firebase", "android", "swift"],
     tags: ["Mobile", "Cloud", "Database"],
     group: 1,
-    priority: Infinity,
   },
   {
     id: "skeleton-android",
@@ -102,7 +101,6 @@ const projects: Project[] = [
     tools: ["kotlin", "firebase", "android"],
     tags: ["Mobile", "Cloud", "Database"],
     group: 1,
-    priority: Infinity,
   },
   {
     id: "cpp-programming-course",
@@ -117,7 +115,6 @@ const projects: Project[] = [
     tools: ["c++"],
     tags: ["Programming"],
     group: 2,
-    priority: Infinity,
   },
   {
     id: "python-machine-learning",
@@ -133,7 +130,6 @@ const projects: Project[] = [
     tools: ["Python", "TensorFlow", "Scikit-learn"],
     tags: ["Machine learning", "Programming"],
     group: 2,
-    priority: Infinity,
   },
   {
     id: "muslim-day-android",
@@ -153,7 +149,6 @@ const projects: Project[] = [
     tools: ["android", "java", "kotlin", "firebase", "sqlite"],
     tags: ["Mobile", "Cloud", "Database"],
     group: 3,
-    priority: Infinity,
   },
   {
     id: "muslim-day-ios",
@@ -171,7 +166,6 @@ const projects: Project[] = [
     tools: ["swift", "firebase"],
     tags: ["Mobile", "Cloud", "Database"],
     group: 3,
-    priority: Infinity,
   },
   {
     id: "docker-ec2",
@@ -187,7 +181,6 @@ const projects: Project[] = [
     tools: ["docker", "aws", "aws-ec2", "bash"],
     tags: ["Cloud"],
     group: 4,
-    priority: Infinity,
   },
   {
     id: "strace-docker",
@@ -204,7 +197,6 @@ const projects: Project[] = [
     tools: ["docker", "sysdig", "bash"],
     tags: ["Cloud", "DevOps", "Shell"],
     group: 4,
-    priority: Infinity,
   },
   {
     id: "rhids",
@@ -222,7 +214,6 @@ const projects: Project[] = [
     tools: ["java", "docker", "bash", "gradle"],
     tags: ["Cloud", "Machine Learning", "Shell"],
     group: 4,
-    priority: Infinity,
   },
   {
     id: "deep-hids",
@@ -237,7 +228,6 @@ const projects: Project[] = [
     tools: ["Pyhton", "TensorFlow", "Docker"],
     tags: ["Cloud", "Machine Learning", "Deep Learning"],
     group: 4,
-    priority: Infinity,
   },
 
   {
@@ -262,7 +252,6 @@ const projects: Project[] = [
     ],
     tags: ["Cloud", "Web", "IoT", "Smart City"],
     group: 5,
-    priority: Infinity,
   },
   {
     id: "logger",
@@ -279,7 +268,6 @@ const projects: Project[] = [
     tools: ["android", "java", "sqlite"],
     tags: ["Mobile", "Database"],
     group: 5,
-    priority: Infinity,
   },
   {
     id: "sodacloud",
@@ -294,7 +282,6 @@ const projects: Project[] = [
     tools: ["git", "maven"],
     tags: ["Cloud", "Mobile", "DevOps"],
     group: 5,
-    priority: Infinity,
   },
   {
     id: "isnrv-android",
@@ -311,7 +298,6 @@ const projects: Project[] = [
     tools: ["android", "java", "firebase", "fastlane", "gradle"],
     tags: ["Mobile", "Cloud"],
     group: 6,
-    priority: Infinity,
   },
   {
     id: "iqama-times",
@@ -330,7 +316,6 @@ const projects: Project[] = [
     tools: ["android", "java"],
     tags: ["Mobile"],
     group: 6,
-    priority: Infinity,
   },
   {
     id: "fujitsu",
@@ -345,7 +330,6 @@ const projects: Project[] = [
     tools: ["docker", "php", "mysql", "metasploit"],
     tags: ["Security", "Web", "SDN"],
     group: 5,
-    priority: Infinity,
   },
   // {
   //   id: "metrolab",
