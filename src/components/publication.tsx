@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa6";
 import { SiScopus } from "react-icons/si";
 
-import { Popover, Button, Card } from "@heroui/react";
+import { Popover, Button, Card, Separator } from "@heroui/react";
 
 import { IconLink } from "@/components/icon-link";
 import { Areas, Tools } from "@/components/skills";
@@ -87,7 +87,7 @@ const Links = ({
         <IconLink href={links.presentation} title="Presentation">
           <FaPersonChalkboard className="size-4" />
           {!compact && (
-            <span className="text-sm font-medium">Presentation</span>
+            <span className="text-sm font-medium">Slides</span>
           )}
         </IconLink>
       )}
@@ -97,12 +97,12 @@ const Links = ({
           {!compact && <span className="text-sm font-medium">DOI</span>}
         </IconLink>
       )}
-      {links.scopus && (
+      {/* {links.scopus && (
         <IconLink href={links.scopus} title="Scopus">
           <SiScopus className="size-4" />
           {!compact && <span className="text-sm font-medium">Scopus</span>}
         </IconLink>
-      )}
+      )} */}
     </div>
   );
 };
@@ -128,7 +128,6 @@ const PublicationView = React.memo(
               {publication.authors.join(", ")}
             </p>
           </div>
-          <Links links={publication.links} compact />
         </Card.Header>
 
         <Card.Content className="p-0 mt-1 bg-transparent overflow-visible">
@@ -138,10 +137,10 @@ const PublicationView = React.memo(
           <div className="flex-grow"></div>
         </Card.Content>
 
-        <Card.Footer className="flex flex-row justify-between items-center mt-6 p-0 bg-transparent overflow-visible">
+        <Card.Footer className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 bg-transparent overflow-visible">
           <div className="flex flex-row items-center gap-2">
             <Areas areas={publication.tags} />
-            <span className="text-slate-500/30">|</span>
+            <Separator orientation="vertical" />
             <Tools tools={publication.skills} compact />
           </div>
           <div className="flex flex-row items-center gap-4">
