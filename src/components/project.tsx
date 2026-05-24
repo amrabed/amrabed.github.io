@@ -67,8 +67,10 @@ const ProjectView = React.memo(({ project }: { project: Project }) => {
   return (
     <Card className="card-container h-full">
       <Card.Header className="flex justify-between items-start p-0 bg-transparent">
-        <h3 className="card-title text-xl">{project.name}</h3>
-        <Links links={project.links} />
+        <div className="flex justify-between w-full">
+          <h3 className="card-title text-xl">{project.name}</h3>
+          <Links links={project.links} />
+        </div>
       </Card.Header>
 
       <Card.Content className="p-0 mt-2 bg-transparent flex-grow">
