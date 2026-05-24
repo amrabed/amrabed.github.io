@@ -15,9 +15,8 @@ const PositionView = memo(({ position }: { position: Position }) => (
         </p>
       </div>
     </Card.Header>
-    <Separator className="bg-slate-500/30" />
     <Card.Content>
-      <ul>
+      <ul className="flex flex-col gap-1">
         {position.tasks.map((task) => (
           <li
             key={task}
@@ -28,19 +27,19 @@ const PositionView = memo(({ position }: { position: Position }) => (
         ))}
       </ul>
     </Card.Content>
-    <Separator className="bg-slate-500/30" />
     <Card.Footer className="justify-between">
       <div className="flex flex-row items-center gap-4">
         <div className="flex flex-row items-center gap-2">
           <Areas areas={position.tags} />
-          <span className="text-slate-500/30">|</span>
+          <Separator orientation="vertical" />
           <Tools tools={position.skills} compact />
+          <Separator orientation="vertical" />
+          <ul className="flex flex-row gap-2 text-zinc-400 text-sm">
+            {position.roles.map((role) => (
+              <li key={role}>{role}</li>
+            ))}
+          </ul>
         </div>
-        <ul className="flex flex-row gap-2 text-zinc-400 text-sm">
-          {position.roles.map((role) => (
-            <li key={role}>{role}</li>
-          ))}
-        </ul>
       </div>
     </Card.Footer>
   </Card>
