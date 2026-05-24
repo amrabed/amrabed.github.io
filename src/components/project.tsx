@@ -11,7 +11,7 @@ import {
   FaPersonChalkboard,
 } from "react-icons/fa6";
 
-import { Card } from "@heroui/react";
+import { Card, Separator } from "@heroui/react";
 
 import { IconLink } from "@/components/icon-link";
 import { Areas, Tools } from "@/components/skills";
@@ -67,13 +67,10 @@ const ProjectView = React.memo(({ project }: { project: Project }) => {
   return (
     <Card className="card-container h-full">
       <Card.Header className="flex justify-between items-start p-0 bg-transparent">
-        <div className="flex flex-row items-center gap-2">
+        <div className="flex justify-between w-full">
           <h3 className="card-title text-xl">{project.name}</h3>
-          <div className="flex flex-row gap-1">
-            <Tools tools={project.tools} compact />
-          </div>
+          <Links links={project.links} />
         </div>
-        <Links links={project.links} />
       </Card.Header>
 
       <Card.Content className="p-0 mt-2 bg-transparent flex-grow">
@@ -83,13 +80,16 @@ const ProjectView = React.memo(({ project }: { project: Project }) => {
       </Card.Content>
 
       <Card.Footer className="flex flex-row justify-between items-center mt-6 p-0 bg-transparent">
-        <div className="flex flex-row items-center gap-4">
-          <Areas areas={project.tags} />
-          <ul className="flex flex-row gap-2 text-zinc-400 text-sm">
+        {/* <ul className="flex flex-row gap-2 text-zinc-400 text-sm">
             {project.roles.map((role) => (
               <li key={role}>{role}</li>
             ))}
-          </ul>
+          </ul> */}
+
+        <div className="flex flex-row items-center gap-2">
+          <Areas areas={project.tags} />
+          <Separator orientation="vertical" />
+          <Tools tools={project.tools} compact />
         </div>
         <span className="text-zinc-400 text-sm">
           {new Date(project.date).getFullYear()}

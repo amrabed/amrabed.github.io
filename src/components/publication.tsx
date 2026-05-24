@@ -6,10 +6,11 @@ import {
   FaPersonChalkboard,
   FaQuoteLeft,
   FaLink,
+  FaCopy,
+  FaCheck,
 } from "react-icons/fa6";
-import { SiScopus } from "react-icons/si";
 
-import { Popover, Button, Card } from "@heroui/react";
+import { Popover, Button, Card, Separator, Tooltip } from "@heroui/react";
 
 import { IconLink } from "@/components/icon-link";
 import { Areas, Tools } from "@/components/skills";
@@ -30,6 +31,7 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
   year = {${publication.year}}
 }`;
 
+  const [copied, setCopied] = React.useState(false);
   return (
     <Popover>
       <Popover.Trigger>
@@ -45,54 +47,74 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
         placement="top"
         className="dark:bg-slate-800 rounded-3xl"
       >
-        <Popover.Dialog className="p-4 max-w-md bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-xl">
-          <pre className="text-xs font-mono whitespace-pre-wrap overflow-x-auto text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-950 p-3 rounded border border-slate-100 dark:border-slate-900">
-            {bibtex}
-          </pre>
-          <div className="mt-3 flex justify-end">
+        <div className="flex flex-row justify-end text-muted-foreground p-2">
+          {copied && <span className="flex flex-row text-sm font-medium p-2 gap-1"><FaCheck className="size-4 text-green-500" /> Copied</span>}
+          <Tooltip>
             <Button
               size="sm"
-              variant="primary"
+              variant="ghost"
               onPress={() => {
                 navigator.clipboard.writeText(bibtex);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
               }}
+              aria-label="Copy BibTeX to clipboard"
+              isIconOnly
+              className="text-muted-foreground hover:text-primary transition-colors"
             >
-              Copy to Clipboard
+              <FaCopy className="size-4" />
             </Button>
-          </div>
-        </Popover.Dialog>
+            <Tooltip.Content>
+              <Tooltip.Arrow />
+              Copy to clipboard
+            </Tooltip.Content>
+          </Tooltip>
+        </div>
+        <pre className="text-sm font-mono whitespace-pre-wrap overflow-x-auto text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-950 p-3 rounded border border-slate-100 dark:border-slate-900">
+          {bibtex}
+        </pre>
       </Popover.Content>
-    </Popover>
+    </Popover >
   );
 };
 
-const Links = ({ links }: { links: PublicationLinks }) => {
+const Links = ({
+  links,
+  compact = false,
+}: {
+  links: PublicationLinks;
+  compact?: boolean;
+}) => {
   return (
-    <div className="flex flex-row flex-wrap gap-x-4 gap-y-2 items-center justify-end">
+    <div
+      className={`flex flex-row flex-wrap gap-x-4 gap-y-2 items-center ${compact ? "" : "justify-end"}`}
+    >
       {links.fulltext && (
         <IconLink href={links.fulltext} title="Read">
           <FaFileLines className="size-4" />
-          <span className="text-sm font-medium">Read</span>
+          {!compact && <span className="text-sm font-medium">Read</span>}
         </IconLink>
       )}
       {links.presentation && (
         <IconLink href={links.presentation} title="Presentation">
           <FaPersonChalkboard className="size-4" />
-          <span className="text-sm font-medium">Presentation</span>
+          {!compact && (
+            <span className="text-sm font-medium">Slides</span>
+          )}
         </IconLink>
       )}
       {links.doi && (
         <IconLink href={`https://dx.doi.org/${links.doi}`} title="DOI">
           <FaLink className="size-4" />
-          <span className="text-sm font-medium">DOI</span>
+          {!compact && <span className="text-sm font-medium">DOI</span>}
         </IconLink>
       )}
-      {links.scopus && (
+      {/* {links.scopus && (
         <IconLink href={links.scopus} title="Scopus">
           <SiScopus className="size-4" />
-          <span className="text-sm font-medium">Scopus</span>
+          {!compact && <span className="text-sm font-medium">Scopus</span>}
         </IconLink>
-      )}
+      )} */}
     </div>
   );
 };
@@ -100,26 +122,22 @@ const Links = ({ links }: { links: PublicationLinks }) => {
 const PublicationView = React.memo(
   ({
     publication,
-    featured = false,
   }: {
     publication: Publication;
-    featured?: boolean;
   }) => {
+    const isFeatured = publication.featured;
     return (
       <Card
-        className={`card-container h-full ${featured ? "md:col-span-2 xl:col-span-2 2xl:col-span-3" : ""}`}
+        className={`card-container h-full ${isFeatured ? "md:col-span-2 xl:col-span-2 2xl:col-span-3" : ""}`}
       >
         <Card.Header className="flex justify-between items-start gap-4 p-0 bg-transparent">
           <div className="flex flex-col gap-1">
-            <h3 className={`card-title ${featured ? "text-2xl" : "text-xl"}`}>
+            <h3 className={`card-title ${isFeatured ? "text-2xl" : "text-xl"}`}>
               {publication.title}
             </h3>
             <p className="text-slate-700 dark:text-slate-300 font-medium">
               {publication.authors.join(", ")}
             </p>
-          </div>
-          <div className="flex flex-row gap-1 shrink-0">
-            <Tools tools={publication.skills} compact />
           </div>
         </Card.Header>
 
@@ -130,15 +148,15 @@ const PublicationView = React.memo(
           <div className="flex-grow"></div>
         </Card.Content>
 
-        <Card.Footer className="flex flex-col gap-4 mt-6 p-0 bg-transparent overflow-visible">
-          <div className="flex flex-row flex-wrap justify-between items-center gap-4 w-full">
-            <div className="flex flex-row items-center gap-4">
-              <Areas areas={publication.tags} />
-              <CiteButton publication={publication} />
-            </div>
-            <div className="flex-grow flex justify-end">
-              <Links links={publication.links} />
-            </div>
+        <Card.Footer className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 bg-transparent overflow-visible">
+          <div className="flex flex-row items-center gap-2">
+            <Areas areas={publication.tags} />
+            <Separator orientation="vertical" />
+            <Tools tools={publication.skills} compact />
+          </div>
+          <div className="flex flex-row items-center gap-4">
+            <CiteButton publication={publication} />
+            <Links links={publication.links} />
           </div>
         </Card.Footer>
       </Card>
