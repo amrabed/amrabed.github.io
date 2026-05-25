@@ -1,8 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 import {
   AdjustmentsHorizontalIcon,
   CheckIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
   Button,
@@ -105,26 +106,42 @@ export const Filter = ({
 }: {
   children: ReactNode;
   className?: string;
-}) => (
-  <Popover>
-    <Button
-      id="filter-trigger"
-      variant="ghost"
-      isIconOnly
-      aria-label="Open filters"
-      aria-haspopup="dialog"
-      className={className}
-    >
-      <AdjustmentsHorizontalIcon className="size-6" />
-    </Button>
-    <Popover.Content
-      offset={10}
-      placement="bottom"
-      className="dark:bg-slate-800 rounded-3xl"
-    >
-      <Popover.Dialog className="flex flex-col w-[90vw] max-w-[500px] p-6 gap-8">
-        {children}
-      </Popover.Dialog>
-    </Popover.Content>
-  </Popover>
-);
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Popover isOpen={isOpen} onOpenChange={setIsOpen}>
+      <Popover.Trigger>
+        <Button
+          id="filter-trigger"
+          variant="ghost"
+          isIconOnly
+          aria-label="Open filters"
+          aria-haspopup="dialog"
+          className={className}
+        >
+          <AdjustmentsHorizontalIcon className="size-6" />
+        </Button>
+      </Popover.Trigger>
+      <Popover.Content
+        offset={10}
+        placement="top"
+        className="dark:bg-slate-800 rounded-3xl"
+      >
+        <Popover.Dialog className="flex flex-col w-[90vw] max-w-[500px] p-6 gap-8 max-h-[70vh] overflow-y-auto relative">
+          <Button
+            variant="ghost"
+            isIconOnly
+            size="sm"
+            onPress={() => setIsOpen(false)}
+            className="absolute right-4 top-4 text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 min-w-0 h-8 w-8 z-10"
+            aria-label="Close filters"
+          >
+            <XMarkIcon className="size-5" />
+          </Button>
+          {children}
+        </Popover.Dialog>
+      </Popover.Content>
+    </Popover>
+  );
+};
