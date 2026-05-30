@@ -15,7 +15,8 @@ export const sections = [
 const Title = ({ onClick }: { onClick: (e: React.MouseEvent) => void }) => (
   <button
     onClick={onClick}
-    className="text-lg font-semibold cursor-pointer hover:text-primary transition-colors"
+    className="text-lg font-semibold cursor-pointer hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-md px-1"
+    aria-label="Amr Abed - Scroll to top"
   >
     Amr Abed
   </button>
