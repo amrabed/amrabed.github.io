@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, memo } from "react";
 import { TypeAnimation } from "react-type-animation";
 
-const Intro = () => {
+// ⚡ Optimization: Intro (Hero) component is memoized to prevent redundant re-renders.
+const Intro = memo(() => {
   const [isHome, setIsHome] = useState(true);
   const [mounted, setMounted] = useState(false);
 
@@ -91,6 +92,8 @@ const Intro = () => {
       </div>
     </section>
   );
-};
+});
+
+Intro.displayName = "Intro";
 
 export default Intro;

@@ -1,17 +1,18 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, memo } from "react";
 
 import { useFilter } from "@/contexts/filter";
-import { useSearch } from "@/contexts/search";
+import { useDebouncedSearch } from "@/contexts/search";
 import areaSkills from "@/data/areaSkills";
 import skillsData from "@/data/skills";
 
 import { EmptyState } from "../empty-state";
 import { Section } from "../section";
 
-export const SkillsSection = () => {
-  const { debouncedQuery } = useSearch();
+// ⚡ Optimization: SkillsSection is memoized to prevent redundant re-renders.
+export const SkillsSection = memo(() => {
+  const { debouncedQuery } = useDebouncedSearch();
   const { selected } = useFilter();
 
   const areas = selected["areas"];
@@ -65,4 +66,6 @@ export const SkillsSection = () => {
       </div>
     </Section>
   );
-};
+});
+
+SkillsSection.displayName = "SkillsSection";

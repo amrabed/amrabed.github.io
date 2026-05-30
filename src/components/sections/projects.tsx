@@ -1,12 +1,15 @@
 "use client";
 
+import { memo } from "react";
+
 import { FeaturedSectionContainer } from "@/components/featured-section-container";
 import ProjectView from "@/components/project";
 import projectsData from "@/data/projects";
 
 import { FilterableSection } from "../filterable-section";
 
-export const ProjectsSection = () => {
+// ⚡ Optimization: ProjectsSection is memoized to prevent redundant re-renders.
+export const ProjectsSection = memo(() => {
   return (
     <FilterableSection
       id="projects"
@@ -29,4 +32,6 @@ export const ProjectsSection = () => {
       }}
     />
   );
-};
+});
+
+ProjectsSection.displayName = "ProjectsSection";

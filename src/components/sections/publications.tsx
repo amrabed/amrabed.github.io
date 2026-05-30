@@ -1,12 +1,15 @@
 "use client";
 
+import { memo } from "react";
+
 import { FeaturedSectionContainer } from "@/components/featured-section-container";
 import PublicationView from "@/components/publication";
 import publicationsData from "@/data/publications";
 
 import { FilterableSection } from "../filterable-section";
 
-export const PublicationsSection = () => {
+// ⚡ Optimization: PublicationsSection is memoized to prevent redundant re-renders.
+export const PublicationsSection = memo(() => {
   return (
     <FilterableSection
       id="publications"
@@ -24,4 +27,6 @@ export const PublicationsSection = () => {
       sortFn={(a, b) => Number(b.year) - Number(a.year)}
     />
   );
-};
+});
+
+PublicationsSection.displayName = "PublicationsSection";
