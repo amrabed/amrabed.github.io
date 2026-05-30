@@ -35,6 +35,9 @@
     "typescript": "^6.0.3",
     "use-debounce": "^10.1.1"
   },
+  "overrides": {
+    "postcss": "^8.5.15"
+  },
   "pnpm": {
     "overrides": {
       "postcss": "^8.5.15"
