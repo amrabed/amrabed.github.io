@@ -23,8 +23,8 @@ export const Searchbar = ({
 
   useEffect(() => {
     setIsMac(
-      typeof window !== "undefined" &&
-        /Mac|iPod|iPhone|iPad/.test(navigator.platform),
+      typeof globalThis.window !== "undefined" &&
+        /Mac|iPod|iPhone|iPad/.test(globalThis.navigator.platform),
     );
 
     const handleKeyDown = (e: KeyboardEvent) => {
