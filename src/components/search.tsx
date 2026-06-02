@@ -23,7 +23,7 @@ export const Searchbar = ({
 
   useEffect(() => {
     setIsMac(
-      typeof globalThis.window !== "undefined" &&
+      globalThis.window !== undefined &&
         /Mac|iPod|iPhone|iPad/.test(globalThis.navigator.platform),
     );
 
