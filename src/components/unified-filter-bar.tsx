@@ -2,6 +2,7 @@
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "@heroui/react";
+import { motion } from "framer-motion";
 
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
@@ -25,7 +26,13 @@ export const UnifiedFilterBar = () => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 w-full bg-background/90 backdrop-blur-md border-t border-divider py-3 px-4 sm:px-6 shadow-[0_-10px_50px_-15px_rgba(0,0,0,0.3)] transition-all duration-500">
+    <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: 100, opacity: 0 }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      className="fixed bottom-0 left-0 right-0 z-50 w-full bg-background/90 backdrop-blur-md border-t border-divider py-3 px-4 sm:px-6 shadow-[0_-10px_50px_-15px_rgba(0,0,0,0.3)]"
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-center">
         <div className="flex-grow max-w-2xl flex items-center">
           <Searchbar
@@ -33,6 +40,7 @@ export const UnifiedFilterBar = () => {
             query={query}
             setQuery={setQuery}
             className="rounded-l-2xl rounded-r-none border-r-0"
+            autoFocus={false}
           />
           <Filter className="rounded-l-none rounded-r-2xl border-l-0 bg-white dark:bg-slate-800 h-[38px] min-w-[48px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border-zinc-200 dark:border-zinc-700">
             <Selections
@@ -81,6 +89,6 @@ export const UnifiedFilterBar = () => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };

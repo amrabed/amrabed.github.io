@@ -8,17 +8,25 @@ export const Searchbar = ({
   query,
   setQuery,
   className,
+  autoFocus = false,
 }: {
   placeholder: string;
   query: string;
   setQuery: (query: string) => void;
   className?: string;
+  autoFocus?: boolean;
 }) => {
   const inputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
+  const [isMac, setIsMac] = useState(false);
 
   useEffect(() => {
+    setIsMac(
+      globalThis.window !== undefined &&
+        /Mac|iPod|iPhone|iPad/.test(globalThis.navigator.platform),
+    );
+
     const handleKeyDown = (e: KeyboardEvent) => {
       const isSearchShortcut =
         (e.key === "k" && (e.metaKey || e.ctrlKey)) || e.key === "/";
@@ -56,7 +64,7 @@ export const Searchbar = ({
         maxLength={100}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        autoFocus
+        autoFocus={autoFocus}
         autoCapitalize="none"
         autoComplete="off"
         autoCorrect="off"
@@ -64,7 +72,11 @@ export const Searchbar = ({
       />
       <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-zinc-900 dark:peer-focus:text-zinc-100" />
       {!isFocused && !query && (
-        <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none hidden sm:block">
+        <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none hidden sm:flex gap-1 items-center">
+          <kbd className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-300 rounded-lg dark:bg-slate-700 dark:text-slate-400 dark:border-slate-600">
+            {isMac ? "⌘" : "Ctrl"} K
+          </kbd>
+          <span className="text-gray-400 text-xs">or</span>
           <kbd className="px-2 py-1 text-xs font-semibold text-gray-500 bg-gray-100 border border-gray-300 rounded-lg dark:bg-slate-700 dark:text-slate-400 dark:border-slate-600">
             /
           </kbd>

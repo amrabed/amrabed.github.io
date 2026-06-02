@@ -11,6 +11,8 @@ import { ExperienceSection } from "@/components/sections/experience";
 import Intro from "@/components/sections/hero";
 import { ProjectsSection } from "@/components/sections/projects";
 import { PublicationsSection } from "@/components/sections/publications";
+import { AnimatePresence } from "framer-motion";
+
 import { SkillsSection } from "@/components/sections/skills";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
 
@@ -63,7 +65,7 @@ const Home = () => {
           <AboutSection />
         </div>
       </main>
-      {showFilter && <UnifiedFilterBar />}
+      <AnimatePresence>{showFilter && <UnifiedFilterBar />}</AnimatePresence>
     </div>
   );
 };
