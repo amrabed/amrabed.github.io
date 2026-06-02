@@ -4,7 +4,6 @@ import { memo } from "react";
 
 import { Section } from "../section";
 
-// ⚡ Optimization: AboutSection is memoized to prevent redundant re-renders.
 export const AboutSection = memo(() => {
   return (
     <Section id="about" title="About">

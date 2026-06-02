@@ -10,7 +10,6 @@ import skillsData from "@/data/skills";
 import { EmptyState } from "../empty-state";
 import { Section } from "../section";
 
-// ⚡ Optimization: SkillsSection is memoized to prevent redundant re-renders.
 export const SkillsSection = memo(() => {
   const { debouncedQuery } = useDebouncedSearch();
   const { selected } = useFilter();
@@ -18,8 +17,6 @@ export const SkillsSection = memo(() => {
   const areas = selected["areas"];
   const skills = selected["skills"];
 
-  // ⚡ Optimization: Memoize areaMatchingSkills separately from the query filter.
-  // This avoids re-calculating the matching skills set when only the search query changes.
   const areaMatchingSkills = useMemo(() => {
     const matchingSkills = new Set<string>();
     if (!areas || areas.length === 0) {
@@ -34,7 +31,6 @@ export const SkillsSection = memo(() => {
 
   const selectedSkills = useMemo(() => new Set(skills || []), [skills]);
 
-  // ⚡ Optimization: filteredSkills now only depends on debouncedQuery and the memoized areaMatchingSkills.
   const filteredSkills = useMemo(() => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
 

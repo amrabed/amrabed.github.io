@@ -8,7 +8,7 @@ import { AboutSection } from "@/components/sections/about";
 import { CertificationsSection } from "@/components/sections/certifications";
 import { EducationSection } from "@/components/sections/education";
 import { ExperienceSection } from "@/components/sections/experience";
-import Intro from "@/components/sections/hero";
+import HeroSection from "@/components/sections/hero";
 import { ProjectsSection } from "@/components/sections/projects";
 import { PublicationsSection } from "@/components/sections/publications";
 import { SkillsSection } from "@/components/sections/skills";
@@ -52,7 +52,7 @@ const Home = () => {
         tabIndex={-1}
         className="flex-grow outline-none focus:ring-0"
       >
-        <Intro />
+        <HeroSection />
         <div className="space-y-0">
           <SkillsSection />
           <CertificationsSection />

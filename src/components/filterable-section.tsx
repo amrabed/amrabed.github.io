@@ -40,7 +40,6 @@ export const FilterableSection = <T extends FilterableItem>({
   sortFn,
   gridClassName = "grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full px-4 md:px-10",
 }: FilterableSectionProps<T>) => {
-  // ⚡ Optimization: Use useDebouncedSearch to avoid re-renders on every keystroke.
   const { debouncedQuery } = useDebouncedSearch();
   const { selected } = useFilter();
 

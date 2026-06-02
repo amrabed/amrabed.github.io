@@ -7,7 +7,6 @@ import positionsData from "@/data/positions";
 
 import { FilterableSection } from "../filterable-section";
 
-// ⚡ Optimization: ExperienceSection is memoized to prevent redundant re-renders.
 export const ExperienceSection = memo(() => {
   return (
     <FilterableSection

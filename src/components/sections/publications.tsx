@@ -8,7 +8,6 @@ import publicationsData from "@/data/publications";
 
 import { FilterableSection } from "../filterable-section";
 
-// ⚡ Optimization: PublicationsSection is memoized to prevent redundant re-renders.
 export const PublicationsSection = memo(() => {
   return (
     <FilterableSection
