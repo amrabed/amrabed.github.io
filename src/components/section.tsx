@@ -2,7 +2,6 @@
 
 import { memo, ReactNode, useEffect, useRef, useState } from "react";
 
-// ⚡ Optimization: Section component is memoized to prevent redundant re-renders of the section wrapper.
 export const Section = memo(
   ({
     id,

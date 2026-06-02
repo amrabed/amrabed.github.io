@@ -1,11 +1,13 @@
 "use client";
 
+import { memo } from "react";
+
 import Timeline from "@/components/timeline";
 import positionsData from "@/data/positions";
 
 import { FilterableSection } from "../filterable-section";
 
-export const ExperienceSection = () => {
+export const ExperienceSection = memo(() => {
   return (
     <FilterableSection
       id="experience"
@@ -19,4 +21,6 @@ export const ExperienceSection = () => {
       )}
     />
   );
-};
+});
+
+ExperienceSection.displayName = "ExperienceSection";

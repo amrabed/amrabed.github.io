@@ -1,24 +1,22 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, memo } from "react";
 
 import { useFilter } from "@/contexts/filter";
-import { useSearch } from "@/contexts/search";
+import { useDebouncedSearch } from "@/contexts/search";
 import areaSkills from "@/data/areaSkills";
 import skillsData from "@/data/skills";
 
 import { EmptyState } from "../empty-state";
 import { Section } from "../section";
 
-export const SkillsSection = () => {
-  const { debouncedQuery } = useSearch();
+export const SkillsSection = memo(() => {
+  const { debouncedQuery } = useDebouncedSearch();
   const { selected } = useFilter();
 
   const areas = selected["areas"];
   const skills = selected["skills"];
 
-  // ⚡ Optimization: Memoize areaMatchingSkills separately from the query filter.
-  // This avoids re-calculating the matching skills set when only the search query changes.
   const areaMatchingSkills = useMemo(() => {
     const matchingSkills = new Set<string>();
     if (!areas || areas.length === 0) {
@@ -33,7 +31,6 @@ export const SkillsSection = () => {
 
   const selectedSkills = useMemo(() => new Set(skills || []), [skills]);
 
-  // ⚡ Optimization: filteredSkills now only depends on debouncedQuery and the memoized areaMatchingSkills.
   const filteredSkills = useMemo(() => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
 
@@ -65,4 +62,6 @@ export const SkillsSection = () => {
       </div>
     </Section>
   );
-};
+});
+
+SkillsSection.displayName = "SkillsSection";

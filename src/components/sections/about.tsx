@@ -1,8 +1,10 @@
 "use client";
 
+import { memo } from "react";
+
 import { Section } from "../section";
 
-export const AboutSection = () => {
+export const AboutSection = memo(() => {
   return (
     <Section id="about" title="About">
       <div className="max-w-4xl mx-auto text-lg leading-relaxed text-slate-600 dark:text-slate-400 space-y-4 pb-20">
@@ -29,4 +31,6 @@ export const AboutSection = () => {
       </div>
     </Section>
   );
-};
+});
+
+AboutSection.displayName = "AboutSection";

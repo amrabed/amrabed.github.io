@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, memo } from "react";
 import { TypeAnimation } from "react-type-animation";
 
-const Intro = () => {
+const HeroSection = memo(() => {
   const [isHome, setIsHome] = useState(true);
   const [mounted, setMounted] = useState(false);
 
@@ -91,6 +91,8 @@ const Intro = () => {
       </div>
     </section>
   );
-};
+});
 
-export default Intro;
+HeroSection.displayName = "HeroSection";
+
+export default HeroSection;

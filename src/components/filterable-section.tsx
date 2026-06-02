@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import { EmptyState } from "@/components/empty-state";
 import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
-import { useSearch } from "@/contexts/search";
+import { useDebouncedSearch } from "@/contexts/search";
 import { filterByQuery, filterByArea } from "@/filter";
 import { Position, Project, Certification, Degree, Publication } from "@/types";
 
@@ -40,7 +40,7 @@ export const FilterableSection = <T extends FilterableItem>({
   sortFn,
   gridClassName = "grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6 w-full px-4 md:px-10",
 }: FilterableSectionProps<T>) => {
-  const { debouncedQuery } = useSearch();
+  const { debouncedQuery } = useDebouncedSearch();
   const { selected } = useFilter();
 
   const areas = selected["areas"];

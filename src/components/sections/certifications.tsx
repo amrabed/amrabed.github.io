@@ -1,11 +1,13 @@
 "use client";
 
+import { memo } from "react";
+
 import certificationsData from "@/data/certifications";
 
 import { FilterableSection } from "../filterable-section";
 import { SectionItemCard } from "../section-item-card";
 
-export const CertificationsSection = () => {
+export const CertificationsSection = memo(() => {
   return (
     <FilterableSection
       id="certifications"
@@ -27,4 +29,6 @@ export const CertificationsSection = () => {
       gridClassName="section-body"
     />
   );
-};
+});
+
+CertificationsSection.displayName = "CertificationsSection";
