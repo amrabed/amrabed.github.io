@@ -1,3 +1,7 @@
 allowBuilds:
   sharp: false
   unrs-resolver: false
+
+overrides:
+  postcss: "^8.5.15"
+  "minimatch@3>brace-expansion": "^1.1.11"
