@@ -24,7 +24,12 @@ export const SectionItemCard = ({
 }: SectionItemCardProps) => {
   return (
     <div className="transition-all duration-700">
-      <a href={href} target="_blank" rel="noopener noreferrer">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xl"
+      >
         <div className="section-item p-3">
           <Image src={image.src} alt={image.alt} width={150} height={150} />
           <p className="text-xl md:text-2xl text-foreground">{title}</p>

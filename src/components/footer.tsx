@@ -1,5 +1,6 @@
 "use client";
 
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { Switch } from "@heroui/react";
 
 import { useTheme } from "@/contexts/theme";
@@ -33,7 +34,13 @@ const Footer = () => {
             aria-label="Toggle dark mode"
           >
             <Switch.Control className="data-[selected=true]:bg-primary">
-              <Switch.Thumb />
+              <Switch.Thumb className="flex items-center justify-center">
+                {theme === "dark" ? (
+                  <MoonIcon className="size-3 text-primary" />
+                ) : (
+                  <SunIcon className="size-3 text-amber-500" />
+                )}
+              </Switch.Thumb>
             </Switch.Control>
           </Switch>
           <span className="text-sm font-medium text-slate-500 dark:text-slate-400 min-w-20">
