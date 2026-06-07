@@ -4,15 +4,8 @@ import path from "path";
 
 import { embedMany } from "ai";
 
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
-
-import { adminDb } from "../src/lib/firebase";
-
-const google = createGoogleGenerativeAI({
-  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
-});
-
-const model = google.textEmbeddingModel("text-embedding-004");
+import { adminDb } from "../src/middleware/firebase";
+import { embeddingModel } from "../src/middleware/genai";
 
 async function deleteCollection(collectionPath: string) {
   if (!adminDb) throw new Error("adminDb is null");
@@ -132,7 +125,7 @@ async function main() {
         const batchChunks = chunks.slice(j, j + 10);
 
         const { embeddings } = await embedMany({
-          model,
+          model: embeddingModel,
           values: batchChunks,
         });
 
