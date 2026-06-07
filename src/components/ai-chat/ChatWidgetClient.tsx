@@ -2,7 +2,7 @@
 
 import { MessageCircle, X, Send } from "lucide-react";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 
 import { useChat } from "@ai-sdk/react";
@@ -10,8 +10,11 @@ import { Button } from "@heroui/react";
 
 export default function ChatWidgetClient() {
   const [isOpen, setIsOpen] = useState(false);
-  const { messages, input, handleInputChange, handleSubmit, isLoading, error } =
-    useChat() as any;
+  const [input, setInput] = useState("");
+  const { messages, sendMessage, status, error } = useChat();
+
+  const isLoading = status === "submitted" || status === "streaming";
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -36,6 +39,29 @@ export default function ChatWidgetClient() {
   }, []);
 
   const toggleChat = () => setIsOpen(!isOpen);
+
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setInput(e.target.value);
+    },
+    [],
+  );
+
+  const handleSubmit = useCallback(
+    async (e?: React.FormEvent) => {
+      e?.preventDefault();
+      if (!input.trim() || isLoading) return;
+
+      const currentInput = input;
+      setInput("");
+      try {
+        await sendMessage({ text: currentInput });
+      } catch (err) {
+        console.error("Failed to send message:", err);
+      }
+    },
+    [input, isLoading, sendMessage],
+  );
 
   const isRateLimited =
     error?.message?.includes("429") || (error as any)?.status === 429;
@@ -68,24 +94,34 @@ export default function ChatWidgetClient() {
                 Ask me anything about Amr's experience, projects, or skills 🙂
               </div>
             )}
-            {messages.map((m: any) => (
-              <div
-                key={m.id}
-                className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
-              >
+            {messages.map((m) => {
+              const content =
+                m.parts
+                  ?.filter((p) => p.type === "text")
+                  .map((p) => p.text)
+                  .join("") || "";
+
+              if (!content && m.role === "assistant" && isLoading) return null;
+
+              return (
                 <div
-                  className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${
-                    m.role === "user"
-                      ? "bg-teal-600 text-white"
-                      : "bg-default-100 text-default-900"
-                  }`}
+                  key={m.id}
+                  className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                 >
-                  <div className="prose prose-sm dark:prose-invert max-w-none">
-                    <ReactMarkdown>{m.content}</ReactMarkdown>
+                  <div
+                    className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${
+                      m.role === "user"
+                        ? "bg-teal-600 text-white"
+                        : "bg-default-100 text-default-900"
+                    }`}
+                  >
+                    <div className="prose prose-sm dark:prose-invert max-w-none">
+                      <ReactMarkdown>{content}</ReactMarkdown>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
             {isLoading && (
               <div className="flex justify-start">
                 <div className="flex items-center gap-1 bg-default-100 rounded-2xl px-4 py-3">
@@ -106,10 +142,7 @@ export default function ChatWidgetClient() {
 
           {/* Input */}
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit(e);
-            }}
+            onSubmit={handleSubmit}
             className="border-t border-divider p-3 bg-zinc-50 dark:bg-zinc-800/50"
           >
             <div className="flex gap-2">
@@ -122,7 +155,7 @@ export default function ChatWidgetClient() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();
-                    handleSubmit(e as any);
+                    handleSubmit();
                   }
                 }}
               />
