@@ -20,29 +20,44 @@ const Home = () => {
   const [showFilter, setShowFilter] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let skillsTop = Infinity;
+    let lastSectionBottom = 0;
+
+    // ⚡ Optimization: Move DOM measurements out of the scroll listener to avoid layout thrashing.
+    // We cache the values and only update them on mount or window resize.
+    const updateDimensions = () => {
       const skillsSection = document.getElementById("skills");
 
       if (skillsSection) {
-        const skillsTop = skillsSection.offsetTop;
+        skillsTop = skillsSection.offsetTop;
         const lastSection =
           document.getElementById("publications") ||
           document.getElementById("experience");
-        const lastSectionBottom = lastSection
+        lastSectionBottom = lastSection
           ? lastSection.offsetTop + lastSection.offsetHeight
           : 0;
-
-        // Show filter bar when between skills top and last filterable section bottom
-        // Adjusted to hide when reaching the About section
-        setShowFilter(
-          window.scrollY > skillsTop - 200 &&
-            window.scrollY + window.innerHeight < lastSectionBottom + 100,
-        );
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    updateDimensions();
+
+    const handleScroll = () => {
+      // Use cached dimensions to avoid expensive DOM lookups and reflows during scroll.
+      setShowFilter(
+        window.scrollY > skillsTop - 200 &&
+          window.scrollY + window.innerHeight < lastSectionBottom + 100,
+      );
+    };
+
+    // Use { passive: true } to improve scroll performance by telling the browser
+    // that this listener will not call preventDefault().
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateDimensions, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateDimensions);
+    };
   }, []);
 
   return (
