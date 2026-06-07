@@ -95,7 +95,7 @@ export const MainHeader = () => {
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            className="p-2"
+            className="p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
           >
             <svg
               className="h-6 w-6"
@@ -126,7 +126,7 @@ export const MainHeader = () => {
           {sections.map((section) => (
             <li key={section.name}>
               <a
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1 ${
                   activeSection === section.link.substring(1)
                     ? "text-primary"
                     : "text-foreground-500"
@@ -150,7 +150,7 @@ export const MainHeader = () => {
             {sections.map((section) => (
               <li key={section.name}>
                 <a
-                  className={`block text-lg py-2 transition-colors hover:text-primary ${
+                  className={`block text-lg py-2 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-2 ${
                     activeSection === section.link.substring(1)
                       ? "text-primary"
                       : "text-foreground-500"

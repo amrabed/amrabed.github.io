@@ -37,7 +37,7 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
       <Popover.Trigger>
         <button
           aria-label="Cite"
-          className="text-slate-500 hover:text-primary transition-colors flex items-center gap-1 text-sm font-medium h-auto p-0 min-w-0 bg-transparent"
+          className="text-slate-500 hover:text-primary transition-colors flex items-center gap-1 text-sm font-medium h-auto p-0 min-w-0 bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1"
         >
           <FaQuoteLeft className="size-4" />
           <span>Cite</span>
