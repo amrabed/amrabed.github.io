@@ -1,4 +1,4 @@
-import { embed, streamText } from "ai";
+import { convertToModelMessages, embed, streamText } from "ai";
 
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { Ratelimit } from "@upstash/ratelimit";
@@ -37,20 +37,25 @@ export async function POST(req: Request) {
   }
 
   const { messages } = await req.json();
-  const lastMessage = messages[messages.length - 1];
+  const modelMessages = await convertToModelMessages(messages);
+  const lastMessage = modelMessages[modelMessages.length - 1];
 
-  if (
-    typeof lastMessage.content !== "string" ||
-    lastMessage.content.length > 500
-  ) {
+  const userQuery =
+    typeof lastMessage.content === "string"
+      ? lastMessage.content
+      : lastMessage.content
+          .filter((c) => c.type === "text")
+          .map((c) => c.text)
+          .join("");
+
+  if (userQuery.length > 500) {
     return new Response(JSON.stringify({ error: "Message too long." }), {
       status: 400,
       headers: { "Content-Type": "application/json" },
     });
   }
 
-  const recentMessages = messages.slice(-6);
-  const userQuery = lastMessage.content;
+  const recentMessages = modelMessages.slice(-6);
 
   const { embedding } = await embed({
     model: embeddingModel,
@@ -78,5 +83,5 @@ ${context}`;
     system: systemPrompt,
   });
 
-  return result.toDataStreamResponse();
+  return result.toUIMessageStreamResponse();
 }
