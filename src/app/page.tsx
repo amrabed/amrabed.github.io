@@ -20,7 +20,7 @@ const Home = () => {
   const [showFilter, setShowFilter] = useState(false);
 
   useEffect(() => {
-    let skillsTop = 0;
+    let skillsTop = Infinity;
     let lastSectionBottom = 0;
 
     // ⚡ Optimization: Move DOM measurements out of the scroll listener to avoid layout thrashing.
@@ -52,7 +52,7 @@ const Home = () => {
     // Use { passive: true } to improve scroll performance by telling the browser
     // that this listener will not call preventDefault().
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", updateDimensions);
+    window.addEventListener("resize", updateDimensions, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
