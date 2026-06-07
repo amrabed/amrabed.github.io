@@ -1,6 +1,9 @@
 import { convertToModelMessages, embed, streamText } from "ai";
 
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import {
+  createGoogleGenerativeAI,
+  GoogleEmbeddingModelOptions,
+} from "@ai-sdk/google";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 
@@ -20,7 +23,7 @@ const google = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
 });
 
-const embeddingModel = google.textEmbeddingModel("text-embedding-004");
+const embeddingModel = google.embeddingModel("gemini-embedding-001");
 const chatModel = google("gemini-1.5-flash");
 
 export async function POST(req: Request) {
@@ -60,6 +63,12 @@ export async function POST(req: Request) {
   const { embedding } = await embed({
     model: embeddingModel,
     value: userQuery,
+    providerOptions: {
+      google: {
+        outputDimensionality: 1536,
+        taskType: "SEMANTIC_SIMILARITY",
+      } satisfies GoogleEmbeddingModelOptions,
+    },
   });
 
   const chunks = await findSimilarChunks(embedding, 4);
