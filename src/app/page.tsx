@@ -1,5 +1,7 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
+
 import { useEffect, useState } from "react";
 
 import { Banner } from "@/components/banner";
@@ -11,8 +13,6 @@ import { ExperienceSection } from "@/components/sections/experience";
 import HeroSection from "@/components/sections/hero";
 import { ProjectsSection } from "@/components/sections/projects";
 import { PublicationsSection } from "@/components/sections/publications";
-import { AnimatePresence } from "framer-motion";
-
 import { SkillsSection } from "@/components/sections/skills";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
 
@@ -45,7 +45,7 @@ const Home = () => {
       // Use cached dimensions to avoid expensive DOM lookups and reflows during scroll.
       setShowFilter(
         window.scrollY > skillsTop - 200 &&
-        window.scrollY + window.innerHeight < lastSectionBottom + 100,
+          window.scrollY + window.innerHeight < lastSectionBottom + 100,
       );
     };
 
