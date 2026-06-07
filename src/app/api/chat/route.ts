@@ -1,30 +1,10 @@
 import { convertToModelMessages, embed, streamText } from "ai";
 
-import {
-  createGoogleGenerativeAI,
-  GoogleEmbeddingModelOptions,
-} from "@ai-sdk/google";
-import { Ratelimit } from "@upstash/ratelimit";
-import { Redis } from "@upstash/redis";
+import { GoogleEmbeddingModelOptions } from "@ai-sdk/google";
 
-import { findSimilarChunks } from "@/lib/ai/queries";
-
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
-
-const ratelimit = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(10, "1 d"),
-});
-
-const google = createGoogleGenerativeAI({
-  apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
-});
-
-const embeddingModel = google.embeddingModel("gemini-embedding-001");
-const chatModel = google("gemini-1.5-flash");
+import { findSimilarChunks } from "@/middleware/firebase";
+import { chatModel, embeddingModel } from "@/middleware/genai";
+import { ratelimit } from "@/middleware/upstash";
 
 export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for") ?? "anonymous";

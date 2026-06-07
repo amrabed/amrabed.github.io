@@ -1,4 +1,8 @@
-import { adminDb } from "../firebase";
+import { initializeApp } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
+
+const adminApp = initializeApp();
+export const adminDb = adminApp ? getFirestore(adminApp) : null;
 
 export async function findSimilarChunks(embedding: number[], topK = 4) {
   if (!adminDb) {
