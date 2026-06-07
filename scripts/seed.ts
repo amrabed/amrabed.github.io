@@ -43,23 +43,26 @@ function stringify(obj: any, indent = ""): string {
   if (typeof obj === "string") return obj;
   if (typeof obj === "number" || typeof obj === "boolean") return String(obj);
 
+  // Skip React elements
+  if (obj && typeof obj === "object" && obj.$$typeof) return "";
+
   if (Array.isArray(obj)) {
     if (obj.every((i) => typeof i === "string")) {
       return obj.join(", ");
     }
-    return obj.map((i) => stringify(i, indent + "  ")).join("\n" + indent);
+    return obj
+      .map((i) => stringify(i, indent + "  "))
+      .filter((s) => s !== "")
+      .join("\n" + indent);
   }
 
   if (typeof obj === "object") {
     return Object.entries(obj)
-      .filter(
-        ([, v]) =>
-          v !== null &&
-          v !== undefined &&
-          v !== "" &&
-          (Array.isArray(v) ? v.length > 0 : true),
-      )
-      .map(([k, v]) => `${indent}${k}: ${stringify(v, indent + "  ")}`)
+      .map(([k, v]) => {
+        const s = stringify(v, indent + "  ");
+        return s ? `${indent}${k}: ${s}` : "";
+      })
+      .filter((s) => s !== "")
       .join("\n");
   }
 
@@ -79,7 +82,13 @@ function chunkText(text: string, maxLength = 2000): string[] {
 
 async function main() {
   const reset = process.argv.includes("--reset");
-  if (reset) {
+  const dryRun = process.argv.includes("--dry-run");
+
+  if (dryRun) {
+    console.log("Dry run enabled. No changes will be made to the database.");
+  }
+
+  if (reset && !dryRun) {
     console.log("Resetting knowledge collection...");
     await deleteCollection("knowledge");
   }
@@ -108,12 +117,16 @@ async function main() {
       data = dataModule.default || Object.values(dataModule)[0];
     }
 
-    if (!Array.isArray(data)) {
-      console.log(`Skipping ${file}: not an array.`);
+    let items: any[];
+    if (Array.isArray(data)) {
+      items = data;
+    } else if (data && typeof data === "object") {
+      items = Object.entries(data);
+    } else {
+      console.log(`Skipping ${file}: not an array or object.`);
       continue;
     }
 
-    const items = data;
     totalItems += items.length;
 
     for (let i = 0; i < items.length; i++) {
@@ -123,6 +136,14 @@ async function main() {
 
       for (let j = 0; j < chunks.length; j += 10) {
         const batchChunks = chunks.slice(j, j + 10);
+
+        if (dryRun) {
+          totalChunks += batchChunks.length;
+          console.log(
+            `[DRY RUN] Would process ${batchChunks.length} chunks for item ${i} from ${file}`,
+          );
+          continue;
+        }
 
         const { embeddings } = await embedMany({
           model: embeddingModel,
