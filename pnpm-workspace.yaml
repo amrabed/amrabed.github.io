@@ -1,14 +1,9 @@
 allowBuilds:
-  "@firebase/util": set this to true or false
-  esbuild: set this to true or false
-  protobufjs: set this to true or false
+  "@firebase/util": true
+  esbuild: true
+  protobufjs: true
   sharp: false
   unrs-resolver: false
-
-ignoredBuiltDependencies:
-  - "@firebase/util@1.15.1"
-  - esbuild@0.28.0
-  - protobufjs@7.6.2
 
 overrides:
   minimatch@3>brace-expansion: ^1.1.11
