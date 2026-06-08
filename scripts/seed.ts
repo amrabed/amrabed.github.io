@@ -5,7 +5,7 @@ import path from "path";
 import { embedMany } from "ai";
 
 import { adminDb } from "../src/middleware/firebase";
-import { embeddingModel } from "../src/middleware/genai";
+import { embeddingModel, googleOptions } from "../src/middleware/genai";
 
 async function deleteCollection(collectionPath: string) {
   if (!adminDb) throw new Error("adminDb is null");
@@ -148,6 +148,7 @@ async function main() {
         const { embeddings } = await embedMany({
           model: embeddingModel,
           values: batchChunks,
+          providerOptions: googleOptions,
         });
 
         if (!adminDb) throw new Error("adminDb is null");

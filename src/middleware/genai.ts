@@ -1,10 +1,20 @@
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import {
+  createGoogleGenerativeAI,
+  GoogleEmbeddingModelOptions,
+} from "@ai-sdk/google";
 
 const google = createGoogleGenerativeAI({
   apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY!,
 });
 
 const embeddingModel = google.embeddingModel("gemini-embedding-001");
-const chatModel = google("gemini-3.1-flash-lite");
+const chatModel = google("gemini-flash-lite-latest");
 
-export { google, embeddingModel, chatModel };
+const googleOptions = {
+  google: {
+    outputDimensionality: 1536,
+    taskType: "SEMANTIC_SIMILARITY",
+  } satisfies GoogleEmbeddingModelOptions,
+};
+
+export { google, googleOptions, embeddingModel, chatModel };

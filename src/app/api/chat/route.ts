@@ -1,9 +1,7 @@
 import { convertToModelMessages, embed, streamText } from "ai";
 
-import { GoogleEmbeddingModelOptions } from "@ai-sdk/google";
-
 import { findSimilarChunks } from "@/middleware/firebase";
-import { chatModel, embeddingModel } from "@/middleware/genai";
+import { chatModel, embeddingModel, googleOptions } from "@/middleware/genai";
 import { ratelimit } from "@/middleware/upstash";
 
 export async function POST(req: Request) {
@@ -43,12 +41,7 @@ export async function POST(req: Request) {
   const { embedding } = await embed({
     model: embeddingModel,
     value: userQuery,
-    providerOptions: {
-      google: {
-        outputDimensionality: 1536,
-        taskType: "SEMANTIC_SIMILARITY",
-      } satisfies GoogleEmbeddingModelOptions,
-    },
+    providerOptions: googleOptions,
   });
 
   const chunks = await findSimilarChunks(embedding, 4);
