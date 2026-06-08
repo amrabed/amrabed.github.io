@@ -1,11 +1,11 @@
 import { FieldValue } from "firebase-admin/firestore";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 import { embedMany } from "ai";
 
-import { adminDb } from "../src/middleware/firebase";
-import { embeddingModel, googleOptions } from "../src/middleware/genai";
+import { adminDb } from "@/middleware/firebase";
+import { embeddingModel, googleOptions } from "@/middleware/genai";
 
 async function deleteCollection(collectionPath: string) {
   if (!adminDb) throw new Error("adminDb is null");
