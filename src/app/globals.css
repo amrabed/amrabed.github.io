@@ -100,8 +100,8 @@ div {
 /* Scroll to top button */
 .scroll-to-top {
   position: fixed;
-  bottom: 5rem;
-  right: 2%;
+  bottom: 1.5rem;
+  right: 6rem;
   z-index: 1000;
 }
 
