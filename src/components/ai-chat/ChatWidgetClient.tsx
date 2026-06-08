@@ -34,8 +34,8 @@ export default function ChatWidgetClient() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsOpen(false);
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    globalThis.addEventListener("keydown", handleKeyDown);
+    return () => globalThis.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const toggleChat = () => setIsOpen(!isOpen);
@@ -109,11 +109,10 @@ export default function ChatWidgetClient() {
                   className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${
-                      m.role === "user"
+                    className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${m.role === "user"
                         ? "bg-teal-600 text-white"
                         : "bg-default-100 text-default-900"
-                    }`}
+                      }`}
                   >
                     <div className="prose prose-sm dark:prose-invert max-w-none">
                       <ReactMarkdown>{content}</ReactMarkdown>
