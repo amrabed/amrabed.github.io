@@ -71,7 +71,7 @@ export default function ChatWidgetClient() {
       {isOpen && (
         <div className="mb-4 flex h-[500px] w-[360px] flex-col overflow-hidden rounded-2xl border border-divider bg-white dark:bg-zinc-900 shadow-2xl transition-all text-foreground">
           {/* Header */}
-          <div className="flex items-center justify-between bg-teal-600 px-4 py-3 text-white">
+          <div className="flex items-center justify-between bg-primary px-4 py-3 text-white">
             <h3 className="text-sm font-semibold">Ask about Amr</h3>
             <button
               onClick={toggleChat}
@@ -94,14 +94,10 @@ export default function ChatWidgetClient() {
                 Ask me anything about Amr's experience, projects, or skills 🙂
               </div>
             )}
-            {messages.map((m) => {
-              const content =
-                m.parts
-                  ?.filter((p) => p.type === "text")
-                  .map((p) => p.text)
-                  .join("") || "";
-
-              if (!content && m.role === "assistant" && isLoading) return null;
+            {messages.map((m, index) => {
+              const isLast = index === messages.length - 1;
+              const showTypingIndicator =
+                isLast && m.role === "assistant" && isLoading;
 
               return (
                 <div
@@ -111,26 +107,49 @@ export default function ChatWidgetClient() {
                   <div
                     className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${
                       m.role === "user"
-                        ? "bg-teal-600 text-white"
+                        ? "bg-primary text-white"
                         : "bg-default-100 text-default-900"
                     }`}
                   >
                     <div className="prose prose-sm dark:prose-invert max-w-none">
-                      <ReactMarkdown>{content}</ReactMarkdown>
+                      {m.parts?.map((part, i) => {
+                        if (part.type === "text") {
+                          return <ReactMarkdown key={i}>{part.text}</ReactMarkdown>;
+                        }
+                        if (part.type === "reasoning") {
+                          return (
+                            <div
+                              key={i}
+                              className="mb-2 italic text-default-500 border-l-2 border-default-300 pl-2 text-xs"
+                            >
+                              Thinking: {part.text}
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
+                      {showTypingIndicator && (
+                        <div className="flex items-center gap-1 mt-2">
+                          <div className="h-1 w-1 animate-bounce rounded-full bg-default-400 [animation-delay:-0.3s]"></div>
+                          <div className="h-1 w-1 animate-bounce rounded-full bg-default-400 [animation-delay:-0.15s]"></div>
+                          <div className="h-1 w-1 animate-bounce rounded-full bg-default-400"></div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
               );
             })}
-            {isLoading && (
-              <div className="flex justify-start">
-                <div className="flex items-center gap-1 bg-default-100 rounded-2xl px-4 py-3">
-                  <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-default-400 [animation-delay:-0.3s]"></div>
-                  <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-default-400 [animation-delay:-0.15s]"></div>
-                  <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-default-400"></div>
+            {status === "submitted" &&
+              messages[messages.length - 1]?.role !== "assistant" && (
+                <div className="flex justify-start">
+                  <div className="flex items-center gap-1 bg-default-100 rounded-2xl px-4 py-3">
+                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-default-400 [animation-delay:-0.3s]"></div>
+                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-default-400 [animation-delay:-0.15s]"></div>
+                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-default-400"></div>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
             {error && (
               <div className="text-center text-xs text-danger px-4">
                 {isRateLimited
@@ -163,7 +182,7 @@ export default function ChatWidgetClient() {
                 isIconOnly
                 type="submit"
                 variant="primary"
-                className="bg-teal-600 text-white min-w-8 w-8 h-8"
+                className="bg-primary text-white min-w-8 w-8 h-8"
                 isDisabled={isLoading || !input?.trim()}
               >
                 <Send size={16} />
@@ -178,7 +197,7 @@ export default function ChatWidgetClient() {
         isIconOnly
         onClick={toggleChat}
         aria-label="Open AI assistant"
-        className="h-14 w-14 rounded-full bg-teal-600 text-white shadow-lg hover:scale-110 transition-transform"
+        className="h-14 w-14 rounded-full bg-primary text-white shadow-lg hover:scale-110 transition-transform"
       >
         {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
       </Button>
