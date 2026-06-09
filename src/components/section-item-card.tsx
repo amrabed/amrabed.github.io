@@ -15,8 +15,6 @@ interface SectionItemCardProps {
   footer: string;
 }
 
-// ⚡ Optimization: Memoize SectionItemCard to prevent unnecessary re-renders
-// during filtering or searching.
 export const SectionItemCard = memo(
   ({ href, image, title, subtitle, footer }: SectionItemCardProps) => {
     return (

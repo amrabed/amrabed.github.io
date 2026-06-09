@@ -14,8 +14,6 @@ import skills from "@/data/skills";
 import { Filter, Selections } from "./filter";
 import { Searchbar } from "./search";
 
-// ⚡ Optimization: Hoist static mappings outside the component to avoid
-// repeated computations on every render.
 const AREA_OPTIONS = Object.entries(areas).map(([id, a]) => ({
   id,
   name: a.name,
@@ -33,8 +31,6 @@ const ROLE_OPTIONS = Object.entries(roles).map(([id, r]) => ({
   name: r.name,
 }));
 
-// ⚡ Optimization: Memoize the FilterDropdown to prevent re-renders when
-// the search query changes. It only depends on the selected filters.
 const FilterDropdown = memo(
   ({
     selected,
