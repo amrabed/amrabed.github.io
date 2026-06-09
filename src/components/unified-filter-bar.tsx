@@ -3,6 +3,7 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
+import React, { memo } from "react";
 
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
@@ -12,6 +13,60 @@ import skills from "@/data/skills";
 
 import { Filter, Selections } from "./filter";
 import { Searchbar } from "./search";
+
+// ⚡ Optimization: Hoist static mappings outside the component to avoid
+// repeated computations on every render.
+const AREA_OPTIONS = Object.entries(areas).map(([id, a]) => ({
+  id,
+  name: a.name,
+  icon: a.icon,
+}));
+
+const SKILL_OPTIONS = Object.entries(skills).map(([id, s]) => ({
+  id,
+  name: s.name,
+  icon: s.icon,
+}));
+
+const ROLE_OPTIONS = Object.entries(roles).map(([id, r]) => ({
+  id,
+  name: r.name,
+}));
+
+// ⚡ Optimization: Memoize the FilterDropdown to prevent re-renders when
+// the search query changes. It only depends on the selected filters.
+const FilterDropdown = memo(
+  ({
+    selected,
+    setSelected,
+  }: {
+    selected: Record<string, string[]>;
+    setSelected: (category: string, selected: string[]) => void;
+  }) => (
+    <Filter className="rounded-l-none rounded-r-2xl border-l-0 bg-white dark:bg-slate-800 h-[38px] min-w-[48px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border-zinc-200 dark:border-zinc-700">
+      <Selections
+        label="Areas"
+        values={AREA_OPTIONS}
+        selected={selected["areas"] || []}
+        setSelected={(vals) => setSelected("areas", vals)}
+      />
+      <Selections
+        label="Skills"
+        values={SKILL_OPTIONS}
+        selected={selected["skills"] || []}
+        setSelected={(vals) => setSelected("skills", vals)}
+      />
+      <Selections
+        label="Roles"
+        values={ROLE_OPTIONS}
+        selected={selected["roles"] || []}
+        setSelected={(vals) => setSelected("roles", vals)}
+      />
+    </Filter>
+  ),
+);
+
+FilterDropdown.displayName = "FilterDropdown";
 
 export const UnifiedFilterBar = () => {
   const { query, setQuery } = useSearch();
@@ -42,37 +97,7 @@ export const UnifiedFilterBar = () => {
             className="rounded-l-2xl rounded-r-none border-r-0"
             autoFocus={false}
           />
-          <Filter className="rounded-l-none rounded-r-2xl border-l-0 bg-white dark:bg-slate-800 h-[38px] min-w-[48px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border-zinc-200 dark:border-zinc-700">
-            <Selections
-              label="Areas"
-              values={Object.entries(areas).map(([id, a]) => ({
-                id,
-                name: a.name,
-                icon: a.icon,
-              }))}
-              selected={selected["areas"] || []}
-              setSelected={(vals) => setSelected("areas", vals)}
-            />
-            <Selections
-              label="Skills"
-              values={Object.entries(skills).map(([id, s]) => ({
-                id,
-                name: s.name,
-                icon: s.icon,
-              }))}
-              selected={selected["skills"] || []}
-              setSelected={(vals) => setSelected("skills", vals)}
-            />
-            <Selections
-              label="Roles"
-              values={Object.entries(roles).map(([id, r]) => ({
-                id,
-                name: r.name,
-              }))}
-              selected={selected["roles"] || []}
-              setSelected={(vals) => setSelected("roles", vals)}
-            />
-          </Filter>
+          <FilterDropdown selected={selected} setSelected={setSelected} />
         </div>
 
         {hasFilters && (
