@@ -92,10 +92,10 @@ export const MainHeader = () => {
         <div className="sm:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            className="p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
+            className="p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md text-slate-500 hover:text-primary transition-colors"
           >
             <svg
               className="h-6 w-6"
@@ -133,6 +133,11 @@ export const MainHeader = () => {
                 }`}
                 href={section.link}
                 onClick={(e) => handleScroll(e, section.link)}
+                aria-current={
+                  activeSection === section.link.substring(1)
+                    ? "location"
+                    : undefined
+                }
               >
                 {section.name}
               </a>
@@ -157,6 +162,11 @@ export const MainHeader = () => {
                   }`}
                   href={section.link}
                   onClick={(e) => handleScroll(e, section.link)}
+                  aria-current={
+                    activeSection === section.link.substring(1)
+                      ? "location"
+                      : undefined
+                  }
                 >
                   {section.name}
                 </a>
