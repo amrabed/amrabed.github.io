@@ -28,6 +28,15 @@ export const Searchbar = ({
     );
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && document.activeElement === inputRef.current) {
+        if (query) {
+          setQuery("");
+        } else {
+          inputRef.current?.blur();
+        }
+        return;
+      }
+
       const isSearchShortcut =
         (e.key === "k" && (e.metaKey || e.ctrlKey)) || e.key === "/";
 
@@ -47,7 +56,7 @@ export const Searchbar = ({
 
     globalThis.addEventListener("keydown", handleKeyDown);
     return () => globalThis.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [query, setQuery]);
 
   return (
     <div className="relative flex w-full">
@@ -88,7 +97,10 @@ export const Searchbar = ({
           variant="ghost"
           size="sm"
           aria-label="Clear search"
-          onPress={() => setQuery("")}
+          onPress={() => {
+            setQuery("");
+            inputRef.current?.focus();
+          }}
           className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 min-w-0 h-7 w-7"
         >
           <XMarkIcon className="size-4" />

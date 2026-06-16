@@ -38,28 +38,38 @@ const FilterDropdown = memo(
   }: {
     selected: Record<string, string[]>;
     setSelected: (category: string, selected: string[]) => void;
-  }) => (
-    <Filter className="rounded-l-none rounded-r-2xl border-l-0 bg-white dark:bg-slate-800 h-[38px] min-w-[48px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border-zinc-200 dark:border-zinc-700">
-      <Selections
-        label="Areas"
-        values={AREA_OPTIONS}
-        selected={selected["areas"] || []}
-        setSelected={(vals) => setSelected("areas", vals)}
-      />
-      <Selections
-        label="Skills"
-        values={SKILL_OPTIONS}
-        selected={selected["skills"] || []}
-        setSelected={(vals) => setSelected("skills", vals)}
-      />
-      <Selections
-        label="Roles"
-        values={ROLE_OPTIONS}
-        selected={selected["roles"] || []}
-        setSelected={(vals) => setSelected("roles", vals)}
-      />
-    </Filter>
-  ),
+  }) => {
+    const activeCount = Object.values(selected).reduce(
+      (acc, curr) => acc + curr.length,
+      0,
+    );
+
+    return (
+      <Filter
+        activeCount={activeCount}
+        className="rounded-l-none rounded-r-2xl border-l-0 bg-white dark:bg-slate-800 h-[38px] min-w-[48px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border-zinc-200 dark:border-zinc-700"
+      >
+        <Selections
+          label="Areas"
+          values={AREA_OPTIONS}
+          selected={selected["areas"] || []}
+          setSelected={(vals) => setSelected("areas", vals)}
+        />
+        <Selections
+          label="Skills"
+          values={SKILL_OPTIONS}
+          selected={selected["skills"] || []}
+          setSelected={(vals) => setSelected("skills", vals)}
+        />
+        <Selections
+          label="Roles"
+          values={ROLE_OPTIONS}
+          selected={selected["roles"] || []}
+          setSelected={(vals) => setSelected("roles", vals)}
+        />
+      </Filter>
+    );
+  },
 );
 
 FilterDropdown.displayName = "FilterDropdown";
