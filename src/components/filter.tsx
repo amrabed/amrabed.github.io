@@ -103,9 +103,11 @@ export const Selections = ({
 export const Filter = ({
   children,
   className,
+  activeCount = 0,
 }: {
   children: ReactNode;
   className?: string;
+  activeCount?: number;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -118,9 +120,14 @@ export const Filter = ({
           isIconOnly
           aria-label="Open filters"
           aria-haspopup="dialog"
-          className={className}
+          className={`relative ${className}`}
         >
           <AdjustmentsHorizontalIcon className="size-6" />
+          {activeCount > 0 && (
+            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-slate-800">
+              {activeCount}
+            </span>
+          )}
         </Button>
       </Popover.Trigger>
       <Popover.Content
