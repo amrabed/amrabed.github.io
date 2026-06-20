@@ -59,13 +59,13 @@ const projects: Project[] = [
   },
   {
     id: "python-project-template",
-    name: "Python Project Template",
+    name: "cur8d.py",
     description:
       "Start your next Python Project with all the necessary tools in no time using this GitHub template",
     date: "2024-12-21",
     links: {
-      homepage: "https://amrabed.com/python-project-template",
-      github: "amrabed/python-project-template",
+      homepage: "https://cur8d.dev/python",
+      github: "cur8d/python",
     },
     tools: ["Python", "Docker"],
     tags: ["Programming", "DevOps"],
@@ -228,6 +228,21 @@ const projects: Project[] = [
     tools: ["Pyhton", "TensorFlow", "Docker"],
     tags: ["Cloud", "Machine Learning", "Deep Learning"],
     group: 4,
+  },
+  {
+    id: "cur8d-tsx",
+    name: "cur8d.tsx",
+    description: "TypeScript project",
+    date: "2026-01-01",
+    links: {
+      homepage: "https://tsx.cur8d.dev",
+      github: "cur8d/typescript",
+    },
+    tools: ["TypeScript"],
+    tags: ["Web", "Programming"],
+    roles: ["engineer"],
+    group: 0,
+    featured: false,
   },
 
   {
