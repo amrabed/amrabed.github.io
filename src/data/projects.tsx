@@ -58,7 +58,7 @@ const projects: Project[] = [
     priority: 20,
   },
   {
-    id: "python-project-template",
+    id: "cur8d-py",
     name: "cur8d.py",
     description:
       "Start your next Python Project with all the necessary tools in no time using this GitHub template",
@@ -232,7 +232,8 @@ const projects: Project[] = [
   {
     id: "cur8d-tsx",
     name: "cur8d.tsx",
-    description: "TypeScript project",
+    description:
+      "High-performance, accessible, and type-safe template powered by TypeScript, Next.js, HeroUI, and Tailwind CSS",
     date: "2026-01-01",
     links: {
       homepage: "https://tsx.cur8d.dev",
