@@ -1,8 +1,11 @@
-/* global process */
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  output: process.env.NEXT_EXPORT === "true" ? "export" : undefined,
+  output:
+    typeof globalThis.process !== "undefined" &&
+    globalThis.process.env.NEXT_EXPORT === "true"
+      ? "export"
+      : undefined,
   reactStrictMode: true,
   images: {
     unoptimized: true,

@@ -181,9 +181,9 @@ export async function POST(req: Request) {
       typeof lastMessage.content === "string"
         ? lastMessage.content
         : lastMessage.content
-          .filter((c) => c.type === "text")
-          .map((c) => c.text)
-          .join("");
+            .filter((c) => c.type === "text")
+            .map((c) => c.text)
+            .join("");
 
     if (userQuery.length > 500) {
       return new Response(JSON.stringify({ error: "Message too long." }), {
@@ -221,15 +221,12 @@ ${context}`;
     console.error("API error:", error);
     const errorMessage =
       error instanceof Error ? error.message : "An error occurred.";
-    return new Response(
-      JSON.stringify({ error: errorMessage }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-          ...corsHeaders,
-        },
+    return new Response(JSON.stringify({ error: errorMessage }), {
+      status: 500,
+      headers: {
+        "Content-Type": "application/json",
+        ...corsHeaders,
       },
-    );
+    });
   }
 }

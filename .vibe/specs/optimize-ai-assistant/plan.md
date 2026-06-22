@@ -10,7 +10,7 @@ The goal is to fix the AI assistant so it works seamlessly on local, Firebase Ho
    - **Benefits**:
      - **Speed**: Cuts API latency in half (no query embeddings, no database lookups).
      - **Zero Database Setup**: No need to seed Firestore, create vector indexes, or manage credentials (`firebase-key.json`).
-     - **Better Accuracy**: The LLM has access to the *complete* portfolio, allowing it to cross-reference experiences, projects, and skills with 100% accuracy, instead of retrieving only the top 4 semantic chunks.
+     - **Better Accuracy**: The LLM has access to the _complete_ portfolio, allowing it to cross-reference experiences, projects, and skills with 100% accuracy, instead of retrieving only the top 4 semantic chunks.
 
 2. **Conditional Next.js Output Mode**:
    - Currently, `next.config.mjs` has `output: "export"` hardcoded. This disables Next.js API routes at build time, causing the `/api/chat` route to be missing.
