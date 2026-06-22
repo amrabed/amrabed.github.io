@@ -125,8 +125,13 @@ export default function ChatWidgetClient() {
     }
     if (typeof globalThis.window === "undefined") return "/api/chat";
     const hostname = globalThis.window.location.hostname;
-    // Check if running on GitHub Pages domains
-    if (hostname.includes("github.io") || hostname === "amrabed.com") {
+    // Check if running on external hosting domains (GitHub Pages, Firebase, etc.)
+    if (
+      hostname.includes("github.io") ||
+      hostname.includes("web.app") ||
+      hostname.includes("firebaseapp.com") ||
+      hostname === "amrabed.com"
+    ) {
       return "https://amrabed.vercel.app/api/chat";
     }
     return "/api/chat";
