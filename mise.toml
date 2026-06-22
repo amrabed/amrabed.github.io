@@ -12,6 +12,7 @@ i = 'mise run install'
 l = 'mise run lint'
 d = 'mise run dev'
 v = 'mise run verify'
+D = 'mise run deploy'
 
 ll = 'ls -l'
 la = 'ls -A'
@@ -68,11 +69,8 @@ depends = ['install', 'lint']
 
 [tasks.deploy]
 description = 'Deploy to Firebase'
-run = 'firebase deploy --only hosting'
-depends = ['build']
-env = {
-  NEXT_EXPORT = 'true'
-}
+run = 'NEXT_EXPORT=true pnpm run build && firebase deploy --only hosting'
+depends = ['install']
 
 [tasks.clean]
 description = 'Clean build artifacts'
