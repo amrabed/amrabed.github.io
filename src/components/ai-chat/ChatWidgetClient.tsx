@@ -167,7 +167,7 @@ export default function ChatWidgetClient() {
         <div className="mb-4 flex h-[500px] w-[360px] flex-col overflow-hidden rounded-2xl border border-indigo-100 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-2xl text-foreground transition-all duration-300">
           {/* Header */}
           <div className="flex items-center justify-between bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 px-4 py-3.5 text-white">
-            <h3 className="text-sm font-semibold">Ask about Amr</h3>
+            <h3 className="text-sm font-semibold">Miro — Amr's Assistant</h3>
             <button
               onClick={toggleChat}
               aria-label="Close"
@@ -186,7 +186,7 @@ export default function ChatWidgetClient() {
           >
             {messages.length === 0 && !isLoading && (
               <div className="flex h-full items-center justify-center text-center text-sm text-default-500 px-4">
-                Ask me anything about Amr's experience, projects, or skills 🙂
+                Hi! I'm Miro. Ask me anything about Amr's experience, projects, or skills 🙂
               </div>
             )}
             {messages.map((m, index) => {
