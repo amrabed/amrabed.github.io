@@ -10,6 +10,7 @@ import {
   Pencil,
 } from "lucide-react";
 
+import { DefaultChatTransport, UIMessage } from "ai";
 import { useState, useRef, useEffect, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 
@@ -19,7 +20,7 @@ import { Button } from "@heroui/react";
 import { useFilter } from "@/contexts/filter";
 
 const markdownComponents = {
-  a: ({ href, children }: { href?: string; children: React.ReactNode }) => {
+  a: ({ href, children }: { href?: string; children?: React.ReactNode }) => {
     const isHash = href?.startsWith("#");
     return (
       <a
@@ -32,33 +33,26 @@ const markdownComponents = {
       </a>
     );
   },
-  p: ({ children }: { children: React.ReactNode }) => (
+  p: ({ children }: { children?: React.ReactNode }) => (
     <p className="mb-2 last:mb-0 leading-relaxed text-left">{children}</p>
   ),
-  ul: ({ children }: { children: React.ReactNode }) => (
+  ul: ({ children }: { children?: React.ReactNode }) => (
     <ul className="list-disc pl-4 mb-2 space-y-1 text-left">{children}</ul>
   ),
-  ol: ({ children }: { children: React.ReactNode }) => (
+  ol: ({ children }: { children?: React.ReactNode }) => (
     <ol className="list-decimal pl-4 mb-2 space-y-1 text-left">{children}</ol>
   ),
-  li: ({ children }: { children: React.ReactNode }) => (
+  li: ({ children }: { children?: React.ReactNode }) => (
     <li className="mb-0.5 text-left">{children}</li>
   ),
-  strong: ({ children }: { children: React.ReactNode }) => (
+  strong: ({ children }: { children?: React.ReactNode }) => (
     <strong className="font-bold text-indigo-950 dark:text-white">
       {children}
     </strong>
   ),
 };
 
-const renderMessageContent = (
-  m: {
-    id: string;
-    role: string;
-    parts?: Array<{ type: string; text: string }>;
-  },
-  messageText: string,
-) => {
+const renderMessageContent = (m: UIMessage, messageText: string) => {
   if (m.parts && m.parts.length > 0) {
     return m.parts.map((part, i) => {
       const partKey = `${m.id}-part-${part.type}-${i}`;
@@ -136,7 +130,7 @@ export default function ChatWidgetClient() {
   };
 
   const { messages, sendMessage, status, error, stop } = useChat({
-    api: getApiEndpoint(),
+    transport: new DefaultChatTransport({ api: getApiEndpoint() }),
   });
 
   const isLoading = status === "submitted" || status === "streaming";
@@ -206,7 +200,7 @@ export default function ChatWidgetClient() {
 
   const isRateLimited =
     error?.message?.includes("429") ||
-    (error as Record<string, unknown>)?.status === 429;
+    (error as unknown as { status?: number })?.status === 429;
 
   const getErrorMessage = () => {
     if (!error) return "";
@@ -257,7 +251,6 @@ export default function ChatWidgetClient() {
               const showTypingIndicator =
                 isLast && m.role === "assistant" && isLoading;
               const messageText =
-                m.content ||
                 m.parts
                   ?.filter((p) => p.type === "text")
                   .map((p) =>
@@ -265,8 +258,7 @@ export default function ChatWidgetClient() {
                       ? (p as { type: "text"; text: string }).text
                       : "",
                   )
-                  .join("") ||
-                "";
+                  .join("") || "";
 
               return (
                 <div
