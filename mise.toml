@@ -56,8 +56,7 @@ depends = ['install', 'lint']
 
 [tasks.deploy]
 description = 'Deploy to Firebase'
-run = 'firebase deploy --only hosting'
-depends = ['build']
+run = 'firebase experiments:enable webframeworks && firebase deploy --only hosting'
 
 [tasks.clean]
 description = 'Clean build artifacts'

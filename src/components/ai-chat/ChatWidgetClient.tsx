@@ -11,7 +11,20 @@ import { Button } from "@heroui/react";
 export default function ChatWidgetClient() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
-  const { messages, sendMessage, status, error } = useChat();
+
+  const getApiEndpoint = () => {
+    if (typeof window === "undefined") return "/api/chat";
+    const hostname = window.location.hostname;
+    // Check if running on GitHub Pages domains
+    if (hostname.includes("github.io") || hostname === "amrabed.com") {
+      return "https://amr-abed.web.app/api/chat";
+    }
+    return "/api/chat";
+  };
+
+  const { messages, sendMessage, status, error } = useChat({
+    api: getApiEndpoint(),
+  });
 
   const isLoading = status === "submitted" || status === "streaming";
 
@@ -64,7 +77,8 @@ export default function ChatWidgetClient() {
   );
 
   const isRateLimited =
-    error?.message?.includes("429") || (error as any)?.status === 429;
+    error?.message?.includes("429") ||
+    (error as Record<string, unknown>)?.status === 429;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
@@ -114,7 +128,9 @@ export default function ChatWidgetClient() {
                     <div className="prose prose-sm dark:prose-invert max-w-none">
                       {m.parts?.map((part, i) => {
                         if (part.type === "text") {
-                          return <ReactMarkdown key={i}>{part.text}</ReactMarkdown>;
+                          return (
+                            <ReactMarkdown key={i}>{part.text}</ReactMarkdown>
+                          );
                         }
                         if (part.type === "reasoning") {
                           return (
