@@ -1,6 +1,4 @@
-"use client";
-
-import { MessageCircle, X, Send } from "lucide-react";
+import { MessageCircle, X, Send, Square, Copy, Check, Pencil } from "lucide-react";
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
@@ -8,9 +6,64 @@ import ReactMarkdown from "react-markdown";
 import { useChat } from "@ai-sdk/react";
 import { Button } from "@heroui/react";
 
+"use client";
+
+const markdownComponents = {
+  a: ({ href, children }: { href?: string; children: React.ReactNode }) => {
+    const isHash = href?.startsWith("#");
+    return (
+      <a
+        href={href}
+        target={isHash ? undefined : "_blank"}
+        rel={isHash ? undefined : "noopener noreferrer"}
+        className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold transition-colors"
+      >
+        {children}
+      </a>
+    );
+  },
+  p: ({ children }: { children: React.ReactNode }) => (
+    <p className="mb-2 last:mb-0 leading-relaxed text-left">
+      {children}
+    </p>
+  ),
+  ul: ({ children }: { children: React.ReactNode }) => (
+    <ul className="list-disc pl-4 mb-2 space-y-1 text-left">
+      {children}
+    </ul>
+  ),
+  ol: ({ children }: { children: React.ReactNode }) => (
+    <ol className="list-decimal pl-4 mb-2 space-y-1 text-left">
+      {children}
+    </ol>
+  ),
+  li: ({ children }: { children: React.ReactNode }) => (
+    <li className="mb-0.5 text-left">{children}</li>
+  ),
+  strong: ({ children }: { children: React.ReactNode }) => (
+    <strong className="font-bold text-indigo-950 dark:text-white">
+      {children}
+    </strong>
+  ),
+};
+
 export default function ChatWidgetClient() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  const copyToClipboard = useCallback((id: string, text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  }, []);
+
+  const handleEdit = useCallback((text: string) => {
+    setInput(text);
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   const getApiEndpoint = () => {
     if (typeof window === "undefined") return "/api/chat";
@@ -22,7 +75,7 @@ export default function ChatWidgetClient() {
     return "/api/chat";
   };
 
-  const { messages, sendMessage, status, error } = useChat({
+  const { messages, sendMessage, status, error, stop } = useChat({
     api: getApiEndpoint(),
   });
 
@@ -140,6 +193,7 @@ export default function ChatWidgetClient() {
               const isLast = index === messages.length - 1;
               const showTypingIndicator =
                 isLast && m.role === "assistant" && isLoading;
+              const messageText = m.content || m.parts?.filter((p) => p.type === "text").map((p) => p.type === "text" ? (p as any).text : "").join("") || "";
 
               return (
                 <div
@@ -147,80 +201,85 @@ export default function ChatWidgetClient() {
                   className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm shadow-sm text-left [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left ${
+                    className={`relative group max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm text-left [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left ${
                       m.role === "user"
                         ? "bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white"
                         : "bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground"
                     }`}
                   >
+                    {/* Floating Message Actions */}
+                    {m.role === "user" && (
+                      <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-[calc(100%+8px)] flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-10">
+                        <button
+                          type="button"
+                          onClick={() => handleEdit(messageText)}
+                          title="Edit question"
+                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+                        >
+                          <Pencil size={12} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => copyToClipboard(m.id, messageText)}
+                          title="Copy question"
+                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+                        >
+                          {copiedId === m.id ? <Check size={12} className="text-green-500 animate-pulse" /> : <Copy size={12} />}
+                        </button>
+                      </div>
+                    )}
+                    {m.role === "assistant" && (
+                      <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-[calc(100%+8px)] flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-10">
+                        <button
+                          type="button"
+                          onClick={() => copyToClipboard(m.id, messageText)}
+                          title="Copy answer"
+                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+                        >
+                          {copiedId === m.id ? <Check size={12} className="text-green-500 animate-pulse" /> : <Copy size={12} />}
+                        </button>
+                      </div>
+                    )}
                     <div className="prose prose-sm dark:prose-invert max-w-none text-left [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left">
-                      {m.parts?.map((part, i) => {
-                        if (part.type === "text") {
-                          if (m.role === "user") {
+                      {m.parts && m.parts.length > 0 ? (
+                        m.parts.map((part, i) => {
+                          if (part.type === "text") {
+                            if (m.role === "user") {
+                              return (
+                                <div key={i} className="whitespace-pre-wrap text-left break-words">
+                                  {part.text}
+                                </div>
+                              );
+                            }
                             return (
-                              <div key={i} className="whitespace-pre-wrap text-left break-words">
+                              <ReactMarkdown key={i} components={markdownComponents}>
                                 {part.text}
+                              </ReactMarkdown>
+                            );
+                          }
+                          if (part.type === "reasoning") {
+                            return (
+                              <div
+                                key={i}
+                                className="mb-2 italic text-zinc-500 dark:text-zinc-400 border-l-2 border-zinc-300 dark:border-zinc-700 pl-2 text-xs"
+                              >
+                                Thinking: {part.text}
                               </div>
                             );
                           }
-                          return (
-                            <ReactMarkdown
-                              key={i}
-                              components={{
-                                a: ({ href, children }) => {
-                                  const isHash = href?.startsWith("#");
-                                  return (
-                                    <a
-                                      href={href}
-                                      target={isHash ? undefined : "_blank"}
-                                      rel={isHash ? undefined : "noopener noreferrer"}
-                                      className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold transition-colors"
-                                    >
-                                      {children}
-                                    </a>
-                                  );
-                                },
-                                p: ({ children }) => (
-                                  <p className="mb-2 last:mb-0 leading-relaxed text-left">
-                                    {children}
-                                  </p>
-                                ),
-                                ul: ({ children }) => (
-                                  <ul className="list-disc pl-4 mb-2 space-y-1 text-left">
-                                    {children}
-                                  </ul>
-                                ),
-                                ol: ({ children }) => (
-                                  <ol className="list-decimal pl-4 mb-2 space-y-1 text-left">
-                                    {children}
-                                  </ol>
-                                ),
-                                li: ({ children }) => (
-                                  <li className="mb-0.5 text-left">{children}</li>
-                                ),
-                                strong: ({ children }) => (
-                                  <strong className="font-bold text-indigo-950 dark:text-white">
-                                    {children}
-                                  </strong>
-                                ),
-                              }}
-                            >
-                              {part.text}
-                            </ReactMarkdown>
-                          );
-                        }
-                        if (part.type === "reasoning") {
-                          return (
-                            <div
-                              key={i}
-                              className="mb-2 italic text-default-500 border-l-2 border-default-300 pl-2 text-xs"
-                            >
-                              Thinking: {part.text}
-                            </div>
-                          );
-                        }
-                        return null;
-                      })}
+                          return null;
+                        })
+                      ) : (
+                        m.role === "user" ? (
+                          <div className="whitespace-pre-wrap text-left break-words">
+                            {messageText}
+                          </div>
+                        ) : (
+                          <ReactMarkdown components={markdownComponents}>
+                            {messageText}
+                          </ReactMarkdown>
+                        )
+                      )}
                       {showTypingIndicator && (
                         <div className="flex items-center gap-1.5 mt-3">
                           <span className="text-xs text-indigo-500/80 dark:text-indigo-300/80 font-medium animate-pulse">
@@ -254,6 +313,18 @@ export default function ChatWidgetClient() {
                 {getErrorMessage()}
               </div>
             )}
+            {isLoading && (
+              <div className="flex justify-center sticky bottom-0 pt-2 pb-1 z-20">
+                <button
+                  type="button"
+                  onClick={stop}
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-md hover:shadow-lg text-xs font-semibold text-red-600 dark:text-red-400 hover:bg-zinc-50 dark:hover:bg-zinc-700/80 transition-all duration-200"
+                >
+                  <Square size={8} fill="currentColor" className="text-red-500" />
+                  Stop Generating
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Input */}
@@ -276,14 +347,25 @@ export default function ChatWidgetClient() {
                   }
                 }}
               />
-              <Button
-                isIconOnly
-                type="submit"
-                className="bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform"
-                isDisabled={isLoading || !input?.trim()}
-              >
-                <Send size={14} />
-              </Button>
+              {isLoading ? (
+                <Button
+                  isIconOnly
+                  type="button"
+                  onClick={stop}
+                  className="bg-red-500 hover:bg-red-600 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform"
+                >
+                  <Square size={10} fill="currentColor" />
+                </Button>
+              ) : (
+                <Button
+                  isIconOnly
+                  type="submit"
+                  className="bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform"
+                  isDisabled={!input?.trim()}
+                >
+                  <Send size={14} />
+                </Button>
+              )}
             </div>
           </form>
         </div>

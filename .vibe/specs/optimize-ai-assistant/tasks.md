@@ -7,3 +7,7 @@
 - [x] Task 5: Remove Firestore database files and seeding scripts (`src/middleware/firebase.ts`, `scripts/seed.ts`, `seed.yml`).
 - [x] Task 6: Add dynamic API endpoint determination in the client (`src/components/ai-chat/ChatWidgetClient.tsx`).
 - [x] Task 7: Verify builds and run local check.
+- [x] Task 8: Extract `ReactMarkdown` custom components to module scope in `ChatWidgetClient.tsx` to optimize performance.
+- [x] Task 9: Make message copy and edit actions robust using `messageText` fallback.
+- [x] Task 10: Enhance copy/edit action panel layout for mobile-friendliness and touch support.
+- [x] Task 11: Add a sticky floating "Stop Generating" / Interrupt button inside the message container during generation.
