@@ -191,12 +191,13 @@ export async function POST(req: Request) {
           error: "Message is too long (maximum 10,000 characters).",
         }),
         {
-        status: 400,
-        headers: {
-          "Content-Type": "application/json",
-          ...corsHeaders,
+          status: 400,
+          headers: {
+            "Content-Type": "application/json",
+            ...corsHeaders,
+          },
         },
-      });
+      );
     }
 
     const recentMessages = modelMessages.slice(-6);

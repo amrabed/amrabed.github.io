@@ -14,8 +14,8 @@ import HeroSection from "@/components/sections/hero";
 import { ProjectsSection } from "@/components/sections/projects";
 import { PublicationsSection } from "@/components/sections/publications";
 import { SkillsSection } from "@/components/sections/skills";
-import { useFilter } from "@/contexts/filter";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
+import { useFilter } from "@/contexts/filter";
 
 const Home = () => {
   const [showFilter, setShowFilter] = useState(false);

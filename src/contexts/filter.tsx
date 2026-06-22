@@ -73,7 +73,13 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
   useUrlSync(selected, updateUrl);
 
   const contextValue = useMemo(
-    () => ({ selected, setSelected, clearAll, isFilterBarVisible, setIsFilterBarVisible }),
+    () => ({
+      selected,
+      setSelected,
+      clearAll,
+      isFilterBarVisible,
+      setIsFilterBarVisible,
+    }),
     [selected, setSelected, clearAll, isFilterBarVisible],
   );
 
