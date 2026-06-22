@@ -83,9 +83,9 @@ export default function ChatWidgetClient() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
       {isOpen && (
-        <div className="mb-4 flex h-[500px] w-[360px] flex-col overflow-hidden rounded-2xl border border-divider bg-white dark:bg-zinc-900 shadow-2xl transition-all text-foreground">
+        <div className="mb-4 flex h-[500px] w-[360px] flex-col overflow-hidden rounded-2xl border border-indigo-100 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-2xl text-foreground transition-all duration-300">
           {/* Header */}
-          <div className="flex items-center justify-between bg-primary px-4 py-3 text-white">
+          <div className="flex items-center justify-between bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 px-4 py-3.5 text-white">
             <h3 className="text-sm font-semibold">Ask about Amr</h3>
             <button
               onClick={toggleChat}
@@ -119,17 +119,59 @@ export default function ChatWidgetClient() {
                   className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${
+                    className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm shadow-sm text-left [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left ${
                       m.role === "user"
-                        ? "bg-primary text-white"
-                        : "bg-default-100 text-default-900"
+                        ? "bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white"
+                        : "bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground"
                     }`}
                   >
-                    <div className="prose prose-sm dark:prose-invert max-w-none">
+                    <div className="prose prose-sm dark:prose-invert max-w-none text-left [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left">
                       {m.parts?.map((part, i) => {
                         if (part.type === "text") {
                           return (
-                            <ReactMarkdown key={i}>{part.text}</ReactMarkdown>
+                            <ReactMarkdown
+                              key={i}
+                              components={{
+                                a: ({ href, children }) => {
+                                  const isHash = href?.startsWith("#");
+                                  return (
+                                    <a
+                                      href={href}
+                                      target={isHash ? undefined : "_blank"}
+                                      rel={isHash ? undefined : "noopener noreferrer"}
+                                      className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold transition-colors"
+                                    >
+                                      {children}
+                                    </a>
+                                  );
+                                },
+                                p: ({ children }) => (
+                                  <p className="mb-2 last:mb-0 leading-relaxed text-left">
+                                    {children}
+                                  </p>
+                                ),
+                                ul: ({ children }) => (
+                                  <ul className="list-disc pl-4 mb-2 space-y-1 text-left">
+                                    {children}
+                                  </ul>
+                                ),
+                                ol: ({ children }) => (
+                                  <ol className="list-decimal pl-4 mb-2 space-y-1 text-left">
+                                    {children}
+                                  </ol>
+                                ),
+                                li: ({ children }) => (
+                                  <li className="mb-0.5 text-left">{children}</li>
+                                ),
+                                strong: ({ children }) => (
+                                  <strong className="font-bold text-indigo-950 dark:text-white">
+                                    {children}
+                                  </strong>
+                                ),
+                              }}
+                            >
+                              {part.text}
+                            </ReactMarkdown>
                           );
                         }
                         if (part.type === "reasoning") {
@@ -145,10 +187,13 @@ export default function ChatWidgetClient() {
                         return null;
                       })}
                       {showTypingIndicator && (
-                        <div className="flex items-center gap-1 mt-2">
-                          <div className="h-1 w-1 animate-bounce rounded-full bg-default-400 [animation-delay:-0.3s]"></div>
-                          <div className="h-1 w-1 animate-bounce rounded-full bg-default-400 [animation-delay:-0.15s]"></div>
-                          <div className="h-1 w-1 animate-bounce rounded-full bg-default-400"></div>
+                        <div className="flex items-center gap-1.5 mt-3">
+                          <span className="text-xs text-indigo-500/80 dark:text-indigo-300/80 font-medium animate-pulse">
+                            Generating...
+                          </span>
+                          <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.3s]"></div>
+                          <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.15s]"></div>
+                          <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400"></div>
                         </div>
                       )}
                     </div>
@@ -158,11 +203,14 @@ export default function ChatWidgetClient() {
             })}
             {status === "submitted" &&
               messages[messages.length - 1]?.role !== "assistant" && (
-                <div className="flex justify-start">
-                  <div className="flex items-center gap-1 bg-default-100 rounded-2xl px-4 py-3">
-                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-default-400 [animation-delay:-0.3s]"></div>
-                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-default-400 [animation-delay:-0.15s]"></div>
-                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-default-400"></div>
+                <div className="flex justify-start animate-in fade-in duration-200">
+                  <div className="flex items-center gap-2 bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 rounded-2xl px-4 py-3 shadow-sm">
+                    <span className="text-xs text-default-500 font-medium mr-1">
+                      Thinking
+                    </span>
+                    <div className="h-2 w-2 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.3s]"></div>
+                    <div className="h-2 w-2 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.15s]"></div>
+                    <div className="h-2 w-2 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400"></div>
                   </div>
                 </div>
               )}
@@ -178,7 +226,7 @@ export default function ChatWidgetClient() {
           {/* Input */}
           <form
             onSubmit={handleSubmit}
-            className="border-t border-divider p-3 bg-zinc-50 dark:bg-zinc-800/50"
+            className="border-t border-divider p-3 bg-zinc-50 dark:bg-zinc-800/30"
           >
             <div className="flex gap-2">
               <input
@@ -197,11 +245,10 @@ export default function ChatWidgetClient() {
               <Button
                 isIconOnly
                 type="submit"
-                variant="primary"
-                className="bg-primary text-white min-w-8 w-8 h-8"
+                className="bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform"
                 isDisabled={isLoading || !input?.trim()}
               >
-                <Send size={16} />
+                <Send size={14} />
               </Button>
             </div>
           </form>
@@ -213,7 +260,7 @@ export default function ChatWidgetClient() {
         isIconOnly
         onClick={toggleChat}
         aria-label="Open AI assistant"
-        className="h-14 w-14 rounded-full bg-primary text-white shadow-lg hover:scale-110 transition-transform"
+        className="h-14 w-14 rounded-full bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white shadow-xl hover:scale-110 hover:shadow-indigo-500/30 transition-all duration-300"
       >
         {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
       </Button>
