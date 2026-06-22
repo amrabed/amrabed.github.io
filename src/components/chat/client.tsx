@@ -1,3 +1,5 @@
+"use client";
+
 import {
   MessageCircle,
   X,
@@ -15,8 +17,6 @@ import { useChat } from "@ai-sdk/react";
 import { Button } from "@heroui/react";
 
 import { useFilter } from "@/contexts/filter";
-
-("use client");
 
 const markdownComponents = {
   a: ({ href, children }: { href?: string; children: React.ReactNode }) => {
@@ -205,7 +205,11 @@ export default function ChatWidgetClient() {
                 m.content ||
                 m.parts
                   ?.filter((p) => p.type === "text")
-                  .map((p) => (p.type === "text" ? (p as any).text : ""))
+                  .map((p) =>
+                    p.type === "text"
+                      ? (p as { type: "text"; text: string }).text
+                      : "",
+                  )
                   .join("") ||
                 "";
 

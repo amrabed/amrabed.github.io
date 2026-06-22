@@ -23,6 +23,7 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": "warn",
       "react/no-unescaped-entities": "off",
       "react-hooks/set-state-in-effect": "off",
+      "react-hooks/immutability": "off",
     },
     settings: {
       react: {
