@@ -19,7 +19,12 @@ export const Areas = ({
         <li key={area.name}>
           <Tooltip>
             <Tooltip.Trigger>
-              <div className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center">
+              <div
+                tabIndex={0}
+                role="img"
+                aria-label={area.name}
+                className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 rounded"
+              >
                 {area.icon}
               </div>
             </Tooltip.Trigger>
@@ -50,11 +55,21 @@ export const Tools = ({
           <Tooltip>
             <Tooltip.Trigger>
               {compact ? (
-                <div className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center">
+                <div
+                  tabIndex={0}
+                  role="img"
+                  aria-label={tool.name}
+                  className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 rounded"
+                >
                   {tool.icon}
                 </div>
               ) : (
-                <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                <div
+                  tabIndex={0}
+                  role="img"
+                  aria-label={tool.name}
+                  className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2"
+                >
                   <div className="size-6 text-slate-600 dark:text-slate-400 flex items-center justify-center">
                     {tool.icon}
                   </div>
@@ -78,7 +93,10 @@ export const Tags = ({ tags }: { tags: string[] }) => (
       <li key={tag}>
         <Tooltip>
           <Tooltip.Trigger>
-            <div className="px-2 py-1 text-xs font-semibold rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
+            <div
+              tabIndex={0}
+              className="px-2 py-1 text-xs font-semibold rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2"
+            >
               {tag}
             </div>
           </Tooltip.Trigger>

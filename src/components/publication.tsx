@@ -54,20 +54,22 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
             </span>
           )}
           <Tooltip>
-            <Button
-              size="sm"
-              variant="ghost"
-              onPress={() => {
-                navigator.clipboard.writeText(bibtex);
-                setCopied(true);
-                setTimeout(() => setCopied(false), 2000);
-              }}
-              aria-label="Copy BibTeX to clipboard"
-              isIconOnly
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <FaCopy className="size-4" />
-            </Button>
+            <Tooltip.Trigger>
+              <Button
+                size="sm"
+                variant="ghost"
+                onPress={() => {
+                  navigator.clipboard.writeText(bibtex);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                }}
+                aria-label="Copy BibTeX to clipboard"
+                isIconOnly
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <FaCopy className="size-4" />
+              </Button>
+            </Tooltip.Trigger>
             <Tooltip.Content>
               <Tooltip.Arrow />
               Copy to clipboard
