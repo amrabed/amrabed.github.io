@@ -29,7 +29,19 @@ export default function ChatWidgetClient() {
   const isLoading = status === "submitted" || status === "streaming";
 
   const scrollRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  const adjustHeight = useCallback(() => {
+    const textarea = inputRef.current;
+    if (textarea) {
+      textarea.style.height = "auto";
+      textarea.style.height = `${Math.min(textarea.scrollHeight, 120)}px`;
+    }
+  }, []);
+
+  useEffect(() => {
+    adjustHeight();
+  }, [input, adjustHeight]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -41,7 +53,7 @@ export default function ChatWidgetClient() {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [isOpen]);
+  }, [isOpen, adjustHeight]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -54,7 +66,7 @@ export default function ChatWidgetClient() {
   const toggleChat = () => setIsOpen(!isOpen);
 
   const handleInputChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setInput(e.target.value);
     },
     [],
@@ -67,6 +79,9 @@ export default function ChatWidgetClient() {
 
       const currentInput = input;
       setInput("");
+      if (inputRef.current) {
+        inputRef.current.style.height = "auto";
+      }
       try {
         await sendMessage({ text: currentInput });
       } catch (err) {
@@ -79,6 +94,19 @@ export default function ChatWidgetClient() {
   const isRateLimited =
     error?.message?.includes("429") ||
     (error as Record<string, unknown>)?.status === 429;
+
+  const getErrorMessage = () => {
+    if (!error) return "";
+    if (isRateLimited) {
+      return "You've reached the daily limit. Come back tomorrow! 👋";
+    }
+    try {
+      const parsed = JSON.parse(error.message);
+      return parsed.error || parsed.message || error.message;
+    } catch {
+      return error.message || "Something went wrong. Please try again.";
+    }
+  };
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
@@ -128,6 +156,13 @@ export default function ChatWidgetClient() {
                     <div className="prose prose-sm dark:prose-invert max-w-none text-left [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left">
                       {m.parts?.map((part, i) => {
                         if (part.type === "text") {
+                          if (m.role === "user") {
+                            return (
+                              <div key={i} className="whitespace-pre-wrap text-left break-words">
+                                {part.text}
+                              </div>
+                            );
+                          }
                           return (
                             <ReactMarkdown
                               key={i}
@@ -216,9 +251,7 @@ export default function ChatWidgetClient() {
               )}
             {error && (
               <div className="text-center text-xs text-danger px-4">
-                {isRateLimited
-                  ? "You've reached the daily limit. Come back tomorrow! 👋"
-                  : "Something went wrong. Please try again."}
+                {getErrorMessage()}
               </div>
             )}
           </div>
@@ -229,12 +262,13 @@ export default function ChatWidgetClient() {
             className="border-t border-divider p-3 bg-zinc-50 dark:bg-zinc-800/30"
           >
             <div className="flex gap-2">
-              <input
+              <textarea
                 ref={inputRef}
                 value={input}
                 onChange={handleInputChange}
                 placeholder="Ask a question..."
-                className="flex-1 bg-transparent text-sm focus:outline-none"
+                rows={1}
+                className="flex-1 bg-transparent text-sm focus:outline-none resize-none overflow-y-auto max-h-24 py-1"
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();

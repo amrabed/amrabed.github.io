@@ -101,7 +101,7 @@ div {
 .scroll-to-top {
   position: fixed;
   bottom: 1.5rem;
-  right: 6rem;
+  left: 1.5rem;
   z-index: 1000;
 }
 

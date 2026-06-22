@@ -185,8 +185,12 @@ export async function POST(req: Request) {
             .map((c) => c.text)
             .join("");
 
-    if (userQuery.length > 500) {
-      return new Response(JSON.stringify({ error: "Message too long." }), {
+    if (userQuery.length > 10000) {
+      return new Response(
+        JSON.stringify({
+          error: "Message is too long (maximum 10,000 characters).",
+        }),
+        {
         status: 400,
         headers: {
           "Content-Type": "application/json",
