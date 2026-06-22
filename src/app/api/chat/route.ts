@@ -11,30 +11,9 @@ import skills from "@/data/skills";
 import { chatModel } from "@/middleware/genai";
 import { ratelimit } from "@/middleware/upstash";
 
-// CORS configuration
-const ALLOWED_ORIGINS = new Set([
-  "http://localhost:3000",
-  "https://amrabed.com",
-  "https://amrabed.github.io",
-  "https://amrabed.vercel.app",
-  "https://amr-abed.web.app",
-  "https://amr-abed.firebaseapp.com",
-]);
-
-function getCorsHeaders(req: Request) {
-  const origin = req.headers.get("origin") ?? "";
-  const isAllowed =
-    ALLOWED_ORIGINS.has(origin) ||
-    origin.endsWith(".web.app") ||
-    origin.endsWith(".github.io") ||
-    origin.endsWith(".vercel.app") ||
-    /^https?:\/\/localhost(:\d+)?$/.test(origin) ||
-    /^https:\/\/amr-abed--preview-.*\.web\.app$/.test(origin);
-
-  const allowedOrigin = isAllowed ? origin : "https://amrabed.com";
-
+function getCorsHeaders() {
   return {
-    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization",
     "Access-Control-Max-Age": "86400",
@@ -148,15 +127,15 @@ function getConsolidatedContext(): string {
   return context;
 }
 
-export async function OPTIONS(req: Request) {
+export async function OPTIONS() {
   return new Response(null, {
     status: 204,
-    headers: getCorsHeaders(req),
+    headers: getCorsHeaders(),
   });
 }
 
 export async function POST(req: Request) {
-  const corsHeaders = getCorsHeaders(req);
+  const corsHeaders = getCorsHeaders();
 
   const ip = req.headers.get("x-forwarded-for") ?? "anonymous";
   const { success } = await ratelimit.limit(ip);
@@ -185,9 +164,9 @@ export async function POST(req: Request) {
       typeof lastMessage.content === "string"
         ? lastMessage.content
         : lastMessage.content
-            .filter((c) => c.type === "text")
-            .map((c) => c.text)
-            .join("");
+          .filter((c) => c.type === "text")
+          .map((c) => c.text)
+          .join("");
 
     if (userQuery.length > 10000) {
       return new Response(
