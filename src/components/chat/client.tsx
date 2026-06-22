@@ -51,6 +51,61 @@ const markdownComponents = {
   ),
 };
 
+const renderMessageContent = (
+  m: {
+    id: string;
+    role: string;
+    parts?: Array<{ type: string; text: string }>;
+  },
+  messageText: string,
+) => {
+  if (m.parts && m.parts.length > 0) {
+    return m.parts.map((part, i) => {
+      const partKey = `${m.id}-part-${part.type}-${i}`;
+      if (part.type === "text") {
+        if (m.role === "user") {
+          return (
+            <div
+              key={partKey}
+              className="whitespace-pre-wrap text-left break-words"
+            >
+              {part.text}
+            </div>
+          );
+        }
+        return (
+          <ReactMarkdown key={partKey} components={markdownComponents}>
+            {part.text}
+          </ReactMarkdown>
+        );
+      }
+      if (part.type === "reasoning") {
+        return (
+          <div
+            key={partKey}
+            className="mb-2 italic text-zinc-500 dark:text-zinc-400 border-l-2 border-zinc-300 dark:border-zinc-700 pl-2 text-xs"
+          >
+            Thinking: {part.text}
+          </div>
+        );
+      }
+      return null;
+    });
+  }
+
+  if (m.role === "user") {
+    return (
+      <div className="whitespace-pre-wrap text-left break-words">
+        {messageText}
+      </div>
+    );
+  }
+
+  return (
+    <ReactMarkdown components={markdownComponents}>{messageText}</ReactMarkdown>
+  );
+};
+
 export default function ChatWidgetClient() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -71,8 +126,8 @@ export default function ChatWidgetClient() {
   }, []);
 
   const getApiEndpoint = () => {
-    if (typeof window === "undefined") return "/api/chat";
-    const hostname = window.location.hostname;
+    if (typeof globalThis.window === "undefined") return "/api/chat";
+    const hostname = globalThis.window.location.hostname;
     // Check if running on GitHub Pages domains
     if (hostname.includes("github.io") || hostname === "amrabed.com") {
       return "https://amr-abed.web.app/api/chat";
@@ -219,11 +274,27 @@ export default function ChatWidgetClient() {
                   className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
+                    tabIndex={0}
+                    role="button"
+                    aria-label="Double click to select message text"
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        const textContainer =
+                          e.currentTarget.querySelector(".prose") ||
+                          e.currentTarget;
+                        const selection = globalThis.window?.getSelection();
+                        const range = document.createRange();
+                        range.selectNodeContents(textContainer);
+                        selection?.removeAllRanges();
+                        selection?.addRange(range);
+                      }
+                    }}
                     onDoubleClick={(e) => {
                       const textContainer =
                         e.currentTarget.querySelector(".prose") ||
                         e.currentTarget;
-                      const selection = window.getSelection();
+                      const selection = globalThis.window?.getSelection();
                       const range = document.createRange();
                       range.selectNodeContents(textContainer);
                       selection?.removeAllRanges();
@@ -283,49 +354,7 @@ export default function ChatWidgetClient() {
                       </div>
                     )}
                     <div className="prose prose-sm dark:prose-invert max-w-none text-left [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left">
-                      {m.parts && m.parts.length > 0 ? (
-                        m.parts.map((part, i) => {
-                          if (part.type === "text") {
-                            if (m.role === "user") {
-                              return (
-                                <div
-                                  key={i}
-                                  className="whitespace-pre-wrap text-left break-words"
-                                >
-                                  {part.text}
-                                </div>
-                              );
-                            }
-                            return (
-                              <ReactMarkdown
-                                key={i}
-                                components={markdownComponents}
-                              >
-                                {part.text}
-                              </ReactMarkdown>
-                            );
-                          }
-                          if (part.type === "reasoning") {
-                            return (
-                              <div
-                                key={i}
-                                className="mb-2 italic text-zinc-500 dark:text-zinc-400 border-l-2 border-zinc-300 dark:border-zinc-700 pl-2 text-xs"
-                              >
-                                Thinking: {part.text}
-                              </div>
-                            );
-                          }
-                          return null;
-                        })
-                      ) : m.role === "user" ? (
-                        <div className="whitespace-pre-wrap text-left break-words">
-                          {messageText}
-                        </div>
-                      ) : (
-                        <ReactMarkdown components={markdownComponents}>
-                          {messageText}
-                        </ReactMarkdown>
-                      )}
+                      {renderMessageContent(m, messageText)}
                       {showTypingIndicator && (
                         <div className="flex items-center gap-1.5 mt-3">
                           <span className="text-xs text-indigo-500/80 dark:text-indigo-300/80 font-medium animate-pulse">

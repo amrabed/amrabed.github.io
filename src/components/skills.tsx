@@ -19,14 +19,13 @@ export const Areas = ({
         <li key={area.name}>
           <Tooltip>
             <Tooltip.Trigger>
-              <div
-                tabIndex={0}
-                role="img"
+              <button
+                type="button"
                 aria-label={area.name}
-                className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 rounded"
+                className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 rounded bg-transparent border-none p-0 cursor-default"
               >
                 {area.icon}
-              </div>
+              </button>
             </Tooltip.Trigger>
             <Tooltip.Content>
               <Tooltip.Arrow />
@@ -55,25 +54,23 @@ export const Tools = ({
           <Tooltip>
             <Tooltip.Trigger>
               {compact ? (
-                <div
-                  tabIndex={0}
-                  role="img"
+                <button
+                  type="button"
                   aria-label={tool.name}
-                  className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 rounded"
+                  className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 rounded bg-transparent border-none p-0 cursor-default"
                 >
                   {tool.icon}
-                </div>
+                </button>
               ) : (
-                <div
-                  tabIndex={0}
-                  role="img"
+                <button
+                  type="button"
                   aria-label={tool.name}
-                  className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2"
+                  className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 border-none cursor-default"
                 >
                   <div className="size-6 text-slate-600 dark:text-slate-400 flex items-center justify-center">
                     {tool.icon}
                   </div>
-                </div>
+                </button>
               )}
             </Tooltip.Trigger>
             <Tooltip.Content>
@@ -93,12 +90,12 @@ export const Tags = ({ tags }: { tags: string[] }) => (
       <li key={tag}>
         <Tooltip>
           <Tooltip.Trigger>
-            <div
-              tabIndex={0}
-              className="px-2 py-1 text-xs font-semibold rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2"
+            <button
+              type="button"
+              className="px-2 py-1 text-xs font-semibold rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 border-none cursor-default"
             >
               {tag}
-            </div>
+            </button>
           </Tooltip.Trigger>
           <Tooltip.Content>
             <Tooltip.Arrow />

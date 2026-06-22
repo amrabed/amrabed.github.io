@@ -12,18 +12,18 @@ import { chatModel } from "@/middleware/genai";
 import { ratelimit } from "@/middleware/upstash";
 
 // CORS configuration
-const ALLOWED_ORIGINS = [
+const ALLOWED_ORIGINS = new Set([
   "http://localhost:3000",
   "https://amrabed.com",
   "https://amrabed.github.io",
   "https://amr-abed.web.app",
   "https://amr-abed.firebaseapp.com",
-];
+]);
 
 function getCorsHeaders(req: Request) {
   const origin = req.headers.get("origin") ?? "";
   const isAllowed =
-    ALLOWED_ORIGINS.includes(origin) ||
+    ALLOWED_ORIGINS.has(origin) ||
     origin.endsWith(".web.app") ||
     origin.endsWith(".github.io") ||
     /^https?:\/\/localhost(:\d+)?$/.test(origin) ||
@@ -102,7 +102,9 @@ function getConsolidatedContext(): string {
     if ("courses" in p && p.courses && p.courses.length > 0) {
       context += `  Courses taught:\n`;
       p.courses.forEach((c) => {
-        context += `    * ${c.title}${c.code ? ` (${c.code})` : ""}${c.description ? `: ${c.description}` : ""}\n`;
+        const codeStr = c.code ? ` (${c.code})` : "";
+        const descStr = c.description ? `: ${c.description}` : "";
+        context += `    * ${c.title}${codeStr}${descStr}\n`;
       });
     }
     context += "\n";
