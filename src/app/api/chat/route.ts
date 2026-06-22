@@ -185,9 +185,9 @@ export async function POST(req: Request) {
       typeof lastMessage.content === "string"
         ? lastMessage.content
         : lastMessage.content
-          .filter((c) => c.type === "text")
-          .map((c) => c.text)
-          .join("");
+            .filter((c) => c.type === "text")
+            .map((c) => c.text)
+            .join("");
 
     if (userQuery.length > 10000) {
       return new Response(
