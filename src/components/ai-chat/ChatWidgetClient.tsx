@@ -201,7 +201,15 @@ export default function ChatWidgetClient() {
                   className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`relative group max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm text-left [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left ${
+                    onDoubleClick={(e) => {
+                      const textContainer = e.currentTarget.querySelector(".prose") || e.currentTarget;
+                      const selection = window.getSelection();
+                      const range = document.createRange();
+                      range.selectNodeContents(textContainer);
+                      selection?.removeAllRanges();
+                      selection?.addRange(range);
+                    }}
+                    className={`relative group max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm text-left select-text cursor-text [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left ${
                       m.role === "user"
                         ? "bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white"
                         : "bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground"
