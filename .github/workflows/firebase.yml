@@ -4,21 +4,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  check:
-    uses: ./.github/workflows/check.yml
+  verify:
+    uses: ./.github/workflows/verify.yml
   deploy:
-    needs: [check]
+    needs: [verify]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - name: Authenticate to Google Cloud
-        uses: google-github-actions/auth@v2
+      - uses: actions/checkout@v7
+      - name: Authenticate to Firebase
+        uses: google-github-actions/auth@v3
         with:
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
       - uses: jdx/mise-action@v4
       - name: Deploy to Firebase
         run: mise run deploy
-        env:
-          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
-          UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
-          UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}

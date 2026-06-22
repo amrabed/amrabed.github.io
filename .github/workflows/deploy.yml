@@ -9,13 +9,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  check:
-    uses: ./.github/workflows/check.yml
+  verify:
+    uses: ./.github/workflows/verify.yml
   build:
-    needs: [check]
+    needs: [verify]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v6
         with:
