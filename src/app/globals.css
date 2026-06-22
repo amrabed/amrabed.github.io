@@ -97,12 +97,8 @@ div {
   transform: scale(0.9);
 }
 
-/* Scroll to top button */
+/* Scroll to top button classes (positioning handled via Tailwind) */
 .scroll-to-top {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  z-index: 1000;
 }
 
 .scroll-button {

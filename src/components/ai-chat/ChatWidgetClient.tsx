@@ -162,9 +162,9 @@ export default function ChatWidgetClient() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end">
       {isOpen && (
-        <div className="mb-4 flex h-[500px] w-[360px] flex-col overflow-hidden rounded-2xl border border-indigo-100 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-2xl text-foreground transition-all duration-300">
+        <div className="mb-2 sm:mb-4 flex h-[400px] sm:h-[500px] w-[calc(100vw-32px)] sm:w-[360px] flex-col overflow-hidden rounded-2xl border border-indigo-100 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-2xl text-foreground transition-all duration-300">
           {/* Header */}
           <div className="flex items-center justify-between bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 px-4 py-3.5 text-white">
             <h3 className="text-sm font-semibold">Miro — Amr's Assistant</h3>

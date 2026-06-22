@@ -13,3 +13,4 @@
 - [x] Task 11: Add a sticky floating "Stop Generating" / Interrupt button inside the message container during generation.
 - [x] Task 12: Enable click/tap gestures to select a word (via select-text and cursor-text CSS styling) or full text (via double-click/double-tap handler) in message bubbles.
 - [x] Task 13: Name the assistant "Miro" and configure the system prompt to speak in the third person on Amr's behalf.
+- [x] Task 14: Adjust vertical position of the chat widget toggle and scroll-to-top buttons on mobile viewports to float above the bottom search/filter bar.
