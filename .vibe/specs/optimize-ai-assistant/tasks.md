@@ -15,3 +15,4 @@
 - [x] Task 13: Name the assistant "Miro" and configure the system prompt to speak in the third person on Amr's behalf.
 - [x] Task 14: Adjust vertical position of the chat widget toggle and scroll-to-top buttons on mobile viewports to float above the bottom search/filter bar.
 - [x] Task 15: Integrate dynamic sliding transitions to animate the vertical positions of both Miro and the scroll-to-top buttons dynamically when the search bar is shown or hidden.
+- [x] Task 16: Refactor components directory: rename `ai-chat` to `chat`, main file to `index.tsx`, and client logic file to `client.tsx` to optimize import paths and project structure.

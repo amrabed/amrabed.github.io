@@ -9,7 +9,7 @@ import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 const ScrollToTopButton = dynamic(() => import("@/components/upArrow"));
-const ChatWidget = dynamic(() => import("@/components/ai-chat/ChatWidget"));
+const ChatWidget = dynamic(() => import("@/components/chat"));
 
 const Footer = dynamic(() => import("@/components/footer"));
 

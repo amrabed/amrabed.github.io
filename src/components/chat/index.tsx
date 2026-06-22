@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-const ChatWidgetClient = dynamic(() => import("./ChatWidgetClient"), {
+const ChatWidgetClient = dynamic(() => import("./client"), {
   ssr: false,
 });
 
