@@ -16,6 +16,7 @@ const ALLOWED_ORIGINS = new Set([
   "http://localhost:3000",
   "https://amrabed.com",
   "https://amrabed.github.io",
+  "https://amrabed.vercel.app",
   "https://amr-abed.web.app",
   "https://amr-abed.firebaseapp.com",
 ]);
@@ -26,6 +27,7 @@ function getCorsHeaders(req: Request) {
     ALLOWED_ORIGINS.has(origin) ||
     origin.endsWith(".web.app") ||
     origin.endsWith(".github.io") ||
+    origin.endsWith(".vercel.app") ||
     /^https?:\/\/localhost(:\d+)?$/.test(origin) ||
     /^https:\/\/amr-abed--preview-.*\.web\.app$/.test(origin);
 
@@ -183,9 +185,9 @@ export async function POST(req: Request) {
       typeof lastMessage.content === "string"
         ? lastMessage.content
         : lastMessage.content
-            .filter((c) => c.type === "text")
-            .map((c) => c.text)
-            .join("");
+          .filter((c) => c.type === "text")
+          .map((c) => c.text)
+          .join("");
 
     if (userQuery.length > 10000) {
       return new Response(
