@@ -5,3 +5,5 @@ allowBuilds:
 overrides:
   postcss: "^8.5.15"
   "minimatch@3>brace-expansion": "^1.1.11"
+  js-yaml: "^4.2.0"
+  "@babel/core": "^7.29.6"
