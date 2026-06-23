@@ -11,25 +11,9 @@ import {
   Checkbox,
   Label,
   Chip,
-  tv,
   Popover,
 } from "@heroui/react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
-
-const checkbox = tv({
-  slots: {
-    base: "border-none bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700",
-    content: "text-foreground-500 hover:text-foreground",
-  },
-  variants: {
-    isSelected: {
-      true: {
-        base: "border-none bg-foreground hover:bg-primary",
-        content: "text-white hover:text-zinc-100 pl-1",
-      },
-    },
-  },
-});
 
 export const Selection = ({
   value,
@@ -41,7 +25,6 @@ export const Selection = ({
   return (
     <Checkbox value={value}>
       {(state) => {
-        const styles = checkbox({ isSelected: state.isSelected });
         return (
           <Checkbox.Content className="flex items-center">
             <VisuallyHidden>
@@ -49,12 +32,24 @@ export const Selection = ({
                 <Checkbox.Indicator />
               </Checkbox.Control>
             </VisuallyHidden>
-            <Chip className={styles.base()} variant="soft">
+            <Chip
+              className="filter-chip"
+              variant="soft"
+              data-selected={state.isSelected || undefined}
+              data-focus-visible={state.isFocusVisible || undefined}
+              data-pressed={state.isPressed || undefined}
+            >
               <div className="flex items-center gap-1">
                 {state.isSelected && (
-                  <CheckIcon className="size-4" color="white" />
+                  <CheckIcon
+                    className="size-4"
+                    color="white"
+                    aria-hidden="true"
+                  />
                 )}
-                <Chip.Label className={styles.content()}>{children}</Chip.Label>
+                <Chip.Label className="filter-chip-content">
+                  {children}
+                </Chip.Label>
               </div>
             </Chip>
           </Checkbox.Content>
@@ -89,7 +84,9 @@ export const Selections = ({
           <Selection key={v.id} value={v.id}>
             <div className="flex items-center gap-2">
               {v.icon && (
-                <span className="size-4 flex items-center">{v.icon}</span>
+                <span className="size-4 flex items-center" aria-hidden="true">
+                  {v.icon}
+                </span>
               )}
               {v.name}
             </div>
