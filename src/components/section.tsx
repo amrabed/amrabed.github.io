@@ -47,9 +47,7 @@ export const Section = memo(
         <div className="flex items-center gap-4 mb-8">
           <h2 className="section-heading mb-0">{title}</h2>
         </div>
-        <div className="pop-down-child section-body">
-          {children}
-        </div>
+        <div className="pop-down-child section-body">{children}</div>
       </section>
     );
   },
