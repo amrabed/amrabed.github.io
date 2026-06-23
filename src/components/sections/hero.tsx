@@ -41,7 +41,7 @@ const HeroSection = memo(() => {
 
   return (
     <section id="home" ref={homeRef} className="w-full in-view">
-      <div className="min-h-[100vh] w-full overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[200px] 2xl:px-[400px] flex flex-col md:flex-row content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm">
+      <div className="hero-container">
         <div className="hero-profile">
           <Image
             src="/amrabed.webp"
