@@ -36,8 +36,6 @@ export const Selection = ({
               className="filter-chip"
               variant="soft"
               data-selected={state.isSelected || undefined}
-              data-focus-visible={state.isFocusVisible || undefined}
-              data-pressed={state.isPressed || undefined}
             >
               <div className="flex items-center gap-1">
                 {state.isSelected && (
