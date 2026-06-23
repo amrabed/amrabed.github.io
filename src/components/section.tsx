@@ -13,31 +13,24 @@ export const Section = memo(
     children: ReactNode;
   }) => {
     const dataRef = useRef<HTMLElement | null>(null);
-    const itemRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-      const getScreenWidth = () =>
+      const screenWidth =
         window.innerWidth ||
         document.documentElement.clientWidth ||
         document.body.clientWidth;
 
+      const currentDataRef = dataRef.current;
       const observer = new IntersectionObserver(
         ([entry]) => {
-          // ⚡ Optimization: Direct DOM manipulation to avoid redundant re-renders.
-          if (itemRef.current) {
-            if (entry.isIntersecting) {
-              itemRef.current.classList.add("pop-up-child");
-            } else {
-              itemRef.current.classList.remove("pop-up-child");
-            }
-          }
+          // ⚡ Optimization: Toggle in-view class on the parent element
+          currentDataRef?.classList.toggle("in-view", entry.isIntersecting);
         },
         {
-          rootMargin: `${getScreenWidth() <= 700 ? "-100px" : "-250px"}`,
+          rootMargin: screenWidth <= 700 ? "-100px" : "-250px",
         },
       );
 
-      const currentDataRef = dataRef.current;
       if (currentDataRef) {
         observer.observe(currentDataRef);
       }
@@ -54,7 +47,7 @@ export const Section = memo(
         <div className="flex items-center gap-4 mb-8">
           <h2 className="section-heading mb-0">{title}</h2>
         </div>
-        <div className="pop-down-child section-body" ref={itemRef}>
+        <div className="pop-down-child section-body">
           {children}
         </div>
       </section>

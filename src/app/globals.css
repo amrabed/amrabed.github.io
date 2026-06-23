@@ -66,7 +66,7 @@ div {
   scale: 0;
 }
 
-.pop-up-child > div {
+.section.in-view .pop-down-child > div {
   opacity: 1;
   scale: 1;
 }
