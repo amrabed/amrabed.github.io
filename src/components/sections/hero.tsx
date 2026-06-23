@@ -6,7 +6,6 @@ import React, { useEffect, useRef, useState, memo } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = memo(() => {
-  const [isHome, setIsHome] = useState(true);
   const [mounted, setMounted] = useState(false);
 
   const homeRef = useRef<HTMLElement>(null);
@@ -26,7 +25,40 @@ const HeroSection = memo(() => {
     if (currentHomeRef) {
       const homeObserver = new IntersectionObserver(
         ([homeEntry]) => {
-          setIsHome(homeEntry.isIntersecting);
+          // ⚡ Optimization: Direct DOM manipulation to avoid redundant re-renders.
+          const isHome = homeEntry.isIntersecting;
+
+          if (profileRef.current) {
+            if (isHome) {
+              profileRef.current.classList.add("translate-x-0", "opacity-100");
+              profileRef.current.classList.remove(
+                "translate-x-[-500px]",
+                "opacity-0",
+              );
+            } else {
+              profileRef.current.classList.remove(
+                "translate-x-0",
+                "opacity-100",
+              );
+              profileRef.current.classList.add(
+                "translate-x-[-500px]",
+                "opacity-0",
+              );
+            }
+          }
+
+          if (introRef.current) {
+            if (isHome) {
+              introRef.current.classList.add("translate-x-0", "opacity-100");
+              introRef.current.classList.remove(
+                "translate-x-[500px]",
+                "opacity-0",
+              );
+            } else {
+              introRef.current.classList.remove("translate-x-0", "opacity-100");
+              introRef.current.classList.add("translate-x-[500px]", "opacity-0");
+            }
+          }
         },
         {
           rootMargin: `${getScreenWidth() <= 700 ? "-100px" : "-300px"}`,
@@ -45,7 +77,7 @@ const HeroSection = memo(() => {
     <section id="home" ref={homeRef} className="w-full">
       <div className="min-h-[100vh] w-full overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[200px] 2xl:px-[400px] flex flex-col md:flex-row content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm">
         <div
-          className={`${isHome ? "translate-x-0 opacity-100" : "translate-x-[-500px] opacity-0"} transition-all duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] relative m-auto md:m-0 mt-[40px] md:mt-0 order-last md:order-last`}
+          className="translate-x-0 opacity-100 transition-all duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] relative m-auto md:m-0 mt-[40px] md:mt-0 order-last md:order-last"
           ref={profileRef}
         >
           <Image
@@ -59,7 +91,7 @@ const HeroSection = memo(() => {
         </div>
 
         <div
-          className={`${isHome ? "translate-x-0 opacity-100" : "translate-x-[500px] opacity-0"} transition-all duration-700 order-first md:order-first`}
+          className="translate-x-0 opacity-100 transition-all duration-700 order-first md:order-first"
           ref={introRef}
         >
           <p className="text-2xl md:text-4xl py-2 font-sans text-center text-nowrap">

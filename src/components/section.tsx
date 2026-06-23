@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, ReactNode, useEffect, useRef, useState } from "react";
+import { memo, ReactNode, useEffect, useRef } from "react";
 
 export const Section = memo(
   ({
@@ -12,7 +12,6 @@ export const Section = memo(
     title: string;
     children: ReactNode;
   }) => {
-    const [isVisible, setIsVisible] = useState(false);
     const dataRef = useRef<HTMLElement | null>(null);
     const itemRef = useRef<HTMLDivElement | null>(null);
 
@@ -24,7 +23,14 @@ export const Section = memo(
 
       const observer = new IntersectionObserver(
         ([entry]) => {
-          setIsVisible(entry.isIntersecting);
+          // ⚡ Optimization: Direct DOM manipulation to avoid redundant re-renders.
+          if (itemRef.current) {
+            if (entry.isIntersecting) {
+              itemRef.current.classList.add("pop-up-child");
+            } else {
+              itemRef.current.classList.remove("pop-up-child");
+            }
+          }
         },
         {
           rootMargin: `${getScreenWidth() <= 700 ? "-100px" : "-250px"}`,
@@ -42,16 +48,6 @@ export const Section = memo(
         }
       };
     }, []);
-
-    useEffect(() => {
-      if (itemRef.current) {
-        if (isVisible) {
-          itemRef.current.classList.add("pop-up-child");
-        } else {
-          itemRef.current.classList.remove("pop-up-child");
-        }
-      }
-    }, [isVisible]);
 
     return (
       <section id={id} className="section scroll-mt-48" ref={dataRef}>
