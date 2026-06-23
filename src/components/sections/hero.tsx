@@ -54,7 +54,7 @@ const HeroSection = memo(() => {
         </div>
 
         <div className="hero-intro">
-          <p className="text-2xl md:text-4xl py-2 font-sans text-center text-nowrap">
+          <p className="hero-intro-text">
             I&apos;m
             <span className="text-primary">
               {" a"}
