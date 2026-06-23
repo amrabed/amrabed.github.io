@@ -155,9 +155,21 @@ div {
   @apply opacity-100 translate-x-0;
 }
 
-/* Filter Chips */
 .filter-chip {
-  @apply border-none bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700 transition-all duration-200 cursor-pointer;
+  @apply border-none transition-all duration-200 cursor-pointer;
+  background-color: var(--heroui-default-100);
+}
+
+.filter-chip:hover {
+  background-color: var(--heroui-default-200);
+}
+
+.dark .filter-chip {
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+.dark .filter-chip:hover {
+  background-color: rgb(51, 65, 85);
 }
 
 .filter-chip-content {
