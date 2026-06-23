@@ -9,6 +9,7 @@ import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 const ScrollToTopButton = dynamic(() => import("@/components/upArrow"));
+const ChatWidget = dynamic(() => import("@/components/chat"));
 
 const Footer = dynamic(() => import("@/components/footer"));
 
@@ -67,6 +68,7 @@ export default function RootLayout({
         <Providers>
           {children}
           <ScrollToTopButton />
+          <ChatWidget />
           <Footer />
         </Providers>
       </body>
