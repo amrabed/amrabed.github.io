@@ -18,7 +18,7 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 
 const checkbox = tv({
   slots: {
-    base: "border-none bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700",
+    base: "border-none bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700 transition-all duration-200",
     content: "text-foreground-500 hover:text-foreground",
   },
   variants: {
@@ -26,6 +26,16 @@ const checkbox = tv({
       true: {
         base: "border-none bg-foreground hover:bg-primary",
         content: "text-white hover:text-zinc-100 pl-1",
+      },
+    },
+    isFocusVisible: {
+      true: {
+        base: "ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-slate-800",
+      },
+    },
+    isPressed: {
+      true: {
+        base: "scale-95",
       },
     },
   },
@@ -41,7 +51,11 @@ export const Selection = ({
   return (
     <Checkbox value={value}>
       {(state) => {
-        const styles = checkbox({ isSelected: state.isSelected });
+        const styles = checkbox({
+          isSelected: state.isSelected,
+          isFocusVisible: state.isFocusVisible,
+          isPressed: state.isPressed,
+        });
         return (
           <Checkbox.Content className="flex items-center">
             <VisuallyHidden>
@@ -52,7 +66,11 @@ export const Selection = ({
             <Chip className={styles.base()} variant="soft">
               <div className="flex items-center gap-1">
                 {state.isSelected && (
-                  <CheckIcon className="size-4" color="white" />
+                  <CheckIcon
+                    className="size-4"
+                    color="white"
+                    aria-hidden="true"
+                  />
                 )}
                 <Chip.Label className={styles.content()}>{children}</Chip.Label>
               </div>
@@ -89,7 +107,9 @@ export const Selections = ({
           <Selection key={v.id} value={v.id}>
             <div className="flex items-center gap-2">
               {v.icon && (
-                <span className="size-4 flex items-center">{v.icon}</span>
+                <span className="size-4 flex items-center" aria-hidden="true">
+                  {v.icon}
+                </span>
               )}
               {v.name}
             </div>
