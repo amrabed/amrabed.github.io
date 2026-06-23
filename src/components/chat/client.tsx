@@ -225,7 +225,7 @@ export default function ChatWidgetClient() {
 
   return (
     <div
-      className={`fixed ${isFilterBarVisible ? "bottom-20" : "bottom-6"} right-4 sm:right-6 z-50 flex flex-col items-end transition-all duration-300`}
+      className={`chat-widget fixed ${isFilterBarVisible ? "bottom-20" : "bottom-6"} right-4 sm:right-6 z-50 flex flex-col items-end transition-all duration-300`}
     >
       {isOpen && (
         <div className="mb-2 sm:mb-4 flex h-[400px] sm:h-[500px] w-[calc(100vw-32px)] sm:w-[360px] flex-col overflow-hidden rounded-2xl border border-indigo-100 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-2xl text-foreground transition-all duration-300">

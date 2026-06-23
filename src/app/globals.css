@@ -122,3 +122,12 @@ div {
 .card-title {
   @apply font-bold text-slate-900 dark:text-slate-100 leading-tight;
 }
+
+/* Fix chat widget text stretching caused by global text-align: justify */
+.chat-widget p,
+.chat-widget div,
+.chat-widget ul,
+.chat-widget ol,
+.chat-widget li {
+  text-align: left;
+}
