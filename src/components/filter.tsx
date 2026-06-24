@@ -41,9 +41,7 @@ export const Selection = ({
   return (
     <Checkbox value={value} className="group">
       {(state) => {
-        const styles = checkbox({
-          isSelected: state.isSelected,
-        });
+        const styles = checkbox({ isSelected: state.isSelected });
         return (
           <Checkbox.Content className="flex items-center">
             <VisuallyHidden>

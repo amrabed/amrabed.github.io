@@ -2,3 +2,6 @@ pnpm-lock.yaml
 package-lock.json
 firebase.json
 .github/
+.firebase/
+.next/
+out/
