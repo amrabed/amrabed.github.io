@@ -1,7 +1,5 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
-
 import { useEffect, useState } from "react";
 
 import { Banner } from "@/components/banner";
@@ -13,13 +11,13 @@ import { ExperienceSection } from "@/components/sections/experience";
 import HeroSection from "@/components/sections/hero";
 import { ProjectsSection } from "@/components/sections/projects";
 import { PublicationsSection } from "@/components/sections/publications";
+import { AnimatePresence } from "framer-motion";
+
 import { SkillsSection } from "@/components/sections/skills";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
-import { useFilter } from "@/contexts/filter";
 
 const Home = () => {
   const [showFilter, setShowFilter] = useState(false);
-  const { setIsFilterBarVisible } = useFilter();
 
   useEffect(() => {
     let skillsTop = Infinity;
@@ -45,11 +43,10 @@ const Home = () => {
 
     const handleScroll = () => {
       // Use cached dimensions to avoid expensive DOM lookups and reflows during scroll.
-      const isVisible =
+      setShowFilter(
         window.scrollY > skillsTop - 200 &&
-        window.scrollY + window.innerHeight < lastSectionBottom + 100;
-      setShowFilter(isVisible);
-      setIsFilterBarVisible(isVisible);
+          window.scrollY + window.innerHeight < lastSectionBottom + 100,
+      );
     };
 
     // Use { passive: true } to improve scroll performance by telling the browser
@@ -57,14 +54,11 @@ const Home = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", updateDimensions, { passive: true });
 
-    // Run once on mount to establish correct initial state
-    handleScroll();
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", updateDimensions);
     };
-  }, [setIsFilterBarVisible]);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">

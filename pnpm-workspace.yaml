@@ -1,11 +1,7 @@
 allowBuilds:
-  "@firebase/util": true
-  esbuild: true
-  protobufjs: true
   sharp: false
   unrs-resolver: false
 
 overrides:
-  minimatch@3>brace-expansion: ^1.1.11
-  postcss: ^8.5.15
-  uuid@<11.1.1: ">=11.1.1"
+  postcss: "^8.5.15"
+  "minimatch@3>brace-expansion": "^1.1.11"

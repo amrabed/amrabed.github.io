@@ -26,7 +26,10 @@ export const FeaturedSectionContainer = <T extends FeaturedItem>({
           {featuredItems.map((item, index) => {
             const isFullWidth = featuredItems.length % 2 !== 0 && index === 0;
             return (
-              <div key={item.id} className={isFullWidth ? "md:col-span-2" : ""}>
+              <div
+                key={item.id}
+                className={isFullWidth ? "md:col-span-2" : ""}
+              >
                 {renderItem(item)}
               </div>
             );

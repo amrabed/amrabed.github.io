@@ -18,7 +18,7 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 
 const checkbox = tv({
   slots: {
-    base: "border-none bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700 transition-all duration-200",
+    base: "border-none bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700 transition-all duration-200 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-primary group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-white dark:group-data-[focus-visible=true]:ring-offset-slate-800 group-data-[pressed=true]:scale-95",
     content: "text-foreground-500 hover:text-foreground",
   },
   variants: {
@@ -26,16 +26,6 @@ const checkbox = tv({
       true: {
         base: "border-none bg-foreground hover:bg-primary",
         content: "text-white hover:text-zinc-100 pl-1",
-      },
-    },
-    isFocusVisible: {
-      true: {
-        base: "ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-slate-800",
-      },
-    },
-    isPressed: {
-      true: {
-        base: "scale-95",
       },
     },
   },
@@ -49,12 +39,10 @@ export const Selection = ({
   children: ReactNode;
 }) => {
   return (
-    <Checkbox value={value}>
+    <Checkbox value={value} className="group">
       {(state) => {
         const styles = checkbox({
           isSelected: state.isSelected,
-          isFocusVisible: state.isFocusVisible,
-          isPressed: state.isPressed,
         });
         return (
           <Checkbox.Content className="flex items-center">

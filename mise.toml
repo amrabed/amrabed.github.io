@@ -11,8 +11,6 @@ m = 'mise run'
 i = 'mise run install'
 l = 'mise run lint'
 d = 'mise run dev'
-v = 'mise run verify'
-D = 'mise run deploy'
 
 ll = 'ls -l'
 la = 'ls -A'
@@ -50,17 +48,6 @@ description = 'Build the project'
 run = 'pnpm run build'
 depends = ['install']
 
-[tasks.typecheck]
-alias = 'tc'
-description = 'Run TypeScript typecheck'
-run = 'tsc --noEmit'
-depends = ['install']
-
-[tasks.verify]
-alias = 'v'
-description = 'Verify the project (lint, typecheck, build)'
-depends = ['lint', 'typecheck', 'build']
-
 [tasks.dev]
 alias = ['d', 'local']
 description = 'Start development server'
@@ -69,8 +56,8 @@ depends = ['install', 'lint']
 
 [tasks.deploy]
 description = 'Deploy to Firebase'
-run = 'NEXT_EXPORT=true pnpm run build && firebase deploy --only hosting'
-depends = ['install']
+run = 'firebase deploy --only hosting'
+depends = ['build']
 
 [tasks.clean]
 description = 'Clean build artifacts'

@@ -7,11 +7,8 @@ import { useEffect, useState } from "react";
 import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import { Button, Tooltip } from "@heroui/react";
 
-import { useFilter } from "@/contexts/filter";
-
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const { isFilterBarVisible } = useFilter();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -33,9 +30,7 @@ const ScrollToTopButton = () => {
   };
 
   return (
-    <div
-      className={`fixed ${isFilterBarVisible ? "bottom-20" : "bottom-6"} left-4 sm:left-6 z-[1000] transition-all duration-300`}
-    >
+    <div className="scroll-to-top">
       <AnimatePresence>
         {isVisible && (
           <motion.div

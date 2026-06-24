@@ -48,28 +48,22 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
         className="dark:bg-slate-800 rounded-3xl"
       >
         <div className="flex flex-row justify-end text-muted-foreground p-2">
-          {copied && (
-            <span className="flex flex-row text-sm font-medium p-2 gap-1">
-              <FaCheck className="size-4 text-green-500" /> Copied
-            </span>
-          )}
+          {copied && <span className="flex flex-row text-sm font-medium p-2 gap-1"><FaCheck className="size-4 text-green-500" /> Copied</span>}
           <Tooltip>
-            <Tooltip.Trigger>
-              <Button
-                size="sm"
-                variant="ghost"
-                onPress={() => {
-                  navigator.clipboard.writeText(bibtex);
-                  setCopied(true);
-                  setTimeout(() => setCopied(false), 2000);
-                }}
-                aria-label="Copy BibTeX to clipboard"
-                isIconOnly
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <FaCopy className="size-4" />
-              </Button>
-            </Tooltip.Trigger>
+            <Button
+              size="sm"
+              variant="ghost"
+              onPress={() => {
+                navigator.clipboard.writeText(bibtex);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+              }}
+              aria-label="Copy BibTeX to clipboard"
+              isIconOnly
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <FaCopy className="size-4" />
+            </Button>
             <Tooltip.Content>
               <Tooltip.Arrow />
               Copy to clipboard
@@ -80,7 +74,7 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
           {bibtex}
         </pre>
       </Popover.Content>
-    </Popover>
+    </Popover >
   );
 };
 
@@ -104,7 +98,9 @@ const Links = ({
       {links.presentation && (
         <IconLink href={links.presentation} title="Presentation">
           <FaPersonChalkboard className="size-4" />
-          {!compact && <span className="text-sm font-medium">Slides</span>}
+          {!compact && (
+            <span className="text-sm font-medium">Slides</span>
+          )}
         </IconLink>
       )}
       {links.doi && (
@@ -124,7 +120,11 @@ const Links = ({
 };
 
 const PublicationView = React.memo(
-  ({ publication }: { publication: Publication }) => {
+  ({
+    publication,
+  }: {
+    publication: Publication;
+  }) => {
     const isFeatured = publication.featured;
     return (
       <Card className="card-container h-full">

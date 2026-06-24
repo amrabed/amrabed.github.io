@@ -97,8 +97,12 @@ div {
   transform: scale(0.9);
 }
 
-/* Scroll to top button classes (positioning handled via Tailwind) */
+/* Scroll to top button */
 .scroll-to-top {
+  position: fixed;
+  bottom: 5rem;
+  right: 2%;
+  z-index: 1000;
 }
 
 .scroll-button {
@@ -121,13 +125,4 @@ div {
 
 .card-title {
   @apply font-bold text-slate-900 dark:text-slate-100 leading-tight;
-}
-
-/* Fix chat widget text stretching caused by global text-align: justify */
-.chat-widget p,
-.chat-widget div,
-.chat-widget ul,
-.chat-widget ol,
-.chat-widget li {
-  text-align: left;
 }

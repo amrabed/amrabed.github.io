@@ -18,8 +18,6 @@ type FilterContextType = {
   selected: Record<string, string[]>;
   setSelected: (category: string, selected: string[]) => void;
   clearAll: () => void;
-  isFilterBarVisible: boolean;
-  setIsFilterBarVisible: (visible: boolean) => void;
 };
 
 export const FilterContext = createContext<FilterContextType | undefined>(
@@ -48,8 +46,6 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
     },
   );
 
-  const [isFilterBarVisible, setIsFilterBarVisible] = useState(false);
-
   const setSelected = useCallback((cat: string, vals: string[]) => {
     setSelectedState((prev) => ({ ...prev, [cat]: vals }));
   }, []);
@@ -73,14 +69,8 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
   useUrlSync(selected, updateUrl);
 
   const contextValue = useMemo(
-    () => ({
-      selected,
-      setSelected,
-      clearAll,
-      isFilterBarVisible,
-      setIsFilterBarVisible,
-    }),
-    [selected, setSelected, clearAll, isFilterBarVisible],
+    () => ({ selected, setSelected, clearAll }),
+    [selected, setSelected, clearAll],
   );
 
   return (

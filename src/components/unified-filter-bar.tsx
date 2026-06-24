@@ -1,11 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-
-import { memo } from "react";
-
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "@heroui/react";
+import { motion } from "framer-motion";
+import React, { memo } from "react";
 
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
