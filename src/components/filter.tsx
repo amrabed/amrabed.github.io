@@ -43,7 +43,7 @@ export const Selection = ({
       {(state) => {
         const styles = checkbox({ isSelected: state.isSelected });
         return (
-          <div className="flex items-center">
+          <Checkbox.Content className="flex items-center">
             <VisuallyHidden>
               <Checkbox.Control>
                 <Checkbox.Indicator />
@@ -57,7 +57,7 @@ export const Selection = ({
                 <Chip.Label className={styles.content()}>{children}</Chip.Label>
               </div>
             </Chip>
-          </div>
+          </Checkbox.Content>
         );
       }}
     </Checkbox>
