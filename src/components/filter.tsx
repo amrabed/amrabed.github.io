@@ -33,7 +33,11 @@ export const Selection = ({
               </Checkbox.Control>
             </VisuallyHidden>
             <Chip
-              className="filter-chip"
+              className={`border-none transition-all duration-200 cursor-pointer ${
+                state.isSelected
+                  ? "bg-foreground hover:bg-primary"
+                  : "bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700"
+              } filter-chip`}
               variant="soft"
               data-selected={state.isSelected || undefined}
             >
@@ -45,7 +49,13 @@ export const Selection = ({
                     aria-hidden="true"
                   />
                 )}
-                <Chip.Label className="filter-chip-content">
+                <Chip.Label
+                  className={
+                    state.isSelected
+                      ? "text-white hover:text-zinc-100 pl-1"
+                      : "text-foreground-500 hover:text-foreground"
+                  }
+                >
                   {children}
                 </Chip.Label>
               </div>
