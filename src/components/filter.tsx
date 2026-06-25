@@ -18,14 +18,17 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 
 const checkbox = tv({
   slots: {
-    base: "border-none bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700 transition-all duration-200 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-primary group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-white dark:group-data-[focus-visible=true]:ring-offset-slate-800 group-data-[pressed=true]:scale-95",
+    base: "filter-chip group-data-[focus-visible=true]:filter-chip-focus group-data-[pressed=true]:filter-chip-pressed",
     content: "text-foreground-500 hover:text-foreground",
   },
   variants: {
     isSelected: {
       true: {
-        base: "border-none bg-foreground hover:bg-primary",
+        base: "filter-chip-selected",
         content: "text-white hover:text-zinc-100 pl-1",
+      },
+      false: {
+        base: "filter-chip-unselected",
       },
     },
   },
@@ -43,7 +46,7 @@ export const Selection = ({
       {(state) => {
         const styles = checkbox({ isSelected: state.isSelected });
         return (
-          <Checkbox.Content className="flex items-center">
+          <div className="flex items-center">
             <VisuallyHidden>
               <Checkbox.Control>
                 <Checkbox.Indicator />
@@ -61,7 +64,7 @@ export const Selection = ({
                 <Chip.Label className={styles.content()}>{children}</Chip.Label>
               </div>
             </Chip>
-          </Checkbox.Content>
+          </div>
         );
       }}
     </Checkbox>

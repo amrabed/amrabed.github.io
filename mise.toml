@@ -37,13 +37,12 @@ outputs = ['node_modules/.pnpm/lock.yaml']
 alias = 'f'
 description = 'Format code'
 run = 'pnpm run format'
-depends = ['install']
 
 [tasks.lint]
 alias = 'l'
 description = 'Run ESLint'
 run = 'pnpm run lint'
-depends = ['format']
+depends = ['install', 'format']
 
 [tasks.build]
 alias = 'b'
