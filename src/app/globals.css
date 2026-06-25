@@ -133,19 +133,15 @@ div {
 }
 
 .filter-chip {
-  @apply border-none transition-all duration-200;
-}
-
-.filter-chip-unselected {
-  @apply bg-zinc-100 hover:bg-zinc-200 dark:bg-slate-800/50 dark:hover:bg-slate-800;
+  @apply border-none bg-zinc-100 hover:bg-zinc-200 dark:bg-slate-800/50 dark:hover:bg-slate-800 transition-all duration-200;
 }
 
 .filter-chip-selected {
-  @apply bg-foreground hover:bg-primary;
+  @apply border-none bg-foreground hover:bg-primary;
 }
 
 .filter-chip-focus {
-  @apply ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-slate-900;
+  @apply ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-slate-950;
 }
 
 .filter-chip-pressed {

@@ -27,9 +27,6 @@ const checkbox = tv({
         base: "filter-chip-selected",
         content: "text-white hover:text-zinc-100 pl-1",
       },
-      false: {
-        base: "filter-chip-unselected",
-      },
     },
   },
 });
