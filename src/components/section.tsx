@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, ReactNode, useEffect, useRef, useState } from "react";
+import { memo, ReactNode, useEffect, useRef } from "react";
 
 export const Section = memo(
   ({
@@ -12,26 +12,25 @@ export const Section = memo(
     title: string;
     children: ReactNode;
   }) => {
-    const [isVisible, setIsVisible] = useState(false);
     const dataRef = useRef<HTMLElement | null>(null);
-    const itemRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-      const getScreenWidth = () =>
+      const screenWidth =
         window.innerWidth ||
         document.documentElement.clientWidth ||
         document.body.clientWidth;
 
+      const currentDataRef = dataRef.current;
       const observer = new IntersectionObserver(
         ([entry]) => {
-          setIsVisible(entry.isIntersecting);
+          // ⚡ Optimization: Toggle in-view class on the parent element
+          currentDataRef?.classList.toggle("in-view", entry.isIntersecting);
         },
         {
-          rootMargin: `${getScreenWidth() <= 700 ? "-100px" : "-250px"}`,
+          rootMargin: screenWidth <= 700 ? "-100px" : "-250px",
         },
       );
 
-      const currentDataRef = dataRef.current;
       if (currentDataRef) {
         observer.observe(currentDataRef);
       }
@@ -43,24 +42,12 @@ export const Section = memo(
       };
     }, []);
 
-    useEffect(() => {
-      if (itemRef.current) {
-        if (isVisible) {
-          itemRef.current.classList.add("pop-up-child");
-        } else {
-          itemRef.current.classList.remove("pop-up-child");
-        }
-      }
-    }, [isVisible]);
-
     return (
       <section id={id} className="section scroll-mt-48" ref={dataRef}>
         <div className="flex items-center gap-4 mb-8">
           <h2 className="section-heading mb-0">{title}</h2>
         </div>
-        <div className="pop-down-child section-body" ref={itemRef}>
-          {children}
-        </div>
+        <div className="pop-down-child section-body">{children}</div>
       </section>
     );
   },

@@ -9,6 +9,7 @@ _.path = ['{{config_root}}/node_modules/.bin']
 [shell_alias]
 m = 'mise run'
 i = 'mise run install'
+f = 'mise run format'
 l = 'mise run lint'
 d = 'mise run dev'
 v = 'mise run verify'
@@ -19,7 +20,7 @@ la = 'ls -A'
 
 g = 'git'
 gb = 'git branch'
-go = 'git checkout'
+gco = 'git checkout'
 gd = 'git diff'
 gs = 'git status'
 ga = 'git add'

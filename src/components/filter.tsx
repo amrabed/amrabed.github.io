@@ -11,25 +11,9 @@ import {
   Checkbox,
   Label,
   Chip,
-  tv,
   Popover,
 } from "@heroui/react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
-
-const checkbox = tv({
-  slots: {
-    base: "border-none bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700",
-    content: "text-foreground-500 hover:text-foreground",
-  },
-  variants: {
-    isSelected: {
-      true: {
-        base: "border-none bg-foreground hover:bg-primary",
-        content: "text-white hover:text-zinc-100 pl-1",
-      },
-    },
-  },
-});
 
 export const Selection = ({
   value,
@@ -41,20 +25,29 @@ export const Selection = ({
   return (
     <Checkbox value={value}>
       {(state) => {
-        const styles = checkbox({ isSelected: state.isSelected });
         return (
-          <Checkbox.Content className="flex items-center">
+          <Checkbox.Content className="flex items-center filter-chip-wrapper">
             <VisuallyHidden>
               <Checkbox.Control>
                 <Checkbox.Indicator />
               </Checkbox.Control>
             </VisuallyHidden>
-            <Chip className={styles.base()} variant="soft">
+            <Chip
+              className="filter-chip"
+              variant="soft"
+              data-selected={state.isSelected || undefined}
+            >
               <div className="flex items-center gap-1">
                 {state.isSelected && (
-                  <CheckIcon className="size-4" color="white" />
+                  <CheckIcon
+                    className="size-4"
+                    color="white"
+                    aria-hidden="true"
+                  />
                 )}
-                <Chip.Label className={styles.content()}>{children}</Chip.Label>
+                <Chip.Label className="filter-chip-label">
+                  {children}
+                </Chip.Label>
               </div>
             </Chip>
           </Checkbox.Content>
@@ -81,7 +74,7 @@ export const Selections = ({
       value={selected}
       onChange={(values) => setSelected(values as string[])}
     >
-      <Label className="text-sm font-medium text-slate-500 uppercase tracking-wider">
+      <Label className="filter-label">
         {label}
       </Label>
       <div className="flex flex-wrap gap-2 flex-row">
@@ -89,7 +82,9 @@ export const Selections = ({
           <Selection key={v.id} value={v.id}>
             <div className="flex items-center gap-2">
               {v.icon && (
-                <span className="size-4 flex items-center">{v.icon}</span>
+                <span className="size-4 flex items-center" aria-hidden="true">
+                  {v.icon}
+                </span>
               )}
               {v.name}
             </div>
@@ -120,11 +115,11 @@ export const Filter = ({
           isIconOnly
           aria-label="Open filters"
           aria-haspopup="dialog"
-          className={`relative ${className}`}
+          className={`filter-trigger ${className}`}
         >
           <AdjustmentsHorizontalIcon className="size-6" />
           {activeCount > 0 && (
-            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-slate-800">
+            <span className="filter-badge">
               {activeCount}
             </span>
           )}
@@ -135,13 +130,13 @@ export const Filter = ({
         placement="top"
         className="dark:bg-slate-800 rounded-3xl"
       >
-        <Popover.Dialog className="flex flex-col w-[90vw] max-w-[500px] p-6 gap-8 max-h-[70vh] overflow-y-auto relative">
+        <Popover.Dialog className="filter-dialog">
           <Button
             variant="ghost"
             isIconOnly
             size="sm"
             onPress={() => setIsOpen(false)}
-            className="absolute right-4 top-4 text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 min-w-0 h-8 w-8 z-10"
+            className="filter-close-btn"
             aria-label="Close filters"
           >
             <XMarkIcon className="size-5" />

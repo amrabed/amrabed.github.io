@@ -33,8 +33,8 @@ const Home = () => {
       if (skillsSection) {
         skillsTop = skillsSection.offsetTop;
         const lastSection =
-          document.getElementById("publications") ||
-          document.getElementById("experience");
+          document.getElementById("experience") ||
+          document.getElementById("publications");
         lastSectionBottom = lastSection
           ? lastSection.offsetTop + lastSection.offsetHeight
           : 0;
@@ -80,8 +80,8 @@ const Home = () => {
           <SkillsSection />
           <CertificationsSection />
           <ProjectsSection />
-          <ExperienceSection />
           <PublicationsSection />
+          <ExperienceSection />
           <EducationSection />
           <AboutSection />
         </div>

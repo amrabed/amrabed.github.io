@@ -6,8 +6,8 @@ export const sections = [
   { name: "Skills", link: "#skills" },
   { name: "Certifications", link: "#certifications" },
   { name: "Projects", link: "#projects" },
-  { name: "Experience", link: "#experience" },
   { name: "Publications", link: "#publications" },
+  { name: "Experience", link: "#experience" },
   { name: "Education", link: "#degrees" },
   { name: "About", link: "#about" },
 ];
