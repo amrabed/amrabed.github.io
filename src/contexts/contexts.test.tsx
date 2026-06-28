@@ -1,6 +1,6 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-import React, { useMemo } from "react";
+import React from "react";
 
 import { render, act, renderHook } from "@testing-library/react";
 

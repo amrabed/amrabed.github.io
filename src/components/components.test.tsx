@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name, @typescript-eslint/no-explicit-any */
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
 import React from "react";
@@ -33,7 +34,7 @@ vi.mock("@heroui/react", async (importOriginal) => {
 // Mock hooks
 const mockSetQuery = vi.fn();
 const mockClearAll = vi.fn();
-let mockIsFilterBarVisible = false;
+const mockIsFilterBarVisible = false;
 
 vi.mock("@/contexts/search", () => ({
   useSearch: () => ({
@@ -114,7 +115,7 @@ describe("UI Components", () => {
 
   describe("ScrollToTopButton (upArrow)", () => {
     it("should show/hide on scroll and trigger window.scrollTo on click", () => {
-      const { container, rerender } = render(<ScrollToTopButton />);
+      const { container } = render(<ScrollToTopButton />);
 
       // Initially not visible (window.scrollY is 0)
       window.scrollY = 0;
@@ -173,7 +174,7 @@ describe("UI Components", () => {
 
       window.IntersectionObserver = vi
         .fn()
-        .mockImplementation((callback, options) => {
+        .mockImplementation((callback) => {
           observerCallback = callback;
           return {
             observe: mockObserve,
