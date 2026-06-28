@@ -79,14 +79,16 @@ export const FilterableSection = <T extends FilterableItem>({
   }, [debouncedQuery, matchingItems, sortFn]);
 
   return (
-    <Section id={id} title={title}>
+    <Section
+      id={id}
+      title={title}
+      contentClassName={renderContainer ? "" : gridClassName}
+    >
       {filteredItems.length > 0 ? (
         renderContainer ? (
           renderContainer(filteredItems)
         ) : (
-          <div className={gridClassName}>
-            {filteredItems.map((item) => renderItem(item))}
-          </div>
+          filteredItems.map((item) => renderItem(item))
         )
       ) : (
         <EmptyState />
