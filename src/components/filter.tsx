@@ -74,9 +74,7 @@ export const Selections = ({
       value={selected}
       onChange={(values) => setSelected(values as string[])}
     >
-      <Label className="filter-label">
-        {label}
-      </Label>
+      <Label className="filter-label">{label}</Label>
       <div className="flex flex-wrap gap-2 flex-row">
         {values.map((v) => (
           <Selection key={v.id} value={v.id}>
@@ -119,9 +117,7 @@ export const Filter = ({
         >
           <AdjustmentsHorizontalIcon className="size-6" />
           {activeCount > 0 && (
-            <span className="filter-badge">
-              {activeCount}
-            </span>
+            <span className="filter-badge">{activeCount}</span>
           )}
         </Button>
       </Popover.Trigger>

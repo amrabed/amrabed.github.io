@@ -1,15 +1,18 @@
 # Requirements for Code Coverage and Unit Testing
 
 ## Overview
+
 Implement a comprehensive unit testing setup using Vitest to achieve close to 100% test coverage. Add a coverage badge to the README.md and reorganize components/utilities/middleware for a cleaner, more modular structure.
 
 ## Technical Stack
+
 - **Test Runner**: Vitest
 - **Coverage Tool**: `@vitest/coverage-v8`
 - **React Testing**: `@testing-library/react`, `@testing-library/jest-dom`
 - **DOM Environment**: `jsdom`
 
 ## Functional Requirements
+
 - Setup testing commands in `package.json` (`pnpm run test` and `pnpm run test:coverage`).
 - Setup a verify step in `mise.toml` that runs tests.
 - Move helper files to appropriate structures:

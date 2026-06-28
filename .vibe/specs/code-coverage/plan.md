@@ -7,13 +7,14 @@ This plan outlines the steps to add a unit testing framework (Vitest), reorganiz
 ### Reorganization
 
 To clean up the project structure, we will:
+
 1. Move `src/filter.tsx` (which is a pure utility file with no React/JSX component logic) to `src/utils/filter.ts` (with a `.ts` extension).
 2. Rename `src/middleware` to `src/lib` because the files within it (`genai.ts`, `upstash.ts`) are database/API initializations, not Next.js middleware.
 3. Update all imports referencing `@/filter` and `@/middleware`.
 
 ### Testing Setup
 
- We will configure **Vitest** since it is fast, supports TypeScript natively, works seamlessly with Next.js, and integrates well with `@testing-library/react` and `jsdom`.
+We will configure **Vitest** since it is fast, supports TypeScript natively, works seamlessly with Next.js, and integrates well with `@testing-library/react` and `jsdom`.
 
 1. **Install dev dependencies**:
    - `vitest` (test runner)
@@ -46,50 +47,65 @@ To clean up the project structure, we will:
 ### File Modifications
 
 #### [MODIFY] [package.json](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/package.json)
+
 - Add Vitest, testing library, and jsdom dependencies to `devDependencies`.
 - Add `"test": "vitest run --coverage"` to scripts.
 
 #### [MODIFY] [mise.toml](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/mise.toml)
+
 - Add `test` task.
 - Update `verify` task dependencies to include `test`.
 
 #### [NEW] [vitest.config.ts](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/vitest.config.ts)
+
 - Configure Vitest testing environment with JSdom, setup files, path aliases (`@/*`), and coverage exclusions.
 
 #### [NEW] [vitest.setup.ts](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/vitest.setup.ts)
+
 - Import `@testing-library/jest-dom/vitest`.
 
 #### [NEW] [filter.ts](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/src/utils/filter.ts)
+
 - Copy contents of `src/filter.tsx` with corrected types/extensions.
 
 #### [DELETE] [filter.tsx](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/src/filter.tsx)
+
 - Remove old file path.
 
 #### [MODIFY] [filterable-section.tsx](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/src/components/filterable-section.tsx)
+
 - Update import path for filter helpers to `@/utils/filter`.
 
 #### [NEW] [genai.ts](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/src/lib/genai.ts)
+
 - Move from `src/middleware/genai.ts`.
 
 #### [NEW] [upstash.ts](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/src/lib/upstash.ts)
+
 - Move from `src/middleware/upstash.ts`.
 
 #### [DELETE] [genai.ts](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/src/middleware/genai.ts)
+
 - Remove old file path.
 
 #### [DELETE] [upstash.ts](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/src/middleware/upstash.ts)
+
 - Remove old file path.
 
 #### [MODIFY] [request.ts](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/src/app/api/chat/request.ts)
+
 - Update import path for genai to `@/lib/genai`.
 
 #### [MODIFY] [ratelimit.ts](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/src/app/api/chat/ratelimit.ts)
+
 - Update import path for upstash to `@/lib/upstash`.
 
 #### [MODIFY] [README.md](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/README.md)
+
 - Add a shields.io coverage badge.
 
 #### [NEW] `src/tests/*`
+
 - Write unit tests for our utils, contexts, hooks, APIs, and components.
 
 ---
@@ -97,6 +113,7 @@ To clean up the project structure, we will:
 ## Verification Plan
 
 ### Automated Tests
+
 - Run `pnpm install`
 - Run `pnpm run test` or `mise run test` to verify all tests pass and coverage is close to 100%.
 - Run `pnpm run lint` and `tsc --noEmit` to ensure there are no compilation or syntax issues.

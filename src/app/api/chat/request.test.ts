@@ -7,7 +7,8 @@ const mockConvertToModelMessages = vi.fn();
 
 vi.mock("ai", () => ({
   streamText: (options: any) => mockStreamText(options),
-  convertToModelMessages: (messages: any) => mockConvertToModelMessages(messages),
+  convertToModelMessages: (messages: any) =>
+    mockConvertToModelMessages(messages),
 }));
 
 vi.mock("@/lib/genai", () => ({

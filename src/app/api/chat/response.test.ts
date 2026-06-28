@@ -14,7 +14,9 @@ describe("api response helpers", () => {
 
   it("should have correct OPTIONS_RESPONSE configured", async () => {
     expect(OPTIONS_RESPONSE.status).toBe(204);
-    expect(OPTIONS_RESPONSE.headers.get("Access-Control-Allow-Origin")).toBe("*");
+    expect(OPTIONS_RESPONSE.headers.get("Access-Control-Allow-Origin")).toBe(
+      "*",
+    );
   });
 
   it("should generate correct errorResponse", async () => {

@@ -6,8 +6,8 @@ import { EmptyState } from "@/components/empty-state";
 import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useDebouncedSearch } from "@/contexts/search";
-import { filterByQuery, filterByArea } from "@/utils/filter";
 import { Position, Project, Certification, Degree, Publication } from "@/types";
+import { filterByQuery, filterByArea } from "@/utils/filter";
 
 export interface FilterableItem {
   tags?: string[];

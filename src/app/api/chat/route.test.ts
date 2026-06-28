@@ -67,7 +67,9 @@ describe("chat api route", () => {
       mockIsRateLimited.mockResolvedValue(false);
       mockSendRequest.mockRejectedValue(new Error("Internal API Error"));
 
-      const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+      const consoleSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
 
       const req = new Request("http://localhost/api/chat", { method: "POST" });
       const res = await POST(req);
@@ -84,7 +86,9 @@ describe("chat api route", () => {
       mockIsRateLimited.mockResolvedValue(false);
       mockSendRequest.mockRejectedValue("String error");
 
-      const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+      const consoleSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
 
       const req = new Request("http://localhost/api/chat", { method: "POST" });
       const res = await POST(req);

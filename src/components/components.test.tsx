@@ -1,13 +1,15 @@
-import { render, act } from "@testing-library/react";
-import React from "react";
 import { describe, expect, it, vi, beforeEach } from "vitest";
+
+import React from "react";
+
+import { render, act } from "@testing-library/react";
 
 import { EmptyState } from "./empty-state";
 import { IconLink } from "./icon-link";
+import { Section } from "./section";
+import { SectionItemCard } from "./section-item-card";
 import Social from "./social";
 import ScrollToTopButton from "./upArrow";
-import { SectionItemCard } from "./section-item-card";
-import { Section } from "./section";
 
 // Mock HeroUI Tooltip and other components to simplify testing
 vi.mock("@heroui/react", async (importOriginal) => {
@@ -77,7 +79,7 @@ describe("UI Components", () => {
       const { getByLabelText } = render(
         <IconLink href="https://example.com" title="My Title">
           <span>Icon</span>
-        </IconLink>
+        </IconLink>,
       );
 
       const link = getByLabelText("My Title");
@@ -102,14 +104,18 @@ describe("UI Components", () => {
         btn.click();
       });
 
-      expect(mockOpen).toHaveBeenCalledWith("https://github.com", "_blank", "noopener,noreferrer");
+      expect(mockOpen).toHaveBeenCalledWith(
+        "https://github.com",
+        "_blank",
+        "noopener,noreferrer",
+      );
     });
   });
 
   describe("ScrollToTopButton (upArrow)", () => {
     it("should show/hide on scroll and trigger window.scrollTo on click", () => {
       const { container, rerender } = render(<ScrollToTopButton />);
-      
+
       // Initially not visible (window.scrollY is 0)
       window.scrollY = 0;
       act(() => {
@@ -122,7 +128,7 @@ describe("UI Components", () => {
       act(() => {
         window.dispatchEvent(new Event("scroll"));
       });
-      
+
       // After scroll, button should render
       const btn = container.querySelector(".scroll-button");
       expect(btn).toBeInTheDocument();
@@ -147,13 +153,13 @@ describe("UI Components", () => {
           title="Job Title"
           subtitle="Job Subtitle"
           footer="Job Footer"
-        />
+        />,
       );
 
       expect(getByText("Job Title")).toBeInTheDocument();
       expect(getByText("Job Subtitle")).toBeInTheDocument();
       expect(getByText("Job Footer")).toBeInTheDocument();
-      
+
       const img = getByAltText("Job Alt");
       expect(img.getAttribute("src")).toContain("job.png");
     });
@@ -165,19 +171,21 @@ describe("UI Components", () => {
       const mockUnobserve = vi.fn();
       let observerCallback: any = null;
 
-      window.IntersectionObserver = vi.fn().mockImplementation((callback, options) => {
-        observerCallback = callback;
-        return {
-          observe: mockObserve,
-          unobserve: mockUnobserve,
-          disconnect: vi.fn(),
-        };
-      });
+      window.IntersectionObserver = vi
+        .fn()
+        .mockImplementation((callback, options) => {
+          observerCallback = callback;
+          return {
+            observe: mockObserve,
+            unobserve: mockUnobserve,
+            disconnect: vi.fn(),
+          };
+        });
 
       const { getByText, container, unmount } = render(
         <Section id="my-section" title="Section Title">
           <div>Section Body</div>
-        </Section>
+        </Section>,
       );
 
       expect(getByText("Section Title")).toBeInTheDocument();

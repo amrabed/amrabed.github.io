@@ -1,13 +1,15 @@
-import { render, act, renderHook } from "@testing-library/react";
-import React, { useMemo } from "react";
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-import { useHeader, default as HeaderProvider } from "./header";
-import { useTheme, default as ThemeProvider } from "./theme";
-import { useSearch, useDebouncedSearch, SearchProvider } from "./search";
+import React, { useMemo } from "react";
+
+import { render, act, renderHook } from "@testing-library/react";
+
 import { useFilter, FilterProvider } from "./filter";
+import { useHeader, default as HeaderProvider } from "./header";
+import { useSearch, useDebouncedSearch, SearchProvider } from "./search";
 import { withSuspense } from "./suspense";
 import { useUrlSync } from "./sync";
+import { useTheme, default as ThemeProvider } from "./theme";
 
 // Mock next/navigation
 const mockReplace = vi.fn();
@@ -52,7 +54,9 @@ describe("React Contexts & Hooks", () => {
         return (
           <div>
             <span data-testid="theme">{theme}</span>
-            <button data-testid="toggle" onClick={toggleTheme}>Toggle</button>
+            <button data-testid="toggle" onClick={toggleTheme}>
+              Toggle
+            </button>
           </div>
         );
       };
@@ -60,7 +64,7 @@ describe("React Contexts & Hooks", () => {
       const { getByTestId } = render(
         <ThemeProvider>
           <TestComponent />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
 
       expect(getByTestId("theme").textContent).toBe("dark");
@@ -91,16 +95,18 @@ describe("React Contexts & Hooks", () => {
       const { getByTestId } = render(
         <ThemeProvider>
           <TestComponent />
-        </ThemeProvider>
+        </ThemeProvider>,
       );
 
       expect(getByTestId("theme").textContent).toBe("light");
     });
 
     it("should throw error if useTheme is called outside provider", () => {
-      const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
       expect(() => renderHook(() => useTheme())).toThrow(
-        "useTheme must be used within a ThemeProvider"
+        "useTheme must be used within a ThemeProvider",
       );
       consoleErrorSpy.mockRestore();
     });
@@ -116,7 +122,7 @@ describe("React Contexts & Hooks", () => {
       const { getByTestId } = render(
         <HeaderProvider>
           <TestComponent />
-        </HeaderProvider>
+        </HeaderProvider>,
       );
 
       expect(getByTestId("top").textContent).toBe("-80px");
@@ -137,9 +143,11 @@ describe("React Contexts & Hooks", () => {
     });
 
     it("should throw error if useHeader is called outside provider", () => {
-      const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
       expect(() => renderHook(() => useHeader())).toThrow(
-        "useHeader must be used within a HeaderProvider"
+        "useHeader must be used within a HeaderProvider",
       );
       consoleErrorSpy.mockRestore();
     });
@@ -148,14 +156,16 @@ describe("React Contexts & Hooks", () => {
   describe("UrlSync Hook", () => {
     it("should sync state to URL params", () => {
       mockEntries.mockReturnValue([]);
-      
+
       const updateUrl = vi.fn((params, state) => {
         params.set("test", state);
       });
 
       renderHook(() => useUrlSync("my-state", updateUrl));
 
-      expect(mockReplace).toHaveBeenCalledWith("/current-path?test=my-state", { scroll: false });
+      expect(mockReplace).toHaveBeenCalledWith("/current-path?test=my-state", {
+        scroll: false,
+      });
     });
   });
 
@@ -171,7 +181,9 @@ describe("React Contexts & Hooks", () => {
           <div>
             <span data-testid="query">{query}</span>
             <span data-testid="debounced">{debouncedQuery}</span>
-            <button data-testid="set" onClick={() => setQuery("search-term")}>Set</button>
+            <button data-testid="set" onClick={() => setQuery("search-term")}>
+              Set
+            </button>
           </div>
         );
       };
@@ -179,7 +191,7 @@ describe("React Contexts & Hooks", () => {
       const { getByTestId } = render(
         <SearchProvider>
           <TestComponent />
-        </SearchProvider>
+        </SearchProvider>,
       );
 
       expect(getByTestId("query").textContent).toBe("");
@@ -201,17 +213,21 @@ describe("React Contexts & Hooks", () => {
     });
 
     it("should throw error if useSearch is called outside provider", () => {
-      const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
       expect(() => renderHook(() => useSearch())).toThrow(
-        "useSearch must be used within a SearchProvider"
+        "useSearch must be used within a SearchProvider",
       );
       consoleErrorSpy.mockRestore();
     });
 
     it("should throw error if useDebouncedSearch is called outside provider", () => {
-      const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
       expect(() => renderHook(() => useDebouncedSearch())).toThrow(
-        "useDebouncedSearch must be used within a SearchProvider"
+        "useDebouncedSearch must be used within a SearchProvider",
       );
       consoleErrorSpy.mockRestore();
     });
@@ -219,17 +235,40 @@ describe("React Contexts & Hooks", () => {
 
   describe("Filter Context & Hook", () => {
     it("should allow getting/setting filters and clearing them", () => {
-      mockEntries.mockReturnValue([["areas", "frontend,backend"], ["query", "term"]]);
+      mockEntries.mockReturnValue([
+        ["areas", "frontend,backend"],
+        ["query", "term"],
+      ]);
 
       const TestComponent = () => {
-        const { selected, setSelected, clearAll, isFilterBarVisible, setIsFilterBarVisible } = useFilter();
+        const {
+          selected,
+          setSelected,
+          clearAll,
+          isFilterBarVisible,
+          setIsFilterBarVisible,
+        } = useFilter();
         return (
           <div>
             <span data-testid="areas">{selected.areas?.join(",")}</span>
-            <span data-testid="visible">{isFilterBarVisible ? "yes" : "no"}</span>
-            <button data-testid="set-role" onClick={() => setSelected("roles", ["developer"])}>Set Role</button>
-            <button data-testid="toggle-vis" onClick={() => setIsFilterBarVisible(true)}>Show</button>
-            <button data-testid="clear" onClick={clearAll}>Clear</button>
+            <span data-testid="visible">
+              {isFilterBarVisible ? "yes" : "no"}
+            </span>
+            <button
+              data-testid="set-role"
+              onClick={() => setSelected("roles", ["developer"])}
+            >
+              Set Role
+            </button>
+            <button
+              data-testid="toggle-vis"
+              onClick={() => setIsFilterBarVisible(true)}
+            >
+              Show
+            </button>
+            <button data-testid="clear" onClick={clearAll}>
+              Clear
+            </button>
           </div>
         );
       };
@@ -237,7 +276,7 @@ describe("React Contexts & Hooks", () => {
       const { getByTestId } = render(
         <FilterProvider>
           <TestComponent />
-        </FilterProvider>
+        </FilterProvider>,
       );
 
       expect(getByTestId("areas").textContent).toBe("frontend,backend");
@@ -260,9 +299,11 @@ describe("React Contexts & Hooks", () => {
     });
 
     it("should throw error if useFilter is called outside provider", () => {
-      const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
       expect(() => renderHook(() => useFilter())).toThrow(
-        "useFilter must be used within a FilterProvider"
+        "useFilter must be used within a FilterProvider",
       );
       consoleErrorSpy.mockRestore();
     });
