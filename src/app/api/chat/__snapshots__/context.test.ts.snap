@@ -1,0 +1,379 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`getConsolidatedContext > should match the existing snapshot 1`] = `
+"Amr Abed's Portfolio Data:
+
+### Profiles & Professional Links
+- LinkedIn: https://www.linkedin.com/in/amrabed
+- GitHub: https://www.github.com/amrabed
+- Google Scholar: https://scholar.google.com/citations?user=vdrgnAYAAAAJ
+- Stack Overflow: https://stackoverflow.com/users/2070636/amrabed
+- Goodreads: https://goodreads.com/user/show/15582377-amr-abed
+- StackShare: https://stackshare.io/amrabed
+- Medium: https://amrabed.medium.com
+- YouTube: https://youtube.com/@amr-abed
+- X: https://twitter.com/amr_abed
+
+### Education
+- Degree: Ph.D. Computer Engineering from Virginia Tech (August 2014 - July 2017)
+- Degree: M.S. Computer Engineering from Virginia Tech (August 2010 - July 2013)
+- Degree: B.S. Computer Engineering from Ain Shams University (September 2000 - June 2005)
+
+### Certifications
+- AWS Certified Generative AI Developer - Professional (Issued by: AWS Certification, Date: March 2026)
+- AWS Certified Machine Learning - Specialty (Issued by: AWS Certification, Date: June 2024)
+- AWS Certified Solutions Architect (Issued by: AWS Certification, Date: October 2020)
+- Certified Scrum Master (Issued by: Scrum Alliance, Date: June 2020)
+- Certified Scrum Product Owner (Issued by: Scrum Alliance, Date: June 2020)
+
+### Technical Skills & Tools
+- Python
+- TensorFlow
+- Scikit-Learn
+- MLflow
+- AWS
+- Google Cloud
+- Docker
+- Kubernetes
+- Firebase
+- Android
+- Kotlin
+- Java
+- C/C++
+- Swift
+- Flutter
+- JavaScript
+- TypeScript
+- Bash
+
+### Professional Experience
+- Role: Engineering Manager at Sophi
+  Duration: Nov 2022 - Present
+  Responsibilities & Achievements:
+    * Led the engineering team to redesign the software and architecture of Sophi Paywall products to ensure scalability for a growing customer base
+    * Built a robust machine - learning automation system leveraging MLflow and Amazon EKS
+    * Worked closely with DevOps to significantly reduce operational costs by consolidating multiple single-tenant systems into a single multi-tenant architecture
+  Key skills used: TensorFlow, AWS, Python, Docker
+
+- Role: Lead Software Engineer at Sophi
+  Duration: Apr 2022 - Nov 2022
+  Responsibilities & Achievements:
+    * Led a team of three engineers to redesign the code for Print Laydown Automation
+    * Collaborated with DevOps team to redesign the architecture of different projects
+  Key skills used: TensorFlow, AWS, Python, Docker, Terraform
+
+- Role: Senior Software Engineer, Machine Learning at Sophi
+  Duration: Jan 2021 - Apr 2022
+  Responsibilities & Achievements:
+    * Designed AWS cloud solutions for deploying and using TensorFlow deep learning models
+    * Created and maintained backend services for ML-based decision making using Python
+    * Built APIs for users and system admins to communicate with backend services
+  Key skills used: TensorFlow, AWS, Python, Docker
+
+- Role: Learning Content Team Lead at RoboGarden
+  Duration: Dec 2018 - Aug 2019
+  Responsibilities & Achievements:
+    * Created content for a Python Machine Learning course to be taught in a continuing-education program of one of the top universities in Canada
+    * Led a team of 6 engineers to deliver contents for 6 different courses
+  Key skills used: Python, Scikit-Learn, Keras, Machine Learning, Deep Learning
+
+- Role: Assistant Professor at Minia University (Computer & System Engineering)
+  Duration: Nov 2017 - Jan 2020
+  Responsibilities & Achievements:
+    * Supervised a Machine Learning based Mobile Cloud Computing graduation project
+    * Created 3 new undergraduate courses, including Cloud Computing and Database courses
+  Key skills used: C++, AWS, Docker, SQL
+  Courses taught:
+    * Database Systems (CSE 315): This course teaches undergraduate Computer Engineering students the basic concepts of databases management systems, focusing on relational databases and SQL
+    * Programming Languages (CSE 115): This course teaches first-year Computer & System Engineering (CSE) students the basic principles of programming using C++
+    * Cloud Computing (CSE 415): This course teaches senior undergraduate Computer Engineering students the fundamental concepts of cloud computing, and provides a hands-on experience of the area that prepares them for the job market
+    * Computer-Controlled Systems (CSE 422): This course provides senior undergraduate CSE students with the fundamental principles of analysis, design, and implementation of computer-controlled systems
+
+- Role: Software Engineering Intern at Google
+  Duration: May 2014 - Aug 2014
+  Responsibilities & Achievements:
+    * Implemented an Android application that communicates with Google visual-search service and Google knowledge graph
+    * Collaborated with members from three different teams to successfully complete project on time
+    * Added features and fixed bugs for two other Android applications using the Google Fit APIs
+  Key skills used: Java, Android, Google Knowledge Graph, Google Fit API, Google Visual Search
+
+- Role: Graduate Research Assistant at NCR Urban Living Lab, Virginia Tech
+  Duration: May 2016 - Jul 2017
+  Project: Metrolab Sensor Network
+  Sponsors: Arlington County
+  Responsibilities & Achievements:
+    * Constructed a Raspberry Pi based IoT sensor for the MetroLab Network
+    * Designed and implemented a framework for the device to communicate with a remote MySQL server
+    * Implemented a website using PHP and Plotly.js to display data from the database
+  Key skills used: Python, PHP, MySQL, Raspberry Pi, Plotly.js
+
+- Role: Graduate Research Assistant at Hume Center, Virginia Tech
+  Duration: Jan 2017 - May 2017
+  Project: VT-Fujitsu Joint Research Project
+  Sponsors: Fujitsu
+  Responsibilities & Achievements:
+    * Collaborated with members from Fujitsu in a joint research project to build an SDN-based security solution
+    * Designed the threat model for testing the security solution using Metasploit
+    * Implemented a container-based web application as an attack target
+  Key skills used: Docker, PHP, MySQL, Metasploit
+
+- Role: Graduate Research Assistant at Hume Center, Virginia Tech
+  Duration: Jan 2015 - May 2016
+  Project: RHIDS - Resilient Host-based Intrusion Detection System for Linux containers
+  Sponsors: S2ERC, Northrop Grumman
+  Responsibilities & Achievements:
+    * Assisted in writing a winning proposal for an NSF Industry/University Cooperative Research Center
+    * Designed and implemented RHIDS, an intrusion detection system for cloud containers
+    * Tested the system using Docker containers deployed on Amazon-AWS EC2 instances
+  Key skills used: Java, Docker, Amazon AWS, Shell
+
+- Role: Graduate Research Assistant at Magnum Lab, Virginia Tech
+  Duration: Feb 2013 - May 2013
+  Project: SodaCloud - Shared Object Distribution Architecture for Cloud systems
+  Sponsors: Siemens
+  Responsibilities & Achievements:
+    * Implemented the Docker-EC2 tool using Shell scripting to automate running and testing network applications using a Docker container on different instances of the Amazon-AWS EC2
+    * Maintained and troubleshot build issues of the SodaCloud project (Mobile/Cloud Computing project funded by Siemens) on GitHub and BuildHive using Maven
+  Key skills used: Docker, Amazon AWS, Shell, Maven
+
+- Role: Teaching Assistant at Minia University (Computer & System Engineering)
+  Duration: Mar 2007 - Aug 2010
+  Responsibilities & Achievements:
+    * Taught 8 different undergraduate courses to 4 different classes of an average of 25 students each
+  Key skills used: C++
+  Courses taught:
+    * Programming Languages (C Programming) (CSE 115): Introductory C-programming course taught to first year computer engineering students
+    * Signals and Systems (CSE 314): Signal and systems course taught to third year computer engineering students
+    * Electrical Circuits (CSE 111): Fundamentals of DC and AC electric circuits taught to first year computer engineering students
+    * Operating Systems (CSE 222): Fundamentals of operating system design using C. Course taught to second year computer engineering students
+
+- Role: Instructor at Inform - IBM Authorized Training Center
+  Duration: Mar 2006 - Aug 2010
+  Responsibilities & Achievements:
+    * Taught C and C++ Programming to more than 150 students from different backgrounds, many of them were from outside the Engineering field
+  Key skills used: C++
+  Courses taught:
+    * C Programming
+    * C++ Programming
+
+- Role: Software Development Engineer at Mentor Graphics
+  Duration: Nov 2007 - Nov 2008
+  Responsibilities & Achievements:
+    * Studied and analyzed the C-based version of the Spectre2Eldo syntax converter
+    * Designed and implemented the OO-based version of the Spectre2Eldo syntax converter using C++ STL
+    * Solved problems related to using a Flex & Bison parser with C++
+  Key skills used: C++, C++ STL, Flex & Bison
+
+- Role: Teaching Assistant at Shorouk Academy
+  Duration: Feb 2006 - Sep 2007
+  Responsibilities & Achievements:
+    * Taught 9 different undergraduate courses to 9 different classes of an average of 40 students each
+  Key skills used: C++
+  Courses taught:
+    * Computer Programs (ECE 107)
+    * Digital Control
+    * Analog Control
+    * Neural Networks
+    * Programmable Logic Controllers
+    * Electronic Measurements
+
+- Role: Teaching Assistant at Modern Academy for Engineering and Technology
+  Duration: Sep 2005 - May 2006
+  Responsibilities & Achievements:
+    * Taught 6 different undergraduate courses to 9 different classes of an average of 40 students each
+  Key skills used: C++
+  Courses taught:
+    * Program Design and Computer Languages (CMP 110): Programming fundamentals using C++
+    * Microprocessor Based Systems (CMP 410): Writing assembly code for programming Intel 80x86 microprocessors
+    * Logic Design II (CMP 426): Advanced logic circuit design course
+    * Embedded Systems (CMP 433): Building embedded systems using Intel 8051 Microcontrollers
+    * Computer Modeling and Simulation (CMP 524): System modeling and simulation using MATLAB
+
+### Projects
+- Project Name: amrabed.com
+  Date: 2024-09-01
+  Description: This website using Next.js and Tailwind CSS
+  Tools: JavaScript, TypeScript
+  Amr's Role: freelancer
+  Links: {"homepage":"/","github":"amrabed/amrabed.github.io"}
+
+- Project Name: Sophi Paywall
+  Date: 2024-08-01
+  Description: Paywall system for online publications
+  Tools: AWS, Python, TensorFlow, MLflow, Docker, Kubernetes, bash
+  Amr's Role: engineer, manager
+  Links: {"homepage":"https://mathereconomics.com/sophi-paywall"}
+
+- Project Name: AWS Lambda Templates
+  Date: 2024-12-21
+  Description: Production-ready AWS Lambda templates for Python to help you get started with serverless applications in no time
+  Tools: Python, aws, ai
+  Amr's Role: engineer
+  Links: {"homepage":"https://amrabed.com/aws-lambda-templates","github":"amrabed/aws-lambda-templates"}
+
+- Project Name: cur8d.py
+  Date: 2024-12-21
+  Description: Start your next Python Project with all the necessary tools in no time using this GitHub template
+  Tools: Python, Docker
+  Amr's Role: engineer
+  Links: {"homepage":"https://cur8d.dev/python","github":"cur8d/python"}
+
+- Project Name: Skeleton - Flutter
+  Date: 2024-03-03
+  Description: Template Flutter project for mobile applications
+  Tools: flutter, firebase, android, swift
+  Amr's Role: freelancer, entrepreneur, engineer
+  Links: {}
+
+- Project Name: Skeleton - Android
+  Date: 2020-03-03
+  Description: Template project for Android applications
+  Details: The project comes out of the box with Java 8 Support, Automatic App Signing, GitHub Version Control, Firebase Integration, FastLane App Automation, CircleCI Continuous Integration and Delivery, SonarCloud Code Quality, Snyk Vulnerability Check, README file with shield-style badges, MIT License file
+  Tools: kotlin, firebase, android
+  Amr's Role: freelancer, entrepreneur
+  Links: {"github":"amrabed/skeleton"}
+
+- Project Name: Introduction to Programming
+  Date: 2018-03-03
+  Description: A course to introduce first-year Computer Engineering students to programming using C++
+  Tools: c++
+  Amr's Role: instructor
+  Links: {"github":"ProgrammingLanguagesClass"}
+
+- Project Name: Python for Machine Learning
+  Date: 2018-03-03
+  Description: A course to introduce learners from different backgrounds to the concepts of machine learning using Python
+  Tools: Python, TensorFlow, Scikit-learn
+  Amr's Role: instructor, engineer, manager
+  Links: {"homepage":"https://upskilling.robogarden.ca/marketplace/dynamicCourse/python-for-machine-learning"}
+
+- Project Name: Muslim Day - Android App
+  Date: 2012-12-27
+  Description: An Android productivity app tailored to the satisfaction of the worldwide end-users of the app
+  Details: The app allows the user to keep track of their daily tasks while monitoring and visualizing their daily, monthly, and yearly progress for every task and for every day as a whole. The app is currently available in English and Arabic and is being translated to 5 other languages. The user can select and switch the app language from within the app settings.
+  Tools: android, java, kotlin, firebase, sqlite
+  Amr's Role: community
+  Links: {"homepage":"https://muslimday.app","github":"amrabed/MuslimDay","app":"https://play.google.com/store/apps/details?id=amrabed.android.release.evaluation"}
+
+- Project Name: Muslim Day - iOS
+  Date: 2022-04-01
+  Description: An iOS productivity app to help the Muslim community around the world to keep track of their daily rituals
+  Tools: swift, firebase
+  Amr's Role: community
+  Links: {"homepage":"https://muslimday.app","app":"https://apps.apple.com/app/id6446234217","github":"amrabed/MuslimDay-iOS"}
+
+- Project Name: Docker EC2
+  Date: 2013-05-20
+  Description: Automatically run and test an application using Docker image running on different Amazon AWS EC2 instances
+  Tools: docker, aws, aws-ec2, bash
+  Amr's Role: researcher, engineer
+  Links: {"github":"amrabed/docker-ec2"}
+
+- Project Name: Strace-Docker
+  Date: 2015-01-05
+  Description: Trace system calls from Docker containers running on the system
+  Tools: docker, sysdig, bash
+  Amr's Role: researcher
+  Links: {"github":"amrabed/strace-docker","demo":"https://www.youtube.com/watch?v=iWywV_4Y34E"}
+
+- Project Name: RHIDS
+  Date: 2015-03-19
+  Description: Host-based Intrusion Detection System for Linux Containers
+  Tools: java, docker, bash, gradle
+  Amr's Role: researcher
+  Links: {"github":"amrabed/rhids","demo":"https://www.youtube.com/watch?v=R5BHjYZ22Tw","publication":"https://arxiv.org/abs/1611.03056","presentation":"https://www.slideshare.net/slideshow/intrusion-detection-system-for-applications-using-linux-containers/67746613"}
+
+- Project Name: Deep HIDS
+  Date: 2017-07-31
+  Description: An LSTM-based Deep Learning model for anomaly-based Intrusion Detection System for Linux Containers
+  Tools: Pyhton, TensorFlow, Docker
+  Amr's Role: researcher
+  Links: {"github":"amrabed/deep-hids"}
+
+- Project Name: cur8d.tsx
+  Date: 2026-01-01
+  Description: High-performance, accessible, and type-safe template powered by TypeScript, Next.js, HeroUI, and Tailwind CSS
+  Tools: TypeScript
+  Amr's Role: engineer
+  Links: {"homepage":"https://tsx.cur8d.dev","github":"cur8d/typescript"}
+
+- Project Name: Metrolab research project
+  Date: 2016-08-11
+  Description: A server-client data collection framework for communication between Pi-based IoT sensors and central server with visualization dashboard
+  Tools: python, raspberry-pi, html, php, mysql, javascript, plotly
+  Amr's Role: researcher
+  Links: {"github":"amrabed/metrolab"}
+
+- Project Name: Logger - Android App
+  Date: 2013-05-03
+  Description: Logger collected anonymous mobile-usage data as part of a researcher study conducted at Virginia Tech
+  Tools: android, java, sqlite
+  Amr's Role: researcher
+  Links: {"github":"amrabed/logger"}
+
+- Project Name: SodaCloud
+  Date: 2013-05-01
+  Description: A research project conducted as part of the Magnum group at Virginia Tech with sponsorship from Siemens
+  Tools: git, maven
+  Amr's Role: researcher, engineer
+  Links: {"github":"vt-magnum-researcher/sodacloud"}
+
+- Project Name: ISNRV - Android App
+  Date: 2019-02-22
+  Description: Android app to provide Athan and Iqama times for the community of the Islamic Society of New Reiver Valley (ISNRV)
+  Tools: android, java, firebase, fastlane, gradle
+  Amr's Role: community, freelancer
+  Links: {"github":"ISNRV/ISNRVhub-Android"}
+
+- Project Name: Iqama Times - Android App
+  Date: 2016-07-01
+  Description: This app provides Muslims of the Blacksburg, VA area with daily Iqama times for the Islamic Center of Blacksburg
+  Details: The app allows users to add Iqama times to their Google Calendar. A widget is available to always have Iqama times displayed on the home screen.
+  Tools: android, java
+  Amr's Role: community, freelancer
+  Links: {"github":"amrabed/IqamaTimes","app":"https://play.google.com/store/apps/details?id=community.icb.iqama"}
+
+- Project Name: VT-Fujitsu joint research Project
+  Date: 2017-05-01
+  Description: A joint researcher project between Virginia Tech and Vujitsu Japan
+  Tools: docker, php, mysql, metasploit
+  Amr's Role: researcher
+  Links: {"github":"amrabed/vt-fujitsu"}
+
+### Publications
+- Title: Securing Cloud Containers through Intrusion Detection and Remediation
+  Authors: Amr S. Abed
+  Venue: PhD Dissertation, Virginia Tech (2017)
+  Links: {"fulltext":"https://vtechworks.lib.vt.edu/handle/10919/87730","presentation":"https://www.slideshare.net/secret/dWT9Fwk08rZqJU"}
+
+- Title: Intrusion Detection System for Applications using Linux Containers
+  Authors: Amr S. Abed, Charles Clancy, David Levy
+  Venue: Security and Trust Management (STM) (2015)
+  Links: {"doi":"10.1007/978-3-319-24858-5_8","fulltext":"https://arxiv.org/pdf/1611.03056v1","presentation":"https://www.slideshare.net/AmrAbed/intrusion-detection-system-for-applications-using-linux-containers","scopus":"https://www.scopus.com/inward/record.url?eid=2-s2.0-84951875184&partnerID=MN8TOARS"}
+
+- Title: Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux Containers
+  Authors: Amr S. Abed, Charles Clancy, David Levy
+  Venue: IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA) (2015)
+  Links: {"doi":"10.1109/GLOCOMW.2015.7414047","fulltext":"https://arxiv.org/pdf/1611.03053v1","scopus":"https://www.scopus.com/inward/record.url?eid=2-s2.0-84971277782&partnerID=MN8TOARS"}
+
+- Title: Toward Smart Moving Target Defense for Linux Container Resiliency
+  Authors: Mohamed Azab, Bassem Mokhtar, Amr S. Abed, Mohamed Eltoweissy
+  Venue: IEEE 41st Conference on Local Computer Networks (LCN 2016) (2016)
+  Links: {"doi":"10.1109/LCN.2016.106","fulltext":"https://arxiv.org/pdf/1611.03065v1"}
+
+- Title: A Moving Target Defense Approach for Linux Container Resiliency
+  Authors: Mohamed Azab, Bassem Mokhtar, Amr S. Abed, Mohamed Eltoweissy
+  Venue: 2nd IEEE International Conference on Collaboration and Internet Computing (2016)
+  Links: {"doi":"10.1109/CIC.2016.028"}
+
+- Title: Resilient Intrusion Detection System for Cloud Containers
+  Authors: Amr S. Abed, Mohamed Azab, Charles Clancy, Mona Kashkoush
+  Venue: International Journal of Communication Networks and Distributed Systems (2018)
+
+- Title: Online Smart Disguise: Real-time Diversication Evading Coresidency Based Cloud Attacks
+  Authors: Mona S. kashkoush, Mohamed Azab, Gamal Attiya, Amr S. Abed
+  Venue: Cluster Computing (2018)
+  Links: {"doi":"10.1007/s10586-018-2851-2","fulltext":"https://link.springer.com/content/pdf/10.1007%2Fs10586-018-2851-2.pdf"}
+
+"
+`;
