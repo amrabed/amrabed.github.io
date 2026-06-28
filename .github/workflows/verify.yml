@@ -12,3 +12,8 @@ jobs:
       - uses: jdx/mise-action@v4
       - name: Verify project
         run: mise run verify
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

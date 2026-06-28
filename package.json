@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "seed": "tsx scripts/seed.ts",
     "seed:reset": "tsx scripts/seed.ts --reset",
-    "test": "vitest run --coverage && node scripts/update-badge.js"
+    "test": "vitest run --coverage"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.83",
