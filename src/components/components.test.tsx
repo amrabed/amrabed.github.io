@@ -1,7 +1,6 @@
 /* eslint-disable react/display-name, @typescript-eslint/no-explicit-any */
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 
 import { render, act } from "@testing-library/react";
@@ -24,14 +23,7 @@ vi.mock("@heroui/react", async (importOriginal) => {
   return {
     ...actual,
     Tooltip: MockTooltip,
-    Button: ({
-      children,
-      onPress,
-      isIconOnly: _isIconOnly,
-      variant: _variant,
-      size: _size,
-      ...props
-    }: any) => (
+    Button: ({ children, onPress, ...props }: any) => (
       <button onClick={onPress} {...props}>
         {children}
       </button>
