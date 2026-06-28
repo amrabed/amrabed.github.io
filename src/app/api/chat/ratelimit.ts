@@ -1,4 +1,4 @@
-import { ratelimit } from "@/middleware/upstash";
+import { ratelimit } from "@/lib/upstash";
 
 export default async function isRateLimited(req: Request): Promise<boolean> {
   const ip =
