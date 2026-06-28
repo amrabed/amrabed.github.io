@@ -163,31 +163,40 @@ const MessageBubble = ({
           }`}
         >
           {message.role === "user" && (
-            <Tooltip content="Edit question" closeDelay={0}>
-              <button
-                type="button"
-                onClick={() => onEdit(messageText)}
-                className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
-              >
-                <Pencil size={12} />
-              </button>
+            <Tooltip closeDelay={0}>
+              <Tooltip.Trigger>
+                <button
+                  type="button"
+                  onClick={() => onEdit(messageText)}
+                  className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+                >
+                  <Pencil size={12} />
+                </button>
+              </Tooltip.Trigger>
+              <Tooltip.Content>
+                Edit question
+                <Tooltip.Arrow />
+              </Tooltip.Content>
             </Tooltip>
           )}
-          <Tooltip
-            content={message.role === "user" ? "Copy question" : "Copy answer"}
-            closeDelay={0}
-          >
-            <button
-              type="button"
-              onClick={() => onCopy(message.id, messageText)}
-              className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
-            >
-              {copiedId === message.id ? (
-                <Check size={12} className="text-green-500 animate-pulse" />
-              ) : (
-                <Copy size={12} />
-              )}
-            </button>
+          <Tooltip closeDelay={0}>
+            <Tooltip.Trigger>
+              <button
+                type="button"
+                onClick={() => onCopy(message.id, messageText)}
+                className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+              >
+                {copiedId === message.id ? (
+                  <Check size={12} className="text-green-500 animate-pulse" />
+                ) : (
+                  <Copy size={12} />
+                )}
+              </button>
+            </Tooltip.Trigger>
+            <Tooltip.Content>
+              {message.role === "user" ? "Copy question" : "Copy answer"}
+              <Tooltip.Arrow />
+            </Tooltip.Content>
           </Tooltip>
         </div>
 
