@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name, @typescript-eslint/no-explicit-any */
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 
 import { render, act } from "@testing-library/react";
@@ -26,9 +27,9 @@ vi.mock("@heroui/react", async (importOriginal) => {
     Button: ({
       children,
       onPress,
-      isIconOnly,
-      variant,
-      size,
+      isIconOnly: _isIconOnly,
+      variant: _variant,
+      size: _size,
       ...props
     }: any) => (
       <button onClick={onPress} {...props}>
