@@ -34,16 +34,16 @@ const markdownComponents = {
     );
   },
   p: ({ children }: { children?: React.ReactNode }) => (
-    <p className="mb-2 last:mb-0 leading-relaxed text-left">{children}</p>
+    <p className="mb-2 last:mb-0 leading-relaxed">{children}</p>
   ),
   ul: ({ children }: { children?: React.ReactNode }) => (
-    <ul className="list-disc pl-4 mb-2 space-y-1 text-left">{children}</ul>
+    <ul className="list-disc pl-4 mb-2 space-y-1">{children}</ul>
   ),
   ol: ({ children }: { children?: React.ReactNode }) => (
-    <ol className="list-decimal pl-4 mb-2 space-y-1 text-left">{children}</ol>
+    <ol className="list-decimal pl-4 mb-2 space-y-1">{children}</ol>
   ),
   li: ({ children }: { children?: React.ReactNode }) => (
-    <li className="mb-0.5 text-left">{children}</li>
+    <li className="mb-0.5">{children}</li>
   ),
   strong: ({ children }: { children?: React.ReactNode }) => (
     <strong className="font-bold text-indigo-950 dark:text-white">
@@ -59,10 +59,7 @@ const renderMessageContent = (m: UIMessage, messageText: string) => {
       if (part.type === "text") {
         if (m.role === "user") {
           return (
-            <div
-              key={partKey}
-              className="whitespace-pre-wrap text-left break-words"
-            >
+            <div key={partKey} className="whitespace-pre-wrap break-words">
               {part.text}
             </div>
           );
@@ -89,9 +86,7 @@ const renderMessageContent = (m: UIMessage, messageText: string) => {
 
   if (m.role === "user") {
     return (
-      <div className="whitespace-pre-wrap text-left break-words">
-        {messageText}
-      </div>
+      <div className="whitespace-pre-wrap break-words">{messageText}</div>
     );
   }
 
@@ -300,7 +295,7 @@ export default function ChatWidgetClient() {
                       selection?.removeAllRanges();
                       selection?.addRange(range);
                     }}
-                    className={`relative group max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm text-left select-text cursor-text [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left ${
+                    className={`relative group max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm select-text cursor-text ${
                       m.role === "user"
                         ? "bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white"
                         : "bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground"
@@ -353,7 +348,7 @@ export default function ChatWidgetClient() {
                         </button>
                       </div>
                     )}
-                    <div className="prose prose-sm dark:prose-invert max-w-none text-left [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left">
+                    <div className="prose prose-sm dark:prose-invert max-w-none">
                       {renderMessageContent(m, messageText)}
                       {showTypingIndicator && (
                         <div className="flex items-center gap-1.5 mt-3">

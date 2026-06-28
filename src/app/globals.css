@@ -39,9 +39,11 @@
   }
 }
 
-p,
-div {
-  text-align: justify;
+@layer base {
+  p,
+  div {
+    text-align: justify;
+  }
 }
 
 /* Home Animation and About Animation */
@@ -124,12 +126,14 @@ div {
 }
 
 /* Fix chat widget text stretching caused by global text-align: justify */
-.chat-widget p,
-.chat-widget div,
-.chat-widget ul,
-.chat-widget ol,
-.chat-widget li {
-  text-align: left;
+@layer components {
+  :where(.chat-widget) p,
+  :where(.chat-widget) div,
+  :where(.chat-widget) ul,
+  :where(.chat-widget) ol,
+  :where(.chat-widget) li {
+    text-align: left;
+  }
 }
 
 /* Hero Section */
