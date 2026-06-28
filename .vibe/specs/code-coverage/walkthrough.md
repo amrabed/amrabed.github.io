@@ -45,5 +45,5 @@ The test suite consists of **7 test files** containing **75 unit tests**, which 
 - **Functions Coverage**: 100%
 - **Lines Coverage**: 99.64%
 
-The [README.md](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/README.md) has been updated with the brightgreen coverage badge:
-`Coverage: 99.64%` (rendered using `img.shields.io`)
+The [README.md](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/README.md) has been updated to use the dynamic SonarCloud coverage badge.
+The CI workflow [.github/workflows/verify.yml](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/.github/workflows/verify.yml) and [sonar-project.properties](file:///Users/amrabed/Library/CloudStorage/OneDrive-Personal/code/amrabed.com/sonar-project.properties) have been configured to run tests and upload the LCOV report to SonarCloud during analysis.
