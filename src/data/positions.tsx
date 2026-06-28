@@ -356,7 +356,7 @@ const positions: AnyPosition[] = [
         title: "Operating Systems",
         code: "CSE 222",
         description:
-          "Fundamentals of operating system design using C. Course taught to second year computer engineering students ",
+          "Fundamentals of operating system design using C. Course taught to second year computer engineering students",
       },
     ],
   },

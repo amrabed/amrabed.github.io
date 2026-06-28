@@ -6,39 +6,44 @@ import projects from "@/data/projects";
 import publications from "@/data/publications";
 import skills from "@/data/skills";
 
-export default function getConsolidatedContext(): string {
-  let context = "Amr Abed's Portfolio Data:\n\n";
-
-  // Profiles
-  context += "### Profiles & Professional Links\n";
+function getProfilesContext(): string {
+  let context = "### Profiles & Professional Links\n";
   profiles.forEach((p) => {
     context += `- ${p.name}: ${p.link}\n`;
   });
   context += "\n";
+  return context;
+}
 
-  // Degrees
-  context += "### Education\n";
+function getEducationContext(): string {
+  let context = "### Education\n";
   degrees.forEach((d) => {
     context += `- Degree: ${d.title} from ${d.university.name} (${d.duration})\n`;
   });
   context += "\n";
+  return context;
+}
 
-  // Certifications
-  context += "### Certifications\n";
+function getCertificationsContext(): string {
+  let context = "### Certifications\n";
   certifications.forEach((c) => {
     context += `- ${c.title} (Issued by: ${c.organization.name}, Date: ${c.date})\n`;
   });
   context += "\n";
+  return context;
+}
 
-  // Skills
-  context += "### Technical Skills & Tools\n";
+function getSkillsContext(): string {
+  let context = "### Technical Skills & Tools\n";
   Object.values(skills).forEach((s) => {
     context += `- ${s.name}\n`;
   });
   context += "\n";
+  return context;
+}
 
-  // Work Experience
-  context += "### Professional Experience\n";
+function getPositionsContext(): string {
+  let context = "### Professional Experience\n";
   positions.forEach((p) => {
     const org = p.organization;
     const orgStr = org.department
@@ -76,9 +81,11 @@ export default function getConsolidatedContext(): string {
     }
     context += "\n";
   });
+  return context;
+}
 
-  // Projects
-  context += "### Projects\n";
+function getProjectsContext(): string {
+  let context = "### Projects\n";
   projects.forEach((p) => {
     context += `- Project Name: ${p.name}\n`;
     context += `  Date: ${p.date}\n`;
@@ -97,9 +104,11 @@ export default function getConsolidatedContext(): string {
     }
     context += "\n";
   });
+  return context;
+}
 
-  // Publications
-  context += "### Publications\n";
+function getPublicationsContext(): string {
+  let context = "### Publications\n";
   publications.forEach((p) => {
     context += `- Title: ${p.title}\n`;
     context += `  Authors: ${p.authors.join(", ")}\n`;
@@ -109,6 +118,18 @@ export default function getConsolidatedContext(): string {
     }
     context += "\n";
   });
-
   return context;
+}
+
+export default function getConsolidatedContext(): string {
+  return [
+    "Amr Abed's Portfolio Data:\n\n",
+    getProfilesContext(),
+    getEducationContext(),
+    getCertificationsContext(),
+    getSkillsContext(),
+    getPositionsContext(),
+    getProjectsContext(),
+    getPublicationsContext(),
+  ].join("");
 }
