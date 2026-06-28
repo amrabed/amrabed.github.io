@@ -26,18 +26,14 @@ export const Selection = ({
     <Checkbox value={value}>
       {(state) => {
         return (
-          <Checkbox.Content className="flex items-center">
+          <Checkbox.Content className="flex items-center filter-chip-wrapper">
             <VisuallyHidden>
               <Checkbox.Control>
                 <Checkbox.Indicator />
               </Checkbox.Control>
             </VisuallyHidden>
             <Chip
-              className={`border-none transition-all duration-200 cursor-pointer ${
-                state.isSelected
-                  ? "bg-foreground hover:bg-primary"
-                  : "bg-default-100 hover:bg-default-200 dark:bg-slate-700/50 dark:hover:bg-slate-700"
-              } filter-chip`}
+              className="filter-chip"
               variant="soft"
               data-selected={state.isSelected || undefined}
             >
@@ -49,13 +45,7 @@ export const Selection = ({
                     aria-hidden="true"
                   />
                 )}
-                <Chip.Label
-                  className={
-                    state.isSelected
-                      ? "text-white hover:text-zinc-100 pl-1"
-                      : "text-foreground-500 hover:text-foreground"
-                  }
-                >
+                <Chip.Label className="filter-chip-label">
                   {children}
                 </Chip.Label>
               </div>

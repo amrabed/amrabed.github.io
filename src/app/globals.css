@@ -155,6 +155,50 @@ div {
   @apply opacity-100 translate-x-0;
 }
 
+.filter-chip {
+  @apply border-none transition-all duration-200 cursor-pointer;
+  background-color: var(--default-soft);
+}
+
+.filter-chip:hover {
+  background-color: var(--default-soft-hover);
+}
+
+.dark .filter-chip {
+  background-color: rgba(51, 65, 85, 0.5); /* slate-700/50 */
+}
+
+.dark .filter-chip:hover {
+  background-color: rgb(51, 65, 85); /* slate-700 */
+}
+
+.filter-chip[data-selected] {
+  background-color: var(--heroui-foreground);
+}
+
+.filter-chip[data-selected]:hover {
+  background-color: var(--heroui-primary);
+}
+
+.filter-chip-label {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.filter-chip-label:hover {
+  color: var(--foreground);
+}
+
+.filter-chip[data-selected] .filter-chip-label {
+  color: white;
+  padding-left: 0.25rem;
+}
+
+.filter-chip[data-selected] .filter-chip-label:hover,
+.filter-chip[data-selected]:hover .filter-chip-label {
+  color: #f4f4f5; /* zinc-100 */
+}
+
 .filter-chip-wrapper:has(input:focus-visible) .filter-chip {
   @apply ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-slate-800;
 }
