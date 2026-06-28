@@ -5,6 +5,7 @@ on:
 
 jobs:
   verify:
+    secrets: inherit
     uses: ./.github/workflows/verify.yml
   deploy:
     needs: [verify]
