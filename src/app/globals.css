@@ -245,7 +245,7 @@
 }
 
 .chat-message-actions {
-  @apply absolute top-1/2 -translate-y-1/2 flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 transition-opacity duration-200 z-10;
+  @apply absolute top-1/2 -translate-y-1/2 flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10;
 }
 
 .chat-message-actions-user {
@@ -254,4 +254,20 @@
 
 .chat-message-actions-assistant {
   @apply right-0 translate-x-[calc(100%+8px)];
+}
+
+.chat-message-action-btn {
+  @apply p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all min-w-0 h-fit;
+}
+
+.chat-typing-indicator {
+  @apply flex items-center gap-1.5 mt-3;
+}
+
+.chat-typing-text {
+  @apply text-xs text-indigo-500/80 dark:text-indigo-300/80 font-medium animate-pulse;
+}
+
+.chat-typing-dot {
+  @apply h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400;
 }

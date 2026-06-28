@@ -5,7 +5,7 @@ import { Check, Copy, Pencil } from "lucide-react";
 import { UIMessage } from "ai";
 import ReactMarkdown from "react-markdown";
 
-import { Tooltip } from "@heroui/react";
+import { Button, Tooltip } from "@heroui/react";
 
 const selectElementText = (target: HTMLElement) => {
   const textContainer = target.querySelector(".prose") || target;
@@ -144,7 +144,7 @@ export const MessageBubble = ({
       >
         {/* Floating Message Actions */}
         <div
-          className={`chat-message-actions group-hover:opacity-100 ${
+          className={`chat-message-actions ${
             message.role === "user"
               ? "chat-message-actions-user"
               : "chat-message-actions-assistant"
@@ -153,13 +153,15 @@ export const MessageBubble = ({
           {message.role === "user" && (
             <Tooltip closeDelay={0}>
               <Tooltip.Trigger>
-                <button
-                  type="button"
-                  onClick={() => onEdit(messageText)}
-                  className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+                <Button
+                  isIconOnly
+                  variant="ghost"
+                  onPress={() => onEdit(messageText)}
+                  className="chat-message-action-btn"
+                  aria-label="Edit question"
                 >
                   <Pencil size={12} />
-                </button>
+                </Button>
               </Tooltip.Trigger>
               <Tooltip.Content>
                 Edit question
@@ -169,17 +171,21 @@ export const MessageBubble = ({
           )}
           <Tooltip closeDelay={0}>
             <Tooltip.Trigger>
-              <button
-                type="button"
-                onClick={() => onCopy(message.id, messageText)}
-                className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+              <Button
+                isIconOnly
+                variant="ghost"
+                onPress={() => onCopy(message.id, messageText)}
+                className="chat-message-action-btn"
+                aria-label={
+                  message.role === "user" ? "Copy question" : "Copy answer"
+                }
               >
                 {copiedId === message.id ? (
                   <Check size={12} className="text-green-500 animate-pulse" />
                 ) : (
                   <Copy size={12} />
                 )}
-              </button>
+              </Button>
             </Tooltip.Trigger>
             <Tooltip.Content>
               {message.role === "user" ? "Copy question" : "Copy answer"}
@@ -191,13 +197,11 @@ export const MessageBubble = ({
         <div className="prose prose-sm dark:prose-invert max-w-none">
           <MessageContent message={message} text={messageText} />
           {showTypingIndicator && (
-            <div className="flex items-center gap-1.5 mt-3">
-              <span className="text-xs text-indigo-500/80 dark:text-indigo-300/80 font-medium animate-pulse">
-                Generating...
-              </span>
-              <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.3s]"></div>
-              <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.15s]"></div>
-              <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400"></div>
+            <div className="chat-typing-indicator">
+              <span className="chat-typing-text">Generating...</span>
+              <div className="chat-typing-dot [animation-delay:-0.3s]"></div>
+              <div className="chat-typing-dot [animation-delay:-0.15s]"></div>
+              <div className="chat-typing-dot"></div>
             </div>
           )}
         </div>
