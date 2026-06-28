@@ -10,7 +10,7 @@ import { Button } from "@heroui/react";
 
 import { useFilter } from "@/contexts/filter";
 
-import { MessageBubble } from "./message-bubble";
+import { MessageBubble, ThinkingIndicator } from "./message-bubble";
 
 export default function ChatWidgetClient() {
   const [isOpen, setIsOpen] = useState(false);
@@ -179,16 +179,7 @@ export default function ChatWidgetClient() {
             ))}
             {status === "submitted" &&
               messages[messages.length - 1]?.role !== "assistant" && (
-                <div className="flex justify-start animate-in fade-in duration-200">
-                  <div className="flex items-center gap-2 bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 rounded-2xl px-4 py-3 shadow-sm">
-                    <span className="text-xs text-default-500 font-medium mr-1">
-                      Thinking
-                    </span>
-                    <div className="h-2 w-2 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.3s]"></div>
-                    <div className="h-2 w-2 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.15s]"></div>
-                    <div className="h-2 w-2 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400"></div>
-                  </div>
-                </div>
+                <ThinkingIndicator />
               )}
             {error && (
               <div className="text-center text-xs text-danger px-4">

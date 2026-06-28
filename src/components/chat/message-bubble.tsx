@@ -209,3 +209,14 @@ export const MessageBubble = ({
     </div>
   );
 };
+
+export const ThinkingIndicator = () => (
+  <div className="flex justify-start animate-in fade-in duration-200">
+    <div className="chat-thinking-indicator">
+      <span className="chat-thinking-text">Thinking</span>
+      <div className="chat-thinking-dot [animation-delay:-0.3s]"></div>
+      <div className="chat-thinking-dot [animation-delay:-0.15s]"></div>
+      <div className="chat-thinking-dot"></div>
+    </div>
+  </div>
+);
