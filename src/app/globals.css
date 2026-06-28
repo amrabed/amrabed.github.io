@@ -277,7 +277,7 @@
 }
 
 .chat-thinking-text {
-  @apply text-xs text-default-500 font-medium mr-1;
+  @apply text-xs text-slate-500 font-medium mr-1;
 }
 
 .chat-thinking-dot {

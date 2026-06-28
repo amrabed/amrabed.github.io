@@ -161,7 +161,7 @@ export default function ChatWidgetClient() {
             className="flex-1 overflow-y-auto p-4 space-y-4"
           >
             {messages.length === 0 && !isLoading && (
-              <div className="flex h-full items-center justify-center text-center text-sm text-default-500 px-4">
+              <div className="flex h-full items-center justify-center text-center text-sm text-slate-500 px-4">
                 Hi! I'm Miro. Ask me anything about Amr's experience, projects,
                 or skills 🙂
               </div>
