@@ -15,9 +15,18 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 
 import { useChat } from "@ai-sdk/react";
-import { Button } from "@heroui/react";
+import { Button, Tooltip } from "@heroui/react";
 
 import { useFilter } from "@/contexts/filter";
+
+const selectElementText = (target: HTMLElement) => {
+  const textContainer = target.querySelector(".prose") || target;
+  const selection = globalThis.window?.getSelection();
+  const range = document.createRange();
+  range.selectNodeContents(textContainer);
+  selection?.removeAllRanges();
+  selection?.addRange(range);
+};
 
 const markdownComponents = {
   a: ({ href, children }: { href?: string; children?: React.ReactNode }) => {
@@ -52,12 +61,18 @@ const markdownComponents = {
   ),
 };
 
-const renderMessageContent = (m: UIMessage, messageText: string) => {
-  if (m.parts && m.parts.length > 0) {
-    return m.parts.map((part, i) => {
-      const partKey = `${m.id}-part-${part.type}-${i}`;
+const MessageContent = ({
+  message,
+  text,
+}: {
+  message: UIMessage;
+  text: string;
+}) => {
+  if (message.parts && message.parts.length > 0) {
+    return message.parts.map((part, i) => {
+      const partKey = `${message.id}-part-${part.type}-${i}`;
       if (part.type === "text") {
-        if (m.role === "user") {
+        if (message.role === "user") {
           return (
             <div key={partKey} className="whitespace-pre-wrap break-words">
               {part.text}
@@ -84,14 +99,113 @@ const renderMessageContent = (m: UIMessage, messageText: string) => {
     });
   }
 
-  if (m.role === "user") {
-    return (
-      <div className="whitespace-pre-wrap break-words">{messageText}</div>
-    );
+  if (message.role === "user") {
+    return <div className="whitespace-pre-wrap break-words">{text}</div>;
   }
 
+  return <ReactMarkdown components={markdownComponents}>{text}</ReactMarkdown>;
+};
+
+const MessageBubble = ({
+  message,
+  isLoading,
+  isLast,
+  onEdit,
+  onCopy,
+  copiedId,
+}: {
+  message: UIMessage;
+  isLoading: boolean;
+  isLast: boolean;
+  onEdit: (text: string) => void;
+  onCopy: (id: string, text: string) => void;
+  copiedId: string | null;
+}) => {
+  const showTypingIndicator =
+    isLast && message.role === "assistant" && isLoading;
+  const messageText =
+    message.parts
+      ?.filter((p) => p.type === "text")
+      .map((p) =>
+        p.type === "text" ? (p as { type: "text"; text: string }).text : "",
+      )
+      .join("") || "";
+
   return (
-    <ReactMarkdown components={markdownComponents}>{messageText}</ReactMarkdown>
+    <div
+      className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+    >
+      <div
+        tabIndex={0}
+        role="button"
+        aria-label="Double click to select message text"
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            selectElementText(e.currentTarget);
+          }
+        }}
+        onDoubleClick={(e) => {
+          selectElementText(e.currentTarget);
+        }}
+        className={`relative group max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm select-text cursor-text ${
+          message.role === "user"
+            ? "bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white"
+            : "bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground"
+        }`}
+      >
+        {/* Floating Message Actions */}
+        <div
+          className={`absolute top-1/2 -translate-y-1/2 flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-10 ${
+            message.role === "user"
+              ? "left-0 -translate-x-[calc(100%+8px)]"
+              : "right-0 translate-x-[calc(100%+8px)]"
+          }`}
+        >
+          {message.role === "user" && (
+            <Tooltip content="Edit question" closeDelay={0}>
+              <button
+                type="button"
+                onClick={() => onEdit(messageText)}
+                className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+              >
+                <Pencil size={12} />
+              </button>
+            </Tooltip>
+          )}
+          <Tooltip
+            content={message.role === "user" ? "Copy question" : "Copy answer"}
+            closeDelay={0}
+          >
+            <button
+              type="button"
+              onClick={() => onCopy(message.id, messageText)}
+              className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+            >
+              {copiedId === message.id ? (
+                <Check size={12} className="text-green-500 animate-pulse" />
+              ) : (
+                <Copy size={12} />
+              )}
+            </button>
+          </Tooltip>
+        </div>
+
+        <div className="prose prose-sm dark:prose-invert max-w-none">
+          <MessageContent message={message} text={messageText} />
+          {showTypingIndicator && (
+            <div className="flex items-center gap-1.5 mt-3">
+              <span className="text-xs text-indigo-500/80 dark:text-indigo-300/80 font-medium animate-pulse">
+                Generating...
+              </span>
+              <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.3s]"></div>
+              <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.15s]"></div>
+              <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400"></div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -249,122 +363,17 @@ export default function ChatWidgetClient() {
                 or skills 🙂
               </div>
             )}
-            {messages.map((m, index) => {
-              const isLast = index === messages.length - 1;
-              const showTypingIndicator =
-                isLast && m.role === "assistant" && isLoading;
-              const messageText =
-                m.parts
-                  ?.filter((p) => p.type === "text")
-                  .map((p) =>
-                    p.type === "text"
-                      ? (p as { type: "text"; text: string }).text
-                      : "",
-                  )
-                  .join("") || "";
-
-              return (
-                <div
-                  key={m.id}
-                  className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
-                >
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    aria-label="Double click to select message text"
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        const textContainer =
-                          e.currentTarget.querySelector(".prose") ||
-                          e.currentTarget;
-                        const selection = globalThis.window?.getSelection();
-                        const range = document.createRange();
-                        range.selectNodeContents(textContainer);
-                        selection?.removeAllRanges();
-                        selection?.addRange(range);
-                      }
-                    }}
-                    onDoubleClick={(e) => {
-                      const textContainer =
-                        e.currentTarget.querySelector(".prose") ||
-                        e.currentTarget;
-                      const selection = globalThis.window?.getSelection();
-                      const range = document.createRange();
-                      range.selectNodeContents(textContainer);
-                      selection?.removeAllRanges();
-                      selection?.addRange(range);
-                    }}
-                    className={`relative group max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm select-text cursor-text ${
-                      m.role === "user"
-                        ? "bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white"
-                        : "bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground"
-                    }`}
-                  >
-                    {/* Floating Message Actions */}
-                    {m.role === "user" && (
-                      <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-[calc(100%+8px)] flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-10">
-                        <button
-                          type="button"
-                          onClick={() => handleEdit(messageText)}
-                          title="Edit question"
-                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
-                        >
-                          <Pencil size={12} />
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => copyToClipboard(m.id, messageText)}
-                          title="Copy question"
-                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
-                        >
-                          {copiedId === m.id ? (
-                            <Check
-                              size={12}
-                              className="text-green-500 animate-pulse"
-                            />
-                          ) : (
-                            <Copy size={12} />
-                          )}
-                        </button>
-                      </div>
-                    )}
-                    {m.role === "assistant" && (
-                      <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-[calc(100%+8px)] flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-10">
-                        <button
-                          type="button"
-                          onClick={() => copyToClipboard(m.id, messageText)}
-                          title="Copy answer"
-                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
-                        >
-                          {copiedId === m.id ? (
-                            <Check
-                              size={12}
-                              className="text-green-500 animate-pulse"
-                            />
-                          ) : (
-                            <Copy size={12} />
-                          )}
-                        </button>
-                      </div>
-                    )}
-                    <div className="prose prose-sm dark:prose-invert max-w-none">
-                      {renderMessageContent(m, messageText)}
-                      {showTypingIndicator && (
-                        <div className="flex items-center gap-1.5 mt-3">
-                          <span className="text-xs text-indigo-500/80 dark:text-indigo-300/80 font-medium animate-pulse">
-                            Generating...
-                          </span>
-                          <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.3s]"></div>
-                          <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.15s]"></div>
-                          <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400"></div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            {messages.map((m, index) => (
+              <MessageBubble
+                key={m.id}
+                message={m}
+                isLoading={isLoading}
+                isLast={index === messages.length - 1}
+                onEdit={handleEdit}
+                onCopy={copyToClipboard}
+                copiedId={copiedId}
+              />
+            ))}
             {status === "submitted" &&
               messages[messages.length - 1]?.role !== "assistant" && (
                 <div className="flex justify-start animate-in fade-in duration-200">
