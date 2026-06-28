@@ -206,3 +206,23 @@ div {
 .filter-chip:active {
   @apply scale-95;
 }
+
+.filter-badge {
+  @apply absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-slate-800;
+}
+
+.filter-label {
+  @apply text-sm font-medium text-slate-500 uppercase tracking-wider;
+}
+
+.filter-dialog {
+  @apply flex flex-col w-[90vw] max-w-[500px] p-6 gap-8 max-h-[70vh] overflow-y-auto relative;
+}
+
+.filter-trigger {
+  @apply relative;
+}
+
+.filter-close-btn {
+  @apply absolute right-4 top-4 text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 min-w-0 h-8 w-8 z-10;
+}
