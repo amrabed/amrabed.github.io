@@ -1,6 +1,6 @@
 import { convertToModelMessages, streamText } from "ai";
 
-import { chatModel } from "@/middleware/genai";
+import { chatModel } from "@/lib/genai";
 
 import { systemPrompt } from "./prompt";
 

@@ -57,10 +57,15 @@ description = 'Run TypeScript typecheck'
 run = 'tsc --noEmit'
 depends = ['install']
 
+[tasks.test]
+description = 'Run unit tests'
+run = 'pnpm run test'
+depends = ['install']
+
 [tasks.verify]
 alias = 'v'
-description = 'Verify the project (lint, typecheck, build)'
-depends = ['lint', 'typecheck', 'build']
+description = 'Verify the project (lint, typecheck, test, build)'
+depends = ['lint', 'typecheck', 'test', 'build']
 
 [tasks.dev]
 alias = ['d', 'local']

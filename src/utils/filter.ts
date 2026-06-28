@@ -42,8 +42,8 @@ const filterCertificationByQuery = (
   return (
     cert.title.toLowerCase().includes(lowercaseQuery) ||
     cert.organization.name.toLowerCase().includes(lowercaseQuery) ||
-    (cert.skills && match(cert.skills, lowercaseQuery)) ||
-    (cert.areas && match(cert.areas, lowercaseQuery))
+    (cert.skills ? match(cert.skills, lowercaseQuery) : false) ||
+    (cert.areas ? match(cert.areas, lowercaseQuery) : false)
   );
 };
 
