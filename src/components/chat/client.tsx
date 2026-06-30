@@ -27,7 +27,7 @@ const markdownComponents = {
         href={href}
         target={isHash ? undefined : "_blank"}
         rel={isHash ? undefined : "noopener noreferrer"}
-        className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold transition-colors"
+        className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
       >
         {children}
       </a>
@@ -234,10 +234,10 @@ export default function ChatWidgetClient() {
             <h3 className="text-sm font-semibold">Miro — Amr's Assistant</h3>
             <button
               onClick={toggleChat}
-              aria-label="Close"
-              className="rounded-full p-1 hover:bg-white/20 transition-colors"
+              aria-label="Close AI assistant"
+              className="rounded-full p-1 hover:bg-white/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              <X size={18} />
+              <X size={18} aria-hidden="true" />
             </button>
           </div>
 
@@ -300,7 +300,7 @@ export default function ChatWidgetClient() {
                       selection?.removeAllRanges();
                       selection?.addRange(range);
                     }}
-                    className={`relative group max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm text-left select-text cursor-text [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left ${
+                    className={`relative group max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm text-left select-text cursor-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary [&_p]:text-left [&_div]:text-left [&_ul]:text-left [&_ol]:text-left [&_li]:text-left ${
                       m.role === "user"
                         ? "bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white"
                         : "bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground"
@@ -308,47 +308,49 @@ export default function ChatWidgetClient() {
                   >
                     {/* Floating Message Actions */}
                     {m.role === "user" && (
-                      <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-[calc(100%+8px)] flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-10">
+                      <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-[calc(100%+8px)] flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100 transition-opacity duration-200 z-10">
                         <button
                           type="button"
                           onClick={() => handleEdit(messageText)}
-                          title="Edit question"
-                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+                          aria-label="Edit question"
+                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
                         >
-                          <Pencil size={12} />
+                          <Pencil size={12} aria-hidden="true" />
                         </button>
                         <button
                           type="button"
                           onClick={() => copyToClipboard(m.id, messageText)}
-                          title="Copy question"
-                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+                          aria-label="Copy question"
+                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
                         >
                           {copiedId === m.id ? (
                             <Check
                               size={12}
                               className="text-green-500 animate-pulse"
+                              aria-hidden="true"
                             />
                           ) : (
-                            <Copy size={12} />
+                            <Copy size={12} aria-hidden="true" />
                           )}
                         </button>
                       </div>
                     )}
                     {m.role === "assistant" && (
-                      <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-[calc(100%+8px)] flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-10">
+                      <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-[calc(100%+8px)] flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100 transition-opacity duration-200 z-10">
                         <button
                           type="button"
                           onClick={() => copyToClipboard(m.id, messageText)}
-                          title="Copy answer"
-                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all"
+                          aria-label="Copy answer"
+                          className="p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
                         >
                           {copiedId === m.id ? (
                             <Check
                               size={12}
                               className="text-green-500 animate-pulse"
+                              aria-hidden="true"
                             />
                           ) : (
-                            <Copy size={12} />
+                            <Copy size={12} aria-hidden="true" />
                           )}
                         </button>
                       </div>
@@ -393,12 +395,13 @@ export default function ChatWidgetClient() {
                 <button
                   type="button"
                   onClick={stop}
-                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-md hover:shadow-lg text-xs font-semibold text-red-600 dark:text-red-400 hover:bg-zinc-50 dark:hover:bg-zinc-700/80 transition-all duration-200"
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-md hover:shadow-lg text-xs font-semibold text-red-600 dark:text-red-400 hover:bg-zinc-50 dark:hover:bg-zinc-700/80 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-danger"
                 >
                   <Square
                     size={8}
                     fill="currentColor"
                     className="text-red-500"
+                    aria-hidden="true"
                   />
                   Stop Generating
                 </button>
@@ -418,7 +421,7 @@ export default function ChatWidgetClient() {
                 onChange={handleInputChange}
                 placeholder="Ask a question..."
                 rows={1}
-                className="flex-1 bg-transparent text-sm focus:outline-none resize-none overflow-y-auto max-h-24 py-1"
+                className="flex-1 bg-transparent text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1 resize-none overflow-y-auto max-h-24 py-1"
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();
@@ -431,18 +434,20 @@ export default function ChatWidgetClient() {
                   isIconOnly
                   type="button"
                   onClick={stop}
-                  className="bg-red-500 hover:bg-red-600 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform"
+                  aria-label="Stop generating"
+                  className="bg-red-500 hover:bg-red-600 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-danger"
                 >
-                  <Square size={10} fill="currentColor" />
+                  <Square size={10} fill="currentColor" aria-hidden="true" />
                 </Button>
               ) : (
                 <Button
                   isIconOnly
                   type="submit"
-                  className="bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform"
+                  aria-label="Send message"
+                  className="bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   isDisabled={!input?.trim()}
                 >
-                  <Send size={14} />
+                  <Send size={14} aria-hidden="true" />
                 </Button>
               )}
             </div>
@@ -454,10 +459,14 @@ export default function ChatWidgetClient() {
       <Button
         isIconOnly
         onClick={toggleChat}
-        aria-label="Open AI assistant"
-        className="h-14 w-14 rounded-full bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white shadow-xl hover:scale-110 hover:shadow-indigo-500/30 transition-all duration-300"
+        aria-label={isOpen ? "Close AI assistant" : "Open AI assistant"}
+        className="h-14 w-14 rounded-full bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white shadow-xl hover:scale-110 hover:shadow-indigo-500/30 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
-        {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
+        {isOpen ? (
+          <X size={24} aria-hidden="true" />
+        ) : (
+          <MessageCircle size={24} aria-hidden="true" />
+        )}
       </Button>
     </div>
   );
