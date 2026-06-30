@@ -233,7 +233,7 @@
 
 /* Chat Widget Message Bubbles */
 .chat-message-bubble {
-  @apply relative max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm select-text cursor-text;
+  @apply relative max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm select-text cursor-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
 }
 
 .chat-message-user {
@@ -245,7 +245,7 @@
 }
 
 .chat-message-actions {
-  @apply absolute top-1/2 -translate-y-1/2 flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10;
+  @apply absolute top-1/2 -translate-y-1/2 flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 z-10;
 }
 
 .chat-message-actions-user {

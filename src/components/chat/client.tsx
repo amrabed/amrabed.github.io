@@ -146,10 +146,10 @@ export default function ChatWidgetClient() {
             <h3 className="text-sm font-semibold">Miro — Amr's Assistant</h3>
             <button
               onClick={toggleChat}
-              aria-label="Close"
-              className="rounded-full p-1 hover:bg-white/20 transition-colors"
+              aria-label="Close AI assistant"
+              className="rounded-full p-1 hover:bg-white/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              <X size={18} />
+              <X size={18} aria-hidden="true" />
             </button>
           </div>
 
@@ -191,12 +191,13 @@ export default function ChatWidgetClient() {
                 <button
                   type="button"
                   onClick={stop}
-                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-md hover:shadow-lg text-xs font-semibold text-red-600 dark:text-red-400 hover:bg-zinc-50 dark:hover:bg-zinc-700/80 transition-all duration-200"
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-md hover:shadow-lg text-xs font-semibold text-red-600 dark:text-red-400 hover:bg-zinc-50 dark:hover:bg-zinc-700/80 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-danger"
                 >
                   <Square
                     size={8}
                     fill="currentColor"
                     className="text-red-500"
+                    aria-hidden="true"
                   />
                   Stop Generating
                 </button>
@@ -216,7 +217,7 @@ export default function ChatWidgetClient() {
                 onChange={handleInputChange}
                 placeholder="Ask a question..."
                 rows={1}
-                className="flex-1 bg-transparent text-sm focus:outline-none resize-none overflow-y-auto max-h-24 py-1"
+                className="flex-1 bg-transparent text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1 resize-none overflow-y-auto max-h-24 py-1"
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();
@@ -229,18 +230,20 @@ export default function ChatWidgetClient() {
                   isIconOnly
                   type="button"
                   onClick={stop}
-                  className="bg-red-500 hover:bg-red-600 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform"
+                  aria-label="Stop generating"
+                  className="bg-red-500 hover:bg-red-600 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-danger"
                 >
-                  <Square size={10} fill="currentColor" />
+                  <Square size={10} fill="currentColor" aria-hidden="true" />
                 </Button>
               ) : (
                 <Button
                   isIconOnly
                   type="submit"
-                  className="bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform"
+                  aria-label="Send message"
+                  className="bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white min-w-8 w-8 h-8 shadow-md hover:scale-105 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   isDisabled={!input?.trim()}
                 >
-                  <Send size={14} />
+                  <Send size={14} aria-hidden="true" />
                 </Button>
               )}
             </div>
@@ -252,10 +255,14 @@ export default function ChatWidgetClient() {
       <Button
         isIconOnly
         onClick={toggleChat}
-        aria-label="Open AI assistant"
-        className="h-14 w-14 rounded-full bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white shadow-xl hover:scale-110 hover:shadow-indigo-500/30 transition-all duration-300"
+        aria-label={isOpen ? "Close AI assistant" : "Open AI assistant"}
+        className="h-14 w-14 rounded-full bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white shadow-xl hover:scale-110 hover:shadow-indigo-500/30 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
-        {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
+        {isOpen ? (
+          <X size={24} aria-hidden="true" />
+        ) : (
+          <MessageCircle size={24} aria-hidden="true" />
+        )}
       </Button>
     </div>
   );
