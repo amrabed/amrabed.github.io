@@ -11,7 +11,20 @@ vi.mock("@/lib/upstash", () => ({
 }));
 
 describe("isRateLimited", () => {
-  it("should extract IP from x-forwarded-for header and call limit", async () => {
+  it("should extract IP from x-real-ip header and call limit", async () => {
+    mockLimit.mockResolvedValue({ success: true });
+
+    const req = new Request("http://localhost/api/chat", {
+      headers: { "x-real-ip": "1.2.3.4" },
+    });
+
+    const result = await isRateLimited(req);
+
+    expect(mockLimit).toHaveBeenCalledWith("1.2.3.4");
+    expect(result).toBe(false);
+  });
+
+  it("should extract IP from x-forwarded-for header and call limit if x-real-ip is missing", async () => {
     mockLimit.mockResolvedValue({ success: true });
 
     const req = new Request("http://localhost/api/chat", {
