@@ -42,16 +42,25 @@ export const FilterableSection = <T extends FilterableItem>({
 }: FilterableSectionProps<T>) => {
   const { debouncedQuery } = useDebouncedSearch();
   const { selected } = useFilter();
+  const selectedAreasArr = selected["areas"];
+  const selectedRolesArr = selected["roles"];
+  const selectedSkillsArr = selected["skills"];
 
-  const areas = selected["areas"];
-  const roles = selected["roles"];
-  const skills = selected["skills"];
-
-  const selectedAreas = useMemo(() => new Set(areas || []), [areas]);
-  const selectedRoles = useMemo(() => new Set(roles || []), [roles]);
-  const selectedSkills = useMemo(() => new Set(skills || []), [skills]);
-
+  // ⚡ Optimization: Consolidate filter extraction and matching into a single O(N) pass.
+  // We also use an early return if no filters are active to avoid unnecessary processing.
   const matchingItems = useMemo(() => {
+    const selectedAreas = new Set(selectedAreasArr || []);
+    const selectedRoles = new Set(selectedRolesArr || []);
+    const selectedSkills = new Set(selectedSkillsArr || []);
+
+    if (
+      selectedAreas.size === 0 &&
+      selectedRoles.size === 0 &&
+      selectedSkills.size === 0
+    ) {
+      return data;
+    }
+
     return data.filter((item) => {
       const matchesArea = filterByArea(
         item.tags || item.areas || [],
@@ -67,8 +76,9 @@ export const FilterableSection = <T extends FilterableItem>({
         );
       return matchesArea && matchesRole && matchesSkill;
     });
-  }, [data, selectedAreas, selectedRoles, selectedSkills]);
+  }, [data, selectedAreasArr, selectedRolesArr, selectedSkillsArr]);
 
+  // ⚡ Optimization: Separate search filtering from selection filtering to minimize re-computations.
   const filteredItems = useMemo(() => {
     const lowercaseQuery = debouncedQuery.toLowerCase();
     const filtered = matchingItems.filter((item) =>

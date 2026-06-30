@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 
 interface FeaturedItem {
   id: string;
@@ -16,8 +16,14 @@ export const FeaturedSectionContainer = <T extends FeaturedItem>({
   items,
   renderItem,
 }: FeaturedSectionContainerProps<T>) => {
-  const featuredItems = items.filter((item) => item.featured);
-  const nonFeaturedItems = items.filter((item) => !item.featured);
+  // ⚡ Optimization: Memoize the split of featured/non-featured items to avoid re-filtering
+  // the entire array on every render of the container.
+  const { featuredItems, nonFeaturedItems } = useMemo(() => {
+    return {
+      featuredItems: items.filter((item) => item.featured),
+      nonFeaturedItems: items.filter((item) => !item.featured),
+    };
+  }, [items]);
 
   return (
     <div className="flex flex-col gap-6 w-full px-4 md:px-10">

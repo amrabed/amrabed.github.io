@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const sections = [
   { name: "Skills", link: "#skills" },
@@ -61,7 +61,8 @@ export const MainHeader = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleScroll = (e: React.MouseEvent, link: string) => {
+  // ⚡ Optimization: Memoize event handlers to prevent unnecessary re-renders of navigation components.
+  const handleScroll = React.useCallback((e: React.MouseEvent, link: string) => {
     e.preventDefault();
     const targetId = link.substring(1);
     const element = document.getElementById(targetId);
@@ -72,9 +73,9 @@ export const MainHeader = () => {
       });
       setIsMenuOpen(false);
     }
-  };
+  }, []);
 
-  const handleScrollToTop = (e: React.MouseEvent) => {
+  const handleScrollToTop = React.useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     window.scrollTo({
       top: 0,
@@ -82,7 +83,7 @@ export const MainHeader = () => {
     });
     setIsMenuOpen(false);
     setActiveSection("");
-  };
+  }, []);
 
   return (
     <nav className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur-lg px-6 border-b border-divider h-16">
