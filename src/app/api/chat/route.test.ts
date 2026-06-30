@@ -77,7 +77,7 @@ describe("chat api route", () => {
 
       expect(res.status).toBe(500);
       const json = await res.json();
-      expect(json.error).toBe("Internal API Error");
+      expect(json.error).toBe("An error occurred. Please try again later.");
       expect(consoleSpy).toHaveBeenCalled();
 
       consoleSpy.mockRestore();
@@ -96,7 +96,7 @@ describe("chat api route", () => {
 
       expect(res.status).toBe(500);
       const json = await res.json();
-      expect(json.error).toBe("An error occurred.");
+      expect(json.error).toBe("An error occurred. Please try again later.");
 
       consoleSpy.mockRestore();
     });

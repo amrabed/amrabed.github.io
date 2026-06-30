@@ -28,6 +28,6 @@ export async function POST(request: Request) {
     }
 
     console.error("API error:", error);
-    return errorResponse(500, errorMessage);
+    return errorResponse(500, "An error occurred. Please try again later.");
   }
 }

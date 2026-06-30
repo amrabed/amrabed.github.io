@@ -2,7 +2,9 @@ import { ratelimit } from "@/lib/upstash";
 
 export default async function isRateLimited(req: Request): Promise<boolean> {
   const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "anonymous";
+    req.headers.get("x-real-ip") ??
+    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
+    "anonymous";
   const { success } = await ratelimit.limit(ip);
   return !success;
 }

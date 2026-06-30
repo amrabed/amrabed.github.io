@@ -55,6 +55,28 @@ describe("sendRequest", () => {
     expect(result).toBe("mock-stream-result");
   });
 
+  it("should throw an error if messages is not an array", async () => {
+    const req = new Request("http://localhost/api/chat", {
+      method: "POST",
+      body: JSON.stringify({ messages: "not-an-array" }),
+    });
+
+    await expect(sendRequest(req)).rejects.toThrow(
+      "Invalid request: messages must be an array.",
+    );
+  });
+
+  it("should throw an error if messages is missing", async () => {
+    const req = new Request("http://localhost/api/chat", {
+      method: "POST",
+      body: JSON.stringify({}),
+    });
+
+    await expect(sendRequest(req)).rejects.toThrow(
+      "Invalid request: messages must be an array.",
+    );
+  });
+
   it("should parse non-string content in user message", async () => {
     const messages = [{ role: "user", content: "hello" }];
 

@@ -5,7 +5,13 @@ import { chatModel } from "@/lib/genai";
 import { systemPrompt } from "./prompt";
 
 export default async function sendRequest(request: Request) {
-  const { messages } = await request.json();
+  const body = await request.json();
+  const { messages } = body;
+
+  if (!messages || !Array.isArray(messages)) {
+    throw new Error("Invalid request: messages must be an array.");
+  }
+
   const modelMessages = await convertToModelMessages(messages);
   const lastMessage = modelMessages[modelMessages.length - 1];
 
