@@ -13,7 +13,9 @@ describe("FeaturedSectionContainer", () => {
     const { getByText } = render(
       <FeaturedSectionContainer
         items={mockItems}
-        renderItem={(item: any) => <div>{item.name}</div>}
+        renderItem={(item: (typeof mockItems)[0]) => (
+          <div key={item.id}>{item.name}</div>
+        )}
       />
     );
 

@@ -33,8 +33,8 @@ describe("MainHeader", () => {
     const skillsLink = getByText("Skills");
 
     // Mock getElementById to return a mock element with offsetTop
-    const mockElement = { offsetTop: 500 };
-    vi.spyOn(document, "getElementById").mockReturnValue(mockElement as any);
+    const mockElement = { offsetTop: 500 } as HTMLElement;
+    vi.spyOn(document, "getElementById").mockReturnValue(mockElement);
 
     act(() => {
       skillsLink.click();
@@ -47,7 +47,7 @@ describe("MainHeader", () => {
   });
 
   it("should toggle mobile menu", () => {
-    const { getByLabelText, queryByRole } = render(<MainHeader />);
+    const { getByLabelText } = render(<MainHeader />);
     const menuButton = getByLabelText("Open menu");
 
     act(() => {
