@@ -39,9 +39,11 @@
   }
 }
 
-p,
-div {
-  text-align: justify;
+@layer base {
+  p,
+  div {
+    text-align: justify;
+  }
 }
 
 /* Home Animation and About Animation */
@@ -124,12 +126,14 @@ div {
 }
 
 /* Fix chat widget text stretching caused by global text-align: justify */
-.chat-widget p,
-.chat-widget div,
-.chat-widget ul,
-.chat-widget ol,
-.chat-widget li {
-  text-align: left;
+@layer components {
+  :where(.chat-widget) p,
+  :where(.chat-widget) div,
+  :where(.chat-widget) ul,
+  :where(.chat-widget) ol,
+  :where(.chat-widget) li {
+    text-align: left;
+  }
 }
 
 /* Hero Section */
@@ -225,4 +229,57 @@ div {
 
 .filter-close-btn {
   @apply absolute right-4 top-4 text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 min-w-0 h-8 w-8 z-10;
+}
+
+/* Chat Widget Message Bubbles */
+.chat-message-bubble {
+  @apply relative max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm select-text cursor-text;
+}
+
+.chat-message-user {
+  @apply bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white;
+}
+
+.chat-message-assistant {
+  @apply bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground;
+}
+
+.chat-message-actions {
+  @apply absolute top-1/2 -translate-y-1/2 flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10;
+}
+
+.chat-message-actions-user {
+  @apply left-0 -translate-x-[calc(100%+8px)];
+}
+
+.chat-message-actions-assistant {
+  @apply right-0 translate-x-[calc(100%+8px)];
+}
+
+.chat-message-action-btn {
+  @apply p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all min-w-0 h-fit;
+}
+
+.chat-typing-indicator {
+  @apply flex items-center gap-1.5 mt-3;
+}
+
+.chat-typing-text {
+  @apply text-xs text-indigo-500/80 dark:text-indigo-300/80 font-medium animate-pulse;
+}
+
+.chat-typing-dot {
+  @apply h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400;
+}
+
+.chat-thinking-indicator {
+  @apply flex items-center gap-2 bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 rounded-2xl px-4 py-3 shadow-sm;
+}
+
+.chat-thinking-text {
+  @apply text-xs text-slate-500 font-medium mr-1;
+}
+
+.chat-thinking-dot {
+  @apply h-2 w-2 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400;
 }
