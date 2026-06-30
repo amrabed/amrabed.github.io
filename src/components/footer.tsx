@@ -33,15 +33,17 @@ const Footer = () => {
             onChange={toggleTheme}
             aria-label="Toggle dark mode"
           >
-            <Switch.Control className="data-[selected=true]:bg-primary">
-              <Switch.Thumb className="flex items-center justify-center">
-                {theme === "dark" ? (
-                  <MoonIcon className="size-3 text-primary" />
-                ) : (
-                  <SunIcon className="size-3 text-amber-500" />
-                )}
-              </Switch.Thumb>
-            </Switch.Control>
+            <Switch.Content>
+              <Switch.Control className="data-[selected=true]:bg-primary">
+                <Switch.Thumb className="flex items-center justify-center">
+                  {theme === "dark" ? (
+                    <MoonIcon className="size-3 text-primary" />
+                  ) : (
+                    <SunIcon className="size-3 text-amber-500" />
+                  )}
+                </Switch.Thumb>
+              </Switch.Control>
+            </Switch.Content>
           </Switch>
           <span className="text-sm font-medium text-slate-500 dark:text-slate-400 min-w-20">
             {theme === "dark" ? "Dark Mode" : "Light Mode"}
