@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
+
 import React from "react";
+
 import { render } from "@testing-library/react";
+
 import { FeaturedSectionContainer } from "./featured-section-container";
 
 describe("FeaturedSectionContainer", () => {
@@ -16,7 +19,7 @@ describe("FeaturedSectionContainer", () => {
         renderItem={(item: (typeof mockItems)[0]) => (
           <div key={item.id}>{item.name}</div>
         )}
-      />
+      />,
     );
 
     expect(getByText("Featured 1")).toBeInTheDocument();

@@ -44,7 +44,11 @@ export const SkillsSection = memo(() => {
   }, [debouncedQuery, areaMatchingSkills, selectedSkills]);
 
   return (
-    <Section id="skills" title="Technical Skills" contentClassName="section-body">
+    <Section
+      id="skills"
+      title="Technical Skills"
+      contentClassName="section-body"
+    >
       {filteredSkills.length > 0 ? (
         filteredSkills.map(([, skill]) => (
           <div

@@ -157,10 +157,10 @@ export const MessageBubble = ({
                   isIconOnly
                   variant="ghost"
                   onPress={() => onEdit(messageText)}
-                  className="chat-message-action-btn"
+                  className="chat-message-action-btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
                   aria-label="Edit question"
                 >
-                  <Pencil size={12} />
+                  <Pencil size={12} aria-hidden="true" />
                 </Button>
               </Tooltip.Trigger>
               <Tooltip.Content>
@@ -175,15 +175,19 @@ export const MessageBubble = ({
                 isIconOnly
                 variant="ghost"
                 onPress={() => onCopy(message.id, messageText)}
-                className="chat-message-action-btn"
+                className="chat-message-action-btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
                 aria-label={
                   message.role === "user" ? "Copy question" : "Copy answer"
                 }
               >
                 {copiedId === message.id ? (
-                  <Check size={12} className="text-green-500 animate-pulse" />
+                  <Check
+                    size={12}
+                    className="text-green-500 animate-pulse"
+                    aria-hidden="true"
+                  />
                 ) : (
-                  <Copy size={12} />
+                  <Copy size={12} aria-hidden="true" />
                 )}
               </Button>
             </Tooltip.Trigger>
