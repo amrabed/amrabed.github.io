@@ -181,7 +181,11 @@ export const MessageBubble = ({
                 }
               >
                 {copiedId === message.id ? (
-                  <Check size={12} className="text-green-500 animate-pulse" aria-hidden="true" />
+                  <Check
+                    size={12}
+                    className="text-green-500 animate-pulse"
+                    aria-hidden="true"
+                  />
                 ) : (
                   <Copy size={12} aria-hidden="true" />
                 )}

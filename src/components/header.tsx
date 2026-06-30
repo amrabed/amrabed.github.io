@@ -62,18 +62,21 @@ export const MainHeader = () => {
   }, []);
 
   // ⚡ Optimization: Memoize event handlers to prevent unnecessary re-renders of navigation components.
-  const handleScroll = React.useCallback((e: React.MouseEvent, link: string) => {
-    e.preventDefault();
-    const targetId = link.substring(1);
-    const element = document.getElementById(targetId);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 100, // Adjusted offset for better centering
-        behavior: "smooth",
-      });
-      setIsMenuOpen(false);
-    }
-  }, []);
+  const handleScroll = React.useCallback(
+    (e: React.MouseEvent, link: string) => {
+      e.preventDefault();
+      const targetId = link.substring(1);
+      const element = document.getElementById(targetId);
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop - 100, // Adjusted offset for better centering
+          behavior: "smooth",
+        });
+        setIsMenuOpen(false);
+      }
+    },
+    [],
+  );
 
   const handleScrollToTop = React.useCallback((e: React.MouseEvent) => {
     e.preventDefault();
