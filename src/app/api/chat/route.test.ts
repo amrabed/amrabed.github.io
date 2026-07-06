@@ -15,15 +15,16 @@ vi.mock("./request", () => ({
 }));
 
 vi.mock("./response", () => ({
-  CORS_HEADERS: { "mock-cors": "true" },
-  OPTIONS_RESPONSE: new Response("options"),
-  errorResponse: (status: number, message: string) =>
-    new Response(JSON.stringify({ error: message }), { status }),
+  getCorsHeaders: (origin: string | null) => ({ "mock-cors": "true", origin }),
+  optionsResponse: (origin: string | null) => new Response("options", { headers: { origin: origin || "" } }),
+  errorResponse: (status: number, message: string, origin: string | null) =>
+    new Response(JSON.stringify({ error: message, origin }), { status }),
 }));
 
 describe("chat api route", () => {
   it("should handle OPTIONS requests", async () => {
-    const res = await OPTIONS();
+    const req = new Request("http://localhost/api/chat", { method: "OPTIONS" });
+    const res = await OPTIONS(req);
     expect(await res.text()).toBe("options");
   });
 
