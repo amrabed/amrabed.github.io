@@ -26,7 +26,13 @@ export const SectionItemCard = memo(
           className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xl"
         >
           <div className="section-item p-3">
-            <Image src={image.src} alt={image.alt} width={150} height={150} />
+            <Image 
+              src={image.src} 
+              alt={image.alt} 
+              width={150} 
+              height={150} 
+              style={{ width: "auto", height: "auto" }} 
+            />
             <p className="text-xl md:text-2xl text-foreground">{title}</p>
             <p className="dark:text-primary-dark text-primary">{subtitle}</p>
             <p className="text-secondary">{footer}</p>
