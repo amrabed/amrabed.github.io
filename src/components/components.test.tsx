@@ -21,11 +21,6 @@ vi.mock("@heroui/react", async (importOriginal) => {
   return {
     ...actual,
     Tooltip: MockTooltip,
-    Button: ({ children, onPress, ...props }: any) => (
-      <button onClick={onPress} {...props}>
-        {children}
-      </button>
-    ),
   };
 });
 
