@@ -114,7 +114,7 @@ export const MessageBubble = ({
   const messageText =
     message.parts?.reduce(
       (acc, p) => (p.type === "text" ? acc + p.text : acc),
-      ""
+      "",
     ) || "";
 
   return (

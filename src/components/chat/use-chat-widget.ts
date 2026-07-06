@@ -1,6 +1,8 @@
-import { useState, useRef, useEffect, useCallback } from "react";
-import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
+import { useState, useRef, useEffect, useCallback } from "react";
+
+import { useChat } from "@ai-sdk/react";
+
 import { useFilter } from "@/contexts/filter";
 
 export const getApiEndpoint = () => {
@@ -142,6 +144,6 @@ export function useChatWidget() {
     copyToClipboard,
     handleEdit,
     isFilterBarVisible,
-    status
+    status,
   };
 }

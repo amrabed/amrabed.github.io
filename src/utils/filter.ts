@@ -23,7 +23,9 @@ const toLowerCaseCached = (value: string) => {
 };
 
 export const match = (values: string[], lowercaseQuery: string) => {
-  return values.some((value) => toLowerCaseCached(value).includes(lowercaseQuery));
+  return values.some((value) =>
+    toLowerCaseCached(value).includes(lowercaseQuery),
+  );
 };
 
 const filterPublicationByQuery = (pub: Publication, lowercaseQuery: string) => {

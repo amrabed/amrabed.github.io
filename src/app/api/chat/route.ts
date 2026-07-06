@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     return errorResponse(
       429,
       "You've reached the daily limit. Come back tomorrow!",
-      origin
+      origin,
     );
   }
 
@@ -30,6 +30,10 @@ export async function POST(request: Request) {
     }
 
     console.error("API error:", error);
-    return errorResponse(500, "An error occurred. Please try again later.", origin);
+    return errorResponse(
+      500,
+      "An error occurred. Please try again later.",
+      origin,
+    );
   }
 }

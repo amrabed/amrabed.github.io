@@ -1,7 +1,10 @@
-import { render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import ProjectCard from "./project";
+
+import { render } from "@testing-library/react";
+
 import projects from "@/data/projects";
+
+import ProjectCard from "./project";
 
 describe("ProjectCard", () => {
   it("renders correctly", () => {

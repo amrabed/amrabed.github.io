@@ -1,7 +1,10 @@
 import { NextRequest } from "next/server";
+
 import { ratelimit } from "@/lib/upstash";
 
-export default async function isRateLimited(req: NextRequest | Request): Promise<boolean> {
+export default async function isRateLimited(
+  req: NextRequest | Request,
+): Promise<boolean> {
   let ip = (req as NextRequest).ip;
   if (!ip) {
     const forwardedFor = req.headers.get("x-forwarded-for");

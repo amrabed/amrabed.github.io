@@ -16,7 +16,8 @@ vi.mock("./request", () => ({
 
 vi.mock("./response", () => ({
   getCorsHeaders: (origin: string | null) => ({ "mock-cors": "true", origin }),
-  optionsResponse: (origin: string | null) => new Response("options", { headers: { origin: origin || "" } }),
+  optionsResponse: (origin: string | null) =>
+    new Response("options", { headers: { origin: origin || "" } }),
   errorResponse: (status: number, message: string, origin: string | null) =>
     new Response(JSON.stringify({ error: message, origin }), { status }),
 }));

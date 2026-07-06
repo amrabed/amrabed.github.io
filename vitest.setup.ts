@@ -1,15 +1,14 @@
 import "@testing-library/jest-dom";
 
-Object.defineProperty(window, 'localStorage', {
+Object.defineProperty(window, "localStorage", {
   value: {
     getItem: vi.fn(),
     setItem: vi.fn(),
     clear: vi.fn(),
     removeItem: vi.fn(),
   },
-  writable: true
+  writable: true,
 });
-
 
 const localStorageMock = (function () {
   let store: Record<string, string> = {};
@@ -28,7 +27,7 @@ const localStorageMock = (function () {
     },
   };
 })();
-Object.defineProperty(window, 'localStorage', {
+Object.defineProperty(window, "localStorage", {
   value: localStorageMock,
-  writable: true
+  writable: true,
 });

@@ -1,6 +1,5 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-
 import { render, act, renderHook } from "@testing-library/react";
 
 import { useFilter, FilterProvider } from "./filter";
@@ -32,7 +31,8 @@ vi.mock("next/navigation", () => ({
 describe("React Contexts & Hooks", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    if (typeof localStorage !== "undefined" && localStorage.clear) localStorage.clear();
+    if (typeof localStorage !== "undefined" && localStorage.clear)
+      localStorage.clear();
     mockEntries.mockReturnValue([]);
     mockGet.mockReturnValue(null);
   });

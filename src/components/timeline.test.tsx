@@ -1,7 +1,10 @@
-import { render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import Timeline from "./timeline";
+
+import { render } from "@testing-library/react";
+
 import positions from "@/data/positions";
+
+import Timeline from "./timeline";
 
 describe("Timeline", () => {
   it("renders correctly", () => {

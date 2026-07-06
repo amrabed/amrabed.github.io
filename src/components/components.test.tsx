@@ -1,7 +1,6 @@
 /* eslint-disable react/display-name, @typescript-eslint/no-explicit-any */
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-
 import { render, act } from "@testing-library/react";
 
 import { EmptyState } from "./empty-state";

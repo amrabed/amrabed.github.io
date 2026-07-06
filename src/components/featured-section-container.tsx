@@ -25,7 +25,7 @@ export const FeaturedSectionContainer = <T extends FeaturedItem>({
         else acc.nonFeaturedItems.push(item);
         return acc;
       },
-      { featuredItems: [], nonFeaturedItems: [] }
+      { featuredItems: [], nonFeaturedItems: [] },
     );
   }, [items]);
 
