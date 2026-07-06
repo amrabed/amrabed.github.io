@@ -19,9 +19,7 @@ export default async function sendRequest(request: Request) {
     typeof lastMessage.content === "string"
       ? lastMessage.content
       : lastMessage.content
-          .filter((c) => c.type === "text")
-          .map((c) => c.text)
-          .join("");
+          .reduce((acc, c) => (c.type === "text" ? acc + c.text : acc), "");
 
   if (userQuery.length > 10000) {
     throw new Error("Message is too long (maximum 10,000 characters).");

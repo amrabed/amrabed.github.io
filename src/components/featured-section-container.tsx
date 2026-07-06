@@ -19,10 +19,14 @@ export const FeaturedSectionContainer = <T extends FeaturedItem>({
   // ⚡ Optimization: Memoize the split of featured/non-featured items to avoid re-filtering
   // the entire array on every render of the container.
   const { featuredItems, nonFeaturedItems } = useMemo(() => {
-    return {
-      featuredItems: items.filter((item) => item.featured),
-      nonFeaturedItems: items.filter((item) => !item.featured),
-    };
+    return items.reduce<{ featuredItems: T[]; nonFeaturedItems: T[] }>(
+      (acc, item) => {
+        if (item.featured) acc.featuredItems.push(item);
+        else acc.nonFeaturedItems.push(item);
+        return acc;
+      },
+      { featuredItems: [], nonFeaturedItems: [] }
+    );
   }, [items]);
 
   return (

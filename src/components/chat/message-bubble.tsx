@@ -112,12 +112,10 @@ export const MessageBubble = ({
   const showTypingIndicator =
     isLast && message.role === "assistant" && isLoading;
   const messageText =
-    message.parts
-      ?.filter((p) => p.type === "text")
-      .map((p) =>
-        p.type === "text" ? (p as { type: "text"; text: string }).text : "",
-      )
-      .join("") || "";
+    message.parts?.reduce(
+      (acc, p) => (p.type === "text" ? acc + p.text : acc),
+      ""
+    ) || "";
 
   return (
     <div
