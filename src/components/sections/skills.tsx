@@ -18,10 +18,11 @@ export const SkillsSection = memo(() => {
   const skills = selected["skills"];
 
   const areaMatchingSkills = useMemo(() => {
-    const matchingSkills = new Set<string>();
+    let matchingSkills: Set<string>;
     if (!areas || areas.length === 0) {
-      Object.keys(skillsData).forEach((s) => matchingSkills.add(s));
+      matchingSkills = new Set(Object.keys(skillsData));
     } else {
+      matchingSkills = new Set();
       areas.forEach((area) => {
         areaSkills[area]?.forEach((skill) => matchingSkills.add(skill));
       });

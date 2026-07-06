@@ -10,8 +10,22 @@ import type {
  * Checks if any of the values match the query (case-insensitive).
  * Expects lowercaseQuery to be already lowercased.
  */
+const lowerCaseCache = new Map<string, string>();
+const toLowerCaseCached = (value: string) => {
+  let lower = lowerCaseCache.get(value);
+  if (lower === undefined) {
+    lower = value.toLowerCase();
+    // Prevent unbounded memory growth if data is dynamic
+    if (lowerCaseCache.size > 10000) lowerCaseCache.clear();
+    lowerCaseCache.set(value, lower);
+  }
+  return lower;
+};
+
 export const match = (values: string[], lowercaseQuery: string) => {
-  return values.some((value) => value.toLowerCase().includes(lowercaseQuery));
+  return values.some((value) =>
+    toLowerCaseCached(value).includes(lowercaseQuery),
+  );
 };
 
 const filterPublicationByQuery = (pub: Publication, lowercaseQuery: string) => {

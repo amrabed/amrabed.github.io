@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import React, { useEffect, useRef, useState, memo } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = memo(() => {

@@ -33,7 +33,7 @@ describe("isRateLimited", () => {
 
     const result = await isRateLimited(req);
 
-    expect(mockLimit).toHaveBeenCalledWith("12.34.56.78");
+    expect(mockLimit).toHaveBeenCalledWith("98.76.54.32");
     expect(result).toBe(false);
   });
 

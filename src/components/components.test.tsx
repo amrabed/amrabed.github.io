@@ -1,8 +1,6 @@
 /* eslint-disable react/display-name, @typescript-eslint/no-explicit-any */
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-import React from "react";
-
 import { render, act } from "@testing-library/react";
 
 import { EmptyState } from "./empty-state";
@@ -23,11 +21,6 @@ vi.mock("@heroui/react", async (importOriginal) => {
   return {
     ...actual,
     Tooltip: MockTooltip,
-    Button: ({ children, onPress, ...props }: any) => (
-      <button onClick={onPress} {...props}>
-        {children}
-      </button>
-    ),
   };
 });
 
