@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import React, { memo } from "react";
+import { memo } from "react";
 
 interface SectionItemCardProps {
   href: string;
