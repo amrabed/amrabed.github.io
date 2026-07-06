@@ -5,7 +5,8 @@ import { ratelimit } from "@/lib/upstash";
 export default async function isRateLimited(
   req: NextRequest | Request,
 ): Promise<boolean> {
-  let ip = (req as NextRequest).ip;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let ip = "ip" in req ? (req as any).ip : null;
   if (!ip) {
     const forwardedFor = req.headers.get("x-forwarded-for");
     if (forwardedFor) {

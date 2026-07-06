@@ -13,7 +13,7 @@ const isAllowedOrigin = (origin: string | null) => {
 export const getCorsHeaders = (origin: string | null) => {
   return {
     "Access-Control-Allow-Origin": isAllowedOrigin(origin)
-      ? origin
+      ? (origin as string)
       : "https://amrabed.com",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization",
