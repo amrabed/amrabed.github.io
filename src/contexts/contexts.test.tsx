@@ -32,7 +32,7 @@ vi.mock("next/navigation", () => ({
 describe("React Contexts & Hooks", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    localStorage.clear();
+    if (typeof localStorage !== "undefined" && localStorage.clear) localStorage.clear();
     mockEntries.mockReturnValue([]);
     mockGet.mockReturnValue(null);
   });
