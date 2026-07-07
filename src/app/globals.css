@@ -27,7 +27,8 @@
 
 * {
   scroll-behavior: smooth !important;
-  -webkit-scroll-behavior: smooth !important; /* other browsers */
+  -webkit-scroll-behavior: smooth !important;
+  /* other browsers */
 }
 
 @media (prefers-reduced-motion: reduce) {
