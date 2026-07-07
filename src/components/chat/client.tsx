@@ -90,7 +90,7 @@ export default function ChatWidgetClient() {
               <MessageBubble
                 key={m.id}
                 message={m}
-                isTyping={
+                isGenerating={
                   index === messages.length - 1 &&
                   m.role === "assistant" &&
                   isLoading

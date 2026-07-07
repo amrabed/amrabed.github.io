@@ -95,18 +95,115 @@ const MessageContent = ({
   return <ReactMarkdown components={markdownComponents}>{text}</ReactMarkdown>;
 };
 
-// ⚡ Optimization: Memoize the MessageBubble to prevent expensive re-renders of the entire message list,
-// especially during streaming or when copying messages.
+const EditAction = ({
+  onEdit,
+  text,
+}: {
+  onEdit: (text: string) => void;
+  text: string;
+}) => (
+  <Tooltip closeDelay={0}>
+    <Tooltip.Trigger>
+      <Button
+        isIconOnly
+        variant="ghost"
+        onPress={() => onEdit(text)}
+        className="chat-message-action-btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
+        aria-label="Edit question"
+      >
+        <Pencil size={12} aria-hidden="true" />
+      </Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content>
+      Edit question
+      <Tooltip.Arrow />
+    </Tooltip.Content>
+  </Tooltip>
+);
+
+const CopyAction = ({
+  onCopy,
+  id,
+  text,
+  isCopied,
+  role,
+}: {
+  onCopy: (id: string, text: string) => void;
+  id: string;
+  text: string;
+  isCopied: boolean;
+  role: string;
+}) => (
+  <Tooltip closeDelay={0}>
+    <Tooltip.Trigger>
+      <Button
+        isIconOnly
+        variant="ghost"
+        onPress={() => onCopy(id, text)}
+        className="chat-message-action-btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
+        aria-label={role === "user" ? "Copy question" : "Copy answer"}
+      >
+        {isCopied ? (
+          <Check
+            size={12}
+            className="text-green-500 animate-pulse"
+            aria-hidden="true"
+          />
+        ) : (
+          <Copy size={12} aria-hidden="true" />
+        )}
+      </Button>
+    </Tooltip.Trigger>
+    <Tooltip.Content>
+      {role === "user" ? "Copy question" : "Copy answer"}
+      <Tooltip.Arrow />
+    </Tooltip.Content>
+  </Tooltip>
+);
+
+const MessageActions = ({
+  role,
+  messageId,
+  messageText,
+  isCopied,
+  onEdit,
+  onCopy,
+}: {
+  role: string;
+  messageId: string;
+  messageText: string;
+  isCopied: boolean;
+  onEdit: (text: string) => void;
+  onCopy: (id: string, text: string) => void;
+}) => (
+  <div
+    className={`chat-message-actions ${
+      role === "user"
+        ? "chat-message-actions-user"
+        : "chat-message-actions-assistant"
+    }`}
+  >
+    {role === "user" && <EditAction onEdit={onEdit} text={messageText} />}
+    <CopyAction
+      onCopy={onCopy}
+      id={messageId}
+      text={messageText}
+      isCopied={isCopied}
+      role={role}
+    />
+  </div>
+);
+
 export const MessageBubble = memo(
   ({
     message,
-    isTyping,
+    isGenerating,
     onEdit,
     onCopy,
     isCopied,
   }: {
     message: UIMessage;
-    isTyping: boolean;
+    isGenerating: boolean;
     onEdit: (text: string) => void;
     onCopy: (id: string, text: string) => void;
     isCopied: boolean;
@@ -140,65 +237,18 @@ export const MessageBubble = memo(
               : "chat-message-assistant"
           }`}
         >
-          {/* Floating Message Actions */}
-          <div
-            className={`chat-message-actions ${
-              message.role === "user"
-                ? "chat-message-actions-user"
-                : "chat-message-actions-assistant"
-            }`}
-          >
-            {message.role === "user" && (
-              <Tooltip closeDelay={0}>
-                <Tooltip.Trigger>
-                  <Button
-                    isIconOnly
-                    variant="ghost"
-                    onPress={() => onEdit(messageText)}
-                    className="chat-message-action-btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
-                    aria-label="Edit question"
-                  >
-                    <Pencil size={12} aria-hidden="true" />
-                  </Button>
-                </Tooltip.Trigger>
-                <Tooltip.Content>
-                  Edit question
-                  <Tooltip.Arrow />
-                </Tooltip.Content>
-              </Tooltip>
-            )}
-            <Tooltip closeDelay={0}>
-              <Tooltip.Trigger>
-                <Button
-                  isIconOnly
-                  variant="ghost"
-                  onPress={() => onCopy(message.id, messageText)}
-                  className="chat-message-action-btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
-                  aria-label={
-                    message.role === "user" ? "Copy question" : "Copy answer"
-                  }
-                >
-                  {isCopied ? (
-                    <Check
-                      size={12}
-                      className="text-green-500 animate-pulse"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    <Copy size={12} aria-hidden="true" />
-                  )}
-                </Button>
-              </Tooltip.Trigger>
-              <Tooltip.Content>
-                {message.role === "user" ? "Copy question" : "Copy answer"}
-                <Tooltip.Arrow />
-              </Tooltip.Content>
-            </Tooltip>
-          </div>
+          <MessageActions
+            role={message.role}
+            messageId={message.id}
+            messageText={messageText}
+            isCopied={isCopied}
+            onEdit={onEdit}
+            onCopy={onCopy}
+          />
 
           <div className="prose prose-sm dark:prose-invert max-w-none">
             <MessageContent message={message} text={messageText} />
-            {isTyping && (
+            {isGenerating && (
               <div className="chat-typing-indicator">
                 <span className="chat-typing-text">Generating...</span>
                 <div className="chat-typing-dot [animation-delay:-0.3s]"></div>
@@ -215,7 +265,6 @@ export const MessageBubble = memo(
 
 MessageBubble.displayName = "MessageBubble";
 
-// ⚡ Optimization: Memoize the thinking indicator for minor performance gains during state updates.
 export const ThinkingIndicator = memo(() => (
   <div className="flex justify-start animate-in fade-in duration-200">
     <div className="chat-thinking-indicator">
