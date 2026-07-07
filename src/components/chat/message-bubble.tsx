@@ -25,28 +25,26 @@ const markdownComponents = {
         href={href}
         target={isHash ? undefined : "_blank"}
         rel={isHash ? undefined : "noopener noreferrer"}
-        className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold transition-colors"
+        className="chat-message-markdown-link"
       >
         {children}
       </a>
     );
   },
   p: ({ children }: { children?: React.ReactNode }) => (
-    <p className="mb-2 last:mb-0 leading-relaxed">{children}</p>
+    <p className="chat-message-markdown-p">{children}</p>
   ),
   ul: ({ children }: { children?: React.ReactNode }) => (
-    <ul className="list-disc pl-4 mb-2 space-y-1">{children}</ul>
+    <ul className="chat-message-markdown-ul">{children}</ul>
   ),
   ol: ({ children }: { children?: React.ReactNode }) => (
-    <ol className="list-decimal pl-4 mb-2 space-y-1">{children}</ol>
+    <ol className="chat-message-markdown-ol">{children}</ol>
   ),
   li: ({ children }: { children?: React.ReactNode }) => (
-    <li className="mb-0.5">{children}</li>
+    <li className="chat-message-markdown-li">{children}</li>
   ),
   strong: ({ children }: { children?: React.ReactNode }) => (
-    <strong className="font-bold text-indigo-950 dark:text-white">
-      {children}
-    </strong>
+    <strong className="chat-message-markdown-strong">{children}</strong>
   ),
 };
 
@@ -63,7 +61,7 @@ const MessageContent = ({
       if (part.type === "text") {
         if (message.role === "user") {
           return (
-            <div key={partKey} className="whitespace-pre-wrap break-words">
+            <div key={partKey} className="chat-user-text">
               {part.text}
             </div>
           );
@@ -76,10 +74,7 @@ const MessageContent = ({
       }
       if (part.type === "reasoning") {
         return (
-          <div
-            key={partKey}
-            className="mb-2 italic text-zinc-500 dark:text-zinc-400 border-l-2 border-zinc-300 dark:border-zinc-700 pl-2 text-xs"
-          >
+          <div key={partKey} className="chat-reasoning-text">
             Thinking: {part.text}
           </div>
         );
@@ -89,7 +84,7 @@ const MessageContent = ({
   }
 
   if (message.role === "user") {
-    return <div className="whitespace-pre-wrap break-words">{text}</div>;
+    return <div className="chat-user-text">{text}</div>;
   }
 
   return <ReactMarkdown components={markdownComponents}>{text}</ReactMarkdown>;
@@ -108,7 +103,7 @@ const EditAction = ({
         isIconOnly
         variant="ghost"
         onPress={() => onEdit(text)}
-        className="chat-message-action-btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
+        className="chat-message-action-btn"
         aria-label="Edit question"
       >
         <Pencil size={12} aria-hidden="true" />
@@ -140,13 +135,13 @@ const CopyAction = ({
         isIconOnly
         variant="ghost"
         onPress={() => onCopy(id, text)}
-        className="chat-message-action-btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full"
+        className="chat-message-action-btn"
         aria-label={role === "user" ? "Copy question" : "Copy answer"}
       >
         {isCopied ? (
           <Check
             size={12}
-            className="text-green-500 animate-pulse"
+            className="chat-action-btn-success"
             aria-hidden="true"
           />
         ) : (
@@ -176,10 +171,7 @@ const MessageActions = ({
   onEdit: (text: string) => void;
   onCopy: (id: string, text: string) => void;
 }) => (
-  <div
-    data-role={role}
-    className="chat-message-actions data-[role=user]:chat-message-actions-user data-[role=assistant]:chat-message-actions-assistant"
-  >
+  <div data-role={role} className="chat-message-actions">
     {role === "user" && <EditAction onEdit={onEdit} text={messageText} />}
     <CopyAction
       onCopy={onCopy}
@@ -212,10 +204,7 @@ export const MessageBubble = memo(
       ) || "";
 
     return (
-      <div
-        data-role={message.role}
-        className="flex data-[role=user]:justify-end data-[role=assistant]:justify-start"
-      >
+      <div data-role={message.role} className="chat-message-wrapper">
         <div
           tabIndex={0}
           role="button"
@@ -230,7 +219,7 @@ export const MessageBubble = memo(
           onDoubleClick={(e) => {
             selectElementText(e.currentTarget);
           }}
-          className="chat-message-bubble group data-[role=user]:chat-message-user data-[role=assistant]:chat-message-assistant"
+          className="chat-message-bubble group"
         >
           <MessageActions
             role={message.role}
@@ -261,7 +250,7 @@ export const MessageBubble = memo(
 MessageBubble.displayName = "MessageBubble";
 
 export const ThinkingIndicator = memo(() => (
-  <div className="flex justify-start animate-in fade-in duration-200">
+  <div className="chat-thinking-wrapper">
     <div className="chat-thinking-indicator">
       <span className="chat-thinking-text">Thinking</span>
       <div className="chat-thinking-dot [animation-delay:-0.3s]"></div>
