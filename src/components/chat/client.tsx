@@ -90,11 +90,14 @@ export default function ChatWidgetClient() {
               <MessageBubble
                 key={m.id}
                 message={m}
-                isLoading={isLoading}
-                isLast={index === messages.length - 1}
+                isGenerating={
+                  index === messages.length - 1 &&
+                  m.role === "assistant" &&
+                  isLoading
+                }
                 onEdit={handleEdit}
                 onCopy={copyToClipboard}
-                copiedId={copiedId}
+                isCopied={copiedId === m.id}
               />
             ))}
             {status === "submitted" &&

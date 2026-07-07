@@ -233,32 +233,84 @@
 }
 
 /* Chat Widget Message Bubbles */
+.chat-message-wrapper {
+  @apply flex;
+}
+
+.chat-message-wrapper[data-role="user"] {
+  @apply justify-end;
+}
+
+.chat-message-wrapper[data-role="assistant"] {
+  @apply justify-start;
+}
+
 .chat-message-bubble {
-  @apply relative max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm select-text cursor-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
+  @apply relative rounded-2xl px-4 py-2.5 text-sm shadow-sm select-text cursor-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
 }
 
-.chat-message-user {
-  @apply bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white;
+.chat-message-bubble[data-role="user"] {
+  @apply max-w-[70%] bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white;
 }
 
-.chat-message-assistant {
-  @apply bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground;
+.chat-message-bubble[data-role="assistant"] {
+  @apply max-w-[80%] bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground;
 }
 
 .chat-message-actions {
   @apply absolute top-1/2 -translate-y-1/2 flex items-center gap-1 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 shadow-md px-1.5 py-0.5 rounded-full opacity-90 md:opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 z-10;
 }
 
-.chat-message-actions-user {
+.chat-message-actions[data-role="user"] {
   @apply left-0 -translate-x-[calc(100%+8px)];
 }
 
-.chat-message-actions-assistant {
+.chat-message-actions[data-role="assistant"] {
   @apply right-0 translate-x-[calc(100%+8px)];
 }
 
 .chat-message-action-btn {
-  @apply p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all min-w-0 h-fit;
+  @apply p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all min-w-0 h-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full;
+}
+
+.chat-message-markdown-link {
+  @apply text-indigo-600 dark:text-indigo-400 hover:underline font-semibold transition-colors;
+}
+
+.chat-message-markdown-p {
+  @apply mb-2 last:mb-0 leading-relaxed;
+}
+
+.chat-message-markdown-ul {
+  @apply list-disc pl-4 mb-2 space-y-1;
+}
+
+.chat-message-markdown-ol {
+  @apply list-decimal pl-4 mb-2 space-y-1;
+}
+
+.chat-message-markdown-li {
+  @apply mb-0.5;
+}
+
+.chat-message-markdown-strong {
+  @apply font-bold text-indigo-950 dark:text-white;
+}
+
+.chat-reasoning-text {
+  @apply mb-2 italic text-zinc-500 dark:text-zinc-400 border-l-2 border-zinc-300 dark:border-zinc-700 pl-2 text-xs;
+}
+
+.chat-user-text {
+  @apply whitespace-pre-wrap break-words;
+}
+
+.chat-thinking-wrapper {
+  @apply flex justify-start animate-in fade-in duration-200;
+}
+
+.chat-action-btn-success {
+  @apply text-green-500 animate-pulse;
 }
 
 .chat-typing-indicator {
