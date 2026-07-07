@@ -24,9 +24,16 @@ export default function ChatWidgetClient() {
     copiedId,
     copyToClipboard,
     handleEdit,
+    handleSuggestedQuestion,
     isFilterBarVisible,
     status,
   } = useChatWidget();
+
+  const suggestedQuestions = [
+    "What are Amr's core technical skills?",
+    "Tell me about his most recent projects.",
+    "What was his PhD research about?",
+  ];
 
   return (
     <div
@@ -58,9 +65,25 @@ export default function ChatWidgetClient() {
             className="chat-messages-container"
           >
             {messages.length === 0 && !isLoading && (
-              <div className="chat-empty-state">
-                Hi! I'm Miro. Ask me anything about Amr's experience, projects,
-                or skills 🙂
+              <div className="chat-empty-state flex-col gap-4">
+                <div className="text-center">
+                  Hi! I&apos;m Miro. Ask me anything about Amr&apos;s
+                  experience, projects, or skills 🙂
+                </div>
+                <div className="flex flex-col gap-2 w-full max-w-[280px]">
+                  {suggestedQuestions.map((q) => (
+                    <Button
+                      key={q}
+                      size="sm"
+                      variant="flat"
+                      onPress={() => handleSuggestedQuestion(q)}
+                      className="text-xs bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 rounded-xl h-auto py-2 px-3 whitespace-normal text-left justify-start border border-indigo-100/50 dark:border-indigo-800/30 transition-all active:scale-95"
+                      aria-label={`Ask: ${q}`}
+                    >
+                      {q}
+                    </Button>
+                  ))}
+                </div>
               </div>
             )}
             {messages.map((m, index) => (

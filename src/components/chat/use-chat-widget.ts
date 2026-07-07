@@ -109,6 +109,18 @@ export function useChatWidget() {
     [input, isLoading, sendMessage],
   );
 
+  const handleSuggestedQuestion = useCallback(
+    async (question: string) => {
+      if (isLoading) return;
+      try {
+        await sendMessage({ text: question });
+      } catch (err) {
+        console.error("Failed to send suggested question:", err);
+      }
+    },
+    [isLoading, sendMessage],
+  );
+
   const isRateLimited =
     error?.message?.includes("429") ||
     (error as unknown as { status?: number })?.status === 429;
@@ -143,6 +155,7 @@ export function useChatWidget() {
     copiedId,
     copyToClipboard,
     handleEdit,
+    handleSuggestedQuestion,
     isFilterBarVisible,
     status,
   };
