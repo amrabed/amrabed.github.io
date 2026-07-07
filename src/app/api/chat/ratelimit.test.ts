@@ -24,6 +24,20 @@ describe("isRateLimited", () => {
     expect(result).toBe(false);
   });
 
+  it("should prioritize x-real-ip over x-forwarded-for", async () => {
+    mockLimit.mockResolvedValue({ success: true });
+
+    const req = new Request("http://localhost/api/chat", {
+      headers: {
+        "x-forwarded-for": "1.1.1.1",
+        "x-real-ip": "2.2.2.2",
+      },
+    });
+
+    await isRateLimited(req);
+    expect(mockLimit).toHaveBeenCalledWith("2.2.2.2");
+  });
+
   it("should extract IP from x-forwarded-for header and call limit if x-real-ip is missing", async () => {
     mockLimit.mockResolvedValue({ success: true });
 

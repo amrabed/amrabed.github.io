@@ -62,7 +62,18 @@ describe("sendRequest", () => {
     });
 
     await expect(sendRequest(req)).rejects.toThrow(
-      "Invalid request: messages must be an array.",
+      "Invalid request: messages must be an array and cannot be empty.",
+    );
+  });
+
+  it("should throw an error if messages array is empty", async () => {
+    const req = new Request("http://localhost/api/chat", {
+      method: "POST",
+      body: JSON.stringify({ messages: [] }),
+    });
+
+    await expect(sendRequest(req)).rejects.toThrow(
+      "Invalid request: messages must be an array and cannot be empty.",
     );
   });
 
@@ -73,7 +84,7 @@ describe("sendRequest", () => {
     });
 
     await expect(sendRequest(req)).rejects.toThrow(
-      "Invalid request: messages must be an array.",
+      "Invalid request: messages must be an array and cannot be empty.",
     );
   });
 
@@ -103,13 +114,14 @@ describe("sendRequest", () => {
   });
 
   it("should throw an error if the user query is too long", async () => {
+    const messages = [{ role: "user", content: "hello" }];
     mockConvertToModelMessages.mockResolvedValue([
       { role: "user", content: "a".repeat(10001) },
     ]);
 
     const req = new Request("http://localhost/api/chat", {
       method: "POST",
-      body: JSON.stringify({ messages: [] }),
+      body: JSON.stringify({ messages }),
     });
 
     await expect(sendRequest(req)).rejects.toThrow(
@@ -118,6 +130,7 @@ describe("sendRequest", () => {
   });
 
   it("should only send the last 6 messages", async () => {
+    const messages = [{ role: "user", content: "query" }];
     const allMessages = Array.from({ length: 10 }, (_, i) => ({
       role: "user",
       content: `msg ${i}`,
@@ -127,7 +140,7 @@ describe("sendRequest", () => {
 
     const req = new Request("http://localhost/api/chat", {
       method: "POST",
-      body: JSON.stringify({ messages: [] }),
+      body: JSON.stringify({ messages }),
     });
 
     await sendRequest(req);
