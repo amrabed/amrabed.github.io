@@ -11,31 +11,23 @@
 
 @layer base {
   :root {
-    --heroui-primary: #4f46e5;
-    /* colors.indigo[600] */
-    --heroui-secondary: #52525b;
-    /* colors.zinc[600] */
-    --heroui-foreground: #475569;
-    /* colors.slate[600] */
+    --heroui-primary: #4f46e5; /* colors.indigo[600] */
+    --heroui-secondary: #52525b; /* colors.zinc[600] */
+    --heroui-foreground: #475569; /* colors.slate[600] */
     --heroui-background: #ffffff;
   }
 
   .dark {
-    --heroui-primary: #a5b4fc;
-    /* colors.indigo[300] */
-    --heroui-secondary: #a1a1aa;
-    /* colors.zinc[400] */
-    --heroui-foreground: #94a3b8;
-    /* colors.slate[400] */
-    --heroui-background: #020617;
-    /* colors.slate[950] */
+    --heroui-primary: #a5b4fc; /* colors.indigo[300] */
+    --heroui-secondary: #a1a1aa; /* colors.zinc[400] */
+    --heroui-foreground: #94a3b8; /* colors.slate[400] */
+    --heroui-background: #020617; /* colors.slate[950] */
   }
 }
 
 * {
   scroll-behavior: smooth !important;
-  -webkit-scroll-behavior: smooth !important;
-  /* other browsers */
+  -webkit-scroll-behavior: smooth !important; /* other browsers */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -178,13 +170,11 @@
 }
 
 .dark .filter-chip {
-  background-color: rgba(51, 65, 85, 0.5);
-  /* slate-700/50 */
+  background-color: rgba(51, 65, 85, 0.5); /* slate-700/50 */
 }
 
 .dark .filter-chip:hover {
-  background-color: rgb(51, 65, 85);
-  /* slate-700 */
+  background-color: rgb(51, 65, 85); /* slate-700 */
 }
 
 .filter-chip[data-selected] {
@@ -211,8 +201,7 @@
 
 .filter-chip[data-selected] .filter-chip-label:hover,
 .filter-chip[data-selected]:hover .filter-chip-label {
-  color: #f4f4f5;
-  /* zinc-100 */
+  color: #f4f4f5; /* zinc-100 */
 }
 
 .filter-chip-wrapper:has(input:focus-visible) .filter-chip {
