@@ -7,6 +7,8 @@ export default async function isRateLimited(
 ): Promise<boolean> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let ip = "ip" in req ? (req as any).ip : null;
+  ip = ip ?? req.headers.get("x-real-ip");
+
   if (!ip) {
     const forwardedFor = req.headers.get("x-forwarded-for");
     if (forwardedFor) {
@@ -14,7 +16,8 @@ export default async function isRateLimited(
       ip = parts[parts.length - 1].trim();
     }
   }
-  ip = ip ?? req.headers.get("x-real-ip") ?? "anonymous";
+
+  ip = ip ?? "anonymous";
   const { success } = await ratelimit.limit(ip);
   return !success;
 }

@@ -8,8 +8,10 @@ export default async function sendRequest(request: Request) {
   const body = await request.json();
   const { messages } = body;
 
-  if (!messages || !Array.isArray(messages)) {
-    throw new Error("Invalid request: messages must be an array.");
+  if (!messages || !Array.isArray(messages) || messages.length === 0) {
+    throw new Error(
+      "Invalid request: messages must be an array and cannot be empty.",
+    );
   }
 
   const modelMessages = await convertToModelMessages(messages);
