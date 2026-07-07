@@ -66,6 +66,17 @@ describe("sendRequest", () => {
     );
   });
 
+  it("should throw an error if messages array is empty", async () => {
+    const req = new Request("http://localhost/api/chat", {
+      method: "POST",
+      body: JSON.stringify({ messages: [] }),
+    });
+
+    await expect(sendRequest(req)).rejects.toThrow(
+      "Invalid request: messages must be an array and cannot be empty.",
+    );
+  });
+
   it("should throw an error if messages is missing", async () => {
     const req = new Request("http://localhost/api/chat", {
       method: "POST",
