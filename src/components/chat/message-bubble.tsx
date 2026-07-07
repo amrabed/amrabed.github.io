@@ -177,11 +177,8 @@ const MessageActions = ({
   onCopy: (id: string, text: string) => void;
 }) => (
   <div
-    className={`chat-message-actions ${
-      role === "user"
-        ? "chat-message-actions-user"
-        : "chat-message-actions-assistant"
-    }`}
+    data-role={role}
+    className="chat-message-actions data-[role=user]:chat-message-actions-user data-[role=assistant]:chat-message-actions-assistant"
   >
     {role === "user" && <EditAction onEdit={onEdit} text={messageText} />}
     <CopyAction
@@ -216,11 +213,13 @@ export const MessageBubble = memo(
 
     return (
       <div
-        className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+        data-role={message.role}
+        className="flex data-[role=user]:justify-end data-[role=assistant]:justify-start"
       >
         <div
           tabIndex={0}
           role="button"
+          data-role={message.role}
           aria-label="Double click to select message text"
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
@@ -231,11 +230,7 @@ export const MessageBubble = memo(
           onDoubleClick={(e) => {
             selectElementText(e.currentTarget);
           }}
-          className={`chat-message-bubble group ${
-            message.role === "user"
-              ? "chat-message-user"
-              : "chat-message-assistant"
-          }`}
+          className="chat-message-bubble group data-[role=user]:chat-message-user data-[role=assistant]:chat-message-assistant"
         >
           <MessageActions
             role={message.role}
