@@ -11,17 +11,24 @@
 
 @layer base {
   :root {
-    --heroui-primary: #4f46e5; /* colors.indigo[600] */
-    --heroui-secondary: #52525b; /* colors.zinc[600] */
-    --heroui-foreground: #475569; /* colors.slate[600] */
+    --heroui-primary: #4f46e5;
+    /* colors.indigo[600] */
+    --heroui-secondary: #52525b;
+    /* colors.zinc[600] */
+    --heroui-foreground: #475569;
+    /* colors.slate[600] */
     --heroui-background: #ffffff;
   }
 
   .dark {
-    --heroui-primary: #a5b4fc; /* colors.indigo[300] */
-    --heroui-secondary: #a1a1aa; /* colors.zinc[400] */
-    --heroui-foreground: #94a3b8; /* colors.slate[400] */
-    --heroui-background: #020617; /* colors.slate[950] */
+    --heroui-primary: #a5b4fc;
+    /* colors.indigo[300] */
+    --heroui-secondary: #a1a1aa;
+    /* colors.zinc[400] */
+    --heroui-foreground: #94a3b8;
+    /* colors.slate[400] */
+    --heroui-background: #020617;
+    /* colors.slate[950] */
   }
 }
 
@@ -41,6 +48,7 @@
 }
 
 @layer base {
+
   p,
   div {
     text-align: justify;
@@ -64,12 +72,12 @@
   scale: 1;
 }
 
-.pop-down-child > div {
+.pop-down-child>div {
   opacity: 0;
   scale: 0;
 }
 
-.section.in-view .pop-down-child > div {
+.section.in-view .pop-down-child>div {
   opacity: 1;
   scale: 1;
 }
@@ -92,17 +100,16 @@
 }
 
 /* Social Media animation */
-.social-hide > div {
+.social-hide>div {
   transform: scale(0);
 }
 
-.social-show > div {
+.social-show>div {
   transform: scale(0.9);
 }
 
 /* Scroll to top button classes (positioning handled via Tailwind) */
-.scroll-to-top {
-}
+.scroll-to-top {}
 
 .scroll-button {
   color: #fff;
@@ -128,6 +135,7 @@
 
 /* Fix chat widget text stretching caused by global text-align: justify */
 @layer components {
+
   :where(.chat-widget) p,
   :where(.chat-widget) div,
   :where(.chat-widget) ul,
@@ -170,11 +178,13 @@
 }
 
 .dark .filter-chip {
-  background-color: rgba(51, 65, 85, 0.5); /* slate-700/50 */
+  background-color: rgba(51, 65, 85, 0.5);
+  /* slate-700/50 */
 }
 
 .dark .filter-chip:hover {
-  background-color: rgb(51, 65, 85); /* slate-700 */
+  background-color: rgb(51, 65, 85);
+  /* slate-700 */
 }
 
 .filter-chip[data-selected] {
@@ -201,7 +211,8 @@
 
 .filter-chip[data-selected] .filter-chip-label:hover,
 .filter-chip[data-selected]:hover .filter-chip-label {
-  color: #f4f4f5; /* zinc-100 */
+  color: #f4f4f5;
+  /* zinc-100 */
 }
 
 .filter-chip-wrapper:has(input:focus-visible) .filter-chip {
@@ -246,15 +257,15 @@
 }
 
 .chat-message-bubble {
-  @apply relative max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm select-text cursor-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
+  @apply relative rounded-2xl px-4 py-2.5 text-sm shadow-sm select-text cursor-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
 }
 
 .chat-message-bubble[data-role="user"] {
-  @apply bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white;
+  @apply max-w-[70%] bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white;
 }
 
 .chat-message-bubble[data-role="assistant"] {
-  @apply bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground;
+  @apply max-w-[80%] bg-slate-100 dark:bg-zinc-800/80 border border-slate-200/50 dark:border-zinc-700/50 text-foreground;
 }
 
 .chat-message-actions {
@@ -272,6 +283,7 @@
 .chat-message-action-btn {
   @apply p-1.5 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 transition-all min-w-0 h-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full;
 }
+
 .chat-message-markdown-link {
   @apply text-indigo-600 dark:text-indigo-400 hover:underline font-semibold transition-colors;
 }
