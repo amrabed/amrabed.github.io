@@ -40,7 +40,6 @@
 }
 
 @layer base {
-
   p,
   div {
     text-align: justify;
@@ -64,12 +63,12 @@
   scale: 1;
 }
 
-.pop-down-child>div {
+.pop-down-child > div {
   opacity: 0;
   scale: 0;
 }
 
-.section.in-view .pop-down-child>div {
+.section.in-view .pop-down-child > div {
   opacity: 1;
   scale: 1;
 }
@@ -92,16 +91,17 @@
 }
 
 /* Social Media animation */
-.social-hide>div {
+.social-hide > div {
   transform: scale(0);
 }
 
-.social-show>div {
+.social-show > div {
   transform: scale(0.9);
 }
 
 /* Scroll to top button classes (positioning handled via Tailwind) */
-.scroll-to-top {}
+.scroll-to-top {
+}
 
 .scroll-button {
   color: #fff;
@@ -127,7 +127,6 @@
 
 /* Fix chat widget text stretching caused by global text-align: justify */
 @layer components {
-
   :where(.chat-widget) p,
   :where(.chat-widget) div,
   :where(.chat-widget) ul,
