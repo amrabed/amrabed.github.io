@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import { Button, Tooltip } from "@heroui/react";
 
-import { useFilter } from "@/contexts/filter";
+import { useFilterUI } from "@/contexts/filter";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const { isFilterBarVisible } = useFilter();
+  const { isFilterBarVisible } = useFilterUI();
 
   useEffect(() => {
     const toggleVisibility = () => {

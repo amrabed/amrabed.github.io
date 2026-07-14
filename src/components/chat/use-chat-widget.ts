@@ -3,7 +3,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 
 import { useChat } from "@ai-sdk/react";
 
-import { useFilter } from "@/contexts/filter";
+import { useFilterUI } from "@/contexts/filter";
 
 export const getApiEndpoint = () => {
   if (process.env.NEXT_PUBLIC_CHAT_API_URL) {
@@ -26,7 +26,7 @@ export function useChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const { isFilterBarVisible } = useFilter();
+  const { isFilterBarVisible } = useFilterUI();
 
   const { messages, sendMessage, status, error, stop } = useChat({
     transport: new DefaultChatTransport({ api: getApiEndpoint() }),

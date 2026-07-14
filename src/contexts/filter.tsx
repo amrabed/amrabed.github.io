@@ -14,22 +14,41 @@ import {
 import { withSuspense } from "./suspense";
 import { useUrlSync } from "./sync";
 
-type FilterContextType = {
+type FilterStateContextType = {
   selected: Record<string, string[]>;
   setSelected: (category: string, selected: string[]) => void;
   clearAll: () => void;
+  activeFiltersCount: number;
+};
+
+type FilterUIContextType = {
   isFilterBarVisible: boolean;
   setIsFilterBarVisible: (visible: boolean) => void;
 };
 
-export const FilterContext = createContext<FilterContextType | undefined>(
+export const FilterStateContext = createContext<
+  FilterStateContextType | undefined
+>(undefined);
+
+export const FilterUIContext = createContext<FilterUIContextType | undefined>(
   undefined,
 );
 
-export const useFilter: () => FilterContextType = () => {
-  const context = useContext(FilterContext);
+// ⚡ Optimization: Split the Filter context into State and UI to prevent unnecessary re-renders.
+// Components that only need filter selections (like portfolio sections) won't re-render
+// when the filter bar visibility changes during scroll.
+export const useFilter: () => FilterStateContextType = () => {
+  const context = useContext(FilterStateContext);
   if (!context) {
     throw new Error("useFilter must be used within a FilterProvider");
+  }
+  return context;
+};
+
+export const useFilterUI: () => FilterUIContextType = () => {
+  const context = useContext(FilterUIContext);
+  if (!context) {
+    throw new Error("useFilterUI must be used within a FilterProvider");
   }
   return context;
 };
@@ -72,21 +91,35 @@ const FilterContent = ({ children }: { children: ReactNode }) => {
 
   useUrlSync(selected, updateUrl);
 
-  const contextValue = useMemo(
+  const activeFiltersCount = useMemo(
+    () => Object.values(selected).reduce((acc, curr) => acc + curr.length, 0),
+    [selected],
+  );
+
+  const stateValue = useMemo(
     () => ({
       selected,
       setSelected,
       clearAll,
+      activeFiltersCount,
+    }),
+    [selected, setSelected, clearAll, activeFiltersCount],
+  );
+
+  const uiValue = useMemo(
+    () => ({
       isFilterBarVisible,
       setIsFilterBarVisible,
     }),
-    [selected, setSelected, clearAll, isFilterBarVisible],
+    [isFilterBarVisible],
   );
 
   return (
-    <FilterContext.Provider value={contextValue}>
-      {children}
-    </FilterContext.Provider>
+    <FilterStateContext.Provider value={stateValue}>
+      <FilterUIContext.Provider value={uiValue}>
+        {children}
+      </FilterUIContext.Provider>
+    </FilterStateContext.Provider>
   );
 };
 

@@ -38,6 +38,8 @@ vi.mock("@/contexts/search", () => ({
 vi.mock("@/contexts/filter", () => ({
   useFilter: () => ({
     clearAll: mockClearAll,
+  }),
+  useFilterUI: () => ({
     isFilterBarVisible: mockIsFilterBarVisible,
   }),
 }));

@@ -6,10 +6,12 @@ import { UnifiedFilterBar } from "./unified-filter-bar";
 
 vi.mock("@/contexts/filter", () => ({
   useFilter: () => ({
-    isFilterBarVisible: true,
     clearAll: vi.fn(),
     activeFiltersCount: 0,
     selected: {},
+  }),
+  useFilterUI: () => ({
+    isFilterBarVisible: true,
   }),
 }));
 vi.mock("@/contexts/search", () => ({
