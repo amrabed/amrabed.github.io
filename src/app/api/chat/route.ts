@@ -1,6 +1,11 @@
 import isRateLimited from "./ratelimit";
 import sendRequest from "./request";
-import { getCorsHeaders, optionsResponse, errorResponse } from "./response";
+import {
+  getCorsHeaders,
+  optionsResponse,
+  errorResponse,
+  isAllowedOrigin,
+} from "./response";
 
 export async function OPTIONS(request: Request) {
   return optionsResponse(request.headers.get("origin"));
@@ -8,6 +13,11 @@ export async function OPTIONS(request: Request) {
 
 export async function POST(request: Request) {
   const origin = request.headers.get("origin");
+
+  if (!isAllowedOrigin(origin)) {
+    return errorResponse(403, "Forbidden: Invalid origin", origin);
+  }
+
   if (await isRateLimited(request)) {
     return errorResponse(
       429,

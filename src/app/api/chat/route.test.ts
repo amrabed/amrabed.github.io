@@ -20,6 +20,8 @@ vi.mock("./response", () => ({
     new Response("options", { headers: { origin: origin || "" } }),
   errorResponse: (status: number, message: string, origin: string | null) =>
     new Response(JSON.stringify({ error: message, origin }), { status }),
+  isAllowedOrigin: (origin: string | null) =>
+    origin === "https://amrabed.com" || origin === "http://localhost:3000",
 }));
 
 describe("chat api route", () => {
@@ -30,10 +32,25 @@ describe("chat api route", () => {
   });
 
   describe("POST", () => {
+    it("should return 403 if origin is not allowed", async () => {
+      const req = new Request("http://localhost/api/chat", {
+        method: "POST",
+        headers: { origin: "https://evil.com" },
+      });
+      const res = await POST(req);
+
+      expect(res.status).toBe(403);
+      const json = await res.json();
+      expect(json.error).toContain("Forbidden");
+    });
+
     it("should return 429 if rate limited", async () => {
       mockIsRateLimited.mockResolvedValue(true);
 
-      const req = new Request("http://localhost/api/chat", { method: "POST" });
+      const req = new Request("http://localhost/api/chat", {
+        method: "POST",
+        headers: { origin: "https://amrabed.com" },
+      });
       const res = await POST(req);
 
       expect(res.status).toBe(429);
@@ -48,7 +65,10 @@ describe("chat api route", () => {
         toUIMessageStreamResponse: vi.fn().mockReturnValue(mockStreamResponse),
       });
 
-      const req = new Request("http://localhost/api/chat", { method: "POST" });
+      const req = new Request("http://localhost/api/chat", {
+        method: "POST",
+        headers: { origin: "https://amrabed.com" },
+      });
       const res = await POST(req);
 
       expect(await res.text()).toBe("mock stream");
@@ -58,7 +78,10 @@ describe("chat api route", () => {
       mockIsRateLimited.mockResolvedValue(false);
       mockSendRequest.mockRejectedValue(new Error("Message is too long."));
 
-      const req = new Request("http://localhost/api/chat", { method: "POST" });
+      const req = new Request("http://localhost/api/chat", {
+        method: "POST",
+        headers: { origin: "https://amrabed.com" },
+      });
       const res = await POST(req);
 
       expect(res.status).toBe(400);
@@ -74,7 +97,10 @@ describe("chat api route", () => {
         .spyOn(console, "error")
         .mockImplementation(() => {});
 
-      const req = new Request("http://localhost/api/chat", { method: "POST" });
+      const req = new Request("http://localhost/api/chat", {
+        method: "POST",
+        headers: { origin: "https://amrabed.com" },
+      });
       const res = await POST(req);
 
       expect(res.status).toBe(500);
@@ -93,7 +119,10 @@ describe("chat api route", () => {
         .spyOn(console, "error")
         .mockImplementation(() => {});
 
-      const req = new Request("http://localhost/api/chat", { method: "POST" });
+      const req = new Request("http://localhost/api/chat", {
+        method: "POST",
+        headers: { origin: "https://amrabed.com" },
+      });
       const res = await POST(req);
 
       expect(res.status).toBe(500);
