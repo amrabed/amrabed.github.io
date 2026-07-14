@@ -28,7 +28,7 @@ export function useChatWidget() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const { isFilterBarVisible } = useFilterUI();
 
-  const { messages, sendMessage, status, error, stop } = useChat({
+  const { messages, sendMessage, status, error, stop, setMessages } = useChat({
     transport: new DefaultChatTransport({ api: getApiEndpoint() }),
   });
 
@@ -158,5 +158,6 @@ export function useChatWidget() {
     handleSuggestedQuestion,
     isFilterBarVisible,
     status,
+    setMessages,
   };
 }
