@@ -294,16 +294,7 @@ const positions: AnyPosition[] = [
     ],
     skills: ["Docker", "Amazon AWS", "Shell", "Maven"],
     tags: ["Mobile", "Cloud"],
-    // products: [
-    //   {
-    //     name: "Docker-EC2",
-    //     url: "https://github.com/amrabed/docker-ec2",
-    //   },
-    //   {
-    //     name: "SodaCloud",
-    //     url: "https://github.com/VT-Magnum-Research/sodacloud",
-    //   },
-    // ],
+
   },
   {
     id: "minia-ta",
