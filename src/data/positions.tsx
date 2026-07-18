@@ -200,12 +200,7 @@ const positions: AnyPosition[] = [
       "Implemented a website using PHP and Plotly.js to display data from the database",
     ],
     skills: ["Python", "PHP", "MySQL", "Raspberry Pi", "Plotly.js"],
-    tags: [
-      "Programming",
-      "Web",
-      // "IoT",
-      // "Smart City"
-    ],
+    tags: ["Programming", "Web"],
     // products: [
     //   {
     //     name: "Metrolab",
@@ -268,16 +263,6 @@ const positions: AnyPosition[] = [
     ],
     skills: ["Java", "Docker", "Amazon AWS", "Shell"],
     tags: ["Cloud", "Security"],
-    // products: [
-    //   {
-    //     name: "RHIDS",
-    //     url: "https://github.com/amrabed/rhids",
-    //   },
-    //   {
-    //     name: "strace-docker",
-    //     url: "https://github.com/amrabed/strace-docker",
-    //   },
-    // ],
   },
   {
     id: "sodacloud",
@@ -303,16 +288,6 @@ const positions: AnyPosition[] = [
     ],
     skills: ["Docker", "Amazon AWS", "Shell", "Maven"],
     tags: ["Mobile", "Cloud"],
-    // products: [
-    //   {
-    //     name: "Docker-EC2",
-    //     url: "https://github.com/amrabed/docker-ec2",
-    //   },
-    //   {
-    //     name: "SodaCloud",
-    //     url: "https://github.com/VT-Magnum-Research/sodacloud",
-    //   },
-    // ],
   },
   {
     id: "minia-ta",
@@ -401,39 +376,7 @@ const positions: AnyPosition[] = [
     tags: ["programming"],
     roles: ["engineer"],
   },
-  // {
-  //   id: "sedeek",
-  //   title: "Instructor",
-  //   organization: {
-  //     name: "Al-Sedeek Education Center",
-  //     url: ""
-  //   },
-  //   duration: { start: "Feb 2008", end: "Aug 2010" },
-  //   tasks: [
-  //     "Taught C and C++ programming, and Algorithms & Data Structures using C and C++ courses to more than 300 students"
-  //   ],
-  //   skills: [],
-  //   tags: [],
-  //   roles: ["instructor"],
-  //   courses: [
-  //     {
-  //       title: "Signal and System Theory",
-  //       link: "https://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=46"
-  //     },
-  //     {
-  //       title: "Systems and Control",
-  //       link: "https://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=108"
-  //     },
-  //     {
-  //       title: "Digital Signal Processing",
-  //       link: "https://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=62"
-  //     },
-  //     {
-  //       title: "Data Structures and Algorithms",
-  //       link: "https://www.elearn.eng.cu.edu.eg/course/view.php?id=5"
-  //     }
-  //   ]
-  // },
+
   {
     id: "shorouk",
     title: "Teaching Assistant",

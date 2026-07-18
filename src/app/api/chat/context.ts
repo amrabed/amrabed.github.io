@@ -16,12 +16,10 @@ function getProfilesContext(): string {
 }
 
 function getEducationContext(): string {
-  let context = "### Education\n";
-  degrees.forEach((d) => {
-    context += `- Degree: ${d.title} from ${d.university.name} (${d.duration})\n`;
-  });
-  context += "\n";
-  return context;
+  const lines = degrees.map(
+    (d) => `- Degree: ${d.title} from ${d.university.name} (${d.duration})`,
+  );
+  return ["### Education", ...lines, "\n"].join("\n");
 }
 
 function getCertificationsContext(): string {
