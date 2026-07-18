@@ -1,6 +1,5 @@
 import {
   createGoogleGenerativeAI,
-  type GoogleEmbeddingModelOptions,
 } from "@ai-sdk/google";
 
 const google = createGoogleGenerativeAI({
@@ -14,7 +13,7 @@ const googleOptions = {
   google: {
     outputDimensionality: 1536,
     taskType: "SEMANTIC_SIMILARITY",
-  } satisfies GoogleEmbeddingModelOptions,
+  },
 };
 
 export { google, googleOptions, embeddingModel, chatModel };
