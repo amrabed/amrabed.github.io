@@ -37,15 +37,12 @@ const FilterDropdown = memo(
   ({
     selected,
     setSelected,
+    activeCount,
   }: {
     selected: Record<string, string[]>;
     setSelected: (category: string, selected: string[]) => void;
+    activeCount: number;
   }) => {
-    const activeCount = Object.values(selected).reduce(
-      (acc, curr) => acc + curr.length,
-      0,
-    );
-
     return (
       <Filter
         activeCount={activeCount}
@@ -78,7 +75,7 @@ FilterDropdown.displayName = "FilterDropdown";
 
 export const UnifiedFilterBar = () => {
   const { query, setQuery } = useSearch();
-  const { selected, setSelected, clearAll } = useFilter();
+  const { selected, setSelected, clearAll, activeFiltersCount } = useFilter();
 
   const hasFilters =
     query !== "" || Object.values(selected).some((v) => v.length > 0);
@@ -105,7 +102,11 @@ export const UnifiedFilterBar = () => {
             className="rounded-l-2xl rounded-r-none border-r-0"
             autoFocus={false}
           />
-          <FilterDropdown selected={selected} setSelected={setSelected} />
+          <FilterDropdown
+            selected={selected}
+            setSelected={setSelected}
+            activeCount={activeFiltersCount}
+          />
         </div>
 
         {hasFilters && (

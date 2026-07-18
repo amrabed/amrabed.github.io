@@ -2,7 +2,7 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 
 import { render, act, renderHook } from "@testing-library/react";
 
-import { useFilter, FilterProvider } from "./filter";
+import { useFilter, useFilterUI, FilterProvider } from "./filter";
 import { useHeader, default as HeaderProvider } from "./header";
 import { useSearch, useDebouncedSearch, SearchProvider } from "./search";
 import { withSuspense } from "./suspense";
@@ -240,13 +240,8 @@ describe("React Contexts & Hooks", () => {
       ]);
 
       const TestComponent = () => {
-        const {
-          selected,
-          setSelected,
-          clearAll,
-          isFilterBarVisible,
-          setIsFilterBarVisible,
-        } = useFilter();
+        const { selected, setSelected, clearAll } = useFilter();
+        const { isFilterBarVisible, setIsFilterBarVisible } = useFilterUI();
         return (
           <div>
             <span data-testid="areas">{selected.areas?.join(",")}</span>
@@ -303,6 +298,16 @@ describe("React Contexts & Hooks", () => {
         .mockImplementation(() => {});
       expect(() => renderHook(() => useFilter())).toThrow(
         "useFilter must be used within a FilterProvider",
+      );
+      consoleErrorSpy.mockRestore();
+    });
+
+    it("should throw error if useFilterUI is called outside provider", () => {
+      const consoleErrorSpy = vi
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+      expect(() => renderHook(() => useFilterUI())).toThrow(
+        "useFilterUI must be used within a FilterProvider",
       );
       consoleErrorSpy.mockRestore();
     });

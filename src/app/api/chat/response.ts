@@ -1,13 +1,27 @@
-const ALLOWED_ORIGINS = ["https://amrabed.com", "http://localhost:3000"];
+const ALLOWED_ORIGINS = [
+  "https://amrabed.com",
+  "https://amrabed.github.io",
+  "http://localhost:3000",
+];
 
-const isAllowedOrigin = (origin: string | null) => {
+export const isAllowedOrigin = (origin: string | null) => {
   if (!origin) return false;
   if (ALLOWED_ORIGINS.includes(origin)) return true;
-  if (origin.endsWith(".vercel.app")) return true;
-  if (origin.endsWith(".onrender.com")) return true;
-  if (origin.endsWith(".web.app") || origin.endsWith(".firebaseapp.com"))
-    return true;
-  return false;
+
+  try {
+    const { hostname } = new URL(origin);
+    const isSubdomainOf = (domain: string) =>
+      hostname === domain || hostname.endsWith(`.${domain}`);
+
+    return (
+      isSubdomainOf("vercel.app") ||
+      isSubdomainOf("onrender.com") ||
+      isSubdomainOf("web.app") ||
+      isSubdomainOf("firebaseapp.com")
+    );
+  } catch {
+    return false;
+  }
 };
 
 export const getCorsHeaders = (origin: string | null) => {
@@ -15,8 +29,10 @@ export const getCorsHeaders = (origin: string | null) => {
     "Access-Control-Allow-Origin": isAllowedOrigin(origin)
       ? (origin as string)
       : "https://amrabed.com",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    "Access-Control-Allow-Methods": "GET, OPTIONS, POST",
+    "Access-Control-Allow-Headers":
+      "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization",
+    "Access-Control-Allow-Credentials": "true",
     "Access-Control-Max-Age": "86400",
   };
 };

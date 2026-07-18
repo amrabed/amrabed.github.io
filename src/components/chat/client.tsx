@@ -1,8 +1,8 @@
 "use client";
 
-import { MessageCircle, X, Send, Square } from "lucide-react";
+import { MessageCircle, X, Send, Square, RotateCcw } from "lucide-react";
 
-import { Button } from "@heroui/react";
+import { Button, Tooltip } from "@heroui/react";
 
 import { MessageBubble, ThinkingIndicator } from "./message-bubble";
 import { useChatWidget } from "./use-chat-widget";
@@ -27,7 +27,15 @@ export default function ChatWidgetClient() {
     handleSuggestedQuestion,
     isFilterBarVisible,
     status,
+    setMessages,
+    setInput,
   } = useChatWidget();
+
+  const handleReset = () => {
+    stop();
+    setMessages([]);
+    setInput("");
+  };
 
   const suggestedQuestions = [
     "What are Amr's core technical skills?",
@@ -48,13 +56,32 @@ export default function ChatWidgetClient() {
           {/* Header */}
           <div className="chat-header">
             <h3 className="text-sm font-semibold">Miro — Amr's Assistant</h3>
-            <button
-              onClick={toggleChat}
-              aria-label="Close AI assistant"
-              className="chat-header-close-btn"
-            >
-              <X size={18} aria-hidden="true" />
-            </button>
+            <div className="flex items-center gap-1">
+              {messages.length > 0 && (
+                <Tooltip closeDelay={0}>
+                  <Tooltip.Trigger>
+                    <button
+                      onClick={handleReset}
+                      aria-label="Reset conversation"
+                      className="chat-header-close-btn"
+                    >
+                      <RotateCcw size={16} aria-hidden="true" />
+                    </button>
+                  </Tooltip.Trigger>
+                  <Tooltip.Content>
+                    Reset conversation
+                    <Tooltip.Arrow />
+                  </Tooltip.Content>
+                </Tooltip>
+              )}
+              <button
+                onClick={toggleChat}
+                aria-label="Close AI assistant"
+                className="chat-header-close-btn"
+              >
+                <X size={18} aria-hidden="true" />
+              </button>
+            </div>
           </div>
 
           {/* Messages */}

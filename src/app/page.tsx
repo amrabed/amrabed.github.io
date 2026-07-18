@@ -15,11 +15,11 @@ import { ProjectsSection } from "@/components/sections/projects";
 import { PublicationsSection } from "@/components/sections/publications";
 import { SkillsSection } from "@/components/sections/skills";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
-import { useFilter } from "@/contexts/filter";
+import { useFilterUI } from "@/contexts/filter";
 
 const Home = () => {
   const [showFilter, setShowFilter] = useState(false);
-  const { setIsFilterBarVisible } = useFilter();
+  const { setIsFilterBarVisible } = useFilterUI();
 
   useEffect(() => {
     let skillsTop = Infinity;
