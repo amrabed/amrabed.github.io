@@ -14,7 +14,9 @@ describe("api response helpers", () => {
     });
 
     expect(
-      getCorsHeaders("https://amrabed.github.io")["Access-Control-Allow-Origin"],
+      getCorsHeaders("https://amrabed.github.io")[
+        "Access-Control-Allow-Origin"
+      ],
     ).toBe("https://amrabed.github.io");
 
     expect(

@@ -16,7 +16,9 @@ function getProfilesContext(): string {
 }
 
 function getEducationContext(): string {
-  const lines = degrees.map((d) => `- Degree: ${d.title} from ${d.university.name} (${d.duration})`);
+  const lines = degrees.map(
+    (d) => `- Degree: ${d.title} from ${d.university.name} (${d.duration})`,
+  );
   return ["### Education", ...lines, "\n"].join("\n");
 }
 

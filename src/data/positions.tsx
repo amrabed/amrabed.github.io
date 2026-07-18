@@ -200,10 +200,7 @@ const positions: AnyPosition[] = [
       "Implemented a website using PHP and Plotly.js to display data from the database",
     ],
     skills: ["Python", "PHP", "MySQL", "Raspberry Pi", "Plotly.js"],
-    tags: [
-      "Programming",
-      "Web",
-    ],
+    tags: ["Programming", "Web"],
     // products: [
     //   {
     //     name: "Metrolab",
@@ -266,7 +263,6 @@ const positions: AnyPosition[] = [
     ],
     skills: ["Java", "Docker", "Amazon AWS", "Shell"],
     tags: ["Cloud", "Security"],
-
   },
   {
     id: "sodacloud",
@@ -292,7 +288,6 @@ const positions: AnyPosition[] = [
     ],
     skills: ["Docker", "Amazon AWS", "Shell", "Maven"],
     tags: ["Mobile", "Cloud"],
-
   },
   {
     id: "minia-ta",
