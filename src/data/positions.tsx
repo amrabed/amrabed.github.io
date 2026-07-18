@@ -203,8 +203,6 @@ const positions: AnyPosition[] = [
     tags: [
       "Programming",
       "Web",
-      // "IoT",
-      // "Smart City"
     ],
     // products: [
     //   {
