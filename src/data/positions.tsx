@@ -381,39 +381,7 @@ const positions: AnyPosition[] = [
     tags: ["programming"],
     roles: ["engineer"],
   },
-  // {
-  //   id: "sedeek",
-  //   title: "Instructor",
-  //   organization: {
-  //     name: "Al-Sedeek Education Center",
-  //     url: ""
-  //   },
-  //   duration: { start: "Feb 2008", end: "Aug 2010" },
-  //   tasks: [
-  //     "Taught C and C++ programming, and Algorithms & Data Structures using C and C++ courses to more than 300 students"
-  //   ],
-  //   skills: [],
-  //   tags: [],
-  //   roles: ["instructor"],
-  //   courses: [
-  //     {
-  //       title: "Signal and System Theory",
-  //       link: "https://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=46"
-  //     },
-  //     {
-  //       title: "Systems and Control",
-  //       link: "https://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=108"
-  //     },
-  //     {
-  //       title: "Digital Signal Processing",
-  //       link: "https://www.guc.edu.eg/en/academic_programs/course_catalog/course_details.aspx?courseId=62"
-  //     },
-  //     {
-  //       title: "Data Structures and Algorithms",
-  //       link: "https://www.elearn.eng.cu.edu.eg/course/view.php?id=5"
-  //     }
-  //   ]
-  // },
+
   {
     id: "shorouk",
     title: "Teaching Assistant",
