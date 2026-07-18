@@ -1,4 +1,4 @@
-import { useId, useEffect, useRef, useState, type ComponentProps } from "react";
+import { useId, useEffect, useRef, useState } from "react";
 
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button, Modal, useOverlayState } from "@heroui/react";
