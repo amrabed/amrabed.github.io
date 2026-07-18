@@ -268,16 +268,7 @@ const positions: AnyPosition[] = [
     ],
     skills: ["Java", "Docker", "Amazon AWS", "Shell"],
     tags: ["Cloud", "Security"],
-    // products: [
-    //   {
-    //     name: "RHIDS",
-    //     url: "https://github.com/amrabed/rhids",
-    //   },
-    //   {
-    //     name: "strace-docker",
-    //     url: "https://github.com/amrabed/strace-docker",
-    //   },
-    // ],
+
   },
   {
     id: "sodacloud",
