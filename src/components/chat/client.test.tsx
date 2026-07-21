@@ -166,4 +166,13 @@ describe("ChatWidgetClient", () => {
 
     expect(mockHandleSubmit).not.toHaveBeenCalled();
   });
+
+  it("should render error message when error is present", () => {
+    mockUseChatWidgetResult.isOpen = true;
+    mockUseChatWidgetResult.error = new Error("Failed to generate response");
+    mockUseChatWidgetResult.getErrorMessage = () => "An error occurred. Please try again later.";
+    const { getByText } = render(<ChatWidgetClient />);
+
+    expect(getByText("An error occurred. Please try again later.")).toBeInTheDocument();
+  });
 });
