@@ -1,9 +1,9 @@
 /* eslint-disable react/display-name, @typescript-eslint/no-explicit-any */
 import { describe, expect, it, vi } from "vitest";
 
-import { render } from "@testing-library/react";
-import { UIMessage } from "ai";
 import React from "react";
+
+import { render } from "@testing-library/react";
 
 import { MessageBubble } from "./message-bubble";
 
@@ -30,7 +30,7 @@ describe("MessageBubble Link Sanitization", () => {
   };
 
   it("should permit safe links like https and hash references", () => {
-    const message: UIMessage = {
+    const message = {
       id: "1",
       role: "assistant",
       content:
@@ -41,7 +41,7 @@ describe("MessageBubble Link Sanitization", () => {
           text: "Check out [Amr's website](https://amrabed.com) and go to [#experience](#experience).",
         },
       ],
-    };
+    } as any;
 
     const { container } = render(
       <MessageBubble {...defaultProps} message={message} />,
@@ -54,7 +54,7 @@ describe("MessageBubble Link Sanitization", () => {
   });
 
   it("should sanitize unsafe executable protocols to #", () => {
-    const message: UIMessage = {
+    const message = {
       id: "2",
       role: "assistant",
       content:
@@ -65,7 +65,7 @@ describe("MessageBubble Link Sanitization", () => {
           text: "Try these: [XSS 1](javascript:alert(1)), [XSS 2](data:text/html,<script>alert(1)</script>), and [XSS 3](vbscript:msgbox).",
         },
       ],
-    };
+    } as any;
 
     const { container } = render(
       <MessageBubble {...defaultProps} message={message} />,
