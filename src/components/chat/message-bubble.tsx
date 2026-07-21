@@ -20,9 +20,11 @@ const selectElementText = (target: HTMLElement) => {
 const markdownComponents = {
   a: ({ href, children }: { href?: string; children?: React.ReactNode }) => {
     const isHash = href?.startsWith("#");
+    // Prevent prompt injection leading to XSS via javascript:, data:, or vbscript: protocols
+    const isSafe = href && !/^(javascript|data|vbscript):/i.test(href.trim());
     return (
       <a
-        href={href}
+        href={isSafe ? href : "#"}
         target={isHash ? undefined : "_blank"}
         rel={isHash ? undefined : "noopener noreferrer"}
         className="chat-message-markdown-link"
