@@ -11,7 +11,7 @@ import type {
  * Expects lowercaseQuery to be already lowercased.
  */
 const lowerCaseCache = new Map<string, string>();
-const toLowerCaseCached = (value: string) => {
+export const toLowerCaseCached = (value: string) => {
   let lower = lowerCaseCache.get(value);
   if (lower === undefined) {
     lower = value.toLowerCase();
@@ -30,8 +30,8 @@ export const match = (values: string[], lowercaseQuery: string) => {
 
 const filterPublicationByQuery = (pub: Publication, lowercaseQuery: string) => {
   return (
-    pub.title.toLowerCase().includes(lowercaseQuery) ||
-    pub.venue.toLowerCase().includes(lowercaseQuery) ||
+    toLowerCaseCached(pub.title).includes(lowercaseQuery) ||
+    toLowerCaseCached(pub.venue).includes(lowercaseQuery) ||
     match(pub.authors || [], lowercaseQuery) ||
     match(pub.roles || [], lowercaseQuery) ||
     match(pub.skills || [], lowercaseQuery) ||
@@ -41,8 +41,8 @@ const filterPublicationByQuery = (pub: Publication, lowercaseQuery: string) => {
 
 const filterProjectByQuery = (project: Project, lowercaseQuery: string) => {
   return (
-    project.name.toLowerCase().includes(lowercaseQuery) ||
-    project.description.toLowerCase().includes(lowercaseQuery) ||
+    toLowerCaseCached(project.name).includes(lowercaseQuery) ||
+    toLowerCaseCached(project.description).includes(lowercaseQuery) ||
     match(project.roles || [], lowercaseQuery) ||
     match(project.tools || [], lowercaseQuery) ||
     match(project.tags || [], lowercaseQuery)
@@ -54,8 +54,8 @@ const filterCertificationByQuery = (
   lowercaseQuery: string,
 ) => {
   return (
-    cert.title.toLowerCase().includes(lowercaseQuery) ||
-    cert.organization.name.toLowerCase().includes(lowercaseQuery) ||
+    toLowerCaseCached(cert.title).includes(lowercaseQuery) ||
+    toLowerCaseCached(cert.organization.name).includes(lowercaseQuery) ||
     (cert.skills ? match(cert.skills, lowercaseQuery) : false) ||
     (cert.areas ? match(cert.areas, lowercaseQuery) : false)
   );
@@ -63,8 +63,8 @@ const filterCertificationByQuery = (
 
 const filterPositionByQuery = (pos: Position, lowercaseQuery: string) => {
   return (
-    pos.title.toLowerCase().includes(lowercaseQuery) ||
-    pos.organization.name.toLowerCase().includes(lowercaseQuery) ||
+    toLowerCaseCached(pos.title).includes(lowercaseQuery) ||
+    toLowerCaseCached(pos.organization.name).includes(lowercaseQuery) ||
     match(pos.roles || [], lowercaseQuery) ||
     match(pos.skills || [], lowercaseQuery) ||
     match(pos.tags || [], lowercaseQuery) ||
@@ -74,8 +74,8 @@ const filterPositionByQuery = (pos: Position, lowercaseQuery: string) => {
 
 const filterDegreeByQuery = (degree: Degree, lowercaseQuery: string) => {
   return (
-    degree.title.toLowerCase().includes(lowercaseQuery) ||
-    degree.university.name.toLowerCase().includes(lowercaseQuery)
+    toLowerCaseCached(degree.title).includes(lowercaseQuery) ||
+    toLowerCaseCached(degree.university.name).includes(lowercaseQuery)
   );
 };
 
@@ -112,7 +112,7 @@ export const filterBySelection = (
   selectionSet: Set<string>,
 ) =>
   selectionSet.size === 0 ||
-  values.some((value) => selectionSet.has(value.toLowerCase()));
+  values.some((value) => selectionSet.has(toLowerCaseCached(value)));
 
 /**
  * Specifically for area filtering, which applies to Projects, Positions, and Certifications.

@@ -6,6 +6,7 @@ import { useFilter } from "@/contexts/filter";
 import { useDebouncedSearch } from "@/contexts/search";
 import areaSkills from "@/data/areaSkills";
 import skillsData from "@/data/skills";
+import { toLowerCaseCached } from "@/utils/filter";
 
 import { EmptyState } from "../empty-state";
 import { Section } from "../section";
@@ -37,7 +38,7 @@ export const SkillsSection = memo(() => {
 
     return Object.entries(skillsData).filter(([key, skill]) => {
       const matchesQuery =
-        !lowercaseQuery || skill.name.toLowerCase().includes(lowercaseQuery);
+        !lowercaseQuery || toLowerCaseCached(skill.name).includes(lowercaseQuery);
       const matchesArea = areaMatchingSkills.has(key);
       const matchesSkill = selectedSkills.size === 0 || selectedSkills.has(key);
       return matchesQuery && matchesArea && matchesSkill;
