@@ -6,9 +6,24 @@ import {
   filterByQuery,
   filterBySelection,
   match,
+  toLowerCaseCached,
 } from "./filter";
 
 describe("filter utils", () => {
+  describe("toLowerCaseCached", () => {
+    it("should correctly lowercase strings", () => {
+      expect(toLowerCaseCached("React")).toBe("react");
+      expect(toLowerCaseCached("TYPESCRIPT")).toBe("typescript");
+    });
+
+    it("should return cached results for identical strings", () => {
+      const first = toLowerCaseCached("GraphQL");
+      const second = toLowerCaseCached("GraphQL");
+      expect(first).toBe(second);
+      expect(first).toBe("graphql");
+    });
+  });
+
   describe("match", () => {
     it("should return true if query matches a value case-insensitively", () => {
       expect(match(["React", "TypeScript"], "react")).toBe(true);

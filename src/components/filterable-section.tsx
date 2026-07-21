@@ -7,7 +7,7 @@ import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useDebouncedSearch } from "@/contexts/search";
 import { Position, Project, Certification, Degree, Publication } from "@/types";
-import { filterByQuery, filterByArea } from "@/utils/filter";
+import { filterByQuery, filterByArea, filterBySelection } from "@/utils/filter";
 
 export interface FilterableItem {
   tags?: string[];
@@ -66,14 +66,14 @@ export const FilterableSection = <T extends FilterableItem>({
         item.tags || item.areas || [],
         selectedAreas,
       );
-      const matchesRole =
-        selectedRoles.size === 0 ||
-        (item.roles || []).some((r) => selectedRoles.has(r.toLowerCase()));
-      const matchesSkill =
-        selectedSkills.size === 0 ||
-        (item.skills || item.tools || []).some((s) =>
-          selectedSkills.has(s.toLowerCase()),
-        );
+      const matchesRole = filterBySelection(
+        item.roles || [],
+        selectedRoles,
+      );
+      const matchesSkill = filterBySelection(
+        item.skills || item.tools || [],
+        selectedSkills,
+      );
       return matchesArea && matchesRole && matchesSkill;
     });
   }, [data, selectedAreasArr, selectedRolesArr, selectedSkillsArr]);
