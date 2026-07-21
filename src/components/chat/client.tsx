@@ -74,13 +74,21 @@ export default function ChatWidgetClient() {
                   </Tooltip.Content>
                 </Tooltip>
               )}
-              <button
-                onClick={toggleChat}
-                aria-label="Close AI assistant"
-                className="chat-header-close-btn"
-              >
-                <X size={18} aria-hidden="true" />
-              </button>
+              <Tooltip closeDelay={0}>
+                <Tooltip.Trigger>
+                  <button
+                    onClick={toggleChat}
+                    aria-label="Close AI assistant"
+                    className="chat-header-close-btn"
+                  >
+                    <X size={18} aria-hidden="true" />
+                  </button>
+                </Tooltip.Trigger>
+                <Tooltip.Content>
+                  Close AI assistant
+                  <Tooltip.Arrow />
+                </Tooltip.Content>
+              </Tooltip>
             </div>
           </div>
 
@@ -155,6 +163,7 @@ export default function ChatWidgetClient() {
                 value={input}
                 onChange={handleInputChange}
                 placeholder="Ask a question..."
+                aria-label="Ask a question to Miro"
                 rows={1}
                 className="chat-input-textarea"
                 onKeyDown={(e) => {
@@ -165,25 +174,41 @@ export default function ChatWidgetClient() {
                 }}
               />
               {isLoading ? (
-                <Button
-                  isIconOnly
-                  type="button"
-                  onClick={stop}
-                  aria-label="Stop generating"
-                  className="chat-action-btn-stop"
-                >
-                  <Square size={10} fill="currentColor" aria-hidden="true" />
-                </Button>
+                <Tooltip closeDelay={0}>
+                  <Tooltip.Trigger>
+                    <Button
+                      isIconOnly
+                      type="button"
+                      onClick={stop}
+                      aria-label="Stop generating"
+                      className="chat-action-btn-stop"
+                    >
+                      <Square size={10} fill="currentColor" aria-hidden="true" />
+                    </Button>
+                  </Tooltip.Trigger>
+                  <Tooltip.Content>
+                    Stop generating
+                    <Tooltip.Arrow />
+                  </Tooltip.Content>
+                </Tooltip>
               ) : (
-                <Button
-                  isIconOnly
-                  type="submit"
-                  aria-label="Send message"
-                  className="chat-action-btn-send"
-                  isDisabled={!input?.trim()}
-                >
-                  <Send size={14} aria-hidden="true" />
-                </Button>
+                <Tooltip closeDelay={0}>
+                  <Tooltip.Trigger>
+                    <Button
+                      isIconOnly
+                      type="submit"
+                      aria-label="Send message"
+                      className="chat-action-btn-send"
+                      isDisabled={!input?.trim()}
+                    >
+                      <Send size={14} aria-hidden="true" />
+                    </Button>
+                  </Tooltip.Trigger>
+                  <Tooltip.Content>
+                    Send message
+                    <Tooltip.Arrow />
+                  </Tooltip.Content>
+                </Tooltip>
               )}
             </div>
           </form>
@@ -191,18 +216,26 @@ export default function ChatWidgetClient() {
       )}
 
       {/* Toggle Button */}
-      <Button
-        isIconOnly
-        onClick={toggleChat}
-        aria-label={isOpen ? "Close AI assistant" : "Open AI assistant"}
-        className="chat-toggle-trigger"
-      >
-        {isOpen ? (
-          <X size={24} aria-hidden="true" />
-        ) : (
-          <MessageCircle size={24} aria-hidden="true" />
-        )}
-      </Button>
+      <Tooltip closeDelay={0}>
+        <Tooltip.Trigger>
+          <Button
+            isIconOnly
+            onClick={toggleChat}
+            aria-label={isOpen ? "Close AI assistant" : "Open AI assistant"}
+            className="chat-toggle-trigger"
+          >
+            {isOpen ? (
+              <X size={24} aria-hidden="true" />
+            ) : (
+              <MessageCircle size={24} aria-hidden="true" />
+            )}
+          </Button>
+        </Tooltip.Trigger>
+        <Tooltip.Content>
+          {isOpen ? "Close AI assistant" : "Open AI assistant"}
+          <Tooltip.Arrow />
+        </Tooltip.Content>
+      </Tooltip>
     </div>
   );
 }
