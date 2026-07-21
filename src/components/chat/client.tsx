@@ -185,7 +185,11 @@ export default function ChatWidgetClient() {
                       aria-label="Stop generating"
                       className="chat-action-btn-stop"
                     >
-                      <Square size={10} fill="currentColor" aria-hidden="true" />
+                      <Square
+                        size={10}
+                        fill="currentColor"
+                        aria-hidden="true"
+                      />
                     </Button>
                   </Tooltip.Trigger>
                   <Tooltip.Content>

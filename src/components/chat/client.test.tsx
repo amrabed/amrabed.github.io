@@ -76,9 +76,12 @@ describe("ChatWidgetClient", () => {
 
   it("should render chat window and its contents when open", () => {
     mockUseChatWidgetResult.isOpen = true;
-    const { getAllByLabelText, getByText, getByPlaceholderText, getByLabelText } = render(
-      <ChatWidgetClient />,
-    );
+    const {
+      getAllByLabelText,
+      getByText,
+      getByPlaceholderText,
+      getByLabelText,
+    } = render(<ChatWidgetClient />);
 
     expect(getByText("Miro — Amr's Assistant")).toBeInTheDocument();
     expect(getAllByLabelText("Close AI assistant").length).toBe(2);
@@ -170,9 +173,12 @@ describe("ChatWidgetClient", () => {
   it("should render error message when error is present", () => {
     mockUseChatWidgetResult.isOpen = true;
     mockUseChatWidgetResult.error = new Error("Failed to generate response");
-    mockUseChatWidgetResult.getErrorMessage = () => "An error occurred. Please try again later.";
+    mockUseChatWidgetResult.getErrorMessage = () =>
+      "An error occurred. Please try again later.";
     const { getByText } = render(<ChatWidgetClient />);
 
-    expect(getByText("An error occurred. Please try again later.")).toBeInTheDocument();
+    expect(
+      getByText("An error occurred. Please try again later."),
+    ).toBeInTheDocument();
   });
 });
