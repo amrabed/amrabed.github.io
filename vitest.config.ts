@@ -28,6 +28,7 @@ export default defineConfig({
         "src/components/filterable-section.tsx",
         "src/components/featured-section-container.tsx",
         "src/components/header.tsx",
+        "src/components/chat/client.tsx",
       ],
     },
   },
