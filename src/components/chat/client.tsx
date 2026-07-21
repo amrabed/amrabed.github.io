@@ -60,13 +60,14 @@ export default function ChatWidgetClient() {
               {messages.length > 0 && (
                 <Tooltip closeDelay={0}>
                   <Tooltip.Trigger>
-                    <button
-                      onClick={handleReset}
+                    <Button
+                      isIconOnly
+                      onPress={handleReset}
                       aria-label="Reset conversation"
                       className="chat-header-close-btn"
                     >
                       <RotateCcw size={16} aria-hidden="true" />
-                    </button>
+                    </Button>
                   </Tooltip.Trigger>
                   <Tooltip.Content>
                     Reset conversation
@@ -76,13 +77,14 @@ export default function ChatWidgetClient() {
               )}
               <Tooltip closeDelay={0}>
                 <Tooltip.Trigger>
-                  <button
-                    onClick={toggleChat}
+                  <Button
+                    isIconOnly
+                    onPress={toggleChat}
                     aria-label="Close AI assistant"
                     className="chat-header-close-btn"
                   >
                     <X size={18} aria-hidden="true" />
-                  </button>
+                  </Button>
                 </Tooltip.Trigger>
                 <Tooltip.Content>
                   Close AI assistant
