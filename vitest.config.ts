@@ -29,6 +29,8 @@ export default defineConfig({
         "src/components/featured-section-container.tsx",
         "src/components/header.tsx",
         "src/components/chat/client.tsx",
+        "src/components/skills.tsx",
+        "src/components/sections/skills.tsx",
       ],
     },
   },
