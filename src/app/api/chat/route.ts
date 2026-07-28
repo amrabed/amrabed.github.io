@@ -37,12 +37,13 @@ export async function POST(request: Request) {
 
     // Classify client-side payload validation issues (e.g. malformed JSON, invalid/empty messages) as 400 Bad Request
     // to prevent server log pollution and correctly reflect client error.
-    if (
+    const isClientError =
       error instanceof SyntaxError ||
-      errorMessage.includes("JSON") ||
-      errorMessage.includes("Message is too long") ||
-      errorMessage.includes("Invalid request")
-    ) {
+      ["JSON", "Message is too long", "Invalid request"].some((keyword) =>
+        errorMessage.includes(keyword),
+      );
+
+    if (isClientError) {
       return errorResponse(400, errorMessage, origin);
     }
 
