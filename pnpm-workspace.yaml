@@ -9,3 +9,5 @@ overrides:
   minimatch@3>brace-expansion: ^1.1.11
   postcss: ^8.5.15
   uuid@<11.1.1: ">=11.1.1"
+  protobufjs: ^7.6.5
+  mongoose: ^8.24.1

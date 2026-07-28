@@ -35,7 +35,14 @@ export async function POST(request: Request) {
     const errorMessage =
       error instanceof Error ? error.message : "An error occurred.";
 
-    if (errorMessage.includes("Message is too long")) {
+    // Classify client-side payload validation issues (e.g. malformed JSON, invalid/empty messages) as 400 Bad Request
+    // to prevent server log pollution and correctly reflect client error.
+    if (
+      error instanceof SyntaxError ||
+      errorMessage.includes("JSON") ||
+      errorMessage.includes("Message is too long") ||
+      errorMessage.includes("Invalid request")
+    ) {
       return errorResponse(400, errorMessage, origin);
     }
 
