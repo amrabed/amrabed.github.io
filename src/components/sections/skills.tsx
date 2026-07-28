@@ -11,6 +11,8 @@ import { toLowerCaseCached } from "@/utils/filter";
 import { EmptyState } from "../empty-state";
 import { Section } from "../section";
 
+const ALL_SKILLS_SET = new Set(Object.keys(skillsData));
+
 export const SkillsSection = memo(() => {
   const { debouncedQuery } = useDebouncedSearch();
   const { selected } = useFilter();
@@ -19,22 +21,20 @@ export const SkillsSection = memo(() => {
   const skills = selected["skills"];
 
   const areaMatchingSkills = useMemo(() => {
-    let matchingSkills: Set<string>;
     if (!areas || areas.length === 0) {
-      matchingSkills = new Set(Object.keys(skillsData));
-    } else {
-      matchingSkills = new Set();
-      areas.forEach((area) => {
-        areaSkills[area]?.forEach((skill) => matchingSkills.add(skill));
-      });
+      return ALL_SKILLS_SET;
     }
+    const matchingSkills = new Set<string>();
+    areas.forEach((area) => {
+      areaSkills[area]?.forEach((skill) => matchingSkills.add(skill));
+    });
     return matchingSkills;
   }, [areas]);
 
   const selectedSkills = useMemo(() => new Set(skills || []), [skills]);
 
   const filteredSkills = useMemo(() => {
-    const lowercaseQuery = debouncedQuery.toLowerCase();
+    const lowercaseQuery = toLowerCaseCached(debouncedQuery);
 
     return Object.entries(skillsData).filter(([key, skill]) => {
       const matchesQuery =

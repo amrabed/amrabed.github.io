@@ -7,7 +7,7 @@ import { Section } from "@/components/section";
 import { useFilter } from "@/contexts/filter";
 import { useDebouncedSearch } from "@/contexts/search";
 import { Position, Project, Certification, Degree, Publication } from "@/types";
-import { filterByQuery, filterByArea, filterBySelection } from "@/utils/filter";
+import { filterByQuery, filterByArea, filterBySelection, toLowerCaseCached } from "@/utils/filter";
 
 export interface FilterableItem {
   tags?: string[];
@@ -80,7 +80,7 @@ export const FilterableSection = <T extends FilterableItem>({
 
   // ⚡ Optimization: Separate search filtering from selection filtering to minimize re-computations.
   const filteredItems = useMemo(() => {
-    const lowercaseQuery = debouncedQuery.toLowerCase();
+    const lowercaseQuery = toLowerCaseCached(debouncedQuery);
     const filtered = matchingItems.filter((item) =>
       filterByQuery(item as unknown as SupportedItem, lowercaseQuery),
     );

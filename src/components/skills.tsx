@@ -3,6 +3,7 @@ import { Tooltip } from "@heroui/react";
 import areasData from "@/data/areas";
 import skillsData from "@/data/skills";
 import { Skill } from "@/types";
+import { toLowerCaseCached } from "@/utils/filter";
 
 export const Areas = ({
   areas,
@@ -13,7 +14,7 @@ export const Areas = ({
 }) => (
   <ul className={`flex flex-row flex-wrap gap-2 ${className}`}>
     {areas.map((areaId) => {
-      const area = areasData[areaId.toLowerCase()];
+      const area = areasData[toLowerCaseCached(areaId)];
       if (!area) return null;
       return (
         <li key={area.name}>
@@ -47,7 +48,7 @@ export const Tools = ({
 }) => (
   <ul className="flex flex-row flex-wrap gap-2">
     {tools.map((toolId) => {
-      const tool = skillsData[toolId.toLowerCase()];
+      const tool = skillsData[toLowerCaseCached(toolId)];
       if (!tool) return null;
       return (
         <li key={tool.name} className="flex flex-col items-center">
