@@ -9,7 +9,7 @@ overrides:
   postcss: ^8.5.15
   uuid@<11.1.1: '>=11.1.1'
   protobufjs: ^7.6.5
-  mongoose: ^8.24.1
+  mongoose: 8.24.1
 
 importers:
 
@@ -67,8 +67,8 @@ importers:
         specifier: ^1.21.0
         version: 1.21.0(react@19.2.7)
       mongoose:
-        specifier: ^8.24.1
-        version: 8.24.2
+        specifier: 8.24.1
+        version: 8.24.1
       next:
         specifier: ^16.2.9
         version: 16.2.9(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@playwright/test@1.61.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -3409,8 +3409,8 @@ packages:
       socks:
         optional: true
 
-  mongoose@8.24.2:
-    resolution: {integrity: sha512-5+H3MSHNJCcr9M+lVplekrZ4/Dyn3N1dOpvgn9gMwvHJhunc4G8SQcBVd/btBQoVdspVNPjx8Pw03YWBv6uTJg==}
+  mongoose@8.24.1:
+    resolution: {integrity: sha512-UpHBA0l5kHyKJQFjmBaFYQFo5sgz1DK0TRqDkOyBLYbqiIbKKhIvBpHWBXqeo0rgW4kGI1UhhAw+kTQZoj1BdA==}
     engines: {node: '>=16.20.1'}
 
   motion-dom@12.40.0:
@@ -8006,7 +8006,7 @@ snapshots:
       bson: 6.10.4
       mongodb-connection-string-url: 3.0.2
 
-  mongoose@8.24.2:
+  mongoose@8.24.1:
     dependencies:
       bson: 6.10.4
       kareem: 2.6.3
