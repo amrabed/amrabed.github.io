@@ -102,6 +102,9 @@ export function useChatWidget() {
       }
       try {
         await sendMessage({ text: currentInput });
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
       } catch (err) {
         console.error("Failed to send message:", err);
       }
@@ -114,6 +117,9 @@ export function useChatWidget() {
       if (isLoading) return;
       try {
         await sendMessage({ text: question });
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
       } catch (err) {
         console.error("Failed to send suggested question:", err);
       }
