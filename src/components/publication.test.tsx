@@ -28,6 +28,16 @@ describe("PublicationCard", () => {
     }
   });
 
+  it("renders a publication with a DOI link correctly", () => {
+    const pubWithDoi = publications.find(p => p.links && p.links.doi);
+    if (pubWithDoi) {
+      const { getByLabelText } = render(
+        <PublicationCard publication={pubWithDoi} />,
+      );
+      expect(getByLabelText("DOI")).toBeInTheDocument();
+    }
+  });
+
   it("triggers and copies BibTeX successfully with visual feedback", async () => {
     if (publications.length > 0) {
       const { getByLabelText, getByText, queryByText } = render(
