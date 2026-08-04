@@ -29,6 +29,7 @@ export default defineConfig({
         "src/components/featured-section-container.tsx",
         "src/components/header.tsx",
         "src/components/chat/client.tsx",
+        "src/components/publication.tsx",
       ],
     },
   },
