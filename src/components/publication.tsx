@@ -49,7 +49,7 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
       >
         <div className="flex flex-row justify-end text-muted-foreground p-2">
           {copied && (
-            <span className="flex flex-row text-sm font-medium p-2 gap-1">
+            <span className="flex flex-row text-sm font-medium p-2 gap-1 animate-pulse">
               <FaCheck className="size-4 text-green-500" /> Copied
             </span>
           )}
@@ -63,16 +63,20 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
                   setCopied(true);
                   setTimeout(() => setCopied(false), 2000);
                 }}
-                aria-label="Copy BibTeX to clipboard"
+                aria-label={copied ? "BibTeX copied" : "Copy BibTeX to clipboard"}
                 isIconOnly
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <FaCopy className="size-4" />
+                {copied ? (
+                  <FaCheck className="size-4 text-green-500" />
+                ) : (
+                  <FaCopy className="size-4" />
+                )}
               </Button>
             </Tooltip.Trigger>
             <Tooltip.Content>
               <Tooltip.Arrow />
-              Copy to clipboard
+              {copied ? "Copied!" : "Copy to clipboard"}
             </Tooltip.Content>
           </Tooltip>
         </div>
