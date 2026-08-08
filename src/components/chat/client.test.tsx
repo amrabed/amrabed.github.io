@@ -111,6 +111,27 @@ describe("ChatWidgetClient", () => {
     );
   });
 
+  it("should focus the input textarea after a suggested question is triggered", () => {
+    mockUseChatWidgetResult.isOpen = true;
+    mockUseChatWidgetResult.messages = [];
+
+    const { getByText, getByLabelText } = render(<ChatWidgetClient />);
+    const textarea = getByLabelText("Ask a question to Miro");
+    const focusSpy = vi.spyOn(textarea, "focus");
+
+    mockHandleSuggestedQuestion.mockImplementation(() => {
+      textarea.focus();
+    });
+
+    const suggestedQuestion = getByText("What was his PhD research about?");
+
+    act(() => {
+      suggestedQuestion.click();
+    });
+
+    expect(focusSpy).toHaveBeenCalled();
+  });
+
   it("should render messages list, typing indicator and stop button when loading", () => {
     mockUseChatWidgetResult.isOpen = true;
     mockUseChatWidgetResult.isLoading = true;

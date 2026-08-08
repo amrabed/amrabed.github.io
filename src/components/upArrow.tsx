@@ -30,6 +30,12 @@ const ScrollToTopButton = () => {
       top: 0,
       behavior: "smooth",
     });
+    const mainContent = document.getElementById("main-content");
+    if (mainContent) {
+      mainContent.focus({ preventScroll: true });
+    } else {
+      document.body.focus({ preventScroll: true });
+    }
   };
 
   return (

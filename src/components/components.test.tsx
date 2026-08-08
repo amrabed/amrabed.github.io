@@ -109,15 +109,14 @@ describe("UI Components", () => {
   });
 
   describe("ScrollToTopButton (upArrow)", () => {
-    it("should show/hide on scroll and trigger window.scrollTo on click", () => {
-      const { container } = render(<ScrollToTopButton />);
+    it("should show/hide on scroll and trigger window.scrollTo on click, shifting focus to main-content or body", () => {
+      // Create a dummy main-content div in the test DOM
+      const mainContent = document.createElement("div");
+      mainContent.id = "main-content";
+      const focusSpy = vi.spyOn(mainContent, "focus");
+      document.body.appendChild(mainContent);
 
-      // Initially not visible (window.scrollY is 0)
-      window.scrollY = 0;
-      act(() => {
-        window.dispatchEvent(new Event("scroll"));
-      });
-      expect(container.querySelector(".scroll-button")).not.toBeInTheDocument();
+      const { container } = render(<ScrollToTopButton />);
 
       // Scroll down
       window.scrollY = 400;
@@ -137,6 +136,31 @@ describe("UI Components", () => {
         top: 0,
         behavior: "smooth",
       });
+
+      // Verify that focus was shifted to main-content
+      expect(focusSpy).toHaveBeenCalledWith({ preventScroll: true });
+
+      // Clean up
+      document.body.removeChild(mainContent);
+    });
+
+    it("should fallback to document.body.focus if main-content is not found", () => {
+      const bodyFocusSpy = vi.spyOn(document.body, "focus");
+
+      const { container } = render(<ScrollToTopButton />);
+
+      // Scroll down
+      window.scrollY = 400;
+      act(() => {
+        window.dispatchEvent(new Event("scroll"));
+      });
+
+      const btn = container.querySelector(".scroll-button");
+      act(() => {
+        (btn as HTMLButtonElement).click();
+      });
+
+      expect(bodyFocusSpy).toHaveBeenCalledWith({ preventScroll: true });
     });
   });
 
