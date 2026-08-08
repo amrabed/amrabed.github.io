@@ -29,7 +29,7 @@ describe("PublicationCard", () => {
   });
 
   it("renders a publication with a DOI link correctly", () => {
-    const pubWithDoi = publications.find(p => p.links && p.links.doi);
+    const pubWithDoi = publications.find((p) => p.links && p.links.doi);
     if (pubWithDoi) {
       const { getByLabelText } = render(
         <PublicationCard publication={pubWithDoi} />,

@@ -91,7 +91,9 @@ describe("chat api route", () => {
 
     it("should return 400 on malformed JSON / SyntaxError", async () => {
       mockIsRateLimited.mockResolvedValue(false);
-      mockSendRequest.mockRejectedValue(new SyntaxError("Unexpected token < in JSON at position 0"));
+      mockSendRequest.mockRejectedValue(
+        new SyntaxError("Unexpected token < in JSON at position 0"),
+      );
 
       const req = new Request("http://localhost/api/chat", {
         method: "POST",
@@ -121,7 +123,11 @@ describe("chat api route", () => {
 
     it("should return 400 if validation error (invalid request format) occurs", async () => {
       mockIsRateLimited.mockResolvedValue(false);
-      mockSendRequest.mockRejectedValue(new Error("Invalid request: messages must be an array and cannot be empty."));
+      mockSendRequest.mockRejectedValue(
+        new Error(
+          "Invalid request: messages must be an array and cannot be empty.",
+        ),
+      );
 
       const req = new Request("http://localhost/api/chat", {
         method: "POST",

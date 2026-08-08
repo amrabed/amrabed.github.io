@@ -63,7 +63,9 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
                   setCopied(true);
                   setTimeout(() => setCopied(false), 2000);
                 }}
-                aria-label={copied ? "BibTeX copied" : "Copy BibTeX to clipboard"}
+                aria-label={
+                  copied ? "BibTeX copied" : "Copy BibTeX to clipboard"
+                }
                 isIconOnly
                 className="text-muted-foreground hover:text-primary transition-colors"
               >

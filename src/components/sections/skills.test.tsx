@@ -54,7 +54,9 @@ describe("SkillsSection", () => {
     expect(container.textContent).toContain("Python");
     expect(container.textContent).toContain("TypeScript");
     expect(container.textContent).toContain("Java");
-    expect(container.querySelector('[data-testid="empty-state"]')).not.toBeInTheDocument();
+    expect(
+      container.querySelector('[data-testid="empty-state"]'),
+    ).not.toBeInTheDocument();
   });
 
   it("filters skills by search query", () => {

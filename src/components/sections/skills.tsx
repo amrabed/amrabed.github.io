@@ -38,7 +38,8 @@ export const SkillsSection = memo(() => {
 
     return Object.entries(skillsData).filter(([key, skill]) => {
       const matchesQuery =
-        !lowercaseQuery || toLowerCaseCached(skill.name).includes(lowercaseQuery);
+        !lowercaseQuery ||
+        toLowerCaseCached(skill.name).includes(lowercaseQuery);
       const matchesArea = areaMatchingSkills.has(key);
       const matchesSkill = selectedSkills.size === 0 || selectedSkills.has(key);
       return matchesQuery && matchesArea && matchesSkill;
