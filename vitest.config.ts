@@ -31,6 +31,7 @@ export default defineConfig({
         "src/components/chat/client.tsx",
         "src/components/skills.tsx",
         "src/components/sections/skills.tsx",
+        "src/components/publication.tsx",
       ],
     },
   },
