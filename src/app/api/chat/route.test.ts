@@ -89,6 +89,57 @@ describe("chat api route", () => {
       expect(json.error).toContain("Message is too long");
     });
 
+    it("should return 400 on malformed JSON / SyntaxError", async () => {
+      mockIsRateLimited.mockResolvedValue(false);
+      mockSendRequest.mockRejectedValue(
+        new SyntaxError("Unexpected token < in JSON at position 0"),
+      );
+
+      const req = new Request("http://localhost/api/chat", {
+        method: "POST",
+        headers: { origin: "https://amrabed.com" },
+      });
+      const res = await POST(req);
+
+      expect(res.status).toBe(400);
+      const json = await res.json();
+      expect(json.error).toContain("Unexpected token < in JSON at position 0");
+    });
+
+    it("should return 400 if error message contains 'JSON' but is not a SyntaxError", async () => {
+      mockIsRateLimited.mockResolvedValue(false);
+      mockSendRequest.mockRejectedValue(new Error("Generic JSON error"));
+
+      const req = new Request("http://localhost/api/chat", {
+        method: "POST",
+        headers: { origin: "https://amrabed.com" },
+      });
+      const res = await POST(req);
+
+      expect(res.status).toBe(400);
+      const json = await res.json();
+      expect(json.error).toContain("Generic JSON error");
+    });
+
+    it("should return 400 if validation error (invalid request format) occurs", async () => {
+      mockIsRateLimited.mockResolvedValue(false);
+      mockSendRequest.mockRejectedValue(
+        new Error(
+          "Invalid request: messages must be an array and cannot be empty.",
+        ),
+      );
+
+      const req = new Request("http://localhost/api/chat", {
+        method: "POST",
+        headers: { origin: "https://amrabed.com" },
+      });
+      const res = await POST(req);
+
+      expect(res.status).toBe(400);
+      const json = await res.json();
+      expect(json.error).toContain("Invalid request");
+    });
+
     it("should return 500 on other errors", async () => {
       mockIsRateLimited.mockResolvedValue(false);
       mockSendRequest.mockRejectedValue(new Error("Internal API Error"));
