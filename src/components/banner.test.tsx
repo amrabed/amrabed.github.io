@@ -9,4 +9,9 @@ describe("Banner", () => {
     const { getByText } = render(<Banner />);
     expect(getByText(/Free Palestine/i)).toBeInTheDocument();
   });
+
+  it("includes screen reader text for opening in a new tab", () => {
+    const { getByText } = render(<Banner />);
+    expect(getByText(/\(opens in a new tab\)/i)).toBeInTheDocument();
+  });
 });
