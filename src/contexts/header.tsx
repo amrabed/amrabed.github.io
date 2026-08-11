@@ -31,11 +31,16 @@ const HeaderProvider = ({ children }: { children: ReactNode }) => {
 
   // show/hide header on scroll from top
   useEffect(() => {
+    let lastTop = "-80px";
     const handleScroll = () => {
-      setTop(window.scrollY > 0 ? "0" : "-80px");
+      const nextTop = window.scrollY > 0 ? "0" : "-80px";
+      if (nextTop !== lastTop) {
+        lastTop = nextTop;
+        setTop(nextTop);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       // Cleanup: Remove the event listener when the component unmounts
       window.removeEventListener("scroll", handleScroll);
