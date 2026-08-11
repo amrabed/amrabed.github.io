@@ -43,13 +43,17 @@ const Home = () => {
 
     updateDimensions();
 
+    let currentVisible = false;
     const handleScroll = () => {
       // Use cached dimensions to avoid expensive DOM lookups and reflows during scroll.
       const isVisible =
         window.scrollY > skillsTop - 200 &&
         window.scrollY + window.innerHeight < lastSectionBottom + 100;
-      setShowFilter(isVisible);
-      setIsFilterBarVisible(isVisible);
+      if (isVisible !== currentVisible) {
+        currentVisible = isVisible;
+        setShowFilter(isVisible);
+        setIsFilterBarVisible(isVisible);
+      }
     };
 
     // Use { passive: true } to improve scroll performance by telling the browser
