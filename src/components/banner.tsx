@@ -9,6 +9,7 @@ export const Banner = () => (
     >
       <div className="mr-1 inline text-white sm:hidden">🇵🇸</div>
       Help Spread Awareness for Palestine
+      <span className="sr-only"> (opens in a new tab)</span>
     </a>
   </div>
 );
