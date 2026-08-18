@@ -22,6 +22,7 @@ const markdownComponents = {
     const isHash = href?.startsWith("#");
     // Prevent prompt injection leading to XSS via javascript:, data:, or vbscript: protocols
     const isSafe = href && !/^(javascript|data|vbscript):/i.test(href.trim());
+    const isExternal = !isHash;
     return (
       <a
         href={isSafe ? href : "#"}
@@ -30,6 +31,7 @@ const markdownComponents = {
         className="chat-message-markdown-link"
       >
         {children}
+        {isExternal && <span className="sr-only"> (opens in a new tab)</span>}
       </a>
     );
   },
