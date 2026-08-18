@@ -50,7 +50,9 @@ describe("MessageBubble Link Sanitization", () => {
     const links = container.querySelectorAll("a");
     expect(links.length).toBe(2);
     expect(links[0].getAttribute("href")).toBe("https://amrabed.com");
+    expect(links[0].textContent).toContain("(opens in a new tab)");
     expect(links[1].getAttribute("href")).toBe("#experience");
+    expect(links[1].textContent).not.toContain("(opens in a new tab)");
   });
 
   it("should sanitize unsafe executable protocols to #", () => {
