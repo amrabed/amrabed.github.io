@@ -14,8 +14,16 @@ const ScrollToTopButton = () => {
   const { isFilterBarVisible } = useFilterUI();
 
   useEffect(() => {
+    // ⚡ Optimization: Cache visibility state locally using a closure variable
+    // to bypass redundant React state updates and scheduler dispatches during continuous scrolling.
+    let isCurrentlyVisible = false;
+
     const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
+      const shouldBeVisible = window.scrollY > 300;
+      if (shouldBeVisible !== isCurrentlyVisible) {
+        isCurrentlyVisible = shouldBeVisible;
+        setIsVisible(shouldBeVisible);
+      }
     };
 
     window.addEventListener("scroll", toggleVisibility, { passive: true });
