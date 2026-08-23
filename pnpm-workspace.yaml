@@ -15,3 +15,4 @@ overrides:
   mongoose: 8.24.1
   js-yaml@<4.3.1: ">=4.3.1"
   fast-xml-parser@<5.10.1: ">=5.10.1"
+  sharp@<0.35.0: ">=0.35.0"
