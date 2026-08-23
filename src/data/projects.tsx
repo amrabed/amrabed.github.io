@@ -41,6 +41,23 @@ const projects: Project[] = [
     priority: 10,
   },
   {
+    id: "cur8d-dev",
+    name: "cur8d.dev",
+    description:
+      "Opinionated production-ready templates for mobile, cloud, and web developers",
+    date: "2024-12-21",
+    links: {
+      homepage: "https://cur8d.dev",
+      github: "cur8d/cur8d.github.io",
+    },
+    tools: ["TypeScript"],
+    tags: ["Web", "Programming"],
+    roles: ["engineer"],
+    group: 0,
+    featured: true,
+    priority: 20,
+  },
+  {
     id: "cur8d-aws",
     name: "cur8d.aws",
     description:
@@ -55,7 +72,7 @@ const projects: Project[] = [
     roles: ["engineer"],
     group: 0,
     featured: true,
-    priority: 20,
+    priority: 30,
   },
   {
     id: "cur8d-py",
@@ -71,8 +88,6 @@ const projects: Project[] = [
     tags: ["Programming", "DevOps"],
     roles: ["engineer"],
     group: 0,
-    featured: true,
-    priority: 30,
   },
   {
     id: "skeleton-flutter",
