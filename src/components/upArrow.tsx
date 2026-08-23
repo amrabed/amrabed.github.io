@@ -14,8 +14,13 @@ const ScrollToTopButton = () => {
   const { isFilterBarVisible } = useFilterUI();
 
   useEffect(() => {
+    let lastIsVisible = false;
     const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
+      const shouldBeVisible = window.scrollY > 300;
+      if (shouldBeVisible !== lastIsVisible) {
+        lastIsVisible = shouldBeVisible;
+        setIsVisible(shouldBeVisible);
+      }
     };
 
     window.addEventListener("scroll", toggleVisibility, { passive: true });
