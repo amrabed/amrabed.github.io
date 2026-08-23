@@ -41,14 +41,14 @@ const projects: Project[] = [
     priority: 10,
   },
   {
-    id: "aws-lambda-templates",
-    name: "AWS Lambda Templates",
+    id: "cur8d-aws",
+    name: "cur8d.aws",
     description:
       "Production-ready AWS Lambda templates for Python to help you get started with serverless applications in no time",
     date: "2024-12-21",
     links: {
-      homepage: "https://amrabed.com/aws-lambda-templates",
-      github: "amrabed/aws-lambda-templates",
+      homepage: "https://cur8d.dev/lambda",
+      github: "cur8d/lambda",
     },
     tools: ["Python", "aws", "ai"],
     tags: ["Programming", "DevOps"],
