@@ -204,12 +204,12 @@ exports[`getConsolidatedContext > should match the existing snapshot 1`] = `
   Amr's Role: engineer, manager
   Links: {"homepage":"https://mathereconomics.com/sophi-paywall"}
 
-- Project Name: AWS Lambda Templates
+- Project Name: cur8d.aws
   Date: 2024-12-21
   Description: Production-ready AWS Lambda templates for Python to help you get started with serverless applications in no time
   Tools: Python, aws, ai
   Amr's Role: engineer
-  Links: {"homepage":"https://amrabed.com/aws-lambda-templates","github":"amrabed/aws-lambda-templates"}
+  Links: {"homepage":"https://cur8d.dev/lambda","github":"cur8d/lambda"}
 
 - Project Name: cur8d.py
   Date: 2024-12-21
