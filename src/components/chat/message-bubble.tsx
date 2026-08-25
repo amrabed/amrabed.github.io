@@ -17,11 +17,24 @@ const selectElementText = (target: HTMLElement) => {
   selection?.addRange(range);
 };
 
+const isSafeUrl = (href?: string): boolean => {
+  if (!href) return false;
+  // Normalize URL by stripping control characters and whitespace before protocol validation
+  /* eslint-disable-next-line no-control-regex */
+  const controlChars = /[\u0000-\u0020\u007F-\u009F]/g;
+  const normalized = href.replace(controlChars, "");
+  return (
+    normalized.startsWith("#") ||
+    normalized.startsWith("/") ||
+    /^(https?|mailto|tel):/i.test(normalized)
+  );
+};
+
 const markdownComponents = {
   a: ({ href, children }: { href?: string; children?: React.ReactNode }) => {
     const isHash = href?.startsWith("#");
-    // Prevent prompt injection leading to XSS via javascript:, data:, or vbscript: protocols
-    const isSafe = href && !/^(javascript|data|vbscript):/i.test(href.trim());
+    // Prevent prompt injection leading to XSS by enforcing a strict protocol allowlist
+    const isSafe = isSafeUrl(href);
     const isExternal = !isHash;
     return (
       <a
