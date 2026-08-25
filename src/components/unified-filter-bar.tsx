@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { memo } from "react";
+import { memo, useCallback } from "react";
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "@heroui/react";
@@ -33,49 +33,59 @@ const ROLE_OPTIONS = Object.entries(roles).map(([id, r]) => ({
   name: r.name,
 }));
 
-const FilterDropdown = memo(
-  ({
-    selected,
-    setSelected,
-    activeCount,
-  }: {
-    selected: Record<string, string[]>;
-    setSelected: (category: string, selected: string[]) => void;
-    activeCount: number;
-  }) => {
-    return (
-      <Filter
-        activeCount={activeCount}
-        className="rounded-l-none rounded-r-2xl border-l-0 bg-white dark:bg-slate-800 h-[38px] min-w-[48px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border-zinc-200 dark:border-zinc-700"
-      >
-        <Selections
-          label="Areas"
-          values={AREA_OPTIONS}
-          selected={selected["areas"] || []}
-          setSelected={(vals) => setSelected("areas", vals)}
-        />
-        <Selections
-          label="Skills"
-          values={SKILL_OPTIONS}
-          selected={selected["skills"] || []}
-          setSelected={(vals) => setSelected("skills", vals)}
-        />
-        <Selections
-          label="Roles"
-          values={ROLE_OPTIONS}
-          selected={selected["roles"] || []}
-          setSelected={(vals) => setSelected("roles", vals)}
-        />
-      </Filter>
-    );
-  },
-);
+// ⚡ Optimization: Sub-component connected directly to FilterStateContext or memoized handlers.
+// Since FilterDropdown is memoized and receives memoized area/skill/role callbacks, it does not
+// re-render on search query keystrokes when the user is typing in Searchbar.
+const FilterDropdownContainer = memo(() => {
+  const { selected, setSelected, activeFiltersCount } = useFilter();
 
-FilterDropdown.displayName = "FilterDropdown";
+  const handleSetAreas = useCallback(
+    (vals: string[]) => setSelected("areas", vals),
+    [setSelected],
+  );
+
+  const handleSetSkills = useCallback(
+    (vals: string[]) => setSelected("skills", vals),
+    [setSelected],
+  );
+
+  const handleSetRoles = useCallback(
+    (vals: string[]) => setSelected("roles", vals),
+    [setSelected],
+  );
+
+  return (
+    <Filter
+      activeCount={activeFiltersCount}
+      className="rounded-l-none rounded-r-2xl border-l-0 bg-white dark:bg-slate-800 h-[38px] min-w-[48px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border-zinc-200 dark:border-zinc-700"
+    >
+      <Selections
+        label="Areas"
+        values={AREA_OPTIONS}
+        selected={selected["areas"] || []}
+        setSelected={handleSetAreas}
+      />
+      <Selections
+        label="Skills"
+        values={SKILL_OPTIONS}
+        selected={selected["skills"] || []}
+        setSelected={handleSetSkills}
+      />
+      <Selections
+        label="Roles"
+        values={ROLE_OPTIONS}
+        selected={selected["roles"] || []}
+        setSelected={handleSetRoles}
+      />
+    </Filter>
+  );
+});
+
+FilterDropdownContainer.displayName = "FilterDropdownContainer";
 
 export const UnifiedFilterBar = () => {
   const { query, setQuery } = useSearch();
-  const { selected, setSelected, clearAll, activeFiltersCount } = useFilter();
+  const { selected, clearAll } = useFilter();
 
   const hasFilters =
     query !== "" || Object.values(selected).some((v) => v.length > 0);
@@ -102,11 +112,7 @@ export const UnifiedFilterBar = () => {
             className="rounded-l-2xl rounded-r-none border-r-0"
             autoFocus={false}
           />
-          <FilterDropdown
-            selected={selected}
-            setSelected={setSelected}
-            activeCount={activeFiltersCount}
-          />
+          <FilterDropdownContainer />
         </div>
 
         {hasFilters && (
