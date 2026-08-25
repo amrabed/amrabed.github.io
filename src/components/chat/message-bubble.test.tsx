@@ -79,4 +79,29 @@ describe("MessageBubble Link Sanitization", () => {
     expect(links[1].getAttribute("href")).toBe("#");
     expect(links[2].getAttribute("href")).toBe("#");
   });
+
+  it("should sanitize obfuscated protocols and non-allowlisted schemes to #", () => {
+    const message = {
+      id: "3",
+      role: "assistant",
+      content:
+        "Obfuscated: [Tab XSS](<java\tscript:alert(1)>), [Blob](blob:text/html,test), and [File](file:///etc/passwd).",
+      parts: [
+        {
+          type: "text",
+          text: "Obfuscated: [Tab XSS](<java\tscript:alert(1)>), [Blob](blob:text/html,test), and [File](file:///etc/passwd).",
+        },
+      ],
+    } as any;
+
+    const { container } = render(
+      <MessageBubble {...defaultProps} message={message} />,
+    );
+
+    const links = container.querySelectorAll("a");
+    expect(links.length).toBe(3);
+    expect(links[0].getAttribute("href")).toBe("#");
+    expect(links[1].getAttribute("href")).toBe("#");
+    expect(links[2].getAttribute("href")).toBe("#");
+  });
 });
