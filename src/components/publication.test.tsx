@@ -34,7 +34,7 @@ describe("PublicationCard", () => {
       const { getByLabelText } = render(
         <PublicationCard publication={pubWithDoi} />,
       );
-      expect(getByLabelText("DOI")).toBeInTheDocument();
+      expect(getByLabelText("DOI (opens in a new tab)")).toBeInTheDocument();
     }
   });
 

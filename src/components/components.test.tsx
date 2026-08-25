@@ -78,7 +78,7 @@ describe("UI Components", () => {
         </IconLink>,
       );
 
-      const link = getByLabelText("My Title");
+      const link = getByLabelText("My Title (opens in a new tab)");
       expect(link).toBeInTheDocument();
       expect(link.getAttribute("href")).toBe("https://example.com");
       expect(link.getAttribute("target")).toBe("_blank");
@@ -93,7 +93,7 @@ describe("UI Components", () => {
       ];
 
       const { getByLabelText } = render(<Social profiles={customProfiles} />);
-      const btn = getByLabelText("GitHub");
+      const btn = getByLabelText("GitHub (opens in a new tab)");
       expect(btn).toBeInTheDocument();
 
       act(() => {

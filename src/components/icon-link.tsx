@@ -17,7 +17,7 @@ export const IconLink = ({ href, title, children }: IconLinkProps) => (
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={title}
+        aria-label={`${title} (opens in a new tab)`}
         className="icon-link"
       >
         {children}
