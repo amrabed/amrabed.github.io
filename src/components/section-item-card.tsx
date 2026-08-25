@@ -31,6 +31,7 @@ export const SectionItemCard = memo(
             <p className="dark:text-primary-dark text-primary">{subtitle}</p>
             <p className="text-secondary">{footer}</p>
           </div>
+          <span className="sr-only"> (opens in a new tab)</span>
         </a>
       </div>
     );

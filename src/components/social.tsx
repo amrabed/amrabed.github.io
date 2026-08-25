@@ -16,7 +16,7 @@ const Social = ({ profiles: propsProfiles }: { profiles?: Profile[] }) => {
               variant="ghost"
               size="lg"
               isIconOnly
-              aria-label={profile.name}
+              aria-label={`${profile.name} (opens in a new tab)`}
               className="text-slate-500 hover:text-primary rounded-full text-2xl"
               onPress={() =>
                 window.open(profile.link, "_blank", "noopener,noreferrer")
