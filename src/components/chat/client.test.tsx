@@ -36,6 +36,13 @@ vi.mock("./use-chat-widget", () => ({
 
 vi.mock("@assistant-ui/react", () => ({
   AssistantRuntimeProvider: ({ children }: any) => <div>{children}</div>,
+  useAuiState: (selector: any) =>
+    selector({
+      thread: {
+        messages: mockMessages,
+        isRunning: mockIsRunning,
+      },
+    }),
 }));
 
 vi.mock("@heroui/react", async (importOriginal) => {

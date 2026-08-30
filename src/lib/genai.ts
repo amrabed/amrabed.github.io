@@ -6,7 +6,7 @@ const google = createGoogleGenerativeAI({
 });
 
 const embeddingModel = google.embeddingModel("gemini-embedding-001");
-const chatModel = gateway("google/gemini-2.5-flash");
+const chatModel = gateway("google/gemini-2.0-flash");
 
 const googleOptions = {
   google: {
