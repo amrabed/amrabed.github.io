@@ -1,7 +1,7 @@
 import { DefaultChatTransport } from "ai";
 import { useState, useRef, useEffect, useCallback } from "react";
 
-import { useChat } from "@ai-sdk/react";
+import { useChatRuntime } from "@assistant-ui/react-ai-sdk";
 
 import { useFilterUI } from "@/contexts/filter";
 
@@ -28,11 +28,10 @@ export function useChatWidget() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const { isFilterBarVisible } = useFilterUI();
 
-  const { messages, sendMessage, status, error, stop, setMessages } = useChat({
+  const runtime = useChatRuntime({
     transport: new DefaultChatTransport({ api: getApiEndpoint() }),
   });
 
-  const isLoading = status === "submitted" || status === "streaming";
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -62,12 +61,6 @@ export function useChatWidget() {
   }, [input, adjustHeight]);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
-  }, [messages, isLoading]);
-
-  useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
     }
@@ -93,7 +86,7 @@ export function useChatWidget() {
   const handleSubmit = useCallback(
     async (e?: React.FormEvent) => {
       e?.preventDefault();
-      if (!input.trim() || isLoading) return;
+      if (!input.trim() || runtime.thread.getState().isRunning) return;
 
       const currentInput = input;
       setInput("");
@@ -101,7 +94,10 @@ export function useChatWidget() {
         inputRef.current.style.height = "auto";
       }
       try {
-        await sendMessage({ text: currentInput });
+        await runtime.thread.append({
+          role: "user",
+          content: [{ type: "text", text: currentInput }],
+        });
         if (inputRef.current) {
           inputRef.current.focus();
         }
@@ -109,14 +105,17 @@ export function useChatWidget() {
         console.error("Failed to send message:", err);
       }
     },
-    [input, isLoading, sendMessage],
+    [input, runtime],
   );
 
   const handleSuggestedQuestion = useCallback(
     async (question: string) => {
-      if (isLoading) return;
+      if (runtime.thread.getState().isRunning) return;
       try {
-        await sendMessage({ text: question });
+        await runtime.thread.append({
+          role: "user",
+          content: [{ type: "text", text: question }],
+        });
         if (inputRef.current) {
           inputRef.current.focus();
         }
@@ -124,38 +123,29 @@ export function useChatWidget() {
         console.error("Failed to send suggested question:", err);
       }
     },
-    [isLoading, sendMessage],
+    [runtime],
   );
 
-  const isRateLimited =
-    error?.message?.includes("429") ||
-    (error as unknown as { status?: number })?.status === 429;
+  const stop = useCallback(() => {
+    runtime.thread.cancelRun();
+  }, [runtime]);
 
-  const getErrorMessage = () => {
-    if (!error) return "";
-    if (isRateLimited) {
-      return "You've reached the daily limit. Come back tomorrow! 👋";
-    }
-    try {
-      const parsed = JSON.parse(error.message);
-      return parsed.error || parsed.message || error.message;
-    } catch {
-      return error.message || "Something went wrong. Please try again.";
-    }
-  };
+  const reset = useCallback(() => {
+    runtime.thread.cancelRun();
+    runtime.thread.reset();
+    setInput("");
+  }, [runtime]);
 
   return {
+    runtime,
     isOpen,
     toggleChat,
     input,
     setInput,
     handleInputChange,
     handleSubmit,
-    messages,
-    isLoading,
-    error,
-    getErrorMessage,
     stop,
+    reset,
     scrollRef,
     inputRef,
     copiedId,
@@ -163,7 +153,5 @@ export function useChatWidget() {
     handleEdit,
     handleSuggestedQuestion,
     isFilterBarVisible,
-    status,
-    setMessages,
   };
 }

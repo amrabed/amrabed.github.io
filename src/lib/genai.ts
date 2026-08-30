@@ -1,3 +1,4 @@
+import { gateway } from "ai";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 
 const google = createGoogleGenerativeAI({
@@ -5,7 +6,7 @@ const google = createGoogleGenerativeAI({
 });
 
 const embeddingModel = google.embeddingModel("gemini-embedding-001");
-const chatModel = google("gemini-flash-lite-latest");
+const chatModel = gateway("google/gemini-2.5-flash");
 
 const googleOptions = {
   google: {

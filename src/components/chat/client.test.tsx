@@ -10,16 +10,32 @@ const mockToggleChat = vi.fn();
 const mockHandleInputChange = vi.fn();
 const mockHandleSubmit = vi.fn();
 const mockStop = vi.fn();
-const mockSetMessages = vi.fn();
+const mockReset = vi.fn();
 const mockSetInput = vi.fn();
 const mockCopyToClipboard = vi.fn();
 const mockHandleEdit = vi.fn();
 const mockHandleSuggestedQuestion = vi.fn();
 
+let mockMessages: any[] = [];
+let mockIsRunning = false;
+
+const mockRuntime: any = {
+  thread: {
+    getState: () => ({
+      messages: mockMessages,
+      isRunning: mockIsRunning,
+    }),
+  },
+};
+
 let mockUseChatWidgetResult: any = {};
 
 vi.mock("./use-chat-widget", () => ({
   useChatWidget: () => mockUseChatWidgetResult,
+}));
+
+vi.mock("@assistant-ui/react", () => ({
+  AssistantRuntimeProvider: ({ children }: any) => <div>{children}</div>,
 }));
 
 vi.mock("@heroui/react", async (importOriginal) => {
@@ -38,17 +54,17 @@ vi.mock("@heroui/react", async (importOriginal) => {
 describe("ChatWidgetClient", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mockMessages = [];
+    mockIsRunning = false;
     mockUseChatWidgetResult = {
+      runtime: mockRuntime,
       isOpen: false,
       toggleChat: mockToggleChat,
       input: "",
       handleInputChange: mockHandleInputChange,
       handleSubmit: mockHandleSubmit,
-      messages: [],
-      isLoading: false,
-      error: null,
-      getErrorMessage: () => "",
       stop: mockStop,
+      reset: mockReset,
       scrollRef: { current: null },
       inputRef: { current: null },
       copiedId: null,
@@ -56,8 +72,6 @@ describe("ChatWidgetClient", () => {
       handleEdit: mockHandleEdit,
       handleSuggestedQuestion: mockHandleSuggestedQuestion,
       isFilterBarVisible: false,
-      status: "idle",
-      setMessages: mockSetMessages,
       setInput: mockSetInput,
     };
   });
@@ -97,7 +111,7 @@ describe("ChatWidgetClient", () => {
 
   it("should render suggested questions when empty and not loading", () => {
     mockUseChatWidgetResult.isOpen = true;
-    mockUseChatWidgetResult.messages = [];
+    mockMessages = [];
     const { getByText } = render(<ChatWidgetClient />);
 
     const suggestedQuestion = getByText("What was his PhD research about?");
@@ -113,7 +127,7 @@ describe("ChatWidgetClient", () => {
 
   it("should focus the input textarea after a suggested question is triggered", () => {
     mockUseChatWidgetResult.isOpen = true;
-    mockUseChatWidgetResult.messages = [];
+    mockMessages = [];
 
     const { getByText, getByLabelText } = render(<ChatWidgetClient />);
     const textarea = getByLabelText("Ask a question to Miro");
@@ -134,14 +148,12 @@ describe("ChatWidgetClient", () => {
 
   it("should render messages list, typing indicator and stop button when loading", () => {
     mockUseChatWidgetResult.isOpen = true;
-    mockUseChatWidgetResult.isLoading = true;
-    mockUseChatWidgetResult.status = "submitted";
-    mockUseChatWidgetResult.messages = [
+    mockIsRunning = true;
+    mockMessages = [
       {
         id: "1",
         role: "user",
-        content: "Tell me about Amr",
-        parts: [{ type: "text", text: "Tell me about Amr" }],
+        content: [{ type: "text", text: "Tell me about Amr" }],
       },
     ];
 
@@ -160,9 +172,7 @@ describe("ChatWidgetClient", () => {
     act(() => {
       resetBtn.click();
     });
-    expect(mockStop).toHaveBeenCalled();
-    expect(mockSetMessages).toHaveBeenCalledWith([]);
-    expect(mockSetInput).toHaveBeenCalledWith("");
+    expect(mockReset).toHaveBeenCalled();
   });
 
   it("should trigger form submit on key down Enter without Shift key", () => {
@@ -189,17 +199,5 @@ describe("ChatWidgetClient", () => {
     });
 
     expect(mockHandleSubmit).not.toHaveBeenCalled();
-  });
-
-  it("should render error message when error is present", () => {
-    mockUseChatWidgetResult.isOpen = true;
-    mockUseChatWidgetResult.error = new Error("Failed to generate response");
-    mockUseChatWidgetResult.getErrorMessage = () =>
-      "An error occurred. Please try again later.";
-    const { getByText } = render(<ChatWidgetClient />);
-
-    expect(
-      getByText("An error occurred. Please try again later."),
-    ).toBeInTheDocument();
   });
 });
