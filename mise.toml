@@ -1,6 +1,6 @@
 [tools]
 node = 'lts'
-"npm:pnpm" = 'latest'
+pnpm = 'latest'
 "npm:firebase-tools" = 'latest'
 
 [env]
