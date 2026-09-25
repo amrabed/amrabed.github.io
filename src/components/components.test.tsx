@@ -191,14 +191,14 @@ describe("UI Components", () => {
       const mockUnobserve = vi.fn();
       let observerCallback: any = null;
 
-      window.IntersectionObserver = vi.fn().mockImplementation((callback) => {
+      window.IntersectionObserver = vi.fn().mockImplementation(function (callback: any) {
         observerCallback = callback;
         return {
           observe: mockObserve,
           unobserve: mockUnobserve,
           disconnect: vi.fn(),
         };
-      });
+      }) as unknown as typeof window.IntersectionObserver;
 
       const { getByText, container, unmount } = render(
         <Section id="my-section" title="Section Title">
