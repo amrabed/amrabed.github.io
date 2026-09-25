@@ -8,11 +8,13 @@ describe("MainHeader", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     window.scrollTo = vi.fn();
-    window.IntersectionObserver = vi.fn().mockImplementation(() => ({
-      observe: vi.fn(),
-      unobserve: vi.fn(),
-      disconnect: vi.fn(),
-    }));
+    window.IntersectionObserver = vi.fn().mockImplementation(function () {
+      return {
+        observe: vi.fn(),
+        unobserve: vi.fn(),
+        disconnect: vi.fn(),
+      };
+    }) as unknown as typeof window.IntersectionObserver;
   });
 
   it("should render and handle scroll to top", () => {
