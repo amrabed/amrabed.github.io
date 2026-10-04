@@ -84,7 +84,7 @@ describe("ChatWidgetClient", () => {
     } = render(<ChatWidgetClient />);
 
     expect(getByText("Miro — Amr's Assistant")).toBeInTheDocument();
-    expect(getAllByLabelText("Close AI assistant").length).toBe(2);
+    expect(getAllByLabelText("Close AI assistant")).toHaveLength(2);
     expect(getByPlaceholderText("Ask a question...")).toBeInTheDocument();
     expect(getByLabelText("Ask a question to Miro")).toBeInTheDocument();
 

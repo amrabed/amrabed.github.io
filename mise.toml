@@ -50,7 +50,7 @@ depends = ['install', 'format']
 alias = 'b'
 description = 'Build the project'
 run = 'pnpm run build'
-depends = ['install']
+depends = ['install', 'typecheck']
 
 [tasks.typecheck]
 alias = 'tc'

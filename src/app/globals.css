@@ -101,9 +101,6 @@
 }
 
 /* Scroll to top button classes (positioning handled via Tailwind) */
-.scroll-to-top {
-}
-
 .scroll-button {
   color: #fff;
   border: none;

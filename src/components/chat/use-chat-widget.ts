@@ -9,7 +9,7 @@ export const getApiEndpoint = () => {
   if (process.env.NEXT_PUBLIC_CHAT_API_URL) {
     return process.env.NEXT_PUBLIC_CHAT_API_URL;
   }
-  if (typeof globalThis.window === "undefined") return "/api/chat";
+  if (globalThis.window === undefined) return "/api/chat";
   const hostname = globalThis.window.location.hostname;
   if (
     hostname.includes("github.io") ||
@@ -37,7 +37,7 @@ export function useChatWidget() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const copyToClipboard = useCallback((id: string, text: string) => {
-    navigator.clipboard.writeText(text);
+    void navigator.clipboard.writeText(text);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
   }, []);

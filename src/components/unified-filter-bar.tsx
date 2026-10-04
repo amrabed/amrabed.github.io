@@ -110,7 +110,6 @@ export const UnifiedFilterBar = () => {
             query={query}
             setQuery={setQuery}
             className="rounded-l-2xl rounded-r-none border-r-0"
-            autoFocus={false}
           />
           <FilterDropdownContainer />
         </div>
