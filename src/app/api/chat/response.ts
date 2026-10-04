@@ -1,12 +1,12 @@
-const ALLOWED_ORIGINS = [
+const ALLOWED_ORIGINS = new Set([
   "https://amrabed.com",
   "https://amrabed.github.io",
   "http://localhost:3000",
-];
+]);
 
 export const isAllowedOrigin = (origin: string | null) => {
   if (!origin) return false;
-  if (ALLOWED_ORIGINS.includes(origin)) return true;
+  if (ALLOWED_ORIGINS.has(origin)) return true;
 
   try {
     const { hostname } = new URL(origin);
