@@ -9,7 +9,7 @@ export const getApiEndpoint = () => {
   if (process.env.NEXT_PUBLIC_CHAT_API_URL) {
     return process.env.NEXT_PUBLIC_CHAT_API_URL;
   }
-  if (typeof globalThis.window === "undefined") return "/api/chat";
+  if (globalThis.window === undefined) return "/api/chat";
   const hostname = globalThis.window.location.hostname;
   if (
     hostname.includes("github.io") ||
