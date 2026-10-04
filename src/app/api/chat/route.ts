@@ -7,7 +7,7 @@ import {
   isAllowedOrigin,
 } from "./response";
 
-export async function OPTIONS(request: Request) {
+export function OPTIONS(request: Request) {
   return optionsResponse(request.headers.get("origin"));
 }
 

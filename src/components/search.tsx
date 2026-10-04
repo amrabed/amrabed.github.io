@@ -9,13 +9,11 @@ export const Searchbar = ({
   query,
   setQuery,
   className,
-  autoFocus = false,
 }: {
   placeholder: string;
   query: string;
   setQuery: (query: string) => void;
   className?: string;
-  autoFocus?: boolean;
 }) => {
   const inputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -74,7 +72,6 @@ export const Searchbar = ({
         maxLength={100}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        autoFocus={autoFocus}
         autoCapitalize="none"
         autoComplete="off"
         autoCorrect="off"

@@ -55,12 +55,10 @@ const HeroSection = memo(() => {
 
         <div className="hero-intro">
           <p className="hero-intro-text">
-            I&apos;m
+            I&apos;m{" "}
             <span className="text-primary">
-              {" a"}
-              {!mounted ? (
-                "n Engineer"
-              ) : (
+              a
+              {mounted ? (
                 <TypeAnimation
                   sequence={[
                     "n Engineer",
@@ -76,6 +74,8 @@ const HeroSection = memo(() => {
                   speed={10}
                   repeat={Infinity}
                 />
+              ) : (
+                "n Engineer"
               )}
             </span>
           </p>

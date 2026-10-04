@@ -37,7 +37,7 @@ describe("Skills components", () => {
     it("renders empty list correctly", () => {
       const { container } = render(<Areas areas={[]} />);
       expect(container.querySelector("ul")).toBeInTheDocument();
-      expect(container.querySelectorAll("li").length).toBe(0);
+      expect(container.querySelectorAll("li")).toHaveLength(0);
     });
 
     it("renders valid areas and skips invalid ones", () => {
@@ -60,7 +60,7 @@ describe("Skills components", () => {
         <Tools tools={["python", "nonexistent"]} compact={true} />,
       );
       expect(getAllByLabelText("Python")[0]).toBeInTheDocument();
-      expect(container.querySelectorAll("li").length).toBe(1);
+      expect(container.querySelectorAll("li")).toHaveLength(1);
     });
 
     it("renders non-compact tools and skips invalid ones", () => {
@@ -68,7 +68,7 @@ describe("Skills components", () => {
         <Tools tools={["python", "nonexistent"]} compact={false} />,
       );
       expect(getAllByLabelText("Python")[0]).toBeInTheDocument();
-      expect(container.querySelectorAll("li").length).toBe(1);
+      expect(container.querySelectorAll("li")).toHaveLength(1);
     });
   });
 

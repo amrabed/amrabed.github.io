@@ -15,7 +15,7 @@ export default async function sendRequest(request: Request) {
   }
 
   const modelMessages = await convertToModelMessages(messages);
-  const lastMessage = modelMessages[modelMessages.length - 1];
+  const lastMessage = modelMessages.at(-1)!;
 
   const userQuery =
     typeof lastMessage.content === "string"
