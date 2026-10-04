@@ -223,16 +223,7 @@ export const MessageBubble = memo(
     return (
       <div data-role={message.role} className="chat-message-wrapper">
         <div
-          tabIndex={0}
-          role="button"
           data-role={message.role}
-          aria-label="Double click to select message text"
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              selectElementText(e.currentTarget);
-            }
-          }}
           onDoubleClick={(e) => {
             selectElementText(e.currentTarget);
           }}
