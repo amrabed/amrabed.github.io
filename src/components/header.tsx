@@ -10,6 +10,7 @@ export const sections = [
   { name: "Experience", link: "#experience" },
   { name: "Education", link: "#degrees" },
   { name: "About", link: "#about" },
+  { name: "Blog", link: "/blog" },
 ];
 
 const Title = ({ onClick }: { onClick: (e: React.MouseEvent) => void }) => (
@@ -131,13 +132,19 @@ export const MainHeader = () => {
             <li key={section.name}>
               <a
                 className={`text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1 ${
+                  section.link.startsWith("#") &&
                   activeSection === section.link.substring(1)
                     ? "text-primary"
                     : "text-foreground-500"
                 }`}
                 href={section.link}
-                onClick={(e) => handleScroll(e, section.link)}
+                onClick={
+                  section.link.startsWith("#")
+                    ? (e) => handleScroll(e, section.link)
+                    : undefined
+                }
                 aria-current={
+                  section.link.startsWith("#") &&
                   activeSection === section.link.substring(1)
                     ? "location"
                     : undefined
@@ -160,13 +167,19 @@ export const MainHeader = () => {
               <li key={section.name}>
                 <a
                   className={`block text-lg py-2 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-2 ${
+                    section.link.startsWith("#") &&
                     activeSection === section.link.substring(1)
                       ? "text-primary"
                       : "text-foreground-500"
                   }`}
                   href={section.link}
-                  onClick={(e) => handleScroll(e, section.link)}
+                  onClick={
+                    section.link.startsWith("#")
+                      ? (e) => handleScroll(e, section.link)
+                      : undefined
+                  }
                   aria-current={
+                    section.link.startsWith("#") &&
                     activeSection === section.link.substring(1)
                       ? "location"
                       : undefined

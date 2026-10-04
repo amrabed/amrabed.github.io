@@ -65,4 +65,18 @@ describe("MainHeader", () => {
 
     expect(getByLabelText("Open menu")).toBeInTheDocument();
   });
+  it("should render the Blog navigation link", () => {
+    const { getByText } = render(<MainHeader />);
+    const blogLink = getByText("Blog");
+
+    expect(blogLink).toBeInTheDocument();
+    expect(blogLink).toHaveAttribute("href", "/blog");
+
+    act(() => {
+      blogLink.click();
+    });
+
+    // Blog is a page link, not a smooth-scroll anchor — scrollTo should not be called
+    expect(window.scrollTo).not.toHaveBeenCalled();
+  });
 });
