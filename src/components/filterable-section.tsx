@@ -90,21 +90,22 @@ export const FilterableSection = <T extends FilterableItem>({
     return sortFn ? [...filtered].sort(sortFn) : filtered;
   }, [debouncedQuery, matchingItems, sortFn]);
 
+  let sectionContent;
+  if (filteredItems.length === 0) {
+    sectionContent = <EmptyState />;
+  } else if (renderContainer) {
+    sectionContent = renderContainer(filteredItems);
+  } else {
+    sectionContent = filteredItems.map((item) => renderItem(item));
+  }
+
   return (
     <Section
       id={id}
       title={title}
       contentClassName={renderContainer ? "" : gridClassName}
     >
-      {filteredItems.length > 0 ? (
-        renderContainer ? (
-          renderContainer(filteredItems)
-        ) : (
-          filteredItems.map((item) => renderItem(item))
-        )
-      ) : (
-        <EmptyState />
-      )}
+      {sectionContent}
     </Section>
   );
 };
