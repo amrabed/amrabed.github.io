@@ -48,7 +48,7 @@ describe("MessageBubble Link Sanitization", () => {
     );
 
     const links = container.querySelectorAll("a");
-    expect(links.length).toBe(2);
+    expect(links).toHaveLength(2);
     expect(links[0].getAttribute("href")).toBe("https://amrabed.com");
     expect(links[0].textContent).toContain("(opens in a new tab)");
     expect(links[1].getAttribute("href")).toBe("#experience");
@@ -74,7 +74,7 @@ describe("MessageBubble Link Sanitization", () => {
     );
 
     const links = container.querySelectorAll("a");
-    expect(links.length).toBe(3);
+    expect(links).toHaveLength(3);
     expect(links[0].getAttribute("href")).toBe("#");
     expect(links[1].getAttribute("href")).toBe("#");
     expect(links[2].getAttribute("href")).toBe("#");
@@ -99,7 +99,7 @@ describe("MessageBubble Link Sanitization", () => {
     );
 
     const links = container.querySelectorAll("a");
-    expect(links.length).toBe(3);
+    expect(links).toHaveLength(3);
     expect(links[0].getAttribute("href")).toBe("#");
     expect(links[1].getAttribute("href")).toBe("#");
     expect(links[2].getAttribute("href")).toBe("#");
