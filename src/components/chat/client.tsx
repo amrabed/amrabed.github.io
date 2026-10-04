@@ -32,7 +32,7 @@ export default function ChatWidgetClient() {
   } = useChatWidget();
 
   const handleReset = () => {
-    stop();
+    void stop();
     setMessages([]);
     setInput("");
   };
@@ -171,7 +171,7 @@ export default function ChatWidgetClient() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();
-                    handleSubmit();
+                    void handleSubmit();
                   }
                 }}
               />

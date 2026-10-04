@@ -59,7 +59,7 @@ const CiteButton = ({ publication }: { publication: Publication }) => {
                 size="sm"
                 variant="ghost"
                 onPress={() => {
-                  navigator.clipboard.writeText(bibtex);
+                  void navigator.clipboard.writeText(bibtex);
                   setCopied(true);
                   setTimeout(() => setCopied(false), 2000);
                 }}

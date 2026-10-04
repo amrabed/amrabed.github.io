@@ -37,7 +37,7 @@ export function useChatWidget() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const copyToClipboard = useCallback((id: string, text: string) => {
-    navigator.clipboard.writeText(text);
+    void navigator.clipboard.writeText(text);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
   }, []);
