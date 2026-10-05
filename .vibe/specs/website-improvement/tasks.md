@@ -24,10 +24,10 @@
 
 ## Phase 4: UX & Performance Optimization
 
-- [ ] Evaluate server component rendering for `page.tsx`
-- [ ] Enable Next.js image optimization
-- [ ] Prune unused dependencies and streamline bundle size
-- [ ] Enhance filter accessibility and mobile UX
+- [x] Evaluate server component rendering for `page.tsx`
+- [x] Enable Next.js image optimization
+- [x] Prune unused dependencies and streamline bundle size
+- [x] Enhance filter accessibility and mobile UX
 
 ## Phase 5: Verification & Delivery
 

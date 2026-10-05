@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+
 import { FaArrowLeft, FaBookOpen } from "react-icons/fa6";
 
 import { Banner } from "@/components/banner";
@@ -36,7 +37,9 @@ export default function BlogPage() {
             Technical Blog &amp; Articles
           </h1>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-            Writings and architectural reflections on scaling machine learning pipelines, multi-cloud platforms, container security, and software craftsmanship.
+            Writings and architectural reflections on scaling machine learning
+            pipelines, multi-cloud platforms, container security, and software
+            craftsmanship.
           </p>
         </div>
 
