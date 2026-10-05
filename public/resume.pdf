@@ -1,0 +1,50 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 4 0 R >> >> /MediaBox [0 0 612 792] /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1472 >>
+stream
+BT /F1 20 Tf 50 740 Td (Amr Abed, PhD) Tj ET
+BT /F1 12 Tf 50 720 Td (Engineering Manager | AWS Certified | Cloud & AI Architect) Tj ET
+BT /F1 10 Tf 50 705 Td (Email: amr.abed@gmail.com | Web: https://amrabed.com | Toronto, Canada) Tj ET
+BT /F1 14 Tf 50 670 Td (Summary) Tj ET
+BT /F1 10 Tf 50 655 Td (Engineering Manager and cloud architect with PhD from Virginia Tech. Former Google intern.) Tj ET
+BT /F1 10 Tf 50 642 Td (Leading ML engineering at Sophi, scaling paywall and content systems worldwide.) Tj ET
+BT /F1 14 Tf 50 610 Td (Certifications) Tj ET
+BT /F1 10 Tf 50 595 Td (- AWS Certified Generative AI Developer - Professional) Tj ET
+BT /F1 10 Tf 50 582 Td (- AWS Certified Machine Learning - Specialty) Tj ET
+BT /F1 10 Tf 50 569 Td (- AWS Certified Solutions Architect - Associate) Tj ET
+BT /F1 14 Tf 50 535 Td (Education) Tj ET
+BT /F1 10 Tf 50 520 Td (- Ph.D. Computer Engineering, Virginia Tech) Tj ET
+BT /F1 10 Tf 50 507 Td (- M.S. Computer Engineering, Virginia Tech) Tj ET
+BT /F1 10 Tf 50 494 Td (- B.S. Computer Engineering, Ain Shams University) Tj ET
+BT /F1 14 Tf 50 460 Td (Experience) Tj ET
+BT /F1 10 Tf 50 445 Td (- Engineering Manager, Sophi (Nov 2022 - Present)) Tj ET
+BT /F1 10 Tf 50 432 Td (- Founder & Principal Engineer, Abed Solutions (Jan 2020 - Present)) Tj ET
+BT /F1 10 Tf 50 419 Td (- Assistant Professor, Minia University (Nov 2017 - Jan 2020)) Tj ET
+BT /F1 10 Tf 50 406 Td (- Software Engineering Intern, Google (May 2014 - Aug 2014)) Tj ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1835
+%%EOF

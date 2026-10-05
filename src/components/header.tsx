@@ -9,8 +9,10 @@ export const sections = [
   { name: "Publications", link: "#publications" },
   { name: "Experience", link: "#experience" },
   { name: "Education", link: "#degrees" },
+  { name: "Teaching", link: "#teaching" },
   { name: "About", link: "#about" },
   { name: "Blog", link: "/blog" },
+  { name: "Contact", link: "#contact" },
 ];
 
 const Title = ({ onClick }: { onClick: (e: React.MouseEvent) => void }) => (

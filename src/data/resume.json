@@ -7,6 +7,7 @@
     "email": "amr.abed@gmail.com",
     "url": "https://amrabed.com",
     "image": "/amrabed.webp",
+    "resumeUrl": "/resume.pdf",
     "summary": "Engineering Manager, software engineer, and researcher with a PhD in Computer Engineering from Virginia Tech and former engineering experience at Google. Currently leading machine learning engineering at Sophi.",
     "location": {
       "city": "Toronto",
@@ -254,6 +255,25 @@
       ],
       "skills": ["TensorFlow", "AWS", "Python", "Docker"],
       "tags": ["Machine Learning", "Cloud"],
+      "roles": ["engineer"]
+    },
+    {
+      "id": "abed-solutions",
+      "title": "Founder & Principal Engineer",
+      "organization": {
+        "name": "Abed Solutions",
+        "url": "https://abed.solutions"
+      },
+      "duration": {
+        "start": "Jan 2020",
+        "end": "Present"
+      },
+      "tasks": [
+        "Founded software consultancy developing and maintaining 5 different cross-platform mobile applications",
+        "Built modular multi-platform templates with integrated cloud infrastructure, CI/CD pipelines, and automated quality checks"
+      ],
+      "skills": ["Kotlin", "Swift", "Java", "Android", "Firebase"],
+      "tags": ["Mobile", "Cloud"],
       "roles": ["engineer"]
     },
     {
@@ -761,7 +781,8 @@
     {
       "id": "amrabed.com",
       "name": "amrabed.com",
-      "description": "This website using Next.js and Tailwind CSS",
+      "description": "Personal website and portfolio built with Next.js, Tailwind CSS, and Gemini AI",
+      "details": "High-performance personal web platform and AI conversational assistant built with Next.js 16, Tailwind CSS 4, HeroUI, and Gemini AI integration.",
       "date": "2024-09-01",
       "links": {
         "homepage": "/",
@@ -777,7 +798,8 @@
     {
       "id": "sophi-paywall",
       "name": "Sophi Paywall",
-      "description": "Paywall system for online publications",
+      "description": "Intelligent dynamic paywall system for online publications",
+      "details": "Engineered real-time decisioning architecture that automates dynamic content paywalls across hundreds of global publishers. Led migration to Amazon EKS and MLflow to streamline model lifecycles and significantly reduce infrastructure operating overhead.",
       "date": "2024-08-01",
       "links": {
         "homepage": "https://mathereconomics.com/sophi-paywall"
@@ -807,6 +829,7 @@
       "id": "cur8d-dev",
       "name": "cur8d.dev",
       "description": "Opinionated production-ready templates for mobile, cloud, and web developers",
+      "details": "A curated ecosystem of open-source project templates designed for modern full-stack, mobile, and serverless architectures with zero-config quality gates, automated testing, and CI/CD pipelines.",
       "date": "2024-12-21",
       "links": {
         "homepage": "https://cur8d.dev",
@@ -823,6 +846,7 @@
       "id": "cur8d-aws",
       "name": "cur8d.aws",
       "description": "Production-ready AWS Lambda templates for Python to help you get started with serverless applications in no time",
+      "details": "Production-grade serverless boilerplate for Python on AWS Lambda, incorporating AWS Powertools, structured logging, OpenAPI documentation, and local emulation.",
       "date": "2024-12-21",
       "links": {
         "homepage": "https://cur8d.dev/lambda",
@@ -1224,6 +1248,35 @@
       "skills": ["docker"],
       "tags": ["security", "cloud"],
       "roles": ["researcher"]
+    }
+  ],
+  "articles": [
+    {
+      "id": "scaling-ml-paywalls",
+      "title": "Scaling Machine Learning Paywall Systems on AWS EKS",
+      "summary": "Architectural lessons from rebuilding Sophi's real-time paywall scoring pipeline serving millions of reader decisions daily across hundreds of publication sites.",
+      "date": "2024-03-15",
+      "url": "https://amrabed.medium.com",
+      "readTime": "6 min read",
+      "tags": ["Machine Learning", "Cloud", "AWS"]
+    },
+    {
+      "id": "securing-containers-ebpf",
+      "title": "Container Anomaly Detection: Lessons from PhD Research to Production",
+      "summary": "Deep dive into anomaly detection in Linux containers using system call tracing, deep learning (LSTM), and real-time behavioral modeling.",
+      "date": "2023-11-20",
+      "url": "https://amrabed.medium.com",
+      "readTime": "8 min read",
+      "tags": ["Security", "Cloud", "Docker"]
+    },
+    {
+      "id": "aws-genai-developer-certification",
+      "title": "Preparing for AWS Certified Generative AI Developer - Professional",
+      "summary": "Key concepts, hands-on architectural patterns, and practical study strategies for mastering generative AI development on AWS.",
+      "date": "2026-03-10",
+      "url": "https://amrabed.medium.com",
+      "readTime": "7 min read",
+      "tags": ["Cloud", "Machine Learning", "Generative AI"]
     }
   ]
 }

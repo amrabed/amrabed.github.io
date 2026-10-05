@@ -70,6 +70,13 @@ exports[`getConsolidatedContext > should match the existing snapshot 1`] = `
     * Built APIs for users and system admins to communicate with backend services
   Key skills used: TensorFlow, AWS, Python, Docker
 
+- Role: Founder & Principal Engineer at Abed Solutions
+  Duration: Jan 2020 - Present
+  Responsibilities & Achievements:
+    * Founded software consultancy developing and maintaining 5 different cross-platform mobile applications
+    * Built modular multi-platform templates with integrated cloud infrastructure, CI/CD pipelines, and automated quality checks
+  Key skills used: Kotlin, Swift, Java, Android, Firebase
+
 - Role: Learning Content Team Lead at RoboGarden
   Duration: Dec 2018 - Aug 2019
   Responsibilities & Achievements:
@@ -192,14 +199,16 @@ exports[`getConsolidatedContext > should match the existing snapshot 1`] = `
 ### Projects
 - Project Name: amrabed.com
   Date: 2024-09-01
-  Description: This website using Next.js and Tailwind CSS
+  Description: Personal website and portfolio built with Next.js, Tailwind CSS, and Gemini AI
+  Details: High-performance personal web platform and AI conversational assistant built with Next.js 16, Tailwind CSS 4, HeroUI, and Gemini AI integration.
   Tools: JavaScript, TypeScript
   Amr's Role: freelancer
   Links: {"homepage":"/","github":"amrabed/amrabed.github.io"}
 
 - Project Name: Sophi Paywall
   Date: 2024-08-01
-  Description: Paywall system for online publications
+  Description: Intelligent dynamic paywall system for online publications
+  Details: Engineered real-time decisioning architecture that automates dynamic content paywalls across hundreds of global publishers. Led migration to Amazon EKS and MLflow to streamline model lifecycles and significantly reduce infrastructure operating overhead.
   Tools: AWS, Python, TensorFlow, MLflow, Docker, Kubernetes, bash
   Amr's Role: engineer, manager
   Links: {"homepage":"https://mathereconomics.com/sophi-paywall"}
@@ -207,6 +216,7 @@ exports[`getConsolidatedContext > should match the existing snapshot 1`] = `
 - Project Name: cur8d.dev
   Date: 2024-12-21
   Description: Opinionated production-ready templates for mobile, cloud, and web developers
+  Details: A curated ecosystem of open-source project templates designed for modern full-stack, mobile, and serverless architectures with zero-config quality gates, automated testing, and CI/CD pipelines.
   Tools: TypeScript
   Amr's Role: engineer
   Links: {"homepage":"https://cur8d.dev","github":"cur8d/cur8d.github.io"}
@@ -214,6 +224,7 @@ exports[`getConsolidatedContext > should match the existing snapshot 1`] = `
 - Project Name: cur8d.aws
   Date: 2024-12-21
   Description: Production-ready AWS Lambda templates for Python to help you get started with serverless applications in no time
+  Details: Production-grade serverless boilerplate for Python on AWS Lambda, incorporating AWS Powertools, structured logging, OpenAPI documentation, and local emulation.
   Tools: Python, aws, ai
   Amr's Role: engineer
   Links: {"homepage":"https://cur8d.dev/lambda","github":"cur8d/lambda"}

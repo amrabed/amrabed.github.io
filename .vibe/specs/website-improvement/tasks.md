@@ -17,10 +17,10 @@
 
 ## Phase 3: Content Enrichment
 
-- [ ] Add blog / articles integration or feed
-- [ ] Add contact section / email reachout CTA
-- [ ] Add downloadable resume capability
-- [ ] Showcase teaching portfolio and public speaking / presentations
+- [x] Add blog / articles integration or feed
+- [x] Add contact section / email reachout CTA
+- [x] Add downloadable resume capability
+- [x] Showcase teaching portfolio and public speaking / presentations
 
 ## Phase 4: UX & Performance Optimization
 

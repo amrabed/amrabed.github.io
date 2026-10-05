@@ -30,6 +30,7 @@ export interface Basics {
   email: string;
   url: string;
   image: string;
+  resumeUrl?: string;
   summary: string;
   location: {
     city: string;
@@ -47,6 +48,16 @@ export interface Profile extends Icon {
   link: string;
 }
 
+export interface Article {
+  id: string;
+  title: string;
+  summary: string;
+  date: string;
+  url: string;
+  readTime?: string;
+  tags?: string[];
+}
+
 export interface ResumeData {
   $schema?: string;
   basics: Basics;
@@ -59,6 +70,7 @@ export interface ResumeData {
   certifications: Certification[];
   projects: Project[];
   publications: Publication[];
+  articles?: Article[];
 }
 
 export interface ProjectLinks {

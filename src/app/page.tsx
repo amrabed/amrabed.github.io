@@ -7,13 +7,16 @@ import { useEffect, useState } from "react";
 import { Banner } from "@/components/banner";
 import { MainHeader } from "@/components/header";
 import { AboutSection } from "@/components/sections/about";
+import { BlogSection } from "@/components/sections/blog";
 import { CertificationsSection } from "@/components/sections/certifications";
+import { ContactSection } from "@/components/sections/contact";
 import { EducationSection } from "@/components/sections/education";
 import { ExperienceSection } from "@/components/sections/experience";
 import HeroSection from "@/components/sections/hero";
 import { ProjectsSection } from "@/components/sections/projects";
 import { PublicationsSection } from "@/components/sections/publications";
 import { SkillsSection } from "@/components/sections/skills";
+import { TeachingSection } from "@/components/sections/teaching";
 import { UnifiedFilterBar } from "@/components/unified-filter-bar";
 import { useFilterUI } from "@/contexts/filter";
 
@@ -87,7 +90,10 @@ const Home = () => {
           <PublicationsSection />
           <ExperienceSection />
           <EducationSection />
+          <TeachingSection />
           <AboutSection />
+          <BlogSection />
+          <ContactSection />
         </div>
       </main>
       <AnimatePresence>{showFilter && <UnifiedFilterBar />}</AnimatePresence>
