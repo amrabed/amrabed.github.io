@@ -106,6 +106,11 @@ describe("UI Components", () => {
         "noopener,noreferrer",
       );
     });
+
+    it("should apply custom className when provided", () => {
+      const { container } = render(<Social className="custom-test-class" />);
+      expect(container.firstChild).toHaveClass("custom-test-class");
+    });
   });
 
   describe("ScrollToTopButton (upArrow)", () => {

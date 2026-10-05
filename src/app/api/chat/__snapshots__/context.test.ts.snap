@@ -293,7 +293,7 @@ exports[`getConsolidatedContext > should match the existing snapshot 1`] = `
 - Project Name: Deep HIDS
   Date: 2017-07-31
   Description: An LSTM-based Deep Learning model for anomaly-based Intrusion Detection System for Linux Containers
-  Tools: Pyhton, TensorFlow, Docker
+  Tools: Python, TensorFlow, Docker
   Amr's Role: researcher
   Links: {"github":"amrabed/deep-hids"}
 

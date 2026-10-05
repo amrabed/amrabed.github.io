@@ -91,7 +91,7 @@ const positions: AnyPosition[] = [
       "Machine Learning",
       "Deep Learning",
     ],
-    tags: ["machine learning"],
+    tags: ["Machine Learning"],
     roles: ["engineer"],
   },
   {
@@ -108,7 +108,7 @@ const positions: AnyPosition[] = [
       "Created 3 new undergraduate courses, including Cloud Computing and Database courses",
     ],
     skills: ["C++", "AWS", "Docker", "SQL"],
-    tags: ["Cloud", "Programming", "database"],
+    tags: ["Cloud", "Programming", "Database"],
     roles: ["instructor"],
     courses: [
       {
@@ -373,7 +373,7 @@ const positions: AnyPosition[] = [
       "Solved problems related to using a Flex & Bison parser with C++",
     ],
     skills: ["C++", "C++ STL", "Flex & Bison"],
-    tags: ["programming"],
+    tags: ["Programming"],
     roles: ["engineer"],
   },
 
@@ -389,7 +389,7 @@ const positions: AnyPosition[] = [
       "Taught 9 different undergraduate courses to 9 different classes of an average of 40 students each",
     ],
     skills: ["C++"],
-    tags: ["Programming", "Machine learning"],
+    tags: ["Programming", "Machine Learning"],
     roles: ["instructor"],
     courses: [
       {

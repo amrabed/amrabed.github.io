@@ -12,6 +12,7 @@ Your website is a well-structured Next.js 16 single-page portfolio with Tailwind
 ## 🔍 Current State Analysis
 
 ### What's Working Well ✅
+
 - **Modern stack**: Next.js 16, Tailwind v4, HeroUI 3, Vitest, pnpm
 - **AI Chat widget** (Miro) with Gemini — a unique differentiator
 - **Cross-filtering** by area, skill, and role across sections
@@ -24,35 +25,35 @@ Your website is a well-structured Next.js 16 single-page portfolio with Tailwind
 
 ### What's Missing or Broken ❌
 
-| Category | Issue | Impact |
-|----------|-------|--------|
-| **SEO** | Title is just "Amr Abed" — no role/keywords | 🔴 Critical |
-| **SEO** | Description is "Amr Abed's personal website" — zero value | 🔴 Critical |
-| **SEO** | Keywords meta is `"Amr Abed, personal website, portfolio, resume"` — generic | 🔴 Critical |
-| **SEO** | OG description repeats the same useless text | 🔴 Critical |
-| **SEO** | No structured data (JSON-LD) — invisible to Google Knowledge Graph | 🔴 Critical |
-| **SEO** | Single-page app = all content on `/` — no deep-linkable pages | 🟡 High |
-| **SEO** | `images.unoptimized: true` in next.config — no image optimization | 🟡 High |
-| **Content** | Hero section has NO name display, no tagline, no summary | 🔴 Critical |
-| **Content** | About section is 3 generic paragraphs — no personality or specifics | 🟡 High |
-| **Content** | No blog/articles section despite having a Medium and LinkedIn articles | 🟡 High |
-| **Content** | No contact form or email link on the site | 🟡 High |
-| **Content** | No downloadable resume/CV link | 🟡 High |
-| **Content** | Dissertation/thesis details are sparse | 🟢 Medium |
-| **Content** | Commented-out "Abed Solutions" founder position — hidden experience | 🟢 Medium |
-| **Data** | All data hardcoded in `.tsx` files mixing JSX icons with data | 🔴 Critical |
-| **Data** | No centralized data model — scattered across 10+ files | 🔴 Critical |
-| **Data** | Inconsistent key naming (`"machine learning"` vs `"Machine learning"` vs `"Machine Learning"`) | 🟡 High |
-| **Data** | `skills` referenced by name strings with case-sensitivity issues | 🟡 High |
-| **Data** | Project `tools` don't always match `skills` keys (e.g., `"Pyhton"` typo) | 🟡 High |
-| **UX** | Hero shows only "I'm a/n Engineer" — no name "Amr Abed" visible! | 🔴 Critical |
-| **UX** | No visible tagline like "PhD · Engineering Manager · AWS Certified" | 🟡 High |
-| **UX** | Social links only in footer — not easily discoverable | 🟡 High |
-| **UX** | No CTA (call-to-action) buttons anywhere | 🟡 High |
-| **UX** | Education section ID is `degrees` but header link says "Education" | 🟢 Medium |
-| **Perf** | `"use client"` on `page.tsx` — the entire page is client-rendered | 🟡 High |
-| **Perf** | Framer Motion loaded for the entire page | 🟢 Medium |
-| **Perf** | `mongoose` in dependencies but appears unused for the static site | 🟢 Medium |
+| Category    | Issue                                                                                          | Impact      |
+| ----------- | ---------------------------------------------------------------------------------------------- | ----------- |
+| **SEO**     | Title is just "Amr Abed" — no role/keywords                                                    | 🔴 Critical |
+| **SEO**     | Description is "Amr Abed's personal website" — zero value                                      | 🔴 Critical |
+| **SEO**     | Keywords meta is `"Amr Abed, personal website, portfolio, resume"` — generic                   | 🔴 Critical |
+| **SEO**     | OG description repeats the same useless text                                                   | 🔴 Critical |
+| **SEO**     | No structured data (JSON-LD) — invisible to Google Knowledge Graph                             | 🔴 Critical |
+| **SEO**     | Single-page app = all content on `/` — no deep-linkable pages                                  | 🟡 High     |
+| **SEO**     | `images.unoptimized: true` in next.config — no image optimization                              | 🟡 High     |
+| **Content** | Hero section has NO name display, no tagline, no summary                                       | 🔴 Critical |
+| **Content** | About section is 3 generic paragraphs — no personality or specifics                            | 🟡 High     |
+| **Content** | No blog/articles section despite having a Medium and LinkedIn articles                         | 🟡 High     |
+| **Content** | No contact form or email link on the site                                                      | 🟡 High     |
+| **Content** | No downloadable resume/CV link                                                                 | 🟡 High     |
+| **Content** | Dissertation/thesis details are sparse                                                         | 🟢 Medium   |
+| **Content** | Commented-out "Abed Solutions" founder position — hidden experience                            | 🟢 Medium   |
+| **Data**    | All data hardcoded in `.tsx` files mixing JSX icons with data                                  | 🔴 Critical |
+| **Data**    | No centralized data model — scattered across 10+ files                                         | 🔴 Critical |
+| **Data**    | Inconsistent key naming (`"machine learning"` vs `"Machine learning"` vs `"Machine Learning"`) | 🟡 High     |
+| **Data**    | `skills` referenced by name strings with case-sensitivity issues                               | 🟡 High     |
+| **Data**    | Project `tools` don't always match `skills` keys (e.g., `"Pyhton"` typo)                       | 🟡 High     |
+| **UX**      | Hero shows only "I'm a/n Engineer" — no name "Amr Abed" visible!                               | 🔴 Critical |
+| **UX**      | No visible tagline like "PhD · Engineering Manager · AWS Certified"                            | 🟡 High     |
+| **UX**      | Social links only in footer — not easily discoverable                                          | 🟡 High     |
+| **UX**      | No CTA (call-to-action) buttons anywhere                                                       | 🟡 High     |
+| **UX**      | Education section ID is `degrees` but header link says "Education"                             | 🟢 Medium   |
+| **Perf**    | `"use client"` on `page.tsx` — the entire page is client-rendered                              | 🟡 High     |
+| **Perf**    | Framer Motion loaded for the entire page                                                       | 🟢 Medium   |
+| **Perf**    | `mongoose` in dependencies but appears unused for the static site                              | 🟢 Medium   |
 
 ---
 
@@ -122,6 +123,7 @@ erDiagram
 ```
 
 ### Proposed File Structure
+
 ```
 src/
 ├── data/
@@ -151,6 +153,7 @@ src/
 ### Phase 1: Critical SEO & Content Fixes (Quick Wins)
 
 1. **Fix metadata** in `layout.tsx`:
+
    ```ts
    title: "Amr Abed — Engineering Manager | PhD, AWS Certified | AI & Cloud",
    description: "Software engineer and cloud architect with PhD from Virginia Tech. Engineering Manager at Sophi specializing in AI/ML, AWS, and scalable systems. Ex-Google intern. 5 AWS certifications.",

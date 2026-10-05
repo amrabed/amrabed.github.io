@@ -5,10 +5,18 @@ import { Button, Tooltip } from "@heroui/react";
 import profiles from "@/data/profiles";
 import { Profile } from "@/types";
 
-const Social = ({ profiles: propsProfiles }: { profiles?: Profile[] }) => {
+const Social = ({
+  profiles: propsProfiles,
+  className = "",
+}: {
+  profiles?: Profile[];
+  className?: string;
+}) => {
   const socialProfiles = propsProfiles || profiles;
   return (
-    <div className="flex flex-row flex-wrap justify-center gap-4 px-4">
+    <div
+      className={`flex flex-row flex-wrap gap-4 px-4 ${className || "justify-center"}`}
+    >
       {socialProfiles.map((profile) => (
         <Tooltip key={profile.name}>
           <Tooltip.Trigger>
