@@ -10,8 +10,8 @@ export const sections = [
   { name: "Experience", link: "#experience" },
   { name: "Education", link: "#degrees" },
   { name: "Teaching", link: "#teaching" },
+  { name: "Blog", link: "https://amrabed.com/blog" },
   { name: "About", link: "#about" },
-  { name: "Blog", link: "/blog" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -140,6 +140,12 @@ export const MainHeader = () => {
                     : "text-foreground-500"
                 }`}
                 href={section.link}
+                target={section.link.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  section.link.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
                 onClick={
                   section.link.startsWith("#")
                     ? (e) => handleScroll(e, section.link)
@@ -175,6 +181,14 @@ export const MainHeader = () => {
                       : "text-foreground-500"
                   }`}
                   href={section.link}
+                  target={
+                    section.link.startsWith("http") ? "_blank" : undefined
+                  }
+                  rel={
+                    section.link.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   onClick={
                     section.link.startsWith("#")
                       ? (e) => handleScroll(e, section.link)

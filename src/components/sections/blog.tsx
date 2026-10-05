@@ -1,9 +1,9 @@
-"use client";
-
-import Link from "next/link";
-
 import { memo } from "react";
-import { FaArrowRight, FaBookOpen } from "react-icons/fa6";
+import {
+  FaArrowRight,
+  FaArrowUpRightFromSquare,
+  FaBookOpen,
+} from "react-icons/fa6";
 
 import { Card } from "@heroui/react";
 
@@ -49,7 +49,7 @@ export const BlogSection = memo(() => {
                     </a>
                   </h3>
                 </div>
-                <IconLink href={article.url} title="Read on Medium">
+                <IconLink href={article.url} title="Read Article">
                   <FaBookOpen className="size-5" />
                 </IconLink>
               </Card.Header>
@@ -85,13 +85,15 @@ export const BlogSection = memo(() => {
         </div>
 
         <div className="flex justify-center pt-4">
-          <Link
-            href="/blog"
+          <a
+            href="https://amrabed.com/blog"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-primary text-primary hover:bg-primary hover:text-white font-medium transition-colors"
           >
-            <span>Explore All Blog Posts</span>
-            <FaArrowRight className="size-4" />
-          </Link>
+            <span>Visit Full Blog</span>
+            <FaArrowUpRightFromSquare className="size-4" />
+          </a>
         </div>
       </div>
     </Section>

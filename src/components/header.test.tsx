@@ -70,13 +70,14 @@ describe("MainHeader", () => {
     const blogLink = getByText("Blog");
 
     expect(blogLink).toBeInTheDocument();
-    expect(blogLink).toHaveAttribute("href", "/blog");
+    expect(blogLink).toHaveAttribute("href", "https://amrabed.com/blog");
+    expect(blogLink).toHaveAttribute("target", "_blank");
 
     act(() => {
       blogLink.click();
     });
 
-    // Blog is a page link, not a smooth-scroll anchor — scrollTo should not be called
+    // Blog is an external link, not a smooth-scroll anchor — scrollTo should not be called
     expect(window.scrollTo).not.toHaveBeenCalled();
   });
 });
