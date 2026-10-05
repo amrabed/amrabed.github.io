@@ -3,7 +3,7 @@
 import { memo } from "react";
 
 import Timeline from "@/components/timeline";
-import positionsData from "@/data/positions";
+import { positions as positionsData } from "@/lib/data";
 
 import { FilterableSection } from "../filterable-section";
 

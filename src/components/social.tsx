@@ -2,7 +2,7 @@
 
 import { Button, Tooltip } from "@heroui/react";
 
-import profiles from "@/data/profiles";
+import { profiles } from "@/lib/data";
 import { Profile } from "@/types";
 
 const Social = ({

@@ -9,9 +9,7 @@ import { Button } from "@heroui/react";
 
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
-import areas from "@/data/areas";
-import roles from "@/data/roles";
-import skills from "@/data/skills";
+import { areas, roles, skills } from "@/lib/data";
 
 import { Filter, Selections } from "./filter";
 import { Searchbar } from "./search";

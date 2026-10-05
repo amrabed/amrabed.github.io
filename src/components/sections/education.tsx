@@ -2,7 +2,7 @@
 
 import { memo } from "react";
 
-import degreesData from "@/data/degrees";
+import { degrees as degreesData } from "@/lib/data";
 
 import { Section } from "../section";
 import { SectionItemCard } from "../section-item-card";

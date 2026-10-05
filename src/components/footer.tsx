@@ -4,7 +4,7 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { Switch } from "@heroui/react";
 
 import { useTheme } from "@/contexts/theme";
-import profiles from "@/data/profiles";
+import { profiles } from "@/lib/data";
 
 import Social from "./social";
 

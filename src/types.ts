@@ -23,9 +23,42 @@ export interface Role {
   color: Color;
 }
 
+export interface Basics {
+  name: string;
+  label: string;
+  tagline: string;
+  email: string;
+  url: string;
+  image: string;
+  summary: string;
+  location: {
+    city: string;
+    region?: string;
+    countryCode: string;
+  };
+  profiles: {
+    name: string;
+    link: string;
+  }[];
+}
+
 export interface Profile extends Icon {
   name: string;
   link: string;
+}
+
+export interface ResumeData {
+  $schema?: string;
+  basics: Basics;
+  roles: Record<string, { name: string; color: string }>;
+  areas: Record<string, { name: string; color: string }>;
+  areaSkills: Record<string, string[]>;
+  skills: Record<string, { name: string; color: string }>;
+  positions: AnyPosition[];
+  degrees: Degree[];
+  certifications: Certification[];
+  projects: Project[];
+  publications: Publication[];
 }
 
 export interface ProjectLinks {

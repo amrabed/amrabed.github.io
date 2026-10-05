@@ -4,7 +4,7 @@ import { memo } from "react";
 
 import { FeaturedSectionContainer } from "@/components/featured-section-container";
 import ProjectView from "@/components/project";
-import projectsData from "@/data/projects";
+import { projects as projectsData } from "@/lib/data";
 
 import { FilterableSection } from "../filterable-section";
 

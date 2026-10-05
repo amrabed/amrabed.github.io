@@ -2,7 +2,7 @@
 
 import { memo } from "react";
 
-import certificationsData from "@/data/certifications";
+import { certifications as certificationsData } from "@/lib/data";
 
 import { FilterableSection } from "../filterable-section";
 import { SectionItemCard } from "../section-item-card";

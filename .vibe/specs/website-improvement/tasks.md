@@ -10,10 +10,10 @@
 
 ## Phase 2: Data Model Migration
 
-- [ ] Define consolidated `resume.json` schema and data file
-- [ ] Create icon & theme color mapping layer decoupling JSX from data
-- [ ] Migrate data loaders and components to consume the unified data model
-- [ ] Remove legacy scattered `.tsx` data sources
+- [x] Define consolidated `resume.json` schema and data file
+- [x] Create icon & theme color mapping layer decoupling JSX from data
+- [x] Migrate data loaders and components to consume the unified data model
+- [x] Remove legacy scattered `.tsx` data sources
 
 ## Phase 3: Content Enrichment
 

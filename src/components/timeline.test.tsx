@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 
 import { render } from "@testing-library/react";
 
-import positions from "@/data/positions";
+import { positions } from "@/lib/data";
 
 import Timeline from "./timeline";
 
