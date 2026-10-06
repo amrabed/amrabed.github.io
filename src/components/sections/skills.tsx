@@ -57,10 +57,17 @@ export const SkillsSection = memo(() => {
       {filteredSkills.length > 0 ? (
         filteredSkills.map(([, skill]) => (
           <div
-            className="transition-all duration-700 section-item md:py-5 w-[120px] md:w-[150px]"
+            className="group transition-all duration-700 section-item md:py-5 w-[120px] md:w-[150px]"
             key={skill.name}
+            style={
+              {
+                "--skill-color": skill.color,
+              } as React.CSSProperties
+            }
           >
-            <p className="md:text-4xl text-2xl">{skill.icon}</p>
+            <p className="md:text-4xl text-2xl transition-colors duration-200 group-hover:text-[var(--skill-color)]">
+              {skill.icon}
+            </p>
             <p>{skill.name}</p>
           </div>
         ))

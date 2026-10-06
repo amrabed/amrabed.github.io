@@ -57,7 +57,12 @@ export const Tools = ({
                 <button
                   type="button"
                   aria-label={tool.name}
-                  className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 rounded bg-transparent border-none p-0 cursor-default"
+                  className="size-5 text-slate-500 dark:text-slate-400 flex items-center justify-center focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 rounded bg-transparent border-none p-0 cursor-default transition-colors duration-200 hover:text-[var(--tool-color)]"
+                  style={
+                    {
+                      "--tool-color": tool.color,
+                    } as React.CSSProperties
+                  }
                 >
                   {tool.icon}
                 </button>
@@ -65,9 +70,14 @@ export const Tools = ({
                 <button
                   type="button"
                   aria-label={tool.name}
-                  className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 border-none cursor-default"
+                  className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus-visible:outline-2 focus-visible:outline-indigo-500 focus-visible:outline-offset-2 border-none cursor-default group"
+                  style={
+                    {
+                      "--tool-color": tool.color,
+                    } as React.CSSProperties
+                  }
                 >
-                  <div className="size-6 text-slate-600 dark:text-slate-400 flex items-center justify-center">
+                  <div className="size-6 text-slate-600 dark:text-slate-400 flex items-center justify-center transition-colors duration-200 group-hover:text-[var(--tool-color)]">
                     {tool.icon}
                   </div>
                 </button>
@@ -110,9 +120,17 @@ export const Tags = ({ tags }: { tags: string[] }) => (
 const Skills = ({ skills }: { skills: Skill[] }) => (
   <div className="section-body">
     {skills.map((skill) => (
-      <div key={skill.name} className="section-item">
+      <div
+        key={skill.name}
+        className="section-item group"
+        style={
+          {
+            "--skill-color": skill.color,
+          } as React.CSSProperties
+        }
+      >
         <div className="p-4 rounded-xl bg-white dark:bg-slate-900 shadow-sm border border-slate-200 dark:border-slate-800">
-          <div className="size-12 text-primary flex items-center justify-center text-4xl">
+          <div className="size-12 text-primary flex items-center justify-center text-4xl transition-colors duration-200 group-hover:text-[var(--skill-color)]">
             {skill.icon}
           </div>
         </div>
