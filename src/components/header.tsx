@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 
+import ThemeSwitch from "@/components/theme-switch";
+
 export const sections = [
   { name: "Skills", link: "#skills" },
   { name: "Certifications", link: "#certifications" },
@@ -114,7 +116,8 @@ export const MainHeader = () => {
       <header className="max-w-7xl mx-auto flex h-16 items-center justify-between">
         <Title onClick={handleScrollToTop} />
 
-        <div className="sm:hidden">
+        <div className="sm:hidden flex items-center gap-2">
+          <ThemeSwitch />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -147,40 +150,45 @@ export const MainHeader = () => {
           </button>
         </div>
 
-        <ul className="hidden sm:flex items-center gap-6">
-          {sections.map((section) => (
-            <li key={section.name}>
-              <a
-                className={`text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1 ${
-                  section.link.startsWith("#") &&
-                  activeSection === section.link.substring(1)
-                    ? "text-primary"
-                    : "text-foreground-500"
-                }`}
-                href={section.link}
-                target={section.link.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  section.link.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                onClick={
-                  section.link.startsWith("#")
-                    ? (e) => handleScroll(e, section.link)
-                    : undefined
-                }
-                aria-current={
-                  section.link.startsWith("#") &&
-                  activeSection === section.link.substring(1)
-                    ? "location"
-                    : undefined
-                }
-              >
-                {section.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden sm:flex items-center gap-6">
+          <ul className="flex items-center gap-6">
+            {sections.map((section) => (
+              <li key={section.name}>
+                <a
+                  className={`text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md px-1 ${
+                    section.link.startsWith("#") &&
+                    activeSection === section.link.substring(1)
+                      ? "text-primary"
+                      : "text-foreground-500"
+                  }`}
+                  href={section.link}
+                  target={
+                    section.link.startsWith("http") ? "_blank" : undefined
+                  }
+                  rel={
+                    section.link.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  onClick={
+                    section.link.startsWith("#")
+                      ? (e) => handleScroll(e, section.link)
+                      : undefined
+                  }
+                  aria-current={
+                    section.link.startsWith("#") &&
+                    activeSection === section.link.substring(1)
+                      ? "location"
+                      : undefined
+                  }
+                >
+                  {section.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ThemeSwitch />
+        </div>
       </header>
 
       {isMenuOpen && (

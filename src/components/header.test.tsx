@@ -4,6 +4,13 @@ import { render, act } from "@testing-library/react";
 
 import { MainHeader } from "./header";
 
+vi.mock("@/contexts/theme", () => ({
+  useTheme: () => ({
+    theme: "light",
+    toggleTheme: vi.fn(),
+  }),
+}));
+
 describe("MainHeader", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -64,6 +71,12 @@ describe("MainHeader", () => {
     });
 
     expect(getByLabelText("Open menu")).toBeInTheDocument();
+  });
+
+  it("should render the theme switch", () => {
+    const { getAllByLabelText } = render(<MainHeader />);
+    const switches = getAllByLabelText("Toggle dark mode");
+    expect(switches.length).toBeGreaterThanOrEqual(1);
   });
   it("should render the Articles navigation link", () => {
     const { getByText } = render(<MainHeader />);
