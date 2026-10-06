@@ -1,12 +1,12 @@
 "use client";
 
 import { memo } from "react";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaFileArrowDown, FaLinkedin } from "react-icons/fa6";
 
 import { ChatBubbleLeftRightIcon } from "@heroicons/react/24/outline";
 
 import { Section } from "@/components/section";
-import { profiles } from "@/lib/data";
+import { basics, profiles } from "@/lib/data";
 
 export const ContactSection = memo(() => {
   const linkedIn = profiles.find((p) => p.name.toLowerCase() === "linkedin");
@@ -38,6 +38,20 @@ export const ContactSection = memo(() => {
             <FaLinkedin className="size-5" />
             <span>Connect on LinkedIn</span>
           </a>
+
+          {basics.resumeUrl && (
+            <a
+              href={basics.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download="AmrAbed.pdf"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold hover:border-primary hover:text-primary transition-colors"
+              aria-label="Download Amr Abed's Resume"
+            >
+              <FaFileArrowDown className="size-5" />
+              <span>Download Resume (PDF)</span>
+            </a>
+          )}
         </div>
       </div>
     </Section>

@@ -3,10 +3,13 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 
 import { render, act } from "@testing-library/react";
 
+import resumeJson from "@/data/resume.json";
+
 import { EmptyState } from "./empty-state";
 import { IconLink } from "./icon-link";
 import { Section } from "./section";
 import { SectionItemCard } from "./section-item-card";
+import { ContactSection } from "./sections/contact";
 import Social from "./social";
 import ScrollToTopButton from "./upArrow";
 
@@ -233,6 +236,23 @@ describe("UI Components", () => {
 
       unmount();
       expect(mockUnobserve).toHaveBeenCalled();
+    });
+  });
+
+  describe("ContactSection", () => {
+    it("should render Get In Touch section with LinkedIn and Download Resume button", () => {
+      const { getByText, getByRole } = render(<ContactSection />);
+
+      expect(getByText("Get In Touch")).toBeInTheDocument();
+      expect(getByText("Connect on LinkedIn")).toBeInTheDocument();
+
+      const resumeLink = getByRole("link", {
+        name: /download amr abed's resume/i,
+      });
+      expect(resumeLink).toBeInTheDocument();
+      expect(resumeLink).toHaveAttribute("href", resumeJson.basics.resumeUrl);
+      expect(resumeLink).toHaveAttribute("target", "_blank");
+      expect(resumeLink).toHaveAttribute("download", "AmrAbed.pdf");
     });
   });
 });
