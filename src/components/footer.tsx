@@ -4,7 +4,7 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { Switch } from "@heroui/react";
 
 import { useTheme } from "@/contexts/theme";
-import profiles from "@/data/profiles";
+import { profiles } from "@/lib/data";
 
 import Social from "./social";
 
@@ -17,9 +17,6 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-start gap-2 order-2 md:order-1">
           <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
             © {new Date().getFullYear()} Amr Abed
-          </p>
-          <p className="text-xs text-slate-500 dark:text-slate-400">
-            Built with Next.js 16, Tailwind CSS 4, and HeroUI 3
           </p>
         </div>
 

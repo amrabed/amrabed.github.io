@@ -1,0 +1,1281 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Amr Abed",
+    "label": "Engineering Manager | PhD, AWS Certified | AI & Cloud",
+    "tagline": "PhD · Engineering Manager · AWS Certified · Cloud & AI Architect",
+    "url": "https://amrabed.com",
+    "image": "/amrabed.webp",
+    "resumeUrl": "/AmrAbed.pdf",
+    "summary": "Engineering Manager, software engineer, and researcher with a PhD in Computer Engineering from Virginia Tech and former engineering experience at Google. Currently leading machine learning engineering at Sophi.",
+    "location": {
+      "city": "Toronto",
+      "region": "Ontario",
+      "countryCode": "CA"
+    },
+    "profiles": [
+      {
+        "name": "LinkedIn",
+        "link": "https://www.linkedin.com/in/amrabed"
+      },
+      {
+        "name": "GitHub",
+        "link": "https://www.github.com/amrabed"
+      },
+      {
+        "name": "Google Scholar",
+        "link": "https://scholar.google.com/citations?user=vdrgnAYAAAAJ"
+      },
+      {
+        "name": "Stack Overflow",
+        "link": "https://stackoverflow.com/users/2070636/amrabed"
+      },
+      {
+        "name": "Goodreads",
+        "link": "https://goodreads.com/user/show/15582377-amr-abed"
+      },
+      {
+        "name": "StackShare",
+        "link": "https://stackshare.io/amrabed"
+      },
+      {
+        "name": "Medium",
+        "link": "https://amrabed.medium.com"
+      },
+      {
+        "name": "YouTube",
+        "link": "https://youtube.com/@amr-abed"
+      },
+      {
+        "name": "X",
+        "link": "https://twitter.com/amr_abed"
+      }
+    ]
+  },
+  "roles": {
+    "engineer": {
+      "name": "Engineer",
+      "color": "blue"
+    },
+    "researcher": {
+      "name": "Researcher",
+      "color": "orange"
+    },
+    "instructor": {
+      "name": "Instructor",
+      "color": "green"
+    }
+  },
+  "areas": {
+    "cloud": {
+      "name": "Cloud",
+      "color": "oklch(58.5% 0.233 277.117)"
+    },
+    "machine learning": {
+      "name": "Machine Learning",
+      "color": "oklch(76.9% 0.188 70.08)"
+    },
+    "programming": {
+      "name": "Programming",
+      "color": "oklch(71.5% 0.143 215.221)"
+    },
+    "mobile": {
+      "name": "Mobile",
+      "color": "green"
+    },
+    "devops": {
+      "name": "DevOps",
+      "color": "oklch(62.7% 0.265 303.9)"
+    },
+    "database": {
+      "name": "Database",
+      "color": "yellow"
+    },
+    "web": {
+      "name": "Web",
+      "color": "oklch(62.3% 0.214 259.815)"
+    },
+    "security": {
+      "name": "Security",
+      "color": "orange"
+    }
+  },
+  "areaSkills": {
+    "cloud": ["aws", "google cloud", "docker", "kubernetes", "firebase"],
+    "machine learning": ["python", "tensorflow", "scikit-learn", "mlflow"],
+    "programming": [
+      "python",
+      "kotlin",
+      "java",
+      "c++",
+      "swift",
+      "javascript",
+      "typescript",
+      "bash"
+    ],
+    "mobile": ["firebase", "android", "kotlin", "swift", "flutter"],
+    "devops": ["docker", "kubernetes", "bash"],
+    "database": ["firebase"],
+    "web": ["javascript", "typescript"],
+    "security": []
+  },
+  "skills": {
+    "python": {
+      "name": "Python",
+      "color": "#3776AB"
+    },
+    "tensorflow": {
+      "name": "TensorFlow",
+      "color": "#FF6F00"
+    },
+    "scikit-learn": {
+      "name": "Scikit-Learn",
+      "color": "#F7931E"
+    },
+    "mlflow": {
+      "name": "MLflow",
+      "color": "#0194E2"
+    },
+    "aws": {
+      "name": "AWS",
+      "color": "#FF9900"
+    },
+    "google cloud": {
+      "name": "Google Cloud",
+      "color": "#4285F4"
+    },
+    "docker": {
+      "name": "Docker",
+      "color": "#2496ED"
+    },
+    "kubernetes": {
+      "name": "Kubernetes",
+      "color": "#326CE5"
+    },
+    "firebase": {
+      "name": "Firebase",
+      "color": "#FFC107"
+    },
+    "android": {
+      "name": "Android",
+      "color": "#A4C639"
+    },
+    "kotlin": {
+      "name": "Kotlin",
+      "color": "#7F52A2"
+    },
+    "java": {
+      "name": "Java",
+      "color": "#B00040"
+    },
+    "c++": {
+      "name": "C/C++",
+      "color": "#00599C"
+    },
+    "swift": {
+      "name": "Swift",
+      "color": "#FF9900"
+    },
+    "flutter": {
+      "name": "Flutter",
+      "color": "#02569B"
+    },
+    "javascript": {
+      "name": "JavaScript",
+      "color": "#F7DF1E"
+    },
+    "typescript": {
+      "name": "TypeScript",
+      "color": "#3178C6"
+    },
+    "bash": {
+      "name": "Bash",
+      "color": "#4EAA25"
+    }
+  },
+  "positions": [
+    {
+      "id": "sophi-manager",
+      "title": "Engineering Manager",
+      "organization": {
+        "name": "Sophi",
+        "url": "https://sophi.io",
+        "logo": "/images/sophi.webp"
+      },
+      "duration": {
+        "start": "Nov 2022",
+        "end": "Present"
+      },
+      "tasks": [
+        "Led the engineering team to redesign the software and architecture of Sophi Paywall products to ensure scalability for a growing customer base",
+        "Built a robust machine - learning automation system leveraging MLflow and Amazon EKS",
+        "Worked closely with DevOps to significantly reduce operational costs by consolidating multiple single-tenant systems into a single multi-tenant architecture"
+      ],
+      "skills": ["TensorFlow", "AWS", "Python", "Docker"],
+      "tags": ["Machine Learning", "Cloud"],
+      "roles": ["engineer"]
+    },
+    {
+      "id": "sophi-lead",
+      "title": "Lead Software Engineer",
+      "organization": {
+        "name": "Sophi",
+        "url": "https://sophi.io",
+        "logo": "images/sophi.webp"
+      },
+      "duration": {
+        "start": "Apr 2022",
+        "end": "Nov 2022"
+      },
+      "tasks": [
+        "Led a team of three engineers to redesign the code for Print Laydown Automation",
+        "Collaborated with DevOps team to redesign the architecture of different projects"
+      ],
+      "skills": ["TensorFlow", "AWS", "Python", "Docker", "Terraform"],
+      "tags": ["Machine Learning", "Cloud"],
+      "roles": ["engineer"]
+    },
+    {
+      "id": "sophi-senior",
+      "title": "Senior Software Engineer, Machine Learning",
+      "organization": {
+        "name": "Sophi",
+        "url": "https://sophi.io",
+        "logo": "/images/sophi.webp"
+      },
+      "duration": {
+        "start": "Jan 2021",
+        "end": "Apr 2022"
+      },
+      "tasks": [
+        "Designed AWS cloud solutions for deploying and using TensorFlow deep learning models",
+        "Created and maintained backend services for ML-based decision making using Python",
+        "Built APIs for users and system admins to communicate with backend services"
+      ],
+      "skills": ["TensorFlow", "AWS", "Python", "Docker"],
+      "tags": ["Machine Learning", "Cloud"],
+      "roles": ["engineer"]
+    },
+    {
+      "id": "abed-solutions",
+      "title": "Founder & Principal Engineer",
+      "organization": {
+        "name": "Abed Solutions",
+        "url": "https://abed.solutions"
+      },
+      "duration": {
+        "start": "Jan 2020",
+        "end": "Present"
+      },
+      "tasks": [
+        "Founded software consultancy developing and maintaining 5 different cross-platform mobile applications",
+        "Built modular multi-platform templates with integrated cloud infrastructure, CI/CD pipelines, and automated quality checks"
+      ],
+      "skills": ["Kotlin", "Swift", "Java", "Android", "Firebase"],
+      "tags": ["Mobile", "Cloud"],
+      "roles": ["engineer"]
+    },
+    {
+      "id": "robogarden",
+      "title": "Learning Content Team Lead",
+      "organization": {
+        "name": "RoboGarden",
+        "url": "https://robogarden.ca",
+        "logo": "/images/robogarden.png"
+      },
+      "duration": {
+        "start": "Dec 2018",
+        "end": "Aug 2019"
+      },
+      "tasks": [
+        "Created content for a Python Machine Learning course to be taught in a continuing-education program of one of the top universities in Canada",
+        "Led a team of 6 engineers to deliver contents for 6 different courses"
+      ],
+      "skills": [
+        "Python",
+        "Scikit-Learn",
+        "Keras",
+        "Machine Learning",
+        "Deep Learning"
+      ],
+      "tags": ["Machine Learning"],
+      "roles": ["engineer"]
+    },
+    {
+      "id": "minia-prof",
+      "title": "Assistant Professor",
+      "organization": {
+        "name": "Minia University",
+        "department": "Computer & System Engineering",
+        "url": "https://www.minia.edu.eg/eng/index.php/en"
+      },
+      "duration": {
+        "start": "Nov 2017",
+        "end": "Jan 2020"
+      },
+      "tasks": [
+        "Supervised a Machine Learning based Mobile Cloud Computing graduation project",
+        "Created 3 new undergraduate courses, including Cloud Computing and Database courses"
+      ],
+      "skills": ["C++", "AWS", "Docker", "SQL"],
+      "tags": ["Cloud", "Programming", "Database"],
+      "roles": ["instructor"],
+      "courses": [
+        {
+          "id": "cse315",
+          "title": "Database Systems",
+          "semester": "Spring 2019, Fall 2019",
+          "code": "CSE 315",
+          "link": "https://courses.amrabed.com/course/view.php?id=3",
+          "description": "This course teaches undergraduate Computer Engineering students the basic concepts of databases management systems, focusing on relational databases and SQL"
+        },
+        {
+          "id": "cse115",
+          "title": "Programming Languages",
+          "semester": "Fall 2018",
+          "code": "CSE 115",
+          "link": "https://courses.amrabed.com/course/view.php?id=10",
+          "description": "This course teaches first-year Computer & System Engineering (CSE) students the basic principles of programming using C++"
+        },
+        {
+          "id": "cse415",
+          "title": "Cloud Computing",
+          "semester": "Fall 2018",
+          "code": "CSE 415",
+          "link": "https://courses.amrabed.com/course/view.php?id=9",
+          "description": "This course teaches senior undergraduate Computer Engineering students the fundamental concepts of cloud computing, and provides a hands-on experience of the area that prepares them for the job market"
+        },
+        {
+          "id": "cse422",
+          "title": "Computer-Controlled Systems",
+          "semester": "Spring 2018",
+          "code": "CSE 422",
+          "link": "https://courses.amrabed.com/course/view.php?id=4",
+          "description": "This course provides senior undergraduate CSE students with the fundamental principles of analysis, design, and implementation of computer-controlled systems"
+        }
+      ]
+    },
+    {
+      "id": "gfit",
+      "title": "Software Engineering Intern",
+      "organization": {
+        "name": "Google",
+        "url": "https://www.google.com/about",
+        "logo": "/images/google.png"
+      },
+      "duration": {
+        "start": "May 2014",
+        "end": "Aug 2014"
+      },
+      "tasks": [
+        "Implemented an Android application that communicates with Google visual-search service and Google knowledge graph",
+        "Collaborated with members from three different teams to successfully complete project on time",
+        "Added features and fixed bugs for two other Android applications using the Google Fit APIs"
+      ],
+      "skills": [
+        "Java",
+        "Android",
+        "Google Knowledge Graph",
+        "Google Fit API",
+        "Google Visual Search"
+      ],
+      "tags": ["Mobile"],
+      "roles": ["engineer"]
+    },
+    {
+      "id": "metrolab",
+      "project": "Metrolab Sensor Network",
+      "sponsors": [
+        {
+          "name": "Arlington County",
+          "url": "https://www.arlingtonva.us",
+          "logo": "img/arlington.png"
+        }
+      ],
+      "title": "Graduate Research Assistant",
+      "organization": {
+        "name": "NCR Urban Living Lab, Virginia Tech",
+        "url": "https://www.ncr.vt.edu/initiatives/urban_living_lab.html"
+      },
+      "duration": {
+        "start": "May 2016",
+        "end": "Jul 2017"
+      },
+      "roles": ["researcher"],
+      "tasks": [
+        "Constructed a Raspberry Pi based IoT sensor for the MetroLab Network",
+        "Designed and implemented a framework for the device to communicate with a remote MySQL server",
+        "Implemented a website using PHP and Plotly.js to display data from the database"
+      ],
+      "skills": ["Python", "PHP", "MySQL", "Raspberry Pi", "Plotly.js"],
+      "tags": ["Programming", "Web"]
+    },
+    {
+      "id": "fujitsu",
+      "project": "VT-Fujitsu Joint Research Project",
+      "sponsors": [
+        {
+          "name": "Fujitsu",
+          "url": "https://www.fujitsu.com",
+          "logo": "img/fujitsu.png"
+        }
+      ],
+      "title": "Graduate Research Assistant",
+      "organization": {
+        "name": "Hume Center, Virginia Tech",
+        "url": "https://www.hume.vt.edu"
+      },
+      "duration": {
+        "start": "Jan 2017",
+        "end": "May 2017"
+      },
+      "roles": ["researcher"],
+      "tasks": [
+        "Collaborated with members from Fujitsu in a joint research project to build an SDN-based security solution",
+        "Designed the threat model for testing the security solution using Metasploit",
+        "Implemented a container-based web application as an attack target"
+      ],
+      "skills": ["Docker", "PHP", "MySQL", "Metasploit"],
+      "tags": ["Security"]
+    },
+    {
+      "id": "rhids",
+      "project": "RHIDS - Resilient Host-based Intrusion Detection System for Linux containers",
+      "sponsors": [
+        {
+          "name": "S2ERC",
+          "url": "https://www.serc.net/",
+          "logo": "img/serc.png"
+        },
+        {
+          "name": "Northrop Grumman",
+          "url": "https://www.northropgrumman.com",
+          "logo": "img/ng.png"
+        }
+      ],
+      "title": "Graduate Research Assistant",
+      "organization": {
+        "name": "Hume Center, Virginia Tech",
+        "url": "https://www.hume.vt.edu"
+      },
+      "duration": {
+        "start": "Jan 2015",
+        "end": "May 2016"
+      },
+      "roles": ["researcher"],
+      "tasks": [
+        "Assisted in writing a winning proposal for an NSF Industry/University Cooperative Research Center",
+        "Designed and implemented RHIDS, an intrusion detection system for cloud containers",
+        "Tested the system using Docker containers deployed on Amazon-AWS EC2 instances"
+      ],
+      "skills": ["Java", "Docker", "Amazon AWS", "Shell"],
+      "tags": ["Cloud", "Security"]
+    },
+    {
+      "id": "sodacloud",
+      "project": "SodaCloud - Shared Object Distribution Architecture for Cloud systems",
+      "sponsors": [
+        {
+          "name": "Siemens",
+          "url": "https://www.siemens.com",
+          "logo": "img/siemens.png"
+        }
+      ],
+      "title": "Graduate Research Assistant",
+      "organization": {
+        "name": "Magnum Lab, Virginia Tech",
+        "url": "https://github.com/VT-Magnum-Research"
+      },
+      "duration": {
+        "start": "Feb 2013",
+        "end": "May 2013"
+      },
+      "roles": ["researcher"],
+      "tasks": [
+        "Implemented the Docker-EC2 tool using Shell scripting to automate running and testing network applications using a Docker container on different instances of the Amazon-AWS EC2",
+        "Maintained and troubleshot build issues of the SodaCloud project (Mobile/Cloud Computing project funded by Siemens) on GitHub and BuildHive using Maven"
+      ],
+      "skills": ["Docker", "Amazon AWS", "Shell", "Maven"],
+      "tags": ["Mobile", "Cloud"]
+    },
+    {
+      "id": "minia-ta",
+      "title": "Teaching Assistant",
+      "organization": {
+        "name": "Minia University",
+        "department": "Computer & System Engineering",
+        "url": "https://www.minia.edu.eg/eng/index.php/en"
+      },
+      "duration": {
+        "start": "Mar 2007",
+        "end": "Aug 2010"
+      },
+      "tasks": [
+        "Taught 8 different undergraduate courses to 4 different classes of an average of 25 students each"
+      ],
+      "skills": ["C++"],
+      "tags": ["Programming"],
+      "roles": ["instructor"],
+      "courses": [
+        {
+          "id": "cse115ta",
+          "title": "Programming Languages (C Programming)",
+          "code": "CSE 115",
+          "description": "Introductory C-programming course taught to first year computer engineering students"
+        },
+        {
+          "id": "cse314",
+          "title": "Signals and Systems",
+          "code": "CSE 314",
+          "description": "Signal and systems course taught to third year computer engineering students"
+        },
+        {
+          "id": "cse111",
+          "title": "Electrical Circuits",
+          "code": "CSE 111",
+          "description": "Fundamentals of DC and AC electric circuits taught to first year computer engineering students"
+        },
+        {
+          "id": "cse222",
+          "title": "Operating Systems",
+          "code": "CSE 222",
+          "description": "Fundamentals of operating system design using C. Course taught to second year computer engineering students"
+        }
+      ]
+    },
+    {
+      "id": "inform-ibm",
+      "title": "Instructor",
+      "organization": {
+        "name": "Inform - IBM Authorized Training Center",
+        "url": "https://inform.com.eg"
+      },
+      "duration": {
+        "start": "Mar 2006",
+        "end": "Aug 2010"
+      },
+      "tasks": [
+        "Taught C and C++ Programming to more than 150 students from different backgrounds, many of them were from outside the Engineering field"
+      ],
+      "skills": ["C++"],
+      "tags": ["Programming"],
+      "roles": ["instructor"],
+      "courses": [
+        {
+          "title": "C Programming"
+        },
+        {
+          "title": "C++ Programming"
+        }
+      ]
+    },
+    {
+      "id": "spec2el",
+      "title": "Software Development Engineer",
+      "organization": {
+        "name": "Mentor Graphics",
+        "url": "https://www.mentor.com",
+        "logo": "/images/mentor.png"
+      },
+      "duration": {
+        "start": "Nov 2007",
+        "end": "Nov 2008"
+      },
+      "tasks": [
+        "Studied and analyzed the C-based version of the Spectre2Eldo syntax converter",
+        "Designed and implemented the OO-based version of the Spectre2Eldo syntax converter using C++ STL",
+        "Solved problems related to using a Flex & Bison parser with C++"
+      ],
+      "skills": ["C++", "C++ STL", "Flex & Bison"],
+      "tags": ["Programming"],
+      "roles": ["engineer"]
+    },
+    {
+      "id": "shorouk",
+      "title": "Teaching Assistant",
+      "organization": {
+        "name": "Shorouk Academy",
+        "url": "https://hie.sha.edu.eg"
+      },
+      "duration": {
+        "start": "Feb 2006",
+        "end": "Sep 2007"
+      },
+      "tasks": [
+        "Taught 9 different undergraduate courses to 9 different classes of an average of 40 students each"
+      ],
+      "skills": ["C++"],
+      "tags": ["Programming", "Machine Learning"],
+      "roles": ["instructor"],
+      "courses": [
+        {
+          "title": "Computer Programs",
+          "code": "ECE 107"
+        },
+        {
+          "title": "Digital Control"
+        },
+        {
+          "title": "Analog Control"
+        },
+        {
+          "title": "Neural Networks"
+        },
+        {
+          "title": "Programmable Logic Controllers"
+        },
+        {
+          "title": "Electronic Measurements"
+        }
+      ]
+    },
+    {
+      "id": "mam",
+      "title": "Teaching Assistant",
+      "organization": {
+        "name": "Modern Academy for Engineering and Technology",
+        "url": "https://eng.modern-academy.edu.eg"
+      },
+      "duration": {
+        "start": "Sep 2005",
+        "end": "May 2006"
+      },
+      "tasks": [
+        "Taught 6 different undergraduate courses to 9 different classes of an average of 40 students each"
+      ],
+      "skills": ["C++"],
+      "tags": ["Programming"],
+      "roles": ["instructor"],
+      "courses": [
+        {
+          "id": "cmp110",
+          "title": "Program Design and Computer Languages",
+          "description": "Programming fundamentals using C++",
+          "code": "CMP 110",
+          "link": "courses/mam/cmp110.pdf"
+        },
+        {
+          "id": "cmp410",
+          "title": "Microprocessor Based Systems",
+          "description": "Writing assembly code for programming Intel 80x86 microprocessors",
+          "code": "CMP 410",
+          "link": "courses/mam/cmp410.pdf"
+        },
+        {
+          "id": "cmp426",
+          "title": "Logic Design II",
+          "description": "Advanced logic circuit design course",
+          "code": "CMP 426",
+          "link": "courses/mam/cmp426.pdf"
+        },
+        {
+          "id": "cmp433",
+          "title": "Embedded Systems",
+          "description": "Building embedded systems using Intel 8051 Microcontrollers",
+          "code": "CMP 433",
+          "link": "courses/mam/cmp433.pdf"
+        },
+        {
+          "id": "cmo524",
+          "title": "Computer Modeling and Simulation",
+          "description": "System modeling and simulation using MATLAB",
+          "code": "CMP 524",
+          "link": "courses/mam/cmp524.pdf"
+        }
+      ]
+    }
+  ],
+  "degrees": [
+    {
+      "title": "Ph.D. Computer Engineering",
+      "university": {
+        "name": "Virginia Tech",
+        "url": "https://www.vt.edu",
+        "logo": "/vt.webp"
+      },
+      "duration": "August 2014 - July 2017"
+    },
+    {
+      "title": "M.S. Computer Engineering",
+      "university": {
+        "name": "Virginia Tech",
+        "url": "https://vt.edu",
+        "logo": "/vt.webp"
+      },
+      "duration": "August 2010 - July 2013"
+    },
+    {
+      "title": "B.S. Computer Engineering",
+      "university": {
+        "name": "Ain Shams University",
+        "url": "https://eng.asu.edu.eg",
+        "logo": "/asu.webp"
+      },
+      "duration": "September 2000 - June 2005"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "AWS Certified Generative AI Developer - Professional",
+      "organization": {
+        "name": "AWS Certification",
+        "url": "https://aws.amazon.com/certification"
+      },
+      "badge": "/aws-genai-prof.png",
+      "link": "https://www.credly.com/badges/ec8af76c-b6f0-40d7-94c2-7df06820af50",
+      "date": "March 2026",
+      "skills": ["python", "aws", "tensorflow", "mlflow"],
+      "areas": ["machine learning", "cloud"]
+    },
+    {
+      "title": "AWS Certified Machine Learning - Specialty",
+      "organization": {
+        "name": "AWS Certification",
+        "url": "https://aws.amazon.com/certification"
+      },
+      "badge": "/aws-mls.webp",
+      "link": "https://www.credly.com/badges/8ea3bcee-014b-42df-bc37-3e49d1e4166e/public_url",
+      "date": "June 2024",
+      "skills": ["python", "aws", "tensorflow", "scikit-learn", "mlflow"],
+      "areas": ["machine learning", "cloud"]
+    },
+    {
+      "title": "AWS Certified Solutions Architect",
+      "organization": {
+        "name": "AWS Certification",
+        "url": "https://aws.amazon.com/certification"
+      },
+      "badge": "/aws-saa.webp",
+      "link": "https://www.youracclaim.com/badges/2d566076-370f-4b1b-8103-ed467325228d",
+      "date": "October 2020",
+      "skills": ["aws", "docker", "kubernetes"],
+      "areas": ["cloud", "devops"]
+    },
+    {
+      "title": "Certified Scrum Master",
+      "organization": {
+        "name": "Scrum Alliance",
+        "url": "https://www.scrumalliance.org"
+      },
+      "badge": "/csm.webp",
+      "link": "https://bcert.me/swmyzzefi",
+      "date": "June 2020",
+      "skills": [],
+      "areas": ["devops"]
+    },
+    {
+      "title": "Certified Scrum Product Owner",
+      "organization": {
+        "name": "Scrum Alliance",
+        "url": "https://www.scrumalliance.org"
+      },
+      "badge": "/cspo.webp",
+      "link": "https://bcert.me/spcxpsler",
+      "date": "June 2020",
+      "skills": [],
+      "areas": ["devops"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "amrabed.com",
+      "name": "amrabed.com",
+      "description": "Personal website and portfolio built with Next.js, Tailwind CSS, and Gemini AI",
+      "details": "High-performance personal web platform and AI conversational assistant built with Next.js 16, Tailwind CSS 4, HeroUI, and Gemini AI integration.",
+      "date": "2024-09-01",
+      "links": {
+        "homepage": "/",
+        "github": "amrabed/amrabed.github.io"
+      },
+      "tools": ["JavaScript", "TypeScript"],
+      "tags": ["Programming", "Web"],
+      "roles": ["freelancer"],
+      "group": -1,
+      "featured": true,
+      "priority": 40
+    },
+    {
+      "id": "sophi-paywall",
+      "name": "Sophi Paywall",
+      "description": "Intelligent dynamic paywall system for online publications",
+      "details": "Engineered real-time decisioning architecture that automates dynamic content paywalls across hundreds of global publishers. Led migration to Amazon EKS and MLflow to streamline model lifecycles and significantly reduce infrastructure operating overhead.",
+      "date": "2024-08-01",
+      "links": {
+        "homepage": "https://mathereconomics.com/sophi-paywall"
+      },
+      "tools": [
+        "AWS",
+        "Python",
+        "TensorFlow",
+        "MLflow",
+        "Docker",
+        "Kubernetes",
+        "bash"
+      ],
+      "tags": [
+        "Cloud",
+        "Machine Learning",
+        "Database",
+        "Programming",
+        "DevOps"
+      ],
+      "roles": ["engineer", "manager"],
+      "group": 0,
+      "featured": true,
+      "priority": 10
+    },
+    {
+      "id": "cur8d-dev",
+      "name": "cur8d.dev",
+      "description": "Opinionated production-ready templates for mobile, cloud, and web developers",
+      "details": "A curated ecosystem of open-source project templates designed for modern full-stack, mobile, and serverless architectures with zero-config quality gates, automated testing, and CI/CD pipelines.",
+      "date": "2024-12-21",
+      "links": {
+        "homepage": "https://cur8d.dev",
+        "github": "cur8d/cur8d.github.io"
+      },
+      "tools": ["TypeScript"],
+      "tags": ["Web", "Programming"],
+      "roles": ["engineer"],
+      "group": 0,
+      "featured": true,
+      "priority": 20
+    },
+    {
+      "id": "cur8d-aws",
+      "name": "cur8d.aws",
+      "description": "Production-ready AWS Lambda templates for Python to help you get started with serverless applications in no time",
+      "details": "Production-grade serverless boilerplate for Python on AWS Lambda, incorporating AWS Powertools, structured logging, OpenAPI documentation, and local emulation.",
+      "date": "2024-12-21",
+      "links": {
+        "homepage": "https://cur8d.dev/lambda",
+        "github": "cur8d/lambda"
+      },
+      "tools": ["Python", "aws", "ai"],
+      "tags": ["Programming", "DevOps"],
+      "roles": ["engineer"],
+      "group": 0,
+      "featured": true,
+      "priority": 30
+    },
+    {
+      "id": "cur8d-py",
+      "name": "cur8d.py",
+      "description": "Start your next Python Project with all the necessary tools in no time using this GitHub template",
+      "date": "2024-12-21",
+      "links": {
+        "homepage": "https://cur8d.dev/python",
+        "github": "cur8d/python"
+      },
+      "tools": ["Python", "Docker"],
+      "tags": ["Programming", "DevOps"],
+      "roles": ["engineer"],
+      "group": 0
+    },
+    {
+      "id": "skeleton-flutter",
+      "name": "Skeleton - Flutter",
+      "description": "Template Flutter project for mobile applications",
+      "date": "2024-03-03",
+      "links": {},
+      "roles": ["freelancer", "entrepreneur", "engineer"],
+      "tools": ["flutter", "firebase", "android", "swift"],
+      "tags": ["Mobile", "Cloud", "Database"],
+      "group": 1
+    },
+    {
+      "id": "skeleton-android",
+      "name": "Skeleton - Android",
+      "description": "Template project for Android applications",
+      "date": "2020-03-03",
+      "details": "The project comes out of the box with Java 8 Support, Automatic App Signing, GitHub Version Control, Firebase Integration, FastLane App Automation, CircleCI Continuous Integration and Delivery, SonarCloud Code Quality, Snyk Vulnerability Check, README file with shield-style badges, MIT License file",
+      "links": {
+        "github": "amrabed/skeleton"
+      },
+      "roles": ["freelancer", "entrepreneur"],
+      "tools": ["kotlin", "firebase", "android"],
+      "tags": ["Mobile", "Cloud", "Database"],
+      "group": 1
+    },
+    {
+      "id": "cpp-programming-course",
+      "name": "Introduction to Programming",
+      "description": "A course to introduce first-year Computer Engineering students to programming using C++",
+      "date": "2018-03-03",
+      "links": {
+        "github": "ProgrammingLanguagesClass"
+      },
+      "roles": ["instructor"],
+      "tools": ["c++"],
+      "tags": ["Programming"],
+      "group": 2
+    },
+    {
+      "id": "python-machine-learning",
+      "name": "Python for Machine Learning",
+      "description": "A course to introduce learners from different backgrounds to the concepts of machine learning using Python",
+      "date": "2018-03-03",
+      "links": {
+        "homepage": "https://upskilling.robogarden.ca/marketplace/dynamicCourse/python-for-machine-learning"
+      },
+      "roles": ["instructor", "engineer", "manager"],
+      "tools": ["Python", "TensorFlow", "Scikit-learn"],
+      "tags": ["Machine Learning", "Programming"],
+      "group": 2
+    },
+    {
+      "id": "muslim-day-android",
+      "name": "Muslim Day - Android App",
+      "date": "2012-12-27",
+      "description": "An Android productivity app tailored to the satisfaction of the worldwide end-users of the app",
+      "details": "The app allows the user to keep track of their daily tasks while monitoring and visualizing their daily, monthly, and yearly progress for every task and for every day as a whole. The app is currently available in English and Arabic and is being translated to 5 other languages. The user can select and switch the app language from within the app settings.",
+      "links": {
+        "homepage": "https://muslimday.app",
+        "github": "amrabed/MuslimDay",
+        "app": "https://play.google.com/store/apps/details?id=amrabed.android.release.evaluation"
+      },
+      "status": "published",
+      "roles": ["community"],
+      "tools": ["android", "java", "kotlin", "firebase", "sqlite"],
+      "tags": ["Mobile", "Cloud", "Database"],
+      "group": 3
+    },
+    {
+      "id": "muslim-day-ios",
+      "name": "Muslim Day - iOS",
+      "description": "An iOS productivity app to help the Muslim community around the world to keep track of their daily rituals",
+      "links": {
+        "homepage": "https://muslimday.app",
+        "app": "https://apps.apple.com/app/id6446234217",
+        "github": "amrabed/MuslimDay-iOS"
+      },
+      "date": "2022-04-01",
+      "status": "published",
+      "roles": ["community"],
+      "tools": ["swift", "firebase"],
+      "tags": ["Mobile", "Cloud", "Database"],
+      "group": 3
+    },
+    {
+      "id": "docker-ec2",
+      "name": "Docker EC2",
+      "description": "Automatically run and test an application using Docker image running on different Amazon AWS EC2 instances",
+      "links": {
+        "github": "amrabed/docker-ec2"
+      },
+      "date": "2013-05-20",
+      "status": "archived",
+      "roles": ["researcher", "engineer"],
+      "tools": ["docker", "aws", "aws-ec2", "bash"],
+      "tags": ["Cloud"],
+      "group": 4
+    },
+    {
+      "id": "strace-docker",
+      "name": "Strace-Docker",
+      "description": "Trace system calls from Docker containers running on the system",
+      "links": {
+        "github": "amrabed/strace-docker",
+        "demo": "https://www.youtube.com/watch?v=iWywV_4Y34E"
+      },
+      "date": "2015-01-05",
+      "status": "archived",
+      "roles": ["researcher"],
+      "tools": ["docker", "sysdig", "bash"],
+      "tags": ["Cloud", "DevOps", "Shell"],
+      "group": 4
+    },
+    {
+      "id": "rhids",
+      "name": "RHIDS",
+      "description": "Host-based Intrusion Detection System for Linux Containers",
+      "links": {
+        "github": "amrabed/rhids",
+        "demo": "https://www.youtube.com/watch?v=R5BHjYZ22Tw",
+        "publication": "https://arxiv.org/abs/1611.03056",
+        "presentation": "https://www.slideshare.net/slideshow/intrusion-detection-system-for-applications-using-linux-containers/67746613"
+      },
+      "date": "2015-03-19",
+      "roles": ["researcher"],
+      "tools": ["java", "docker", "bash", "gradle"],
+      "tags": ["Cloud", "Machine Learning", "Shell"],
+      "group": 4
+    },
+    {
+      "id": "deep-hids",
+      "name": "Deep HIDS",
+      "description": "An LSTM-based Deep Learning model for anomaly-based Intrusion Detection System for Linux Containers",
+      "links": {
+        "github": "amrabed/deep-hids"
+      },
+      "date": "2017-07-31",
+      "roles": ["researcher"],
+      "tools": ["Python", "TensorFlow", "Docker"],
+      "tags": ["Cloud", "Machine Learning", "Deep Learning"],
+      "group": 4
+    },
+    {
+      "id": "cur8d-tsx",
+      "name": "cur8d.tsx",
+      "description": "High-performance, accessible, and type-safe template powered by TypeScript, Next.js, HeroUI, and Tailwind CSS",
+      "date": "2026-01-01",
+      "links": {
+        "homepage": "https://tsx.cur8d.dev",
+        "github": "cur8d/typescript"
+      },
+      "tools": ["TypeScript"],
+      "tags": ["Web", "Programming"],
+      "roles": ["engineer"],
+      "group": 0,
+      "featured": false
+    },
+    {
+      "id": "metrolab",
+      "name": "Metrolab research project",
+      "description": "A server-client data collection framework for communication between Pi-based IoT sensors and central server with visualization dashboard",
+      "links": {
+        "github": "amrabed/metrolab"
+      },
+      "status": "archived",
+      "date": "2016-08-11",
+      "roles": ["researcher"],
+      "tools": [
+        "python",
+        "raspberry-pi",
+        "html",
+        "php",
+        "mysql",
+        "javascript",
+        "plotly"
+      ],
+      "tags": ["Cloud", "Web", "IoT", "Smart City"],
+      "group": 5
+    },
+    {
+      "id": "logger",
+      "name": "Logger - Android App",
+      "description": "Logger collected anonymous mobile-usage data as part of a researcher study conducted at Virginia Tech",
+      "links": {
+        "github": "amrabed/logger"
+      },
+      "status": "unpublished",
+      "date": "2013-05-03",
+      "roles": ["researcher"],
+      "tools": ["android", "java", "sqlite"],
+      "tags": ["Mobile", "Database"],
+      "group": 5
+    },
+    {
+      "id": "sodacloud",
+      "name": "SodaCloud",
+      "description": "A research project conducted as part of the Magnum group at Virginia Tech with sponsorship from Siemens",
+      "date": "2013-05-01",
+      "links": {
+        "github": "vt-magnum-researcher/sodacloud"
+      },
+      "roles": ["researcher", "engineer"],
+      "tools": ["git", "maven"],
+      "tags": ["Cloud", "Mobile", "DevOps"],
+      "group": 5
+    },
+    {
+      "id": "isnrv-android",
+      "name": "ISNRV - Android App",
+      "description": "Android app to provide Athan and Iqama times for the community of the Islamic Society of New Reiver Valley (ISNRV)",
+      "links": {
+        "github": "ISNRV/ISNRVhub-Android"
+      },
+      "date": "2019-02-22",
+      "status": "archived",
+      "roles": ["community", "freelancer"],
+      "tools": ["android", "java", "firebase", "fastlane", "gradle"],
+      "tags": ["Mobile", "Cloud"],
+      "group": 6
+    },
+    {
+      "id": "iqama-times",
+      "name": "Iqama Times - Android App",
+      "description": "This app provides Muslims of the Blacksburg, VA area with daily Iqama times for the Islamic Center of Blacksburg",
+      "details": "The app allows users to add Iqama times to their Google Calendar. A widget is available to always have Iqama times displayed on the home screen.",
+      "links": {
+        "github": "amrabed/IqamaTimes",
+        "app": "https://play.google.com/store/apps/details?id=community.icb.iqama"
+      },
+      "status": "published",
+      "date": "2016-07-01",
+      "roles": ["community", "freelancer"],
+      "tools": ["android", "java"],
+      "tags": ["Mobile"],
+      "group": 6
+    },
+    {
+      "id": "fujitsu",
+      "name": "VT-Fujitsu joint research Project",
+      "description": "A joint researcher project between Virginia Tech and Vujitsu Japan",
+      "links": {
+        "github": "amrabed/vt-fujitsu"
+      },
+      "date": "2017-05-01",
+      "roles": ["researcher"],
+      "tools": ["docker", "php", "mysql", "metasploit"],
+      "tags": ["Security", "Web", "SDN"],
+      "group": 5
+    }
+  ],
+  "publications": [
+    {
+      "id": "phd-thesis",
+      "title": "Securing Cloud Containers through Intrusion Detection and Remediation",
+      "authors": ["Amr S. Abed"],
+      "featured": true,
+      "venue": "PhD Dissertation, Virginia Tech",
+      "year": "2017",
+      "type": "phdthesis",
+      "links": {
+        "fulltext": "https://vtechworks.lib.vt.edu/handle/10919/87730",
+        "presentation": "https://www.slideshare.net/secret/dWT9Fwk08rZqJU"
+      },
+      "skills": ["docker", "python", "tensorflow"],
+      "tags": ["security", "cloud", "machine learning"],
+      "roles": ["researcher"]
+    },
+    {
+      "id": "stm-2015",
+      "title": "Intrusion Detection System for Applications using Linux Containers",
+      "authors": ["Amr S. Abed", "Charles Clancy", "David Levy"],
+      "venue": "Security and Trust Management (STM)",
+      "year": "2015",
+      "type": "conference",
+      "links": {
+        "doi": "10.1007/978-3-319-24858-5_8",
+        "fulltext": "https://arxiv.org/pdf/1611.03056v1",
+        "presentation": "https://www.slideshare.net/AmrAbed/intrusion-detection-system-for-applications-using-linux-containers",
+        "scopus": "https://www.scopus.com/inward/record.url?eid=2-s2.0-84951875184&partnerID=MN8TOARS"
+      },
+      "skills": ["docker", "java", "bash"],
+      "tags": ["security", "cloud", "machine learning"],
+      "roles": ["researcher"]
+    },
+    {
+      "id": "ccsna-2015",
+      "title": "Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux Containers",
+      "authors": ["Amr S. Abed", "Charles Clancy", "David Levy"],
+      "venue": "IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA)",
+      "year": "2015",
+      "type": "conference",
+      "links": {
+        "doi": "10.1109/GLOCOMW.2015.7414047",
+        "fulltext": "https://arxiv.org/pdf/1611.03053v1",
+        "scopus": "https://www.scopus.com/inward/record.url?eid=2-s2.0-84971277782&partnerID=MN8TOARS"
+      },
+      "skills": ["docker", "java", "bash"],
+      "tags": ["security", "cloud", "machine learning"],
+      "roles": ["researcher"]
+    },
+    {
+      "id": "lcn-2016",
+      "title": "Toward Smart Moving Target Defense for Linux Container Resiliency",
+      "authors": [
+        "Mohamed Azab",
+        "Bassem Mokhtar",
+        "Amr S. Abed",
+        "Mohamed Eltoweissy"
+      ],
+      "venue": "IEEE 41st Conference on Local Computer Networks (LCN 2016)",
+      "year": "2016",
+      "type": "conference",
+      "links": {
+        "doi": "10.1109/LCN.2016.106",
+        "fulltext": "https://arxiv.org/pdf/1611.03065v1"
+      },
+      "skills": ["docker"],
+      "tags": ["security", "cloud"],
+      "roles": ["researcher"]
+    },
+    {
+      "id": "cic-2016",
+      "title": "A Moving Target Defense Approach for Linux Container Resiliency",
+      "authors": [
+        "Mohamed Azab",
+        "Bassem Mokhtar",
+        "Amr S. Abed",
+        "Mohamed Eltoweissy"
+      ],
+      "venue": "2nd IEEE International Conference on Collaboration and Internet Computing",
+      "year": "2016",
+      "type": "conference",
+      "links": {
+        "doi": "10.1109/CIC.2016.028"
+      },
+      "skills": ["docker"],
+      "tags": ["security", "cloud"],
+      "roles": ["researcher"]
+    },
+    {
+      "id": "ijcnds-2018",
+      "title": "Resilient Intrusion Detection System for Cloud Containers",
+      "authors": [
+        "Amr S. Abed",
+        "Mohamed Azab",
+        "Charles Clancy",
+        "Mona Kashkoush"
+      ],
+      "venue": "International Journal of Communication Networks and Distributed Systems",
+      "year": "2018",
+      "type": "article",
+      "links": {},
+      "skills": ["docker"],
+      "tags": ["security", "cloud", "machine learning"],
+      "roles": ["researcher"]
+    },
+    {
+      "id": "cluster-2018",
+      "title": "Online Smart Disguise: Real-time Diversication Evading Coresidency Based Cloud Attacks",
+      "authors": [
+        "Mona S. kashkoush",
+        "Mohamed Azab",
+        "Gamal Attiya",
+        "Amr S. Abed"
+      ],
+      "venue": "Cluster Computing",
+      "year": "2018",
+      "type": "article",
+      "links": {
+        "doi": "10.1007/s10586-018-2851-2",
+        "fulltext": "https://link.springer.com/content/pdf/10.1007%2Fs10586-018-2851-2.pdf"
+      },
+      "skills": ["docker"],
+      "tags": ["security", "cloud"],
+      "roles": ["researcher"]
+    }
+  ],
+  "articles": [
+    {
+      "id": "aws-lambda-templates",
+      "title": "Stop Writing Lambda Boilerplate",
+      "summary": "Accelerate your serverless development with production-grade Python templates for AWS Lambda, pre-wired with best practices and modern tooling.",
+      "date": "2026-04-18",
+      "url": "https://amrabed.com/blog/aws-lambda-templates/",
+      "readTime": "5 min read",
+      "tags": ["AWS", "Serverless", "Python"]
+    },
+    {
+      "id": "openclaw-whatsapp-agent",
+      "title": "Self-Host an AI Agent Using OpenClaw and WhatsApp Cloud API (2026)",
+      "summary": "You shouldn't need to pay a middleman to put your AI agent on WhatsApp. Here is how to connect OpenClaw directly to WhatsApp Cloud API.",
+      "date": "2026-04-04",
+      "url": "https://amrabed.com/blog/openclaw-whatsapp-agent/",
+      "readTime": "7 min read",
+      "tags": ["AI Agents", "WhatsApp", "OpenClaw"]
+    },
+    {
+      "id": "aip-c01-study-plan",
+      "title": "The Only AIP-C01 Study Plan You Need",
+      "summary": "Passed the AWS Certified Generative AI Developer Professional (AIP-C01) exam as an early adopter (first 5,000 worldwide). Here is the exact 6-week study plan.",
+      "date": "2026-03-24",
+      "url": "https://amrabed.com/blog/aip-c01-study-plan/",
+      "readTime": "8 min read",
+      "tags": ["AWS", "Generative AI", "Certifications"]
+    }
+  ]
+}

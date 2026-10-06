@@ -10,27 +10,27 @@
 
 ## Phase 2: Data Model Migration
 
-- [ ] Define consolidated `resume.json` schema and data file
-- [ ] Create icon & theme color mapping layer decoupling JSX from data
-- [ ] Migrate data loaders and components to consume the unified data model
-- [ ] Remove legacy scattered `.tsx` data sources
+- [x] Define consolidated `resume.json` schema and data file
+- [x] Create icon & theme color mapping layer decoupling JSX from data
+- [x] Migrate data loaders and components to consume the unified data model
+- [x] Remove legacy scattered `.tsx` data sources
 
 ## Phase 3: Content Enrichment
 
-- [ ] Add blog / articles integration or feed
-- [ ] Add contact section / email reachout CTA
-- [ ] Add downloadable resume capability
-- [ ] Showcase teaching portfolio and public speaking / presentations
+- [x] Add blog / articles integration or feed
+- [x] Add contact section / email reachout CTA
+- [x] Add downloadable resume capability
+- [x] Showcase teaching portfolio and public speaking / presentations
 
 ## Phase 4: UX & Performance Optimization
 
-- [ ] Evaluate server component rendering for `page.tsx`
-- [ ] Enable Next.js image optimization
-- [ ] Prune unused dependencies and streamline bundle size
-- [ ] Enhance filter accessibility and mobile UX
+- [x] Evaluate server component rendering for `page.tsx`
+- [x] Enable Next.js image optimization
+- [x] Prune unused dependencies and streamline bundle size
+- [x] Enhance filter accessibility and mobile UX
 
 ## Phase 5: Verification & Delivery
 
-- [ ] Run formatting and lint checks (`pnpm format`, `pnpm lint`)
-- [ ] Run unit and component test suites with coverage (`pnpm test`)
-- [ ] Verify production build (`pnpm build`)
+- [x] Run formatting and lint checks (`pnpm format`, `pnpm lint`)
+- [x] Run unit and component test suites with coverage (`pnpm test`)
+- [x] Verify production build (`pnpm build`)
