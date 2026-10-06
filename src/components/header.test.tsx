@@ -84,4 +84,31 @@ describe("MainHeader", () => {
       behavior: "smooth",
     });
   });
+
+  it("should toggle visibility class based on scroll position", () => {
+    const { container } = render(<MainHeader />);
+    const nav = container.querySelector("nav");
+
+    // Initially at top (scrollY = 0)
+    expect(nav).toHaveClass("-translate-y-full");
+    expect(nav).toHaveClass("opacity-0");
+
+    // Scroll down past threshold
+    act(() => {
+      window.scrollY = 120;
+      window.dispatchEvent(new Event("scroll"));
+    });
+
+    expect(nav).toHaveClass("translate-y-0");
+    expect(nav).toHaveClass("opacity-100");
+
+    // Scroll back to top
+    act(() => {
+      window.scrollY = 0;
+      window.dispatchEvent(new Event("scroll"));
+    });
+
+    expect(nav).toHaveClass("-translate-y-full");
+    expect(nav).toHaveClass("opacity-0");
+  });
 });

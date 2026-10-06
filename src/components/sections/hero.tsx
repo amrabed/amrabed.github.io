@@ -43,7 +43,7 @@ const HeroSection = memo(() => {
 
   return (
     <section id="home" ref={homeRef} className="w-full in-view">
-      <div className="hero-container flex flex-col justify-between py-12">
+      <div className="hero-container flex flex-col justify-between">
         <div className="w-full flex-grow flex flex-col md:flex-row items-center justify-between gap-8 my-auto">
           <div className="hero-intro flex flex-col items-center md:items-start text-center md:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
@@ -75,7 +75,8 @@ const HeroSection = memo(() => {
               </span>
             </p>
             <p className="mt-2 text-sm sm:text-base md:text-lg font-medium text-slate-600 dark:text-slate-400 max-w-lg">
-              PhD · Engineering Manager · AWS Certified · Cloud &amp; AI Architect
+              PhD · Engineering Manager · AWS Certified · Cloud &amp; AI
+              Architect
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-4">
               <a
