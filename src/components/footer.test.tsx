@@ -1,12 +1,8 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect } from "vitest";
 
 import { render } from "@testing-library/react";
 
 import Footer from "./footer";
-
-vi.mock("@/contexts/theme", () => ({
-  useTheme: () => ({ theme: "light", toggleTheme: vi.fn() }),
-}));
 
 describe("Footer", () => {
   it("renders correctly", () => {

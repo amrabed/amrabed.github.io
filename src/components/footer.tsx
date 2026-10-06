@@ -1,16 +1,8 @@
-"use client";
-
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
-import { Switch } from "@heroui/react";
-
-import { useTheme } from "@/contexts/theme";
 import { profiles } from "@/lib/data";
 
 import Social from "./social";
 
 const Footer = () => {
-  const { theme, toggleTheme } = useTheme();
-
   return (
     <footer className="w-full bg-white dark:bg-slate-950 transition-colors duration-500 py-12 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
@@ -22,29 +14,6 @@ const Footer = () => {
 
         <div className="flex flex-col items-center gap-4 order-1 md:order-2">
           <Social profiles={profiles} />
-        </div>
-
-        <div className="flex items-center gap-3 order-3">
-          <Switch
-            isSelected={theme === "dark"}
-            onChange={toggleTheme}
-            aria-label="Toggle dark mode"
-          >
-            <Switch.Content>
-              <Switch.Control className="data-[selected=true]:bg-primary">
-                <Switch.Thumb className="flex items-center justify-center">
-                  {theme === "dark" ? (
-                    <MoonIcon className="size-3 text-primary" />
-                  ) : (
-                    <SunIcon className="size-3 text-amber-500" />
-                  )}
-                </Switch.Thumb>
-              </Switch.Control>
-            </Switch.Content>
-          </Switch>
-          <span className="text-sm font-medium text-slate-500 dark:text-slate-400 min-w-20">
-            {theme === "dark" ? "Dark Mode" : "Light Mode"}
-          </span>
         </div>
       </div>
     </footer>

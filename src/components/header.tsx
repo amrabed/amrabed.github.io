@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 
+import ThemeSwitch from "@/components/theme-switch";
+
 export const sections = [
   { name: "Skills", link: "#skills" },
   { name: "Certifications", link: "#certifications" },
@@ -112,42 +114,11 @@ export const MainHeader = () => {
       }`}
     >
       <header className="max-w-7xl mx-auto flex h-16 items-center justify-between">
-        <Title onClick={handleScrollToTop} />
-
-        <div className="sm:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-            className="p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md text-slate-500 hover:text-primary transition-colors"
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              )}
-            </svg>
-          </button>
+        <div className="flex items-center min-w-[120px]">
+          <Title onClick={handleScrollToTop} />
         </div>
 
-        <ul className="hidden sm:flex items-center gap-6">
+        <ul className="hidden sm:flex items-center justify-center gap-6 flex-1 px-4">
           {sections.map((section) => (
             <li key={section.name}>
               <a
@@ -181,6 +152,44 @@ export const MainHeader = () => {
             </li>
           ))}
         </ul>
+
+        <div className="hidden sm:flex items-center justify-end min-w-[120px]">
+          <ThemeSwitch />
+        </div>
+
+        <div className="sm:hidden flex items-center gap-2">
+          <ThemeSwitch />
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            className="p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md text-slate-500 hover:text-primary transition-colors"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
       </header>
 
       {isMenuOpen && (
