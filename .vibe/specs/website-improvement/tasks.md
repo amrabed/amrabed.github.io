@@ -24,13 +24,13 @@
 
 ## Phase 4: UX & Performance Optimization
 
-- [ ] Evaluate server component rendering for `page.tsx`
-- [ ] Enable Next.js image optimization
-- [ ] Prune unused dependencies and streamline bundle size
-- [ ] Enhance filter accessibility and mobile UX
+- [x] Evaluate server component rendering for `page.tsx`
+- [x] Enable Next.js image optimization
+- [x] Prune unused dependencies and streamline bundle size
+- [x] Enhance filter accessibility and mobile UX
 
 ## Phase 5: Verification & Delivery
 
-- [ ] Run formatting and lint checks (`pnpm format`, `pnpm lint`)
-- [ ] Run unit and component test suites with coverage (`pnpm test`)
-- [ ] Verify production build (`pnpm build`)
+- [x] Run formatting and lint checks (`pnpm format`, `pnpm lint`)
+- [x] Run unit and component test suites with coverage (`pnpm test`)
+- [x] Verify production build (`pnpm build`)

@@ -2,6 +2,8 @@
 
 import { memo } from "react";
 
+import { BookOpenIcon } from "@heroicons/react/24/outline";
+
 import { FeaturedSectionContainer } from "@/components/featured-section-container";
 import PublicationView from "@/components/publication";
 import { publications as publicationsData } from "@/lib/data";
@@ -13,6 +15,7 @@ export const PublicationsSection = memo(() => {
     <FilterableSection
       id="publications"
       title="Publications"
+      icon={<BookOpenIcon className="size-7" />}
       data={publicationsData}
       renderItem={() => null}
       renderContainer={(publications) => (
