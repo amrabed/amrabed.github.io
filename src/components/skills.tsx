@@ -1,7 +1,6 @@
 import { Tooltip } from "@heroui/react";
 
-import areasData from "@/data/areas";
-import skillsData from "@/data/skills";
+import { areas as areasData, skills as skillsData } from "@/lib/data";
 import { Skill } from "@/types";
 import { toLowerCaseCached } from "@/utils/filter";
 

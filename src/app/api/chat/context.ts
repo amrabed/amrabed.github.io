@@ -1,10 +1,12 @@
-import certifications from "@/data/certifications";
-import degrees from "@/data/degrees";
-import positions from "@/data/positions";
-import profiles from "@/data/profiles";
-import projects from "@/data/projects";
-import publications from "@/data/publications";
-import skills from "@/data/skills";
+import {
+  certifications,
+  degrees,
+  positions,
+  profiles,
+  projects,
+  publications,
+  skills,
+} from "@/lib/data";
 
 function getProfilesContext(): string {
   let context = "### Profiles & Professional Links\n";

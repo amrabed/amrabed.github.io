@@ -15,14 +15,23 @@ const Footer = dynamic(() => import("@/components/footer"));
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amrabed.com"),
-  title: "Amr Abed",
-  description: "Amr Abed's personal website",
-  keywords: "Amr Abed, personal website, portfolio, resume",
-  authors: [{ name: "Amr Abed" }],
-  robots: "index, follow",
+  title: "Amr Abed — Engineering Manager | PhD, AWS Certified | AI & Cloud",
+  description:
+    "Software engineer and cloud architect with PhD from Virginia Tech. Engineering Manager at Sophi specializing in AI/ML, AWS, and scalable systems. Ex-Google intern. AWS certified.",
+  keywords:
+    "Amr Abed, software engineer, engineering manager, machine learning, AWS certified, cloud architect, Virginia Tech PhD, Sophi, AI, MLOps, portfolio",
+  authors: [{ name: "Amr Abed", url: "https://amrabed.com" }],
+  alternates: {
+    canonical: "https://amrabed.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "Amr Abed",
-    description: "Amr Abed's personal website",
+    title: "Amr Abed — Engineering Manager | PhD, AWS Certified | AI & Cloud",
+    description:
+      "Software engineer and cloud architect with PhD from Virginia Tech. Engineering Manager at Sophi specializing in AI/ML, AWS, and scalable systems.",
     url: "https://amrabed.com",
     siteName: "Amr Abed",
     images: [
@@ -34,12 +43,13 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en_US",
-    type: "website",
+    type: "profile",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amr Abed",
-    description: "Amr Abed's personal website",
+    title: "Amr Abed — Engineering Manager | PhD, AWS Certified | AI & Cloud",
+    description:
+      "Software engineer and cloud architect with PhD from Virginia Tech. Engineering Manager at Sophi specializing in AI/ML, AWS, and scalable systems.",
     images: ["/amr.webp"],
   },
 };
@@ -49,6 +59,45 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://amrabed.com/#person",
+      name: "Amr Abed",
+      jobTitle: "Engineering Manager",
+      worksFor: {
+        "@type": "Organization",
+        name: "Sophi",
+      },
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Virginia Tech",
+      },
+      url: "https://amrabed.com",
+      image: "https://amrabed.com/amrabed.webp",
+      sameAs: [
+        "https://github.com/amrabed",
+        "https://linkedin.com/in/amrabed",
+        "https://twitter.com/amr_abed",
+        "https://medium.com/@amrabed",
+      ],
+      description:
+        "Software engineer and cloud architect with PhD from Virginia Tech. Engineering Manager at Sophi specializing in AI/ML, AWS, and scalable systems.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://amrabed.com/#website",
+      url: "https://amrabed.com",
+      name: "Amr Abed",
+      author: {
+        "@id": "https://amrabed.com/#person",
+      },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -56,6 +105,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${inter.className} antialiased bg-background text-foreground transition-colors duration-500`}
       >

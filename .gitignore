@@ -3,7 +3,7 @@
 Icon*
 *.bak*
 *.log
-blog/
+/blog/
 _site/
 firebase-key.json
 .firebase/

@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 
 import { render } from "@testing-library/react";
 
-import projects from "@/data/projects";
+import { projects } from "@/lib/data";
 
 import ProjectCard from "./project";
 

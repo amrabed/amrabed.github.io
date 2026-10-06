@@ -2,9 +2,11 @@
 
 import { memo } from "react";
 
+import { Cog6ToothIcon } from "@heroicons/react/24/outline";
+
 import { FeaturedSectionContainer } from "@/components/featured-section-container";
 import ProjectView from "@/components/project";
-import projectsData from "@/data/projects";
+import { projects as projectsData } from "@/lib/data";
 
 import { FilterableSection } from "../filterable-section";
 
@@ -13,6 +15,7 @@ export const ProjectsSection = memo(() => {
     <FilterableSection
       id="projects"
       title="Projects"
+      icon={<Cog6ToothIcon className="size-7" />}
       data={projectsData}
       renderItem={() => null}
       renderContainer={(projects) => (

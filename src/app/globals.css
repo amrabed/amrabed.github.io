@@ -136,7 +136,7 @@
 
 /* Hero Section */
 .hero-container {
-  @apply min-h-[100vh] w-full overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[200px] 2xl:px-[400px] flex flex-col md:flex-row content-center items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm;
+  @apply min-h-[calc(100vh-40px)] w-full overflow-x-hidden px-[20px] md:px-[50px] lg:px-[100px] xl:px-[160px] 2xl:px-[300px] flex flex-col justify-between items-center shadow-zinc-300 dark:shadow-zinc-700 shadow-sm py-6 md:py-10;
 }
 
 .hero-intro-text {
@@ -145,11 +145,11 @@
 
 /* Hero Section Animating Children */
 .hero-profile {
-  @apply transition-all duration-700 w-[300px] h-[300px] md:w-[400px] md:h-[400px] relative m-auto md:m-0 mt-[40px] md:mt-0 order-last md:order-last opacity-0 -translate-x-[500px];
+  @apply transition-all duration-700 w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[360px] lg:h-[360px] relative m-auto md:m-0 mt-6 md:mt-0 opacity-0 -translate-x-[500px];
 }
 
 .hero-intro {
-  @apply transition-all duration-700 order-first md:order-first opacity-0 translate-x-[500px];
+  @apply transition-all duration-700 opacity-0 translate-x-[500px];
 }
 
 #home.in-view .hero-profile,

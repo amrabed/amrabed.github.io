@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 
 import { render, fireEvent, act } from "@testing-library/react";
 
-import publications from "@/data/publications";
+import { publications } from "@/lib/data";
 
 import PublicationCard from "./publication";
 
