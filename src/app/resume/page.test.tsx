@@ -109,13 +109,9 @@ describe("ResumePage", () => {
     const eduSection = screen.getByRole("region", { name: /^education$/i });
     const firstDegree = resumeJson.degrees[0];
     expect(
-      within(eduSection).getByRole("heading", {
-        name: new RegExp(firstDegree.title, "i"),
-      }),
-    ).toBeInTheDocument();
-    expect(
       within(eduSection).getAllByText(firstDegree.university.name).length,
     ).toBeGreaterThanOrEqual(1);
+    expect(within(eduSection).getByText(firstDegree.title)).toBeInTheDocument();
     expect(
       within(eduSection).getByText(firstDegree.duration),
     ).toBeInTheDocument();
@@ -125,11 +121,11 @@ describe("ResumePage", () => {
     render(<ResumePage />);
 
     // Skills
+    const skillsSection = screen.getByRole("region", { name: /^skills$/i });
     expect(
-      screen.getByRole("heading", { name: /skills & competencies/i }),
+      within(skillsSection).getByText(/^Programming$/i),
     ).toBeInTheDocument();
-    expect(screen.getByText(/Cloud:/i)).toBeInTheDocument();
-    expect(screen.getByText(/Machine Learning:/i)).toBeInTheDocument();
+    expect(within(skillsSection).getByText(/^AI & ML$/i)).toBeInTheDocument();
 
     // Certifications
     const certSection = screen.getByRole("region", {
@@ -137,11 +133,16 @@ describe("ResumePage", () => {
     });
     const firstCert = resumeJson.certifications[0];
     expect(within(certSection).getByText(firstCert.title)).toBeInTheDocument();
-    expect(within(certSection).getByText(firstCert.date)).toBeInTheDocument();
+    expect(
+      within(certSection).getByText(new RegExp(firstCert.date, "i")),
+    ).toBeInTheDocument();
 
     // Publications & Projects
     expect(
-      screen.getByRole("heading", { name: /publications & projects/i }),
+      screen.getByRole("heading", { name: /publications/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /select projects/i }),
     ).toBeInTheDocument();
   });
 });
