@@ -1,75 +1,19 @@
-"use client";
-
-import { AnimatePresence } from "framer-motion";
-
-import { useEffect, useState } from "react";
-
 import { Banner } from "@/components/banner";
 import { MainHeader } from "@/components/header";
+import { ScrollFilterController } from "@/components/scroll-filter-controller";
 import { AboutSection } from "@/components/sections/about";
+import { BlogSection } from "@/components/sections/blog";
 import { CertificationsSection } from "@/components/sections/certifications";
+import { ContactSection } from "@/components/sections/contact";
 import { EducationSection } from "@/components/sections/education";
 import { ExperienceSection } from "@/components/sections/experience";
 import HeroSection from "@/components/sections/hero";
 import { ProjectsSection } from "@/components/sections/projects";
 import { PublicationsSection } from "@/components/sections/publications";
 import { SkillsSection } from "@/components/sections/skills";
-import { UnifiedFilterBar } from "@/components/unified-filter-bar";
-import { useFilterUI } from "@/contexts/filter";
+import { TeachingSection } from "@/components/sections/teaching";
 
-const Home = () => {
-  const [showFilter, setShowFilter] = useState(false);
-  const { setIsFilterBarVisible } = useFilterUI();
-
-  useEffect(() => {
-    let skillsTop = Infinity;
-    let lastSectionBottom = 0;
-
-    // ⚡ Optimization: Move DOM measurements out of the scroll listener to avoid layout thrashing.
-    // We cache the values and only update them on mount or window resize.
-    const updateDimensions = () => {
-      const skillsSection = document.getElementById("skills");
-
-      if (skillsSection) {
-        skillsTop = skillsSection.offsetTop;
-        const lastSection =
-          document.getElementById("experience") ||
-          document.getElementById("publications");
-        lastSectionBottom = lastSection
-          ? lastSection.offsetTop + lastSection.offsetHeight
-          : 0;
-      }
-    };
-
-    updateDimensions();
-
-    let currentVisible = false;
-    const handleScroll = () => {
-      // Use cached dimensions to avoid expensive DOM lookups and reflows during scroll.
-      const isVisible =
-        window.scrollY > skillsTop - 200 &&
-        window.scrollY + window.innerHeight < lastSectionBottom + 100;
-      if (isVisible !== currentVisible) {
-        currentVisible = isVisible;
-        setShowFilter(isVisible);
-        setIsFilterBarVisible(isVisible);
-      }
-    };
-
-    // Use { passive: true } to improve scroll performance by telling the browser
-    // that this listener will not call preventDefault().
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", updateDimensions, { passive: true });
-
-    // Run once on mount to establish correct initial state
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", updateDimensions);
-    };
-  }, [setIsFilterBarVisible]);
-
+export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Banner />
@@ -87,12 +31,13 @@ const Home = () => {
           <PublicationsSection />
           <ExperienceSection />
           <EducationSection />
+          <TeachingSection />
+          <BlogSection />
           <AboutSection />
+          <ContactSection />
         </div>
       </main>
-      <AnimatePresence>{showFilter && <UnifiedFilterBar />}</AnimatePresence>
+      <ScrollFilterController />
     </div>
   );
-};
-
-export default Home;
+}

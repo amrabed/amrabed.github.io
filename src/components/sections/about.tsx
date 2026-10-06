@@ -2,31 +2,39 @@
 
 import { memo } from "react";
 
+import { UserIcon } from "@heroicons/react/24/outline";
+
 import { Section } from "../section";
 
 export const AboutSection = memo(() => {
   return (
-    <Section id="about" title="About">
-      <div className="max-w-4xl mx-auto text-lg leading-relaxed text-slate-600 dark:text-slate-400 space-y-4 pb-20">
+    <Section id="about" title="About" icon={<UserIcon className="size-7" />}>
+      <div className="max-w-4xl mx-auto text-lg leading-relaxed text-slate-600 dark:text-slate-400 space-y-4">
         <p>
-          I am a passionate software engineer, researcher, and educator with a
-          focus on Artificial Intelligence (AI), Machine Learning, Cloud
-          Computing, and Mobile Development. With a background in Computer
-          Engineering and years of experience in both academia and industry, I
-          strive to build impactful solutions that bridge the gap between
-          complex research and practical application.
+          I am an Engineering Manager, software engineer, and researcher with a
+          PhD in Computer Engineering from Virginia Tech and former engineering
+          experience at Google. Currently, I lead machine learning engineering
+          at Sophi, where I architected and scaled intelligent paywall and
+          content curation systems serving hundreds of major publisher websites
+          globally.
         </p>
         <p>
-          My work spans across various domains, including developing scalable
-          cloud architectures, implementing advanced machine learning solutions,
-          and creating intuitive mobile experiences. I am a strong advocate for
-          agile methodologies and continuous learning, always seeking to stay at
-          the forefront of technological advancements.
+          With extensive expertise across cloud architecture, distributed
+          systems, and applied artificial intelligence, I hold multiple AWS
+          certifications, including AWS Certified Generative AI Developer -
+          Professional, Machine Learning - Specialty, and Solutions Architect -
+          Associate. My work bridges foundational research and production scale,
+          focusing on MLOps, resilient cloud backends, and high-impact AI
+          systems.
         </p>
         <p>
-          When I&apos;m not coding or researching, I enjoy sharing my knowledge
-          through blogging and mentoring, helping the next generation of
-          engineers grow and succeed in the ever-evolving tech landscape.
+          As an educator and researcher, I have published 7 peer-reviewed papers
+          in cloud security, container security, and anomaly detection, and have
+          taught over 20 university-level computer science and engineering
+          courses across four institutions. I am also the creator of production
+          mobile applications across iOS and Android with active users
+          worldwide, driven by a passion for building elegant, user-centric
+          software.
         </p>
       </div>
     </Section>

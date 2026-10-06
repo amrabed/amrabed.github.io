@@ -76,10 +76,15 @@ const ProjectView = React.memo(({ project }: { project: Project }) => {
         </div>
       </Card.Header>
 
-      <Card.Content className="p-0 mt-2 bg-transparent flex-grow">
+      <Card.Content className="p-0 mt-2 bg-transparent flex-grow space-y-2">
         <p className="text-slate-600 dark:text-slate-400 text-sm">
           {project.description}
         </p>
+        {project.details && (
+          <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">
+            {project.details}
+          </p>
+        )}
       </Card.Content>
 
       <Card.Footer className="flex flex-row justify-between items-center mt-6 p-0 bg-transparent">
