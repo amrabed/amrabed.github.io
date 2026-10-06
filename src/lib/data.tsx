@@ -184,3 +184,4 @@ export const degrees: Degree[] = resume.degrees;
 export const certifications: Certification[] = resume.certifications;
 export const projects: Project[] = resume.projects;
 export const publications: Publication[] = resume.publications;
+export const articles = resume.articles ?? [];

@@ -2,12 +2,14 @@
 
 import { memo } from "react";
 
+import { UserIcon } from "@heroicons/react/24/outline";
+
 import { Section } from "../section";
 
 export const AboutSection = memo(() => {
   return (
-    <Section id="about" title="About">
-      <div className="max-w-4xl mx-auto text-lg leading-relaxed text-slate-600 dark:text-slate-400 space-y-4 pb-20">
+    <Section id="about" title="About" icon={<UserIcon className="size-7" />}>
+      <div className="max-w-4xl mx-auto text-lg leading-relaxed text-slate-600 dark:text-slate-400 space-y-4">
         <p>
           I am an Engineering Manager, software engineer, and researcher with a
           PhD in Computer Engineering from Virginia Tech and former engineering

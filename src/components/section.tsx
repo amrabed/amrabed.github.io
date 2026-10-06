@@ -6,11 +6,13 @@ export const Section = memo(
   ({
     id,
     title,
+    icon,
     children,
     contentClassName = "section-body",
   }: {
     id: string;
     title: string;
+    icon?: ReactNode;
     children: ReactNode;
     contentClassName?: string;
   }) => {
@@ -47,7 +49,14 @@ export const Section = memo(
     return (
       <section id={id} className="section scroll-mt-48" ref={dataRef}>
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="section-heading mb-0">{title}</h2>
+          <h2 className="section-heading mb-0">
+            {icon && (
+              <span className="text-primary size-7 inline-flex items-center justify-center">
+                {icon}
+              </span>
+            )}
+            {title}
+          </h2>
         </div>
         <div className={`pop-down-child ${contentClassName}`}>{children}</div>
       </section>

@@ -18,9 +18,6 @@ const Footer = () => {
           <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
             © {new Date().getFullYear()} Amr Abed
           </p>
-          <p className="text-xs text-slate-500 dark:text-slate-400">
-            Built with Next.js 16, Tailwind CSS 4, and HeroUI 3
-          </p>
         </div>
 
         <div className="flex flex-col items-center gap-4 order-1 md:order-2">
