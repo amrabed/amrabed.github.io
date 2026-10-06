@@ -336,7 +336,7 @@
 
 /* Chat Widget Core Layout */
 .chat-widget {
-  @apply fixed right-4 sm:right-6 z-50 flex flex-col items-end transition-all duration-300;
+  @apply fixed right-4 sm:right-6 z-50 flex flex-col items-end transition-all duration-300 print:hidden;
 }
 
 .chat-widget-visible-filter {
@@ -405,4 +405,25 @@
 
 .chat-toggle-trigger {
   @apply h-14 w-14 rounded-full bg-gradient-to-tr from-indigo-600 to-violet-500 dark:from-indigo-500 dark:to-purple-500 text-white shadow-xl hover:scale-110 hover:shadow-indigo-500/30 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
+}
+
+@page {
+  margin: 1.5cm;
+}
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    color: #000000 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html,
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
 }

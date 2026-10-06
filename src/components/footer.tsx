@@ -12,7 +12,7 @@ const Footer = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <footer className="w-full bg-white dark:bg-slate-950 transition-colors duration-500 py-12 px-6">
+    <footer className="w-full bg-white dark:bg-slate-950 transition-colors duration-500 py-12 px-6 print:hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex flex-col items-center md:items-start gap-2 order-2 md:order-1">
           <p className="text-sm font-medium text-slate-900 dark:text-slate-100">

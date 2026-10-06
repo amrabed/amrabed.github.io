@@ -45,7 +45,7 @@ const ScrollToTopButton = () => {
 
   return (
     <div
-      className={`fixed ${isFilterBarVisible ? "bottom-20" : "bottom-6"} left-4 sm:left-6 z-[1000] transition-all duration-300`}
+      className={`fixed ${isFilterBarVisible ? "bottom-20" : "bottom-6"} left-4 sm:left-6 z-[1000] transition-all duration-300 print:hidden`}
     >
       <AnimatePresence>
         {isVisible && (
