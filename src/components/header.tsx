@@ -10,8 +10,8 @@ export const sections = [
   { name: "Experience", link: "#experience" },
   { name: "Education", link: "#degrees" },
   { name: "Teaching", link: "#teaching" },
+  { name: "Articles", link: "#articles" },
   { name: "About", link: "#about" },
-  { name: "Blog", link: "/blog" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -28,6 +28,18 @@ const Title = ({ onClick }: { onClick: (e: React.MouseEvent) => void }) => (
 export const MainHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleWindowScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+
+    // Check initial scroll position
+    handleWindowScroll();
+    window.addEventListener("scroll", handleWindowScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleWindowScroll);
+  }, []);
 
   useEffect(() => {
     const observerOptions = {
@@ -92,7 +104,13 @@ export const MainHeader = () => {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur-lg px-6 border-b border-divider h-16">
+    <nav
+      className={`fixed top-0 z-40 w-full bg-background/70 backdrop-blur-lg px-6 border-b border-divider h-16 transition-all duration-300 ${
+        isScrolled
+          ? "translate-y-0 opacity-100 pointer-events-auto"
+          : "-translate-y-full opacity-0 pointer-events-none"
+      }`}
+    >
       <header className="max-w-7xl mx-auto flex h-16 items-center justify-between">
         <Title onClick={handleScrollToTop} />
 
@@ -140,6 +158,12 @@ export const MainHeader = () => {
                     : "text-foreground-500"
                 }`}
                 href={section.link}
+                target={section.link.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  section.link.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
                 onClick={
                   section.link.startsWith("#")
                     ? (e) => handleScroll(e, section.link)
@@ -175,6 +199,14 @@ export const MainHeader = () => {
                       : "text-foreground-500"
                   }`}
                   href={section.link}
+                  target={
+                    section.link.startsWith("http") ? "_blank" : undefined
+                  }
+                  rel={
+                    section.link.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   onClick={
                     section.link.startsWith("#")
                       ? (e) => handleScroll(e, section.link)
