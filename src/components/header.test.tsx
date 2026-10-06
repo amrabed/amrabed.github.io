@@ -65,19 +65,23 @@ describe("MainHeader", () => {
 
     expect(getByLabelText("Open menu")).toBeInTheDocument();
   });
-  it("should render the Blog navigation link", () => {
+  it("should render the Articles navigation link", () => {
     const { getByText } = render(<MainHeader />);
-    const blogLink = getByText("Blog");
+    const articlesLink = getByText("Articles");
 
-    expect(blogLink).toBeInTheDocument();
-    expect(blogLink).toHaveAttribute("href", "https://amrabed.com/blog");
-    expect(blogLink).toHaveAttribute("target", "_blank");
+    expect(articlesLink).toBeInTheDocument();
+    expect(articlesLink).toHaveAttribute("href", "#articles");
+
+    const mockElement = { offsetTop: 800 } as HTMLElement;
+    vi.spyOn(document, "getElementById").mockReturnValue(mockElement);
 
     act(() => {
-      blogLink.click();
+      articlesLink.click();
     });
 
-    // Blog is an external link, not a smooth-scroll anchor — scrollTo should not be called
-    expect(window.scrollTo).not.toHaveBeenCalled();
+    expect(window.scrollTo).toHaveBeenCalledWith({
+      top: 700, // 800 - 100 offset
+      behavior: "smooth",
+    });
   });
 });

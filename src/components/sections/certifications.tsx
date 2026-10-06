@@ -2,6 +2,8 @@
 
 import { memo } from "react";
 
+import { ShieldCheckIcon } from "@heroicons/react/24/outline";
+
 import { certifications as certificationsData } from "@/lib/data";
 
 import { FilterableSection } from "../filterable-section";
@@ -12,6 +14,7 @@ export const CertificationsSection = memo(() => {
     <FilterableSection
       id="certifications"
       title="Certifications"
+      icon={<ShieldCheckIcon className="size-7" />}
       data={certificationsData}
       renderItem={(certificate) => (
         <SectionItemCard

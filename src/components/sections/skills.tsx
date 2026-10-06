@@ -2,6 +2,8 @@
 
 import { useMemo, memo } from "react";
 
+import { CodeBracketIcon } from "@heroicons/react/24/outline";
+
 import { useFilter } from "@/contexts/filter";
 import { useDebouncedSearch } from "@/contexts/search";
 import { areaSkills, skills as skillsData } from "@/lib/data";
@@ -49,6 +51,7 @@ export const SkillsSection = memo(() => {
     <Section
       id="skills"
       title="Technical Skills"
+      icon={<CodeBracketIcon className="size-7" />}
       contentClassName="section-body"
     >
       {filteredSkills.length > 0 ? (

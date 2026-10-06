@@ -10,7 +10,7 @@ export const sections = [
   { name: "Experience", link: "#experience" },
   { name: "Education", link: "#degrees" },
   { name: "Teaching", link: "#teaching" },
-  { name: "Blog", link: "https://amrabed.com/blog" },
+  { name: "Articles", link: "#articles" },
   { name: "About", link: "#about" },
   { name: "Contact", link: "#contact" },
 ];
