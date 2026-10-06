@@ -4,10 +4,9 @@
     "name": "Amr Abed",
     "label": "Engineering Manager | PhD, AWS Certified | AI & Cloud",
     "tagline": "PhD · Engineering Manager · AWS Certified · Cloud & AI Architect",
-    "email": "amr.abed@gmail.com",
     "url": "https://amrabed.com",
     "image": "/amrabed.webp",
-    "resumeUrl": "/resume.pdf",
+    "resumeUrl": "/AmrAbed.pdf",
     "summary": "Engineering Manager, software engineer, and researcher with a PhD in Computer Engineering from Virginia Tech and former engineering experience at Google. Currently leading machine learning engineering at Sophi.",
     "location": {
       "city": "Toronto",
@@ -1252,31 +1251,31 @@
   ],
   "articles": [
     {
-      "id": "scaling-ml-paywalls",
-      "title": "Scaling Machine Learning Paywall Systems on AWS EKS",
-      "summary": "Architectural lessons from rebuilding Sophi's real-time paywall scoring pipeline serving millions of reader decisions daily across hundreds of publication sites.",
-      "date": "2024-03-15",
-      "url": "https://amrabed.medium.com",
-      "readTime": "6 min read",
-      "tags": ["Machine Learning", "Cloud", "AWS"]
+      "id": "aws-lambda-templates",
+      "title": "Stop Writing Lambda Boilerplate",
+      "summary": "Accelerate your serverless development with production-grade Python templates for AWS Lambda, pre-wired with best practices and modern tooling.",
+      "date": "2026-04-18",
+      "url": "https://amrabed.com/blog/aws-lambda-templates/",
+      "readTime": "5 min read",
+      "tags": ["AWS", "Serverless", "Python"]
     },
     {
-      "id": "securing-containers-ebpf",
-      "title": "Container Anomaly Detection: Lessons from PhD Research to Production",
-      "summary": "Deep dive into anomaly detection in Linux containers using system call tracing, deep learning (LSTM), and real-time behavioral modeling.",
-      "date": "2023-11-20",
-      "url": "https://amrabed.medium.com",
-      "readTime": "8 min read",
-      "tags": ["Security", "Cloud", "Docker"]
-    },
-    {
-      "id": "aws-genai-developer-certification",
-      "title": "Preparing for AWS Certified Generative AI Developer - Professional",
-      "summary": "Key concepts, hands-on architectural patterns, and practical study strategies for mastering generative AI development on AWS.",
-      "date": "2026-03-10",
-      "url": "https://amrabed.medium.com",
+      "id": "openclaw-whatsapp-agent",
+      "title": "Self-Host an AI Agent Using OpenClaw and WhatsApp Cloud API (2026)",
+      "summary": "You shouldn't need to pay a middleman to put your AI agent on WhatsApp. Here is how to connect OpenClaw directly to WhatsApp Cloud API.",
+      "date": "2026-04-04",
+      "url": "https://amrabed.com/blog/openclaw-whatsapp-agent/",
       "readTime": "7 min read",
-      "tags": ["Cloud", "Machine Learning", "Generative AI"]
+      "tags": ["AI Agents", "WhatsApp", "OpenClaw"]
+    },
+    {
+      "id": "aip-c01-study-plan",
+      "title": "The Only AIP-C01 Study Plan You Need",
+      "summary": "Passed the AWS Certified Generative AI Developer Professional (AIP-C01) exam as an early adopter (first 5,000 worldwide). Here is the exact 6-week study plan.",
+      "date": "2026-03-24",
+      "url": "https://amrabed.com/blog/aip-c01-study-plan/",
+      "readTime": "8 min read",
+      "tags": ["AWS", "Generative AI", "Certifications"]
     }
   ]
 }

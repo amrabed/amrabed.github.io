@@ -27,7 +27,7 @@ export interface Basics {
   name: string;
   label: string;
   tagline: string;
-  email: string;
+  email?: string;
   url: string;
   image: string;
   resumeUrl?: string;

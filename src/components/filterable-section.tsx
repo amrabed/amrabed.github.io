@@ -29,6 +29,7 @@ type SupportedItem = Project | Position | Certification | Degree | Publication;
 interface FilterableSectionProps<T extends FilterableItem> {
   id: string;
   title: string;
+  icon?: React.ReactNode;
   data: T[];
   renderItem: (item: T) => React.ReactNode;
   renderContainer?: (items: T[]) => React.ReactNode;
@@ -39,6 +40,7 @@ interface FilterableSectionProps<T extends FilterableItem> {
 export const FilterableSection = <T extends FilterableItem>({
   id,
   title,
+  icon,
   data,
   renderItem,
   renderContainer,
@@ -103,6 +105,7 @@ export const FilterableSection = <T extends FilterableItem>({
     <Section
       id={id}
       title={title}
+      icon={icon}
       contentClassName={renderContainer ? "" : gridClassName}
     >
       {sectionContent}
