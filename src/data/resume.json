@@ -138,7 +138,7 @@
     },
     "aws": {
       "name": "AWS",
-      "color": "#232F3E"
+      "color": "#FF9900"
     },
     "google cloud": {
       "name": "Google Cloud",

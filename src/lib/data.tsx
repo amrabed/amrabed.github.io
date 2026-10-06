@@ -85,7 +85,7 @@ const skillColors: Record<string, Color> = {
   tensorflow: "#FF6F00",
   "scikit-learn": "#F7931E",
   mlflow: "#0194E2",
-  aws: "#232F3E",
+  aws: "#FF9900",
   "google cloud": "#4285F4",
   docker: "#2496ED",
   kubernetes: "#326CE5",
