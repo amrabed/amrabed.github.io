@@ -40,7 +40,9 @@ const Social = ({
                         profile.name === "Medium" ||
                         profile.name === "X"
                           ? "#f4f4f5"
-                          : profile.color,
+                          : profile.name === "Goodreads"
+                            ? "#f4f1ea"
+                            : profile.color,
                     } as unknown as React.CSSProperties)
                   : undefined
               }

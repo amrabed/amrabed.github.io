@@ -123,12 +123,26 @@ describe("UI Components", () => {
           icon: "LI",
           color: "#0A66C2",
         },
+        {
+          name: "Goodreads",
+          link: "https://goodreads.com",
+          icon: "GR",
+          color: "#372213",
+        },
       ];
       const { getByLabelText } = render(<Social profiles={customProfiles} />);
-      const btn = getByLabelText("LinkedIn (opens in a new tab)");
-      expect(btn.style.getPropertyValue("--social-hover-color")).toBe(
+      const linkedInBtn = getByLabelText("LinkedIn (opens in a new tab)");
+      expect(linkedInBtn.style.getPropertyValue("--social-hover-color")).toBe(
         "#0A66C2",
       );
+
+      const goodreadsBtn = getByLabelText("Goodreads (opens in a new tab)");
+      expect(goodreadsBtn.style.getPropertyValue("--social-hover-color")).toBe(
+        "#372213",
+      );
+      expect(
+        goodreadsBtn.style.getPropertyValue("--social-hover-color-dark"),
+      ).toBe("#f4f1ea");
     });
   });
 
