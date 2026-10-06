@@ -6,7 +6,6 @@ import { useEffect, useRef, useState, memo } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 import Social from "@/components/social";
-import ThemeSwitch from "@/components/theme-switch";
 
 const HeroSection = memo(() => {
   const [mounted, setMounted] = useState(false);
@@ -43,10 +42,7 @@ const HeroSection = memo(() => {
   }, []);
 
   return (
-    <section id="home" ref={homeRef} className="w-full in-view relative">
-      <div className="absolute top-4 right-4 sm:right-8 z-30">
-        <ThemeSwitch />
-      </div>
+    <section id="home" ref={homeRef} className="w-full in-view">
       <div className="hero-container flex flex-col justify-between">
         <div className="w-full flex-grow flex flex-col md:flex-row items-center justify-between gap-8 my-auto">
           <div className="hero-intro flex flex-col items-center md:items-start text-center md:text-left">
