@@ -114,6 +114,22 @@ describe("UI Components", () => {
       const { container } = render(<Social className="custom-test-class" />);
       expect(container.firstChild).toHaveClass("custom-test-class");
     });
+
+    it("should set custom hover color variables when profile has a brand color", () => {
+      const customProfiles = [
+        {
+          name: "LinkedIn",
+          link: "https://linkedin.com",
+          icon: "LI",
+          color: "#0A66C2",
+        },
+      ];
+      const { getByLabelText } = render(<Social profiles={customProfiles} />);
+      const btn = getByLabelText("LinkedIn (opens in a new tab)");
+      expect(btn.style.getPropertyValue("--social-hover-color")).toBe(
+        "#0A66C2",
+      );
+    });
   });
 
   describe("ScrollToTopButton (upArrow)", () => {

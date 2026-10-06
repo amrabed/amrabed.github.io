@@ -128,6 +128,18 @@ const roleColors: Record<string, Color> = {
   instructor: "green",
 };
 
+const profileColors: Record<string, Color> = {
+  LinkedIn: "#0A66C2",
+  GitHub: "#181717",
+  "Google Scholar": "#4285F4",
+  "Stack Overflow": "#F58025",
+  Goodreads: "#372213",
+  StackShare: "#0690FA",
+  Medium: "#000000",
+  YouTube: "#FF0000",
+  X: "#000000",
+};
+
 const profileIcons: Record<string, ReactNode> = {
   LinkedIn: <FaLinkedinIn />,
   GitHub: <FaGithub />,
@@ -176,6 +188,7 @@ export const profiles: Profile[] = resume.basics.profiles.map((p) => ({
   name: p.name,
   link: p.link,
   icon: profileIcons[p.name] ?? null,
+  color: profileColors[p.name],
 }));
 
 export const areaSkills: Record<string, string[]> = resume.areaSkills;

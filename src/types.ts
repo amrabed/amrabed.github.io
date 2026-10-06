@@ -46,6 +46,7 @@ export interface Basics {
 export interface Profile extends Icon {
   name: string;
   link: string;
+  color?: Color;
 }
 
 export interface Article {
