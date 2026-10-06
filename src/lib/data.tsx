@@ -89,12 +89,12 @@ const skillColors: Record<string, Color> = {
   "google cloud": "#4285F4",
   docker: "#2496ED",
   kubernetes: "#326CE5",
-  firebase: "#FFC107",
-  android: "#A4C639",
-  kotlin: "#7F52A2",
-  java: "#B00040",
+  firebase: "#DD2C00",
+  android: "#3DDC84",
+  kotlin: "#7F52FF",
+  java: "#007396",
   "c++": "#00599C",
-  swift: "#FF9900",
+  swift: "#F05138",
   flutter: "#02569B",
   javascript: "#F7DF1E",
   typescript: "#3178C6",
@@ -126,6 +126,18 @@ const roleColors: Record<string, Color> = {
   engineer: "blue",
   researcher: "orange",
   instructor: "green",
+};
+
+const profileColors: Record<string, Color> = {
+  LinkedIn: "#0A66C2",
+  GitHub: "#181717",
+  "Google Scholar": "#4285F4",
+  "Stack Overflow": "#F58025",
+  Goodreads: "#372213",
+  StackShare: "#0690FA",
+  Medium: "#000000",
+  YouTube: "#FF0000",
+  X: "#000000",
 };
 
 const profileIcons: Record<string, ReactNode> = {
@@ -176,6 +188,7 @@ export const profiles: Profile[] = resume.basics.profiles.map((p) => ({
   name: p.name,
   link: p.link,
   icon: profileIcons[p.name] ?? null,
+  color: profileColors[p.name],
 }));
 
 export const areaSkills: Record<string, string[]> = resume.areaSkills;

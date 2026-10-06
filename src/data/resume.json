@@ -154,19 +154,19 @@
     },
     "firebase": {
       "name": "Firebase",
-      "color": "#FFC107"
+      "color": "#DD2C00"
     },
     "android": {
       "name": "Android",
-      "color": "#A4C639"
+      "color": "#3DDC84"
     },
     "kotlin": {
       "name": "Kotlin",
-      "color": "#7F52A2"
+      "color": "#7F52FF"
     },
     "java": {
       "name": "Java",
-      "color": "#B00040"
+      "color": "#007396"
     },
     "c++": {
       "name": "C/C++",
@@ -174,7 +174,7 @@
     },
     "swift": {
       "name": "Swift",
-      "color": "#FF9900"
+      "color": "#F05138"
     },
     "flutter": {
       "name": "Flutter",
