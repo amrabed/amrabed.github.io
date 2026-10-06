@@ -47,12 +47,16 @@ describe("React Contexts & Hooks", () => {
   });
 
   describe("Theme Context & Hook", () => {
-    it("should default to dark theme and persist toggle changes", () => {
+    it("should default to system theme and persist setTheme changes", () => {
       const TestComponent = () => {
-        const { theme, toggleTheme } = useTheme();
+        const { theme, setTheme, toggleTheme, resolvedTheme } = useTheme();
         return (
           <div>
             <span data-testid="theme">{theme}</span>
+            <span data-testid="resolved">{resolvedTheme}</span>
+            <button data-testid="set-dark" onClick={() => setTheme("dark")}>
+              Dark
+            </button>
             <button data-testid="toggle" onClick={toggleTheme}>
               Toggle
             </button>
@@ -66,29 +70,36 @@ describe("React Contexts & Hooks", () => {
         </ThemeProvider>,
       );
 
+      expect(getByTestId("theme").textContent).toBe("system");
+
+      act(() => {
+        getByTestId("set-dark").click();
+      });
+
       expect(getByTestId("theme").textContent).toBe("dark");
+      expect(getByTestId("resolved").textContent).toBe("dark");
+      expect(localStorage.getItem("currentTheme")).toBe("dark");
 
       act(() => {
         getByTestId("toggle").click();
       });
 
       expect(getByTestId("theme").textContent).toBe("light");
+      expect(getByTestId("resolved").textContent).toBe("light");
       expect(localStorage.getItem("currentTheme")).toBe("light");
-
-      act(() => {
-        getByTestId("toggle").click();
-      });
-
-      expect(getByTestId("theme").textContent).toBe("dark");
-      expect(localStorage.getItem("currentTheme")).toBe("dark");
     });
 
     it("should load persisted theme from localStorage", () => {
       localStorage.setItem("currentTheme", "light");
 
       const TestComponent = () => {
-        const { theme } = useTheme();
-        return <span data-testid="theme">{theme}</span>;
+        const { theme, resolvedTheme } = useTheme();
+        return (
+          <div>
+            <span data-testid="theme">{theme}</span>
+            <span data-testid="resolved">{resolvedTheme}</span>
+          </div>
+        );
       };
 
       const { getByTestId } = render(
@@ -98,6 +109,43 @@ describe("React Contexts & Hooks", () => {
       );
 
       expect(getByTestId("theme").textContent).toBe("light");
+      expect(getByTestId("resolved").textContent).toBe("light");
+    });
+
+    it("should respond to system media query changes when theme is system", () => {
+      let changeListener: ((e: MediaQueryListEvent) => void) | undefined;
+      const matchMediaMock = vi.fn().mockImplementation((query: string) => ({
+        matches: true,
+        media: query,
+        addEventListener: vi.fn(
+          (event: string, cb: (e: MediaQueryListEvent) => void) => {
+            if (event === "change") changeListener = cb;
+          },
+        ),
+        removeEventListener: vi.fn(),
+      }));
+      window.matchMedia = matchMediaMock;
+
+      const TestComponent = () => {
+        const { resolvedTheme } = useTheme();
+        return <span data-testid="resolved">{resolvedTheme}</span>;
+      };
+
+      const { getByTestId } = render(
+        <ThemeProvider>
+          <TestComponent />
+        </ThemeProvider>,
+      );
+
+      expect(getByTestId("resolved").textContent).toBe("dark");
+
+      act(() => {
+        if (changeListener) {
+          changeListener({ matches: false } as MediaQueryListEvent);
+        }
+      });
+
+      expect(getByTestId("resolved").textContent).toBe("light");
     });
 
     it("should throw error if useTheme is called outside provider", () => {

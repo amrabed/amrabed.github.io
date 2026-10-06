@@ -74,8 +74,8 @@ describe("MainHeader", () => {
   });
 
   it("should render the theme switch", () => {
-    const { getAllByLabelText } = render(<MainHeader />);
-    const switches = getAllByLabelText("Toggle dark mode");
+    const { getAllByRole } = render(<MainHeader />);
+    const switches = getAllByRole("radiogroup", { name: "Theme selector" });
     expect(switches.length).toBeGreaterThanOrEqual(1);
   });
   it("should render the Articles navigation link", () => {

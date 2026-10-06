@@ -9,8 +9,12 @@ import React, {
   useState,
 } from "react";
 
+export type ThemeMode = "light" | "dark" | "system";
+
 export type ThemeContextType = {
-  theme: string;
+  theme: ThemeMode;
+  resolvedTheme: "light" | "dark";
+  setTheme: (theme: ThemeMode) => void;
   toggleTheme: () => void;
 };
 
@@ -28,42 +32,59 @@ export const useTheme: () => ThemeContextType = () => {
 };
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setThemeState] = useState<ThemeMode>("system");
+  const [systemTheme, setSystemTheme] = useState<"light" | "dark">("dark");
   const [mounted, setMounted] = useState(false);
 
-  const toggleTheme = React.useCallback(() => {
-    if (theme === "dark") {
-      setTheme("light");
-      localStorage.setItem("currentTheme", "light");
-    } else {
-      setTheme("dark");
-      localStorage.setItem("currentTheme", "dark");
-    }
-  }, [theme]);
-
-  // Get Theme Value From LocalStorage
+  // Read persisted theme on mount & listen for system preference changes
   useEffect(() => {
     setMounted(true);
-    const getTheme = localStorage.getItem("currentTheme");
-    if (!getTheme) {
-      return;
+    const stored = localStorage.getItem("currentTheme") as ThemeMode | null;
+    if (stored === "light" || stored === "dark" || stored === "system") {
+      setThemeState(stored);
     }
-    setTheme(getTheme);
+
+    if (typeof window !== "undefined" && window.matchMedia) {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      setSystemTheme(mediaQuery.matches ? "dark" : "light");
+
+      const handler = (e: MediaQueryListEvent) => {
+        setSystemTheme(e.matches ? "dark" : "light");
+      };
+
+      mediaQuery.addEventListener?.("change", handler);
+      return () => mediaQuery.removeEventListener?.("change", handler);
+    }
   }, []);
+
+  const setTheme = React.useCallback((newTheme: ThemeMode) => {
+    setThemeState(newTheme);
+    localStorage.setItem("currentTheme", newTheme);
+  }, []);
+
+  const toggleTheme = React.useCallback(() => {
+    setThemeState((prev) => {
+      const next: ThemeMode = prev === "dark" ? "light" : "dark";
+      localStorage.setItem("currentTheme", next);
+      return next;
+    });
+  }, []);
+
+  const resolvedTheme = theme === "system" ? systemTheme : theme;
 
   useEffect(() => {
     if (mounted) {
-      if (theme === "dark") {
+      if (resolvedTheme === "dark") {
         document.documentElement.classList.add("dark");
       } else {
         document.documentElement.classList.remove("dark");
       }
     }
-  }, [theme, mounted]);
+  }, [resolvedTheme, mounted]);
 
   const contextValue = useMemo(
-    () => ({ theme, toggleTheme }),
-    [theme, toggleTheme],
+    () => ({ theme, resolvedTheme, setTheme, toggleTheme }),
+    [theme, resolvedTheme, setTheme, toggleTheme],
   );
 
   return (
