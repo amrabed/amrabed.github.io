@@ -362,7 +362,7 @@ exports[`getConsolidatedContext > should match the existing snapshot 1`] = `
 - Title: Securing Cloud Containers through Intrusion Detection and Remediation
   Authors: Amr S. Abed
   Venue: PhD Dissertation, Virginia Tech (2017)
-  Links: {"fulltext":"https://vtechworks.lib.vt.edu/handle/10919/87730","presentation":"https://www.slideshare.net/secret/dWT9Fwk08rZqJU"}
+  Links: {"fulltext":"https://vtechworks.lib.vt.edu/handle/10919/87730","presentation":"https://www.slideshare.net/slideshow/securing-cloud-containers-through-intrusion-detection-and-remediation/151073487"}
 
 - Title: Intrusion Detection System for Applications using Linux Containers
   Authors: Amr S. Abed, Charles Clancy, David Levy

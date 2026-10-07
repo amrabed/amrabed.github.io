@@ -1132,7 +1132,7 @@
       "type": "phdthesis",
       "links": {
         "fulltext": "https://vtechworks.lib.vt.edu/handle/10919/87730",
-        "presentation": "https://www.slideshare.net/secret/dWT9Fwk08rZqJU"
+        "presentation": "https://www.slideshare.net/slideshow/securing-cloud-containers-through-intrusion-detection-and-remediation/151073487"
       },
       "skills": ["docker", "python", "tensorflow"],
       "tags": ["security", "cloud", "machine learning"],
@@ -1294,7 +1294,7 @@
       "event": "PhD Dissertation Defense, Virginia Tech",
       "date": "2017-07-20",
       "links": {
-        "slideshare": "https://www.slideshare.net/secret/dWT9Fwk08rZqJU"
+        "slideshare": "https://www.slideshare.net/slideshow/securing-cloud-containers-through-intrusion-detection-and-remediation/151073487"
       },
       "tags": ["cloud", "security", "machine learning"]
     }
