@@ -21,6 +21,10 @@ const Social = ({
         <Tooltip key={profile.name}>
           <Tooltip.Trigger>
             <Button
+              as="a"
+              href={profile.link}
+              target="_blank"
+              rel="noopener noreferrer me"
               variant="ghost"
               size="lg"
               isIconOnly
@@ -45,9 +49,6 @@ const Social = ({
                             : profile.color,
                     } as unknown as React.CSSProperties)
                   : undefined
-              }
-              onPress={() =>
-                window.open(profile.link, "_blank", "noopener,noreferrer")
               }
             >
               {profile.icon}

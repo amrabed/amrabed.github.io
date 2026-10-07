@@ -133,7 +133,7 @@ const PublicationView = React.memo(
   ({ publication }: { publication: Publication }) => {
     const isFeatured = publication.featured;
     return (
-      <Card className="card-container h-full">
+      <Card id={publication.id} className="card-container h-full">
         <Card.Header className="flex justify-between items-start gap-4 p-0 bg-transparent">
           <div className="flex flex-col gap-1">
             <h3 className={`card-title ${isFeatured ? "text-2xl" : "text-xl"}`}>

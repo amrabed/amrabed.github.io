@@ -2,13 +2,13 @@
 
 ## Step 1: Quick Fixes (High Impact, Low Effort)
 
-- [ ] **Task 1: Fix Social Links (`rel="me"`)**
+- [x] **Task 1: Fix Social Links (`rel="me"`)**
   - Refactor `src/components/social.tsx` to render an actual `<a href="..." rel="noopener noreferrer me" target="_blank">` tag instead of relying solely on `window.open` inside the Button.
 
-- [ ] **Task 2: Add Card Anchors (Deep Linking)**
+- [x] **Task 2: Add Card Anchors (Deep Linking)**
   - Add `id={project.id}` to the `Card` components in `src/components/project.tsx`, `src/components/publication.tsx`, and others to enable direct deep linking (e.g., `amrabed.com/#sophi-paywall`).
 
-- [ ] **Task 3: Create Custom 404**
+- [x] **Task 3: Create Custom 404**
   - Create `src/app/not-found.tsx` with a simple branded message and a button redirecting back to `/`.
 
 ## Step 2: Event Tracking Integration
