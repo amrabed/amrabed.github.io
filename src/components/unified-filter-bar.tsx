@@ -6,6 +6,7 @@ import { memo, useCallback } from "react";
 
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "@heroui/react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 import { useFilter } from "@/contexts/filter";
 import { useSearch } from "@/contexts/search";
@@ -31,8 +32,6 @@ const ROLE_OPTIONS = Object.entries(roles).map(([id, r]) => ({
   name: r.name,
 }));
 
-import { sendGAEvent } from "@next/third-parties/google";
-
 // ⚡ Optimization: Sub-component connected directly to FilterStateContext or memoized handlers.
 // Since FilterDropdown is memoized and receives memoized area/skill/role callbacks, it does not
 // re-render on search query keystrokes when the user is typing in Searchbar.
@@ -42,7 +41,11 @@ const FilterDropdownContainer = memo(() => {
   const handleSetAreas = useCallback(
     (vals: string[]) => {
       setSelected("areas", vals);
-      sendGAEvent({ event: "filter_change", category: "areas", count: vals.length });
+      sendGAEvent({
+        event: "filter_change",
+        category: "areas",
+        count: vals.length,
+      });
     },
     [setSelected],
   );
@@ -50,7 +53,11 @@ const FilterDropdownContainer = memo(() => {
   const handleSetSkills = useCallback(
     (vals: string[]) => {
       setSelected("skills", vals);
-      sendGAEvent({ event: "filter_change", category: "skills", count: vals.length });
+      sendGAEvent({
+        event: "filter_change",
+        category: "skills",
+        count: vals.length,
+      });
     },
     [setSelected],
   );
@@ -58,7 +65,11 @@ const FilterDropdownContainer = memo(() => {
   const handleSetRoles = useCallback(
     (vals: string[]) => {
       setSelected("roles", vals);
-      sendGAEvent({ event: "filter_change", category: "roles", count: vals.length });
+      sendGAEvent({
+        event: "filter_change",
+        category: "roles",
+        count: vals.length,
+      });
     },
     [setSelected],
   );
