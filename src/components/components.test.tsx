@@ -95,7 +95,7 @@ describe("UI Components", () => {
   });
 
   describe("Social", () => {
-    it("should render profiles and invoke window.open on press", () => {
+    it("should render profiles with correct anchor attributes", () => {
       const customProfiles = [
         { name: "GitHub", link: "https://github.com", icon: "GH" },
       ];
@@ -103,16 +103,9 @@ describe("UI Components", () => {
       const { getByLabelText } = render(<Social profiles={customProfiles} />);
       const btn = getByLabelText("GitHub (opens in a new tab)");
       expect(btn).toBeInTheDocument();
-
-      act(() => {
-        btn.click();
-      });
-
-      expect(mockOpen).toHaveBeenCalledWith(
-        "https://github.com",
-        "_blank",
-        "noopener,noreferrer",
-      );
+      expect(btn).toHaveAttribute("href", "https://github.com");
+      expect(btn).toHaveAttribute("target", "_blank");
+      expect(btn).toHaveAttribute("rel", "noopener noreferrer me");
     });
 
     it("should apply custom className when provided", () => {

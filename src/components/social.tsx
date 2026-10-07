@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Tooltip } from "@heroui/react";
+import { Tooltip } from "@heroui/react";
 
 import { profiles } from "@/lib/data";
 import { Profile } from "@/types";
@@ -20,12 +20,12 @@ const Social = ({
       {socialProfiles.map((profile) => (
         <Tooltip key={profile.name}>
           <Tooltip.Trigger>
-            <Button
-              variant="ghost"
-              size="lg"
-              isIconOnly
+            <a
+              href={profile.link}
+              target="_blank"
+              rel="noopener noreferrer me"
               aria-label={`${profile.name} (opens in a new tab)`}
-              className="text-slate-500 rounded-full text-2xl transition-colors duration-200 hover:text-[var(--social-hover-color)] dark:hover:text-[var(--social-hover-color-dark,var(--social-hover-color))]"
+              className="inline-flex items-center justify-center text-slate-500 rounded-full text-2xl transition-colors duration-200 hover:text-[var(--social-hover-color)] dark:hover:text-[var(--social-hover-color-dark,var(--social-hover-color))] p-2"
               style={
                 profile.color
                   ? ({
@@ -46,12 +46,9 @@ const Social = ({
                     } as unknown as React.CSSProperties)
                   : undefined
               }
-              onPress={() =>
-                window.open(profile.link, "_blank", "noopener,noreferrer")
-              }
             >
               {profile.icon}
-            </Button>
+            </a>
           </Tooltip.Trigger>
           <Tooltip.Content>
             <Tooltip.Arrow />
