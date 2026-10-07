@@ -20,16 +20,12 @@ const Social = ({
       {socialProfiles.map((profile) => (
         <Tooltip key={profile.name}>
           <Tooltip.Trigger>
-            <Button
-              as="a"
+            <a
               href={profile.link}
               target="_blank"
               rel="noopener noreferrer me"
-              variant="ghost"
-              size="lg"
-              isIconOnly
               aria-label={`${profile.name} (opens in a new tab)`}
-              className="text-slate-500 rounded-full text-2xl transition-colors duration-200 hover:text-[var(--social-hover-color)] dark:hover:text-[var(--social-hover-color-dark,var(--social-hover-color))]"
+              className="inline-flex items-center justify-center text-slate-500 rounded-full text-2xl transition-colors duration-200 hover:text-[var(--social-hover-color)] dark:hover:text-[var(--social-hover-color-dark,var(--social-hover-color))] p-2"
               style={
                 profile.color
                   ? ({
@@ -52,7 +48,7 @@ const Social = ({
               }
             >
               {profile.icon}
-            </Button>
+            </a>
           </Tooltip.Trigger>
           <Tooltip.Content>
             <Tooltip.Arrow />
