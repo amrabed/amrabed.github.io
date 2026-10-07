@@ -55,15 +55,22 @@ export const TeachingSection = memo(() => {
                             className="inline-flex items-center gap-1 hover:text-primary transition-colors hover:underline"
                           >
                             <span>{c.title}</span>
+                            {c.code && (
+                              <span className="text-xs text-slate-500">
+                                ({c.code})
+                              </span>
+                            )}
                             <FaArrowUpRightFromSquare className="size-3 text-slate-400 group-hover:text-primary inline-block" />
                           </a>
                         ) : (
-                          c.title
-                        )}
-                        {c.code && (
-                          <span className="text-xs text-slate-500 ml-1">
-                            ({c.code})
-                          </span>
+                          <>
+                            {c.title}
+                            {c.code && (
+                              <span className="text-xs text-slate-500 ml-1">
+                                ({c.code})
+                              </span>
+                            )}
+                          </>
                         )}
                       </span>
                     </li>
@@ -105,15 +112,22 @@ export const TeachingSection = memo(() => {
                             className="inline-flex items-center gap-1 hover:text-primary transition-colors hover:underline"
                           >
                             <span>{c.title}</span>
+                            {c.code && (
+                              <span className="text-xs text-slate-500">
+                                ({c.code})
+                              </span>
+                            )}
                             <FaArrowUpRightFromSquare className="size-3 text-slate-400 group-hover:text-primary inline-block" />
                           </a>
                         ) : (
-                          c.title
-                        )}
-                        {c.code && (
-                          <span className="text-xs text-slate-500 ml-1">
-                            ({c.code})
-                          </span>
+                          <>
+                            {c.title}
+                            {c.code && (
+                              <span className="text-xs text-slate-500 ml-1">
+                                ({c.code})
+                              </span>
+                            )}
+                          </>
                         )}
                       </span>
                     </li>

@@ -1254,7 +1254,7 @@
       "title": "Stop Writing Lambda Boilerplate",
       "summary": "Accelerate your serverless development with production-grade Python templates for AWS Lambda, pre-wired with best practices and modern tooling.",
       "date": "2026-04-18",
-      "url": "https://amrabed.com/blog/aws-lambda-templates/",
+      "url": "https://amrabed.com/blog/aws-lambda-templates",
       "readTime": "5 min read",
       "tags": ["AWS", "Serverless", "Python"]
     },
@@ -1263,7 +1263,7 @@
       "title": "Self-Host an AI Agent Using OpenClaw and WhatsApp Cloud API (2026)",
       "summary": "You shouldn't need to pay a middleman to put your AI agent on WhatsApp. Here is how to connect OpenClaw directly to WhatsApp Cloud API.",
       "date": "2026-04-04",
-      "url": "https://amrabed.com/blog/openclaw-whatsapp-agent/",
+      "url": "https://amrabed.com/blog/openclaw-whatsapp-agent",
       "readTime": "7 min read",
       "tags": ["AI Agents", "WhatsApp", "OpenClaw"]
     },
@@ -1272,7 +1272,7 @@
       "title": "The Only AIP-C01 Study Plan You Need",
       "summary": "Passed the AWS Certified Generative AI Developer Professional (AIP-C01) exam as an early adopter (first 5,000 worldwide). Here is the exact 6-week study plan.",
       "date": "2026-03-24",
-      "url": "https://amrabed.com/blog/aip-c01-study-plan/",
+      "url": "https://amrabed.com/blog/aip-c01-study-plan",
       "readTime": "8 min read",
       "tags": ["AWS", "Generative AI", "Certifications"]
     }
