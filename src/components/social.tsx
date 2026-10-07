@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Tooltip } from "@heroui/react";
+import { Tooltip } from "@heroui/react";
 
 import { profiles } from "@/lib/data";
 import { Profile } from "@/types";

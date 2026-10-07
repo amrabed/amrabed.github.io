@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@heroui/react";
 
 export default function NotFound() {
   return (
@@ -13,15 +12,12 @@ export default function NotFound() {
       <p className="text-slate-600 dark:text-slate-400 mt-2 max-w-md">
         Sorry, the page you are looking for doesn't exist or has been moved.
       </p>
-      <Button
-        as={Link}
+      <Link
         href="/"
-        className="mt-8 px-8 bg-primary text-white"
-        variant="shadow"
-        size="lg"
+        className="mt-8 px-8 py-3 rounded-xl bg-primary text-white font-medium shadow-sm hover:opacity-90 transition-opacity"
       >
         Go Home
-      </Button>
+      </Link>
     </div>
   );
 }
