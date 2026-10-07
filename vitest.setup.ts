@@ -21,3 +21,11 @@ Object.defineProperty(window, "localStorage", {
   value: localStorageMock,
   writable: true,
 });
+
+if (typeof globalThis.requestAnimationFrame === "undefined") {
+  globalThis.requestAnimationFrame = (callback: FrameRequestCallback) =>
+    setTimeout(callback, 0) as unknown as number;
+  globalThis.cancelAnimationFrame = (id: number) => {
+    clearTimeout(id);
+  };
+}

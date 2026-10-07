@@ -15,6 +15,10 @@ import Social from "./social";
 import ScrollToTopButton from "./upArrow";
 
 // Mock HeroUI Tooltip and other components to simplify testing
+vi.mock("react-type-animation", () => ({
+  TypeAnimation: () => <span>n Engineer</span>,
+}));
+
 vi.mock("@heroui/react", async (importOriginal) => {
   const actual: any = await importOriginal();
   const MockTooltip = ({ children }: any) => <div>{children}</div>;
