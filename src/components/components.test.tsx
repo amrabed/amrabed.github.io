@@ -10,10 +10,15 @@ import { IconLink } from "./icon-link";
 import { Section } from "./section";
 import { SectionItemCard } from "./section-item-card";
 import { ContactSection } from "./sections/contact";
+import HeroSection from "./sections/hero";
 import Social from "./social";
 import ScrollToTopButton from "./upArrow";
 
 // Mock HeroUI Tooltip and other components to simplify testing
+vi.mock("react-type-animation", () => ({
+  TypeAnimation: () => <span>n Engineer</span>,
+}));
+
 vi.mock("@heroui/react", async (importOriginal) => {
   const actual: any = await importOriginal();
   const MockTooltip = ({ children }: any) => <div>{children}</div>;
@@ -275,6 +280,22 @@ describe("UI Components", () => {
 
       expect(getByText("Get In Touch")).toBeInTheDocument();
       expect(getByText("Connect on LinkedIn")).toBeInTheDocument();
+
+      const resumeLink = getByRole("link", {
+        name: /view amr abed's resume/i,
+      });
+      expect(resumeLink).toBeInTheDocument();
+      expect(resumeLink).toHaveAttribute("href", resumeJson.basics.resumeUrl);
+      expect(resumeLink).toHaveAttribute("target", "_blank");
+    });
+  });
+
+  describe("HeroSection", () => {
+    it("should render hero heading and CTA buttons", () => {
+      const { getByText, getByRole } = render(<HeroSection />);
+
+      expect(getByText("Amr Abed")).toBeInTheDocument();
+      expect(getByText("About Me")).toHaveAttribute("href", "#about");
 
       const resumeLink = getByRole("link", {
         name: /view amr abed's resume/i,
