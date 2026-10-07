@@ -277,12 +277,11 @@ describe("UI Components", () => {
       expect(getByText("Connect on LinkedIn")).toBeInTheDocument();
 
       const resumeLink = getByRole("link", {
-        name: /download amr abed's resume/i,
+        name: /view amr abed's resume/i,
       });
       expect(resumeLink).toBeInTheDocument();
       expect(resumeLink).toHaveAttribute("href", resumeJson.basics.resumeUrl);
       expect(resumeLink).toHaveAttribute("target", "_blank");
-      expect(resumeLink).toHaveAttribute("download", "AmrAbed.pdf");
     });
   });
 });

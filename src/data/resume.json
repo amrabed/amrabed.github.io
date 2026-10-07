@@ -6,7 +6,7 @@
     "tagline": "PhD · Engineering Manager · AWS Certified · Cloud & AI Architect",
     "url": "https://amrabed.com",
     "image": "/amrabed.webp",
-    "resumeUrl": "https://github.com/amrabed/resume/releases/latest/download/AmrAbed.pdf",
+    "resumeUrl": "https://amrabed.com/resume",
     "summary": "Engineering Manager, software engineer, and researcher with a PhD in Computer Engineering from Virginia Tech and former engineering experience at Google. Currently leading machine learning engineering at Sophi.",
     "location": {
       "city": "Toronto",
@@ -326,7 +326,6 @@
           "title": "Database Systems",
           "semester": "Spring 2019, Fall 2019",
           "code": "CSE 315",
-          "link": "https://courses.amrabed.com/course/view.php?id=3",
           "description": "This course teaches undergraduate Computer Engineering students the basic concepts of databases management systems, focusing on relational databases and SQL"
         },
         {
@@ -334,7 +333,7 @@
           "title": "Programming Languages",
           "semester": "Fall 2018",
           "code": "CSE 115",
-          "link": "https://courses.amrabed.com/course/view.php?id=10",
+          "link": "https://amrabed.com/courses/cse115/",
           "description": "This course teaches first-year Computer & System Engineering (CSE) students the basic principles of programming using C++"
         },
         {
@@ -342,7 +341,7 @@
           "title": "Cloud Computing",
           "semester": "Fall 2018",
           "code": "CSE 415",
-          "link": "https://courses.amrabed.com/course/view.php?id=9",
+          "link": "https://amrabed.com/courses/cse415/",
           "description": "This course teaches senior undergraduate Computer Engineering students the fundamental concepts of cloud computing, and provides a hands-on experience of the area that prepares them for the job market"
         },
         {
@@ -350,7 +349,7 @@
           "title": "Computer-Controlled Systems",
           "semester": "Spring 2018",
           "code": "CSE 422",
-          "link": "https://courses.amrabed.com/course/view.php?id=4",
+          "link": "https://amrabed.com/courses/cse422/",
           "description": "This course provides senior undergraduate CSE students with the fundamental principles of analysis, design, and implementation of computer-controlled systems"
         }
       ]
@@ -1255,7 +1254,7 @@
       "title": "Stop Writing Lambda Boilerplate",
       "summary": "Accelerate your serverless development with production-grade Python templates for AWS Lambda, pre-wired with best practices and modern tooling.",
       "date": "2026-04-18",
-      "url": "https://amrabed.com/blog/aws-lambda-templates/",
+      "url": "https://amrabed.com/blog/aws-lambda-templates",
       "readTime": "5 min read",
       "tags": ["AWS", "Serverless", "Python"]
     },
@@ -1264,7 +1263,7 @@
       "title": "Self-Host an AI Agent Using OpenClaw and WhatsApp Cloud API (2026)",
       "summary": "You shouldn't need to pay a middleman to put your AI agent on WhatsApp. Here is how to connect OpenClaw directly to WhatsApp Cloud API.",
       "date": "2026-04-04",
-      "url": "https://amrabed.com/blog/openclaw-whatsapp-agent/",
+      "url": "https://amrabed.com/blog/openclaw-whatsapp-agent",
       "readTime": "7 min read",
       "tags": ["AI Agents", "WhatsApp", "OpenClaw"]
     },
@@ -1273,7 +1272,7 @@
       "title": "The Only AIP-C01 Study Plan You Need",
       "summary": "Passed the AWS Certified Generative AI Developer Professional (AIP-C01) exam as an early adopter (first 5,000 worldwide). Here is the exact 6-week study plan.",
       "date": "2026-03-24",
-      "url": "https://amrabed.com/blog/aip-c01-study-plan/",
+      "url": "https://amrabed.com/blog/aip-c01-study-plan",
       "readTime": "8 min read",
       "tags": ["AWS", "Generative AI", "Certifications"]
     }
