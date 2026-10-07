@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { useEffect, useRef, useState, memo } from "react";
 import { TypeAnimation } from "react-type-animation";
+import { sendGAEvent } from "@next/third-parties/google";
 
 import Social from "@/components/social";
 import { basics } from "@/lib/data";
@@ -83,6 +84,7 @@ const HeroSection = memo(() => {
               <a
                 href="#about"
                 className="px-5 py-2.5 rounded-xl bg-primary text-white font-medium shadow-sm hover:opacity-90 transition-opacity"
+                onClick={() => sendGAEvent({ event: "cta_click", value: "about_me" })}
               >
                 About Me
               </a>
@@ -93,6 +95,7 @@ const HeroSection = memo(() => {
                   rel="noopener noreferrer"
                   className="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-primary hover:text-primary transition-colors font-medium"
                   aria-label="View Amr Abed's Resume"
+                  onClick={() => sendGAEvent({ event: "cta_click", value: "view_resume" })}
                 >
                   View Resume
                 </a>
