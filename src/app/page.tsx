@@ -9,9 +9,9 @@ import { ContactSection } from "@/components/sections/contact";
 import { EducationSection } from "@/components/sections/education";
 import { ExperienceSection } from "@/components/sections/experience";
 import HeroSection from "@/components/sections/hero";
+import { PresentationsSection } from "@/components/sections/presentations";
 import { ProjectsSection } from "@/components/sections/projects";
 import { PublicationsSection } from "@/components/sections/publications";
-import { PresentationsSection } from "@/components/sections/presentations";
 import { SkillsSection } from "@/components/sections/skills";
 import { TeachingSection } from "@/components/sections/teaching";
 

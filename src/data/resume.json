@@ -101,19 +101,8 @@
     }
   },
   "areaSkills": {
-    "cloud": [
-      "aws",
-      "google cloud",
-      "docker",
-      "kubernetes",
-      "firebase"
-    ],
-    "machine learning": [
-      "python",
-      "tensorflow",
-      "scikit-learn",
-      "mlflow"
-    ],
+    "cloud": ["aws", "google cloud", "docker", "kubernetes", "firebase"],
+    "machine learning": ["python", "tensorflow", "scikit-learn", "mlflow"],
     "programming": [
       "python",
       "kotlin",
@@ -124,25 +113,10 @@
       "typescript",
       "bash"
     ],
-    "mobile": [
-      "firebase",
-      "android",
-      "kotlin",
-      "swift",
-      "flutter"
-    ],
-    "devops": [
-      "docker",
-      "kubernetes",
-      "bash"
-    ],
-    "database": [
-      "firebase"
-    ],
-    "web": [
-      "javascript",
-      "typescript"
-    ],
+    "mobile": ["firebase", "android", "kotlin", "swift", "flutter"],
+    "devops": ["docker", "kubernetes", "bash"],
+    "database": ["firebase"],
+    "web": ["javascript", "typescript"],
     "security": []
   },
   "skills": {
@@ -237,19 +211,9 @@
         "Built a robust machine - learning automation system leveraging MLflow and Amazon EKS",
         "Worked closely with DevOps to significantly reduce operational costs by consolidating multiple single-tenant systems into a single multi-tenant architecture"
       ],
-      "skills": [
-        "TensorFlow",
-        "AWS",
-        "Python",
-        "Docker"
-      ],
-      "tags": [
-        "Machine Learning",
-        "Cloud"
-      ],
-      "roles": [
-        "engineer"
-      ]
+      "skills": ["TensorFlow", "AWS", "Python", "Docker"],
+      "tags": ["Machine Learning", "Cloud"],
+      "roles": ["engineer"]
     },
     {
       "id": "sophi-lead",
@@ -267,20 +231,9 @@
         "Led a team of three engineers to redesign the code for Print Laydown Automation",
         "Collaborated with DevOps team to redesign the architecture of different projects"
       ],
-      "skills": [
-        "TensorFlow",
-        "AWS",
-        "Python",
-        "Docker",
-        "Terraform"
-      ],
-      "tags": [
-        "Machine Learning",
-        "Cloud"
-      ],
-      "roles": [
-        "engineer"
-      ]
+      "skills": ["TensorFlow", "AWS", "Python", "Docker", "Terraform"],
+      "tags": ["Machine Learning", "Cloud"],
+      "roles": ["engineer"]
     },
     {
       "id": "sophi-senior",
@@ -299,19 +252,9 @@
         "Created and maintained backend services for ML-based decision making using Python",
         "Built APIs for users and system admins to communicate with backend services"
       ],
-      "skills": [
-        "TensorFlow",
-        "AWS",
-        "Python",
-        "Docker"
-      ],
-      "tags": [
-        "Machine Learning",
-        "Cloud"
-      ],
-      "roles": [
-        "engineer"
-      ]
+      "skills": ["TensorFlow", "AWS", "Python", "Docker"],
+      "tags": ["Machine Learning", "Cloud"],
+      "roles": ["engineer"]
     },
     {
       "id": "abed-solutions",
@@ -328,20 +271,9 @@
         "Founded software consultancy developing and maintaining 5 different cross-platform mobile applications",
         "Built modular multi-platform templates with integrated cloud infrastructure, CI/CD pipelines, and automated quality checks"
       ],
-      "skills": [
-        "Kotlin",
-        "Swift",
-        "Java",
-        "Android",
-        "Firebase"
-      ],
-      "tags": [
-        "Mobile",
-        "Cloud"
-      ],
-      "roles": [
-        "engineer"
-      ]
+      "skills": ["Kotlin", "Swift", "Java", "Android", "Firebase"],
+      "tags": ["Mobile", "Cloud"],
+      "roles": ["engineer"]
     },
     {
       "id": "robogarden",
@@ -366,12 +298,8 @@
         "Machine Learning",
         "Deep Learning"
       ],
-      "tags": [
-        "Machine Learning"
-      ],
-      "roles": [
-        "engineer"
-      ]
+      "tags": ["Machine Learning"],
+      "roles": ["engineer"]
     },
     {
       "id": "minia-prof",
@@ -389,20 +317,9 @@
         "Supervised a Machine Learning based Mobile Cloud Computing graduation project",
         "Created 3 new undergraduate courses, including Cloud Computing and Database courses"
       ],
-      "skills": [
-        "C++",
-        "AWS",
-        "Docker",
-        "SQL"
-      ],
-      "tags": [
-        "Cloud",
-        "Programming",
-        "Database"
-      ],
-      "roles": [
-        "instructor"
-      ],
+      "skills": ["C++", "AWS", "Docker", "SQL"],
+      "tags": ["Cloud", "Programming", "Database"],
+      "roles": ["instructor"],
       "courses": [
         {
           "id": "cse315",
@@ -461,12 +378,8 @@
         "Google Fit API",
         "Google Visual Search"
       ],
-      "tags": [
-        "Mobile"
-      ],
-      "roles": [
-        "engineer"
-      ]
+      "tags": ["Mobile"],
+      "roles": ["engineer"]
     },
     {
       "id": "metrolab",
@@ -487,25 +400,14 @@
         "start": "May 2016",
         "end": "Jul 2017"
       },
-      "roles": [
-        "researcher"
-      ],
+      "roles": ["researcher"],
       "tasks": [
         "Constructed a Raspberry Pi based IoT sensor for the MetroLab Network",
         "Designed and implemented a framework for the device to communicate with a remote MySQL server",
         "Implemented a website using PHP and Plotly.js to display data from the database"
       ],
-      "skills": [
-        "Python",
-        "PHP",
-        "MySQL",
-        "Raspberry Pi",
-        "Plotly.js"
-      ],
-      "tags": [
-        "Programming",
-        "Web"
-      ]
+      "skills": ["Python", "PHP", "MySQL", "Raspberry Pi", "Plotly.js"],
+      "tags": ["Programming", "Web"]
     },
     {
       "id": "fujitsu",
@@ -526,23 +428,14 @@
         "start": "Jan 2017",
         "end": "May 2017"
       },
-      "roles": [
-        "researcher"
-      ],
+      "roles": ["researcher"],
       "tasks": [
         "Collaborated with members from Fujitsu in a joint research project to build an SDN-based security solution",
         "Designed the threat model for testing the security solution using Metasploit",
         "Implemented a container-based web application as an attack target"
       ],
-      "skills": [
-        "Docker",
-        "PHP",
-        "MySQL",
-        "Metasploit"
-      ],
-      "tags": [
-        "Security"
-      ]
+      "skills": ["Docker", "PHP", "MySQL", "Metasploit"],
+      "tags": ["Security"]
     },
     {
       "id": "rhids",
@@ -568,24 +461,14 @@
         "start": "Jan 2015",
         "end": "May 2016"
       },
-      "roles": [
-        "researcher"
-      ],
+      "roles": ["researcher"],
       "tasks": [
         "Assisted in writing a winning proposal for an NSF Industry/University Cooperative Research Center",
         "Designed and implemented RHIDS, an intrusion detection system for cloud containers",
         "Tested the system using Docker containers deployed on Amazon-AWS EC2 instances"
       ],
-      "skills": [
-        "Java",
-        "Docker",
-        "Amazon AWS",
-        "Shell"
-      ],
-      "tags": [
-        "Cloud",
-        "Security"
-      ]
+      "skills": ["Java", "Docker", "Amazon AWS", "Shell"],
+      "tags": ["Cloud", "Security"]
     },
     {
       "id": "sodacloud",
@@ -606,23 +489,13 @@
         "start": "Feb 2013",
         "end": "May 2013"
       },
-      "roles": [
-        "researcher"
-      ],
+      "roles": ["researcher"],
       "tasks": [
         "Implemented the Docker-EC2 tool using Shell scripting to automate running and testing network applications using a Docker container on different instances of the Amazon-AWS EC2",
         "Maintained and troubleshot build issues of the SodaCloud project (Mobile/Cloud Computing project funded by Siemens) on GitHub and BuildHive using Maven"
       ],
-      "skills": [
-        "Docker",
-        "Amazon AWS",
-        "Shell",
-        "Maven"
-      ],
-      "tags": [
-        "Mobile",
-        "Cloud"
-      ]
+      "skills": ["Docker", "Amazon AWS", "Shell", "Maven"],
+      "tags": ["Mobile", "Cloud"]
     },
     {
       "id": "minia-ta",
@@ -639,15 +512,9 @@
       "tasks": [
         "Taught 8 different undergraduate courses to 4 different classes of an average of 25 students each"
       ],
-      "skills": [
-        "C++"
-      ],
-      "tags": [
-        "Programming"
-      ],
-      "roles": [
-        "instructor"
-      ],
+      "skills": ["C++"],
+      "tags": ["Programming"],
+      "roles": ["instructor"],
       "courses": [
         {
           "id": "cse115ta",
@@ -689,15 +556,9 @@
       "tasks": [
         "Taught C and C++ Programming to more than 150 students from different backgrounds, many of them were from outside the Engineering field"
       ],
-      "skills": [
-        "C++"
-      ],
-      "tags": [
-        "Programming"
-      ],
-      "roles": [
-        "instructor"
-      ],
+      "skills": ["C++"],
+      "tags": ["Programming"],
+      "roles": ["instructor"],
       "courses": [
         {
           "title": "C Programming"
@@ -724,17 +585,9 @@
         "Designed and implemented the OO-based version of the Spectre2Eldo syntax converter using C++ STL",
         "Solved problems related to using a Flex & Bison parser with C++"
       ],
-      "skills": [
-        "C++",
-        "C++ STL",
-        "Flex & Bison"
-      ],
-      "tags": [
-        "Programming"
-      ],
-      "roles": [
-        "engineer"
-      ]
+      "skills": ["C++", "C++ STL", "Flex & Bison"],
+      "tags": ["Programming"],
+      "roles": ["engineer"]
     },
     {
       "id": "shorouk",
@@ -750,16 +603,9 @@
       "tasks": [
         "Taught 9 different undergraduate courses to 9 different classes of an average of 40 students each"
       ],
-      "skills": [
-        "C++"
-      ],
-      "tags": [
-        "Programming",
-        "Machine Learning"
-      ],
-      "roles": [
-        "instructor"
-      ],
+      "skills": ["C++"],
+      "tags": ["Programming", "Machine Learning"],
+      "roles": ["instructor"],
       "courses": [
         {
           "title": "Computer Programs",
@@ -796,15 +642,9 @@
       "tasks": [
         "Taught 6 different undergraduate courses to 9 different classes of an average of 40 students each"
       ],
-      "skills": [
-        "C++"
-      ],
-      "tags": [
-        "Programming"
-      ],
-      "roles": [
-        "instructor"
-      ],
+      "skills": ["C++"],
+      "tags": ["Programming"],
+      "roles": ["instructor"],
       "courses": [
         {
           "id": "cmp110",
@@ -883,16 +723,8 @@
       "badge": "/aws-genai-prof.png",
       "link": "https://www.credly.com/badges/ec8af76c-b6f0-40d7-94c2-7df06820af50",
       "date": "March 2026",
-      "skills": [
-        "python",
-        "aws",
-        "tensorflow",
-        "mlflow"
-      ],
-      "areas": [
-        "machine learning",
-        "cloud"
-      ]
+      "skills": ["python", "aws", "tensorflow", "mlflow"],
+      "areas": ["machine learning", "cloud"]
     },
     {
       "title": "AWS Certified Machine Learning - Specialty",
@@ -903,17 +735,8 @@
       "badge": "/aws-mls.webp",
       "link": "https://www.credly.com/badges/8ea3bcee-014b-42df-bc37-3e49d1e4166e/public_url",
       "date": "June 2024",
-      "skills": [
-        "python",
-        "aws",
-        "tensorflow",
-        "scikit-learn",
-        "mlflow"
-      ],
-      "areas": [
-        "machine learning",
-        "cloud"
-      ]
+      "skills": ["python", "aws", "tensorflow", "scikit-learn", "mlflow"],
+      "areas": ["machine learning", "cloud"]
     },
     {
       "title": "AWS Certified Solutions Architect",
@@ -924,15 +747,8 @@
       "badge": "/aws-saa.webp",
       "link": "https://www.youracclaim.com/badges/2d566076-370f-4b1b-8103-ed467325228d",
       "date": "October 2020",
-      "skills": [
-        "aws",
-        "docker",
-        "kubernetes"
-      ],
-      "areas": [
-        "cloud",
-        "devops"
-      ]
+      "skills": ["aws", "docker", "kubernetes"],
+      "areas": ["cloud", "devops"]
     },
     {
       "title": "Certified Scrum Master",
@@ -944,9 +760,7 @@
       "link": "https://bcert.me/swmyzzefi",
       "date": "June 2020",
       "skills": [],
-      "areas": [
-        "devops"
-      ]
+      "areas": ["devops"]
     },
     {
       "title": "Certified Scrum Product Owner",
@@ -958,9 +772,7 @@
       "link": "https://bcert.me/spcxpsler",
       "date": "June 2020",
       "skills": [],
-      "areas": [
-        "devops"
-      ]
+      "areas": ["devops"]
     }
   ],
   "projects": [
@@ -974,17 +786,9 @@
         "homepage": "/",
         "github": "amrabed/amrabed.github.io"
       },
-      "tools": [
-        "JavaScript",
-        "TypeScript"
-      ],
-      "tags": [
-        "Programming",
-        "Web"
-      ],
-      "roles": [
-        "freelancer"
-      ],
+      "tools": ["JavaScript", "TypeScript"],
+      "tags": ["Programming", "Web"],
+      "roles": ["freelancer"],
       "group": -1,
       "featured": true,
       "priority": 40
@@ -1014,10 +818,7 @@
         "Programming",
         "DevOps"
       ],
-      "roles": [
-        "engineer",
-        "manager"
-      ],
+      "roles": ["engineer", "manager"],
       "group": 0,
       "featured": true,
       "priority": 10
@@ -1032,16 +833,9 @@
         "homepage": "https://cur8d.dev",
         "github": "cur8d/cur8d.github.io"
       },
-      "tools": [
-        "TypeScript"
-      ],
-      "tags": [
-        "Web",
-        "Programming"
-      ],
-      "roles": [
-        "engineer"
-      ],
+      "tools": ["TypeScript"],
+      "tags": ["Web", "Programming"],
+      "roles": ["engineer"],
       "group": 0,
       "featured": true,
       "priority": 20
@@ -1056,18 +850,9 @@
         "homepage": "https://cur8d.dev/lambda",
         "github": "cur8d/lambda"
       },
-      "tools": [
-        "Python",
-        "aws",
-        "ai"
-      ],
-      "tags": [
-        "Programming",
-        "DevOps"
-      ],
-      "roles": [
-        "engineer"
-      ],
+      "tools": ["Python", "aws", "ai"],
+      "tags": ["Programming", "DevOps"],
+      "roles": ["engineer"],
       "group": 0,
       "featured": true,
       "priority": 30
@@ -1081,17 +866,9 @@
         "homepage": "https://cur8d.dev/python",
         "github": "cur8d/python"
       },
-      "tools": [
-        "Python",
-        "Docker"
-      ],
-      "tags": [
-        "Programming",
-        "DevOps"
-      ],
-      "roles": [
-        "engineer"
-      ],
+      "tools": ["Python", "Docker"],
+      "tags": ["Programming", "DevOps"],
+      "roles": ["engineer"],
       "group": 0
     },
     {
@@ -1100,22 +877,9 @@
       "description": "Template Flutter project for mobile applications",
       "date": "2024-03-03",
       "links": {},
-      "roles": [
-        "freelancer",
-        "entrepreneur",
-        "engineer"
-      ],
-      "tools": [
-        "flutter",
-        "firebase",
-        "android",
-        "swift"
-      ],
-      "tags": [
-        "Mobile",
-        "Cloud",
-        "Database"
-      ],
+      "roles": ["freelancer", "entrepreneur", "engineer"],
+      "tools": ["flutter", "firebase", "android", "swift"],
+      "tags": ["Mobile", "Cloud", "Database"],
       "group": 1
     },
     {
@@ -1127,20 +891,9 @@
       "links": {
         "github": "amrabed/skeleton"
       },
-      "roles": [
-        "freelancer",
-        "entrepreneur"
-      ],
-      "tools": [
-        "kotlin",
-        "firebase",
-        "android"
-      ],
-      "tags": [
-        "Mobile",
-        "Cloud",
-        "Database"
-      ],
+      "roles": ["freelancer", "entrepreneur"],
+      "tools": ["kotlin", "firebase", "android"],
+      "tags": ["Mobile", "Cloud", "Database"],
       "group": 1
     },
     {
@@ -1151,15 +904,9 @@
       "links": {
         "github": "ProgrammingLanguagesClass"
       },
-      "roles": [
-        "instructor"
-      ],
-      "tools": [
-        "c++"
-      ],
-      "tags": [
-        "Programming"
-      ],
+      "roles": ["instructor"],
+      "tools": ["c++"],
+      "tags": ["Programming"],
       "group": 2
     },
     {
@@ -1170,20 +917,9 @@
       "links": {
         "homepage": "https://upskilling.robogarden.ca/marketplace/dynamicCourse/python-for-machine-learning"
       },
-      "roles": [
-        "instructor",
-        "engineer",
-        "manager"
-      ],
-      "tools": [
-        "Python",
-        "TensorFlow",
-        "Scikit-learn"
-      ],
-      "tags": [
-        "Machine Learning",
-        "Programming"
-      ],
+      "roles": ["instructor", "engineer", "manager"],
+      "tools": ["Python", "TensorFlow", "Scikit-learn"],
+      "tags": ["Machine Learning", "Programming"],
       "group": 2
     },
     {
@@ -1198,21 +934,9 @@
         "app": "https://play.google.com/store/apps/details?id=amrabed.android.release.evaluation"
       },
       "status": "published",
-      "roles": [
-        "community"
-      ],
-      "tools": [
-        "android",
-        "java",
-        "kotlin",
-        "firebase",
-        "sqlite"
-      ],
-      "tags": [
-        "Mobile",
-        "Cloud",
-        "Database"
-      ],
+      "roles": ["community"],
+      "tools": ["android", "java", "kotlin", "firebase", "sqlite"],
+      "tags": ["Mobile", "Cloud", "Database"],
       "group": 3
     },
     {
@@ -1226,18 +950,9 @@
       },
       "date": "2022-04-01",
       "status": "published",
-      "roles": [
-        "community"
-      ],
-      "tools": [
-        "swift",
-        "firebase"
-      ],
-      "tags": [
-        "Mobile",
-        "Cloud",
-        "Database"
-      ],
+      "roles": ["community"],
+      "tools": ["swift", "firebase"],
+      "tags": ["Mobile", "Cloud", "Database"],
       "group": 3
     },
     {
@@ -1249,19 +964,9 @@
       },
       "date": "2013-05-20",
       "status": "archived",
-      "roles": [
-        "researcher",
-        "engineer"
-      ],
-      "tools": [
-        "docker",
-        "aws",
-        "aws-ec2",
-        "bash"
-      ],
-      "tags": [
-        "Cloud"
-      ],
+      "roles": ["researcher", "engineer"],
+      "tools": ["docker", "aws", "aws-ec2", "bash"],
+      "tags": ["Cloud"],
       "group": 4
     },
     {
@@ -1274,19 +979,9 @@
       },
       "date": "2015-01-05",
       "status": "archived",
-      "roles": [
-        "researcher"
-      ],
-      "tools": [
-        "docker",
-        "sysdig",
-        "bash"
-      ],
-      "tags": [
-        "Cloud",
-        "DevOps",
-        "Shell"
-      ],
+      "roles": ["researcher"],
+      "tools": ["docker", "sysdig", "bash"],
+      "tags": ["Cloud", "DevOps", "Shell"],
       "group": 4
     },
     {
@@ -1300,20 +995,9 @@
         "presentation": "https://www.slideshare.net/slideshow/intrusion-detection-system-for-applications-using-linux-containers/67746613"
       },
       "date": "2015-03-19",
-      "roles": [
-        "researcher"
-      ],
-      "tools": [
-        "java",
-        "docker",
-        "bash",
-        "gradle"
-      ],
-      "tags": [
-        "Cloud",
-        "Machine Learning",
-        "Shell"
-      ],
+      "roles": ["researcher"],
+      "tools": ["java", "docker", "bash", "gradle"],
+      "tags": ["Cloud", "Machine Learning", "Shell"],
       "group": 4
     },
     {
@@ -1324,19 +1008,9 @@
         "github": "amrabed/deep-hids"
       },
       "date": "2017-07-31",
-      "roles": [
-        "researcher"
-      ],
-      "tools": [
-        "Python",
-        "TensorFlow",
-        "Docker"
-      ],
-      "tags": [
-        "Cloud",
-        "Machine Learning",
-        "Deep Learning"
-      ],
+      "roles": ["researcher"],
+      "tools": ["Python", "TensorFlow", "Docker"],
+      "tags": ["Cloud", "Machine Learning", "Deep Learning"],
       "group": 4
     },
     {
@@ -1348,16 +1022,9 @@
         "homepage": "https://tsx.cur8d.dev",
         "github": "cur8d/typescript"
       },
-      "tools": [
-        "TypeScript"
-      ],
-      "tags": [
-        "Web",
-        "Programming"
-      ],
-      "roles": [
-        "engineer"
-      ],
+      "tools": ["TypeScript"],
+      "tags": ["Web", "Programming"],
+      "roles": ["engineer"],
       "group": 0,
       "featured": false
     },
@@ -1370,9 +1037,7 @@
       },
       "status": "archived",
       "date": "2016-08-11",
-      "roles": [
-        "researcher"
-      ],
+      "roles": ["researcher"],
       "tools": [
         "python",
         "raspberry-pi",
@@ -1382,12 +1047,7 @@
         "javascript",
         "plotly"
       ],
-      "tags": [
-        "Cloud",
-        "Web",
-        "IoT",
-        "Smart City"
-      ],
+      "tags": ["Cloud", "Web", "IoT", "Smart City"],
       "group": 5
     },
     {
@@ -1399,18 +1059,9 @@
       },
       "status": "unpublished",
       "date": "2013-05-03",
-      "roles": [
-        "researcher"
-      ],
-      "tools": [
-        "android",
-        "java",
-        "sqlite"
-      ],
-      "tags": [
-        "Mobile",
-        "Database"
-      ],
+      "roles": ["researcher"],
+      "tools": ["android", "java", "sqlite"],
+      "tags": ["Mobile", "Database"],
       "group": 5
     },
     {
@@ -1421,19 +1072,9 @@
       "links": {
         "github": "vt-magnum-researcher/sodacloud"
       },
-      "roles": [
-        "researcher",
-        "engineer"
-      ],
-      "tools": [
-        "git",
-        "maven"
-      ],
-      "tags": [
-        "Cloud",
-        "Mobile",
-        "DevOps"
-      ],
+      "roles": ["researcher", "engineer"],
+      "tools": ["git", "maven"],
+      "tags": ["Cloud", "Mobile", "DevOps"],
       "group": 5
     },
     {
@@ -1445,21 +1086,9 @@
       },
       "date": "2019-02-22",
       "status": "archived",
-      "roles": [
-        "community",
-        "freelancer"
-      ],
-      "tools": [
-        "android",
-        "java",
-        "firebase",
-        "fastlane",
-        "gradle"
-      ],
-      "tags": [
-        "Mobile",
-        "Cloud"
-      ],
+      "roles": ["community", "freelancer"],
+      "tools": ["android", "java", "firebase", "fastlane", "gradle"],
+      "tags": ["Mobile", "Cloud"],
       "group": 6
     },
     {
@@ -1473,17 +1102,9 @@
       },
       "status": "published",
       "date": "2016-07-01",
-      "roles": [
-        "community",
-        "freelancer"
-      ],
-      "tools": [
-        "android",
-        "java"
-      ],
-      "tags": [
-        "Mobile"
-      ],
+      "roles": ["community", "freelancer"],
+      "tools": ["android", "java"],
+      "tags": ["Mobile"],
       "group": 6
     },
     {
@@ -1494,20 +1115,9 @@
         "github": "amrabed/vt-fujitsu"
       },
       "date": "2017-05-01",
-      "roles": [
-        "researcher"
-      ],
-      "tools": [
-        "docker",
-        "php",
-        "mysql",
-        "metasploit"
-      ],
-      "tags": [
-        "Security",
-        "Web",
-        "SDN"
-      ],
+      "roles": ["researcher"],
+      "tools": ["docker", "php", "mysql", "metasploit"],
+      "tags": ["Security", "Web", "SDN"],
       "group": 5
     }
   ],
@@ -1515,9 +1125,7 @@
     {
       "id": "phd-thesis",
       "title": "Securing Cloud Containers through Intrusion Detection and Remediation",
-      "authors": [
-        "Amr S. Abed"
-      ],
+      "authors": ["Amr S. Abed"],
       "featured": true,
       "venue": "PhD Dissertation, Virginia Tech",
       "year": "2017",
@@ -1526,28 +1134,14 @@
         "fulltext": "https://vtechworks.lib.vt.edu/handle/10919/87730",
         "presentation": "https://www.slideshare.net/secret/dWT9Fwk08rZqJU"
       },
-      "skills": [
-        "docker",
-        "python",
-        "tensorflow"
-      ],
-      "tags": [
-        "security",
-        "cloud",
-        "machine learning"
-      ],
-      "roles": [
-        "researcher"
-      ]
+      "skills": ["docker", "python", "tensorflow"],
+      "tags": ["security", "cloud", "machine learning"],
+      "roles": ["researcher"]
     },
     {
       "id": "stm-2015",
       "title": "Intrusion Detection System for Applications using Linux Containers",
-      "authors": [
-        "Amr S. Abed",
-        "Charles Clancy",
-        "David Levy"
-      ],
+      "authors": ["Amr S. Abed", "Charles Clancy", "David Levy"],
       "venue": "Security and Trust Management (STM)",
       "year": "2015",
       "type": "conference",
@@ -1557,28 +1151,14 @@
         "presentation": "https://www.slideshare.net/AmrAbed/intrusion-detection-system-for-applications-using-linux-containers",
         "scopus": "https://www.scopus.com/inward/record.url?eid=2-s2.0-84951875184&partnerID=MN8TOARS"
       },
-      "skills": [
-        "docker",
-        "java",
-        "bash"
-      ],
-      "tags": [
-        "security",
-        "cloud",
-        "machine learning"
-      ],
-      "roles": [
-        "researcher"
-      ]
+      "skills": ["docker", "java", "bash"],
+      "tags": ["security", "cloud", "machine learning"],
+      "roles": ["researcher"]
     },
     {
       "id": "ccsna-2015",
       "title": "Applying Bag of System Calls for Anomalous Behavior Detection of Applications in Linux Containers",
-      "authors": [
-        "Amr S. Abed",
-        "Charles Clancy",
-        "David Levy"
-      ],
+      "authors": ["Amr S. Abed", "Charles Clancy", "David Levy"],
       "venue": "IEEE Globecom 2015 Workshop on Cloud Computing Systems, Networks, and Applications (CCSNA)",
       "year": "2015",
       "type": "conference",
@@ -1587,19 +1167,9 @@
         "fulltext": "https://arxiv.org/pdf/1611.03053v1",
         "scopus": "https://www.scopus.com/inward/record.url?eid=2-s2.0-84971277782&partnerID=MN8TOARS"
       },
-      "skills": [
-        "docker",
-        "java",
-        "bash"
-      ],
-      "tags": [
-        "security",
-        "cloud",
-        "machine learning"
-      ],
-      "roles": [
-        "researcher"
-      ]
+      "skills": ["docker", "java", "bash"],
+      "tags": ["security", "cloud", "machine learning"],
+      "roles": ["researcher"]
     },
     {
       "id": "lcn-2016",
@@ -1617,16 +1187,9 @@
         "doi": "10.1109/LCN.2016.106",
         "fulltext": "https://arxiv.org/pdf/1611.03065v1"
       },
-      "skills": [
-        "docker"
-      ],
-      "tags": [
-        "security",
-        "cloud"
-      ],
-      "roles": [
-        "researcher"
-      ]
+      "skills": ["docker"],
+      "tags": ["security", "cloud"],
+      "roles": ["researcher"]
     },
     {
       "id": "cic-2016",
@@ -1643,16 +1206,9 @@
       "links": {
         "doi": "10.1109/CIC.2016.028"
       },
-      "skills": [
-        "docker"
-      ],
-      "tags": [
-        "security",
-        "cloud"
-      ],
-      "roles": [
-        "researcher"
-      ]
+      "skills": ["docker"],
+      "tags": ["security", "cloud"],
+      "roles": ["researcher"]
     },
     {
       "id": "ijcnds-2018",
@@ -1667,17 +1223,9 @@
       "year": "2018",
       "type": "article",
       "links": {},
-      "skills": [
-        "docker"
-      ],
-      "tags": [
-        "security",
-        "cloud",
-        "machine learning"
-      ],
-      "roles": [
-        "researcher"
-      ]
+      "skills": ["docker"],
+      "tags": ["security", "cloud", "machine learning"],
+      "roles": ["researcher"]
     },
     {
       "id": "cluster-2018",
@@ -1695,16 +1243,9 @@
         "doi": "10.1007/s10586-018-2851-2",
         "fulltext": "https://link.springer.com/content/pdf/10.1007%2Fs10586-018-2851-2.pdf"
       },
-      "skills": [
-        "docker"
-      ],
-      "tags": [
-        "security",
-        "cloud"
-      ],
-      "roles": [
-        "researcher"
-      ]
+      "skills": ["docker"],
+      "tags": ["security", "cloud"],
+      "roles": ["researcher"]
     }
   ],
   "articles": [
@@ -1715,11 +1256,7 @@
       "date": "2026-04-18",
       "url": "https://amrabed.com/blog/aws-lambda-templates",
       "readTime": "5 min read",
-      "tags": [
-        "AWS",
-        "Serverless",
-        "Python"
-      ]
+      "tags": ["AWS", "Serverless", "Python"]
     },
     {
       "id": "openclaw-whatsapp-agent",
@@ -1728,11 +1265,7 @@
       "date": "2026-04-04",
       "url": "https://amrabed.com/blog/openclaw-whatsapp-agent",
       "readTime": "7 min read",
-      "tags": [
-        "AI Agents",
-        "WhatsApp",
-        "OpenClaw"
-      ]
+      "tags": ["AI Agents", "WhatsApp", "OpenClaw"]
     },
     {
       "id": "aip-c01-study-plan",
@@ -1741,11 +1274,7 @@
       "date": "2026-03-24",
       "url": "https://amrabed.com/blog/aip-c01-study-plan",
       "readTime": "8 min read",
-      "tags": [
-        "AWS",
-        "Generative AI",
-        "Certifications"
-      ]
+      "tags": ["AWS", "Generative AI", "Certifications"]
     }
   ],
   "presentations": [
@@ -1757,10 +1286,7 @@
       "links": {
         "slideshare": "https://www.slideshare.net/AmrAbed/intrusion-detection-system-for-applications-using-linux-containers"
       },
-      "tags": [
-        "cloud",
-        "security"
-      ]
+      "tags": ["cloud", "security"]
     },
     {
       "id": "phd-defense",
@@ -1770,11 +1296,7 @@
       "links": {
         "slideshare": "https://www.slideshare.net/secret/dWT9Fwk08rZqJU"
       },
-      "tags": [
-        "cloud",
-        "security",
-        "machine learning"
-      ]
+      "tags": ["cloud", "security", "machine learning"]
     }
   ]
 }
