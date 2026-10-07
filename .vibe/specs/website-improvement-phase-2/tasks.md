@@ -13,7 +13,7 @@
 
 ## Step 2: Event Tracking Integration
 
-- [ ] **Task 4: Implement Custom Events & Cleanup**
+- [x] **Task 4: Implement Custom Events & Cleanup**
   - Use the `sendGAEvent` function from `@next/third-parties/google` to track:
     - CTA button clicks in `hero.tsx`.
     - Outbound link clicks in `project.tsx`.

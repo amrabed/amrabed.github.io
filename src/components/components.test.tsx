@@ -91,6 +91,10 @@ describe("UI Components", () => {
       expect(link.getAttribute("href")).toBe("https://example.com");
       expect(link.getAttribute("target")).toBe("_blank");
       expect(link.getAttribute("rel")).toBe("noopener noreferrer");
+
+      act(() => {
+        link.click();
+      });
     });
   });
 

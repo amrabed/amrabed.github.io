@@ -4,6 +4,8 @@ import Link from "next/link";
 import React from "react";
 import { Tooltip } from "@heroui/react";
 
+import { sendGAEvent } from "@next/third-parties/google";
+
 interface IconLinkProps {
   href: string;
   title: string;
@@ -19,6 +21,7 @@ export const IconLink = ({ href, title, children }: IconLinkProps) => (
         rel="noopener noreferrer"
         aria-label={`${title} (opens in a new tab)`}
         className="icon-link"
+        onClick={() => sendGAEvent({ event: "outbound_click", link_title: title, link_url: href })}
       >
         {children}
       </Link>
