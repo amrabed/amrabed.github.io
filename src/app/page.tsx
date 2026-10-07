@@ -11,6 +11,7 @@ import { ExperienceSection } from "@/components/sections/experience";
 import HeroSection from "@/components/sections/hero";
 import { ProjectsSection } from "@/components/sections/projects";
 import { PublicationsSection } from "@/components/sections/publications";
+import { PresentationsSection } from "@/components/sections/presentations";
 import { SkillsSection } from "@/components/sections/skills";
 import { TeachingSection } from "@/components/sections/teaching";
 
@@ -50,6 +51,7 @@ export default function Home() {
           <CertificationsSection />
           <ProjectsSection />
           <PublicationsSection />
+          <PresentationsSection />
           <ExperienceSection />
           <EducationSection />
           <TeachingSection />

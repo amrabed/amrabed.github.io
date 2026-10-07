@@ -22,7 +22,7 @@
 
 ## Step 3: Architecture & Content (Medium Effort)
 
-- [ ] **Task 5: Add Presentations Section**
+- [x] **Task 5: Add Presentations Section**
   - Add a `presentations` array to `src/data/resume.json`.
   - Create a `presentations.tsx` section to render them, similar to `projects.tsx` or `publications.tsx`.
   - Add the new section to `page.tsx`.
