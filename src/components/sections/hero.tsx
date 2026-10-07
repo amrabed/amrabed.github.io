@@ -6,6 +6,7 @@ import { useEffect, useRef, useState, memo } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 import Social from "@/components/social";
+import { basics } from "@/lib/data";
 
 const HeroSection = memo(() => {
   const [mounted, setMounted] = useState(false);
@@ -80,17 +81,22 @@ const HeroSection = memo(() => {
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-4">
               <a
-                href="#projects"
-                className="px-5 py-2.5 rounded-xl bg-primary text-white font-medium shadow-sm hover:opacity-90 transition-opacity"
-              >
-                View Projects
-              </a>
-              <a
                 href="#about"
-                className="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-primary hover:text-primary transition-colors font-medium"
+                className="px-5 py-2.5 rounded-xl bg-primary text-white font-medium shadow-sm hover:opacity-90 transition-opacity"
               >
                 About Me
               </a>
+              {basics.resumeUrl && (
+                <a
+                  href={basics.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-primary hover:text-primary transition-colors font-medium"
+                  aria-label="View Amr Abed's Resume"
+                >
+                  View Resume
+                </a>
+              )}
             </div>
           </div>
 

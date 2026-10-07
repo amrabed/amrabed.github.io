@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import ThemeSwitch from "@/components/theme-switch";
 
 export const sections = [
+  { name: "About", link: "#about" },
   { name: "Skills", link: "#skills" },
   { name: "Certifications", link: "#certifications" },
   { name: "Projects", link: "#projects" },
@@ -13,7 +14,6 @@ export const sections = [
   { name: "Education", link: "#degrees" },
   { name: "Teaching", link: "#teaching" },
   { name: "Articles", link: "#articles" },
-  { name: "About", link: "#about" },
   { name: "Contact", link: "#contact" },
 ];
 

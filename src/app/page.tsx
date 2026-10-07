@@ -25,6 +25,7 @@ export default function Home() {
       >
         <HeroSection />
         <div className="space-y-0">
+          <AboutSection />
           <SkillsSection />
           <CertificationsSection />
           <ProjectsSection />
@@ -33,7 +34,6 @@ export default function Home() {
           <EducationSection />
           <TeachingSection />
           <BlogSection />
-          <AboutSection />
           <ContactSection />
         </div>
       </main>
