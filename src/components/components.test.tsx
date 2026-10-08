@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name, @typescript-eslint/no-explicit-any */
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
+import { Social } from "@amrabed/ui";
 import { render, act } from "@testing-library/react";
 
 import resumeJson from "@/data/resume.json";
@@ -11,7 +12,6 @@ import { Section } from "./section";
 import { SectionItemCard } from "./section-item-card";
 import { ContactSection } from "./sections/contact";
 import HeroSection from "./sections/hero";
-import Social from "./social";
 import ScrollToTopButton from "./upArrow";
 
 // Mock HeroUI Tooltip and other components to simplify testing
@@ -102,7 +102,7 @@ describe("UI Components", () => {
   describe("Social", () => {
     it("should render profiles with correct anchor attributes", () => {
       const customProfiles = [
-        { name: "GitHub", link: "https://github.com", icon: "GH" },
+        { name: "GitHub", url: "https://github.com", icon: "GH" },
       ];
 
       const { getByLabelText } = render(<Social profiles={customProfiles} />);
@@ -122,13 +122,13 @@ describe("UI Components", () => {
       const customProfiles = [
         {
           name: "LinkedIn",
-          link: "https://linkedin.com",
+          url: "https://linkedin.com",
           icon: "LI",
           color: "#0A66C2",
         },
         {
           name: "Goodreads",
-          link: "https://goodreads.com",
+          url: "https://goodreads.com",
           icon: "GR",
           color: "#372213",
         },

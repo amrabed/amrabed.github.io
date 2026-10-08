@@ -1,5 +1,4 @@
 import { Banner } from "@/components/banner";
-import { MainHeader } from "@/components/header";
 import { ScrollFilterController } from "@/components/scroll-filter-controller";
 import { AboutSection } from "@/components/sections/about";
 import { BlogSection } from "@/components/sections/blog";
@@ -17,7 +16,6 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Banner />
-      <MainHeader />
       <main
         id="main-content"
         tabIndex={-1}
