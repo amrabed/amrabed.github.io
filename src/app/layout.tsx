@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 
-import { Footer } from "@amrabed/ui";
+import { Footer, icons } from "@amrabed/ui";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   keywords:
     "Amr Abed, software engineer, engineering manager, machine learning, AWS certified, cloud architect, Virginia Tech PhD, Sophi, AI, MLOps, portfolio",
   authors: [{ name: "Amr Abed", url: "https://amrabed.com" }],
+  icons,
   alternates: {
     canonical: "https://amrabed.com",
   },
