@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 
-import { Footer, NavBar } from "@amrabed/ui";
+import { Footer } from "@amrabed/ui";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
@@ -11,19 +11,6 @@ import Providers from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 const ScrollToTopButton = dynamic(() => import("@/components/upArrow"));
 const ChatWidget = dynamic(() => import("@/components/chat"));
-
-const SECTIONS = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Certifications", href: "#certifications" },
-  { name: "Projects", href: "#projects" },
-  { name: "Publications", href: "#publications" },
-  { name: "Experience", href: "#experience" },
-  { name: "Education", href: "#degrees" },
-  { name: "Teaching", href: "#teaching" },
-  { name: "Articles", href: "#articles" },
-  { name: "Contact", href: "#contact" },
-];
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amrabed.com"),
@@ -133,13 +120,6 @@ export default function RootLayout({
           Skip to content
         </a>
         <Providers>
-          <NavBar
-            currentSite="home"
-            showLogo={false}
-            authorHref="#home"
-            navLinks={SECTIONS}
-            showOnScroll
-          />
           {children}
           <ScrollToTopButton />
           <ChatWidget />
