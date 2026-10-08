@@ -22,7 +22,8 @@ vi.mock("react-type-animation", () => ({
 vi.mock("@heroui/react", async (importOriginal) => {
   const actual: any = await importOriginal();
   const MockTooltip = ({ children }: any) => <div>{children}</div>;
-  MockTooltip.Trigger = ({ children }: any) => <>{children}</>;
+  MockTooltip.Trigger = ({ children, render }: any) =>
+    render ? <>{render({})}</> : <>{children}</>;
   MockTooltip.Content = ({ children }: any) => <div>{children}</div>;
   MockTooltip.Arrow = () => null;
 
