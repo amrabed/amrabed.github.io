@@ -1,8 +1,9 @@
 "use client";
 
+import { ThemeProvider } from "@amrabed/ui";
+
 import { FilterProvider } from "@/contexts/filter";
 import { SearchProvider } from "@/contexts/search";
-import ThemeProvider from "@/contexts/theme";
 
 const Providers = ({
   children,

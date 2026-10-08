@@ -7,6 +7,7 @@ const isExport =
 const nextConfig = {
   output: isExport ? "export" : undefined,
   reactStrictMode: true,
+  transpilePackages: ["@amrabed/ui"],
   images: {
     unoptimized: isExport,
   },

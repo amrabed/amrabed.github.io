@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 
+import { Footer } from "@amrabed/ui";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
@@ -10,8 +11,6 @@ import Providers from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 const ScrollToTopButton = dynamic(() => import("@/components/upArrow"));
 const ChatWidget = dynamic(() => import("@/components/chat"));
-
-const Footer = dynamic(() => import("@/components/footer"));
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://amrabed.com"),

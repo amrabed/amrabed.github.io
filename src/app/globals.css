@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+@import "@amrabed/ui";
 
 @theme {
   --color-primary: var(--heroui-primary);

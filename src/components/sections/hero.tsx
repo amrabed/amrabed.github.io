@@ -5,9 +5,9 @@ import Image from "next/image";
 import { useEffect, useRef, useState, memo } from "react";
 import { TypeAnimation } from "react-type-animation";
 
+import { Social } from "@amrabed/ui";
 import { sendGAEvent } from "@next/third-parties/google";
 
-import Social from "@/components/social";
 import { basics } from "@/lib/data";
 
 const HeroSection = memo(() => {
