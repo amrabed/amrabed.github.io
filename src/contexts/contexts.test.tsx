@@ -7,7 +7,6 @@ import { useHeader, default as HeaderProvider } from "./header";
 import { useSearch, useDebouncedSearch, SearchProvider } from "./search";
 import { withSuspense } from "./suspense";
 import { useUrlSync } from "./sync";
-import { useTheme, default as ThemeProvider } from "./theme";
 
 // Mock next/navigation
 const mockReplace = vi.fn();
@@ -43,119 +42,6 @@ describe("React Contexts & Hooks", () => {
       const Wrapped = withSuspense(DummyComponent);
       const { getByTestId } = render(<Wrapped />);
       expect(getByTestId("dummy")).toBeInTheDocument();
-    });
-  });
-
-  describe("Theme Context & Hook", () => {
-    it("should default to system theme and persist setTheme changes", () => {
-      const TestComponent = () => {
-        const { theme, setTheme, toggleTheme, resolvedTheme } = useTheme();
-        return (
-          <div>
-            <span data-testid="theme">{theme}</span>
-            <span data-testid="resolved">{resolvedTheme}</span>
-            <button data-testid="set-dark" onClick={() => setTheme("dark")}>
-              Dark
-            </button>
-            <button data-testid="toggle" onClick={toggleTheme}>
-              Toggle
-            </button>
-          </div>
-        );
-      };
-
-      const { getByTestId } = render(
-        <ThemeProvider>
-          <TestComponent />
-        </ThemeProvider>,
-      );
-
-      expect(getByTestId("theme").textContent).toBe("system");
-
-      act(() => {
-        getByTestId("set-dark").click();
-      });
-
-      expect(getByTestId("theme").textContent).toBe("dark");
-      expect(getByTestId("resolved").textContent).toBe("dark");
-      expect(localStorage.getItem("currentTheme")).toBe("dark");
-
-      act(() => {
-        getByTestId("toggle").click();
-      });
-
-      expect(getByTestId("theme").textContent).toBe("light");
-      expect(getByTestId("resolved").textContent).toBe("light");
-      expect(localStorage.getItem("currentTheme")).toBe("light");
-    });
-
-    it("should load persisted theme from localStorage", () => {
-      localStorage.setItem("currentTheme", "light");
-
-      const TestComponent = () => {
-        const { theme, resolvedTheme } = useTheme();
-        return (
-          <div>
-            <span data-testid="theme">{theme}</span>
-            <span data-testid="resolved">{resolvedTheme}</span>
-          </div>
-        );
-      };
-
-      const { getByTestId } = render(
-        <ThemeProvider>
-          <TestComponent />
-        </ThemeProvider>,
-      );
-
-      expect(getByTestId("theme").textContent).toBe("light");
-      expect(getByTestId("resolved").textContent).toBe("light");
-    });
-
-    it("should respond to system media query changes when theme is system", () => {
-      let changeListener: ((e: MediaQueryListEvent) => void) | undefined;
-      const matchMediaMock = vi.fn().mockImplementation((query: string) => ({
-        matches: true,
-        media: query,
-        addEventListener: vi.fn(
-          (event: string, cb: (e: MediaQueryListEvent) => void) => {
-            if (event === "change") changeListener = cb;
-          },
-        ),
-        removeEventListener: vi.fn(),
-      }));
-      window.matchMedia = matchMediaMock;
-
-      const TestComponent = () => {
-        const { resolvedTheme } = useTheme();
-        return <span data-testid="resolved">{resolvedTheme}</span>;
-      };
-
-      const { getByTestId } = render(
-        <ThemeProvider>
-          <TestComponent />
-        </ThemeProvider>,
-      );
-
-      expect(getByTestId("resolved").textContent).toBe("dark");
-
-      act(() => {
-        if (changeListener) {
-          changeListener({ matches: false } as MediaQueryListEvent);
-        }
-      });
-
-      expect(getByTestId("resolved").textContent).toBe("light");
-    });
-
-    it("should throw error if useTheme is called outside provider", () => {
-      const consoleErrorSpy = vi
-        .spyOn(console, "error")
-        .mockImplementation(() => {});
-      expect(() => renderHook(() => useTheme())).toThrow(
-        "useTheme must be used within a ThemeProvider",
-      );
-      consoleErrorSpy.mockRestore();
     });
   });
 

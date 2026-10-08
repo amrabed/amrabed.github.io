@@ -4,7 +4,6 @@ import { Providers as UiProviders } from "@amrabed/ui";
 
 import { FilterProvider } from "@/contexts/filter";
 import { SearchProvider } from "@/contexts/search";
-import ThemeProvider from "@/contexts/theme";
 
 const Providers = ({
   children,
@@ -12,11 +11,9 @@ const Providers = ({
   children: React.ReactNode;
 }>) => (
   <UiProviders>
-    <ThemeProvider>
-      <FilterProvider>
-        <SearchProvider>{children}</SearchProvider>
-      </FilterProvider>
-    </ThemeProvider>
+    <FilterProvider>
+      <SearchProvider>{children}</SearchProvider>
+    </FilterProvider>
   </UiProviders>
 );
 
