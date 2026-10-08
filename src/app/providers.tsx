@@ -1,6 +1,6 @@
 "use client";
 
-import { Providers as UiProviders } from "@amrabed/ui";
+import { ThemeProvider } from "@amrabed/ui";
 
 import { FilterProvider } from "@/contexts/filter";
 import { SearchProvider } from "@/contexts/search";
@@ -10,11 +10,11 @@ const Providers = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => (
-  <UiProviders>
+  <ThemeProvider>
     <FilterProvider>
       <SearchProvider>{children}</SearchProvider>
     </FilterProvider>
-  </UiProviders>
+  </ThemeProvider>
 );
 
 export default Providers;

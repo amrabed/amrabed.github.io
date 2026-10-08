@@ -15,7 +15,7 @@
   "dependencies": {
     "@ai-sdk/google": "^4.0.87",
     "@ai-sdk/react": "^4.0.130",
-    "@amrabed/ui": "github:amrabed/ui#v0.1.2",
+    "@amrabed/ui": "github:amrabed/ui#v0.1.3",
     "@heroicons/react": "^2.2.0",
     "@heroui/react": "^3.2.6",
     "@heroui/styles": "^3.2.6",
