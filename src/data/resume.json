@@ -3,7 +3,7 @@
   "basics": {
     "name": "Amr Abed",
     "label": "Engineering Manager | PhD, AWS Certified | AI & Cloud",
-    "tagline": "PhD · Engineering Manager · AWS Certified · Cloud & AI Architect",
+    "tagline": "PhD \u00b7 Engineering Manager \u00b7 AWS Certified \u00b7 Cloud & AI Architect",
     "url": "https://amrabed.com",
     "image": "/amrabed.webp",
     "resumeUrl": "https://amrabed.com/resume",
@@ -1132,7 +1132,7 @@
       "type": "phdthesis",
       "links": {
         "fulltext": "https://vtechworks.lib.vt.edu/handle/10919/87730",
-        "presentation": "https://www.slideshare.net/secret/dWT9Fwk08rZqJU"
+        "presentation": "https://www.slideshare.net/slideshow/securing-cloud-containers-through-intrusion-detection-and-remediation/151073487"
       },
       "skills": ["docker", "python", "tensorflow"],
       "tags": ["security", "cloud", "machine learning"],
@@ -1275,6 +1275,28 @@
       "url": "https://amrabed.com/blog/aip-c01-study-plan",
       "readTime": "8 min read",
       "tags": ["AWS", "Generative AI", "Certifications"]
+    }
+  ],
+  "presentations": [
+    {
+      "id": "rhids-presentation",
+      "title": "Intrusion Detection System for Applications using Linux Containers",
+      "event": "Workshop on Security and Privacy in the Cloud (SPC)",
+      "date": "2015-06-05",
+      "links": {
+        "slideshare": "https://www.slideshare.net/AmrAbed/intrusion-detection-system-for-applications-using-linux-containers"
+      },
+      "tags": ["cloud", "security"]
+    },
+    {
+      "id": "phd-defense",
+      "title": "Securing Cloud Containers through Host-based Intrusion Detection",
+      "event": "PhD Dissertation Defense, Virginia Tech",
+      "date": "2017-07-20",
+      "links": {
+        "slideshare": "https://www.slideshare.net/slideshow/securing-cloud-containers-through-intrusion-detection-and-remediation/151073487"
+      },
+      "tags": ["cloud", "security", "machine learning"]
     }
   ]
 }
