@@ -37,6 +37,7 @@ export default tseslint.config(
       "**/out/**",
       "**/node_modules/**",
       "**/.firebase/**",
+      "**/coverage/**",
     ],
   },
 );
