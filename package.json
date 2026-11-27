@@ -13,23 +13,23 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
-    "@ai-sdk/google": "^4.0.124",
-    "@ai-sdk/react": "^4.0.183",
+    "@ai-sdk/google": "^4.0.125",
+    "@ai-sdk/react": "^4.0.186",
     "@amrabed/ui": "github:amrabed/ui#v0.2.1",
     "@heroicons/react": "^2.2.0",
-    "@heroui/react": "^3.2.7",
-    "@heroui/styles": "^3.2.7",
+    "@heroui/react": "^3.2.8",
+    "@heroui/styles": "^3.2.8",
     "@next/third-parties": "^16.4.6",
     "@react-aria/visually-hidden": "^3.9.1",
     "@tailwindcss/postcss": "^4.3.5",
-    "@upstash/ratelimit": "^2.2.1",
-    "@upstash/redis": "^1.41.0",
+    "@upstash/ratelimit": "^2.2.2",
+    "@upstash/redis": "^1.41.1",
     "@vercel/analytics": "^2.0.1",
-    "ai": "^7.0.179",
+    "ai": "^7.0.181",
     "firebase-admin": "^14.5.1",
     "framer-motion": "^14.14.0",
     "he": "^2.0.0",
-    "lucide-react": "^1.77.0",
+    "lucide-react": "^1.79.0",
     "next": "^16.4.6",
     "next-themes": "^0.4.6",
     "react": "19.3.1",
@@ -43,7 +43,7 @@
     "use-debounce": "^10.1.1"
   },
   "devDependencies": {
-    "@eslint/js": "9.39.5",
+    "@eslint/js": "10.0.1",
     "@next/eslint-plugin-next": "^16.4.6",
     "@playwright/test": "^1.65.1",
     "@testing-library/jest-dom": "^8.0.0",
@@ -54,7 +54,7 @@
     "@vitejs/plugin-react": "^6.3.0",
     "@vitest/coverage-v8": "^5.1.1",
     "autoprefixer": "^10.7.0",
-    "eslint": "9.39.5",
+    "eslint": "10.15.0",
     "eslint-config-next": "^16.4.6",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
@@ -65,7 +65,7 @@
     "tailwindcss": "^4.3.5",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.73.0",
+    "typescript-eslint": "^8.74.0",
     "vitest": "^5.1.1"
   }
 }
